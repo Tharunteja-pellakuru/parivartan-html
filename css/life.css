@@ -1,0 +1,568 @@
+@import url("./home.css");
+
+/* ==========================================================================
+   Work - Life at Parivartan Page Styles
+   ========================================================================== */
+
+/* Typography */
+.font-cursive {
+  font-family: 'Caveat', 'Dancing Script', "Eras Md BT", Satoshi, sans-serif;
+}
+
+/* Base styling */
+body {
+  background: #FFF;
+  color: #060612;
+  font-family: Satoshi, 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Transparent Header */
+.life-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1320px;
+  margin: 32px auto 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+  background: transparent;
+  position: relative;
+  z-index: 100;
+}
+
+.life-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.life-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.life-logo:hover {
+  transform: scale(1.05);
+}
+
+.life-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.life-header-nav a {
+  color: #060612;
+  font-family: 'Caveat', 'Dancing Script', "Eras Md BT", Satoshi, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.life-header-nav a:hover {
+  color: #85BD56;
+  transform: translateY(-2px);
+}
+
+.life-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.life-header-right .menu-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.life-header-right .menu-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #060612;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hero Section */
+.life-hero-section {
+  width: 100%;
+  padding: 60px 40px 40px 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.life-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.life-hero-cursive {
+  font-family: 'Caveat', 'Dancing Script', "Eras Md BT", Satoshi, sans-serif;
+  font-size: 58px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+}
+
+.life-hero-cursive .orange {
+  color: #FF7E00;
+}
+
+.life-hero-subtitle {
+  color: #69686E;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* Titles with squiggle underlines */
+.title-with-squiggle {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.title-with-squiggle h2 {
+  font-family: 'Caveat', 'Dancing Script', "Eras Md BT", Satoshi, sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0;
+  z-index: 2;
+  position: relative;
+}
+
+.title-squiggle {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 24px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Gallery Section */
+.life-gallery-section {
+  width: 100%;
+  background: #F8FAF6;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.life-gallery-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.life-gallery-card {
+  width: 100%;
+  max-width: 900px;
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 10px 40px rgba(6, 6, 18, 0.05);
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.life-gallery-card:hover {
+  transform: translateY(-4px);
+}
+
+.life-gallery-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Button & Social row */
+.life-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.btn-green-audit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #599632;
+  color: #FFFFFF;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(89, 150, 50, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-green-audit:hover {
+  background: #4a8227;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(89, 150, 50, 0.4);
+}
+
+.instagram-gradient-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(214, 36, 159, 0.3);
+  transition: all 0.3s ease;
+}
+
+.instagram-gradient-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(214, 36, 159, 0.4);
+}
+
+.instagram-gradient-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: #FFFFFF;
+}
+
+/* Values Section */
+.life-values-section {
+  width: 100%;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  text-align: center;
+  background: #FFFFFF;
+}
+
+.life-values-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 80px;
+  row-gap: 40px;
+  width: 100%;
+  margin: 40px 0 60px 0;
+  box-sizing: border-box;
+}
+
+.value-card-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.value-card {
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 20px;
+  padding: 40px 60px;
+  box-shadow: 0 10px 30px rgba(6, 6, 18, 0.03);
+  width: 100%;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  box-shadow: 0 15px 40px rgba(6, 6, 18, 0.06);
+  border-color: #D6D5D2;
+}
+
+.value-card p {
+  color: #333333;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+/* Asymmetric Overlapping Badges */
+.value-badge {
+  position: absolute;
+  width: 110px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  font-family: 'Caveat', 'Dancing Script', "Eras Md BT", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(6, 6, 18, 0.12);
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+.value-card-wrapper:hover .value-badge {
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Left column alignment: badge is on the right side */
+.left-column .value-badge {
+  right: -55px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left-column .value-card {
+  padding-right: 70px;
+}
+
+/* Right column alignment: badge is on the left side */
+.right-column .value-badge {
+  left: -55px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-column .value-card {
+  padding-left: 70px;
+}
+
+/* Badge Gradients matching mockup colors */
+.badge-clarity {
+  background: linear-gradient(135deg, #5C88DA, #466CB8);
+}
+
+.badge-craft {
+  background: linear-gradient(135deg, #EC5E8A, #D63E6F);
+}
+
+.badge-change {
+  background: linear-gradient(135deg, #8E6CD4, #6E4CB4);
+}
+
+.badge-care {
+  background: linear-gradient(135deg, #FF6F43, #E04E22);
+}
+
+/* Current Openings Button */
+.btn-green-openings {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #599632;
+  color: #FFFFFF;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(89, 150, 50, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-transform: lowercase; /* match "current openings" text style in screenshot */
+}
+
+.btn-green-openings:hover {
+  background: #4a8227;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(89, 150, 50, 0.4);
+}
+
+/* Simplified Footer */
+.life-footer {
+  width: 100%;
+  background: #F5F5F5;
+  border-top: 1px solid #EAEAEA;
+  padding: 24px 40px;
+  box-sizing: border-box;
+}
+
+.life-footer-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.life-footer-left {
+  color: #69686E;
+  font-family: 'Caveat', 'Dancing Script', "Eras Md BT", Satoshi, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.life-footer-left a {
+  color: #69686E;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.life-footer-left a:hover {
+  color: #85BD56;
+}
+
+.life-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.life-footer-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #060612;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.life-footer-social-icon:hover {
+  background: #85BD56;
+  transform: translateY(-2px);
+}
+
+.life-footer-social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: #FFFFFF;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .life-header-nav {
+    display: none; /* Hide top links, use hamburger */
+  }
+  .values-grid {
+    column-gap: 40px;
+  }
+}
+
+@media (max-width: 960px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 600px;
+    margin: 40px auto;
+  }
+  
+  .left-column .value-badge,
+  .right-column .value-badge {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .left-column .value-card,
+  .right-column .value-card {
+    padding: 30px;
+  }
+
+  .value-card-wrapper {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .value-card-wrapper:hover .value-badge {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 720px) {
+  .life-header {
+    padding: 0 20px;
+  }
+  .life-logo {
+    height: 38px;
+  }
+  .life-hero-section {
+    padding: 40px 20px;
+  }
+  .life-hero-cursive {
+    font-size: 42px;
+  }
+  .life-hero-subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .title-with-squiggle h2 {
+    font-size: 32px;
+  }
+  .life-gallery-section {
+    padding: 60px 20px;
+  }
+  .life-gallery-card {
+    padding: 10px;
+  }
+  .life-values-section {
+    padding: 60px 20px;
+  }
+  .life-footer {
+    padding: 24px 20px;
+  }
+  .life-footer-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .life-footer-left {
+    font-size: 18px;
+  }
+}

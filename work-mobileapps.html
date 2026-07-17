@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parivartan | Mobile App Development in Hyderabad</title>
+  <meta name="description" content="Explore Parivartan's eCommerce portfolio — native and cross-platform mobile apps, intuitive iOS and Android experiences built for growth.">
+  <link rel="stylesheet" href="./css/work-mobileapps.css">
+  <!-- Google Fonts: Outfit and Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Google reCAPTCHA API -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header-container">
+    <img src="./assets/work/mobileapps/Patch.png" alt="" class="header-patch" draggable="false" />
+    <div class="header-section header-left">
+      <a href="./home.html" class="header-logo-link">
+        <img src="./assets/work/mobileapps/Parivartan_Logo.png" alt="Parivartan Logo" class="header-logo" />
+      </a>
+    </div>
+
+    <div class="header-section header-middle">
+      <button class="menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="header-section header-right">
+      <a href="#contact" class="start-project-btn">
+        <span>Start a Project</span>
+        <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+          <circle cx="2" cy="2" r="1.2" fill="white" />
+          <circle cx="5" cy="4.5" r="1.2" fill="white" />
+          <circle cx="8" cy="7" r="1.2" fill="white" />
+          <circle cx="5" cy="9.5" r="1.2" fill="white" />
+          <circle cx="2" cy="12" r="1.2" fill="white" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile navigation overlay backdrop -->
+  <div class="menu-backdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer -->
+  <nav class="mobile-drawer">
+    <div class="drawer-menu-list">
+      <!-- Home -->
+      <a href="./home.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Home</span>
+          <span class="drawer-menu-desc">Return to homepage</span>
+        </span>
+      </a>
+
+      <!-- Our Story -->
+      <a href="./story.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="9" cy="8" r="3" />
+            <path d="M3.5 19c0-2.76 2.46-5 5.5-5s5.5 2.24 5.5 5" />
+            <path d="M15.5 4.3c1.44.42 2.5 1.76 2.5 3.35 0 1.6-1.06 2.93-2.5 3.35" />
+            <path d="M16 14.2c2.24.5 3.9 2.35 3.9 4.55" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Our Story</span>
+          <span class="drawer-menu-desc">Our story, mission &amp; values</span>
+        </span>
+      </a>
+
+      <!-- Life at Parivartan -->
+      <a href="./life.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Life at Parivartan</span>
+          <span class="drawer-menu-desc">Our culture, perks &amp; people</span>
+        </span>
+      </a>
+
+      <!-- Our Clients -->
+      <a href="./clients.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="9" cy="8" r="3" />
+            <path d="M3.5 19c0-2.76 2.46-5 5.5-5s5.5 2.24 5.5 5" />
+            <path d="M15.5 4.3c1.44.42 2.5 1.76 2.5 3.35 0 1.6-1.06 2.93-2.5 3.35" />
+            <path d="M16 14.2c2.24.5 3.9 2.35 3.9 4.55" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Our Clients</span>
+          <span class="drawer-menu-desc">People we worked with</span>
+        </span>
+      </a>
+
+      <!-- Our Work Submenu accordion -->
+      <div class="drawer-menu-item-group expanded">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="true">
+          <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+            <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+            <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6" />
+          </svg>
+        </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">Our Work</span>
+            <span class="drawer-menu-desc">Explore our selected projects</span>
+          </span>
+          <span class="drawer-menu-chevron">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./work-websites.html" class="drawer-submenu-item">
+            <img src="./assets/work/mobileapps/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Websites</span>
+          </a>
+          <a href="./work-webapps.html" class="drawer-submenu-item">
+            <img src="./assets/work/mobileapps/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Web Applications</span>
+          </a>
+          <a href="./work-mobileapps.html" class="drawer-submenu-item active">
+            <img src="./assets/work/mobileapps/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Mobile Apps</span>
+          </a>
+          <a href="./work-ecommerce.html" class="drawer-submenu-item">
+            <img src="./assets/work/mobileapps/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">eCommerce</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <a href="./contact.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Contact</span>
+          <span class="drawer-menu-desc">Let's connect &amp; build together</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Drawer CTA Panel -->
+    <div class="drawer-cta-panel">
+      <span class="drawer-cta-dot drawer-cta-dot-1"></span>
+      <span class="drawer-cta-dot drawer-cta-dot-2"></span>
+      <span class="drawer-cta-circle"></span>
+      <div class="drawer-cta-content">
+        <h3 class="drawer-cta-heading">
+          Let's build<br />
+          <span class="highlight">meaningful</span> impact
+        </h3>
+        <span class="drawer-cta-divider"></span>
+        <p class="drawer-cta-text">
+          We partner with forward-thinking brands to create digital experiences that drive growth.
+        </p>
+        <a href="./contact.html" class="drawer-cta-btn">
+          <span>Start a Project</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 11L11 3M11 3H4.5M11 3v6.5" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+      <img src="./assets/work/mobileapps/Parivartan-Leaf.png" alt="" class="drawer-cta-leaf" draggable="false" />
+    </div>
+  </nav>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+    <!-- Page content will be developed here -->
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-section">
+    <div class="footer-grid">
+
+      <div class="footer-col footer-brand">
+        <img src="./assets/work/mobileapps/Parivartan_Logo.png" alt="Parivartan" class="footer-logo" />
+        <p class="footer-tagline">We turn ideas into digital experiences.</p>
+        <div class="footer-social-icons">
+          <a href="https://www.instagram.com/eparivartan/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="white" stroke-width="1.5"/>
+              <path d="M17 6.5L17.01 6.48889" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/eparivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M6.94 5.00002C6.93974 5.53046 6.72877 6.03906 6.35351 6.41394C5.97825 6.78883 5.46944 6.99929 4.939 6.99902C4.40857 6.99876 3.89997 6.78779 3.52508 6.41253C3.1502 6.03727 2.93974 5.52846 2.94 4.99802C2.94027 4.46759 3.15124 3.95899 3.5265 3.5841C3.90176 3.20922 4.41057 2.99876 4.941 2.99902C5.47144 2.99929 5.98004 3.21026 6.35492 3.58552C6.72981 3.96078 6.94027 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z" fill="white"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="./home.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Home</span><span class="swap-text-dup" aria-hidden="true">Home</span></span></a></li>
+          <li><a href="./story.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">About Us</span><span class="swap-text-dup" aria-hidden="true">About Us</span></span></a></li>
+          <li><a href="./life.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Life at Parivartan</span><span class="swap-text-dup" aria-hidden="true">Life at Parivartan</span></span></a></li>
+          <li><a href="./home.html#portfolio" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Our Work</span><span class="swap-text-dup" aria-hidden="true">Our Work</span></span></a></li>
+          <li><a href="./clients.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Our Clients</span><span class="swap-text-dup" aria-hidden="true">Our Clients</span></span></a></li>
+          <li><a href="./contact.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Contact Us</span><span class="swap-text-dup" aria-hidden="true">Contact Us</span></span></a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col footer-contact">
+        <h4 class="footer-heading">Get In Touch</h4>
+        <ul class="footer-contact-list">
+          <li><span>+91 98491 65443</span></li>
+          <li><span>feedback@eparivartan.com</span></li>
+          <li><span>Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033 Telangana State</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="https://careers.eparivartan.com/" target="_blank" rel="noopener noreferrer" class="footer-join-link swap-link">
+        <span class="swap-wrap">
+          <span class="swap-text-orig">Join the Parivar</span>
+          <span class="swap-text-dup" aria-hidden="true">Join the Parivar</span>
+        </span>
+      </a>
+      <span class="footer-copyright">© 2026 Parivartan. All rights reserved</span>
+    </div>
+  </footer>
+
+  <!-- Loaded JS script -->
+  <script src="./js/work-ecommerce.js"></script>
+
+</body>
+</html>
