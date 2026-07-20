@@ -1,5 +1,566 @@
-@import url("./home.css");
+@import url('./home.css');
 
-/* ==========================================================================
-   Work - Web Apps Page Styles
-   ========================================================================== */
+/* Web Apps Hero Section CSS */
+.web-apps-hero-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 0 40px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.web-apps-hero-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 24px 0 40px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tagline */
+.web-apps-hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.web-apps-hero-tagline span {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.web-apps-hero-title {
+  color: var(--85BD56, #85BD56);
+  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 62px;
+  margin: 0 0 28px 0;
+  text-align: center;
+}
+
+/* Outer Card Frame styling */
+.web-apps-card-frame {
+  display: flex;
+  width: 100%;
+  max-width: 1320px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  border: 1px solid #FFFFFF;
+  background: #F5F5F5;
+  box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset;
+  box-sizing: border-box;
+}
+
+/* White Card Container */
+.web-apps-card {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(6, 6, 18, 0.05);
+  overflow: hidden;
+  border: 1px solid #E5E4E2;
+}
+
+.web-apps-card-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+/* Left Column Styling */
+.web-apps-card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  padding: 40px 48px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+
+.web-apps-card-heading {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px;
+  margin: 0 0 12px 0;
+}
+
+.web-apps-card-heading .highlight-green {
+  color: #599632;
+}
+
+.web-apps-card-desc-group {
+  margin-bottom: 8px;
+}
+
+.web-apps-card-desc-group p {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0 0 10px 0;
+}
+
+.web-apps-card-desc-group p:last-child {
+  margin-bottom: 0;
+}
+
+.web-apps-divider-line {
+  border: none;
+  border-top: 1px solid #E5E4E2;
+  margin: 16px 0;
+  width: 100%;
+}
+
+/* Features Row */
+.web-apps-features-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.web-apps-feature-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.web-apps-feature-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(133, 189, 86, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.web-apps-feature-divider {
+  width: 1px;
+  background: #E5E4E2;
+  margin: 0 16px;
+  align-self: stretch;
+}
+
+.web-apps-feature-title {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0 0 4px 0;
+}
+
+.web-apps-feature-desc {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 11px;
+  color: #69686E;
+  margin: 0;
+}
+
+/* Right Column Styling: flush against the outer card's edge so the
+   outer card's own border-radius + overflow:hidden clips it into one
+   continuous rounded corner (same treatment as Clients Hero's image panel). */
+.web-apps-card-right {
+  width: 520px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.web-apps-mockup-image-container {
+  width: 100%;
+  height: 100%;
+  min-height: 416px;
+  background: #F3EFE9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.web-apps-mockup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.web-apps-card:hover .web-apps-mockup-image {
+  transform: scale(1.04);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1200px) {
+  .web-apps-card-frame {
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  .web-apps-card {
+    border-radius: 14px;
+  }
+
+  .web-apps-card-inner {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .web-apps-card-right {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .web-apps-mockup-image-container {
+    height: 380px;
+    min-height: 0;
+  }
+
+  .web-apps-card-left {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 960px) {
+  .web-apps-hero-section {
+    padding: 0 24px;
+  }
+
+  .web-apps-hero-container {
+    padding: 24px 0 40px 0;
+  }
+
+  .web-apps-hero-title {
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 12px;
+  }
+
+  .web-apps-card-heading {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .web-apps-features-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .web-apps-feature-item {
+    flex: unset;
+    width: calc(50% - 10px);
+  }
+
+  .web-apps-feature-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .web-apps-mockup-image-container {
+    height: 280px;
+    min-height: 0;
+  }
+
+  .web-apps-card-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .web-apps-feature-item {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .web-apps-hero-section {
+    padding: 0 16px;
+  }
+
+  .web-apps-hero-container {
+    padding: 24px 0 24px 0;
+  }
+
+  .web-apps-mockup-image-container {
+    height: 200px;
+    min-height: 0;
+  }
+
+  .web-apps-card-frame {
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  .web-apps-card {
+    border-radius: 12px;
+  }
+
+  .web-apps-card-inner {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .web-apps-hero-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .web-apps-card-desc-group p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+
+/* Web Projects Section CSS */
+.web-projects-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 0 40px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.web-projects-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 32px 0;
+  box-sizing: border-box;
+}
+
+/* Projects List Layout */
+.web-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.web-project-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 64px;
+  width: 100%;
+}
+
+.web-project-row.layout-image-left {
+  flex-direction: row;
+}
+
+.web-project-row.layout-image-right {
+  flex-direction: row-reverse;
+}
+
+/* Screenshot Column */
+.project-screenshot-column {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-screenshot-wrapper {
+  width: 100%;
+  max-width: 688px;
+  aspect-ratio: 79/48;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.project-screenshot-image {
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover Screenshot Zoom */
+.web-project-row:hover .project-screenshot-image {
+  transform: scale(1.03);
+}
+
+/* Text Details Column Styling */
+.project-details-column {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.project-title {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+  margin: 0 0 16px 0;
+}
+
+.project-description {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0 0 28px 0;
+  max-width: 608px;
+  width: 100%;
+}
+
+/* Highlight Items */
+.project-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.project-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.project-highlight-check {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.3s ease;
+}
+
+.project-highlight-item:hover .project-highlight-check {
+  transform: scale(1.1);
+}
+
+.project-highlight-text {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin: 0;
+  max-width: 582px;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1320px) {
+  .project-screenshot-column {
+    width: 100%;
+    max-width: 688px;
+  }
+  
+  .project-screenshot-wrapper {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .web-projects-list {
+    gap: 24px;
+  }
+
+  .web-project-row,
+  .web-project-row.layout-image-left,
+  .web-project-row.layout-image-right {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .project-details-column {
+    width: 100%;
+    max-width: 688px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-highlights {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .web-projects-section {
+    padding: 0 24px;
+  }
+
+  .web-projects-container {
+    padding: 20px 0;
+  }
+
+  .project-title {
+    font-size: 26px;
+    line-height: 34px;
+    margin-bottom: 12px;
+  }
+
+  .project-description {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  .project-highlight-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

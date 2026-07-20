@@ -171,14 +171,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close all other elements
         items.forEach(item => {
           item.classList.remove('is-open');
-          const btn = item.querySelector('.faq-toggle-btn');
-          if (btn) btn.innerHTML = `<circle cx="11.5" cy="11.5" r="10" fill="#000" /><path d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>`;
+          const path = item.querySelector('.faq-toggle-btn svg path');
+          if (path) path.setAttribute('d', 'M11.5 7V16M7 11.5H16');
         });
 
         if (!isOpen) {
           card.classList.add('is-open');
-          const btn = card.querySelector('.faq-toggle-btn');
-          if (btn) btn.innerHTML = `<circle cx="11.5" cy="11.5" r="10" fill="#000" /><path d="M8.0137 14.6135L14.6134 8.01388M8.0137 8.01388L14.6134 14.6135" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>`;
+          const path = card.querySelector('.faq-toggle-btn svg path');
+          if (path) path.setAttribute('d', 'M7 11.5H16');
         }
       });
     });

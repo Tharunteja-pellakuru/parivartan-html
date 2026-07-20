@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Eras Md BT";
-  src: url('./assets/home/fonts/Eras-Md-BT-Medium.ttf') format("truetype");
+  src: url('../assets/home/fonts/Eras-Md-BT-Medium.ttf') format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -1058,48 +1058,78 @@ button {
   }
   .hero-card-row {
     flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+    align-items: center;
+    gap: 0;
+    padding-top: 32px;
+    padding-bottom: 40px;
+  }
+  .hero-tagline-container,
+  .hero-headline,
+  .hero-paragraph,
+  .hero-stats,
+  .hero-buttons-outer,
+  .hero-visual-column,
+  .hero-trusted-section {
+    box-sizing: border-box;
   }
   .hero-tagline-container {
-    margin-bottom: 14px;
+    order: 1;
+    margin: 0 24px 14px 24px;
   }
   .hero-content-column {
-    align-items: center;
-    text-align: center;
-    padding: 32px 24px 40px 24px;
+    display: contents;
   }
   .hero-visual-column-mobile {
-    margin-bottom: 8px;
+    display: none;
   }
   .hero-headline {
+    order: 2;
     font-size: 38px;
     line-height: 48px;
     text-align: center;
     margin: 0 auto 24px auto;
+    padding: 0 24px;
+  }
+  .hero-visual-column {
+    order: 3;
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 0;
   }
   .hero-paragraph {
+    order: 4;
     font-size: 15px;
     line-height: 25px;
     text-align: center;
     margin: 0 auto 0 auto;
+    padding: 0 24px;
   }
   .hero-buttons-outer {
+    order: 6;
     align-items: center;
+    width: 100%;
+    margin-top: 24px;
+    padding: 0 24px;
   }
   .hero-btn {
     flex: 1;
   }
   .hero-stats {
+    order: 5;
     justify-content: center;
     flex-wrap: nowrap;
-    gap: 16px;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 0 24px;
   }
   .hero-stat {
     align-items: center;
+    white-space: nowrap;
   }
   .hero-trusted-section {
+    order: 7;
     margin: 32px auto 0 auto;
+    width: 100%;
   }
   .hero-trusted-track {
     gap: 32px;
@@ -1138,10 +1168,18 @@ button {
     border-radius: 12px;
   }
   .hero-card-row {
-    gap: 4px;
+    gap: 0;
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+  .hero-headline,
+  .hero-paragraph,
+  .hero-stats,
+  .hero-buttons-outer {
+    padding: 0 16px;
   }
   .hero-content-column {
-    padding: 24px 16px 32px 16px;
+    display: contents;
   }
   .hero-tagline {
     font-size: 11px;
@@ -1149,7 +1187,7 @@ button {
   }
   .hero-tagline-container {
     gap: 8px;
-    margin-bottom: 8px;
+    margin: 0 16px 8px 16px;
   }
   .hero-headline {
     font-size: 30px;
@@ -1160,20 +1198,20 @@ button {
     line-height: 23px;
   }
   .hero-stats {
-    gap: 8px;
+    gap: clamp(4px, 1.5vw, 8px);
     width: 100%;
     justify-content: space-between;
     flex-wrap: nowrap;
   }
   .hero-stat-value {
-    font-size: 17px;
+    font-size: clamp(12px, 3.5vw, 17px);
   }
   .hero-stat-google-icon {
-    width: 15px;
-    height: 15px;
+    width: clamp(10px, 3vw, 15px);
+    height: clamp(10px, 3vw, 15px);
   }
   .hero-stat-label {
-    font-size: 9px;
+    font-size: clamp(7px, 2.2vw, 9px);
   }
   .hero-stat-divider {
     height: 24px;
@@ -1912,7 +1950,7 @@ button {
     padding: 24px 16px;
     text-align: left;
     width: 100%;
-    height: 640px;
+    height: auto;
     overflow: hidden;
     position: sticky !important;
     box-sizing: border-box;
@@ -2037,7 +2075,7 @@ button {
   }
   
   .services-row {
-    height: 600px;
+    height: auto;
     padding: 20px 16px;
     gap: 12px;
   }
@@ -2172,10 +2210,8 @@ button {
   grid-template-areas:
     "top image"
     "bottom image";
-  gap: 64px;
-  /* Rows are auto-sized to their own content (not stretched), so this centers
-     the top+bottom pair as one group against the taller row-spanning image —
-     without opening a gap between them. */
+  column-gap: 64px;
+  row-gap: 24px;
   align-content: center;
 }
 
@@ -2186,6 +2222,7 @@ button {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  min-height: 310px; /* Prevent page juggling during slide transitions */
 }
 
 .project-info-col-bottom {
@@ -2203,7 +2240,7 @@ button {
   font-style: normal;
   font-weight: 500;
   line-height: 36px;
-  margin: 0 0 24px 0;
+  margin: 0 0 16px 0;
   white-space: nowrap;
 }
 
@@ -2214,14 +2251,14 @@ button {
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  margin: 0 0 28px 0;
+  margin: 0 0 20px 0;
   max-width: 520px;
 }
 
 .core-solution-box {
   border-left: 3px solid #85BD56;
   padding-left: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 0;
   text-align: left;
 }
 
@@ -2984,8 +3021,8 @@ button {
   position: absolute;
   /* Center the dot exactly on the coordinate */
   transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
+  width: clamp(3px, 0.8vw, 10px);
+  height: clamp(3px, 0.8vw, 10px);
   z-index: 5;
   outline: none;
 }
@@ -2997,11 +3034,11 @@ button {
 
 .presence-map-label-dot {
   display: block;
-  width: 10px;
-  height: 10px;
+  width: clamp(3px, 0.8vw, 10px);
+  height: clamp(3px, 0.8vw, 10px);
   border-radius: 50%;
   background: #85BD56;
-  box-shadow: 0 0 0 4px rgba(133, 189, 86, 0.18);
+  box-shadow: 0 0 0 clamp(0px, 0.3vw, 4px) rgba(133, 189, 86, 0.18);
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -3009,7 +3046,7 @@ button {
 .presence-map-label-pin:hover .presence-map-label-dot,
 .presence-map-label-pin:focus-visible .presence-map-label-dot {
   transform: scale(1.3);
-  box-shadow: 0 0 0 6px rgba(133, 189, 86, 0.28);
+  box-shadow: 0 0 0 clamp(2px, 0.5vw, 6px) rgba(133, 189, 86, 0.28);
 }
 
 /* Country name — hidden until the dot is hovered/focused */
@@ -3947,6 +3984,11 @@ button {
   border-top: 1px solid #F0F2F5;
   padding-top: 16px;
   animation: faqSlideIn 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: none;
+}
+
+.faq-item-card.is-open .faq-answer-row {
+  display: block;
 }
 
 .faq-answer-text {
@@ -5049,7 +5091,7 @@ button {
     padding: 0 16px;
   }
   .contact-inner {
-    padding: 20px 0;
+    padding: 20px 0 8px 0;
   }
   .contact-row-breadcrumb {
     margin-bottom: 8px;
@@ -5435,7 +5477,7 @@ button {
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 32px 16px;
-    padding: 36px 0 24px 0;
+    padding: 16px 0 24px 0;
   }
   .footer-brand {
     grid-column: 1 / -1;
@@ -5489,4 +5531,28 @@ button {
     font-size: 13.5px;
     line-height: 20px;
   }
+  }
+}
+
+/* Custom Footer Join Link (Global) */
+.life-footer-parivar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+}
+
+.life-footer-parivar-link:hover {
+  color: #85BD56;
+}
+
+.life-footer-parivar-link .life-title-leaf {
+  width: 20px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.life-footer-parivar-link:hover .life-title-leaf {
+  transform: rotate(15deg) scale(1.15);
 }

@@ -51,6 +51,41 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       });
+      
+      // Timeline center line scrub fill animation
+      const timelineWrapper = document.querySelector('.timeline-wrapper');
+      const timelineLineFill = document.querySelector('.timeline-center-line-fill');
+      if (timelineWrapper && timelineLineFill) {
+        gsap.to(timelineLineFill, {
+          height: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: timelineWrapper,
+            start: 'top 50%',
+            end: 'bottom 50%',
+            scrub: true
+          }
+        });
+      }
+
+      // Timeline items scroll animation
+      const timelineItems = gsap.utils.toArray('.timeline-item');
+      timelineItems.forEach(item => {
+        gsap.fromTo(item, 
+          { autoAlpha: 0, y: 50 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 85%',
+              once: true
+            }
+          }
+        );
+      });
     } else {
       // Fallback for reduced motion
       gsap.set('section, footer', { autoAlpha: 1, y: 0 });
