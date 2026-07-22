@@ -3,18 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parivartan | Mobile App Development in Hyderabad</title>
-  <meta name="description" content="Explore Parivartan's eCommerce portfolio — native and cross-platform mobile apps, intuitive iOS and Android experiences built for growth.">
-  <link rel="stylesheet" href="./css/work-mobileapps.css">
+  <title>Parivartan | Rental App — Case Study</title>
+  <meta name="description" content="Rental App case study by Parivartan — a centralized rental management application to manage properties, tenants, locations and rental payments.">
+  <link rel="stylesheet" href="./css/work-app-details.css">
   <!-- Google Fonts: Outfit and Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- GSAP CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <!-- Google reCAPTCHA API -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="icon" type="image/png" href="./assets/home/Parivartan-Leaf.png">
 </head>
 <body>
@@ -36,7 +31,7 @@
     </div>
 
     <div class="header-section header-right">
-      <a href="#contact" class="start-project-btn">
+      <a href="./contact.html" class="start-project-btn">
         <span>Start a Project</span>
         <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
           <circle cx="2" cy="2" r="1.2" fill="white" />
@@ -222,332 +217,219 @@
   </nav>
 
   <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="app-detail">
+    <section class="app-detail-section">
+      <div class="app-detail-container">
 
-  <main>
-    <section class="mobile-apps-hero-section">
-      <div class="mobile-apps-hero-container">
+        <!-- Top bar: Go Back + breadcrumb -->
+        <div class="app-detail-topbar">
+          <a href="./work-mobileapps.html" class="app-back-link">
+            <span class="app-back-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 3L4.5 7l4 4" stroke="#69686E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span>GO BACK</span>
+          </a>
 
-        <!-- Tagline -->
-        <div class="mobile-apps-hero-tagline">
-          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+          <div class="app-detail-breadcrumb">
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
+              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
+              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
+              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
+            </svg>
+            <span>OUR WORK</span>
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
+              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
+              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
+              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <h1 class="app-detail-title">Rental App</h1>
+
+        <!-- Tags -->
+        <div class="app-detail-tags">
+          <span class="app-detail-tag">mobile app</span>
+          <span class="app-detail-tag">UI/UX</span>
+        </div>
+
+        <!-- Hero image -->
+        <div class="app-hero-frame">
+          <div class="app-hero-canvas">
+            <img src="./assets/work/mobileapps/Mobile-App-1.png" alt="Rental App phone mockup showing property listings" class="app-hero-phone" />
+          </div>
+        </div>
+
+        <!-- Case Study Card -->
+        <article class="app-casestudy-card">
+          <div class="app-casestudy-head">
+            <span class="app-eyebrow"><span class="app-eyebrow-dash"></span>CASE STUDY</span>
+            <h2 class="app-casestudy-title">Rental Management Application</h2>
+          </div>
+
+          <div class="app-casestudy-body">
+            <!-- Overview -->
+            <div class="app-block">
+              <h3 class="app-block-label">OVERVIEW</h3>
+              <p class="app-block-text">
+                Developed a centralized rental management application to efficiently manage properties, tenants, locations, and rental payments. The platform streamlines tenant onboarding, communication, payment tracking, and daily property operations through a scalable and user-friendly system.
+              </p>
+            </div>
+
+            <!-- Key Highlights -->
+            <div class="app-block">
+              <h3 class="app-block-label">KEY HIGHLIGHTS</h3>
+              <ul class="app-highlights">
+                <li class="app-highlight-item">
+                  <span class="app-check">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 7.2l2.6 2.6L11 4.2" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <span>Developed a centralized rental management platform for handling properties, tenants, and locations efficiently</span>
+                </li>
+                <li class="app-highlight-item">
+                  <span class="app-check">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 7.2l2.6 2.6L11 4.2" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <span>Enabled seamless tenant management with streamlined onboarding, tracking, and communication features</span>
+                </li>
+                <li class="app-highlight-item">
+                  <span class="app-check">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 7.2l2.6 2.6L11 4.2" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <span>Integrated rental payment management for tracking dues, payment history, and transaction records</span>
+                </li>
+                <li class="app-highlight-item">
+                  <span class="app-check">
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 7.2l2.6 2.6L11 4.2" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <span>Built a scalable and user-friendly system to simplify day-to-day property rental operations and management</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================== MORE PROJECTS ==================== -->
+    <section class="app-more-section">
+      <div class="app-more-container">
+
+        <div class="app-more-eyebrow">
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
             <circle cx="2" cy="2" r="1.2" fill="#69686E" />
             <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
             <circle cx="8" cy="7" r="1.2" fill="#69686E" />
             <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
             <circle cx="2" cy="12" r="1.2" fill="#69686E" />
           </svg>
-          <span>OUR WORK</span>
-          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
-            <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-            <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-            <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-            <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-            <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-          </svg>
+          <span>SEE ALSO</span>
         </div>
 
-        <!-- Heading -->
-        <h1 class="mobile-apps-hero-title">
-          Mobile applications
-        </h1>
+        <h2 class="app-more-title">More Projects</h2>
 
-        <!-- Outer Card Frame -->
-        <div class="mobile-apps-card-frame">
-          <!-- Large White Card Container -->
-          <div class="mobile-apps-card">
-          <div class="mobile-apps-card-inner">
-
-            <!-- Left Column: Text & Features -->
-            <div class="mobile-apps-card-left">
-
-              <!-- Main Heading -->
-              <h2 class="mobile-apps-card-heading">
-                Mobile app development that brings you <span class="highlight-green">closer to customers</span>
-              </h2>
-
-              <!-- Paragraph -->
-              <p class="mobile-apps-card-description">
-                Don't miss your chance—help your audience get an app! Today, convenience is everything. A well-developed mobile application delivers personalized experiences, drives engagement, and turns wishlist into sales.
-              </p>
-
-              <hr class="mobile-apps-divider-line" />
-
-              <!-- Features Row -->
-              <div class="mobile-apps-features-row">
-
-                <!-- Feature 1 -->
-                <div class="mobile-apps-feature-item">
-                  <div class="mobile-apps-feature-icon-circle">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-                    </svg>
-                  </div>
-                  <h4 class="mobile-apps-feature-title">User Focused</h4>
-                  <p class="mobile-apps-feature-desc">Built around your audience.</p>
-                </div>
-
-                <div class="mobile-apps-feature-divider"></div>
-
-                <!-- Feature 2 -->
-                <div class="mobile-apps-feature-item">
-                  <div class="mobile-apps-feature-icon-circle">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2a10 10 0 0 0-10 10c0 2.2.7 4.3 2 6l1.5-1.5a8 8 0 1 1 13 0l1.5 1.5a10 10 0 0 0 2-6A10 10 0 0 0 12 2z" />
-                        <path d="M12 6v6l4 2" />
-                    </svg>
-                  </div>
-                  <h4 class="mobile-apps-feature-title">High Performance</h4>
-                  <p class="mobile-apps-feature-desc">Fast, reliable & scalable apps.</p>
-                </div>
-
-                <div class="mobile-apps-feature-divider"></div>
-
-                <!-- Feature 3 -->
-                <div class="mobile-apps-feature-item">
-                  <div class="mobile-apps-feature-icon-circle">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                        <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="3" />
-                    </svg>
-                  </div>
-                  <h4 class="mobile-apps-feature-title">Native & Cross-Platform</h4>
-                  <p class="mobile-apps-feature-desc">Solutions for iOS and Android.</p>
-                </div>
-
-                <div class="mobile-apps-feature-divider"></div>
-
-                <!-- Feature 4 -->
-                <div class="mobile-apps-feature-item">
-                  <div class="mobile-apps-feature-icon-circle">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                        <polyline points="17 6 23 6 23 12" />
-                    </svg>
-                  </div>
-                  <h4 class="mobile-apps-feature-title">Results Driven</h4>
-                  <p class="mobile-apps-feature-desc">Increase engagement and drive sales.</p>
-                </div>
-
-              </div>
-
+        <div class="app-more-track" id="appMoreTrack">
+          <!-- Clap Kartel -->
+          <a href="./work-app-details.html" class="app-more-card">
+            <div class="app-more-card-image" style="background-color:#FCF6E5;">
+              <img src="./assets/work/mobileapps/Mobile-App-2.png" alt="Clap Kartel mockup" />
             </div>
-
-            <!-- Right Column: Mockup Image Column -->
-            <div class="mobile-apps-card-right">
-              <div class="mobile-apps-mockup-image-container">
-                <img
-                  src="./assets/work/mobileapps/mobile_hero_mockup.png"
-                  alt="LUXECO Fashion Mobile App Mockup on iPhones"
-                  class="mobile-apps-mockup-image"
-                />
+            <div class="app-more-card-footer">
+              <h3 class="app-more-card-title">Clap Kartel</h3>
+              <div class="app-more-card-tags">
+                <span class="app-detail-tag">entertainment</span>
+                <span class="app-detail-tag">streaming</span>
               </div>
             </div>
+          </a>
 
-          </div>
-          </div>
+          <!-- CAD Career Coach -->
+          <a href="./work-app-details.html" class="app-more-card">
+            <div class="app-more-card-image" style="background-color:#F1F8E9;">
+              <img src="./assets/work/mobileapps/Mobile-App-3.png" alt="CAD Career Coach mockup" />
+            </div>
+            <div class="app-more-card-footer">
+              <h3 class="app-more-card-title">CAD Career Coach</h3>
+              <div class="app-more-card-tags">
+                <span class="app-detail-tag">education</span>
+                <span class="app-detail-tag">mobile app</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Hemanth Enterprises -->
+          <a href="./work-app-details.html" class="app-more-card">
+            <div class="app-more-card-image" style="background-color:#EFEBE9;">
+              <img src="./assets/work/mobileapps/Mobile-App-4.png" alt="Hemanth Enterprises mockup" />
+            </div>
+            <div class="app-more-card-footer">
+              <h3 class="app-more-card-title">Hemanth Enterprises</h3>
+              <div class="app-more-card-tags">
+                <span class="app-detail-tag">e-commerce</span>
+                <span class="app-detail-tag">b2b</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Minutes of Meeting -->
+          <a href="./work-app-details.html" class="app-more-card">
+            <div class="app-more-card-image" style="background-color:#ECEFF1;">
+              <img src="./assets/work/mobileapps/Mobile-App-5.png" alt="Minutes of Meeting mockup" />
+            </div>
+            <div class="app-more-card-footer">
+              <h3 class="app-more-card-title">Minutes of Meeting</h3>
+              <div class="app-more-card-tags">
+                <span class="app-detail-tag">productivity</span>
+                <span class="app-detail-tag">management</span>
+              </div>
+            </div>
+          </a>
         </div>
 
-      </div>
-    </section>
-    
-    <section class="mobile-projects-section">
-      <div class="mobile-projects-container">
-        
-        <!-- List of Projects -->
-        <div class="mobile-projects-list">
-          
-          <div class="mobile-project-row layout-image-left">
-            <div class="project-mockup-column">
-              <div class="project-mockup-wrapper" style="--project-color: #FF7E00;">
-                <div class="project-ring project-ring-outer"></div>
-                <div class="project-ring project-ring-middle"></div>
-                <div class="project-ring project-ring-inner"></div>
-                <div class="project-phone-container">
-                  <img src="./assets/work/mobileapps/Mobile-App-1.png" alt="Rental App Mockup" class="project-phone-img" />
-                </div>
-              </div>
-            </div>
-            <div class="project-details-column">
-              <h3 class="project-title">Rental App</h3>
-              <p class="project-description">Developed a centralized rental management application to efficiently manage properties, tenant records, rent payments, maintenance requests, booking workflows, and financial tracking with daily operational insights.</p>
-              <ul class="project-highlights">
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Developed a centralized rental management platform for handling properties, tenants, and bookings efficiently.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Enabled real-time rent management with streamlined onboarding, tracking, and communication features.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Integrated rental management workflows for tracking dues, payments, and transaction records.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Built a scalable and user-friendly system to simplify day-to-day property rental operations and management.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mobile-project-row layout-image-right">
-            <div class="project-mockup-column">
-              <div class="project-mockup-wrapper" style="--project-color: #E6CA77;">
-                <div class="project-ring project-ring-outer"></div>
-                <div class="project-ring project-ring-middle"></div>
-                <div class="project-ring project-ring-inner"></div>
-                <div class="project-phone-container">
-                  <img src="./assets/work/mobileapps/Mobile-App-2.png" alt="Clap Kartel Mockup" class="project-phone-img" />
-                </div>
-              </div>
-            </div>
-            <div class="project-details-column">
-              <h3 class="project-title">Clap Kartel</h3>
-              <p class="project-description">Clap Kartel is a social entertainment platform connecting artists, creators, and fans through discovery, collaboration, and community engagement.</p>
-              <ul class="project-highlights">
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Developed a social entertainment platform connecting artists, creators, and fans.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Enabled artist discovery and showcase features through engaging profile pages and social integration.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Built interactive modules for networking, collaboration, and audience engagement.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Designed a responsive mobile platform supporting community growth and creative collaboration.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mobile-project-row layout-image-left">
-            <div class="project-mockup-column">
-              <div class="project-mockup-wrapper" style="--project-color: #87AC2B;">
-                <div class="project-ring project-ring-outer"></div>
-                <div class="project-ring project-ring-middle"></div>
-                <div class="project-ring project-ring-inner"></div>
-                <div class="project-phone-container">
-                  <img src="./assets/work/mobileapps/Mobile-App-3.png" alt="CAD Career Coach Mockup" class="project-phone-img" />
-                </div>
-              </div>
-            </div>
-            <div class="project-details-column">
-              <h3 class="project-title">CAD Career Coach</h3>
-              <p class="project-description">Developed a career guidance platform helping engineering students and professionals discover opportunities, technical resources, and career development tools.</p>
-              <ul class="project-highlights">
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Created a platform focused on CAD and mechanical engineering careers, training, and professional development.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Integrated technical resources, industry updates, and learning materials.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Built career guidance features including skill development, mentorship, and job opportunities.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Designed a scalable application supporting engineering students throughout their career journey.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mobile-project-row layout-image-right">
-            <div class="project-mockup-column">
-              <div class="project-mockup-wrapper" style="--project-color: #835345;">
-                <div class="project-ring project-ring-outer"></div>
-                <div class="project-ring project-ring-middle"></div>
-                <div class="project-ring project-ring-inner"></div>
-                <div class="project-phone-container">
-                  <img src="./assets/work/mobileapps/Mobile-App-4.png" alt="Hemanth Enterprises Mockup" class="project-phone-img" />
-                </div>
-              </div>
-            </div>
-            <div class="project-details-column">
-              <h3 class="project-title">Hemanth Enterprises</h3>
-              <p class="project-description">Developed an e-commerce solution for industrial products with inventory management, quotation generation, and order processing capabilities.</p>
-              <ul class="project-highlights">
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Developed a comprehensive catalog platform featuring multiple industrial product categories.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Implemented quotation generation and order management workflows.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Built inventory tracking to simplify product and stock management.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Designed a responsive web application for managing product inquiries and customer interactions.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mobile-project-row layout-image-left">
-            <div class="project-mockup-column">
-              <div class="project-mockup-wrapper" style="--project-color: #1C414B;">
-                <div class="project-ring project-ring-outer"></div>
-                <div class="project-ring project-ring-middle"></div>
-                <div class="project-ring project-ring-inner"></div>
-                <div class="project-phone-container">
-                  <img src="./assets/work/mobileapps/Mobile-App-5.png" alt="Minutes of Meeting Mockup" class="project-phone-img" />
-                </div>
-              </div>
-            </div>
-            <div class="project-details-column">
-              <h3 class="project-title">Minutes of Meeting</h3>
-              <p class="project-description">Developed a meeting management platform for planning, documenting, tracking, and organizing meetings with automated workflows and collaboration features.</p>
-              <ul class="project-highlights">
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Created a centralized meeting management platform for scheduling and documentation.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Implemented meeting workflows with key discussion points and action items.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Integrated real-time note-taking and meeting summaries for improved collaboration.</span>
-                </li>
-                <li class="project-highlight-item">
-                  <img src="./assets/life/Parivartan-Leaf.png" class="project-highlight-check" alt="Leaf Bullet" />
-                  <span class="project-highlight-text">Built an intuitive system for managing meetings, agendas, and historical records.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
+        <!-- Carousel nav -->
+        <div class="app-more-nav">
+          <button type="button" class="app-more-arrow" data-dir="prev" aria-label="Previous projects">
+            <svg width="16" height="16" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.5 3L4.5 7l4 4" stroke="#69686E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button type="button" class="app-more-arrow" data-dir="next" aria-label="Next projects">
+            <svg width="16" height="16" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.5 3l4 4-4 4" stroke="#69686E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
         </div>
+
       </div>
     </section>
   </main>
 
-
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="footer-top">
-      
+
       <div class="footer-col footer-brand">
         <img src="./assets/life/Parivartan_Logo.png" alt="Parivartan" class="footer-logo" />
         <p class="footer-desc">
           Parivartan is a design and marketing agency helping businesses build stronger digital identities and scalable websites.
         </p>
-        
+
         <div class="footer-social">
           <a href="https://www.facebook.com/eparivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -577,70 +459,14 @@
       <div class="footer-col">
         <h4 class="footer-heading">Quick Links</h4>
         <ul class="footer-list">
-          <li>
-            <a href="./home.html" class="swap-link">
-              <span class="swap-wrap">
-                <span class="swap-text-orig">Home</span>
-                <span class="swap-text-dup" aria-hidden="true">Home</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="./story.html" class="swap-link">
-              <span class="swap-wrap">
-                <span class="swap-text-orig">About Us</span>
-                <span class="swap-text-dup" aria-hidden="true">About Us</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="./life.html" class="swap-link">
-              <span class="swap-wrap">
-                <span class="swap-text-orig">Life at Parivartan</span>
-                <span class="swap-text-dup" aria-hidden="true">Life at Parivartan</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="./work-websites.html" class="swap-link">
-              <span class="swap-wrap">
-                <span class="swap-text-orig">Our Work</span>
-                <span class="swap-text-dup" aria-hidden="true">Our Work</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="./clients.html" class="swap-link">
-              <span class="swap-wrap">
-                <span class="swap-text-orig">Our Clients</span>
-                <span class="swap-text-dup" aria-hidden="true">Our Clients</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="./blogs.html" class="swap-link">
-              <span class="swap-wrap">
-                <span class="swap-text-orig">Blogs</span>
-                <span class="swap-text-dup" aria-hidden="true">Blogs</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="./media.html" class="swap-link">
-              <span class="swap-wrap">
-                <span class="swap-text-orig">Media Features</span>
-                <span class="swap-text-dup" aria-hidden="true">Media Features</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="./contact.html" class="swap-link">
-              <span class="swap-wrap">
-                <span class="swap-text-orig">Contact Us</span>
-                <span class="swap-text-dup" aria-hidden="true">Contact Us</span>
-              </span>
-            </a>
-          </li>
+          <li><a href="./home.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Home</span><span class="swap-text-dup" aria-hidden="true">Home</span></span></a></li>
+          <li><a href="./story.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">About Us</span><span class="swap-text-dup" aria-hidden="true">About Us</span></span></a></li>
+          <li><a href="./life.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Life at Parivartan</span><span class="swap-text-dup" aria-hidden="true">Life at Parivartan</span></span></a></li>
+          <li><a href="./work-websites.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Our Work</span><span class="swap-text-dup" aria-hidden="true">Our Work</span></span></a></li>
+          <li><a href="./clients.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Our Clients</span><span class="swap-text-dup" aria-hidden="true">Our Clients</span></span></a></li>
+          <li><a href="./blogs.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Blogs</span><span class="swap-text-dup" aria-hidden="true">Blogs</span></span></a></li>
+          <li><a href="./media.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Media Features</span><span class="swap-text-dup" aria-hidden="true">Media Features</span></span></a></li>
+          <li><a href="./contact.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Contact Us</span><span class="swap-text-dup" aria-hidden="true">Contact Us</span></span></a></li>
         </ul>
       </div>
 
@@ -694,8 +520,9 @@
     </div>
   </footer>
 
-  <!-- Loaded JS script -->
+  <!-- Header/drawer behaviour -->
   <script src="./js/home.js"></script>
-
+  <!-- Page-specific behaviour -->
+  <script src="./js/work-app-details.js"></script>
 </body>
 </html>

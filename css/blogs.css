@@ -359,7 +359,7 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  padding: 0 0 80px 0;
+  padding: 0 0 8px 0;
 }
 
 .blogs-pagination-btn {
@@ -511,4 +511,9 @@
   .blogs-insights-header {
     margin-bottom: 36px;
   }
+}
+
+/* Reduced gap between Pagination & CTA Section */
+.blogs-hero-section + .cta-section .cta-container {
+  padding-top: 16px !important;
 }

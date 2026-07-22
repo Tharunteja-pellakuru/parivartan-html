@@ -629,10 +629,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectsData = [
     {
       id: 'estic',
-      title: 'ESTIC DST Science & Technology Portal',
+      pillText: 'NATIONAL SCIENCE & TECHNOLOGY PORTAL',
+      title: 'ESTIC DST',
+      subtitle: 'Science & Technology Portal',
       description: 'A unified national scientific database and portal that aggregates, catalogs, and indexes research publications, patents, and S&T metrics across Indian institutions.',
-      coreSolutionText: 'Built a high-performance portal linking major national research databases, integrating Elasticsearch query nodes, and implementing automated PDF cataloging.',
-      techStatement: 'Built using HTML, PHP & MySQL.',
+      features: [
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>',
+          title: 'Unified Database',
+          desc: 'Aggregates national research, patents & S&T metrics'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+          title: 'Smart Discovery',
+          desc: 'ElasticSearch powered query nodes for fast and accurate results'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>',
+          title: 'Automated Cataloging',
+          desc: 'Automated PDF cataloging for efficient indexing & retrieval'
+        }
+      ],
+      coreSolutionText: '',
+      techStatement: 'Built using <strong>HTML</strong>, <strong>PHP</strong> & <strong>MySQL</strong>.',
       liveUrl: 'https://estic.dst.gov.in/',
       displayUrl: 'estic.dst.gov.in/',
       screenshot: './assets/home/estic_screenshot.png',
@@ -640,9 +659,28 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'panfish',
-      title: 'PANFISH SAP Consulting Platform',
-      description: 'A B2B enterprise site for PANFISH, part of UNIORG (an SAP Gold Partner since 1974), presenting SAP S/4HANA Cloud, BTP, and Business One consulting services for manufacturing, automotive, and energy clients.',
-      coreSolutionText: "Built a conversion-focused platform showcasing PANFISH's ChronoScope, UDINA, and UBOTT product suites, with structured service pages for SAP implementation, staff augmentation, and managed support engagements.",
+      pillText: 'SAP CONSULTING PLATFORM',
+      title: 'PANFISH',
+      subtitle: 'B2B Enterprise Site',
+      description: 'A B2B enterprise site for PANFISH, part of UNIORG (an SAP Gold Partner since 1974), presenting SAP S/4HANA Cloud, BTP, and Business One consulting services.',
+      features: [
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>',
+          title: 'Product Suites',
+          desc: 'Showcasing ChronoScope, UDINA, and UBOTT'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+          title: 'SAP Implementation',
+          desc: 'Structured service pages for core solutions'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+          title: 'Managed Support',
+          desc: 'Staff augmentation and support engagements'
+        }
+      ],
+      coreSolutionText: '',
       techStatement: 'Built using React.',
       liveUrl: 'https://panfish.tech/',
       displayUrl: 'panfish.tech/',
@@ -651,9 +689,28 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'cacm2026',
-      title: 'CACM-2026 Conference Portal',
-      description: 'An event microsite for the Conference on Advanced Carbon Materials (CACM-2026), hosted by The Indian Carbon Society — Hyderabad Chapter at BITS-Pilani Hyderabad Campus, February 18–20, 2026.',
-      coreSolutionText: "Delivered a conference hub with speaker and program schedules, registration and call-for-papers workflows, sponsor showcases, and venue details under the theme 'Transforming India with Sustainable Carbon Technologies.'",
+      pillText: 'CONFERENCE PORTAL',
+      title: 'CACM-2026',
+      subtitle: 'Event Microsite',
+      description: 'An event microsite for the Conference on Advanced Carbon Materials, hosted by The Indian Carbon Society — Hyderabad Chapter.',
+      features: [
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>',
+          title: 'Program Schedules',
+          desc: 'Speaker details and event timelines'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>',
+          title: 'Registration',
+          desc: 'Workflows for ticketing and call-for-papers'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+          title: 'Sponsor Showcases',
+          desc: 'Exhibitor portals and venue details'
+        }
+      ],
+      coreSolutionText: '',
       techStatement: 'Built using React.',
       liveUrl: 'https://www.cacm2026.com/',
       displayUrl: 'cacm2026.com/',
@@ -662,9 +719,28 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'creaprojects',
-      title: 'Crea Projects — Architecture & Interior Studio',
-      description: 'A portfolio site for Crea Projects, a design studio spanning residential, commercial, hospitality, and institutional work, blending traditional craftsmanship with contemporary design.',
-      coreSolutionText: "Crafted an image-led portfolio experience highlighting signature projects like Raj Kamal Films' international office, Oceanique, and Ente Keralam, built around visual storytelling.",
+      pillText: 'ARCHITECTURE STUDIO',
+      title: 'Crea Projects',
+      subtitle: 'Portfolio Showcase',
+      description: 'A portfolio site for Crea Projects, a design studio spanning residential, commercial, hospitality, and institutional work.',
+      features: [
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>',
+          title: 'Visual Storytelling',
+          desc: 'Image-led portfolio experience'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+          title: 'Signature Projects',
+          desc: 'Highlights like Oceanique and Ente Keralam'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+          title: 'Craftsmanship',
+          desc: 'Blending traditional with contemporary design'
+        }
+      ],
+      coreSolutionText: '',
       techStatement: 'Built using React.',
       liveUrl: 'https://creaprojects.in/',
       displayUrl: 'creaprojects.in/',
@@ -673,9 +749,28 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'sherwood',
-      title: 'Sherwood Public School Website',
-      description: 'The official site for Sherwood Public School, an ICSE/ISC institution in Kompally, Secunderabad serving Nursery through Class XII since 1984, built around activity-based, stress-free learning.',
-      coreSolutionText: 'Delivered an admissions-friendly site covering academics, campus life, and gallery, with a dedicated admissions portal to streamline enquiries from Nursery through senior ISC classes.',
+      pillText: 'EDUCATIONAL INSTITUTION',
+      title: 'Sherwood',
+      subtitle: 'School Website & Portal',
+      description: 'The official site for Sherwood Public School, an ICSE/ISC institution serving Nursery through Class XII since 1984.',
+      features: [
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+          title: 'Admissions Portal',
+          desc: 'Streamlined enquiries for new students'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+          title: 'Campus Life',
+          desc: 'Highlights of academics, events, and gallery'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+          title: 'Activity-Based',
+          desc: 'Showcasing a stress-free curriculum'
+        }
+      ],
+      coreSolutionText: '',
       techStatement: 'Built using React.',
       liveUrl: 'https://sherwoodpublicschool.edu.in/',
       displayUrl: 'sherwoodpublicschool.edu.in/',
@@ -684,9 +779,28 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'accel1',
-      title: 'Accel1 Climate Intelligence Platform',
-      description: 'A climate-tech marketing site for Accel1, presenting an integrated suite of AI-driven sustainability platforms for governments and enterprises working toward net-zero compliance.',
-      coreSolutionText: 'Built a platform showcase spanning water intelligence, ESG data automation, atmospheric monitoring, and climate early-warning systems, including HydroTRACE, BioFORGE, AccelTRACK, and AtmosPOD.',
+      pillText: 'CLIMATE INTELLIGENCE',
+      title: 'Accel1',
+      subtitle: 'Sustainability Platforms',
+      description: 'A climate-tech marketing site for Accel1, presenting an integrated suite of AI-driven sustainability platforms.',
+      features: [
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>',
+          title: 'Water Intelligence',
+          desc: 'HydroTRACE and monitoring systems'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+          title: 'ESG Data Automation',
+          desc: 'BioFORGE and compliance automation tools'
+        },
+        {
+          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+          title: 'Early-Warning',
+          desc: 'AccelTRACK and AtmosPOD systems'
+        }
+      ],
+      coreSolutionText: '',
       techStatement: 'Built using React.',
       liveUrl: 'https://www.accel1.com/',
       displayUrl: 'accel1.com/',
@@ -698,6 +812,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (featuredSec) {
     let activeIndex = 0;
 
+    const projectPillEl = featuredSec.querySelector('.project-info-col-top .project-pill');
+    const projectPillTextEl = featuredSec.querySelector('.project-info-col-top .project-pill-text');
+    const projectSubtitleEl = featuredSec.querySelector('.project-info-col-top .project-subtitle');
+    const projectFeaturesGridEl = featuredSec.querySelector('.project-info-col-top .project-features-grid');
+    const coreSolutionBoxEl = featuredSec.querySelector('.core-solution-box');
     const projectTitleEl = featuredSec.querySelector('.project-info-col-top .project-title');
     const projectDescEl = featuredSec.querySelector('.project-info-col-top .project-description');
     const solutionTextEl = featuredSec.querySelector('.core-solution-box .core-solution-text');
@@ -713,10 +832,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateProjectDisplay = () => {
       const activeProj = projectsData[activeIndex];
 
+      // Update conditionally rendered elements for ESTIC layout
+      if (activeProj.pillText) {
+        projectPillTextEl.textContent = activeProj.pillText;
+        projectPillEl.style.display = 'inline-flex';
+      } else {
+        projectPillEl.style.display = 'none';
+      }
+
+      if (activeProj.subtitle) {
+        projectSubtitleEl.textContent = activeProj.subtitle;
+        projectSubtitleEl.style.display = 'block';
+      } else {
+        projectSubtitleEl.style.display = 'none';
+      }
+
+      if (activeProj.features && activeProj.features.length > 0) {
+        projectFeaturesGridEl.innerHTML = activeProj.features.map(f => `
+          <div class="feature-card">
+            <div class="feature-icon">${f.icon}</div>
+            <div class="feature-content">
+              <h5 class="feature-title">${f.title}</h5>
+              <p class="feature-desc">${f.desc}</p>
+            </div>
+          </div>
+        `).join('');
+        projectFeaturesGridEl.style.display = 'grid';
+        coreSolutionBoxEl.style.display = 'none';
+      } else {
+        projectFeaturesGridEl.style.display = 'none';
+        coreSolutionBoxEl.style.display = 'block';
+        solutionTextEl.textContent = activeProj.coreSolutionText;
+      }
+
       // Update text fields
       projectTitleEl.textContent = activeProj.title;
       projectDescEl.textContent = activeProj.description;
-      solutionTextEl.textContent = activeProj.coreSolutionText;
       addressBarTextEl.textContent = activeProj.displayUrl;
       techStatementEl.innerHTML = activeProj.techStatement;
 
@@ -940,9 +1091,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const servicesList = [
       'UI/UX Design',
       'Web Development',
-      'Branding & Identity',
-      'Digital Marketing',
-      'Social Media Marketing',
+      'App Development',
+      'AEO Services',
+      'GEO Services',
       'SEO Services',
     ];
 

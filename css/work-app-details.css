@@ -1,0 +1,493 @@
+@import url('./home.css');
+
+/* ==================================================================
+   APP DETAIL PAGE  (Rental App case study)
+   ================================================================== */
+
+.app-detail {
+  width: 100%;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.app-detail-section {
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.app-detail-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px 0 40px 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Top bar : Go Back + breadcrumb ---------- */
+.app-detail-topbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin-bottom: 18px;
+}
+
+.app-back-link {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.app-back-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1px solid #E5E4E2;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(6, 6, 18, 0.05);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.app-back-link:hover {
+  color: #599632;
+}
+
+.app-back-link:hover .app-back-icon {
+  border-color: #85BD56;
+  transform: translateX(-2px);
+}
+
+.app-back-link:hover .app-back-icon svg path {
+  stroke: #599632;
+}
+
+.app-detail-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-detail-breadcrumb span {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Title & tags ---------- */
+.app-detail-title {
+  color: var(--85BD56, #85BD56);
+  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: center;
+  margin: 0 0 16px 0;
+}
+
+.app-detail-tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.app-detail-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #F3F3F3;
+  border: 1px solid #E9E8E6;
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Hero image ---------- */
+.app-hero-frame {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 26px;
+}
+
+.app-hero-canvas {
+  position: relative;
+  width: 100%;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
+  /* Silky light-grey backdrop */
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 30%),
+    linear-gradient(200deg, rgba(255, 255, 255, 0.55) 8%, rgba(0, 0, 0, 0.035) 42%, rgba(255, 255, 255, 0.5) 72%),
+    linear-gradient(135deg, #ededef 0%, #dcdce0 46%, #e7e7e9 62%, #d4d4d8 100%);
+}
+
+/* Soft light streaks over the silk */
+.app-hero-canvas::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    repeating-linear-gradient(125deg,
+      rgba(255, 255, 255, 0) 0px,
+      rgba(255, 255, 255, 0.18) 60px,
+      rgba(255, 255, 255, 0) 150px,
+      rgba(0, 0, 0, 0.02) 220px,
+      rgba(255, 255, 255, 0) 300px);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.app-hero-phone {
+  position: relative;
+  z-index: 1;
+  height: 380px;
+  max-height: 62vh;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 55px rgba(6, 6, 18, 0.28));
+}
+
+/* ---------- Case study card ---------- */
+.app-casestudy-card {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid #E7E6E4;
+  background: #ffffff;
+  box-shadow: 0 10px 40px rgba(6, 6, 18, 0.04);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.app-casestudy-head {
+  padding: 30px 40px 24px 40px;
+  border-bottom: 1px solid #EFEEEC;
+}
+
+.app-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--85BD56, #85BD56);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.app-eyebrow-dash {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: #85BD56;
+}
+
+.app-casestudy-title {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.app-casestudy-body {
+  padding: 30px 40px 40px 40px;
+  background: #FCFCFB;
+}
+
+.app-block + .app-block {
+  margin-top: 30px;
+}
+
+.app-block-label {
+  color: var(--85BD56, #85BD56);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+}
+
+.app-block-text {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 26px;
+  margin: 0;
+  max-width: 820px;
+}
+
+/* Key highlights list */
+.app-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 40px;
+}
+
+.app-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.app-check {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 6px;
+  background: #85BD56;
+  box-shadow: 0 2px 6px rgba(133, 189, 86, 0.35);
+}
+
+/* ==================================================================
+   MORE PROJECTS
+   ================================================================== */
+.app-more-section {
+  width: 100%;
+  padding: 20px 40px 70px 40px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.app-more-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-more-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.app-more-eyebrow span {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-more-title {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  margin: 0 0 26px 0;
+}
+
+/* Horizontal scroll track */
+.app-more-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.app-more-track::-webkit-scrollbar {
+  display: none;
+}
+
+.app-more-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  border-radius: 16px;
+  transition: transform 0.25s ease;
+}
+
+.app-more-card:hover {
+  transform: translateY(-4px);
+}
+
+.app-more-card-image {
+  width: 100%;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: 1px solid #EEEDEB;
+  box-sizing: border-box;
+}
+
+.app-more-card-image img {
+  width: auto;
+  height: 90%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.app-more-card-footer {
+  padding: 14px 4px 0 4px;
+}
+
+.app-more-card-title {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.app-more-card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Carousel nav arrows */
+.app-more-nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.app-more-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #E5E4E2;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.app-more-arrow:hover {
+  border-color: #85BD56;
+  background: #F4FAEE;
+  transform: translateY(-1px);
+}
+
+.app-more-arrow:hover svg path {
+  stroke: #599632;
+}
+
+.app-more-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  border-color: #E5E4E2;
+  background: #ffffff;
+}
+
+/* ==================================================================
+   RESPONSIVE
+   ================================================================== */
+@media (max-width: 900px) {
+  .app-casestudy-title,
+  .app-more-title {
+    font-size: 28px;
+  }
+  .app-highlights {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-detail-section,
+  .app-more-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .app-detail-title {
+    font-size: 34px;
+  }
+  .app-hero-canvas {
+    min-height: 320px;
+    padding: 30px 16px;
+  }
+  .app-hero-phone {
+    height: 300px;
+  }
+  .app-casestudy-head {
+    padding: 24px 22px 20px 22px;
+  }
+  .app-casestudy-body {
+    padding: 24px 22px 30px 22px;
+  }
+  .app-more-card {
+    flex-basis: 260px;
+  }
+  .app-more-card-image {
+    height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-detail-breadcrumb span {
+    font-size: 11px;
+  }
+  .app-back-link span:last-child {
+    display: none;
+  }
+  .app-detail-title {
+    font-size: 28px;
+  }
+  .app-more-card {
+    flex-basis: 82%;
+  }
+}

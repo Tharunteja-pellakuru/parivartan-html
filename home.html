@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="./assets/life/Parivartan-Leaf.png">
   <title>Parivartan | Web Design & Digital Marketing in Hyderabad</title>
   <meta name="description" content="Parivartan is a Hyderabad digital agency building websites, web & mobile apps, ecommerce stores, branding and social media marketing for brands worldwide.">
   <link rel="stylesheet" href="./css/home.css">
@@ -16,6 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Google reCAPTCHA API -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="icon" type="image/png" href="./assets/home/Parivartan-Leaf.png">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
   <header class="header-container">
     <img src="./assets/home/Patch.png" alt="" class="header-patch" draggable="false" />
     <div class="header-section header-left">
-      <a href="#" class="header-logo-link">
+      <a href="./home.html" class="header-logo-link">
         <img src="./assets/home/Parivartan_Logo.png" alt="Parivartan Logo" class="header-logo" />
       </a>
     </div>
@@ -56,7 +56,7 @@
   <nav class="mobile-drawer">
     <div class="drawer-menu-list">
       <!-- Home -->
-      <a href="#" class="drawer-menu-item active">
+      <a href="./home.html" class="drawer-menu-item active">
         <span class="drawer-menu-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
@@ -167,7 +167,20 @@
         </span>
       </a>
 
-
+      <!-- Media Features -->
+      <a href="./media.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Media Features</span>
+          <span class="drawer-menu-desc">Press &amp; publication coverage</span>
+        </span>
+      </a>
 
       <!-- Contact -->
       <a href="#contact" class="drawer-menu-item">
@@ -436,7 +449,7 @@
               <li class="service-subservice-item">User Experience Design</li>
             </ul>
             <div class="service-btn-container">
-              <a href="#portfolio" class="services-action-btn">
+              <a href="./work-websites.html" class="services-action-btn">
                 <span>See Our Work</span>
                 <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
                   <circle cx="2" cy="2" r="1.2" fill="white" />
@@ -477,7 +490,89 @@
               <li class="service-subservice-item">Custom Web Applications</li>
             </ul>
             <div class="service-btn-container">
-              <a href="#portfolio" class="services-action-btn">
+              <a href="./work-websites.html" class="services-action-btn">
+                <span>See Our Work</span>
+                <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                  <circle cx="2" cy="2" r="1.2" fill="white" />
+                  <circle cx="5" cy="4.5" r="1.2" fill="white" />
+                  <circle cx="8" cy="7" r="1.2" fill="white" />
+                  <circle cx="5" cy="9.5" r="1.2" fill="white" />
+                  <circle cx="2" cy="12" r="1.2" fill="white" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- App Development Row -->
+        <div class="services-row" data-index="2">
+          <div class="services-row-bg-gradient"></div>
+          
+          <div class="services-row-col col-left">
+            <span class="service-number">03</span>
+            <h3 class="service-title">App Development</h3>
+            <p class="service-desc">
+              We design and build powerful, user-centric mobile applications. From cross-platform solutions to native experiences, we create apps that seamlessly connect your brand with users on the go, delivering performance and reliability.
+            </p>
+          </div>
+
+          <div class="services-row-col col-center">
+            <div class="service-mockup-frame">
+              <div class="service-mockup-green-bg"></div>
+              <video src="./assets/home/Intro-3.mp4" class="service-mockup-img" muted loop playsinline preload="auto" autoplay></video>
+            </div>
+          </div>
+
+          <div class="services-row-col col-right">
+            <ul class="service-subservices-list">
+              <li class="service-subservice-item">iOS App Development</li>
+              <li class="service-subservice-item">Android App Development</li>
+              <li class="service-subservice-item">Cross-Platform Apps</li>
+              <li class="service-subservice-item">App UI/UX Design</li>
+            </ul>
+            <div class="service-btn-container">
+              <a href="./work-websites.html" class="services-action-btn">
+                <span>See Our Work</span>
+                <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                  <circle cx="2" cy="2" r="1.2" fill="white" />
+                  <circle cx="5" cy="4.5" r="1.2" fill="white" />
+                  <circle cx="8" cy="7" r="1.2" fill="white" />
+                  <circle cx="5" cy="9.5" r="1.2" fill="white" />
+                  <circle cx="2" cy="12" r="1.2" fill="white" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEO AEO GEO Row -->
+        <div class="services-row" data-index="3">
+          <div class="services-row-bg-gradient"></div>
+          
+          <div class="services-row-col col-left">
+            <span class="service-number">04</span>
+            <h3 class="service-title">SEO, AEO &amp; GEO</h3>
+            <p class="service-desc">
+              We optimize your digital presence for search engines (SEO), AI generative models (GEO), and answer engines (AEO). Our strategic approach ensures your brand is visible, authoritative, and accessible wherever your audience is searching.
+            </p>
+          </div>
+
+          <div class="services-row-col col-center">
+            <div class="service-mockup-frame">
+              <div class="service-mockup-green-bg"></div>
+              <video src="./assets/home/Intro-1.mp4" class="service-mockup-img" muted loop playsinline preload="auto" autoplay></video>
+            </div>
+          </div>
+
+          <div class="services-row-col col-right">
+            <ul class="service-subservices-list">
+              <li class="service-subservice-item">Search Engine Optimization</li>
+              <li class="service-subservice-item">Generative Engine Optimization</li>
+              <li class="service-subservice-item">Answer Engine Optimization</li>
+              <li class="service-subservice-item">Content Strategy</li>
+            </ul>
+            <div class="service-btn-container">
+              <a href="./work-websites.html" class="services-action-btn">
                 <span>See Our Work</span>
                 <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
                   <circle cx="2" cy="2" r="1.2" fill="white" />
@@ -535,7 +630,16 @@
         
         <!-- Left: Project detail info (top half) -->
         <div class="project-info-col-top">
-          <h3 class="project-title">ESTIC DST Science & Technology Portal</h3>
+          <div class="project-pill" style="display: none;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#85BD56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
+            <span class="project-pill-text"></span>
+          </div>
+          <h3 class="project-title">ESTIC DST</h3>
+          <h4 class="project-subtitle" style="display: none;">Science & Technology Portal</h4>
           <p class="project-description">
             A unified national scientific database and portal that aggregates, catalogs, and indexes research publications, patents, and S&T metrics across Indian institutions.
           </p>
@@ -545,6 +649,7 @@
               Built a high-performance portal linking major national research databases, integrating Elasticsearch query nodes, and implementing automated PDF cataloging.
             </p>
           </div>
+          <div class="project-features-grid" style="display: none;"></div>
         </div>
 
         <!-- Right: MacBook mockup screen preview -->
@@ -1730,7 +1835,7 @@
         <h4 class="footer-heading">Quick Links</h4>
         <ul class="footer-list">
           <li>
-            <a href="#" class="swap-link">
+            <a href="./home.html" class="swap-link">
               <span class="swap-wrap">
                 <span class="swap-text-orig">Home</span>
                 <span class="swap-text-dup" aria-hidden="true">Home</span>
@@ -1738,7 +1843,7 @@
             </a>
           </li>
           <li>
-            <a href="#about" class="swap-link">
+            <a href="./story.html" class="swap-link">
               <span class="swap-wrap">
                 <span class="swap-text-orig">About Us</span>
                 <span class="swap-text-dup" aria-hidden="true">About Us</span>
@@ -1762,7 +1867,7 @@
             </a>
           </li>
           <li>
-            <a href="#presence" class="swap-link">
+            <a href="./clients.html" class="swap-link">
               <span class="swap-wrap">
                 <span class="swap-text-orig">Our Clients</span>
                 <span class="swap-text-dup" aria-hidden="true">Our Clients</span>
@@ -1770,10 +1875,18 @@
             </a>
           </li>
           <li>
-            <a href="#blogs" class="swap-link">
+            <a href="./blogs.html" class="swap-link">
               <span class="swap-wrap">
                 <span class="swap-text-orig">Blogs</span>
                 <span class="swap-text-dup" aria-hidden="true">Blogs</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="./media.html" class="swap-link">
+              <span class="swap-wrap">
+                <span class="swap-text-orig">Media Features</span>
+                <span class="swap-text-dup" aria-hidden="true">Media Features</span>
               </span>
             </a>
           </li>
@@ -1792,12 +1905,12 @@
       <div class="footer-col">
         <h4 class="footer-heading">Services</h4>
         <ul class="footer-list">
-          <li><a href="#services" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">UI/UX Design</span><span class="swap-text-dup" aria-hidden="true">UI/UX Design</span></span></a></li>
-          <li><a href="#services" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Web Development</span><span class="swap-text-dup" aria-hidden="true">Web Development</span></span></a></li>
-          <li><a href="#services" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Branding & Identity</span><span class="swap-text-dup" aria-hidden="true">Branding & Identity</span></span></a></li>
-          <li><a href="#services" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Digital Marketing</span><span class="swap-text-dup" aria-hidden="true">Digital Marketing</span></span></a></li>
-          <li><a href="#services" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Social Media Marketing</span><span class="swap-text-dup" aria-hidden="true">Social Media Marketing</span></span></a></li>
-          <li><a href="#services" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">SEO Services</span><span class="swap-text-dup" aria-hidden="true">SEO Services</span></span></a></li>
+          <li><a href="./work-websites.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">UI/UX Design</span><span class="swap-text-dup" aria-hidden="true">UI/UX Design</span></span></a></li>
+          <li><a href="./work-websites.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Web Development</span><span class="swap-text-dup" aria-hidden="true">Web Development</span></span></a></li>
+          <li><a href="./work-mobileapps.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">App Development</span><span class="swap-text-dup" aria-hidden="true">App Development</span></span></a></li>
+          <li><a href="./work-webapps.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">AEO Services</span><span class="swap-text-dup" aria-hidden="true">AEO Services</span></span></a></li>
+          <li><a href="./work-webapps.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">GEO Services</span><span class="swap-text-dup" aria-hidden="true">GEO Services</span></span></a></li>
+          <li><a href="./contact.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">SEO Services</span><span class="swap-text-dup" aria-hidden="true">SEO Services</span></span></a></li>
         </ul>
       </div>
 

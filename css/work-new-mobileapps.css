@@ -1,0 +1,797 @@
+@import url('./home.css');
+
+/* Mobile Apps Hero Section CSS */
+.mobile-apps-hero-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 0 40px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.mobile-apps-hero-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 24px 0 40px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tagline */
+.mobile-apps-hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.mobile-apps-hero-tagline span {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mobile-apps-hero-title {
+  color: var(--85BD56, #85BD56);
+  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 62px;
+  margin: 0 0 28px 0;
+  text-align: center;
+}
+
+/* Outer Card Frame */
+.mobile-apps-card-frame {
+  display: flex;
+  width: 100%;
+  max-width: 1320px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  border: 1px solid #FFFFFF;
+  background: #F5F5F5;
+  box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset;
+  box-sizing: border-box;
+}
+
+/* White Card Container */
+.mobile-apps-card {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(6, 6, 18, 0.05);
+  overflow: hidden;
+  border: 1px solid #E5E4E2;
+}
+
+.mobile-apps-card-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+/* Left Column Styling */
+.mobile-apps-card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  padding: 40px 48px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+
+.mobile-apps-card-heading {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px;
+  margin: 0 0 12px 0;
+}
+
+.mobile-apps-card-heading .highlight-green {
+  color: #599632;
+}
+
+.mobile-apps-card-description {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0 0 8px 0;
+}
+
+.mobile-apps-divider-line {
+  border: none;
+  border-top: 1px solid #E5E4E2;
+  margin: 16px 0;
+  width: 100%;
+}
+
+/* Features Row */
+.mobile-apps-features-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.mobile-apps-feature-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.mobile-apps-feature-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(133, 189, 86, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.mobile-apps-feature-divider {
+  width: 1px;
+  background: #E5E4E2;
+  margin: 0 16px;
+  align-self: stretch;
+}
+
+.mobile-apps-feature-title {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0 0 4px 0;
+}
+
+.mobile-apps-feature-desc {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 11px;
+  color: #69686E;
+  margin: 0;
+}
+
+/* Right Column Styling: flush against the outer card's edge so the
+   outer card's own border-radius + overflow:hidden clips it into one
+   continuous rounded corner (same treatment as Contact Hero's image panel). */
+.mobile-apps-card-right {
+  width: 520px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.mobile-apps-mockup-image-container {
+  width: 100%;
+  height: 100%;
+  min-height: 416px;
+  background: #F3EFE9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mobile-apps-mockup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-apps-card:hover .mobile-apps-mockup-image {
+  transform: scale(1.04);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1200px) {
+  .mobile-apps-card-frame {
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  .mobile-apps-card {
+    border-radius: 14px;
+  }
+
+  .mobile-apps-card-inner {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .mobile-apps-card-right {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .mobile-apps-mockup-image-container {
+    height: 380px;
+    min-height: 0;
+  }
+
+  .mobile-apps-card-left {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 960px) {
+  .mobile-apps-hero-section {
+    padding: 0 24px;
+  }
+
+  .mobile-apps-hero-container {
+    padding: 24px 0 40px 0;
+  }
+
+  .mobile-apps-hero-title {
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-apps-card-heading {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .mobile-apps-features-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .mobile-apps-feature-item {
+    flex: unset;
+    width: calc(50% - 10px);
+  }
+
+  .mobile-apps-feature-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-apps-mockup-image-container {
+    height: 280px;
+    min-height: 0;
+  }
+
+  .mobile-apps-card-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .mobile-apps-feature-item {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-apps-hero-section {
+    padding: 0 16px;
+  }
+
+  .mobile-apps-hero-container {
+    padding: 24px 0 24px 0;
+  }
+
+  .mobile-apps-mockup-image-container {
+    height: 200px;
+    min-height: 0;
+  }
+
+  .mobile-apps-card-frame {
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  .mobile-apps-card {
+    border-radius: 12px;
+  }
+
+  .mobile-apps-card-inner {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .mobile-apps-hero-title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .mobile-apps-card-description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+
+/* Projects Section CSS */
+.mobile-projects-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 0 40px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.mobile-projects-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 32px 0;
+  box-sizing: border-box;
+}
+
+/* Projects List Layout */
+.mobile-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.mobile-project-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 90px;
+  width: 100%;
+}
+
+.mobile-project-row.layout-image-left {
+  flex-direction: row;
+}
+
+.mobile-project-row.layout-image-right {
+  flex-direction: row-reverse;
+}
+
+/* Mockup Column & Rings */
+.project-mockup-column {
+  width: 520px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-mockup-wrapper {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ring Animations and Opacities */
+.project-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--project-color);
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.project-ring-inner {
+  width: 400px;
+  height: 400px;
+  aspect-ratio: 1/1;
+  border-radius: 400px;
+  opacity: 0.32;
+}
+
+.project-ring-middle {
+  width: 448px;
+  height: 448px;
+  aspect-ratio: 1/1;
+  border-radius: 448px;
+  opacity: 0.24;
+}
+
+.project-ring-outer {
+  width: 496px;
+  height: 496px;
+  aspect-ratio: 1/1;
+  border-radius: 496px;
+  opacity: 0.16;
+}
+
+/* Hover Ring Scales */
+.mobile-project-row:hover .project-ring-inner {
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+.mobile-project-row:hover .project-ring-middle {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+.mobile-project-row:hover .project-ring-outer {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* Phone Mockup Styling */
+.project-phone-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-phone-img {
+  max-height: 480px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.08));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+/* Phone Mockup Hover */
+.mobile-project-row:hover .project-phone-img {
+  transform: translateY(-10px) scale(1.02);
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.14));
+}
+
+/* Text Details Column Styling */
+.project-details-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.project-title {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+  margin: 0 0 16px 0;
+}
+
+.project-description {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0 0 28px 0;
+  max-width: 608px;
+  width: 100%;
+}
+
+/* Highlight Items */
+.project-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.project-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.project-highlight-check {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.3s ease;
+}
+
+.project-highlight-item:hover .project-highlight-check {
+  transform: scale(1.1);
+}
+
+.project-highlight-text {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin: 0;
+  max-width: 582px;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .mobile-projects-list {
+    gap: 24px;
+  }
+
+  .mobile-project-row,
+  .mobile-project-row.layout-image-left,
+  .mobile-project-row.layout-image-right {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .project-mockup-column {
+    width: 100%;
+  }
+
+  .project-details-column {
+    width: 100%;
+    max-width: 680px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-description {
+    max-width: 100%;
+  }
+
+  .project-highlights {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-projects-section {
+    padding: 0 24px;
+  }
+
+  .mobile-projects-container {
+    padding: 20px 0;
+  }
+
+  .project-mockup-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+
+  .project-ring-inner {
+    width: 250px;
+    height: 250px;
+  }
+
+  .project-ring-middle {
+    width: 285px;
+    height: 285px;
+  }
+
+  .project-ring-outer {
+    width: 320px;
+    height: 320px;
+  }
+
+  .project-phone-img {
+    max-height: 300px;
+  }
+
+  .project-title {
+    font-size: 26px;
+    line-height: 34px;
+    margin-bottom: 12px;
+  }
+
+  .project-description {
+    font-size: 14px;
+    line-height: 23px;
+    margin-bottom: 20px;
+  }
+
+  .project-highlight-text {
+    font-size: 13.5px;
+    line-height: 20px;
+  }
+}
+
+/* ==================== NEW MOBILE PROJECTS GRID ==================== */
+.mobile-projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.project-card {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  justify-self: stretch;
+  grid-row: span 1;
+  grid-column: span 1;
+  background-color: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+.project-card-image-wrapper {
+  height: 360px;
+  align-self: stretch;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  padding-top: 40px;
+  position: relative;
+  transition: background-color 0.4s ease;
+}
+
+/* On hover the tinted backdrop fades to plain white */
+.project-card:hover .project-card-image-wrapper {
+  background-color: #ffffff !important;
+}
+
+.phone-mockup-wrapper {
+  position: relative;
+  width: 58%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle lift of the whole phone on card hover */
+.project-card:hover .phone-mockup-wrapper {
+  transform: translateY(-12px);
+}
+
+.project-card-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.15));
+  transform: translateY(0);
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Scroll state pans the tall phone image up to reveal the lower portion
+   of the app screen (property list + bottom nav bar). The exact pan
+   distance is set inline by switchMobileScreen() so the bottom of the
+   phone lands flush with the card window at any width/breakpoint. */
+
+.project-card-float-group {
+  position: absolute;
+  right: 4%;
+  bottom: 20px;
+  top: auto;
+  transform: none;
+  width: clamp(48px, 10%, 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 3;
+}
+
+/* The preview card graphics (screen1 / screen2) already carry their own
+   styling in the transparent PNG — the active card its coloured border, the
+   inactive card its white fill — so the button itself stays frameless and
+   only adds a soft drop-shadow for elevation. */
+.project-card-float-btn {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.10)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.05));
+  transition: transform 0.2s ease;
+}
+
+.project-card-float-btn img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-card-float-btn:hover {
+  transform: scale(1.05);
+}
+
+.project-card-float-btn.active {
+  transform: scale(1.03);
+}
+
+.project-card-footer {
+  width: 100%;
+  align-self: stretch;
+  box-sizing: border-box;
+  padding: 4px 8px 8px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card-title {
+  color: #111827;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 26.4px */
+  margin: 0;
+}
+
+.project-card-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.project-tag-pill {
+  font-family: Satoshi, 'Inter', sans-serif;
+  background-color: #F1F5F9;
+  border: none;
+  color: #6B7280;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 6px 14px;
+  border-radius: 100px;
+  text-transform: lowercase;
+}
+
+@media (max-width: 992px) {
+  .mobile-projects-grid {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+}

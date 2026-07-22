@@ -282,9 +282,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const servicesList = [
       'UI/UX Design',
       'Web Development',
-      'Branding & Identity',
-      'Digital Marketing',
-      'Social Media Marketing',
+      'App Development',
+      'AEO Services',
+      'GEO Services',
       'SEO Services',
     ];
 

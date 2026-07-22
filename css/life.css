@@ -19,13 +19,15 @@
   margin: 0 0 24px 0;
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   color: #060612;
+  text-decoration: none !important;
   transition: color 0.3s ease;
 }
 
 .life-hero-title:hover {
   color: #85BD56;
+  text-decoration: none !important;
 }
 
 .life-title-leaf {
