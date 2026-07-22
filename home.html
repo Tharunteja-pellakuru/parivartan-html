@@ -426,7 +426,6 @@
           
           <!-- Column 1: Title & desc -->
           <div class="services-row-col col-left">
-            <span class="service-number">01</span>
             <h3 class="service-title">UI/UX Design</h3>
             <p class="service-desc">
               We design clean, intuitive, and user-focused digital interfaces that make every interaction feel simple, smooth, and purposeful. From wireframes to final screens, we create experiences that help users move faster and brands communicate better.
@@ -468,7 +467,6 @@
           <div class="services-row-bg-gradient"></div>
           
           <div class="services-row-col col-left">
-            <span class="service-number">02</span>
             <h3 class="service-title">Web Development</h3>
             <p class="service-desc">
               We build responsive, scalable, and performance-ready websites that don't just look good but work beautifully across devices. From corporate websites to custom digital platforms, we develop web experiences built for growth.
@@ -509,7 +507,6 @@
           <div class="services-row-bg-gradient"></div>
           
           <div class="services-row-col col-left">
-            <span class="service-number">03</span>
             <h3 class="service-title">App Development</h3>
             <p class="service-desc">
               We design and build powerful, user-centric mobile applications. From cross-platform solutions to native experiences, we create apps that seamlessly connect your brand with users on the go, delivering performance and reliability.
@@ -550,7 +547,6 @@
           <div class="services-row-bg-gradient"></div>
           
           <div class="services-row-col col-left">
-            <span class="service-number">04</span>
             <h3 class="service-title">SEO, AEO &amp; GEO</h3>
             <p class="service-desc">
               We optimize your digital presence for search engines (SEO), AI generative models (GEO), and answer engines (AEO). Our strategic approach ensures your brand is visible, authoritative, and accessible wherever your audience is searching.
@@ -625,90 +621,142 @@
         </div>
       </div>
 
-      <!-- Project Row -->
-      <div class="featured-project-row">
+      <!-- Main container card holding the project details and preview (Image 1 Layout) -->
+      <div class="featured-project-card-frame">
         
-        <!-- Left: Project detail info (top half) -->
-        <div class="project-info-col-top">
-          <div class="project-pill" style="display: none;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#85BD56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-            </svg>
-            <span class="project-pill-text"></span>
-          </div>
-          <h3 class="project-title">ESTIC DST</h3>
-          <h4 class="project-subtitle" style="display: none;">Science & Technology Portal</h4>
-          <p class="project-description">
-            A unified national scientific database and portal that aggregates, catalogs, and indexes research publications, patents, and S&T metrics across Indian institutions.
-          </p>
-          <div class="core-solution-box">
-            <span class="core-solution-label">CORE SOLUTION</span>
-            <p class="core-solution-text">
-              Built a high-performance portal linking major national research databases, integrating Elasticsearch query nodes, and implementing automated PDF cataloging.
-            </p>
-          </div>
-          <div class="project-features-grid" style="display: none;"></div>
-        </div>
-
-        <!-- Right: MacBook mockup screen preview -->
-        <div class="project-mockup-col">
-          <div class="macbook-image-wrapper">
-            <img src="./assets/home/laptop_spacegrey_latest.png" alt="Macbook Pro Mockup" class="macbook-chassis" />
-            <div class="macbook-screen-overlay">
-              <div class="browser-mockup">
-                <!-- Mock address header -->
-                <div class="browser-header">
-                  <div class="browser-dots">
-                    <span class="dot dot-red"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
-                  </div>
-                  <div class="browser-address-bar">
-                    <svg width="10" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lock-icon">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
-                    <span>estic.dst.gov.in/</span>
-                  </div>
+        <!-- Top Showcase: Left Device Frame Preview + Right Details & Solution & Stats -->
+        <div class="showcase-top-grid">
+          
+          <!-- Left Column: Dark Device Preview Screen Frame -->
+          <div class="showcase-visual-col">
+            <div class="showcase-dark-frame">
+              <div class="showcase-browser-topbar">
+                <div class="browser-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
                 </div>
-
-                <!-- Mock screen content container -->
-                <div class="browser-content-scrollable">
-                  <!-- Injected via script.js -->
+                <div class="browser-address-bar">
+                  <svg width="10" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lock-icon">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                  <span class="showcase-address-url">estic.dst.gov.in/</span>
                 </div>
+              </div>
+              <div class="showcase-browser-content browser-content-scrollable">
+                <img src="./assets/home/estic_screenshot.png" alt="ESTIC DST Screenshot" class="browser-scroll-image" />
               </div>
             </div>
           </div>
+
+          <!-- Right Column: Details, Solution Box, Divider, Impact Stats -->
+          <div class="showcase-details-col">
+            
+            <h3 class="showcase-project-title">ESTIC DST</h3>
+            
+            <p class="showcase-project-description">
+              A unified national scientific database and portal that aggregates, catalogs, and indexes research publications, patents, and S&T metrics across Indian institutions.
+            </p>
+
+            <!-- Solution Card Box -->
+            <div class="showcase-solution-card">
+              <div class="solution-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="6"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                </svg>
+              </div>
+              <div class="solution-content-wrap">
+                <h4 class="solution-card-heading">The Solution</h4>
+                <p class="solution-card-text">
+                  Built a high-performance portal linking major national research databases, integrating Elasticsearch query nodes, and implementing automated PDF cataloging.
+                </p>
+              </div>
+            </div>
+
+            <hr class="showcase-divider" />
+
+            <!-- Impact Stats Bar -->
+            <div class="showcase-stats-grid">
+              
+              <div class="showcase-stat-card">
+                <div class="stat-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="stat-data">
+                  <span class="stat-num stat-num-1">+120%</span>
+                  <span class="stat-lbl stat-lbl-1">Publications</span>
+                </div>
+              </div>
+
+              <div class="showcase-stat-card">
+                <div class="stat-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </div>
+                <div class="stat-data">
+                  <span class="stat-num stat-num-2">+85%</span>
+                  <span class="stat-lbl stat-lbl-2">Query Speed</span>
+                </div>
+              </div>
+
+              <div class="showcase-stat-card">
+                <div class="stat-badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                </div>
+                <div class="stat-data">
+                  <span class="stat-num stat-num-3">35+</span>
+                  <span class="stat-lbl stat-lbl-3">Institutions</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <!-- Left: Project detail (bottom half) -->
-        <div class="project-info-col-bottom">
-          <div class="tech-statement">
-            <span class="tech-statement-icon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#85BD56" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="8 6 2 12 8 18" />
-                <polyline points="16 6 22 12 16 18" />
-              </svg>
-            </span>
-            <p class="tech-statement-text">
-              Built using <strong>HTML</strong>, <strong>PHP</strong> & <strong>MySQL</strong>.
-            </p>
+        <!-- Bottom Footer Bar: Technologies Used + Live Button -->
+        <div class="showcase-bottom-bar">
+          <div class="tech-section-wrap">
+            <span class="tech-label-heading">Technologies Used</span>
+            <div class="tech-pill-container">
+              <div class="tech-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E44D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>HTML5</span>
+              </div>
+              <div class="tech-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#777BB4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="6"/></svg>
+                <span>PHP</span>
+              </div>
+              <div class="tech-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00758F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                <span>MySQL</span>
+              </div>
+              <div class="tech-pill">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#005571" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span>Elasticsearch</span>
+              </div>
+            </div>
           </div>
 
-          <div class="project-actions">
-            <button type="button" class="btn-primary">
-              <span>View Live Experience</span>
-              <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
-                <circle cx="2" cy="2" r="1.2" fill="white" />
-                <circle cx="5" cy="4.5" r="1.2" fill="white" />
-                <circle cx="8" cy="7" r="1.2" fill="white" />
-                <circle cx="5" cy="9.5" r="1.2" fill="white" />
-                <circle cx="2" cy="12" r="1.2" fill="white" />
-              </svg>
-            </button>
-          </div>
+          <a href="https://estic.dst.gov.in/" target="_blank" rel="noopener noreferrer" class="btn-live-experience-green preview-live-btn">
+            <span>View Live Experience</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
         </div>
 
       </div>

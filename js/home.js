@@ -629,29 +629,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectsData = [
     {
       id: 'estic',
-      pillText: 'NATIONAL SCIENCE & TECHNOLOGY PORTAL',
       title: 'ESTIC DST',
-      subtitle: 'Science & Technology Portal',
       description: 'A unified national scientific database and portal that aggregates, catalogs, and indexes research publications, patents, and S&T metrics across Indian institutions.',
-      features: [
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>',
-          title: 'Unified Database',
-          desc: 'Aggregates national research, patents & S&T metrics'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-          title: 'Smart Discovery',
-          desc: 'ElasticSearch powered query nodes for fast and accurate results'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>',
-          title: 'Automated Cataloging',
-          desc: 'Automated PDF cataloging for efficient indexing & retrieval'
-        }
+      solutionTitle: 'The Solution',
+      solutionText: 'Built a high-performance portal linking major national research databases, integrating Elasticsearch query nodes, and implementing automated PDF cataloging.',
+      stats: [
+        { num: '+120%', lbl: 'Publications', icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>' },
+        { num: '+85%', lbl: 'Query Speed', icon: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline>' },
+        { num: '35+', lbl: 'Institutions', icon: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>' }
       ],
-      coreSolutionText: '',
-      techStatement: 'Built using <strong>HTML</strong>, <strong>PHP</strong> & <strong>MySQL</strong>.',
+      techPills: [
+        { name: 'HTML5', stroke: '#E44D26', svg: '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>' },
+        { name: 'PHP', stroke: '#777BB4', svg: '<ellipse cx="12" cy="12" rx="10" ry="6"/>' },
+        { name: 'MySQL', stroke: '#00758F', svg: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>' },
+        { name: 'Elasticsearch', stroke: '#005571', svg: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>' }
+      ],
       liveUrl: 'https://estic.dst.gov.in/',
       displayUrl: 'estic.dst.gov.in/',
       screenshot: './assets/home/estic_screenshot.png',
@@ -659,29 +651,21 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'panfish',
-      pillText: 'SAP CONSULTING PLATFORM',
       title: 'PANFISH',
-      subtitle: 'B2B Enterprise Site',
       description: 'A B2B enterprise site for PANFISH, part of UNIORG (an SAP Gold Partner since 1974), presenting SAP S/4HANA Cloud, BTP, and Business One consulting services.',
-      features: [
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>',
-          title: 'Product Suites',
-          desc: 'Showcasing ChronoScope, UDINA, and UBOTT'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
-          title: 'SAP Implementation',
-          desc: 'Structured service pages for core solutions'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-          title: 'Managed Support',
-          desc: 'Staff augmentation and support engagements'
-        }
+      solutionTitle: 'The Solution',
+      solutionText: 'Designed a scalable enterprise web portal showcasing ChronoScope, UDINA, and UBOTT product suites with structured SAP consulting service workflows.',
+      stats: [
+        { num: '+150%', lbl: 'Lead Volume', icon: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline>' },
+        { num: '+95%', lbl: 'Uptime', icon: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline>' },
+        { num: '50+', lbl: 'SAP Clients', icon: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>' }
       ],
-      coreSolutionText: '',
-      techStatement: 'Built using React.',
+      techPills: [
+        { name: 'React', stroke: '#61DAFB', svg: '<circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/>' },
+        { name: 'Next.js', stroke: '#000000', svg: '<circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M15 15V9"/>' },
+        { name: 'Tailwind CSS', stroke: '#38BDF8', svg: '<path d="M12 4.5C7 4.5 3.5 7.5 3.5 10.5c0 4 5.5 4.5 5.5 7 0 1.5-1.5 2.5-3.5 2.5"/>' },
+        { name: 'Node.js', stroke: '#339933', svg: '<path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/>' }
+      ],
       liveUrl: 'https://panfish.tech/',
       displayUrl: 'panfish.tech/',
       screenshot: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fpanfish.tech%2F?w=1200&h=800',
@@ -689,29 +673,21 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'cacm2026',
-      pillText: 'CONFERENCE PORTAL',
       title: 'CACM-2026',
-      subtitle: 'Event Microsite',
       description: 'An event microsite for the Conference on Advanced Carbon Materials, hosted by The Indian Carbon Society — Hyderabad Chapter.',
-      features: [
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>',
-          title: 'Program Schedules',
-          desc: 'Speaker details and event timelines'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>',
-          title: 'Registration',
-          desc: 'Workflows for ticketing and call-for-papers'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
-          title: 'Sponsor Showcases',
-          desc: 'Exhibitor portals and venue details'
-        }
+      solutionTitle: 'The Solution',
+      solutionText: 'Built a high-speed event portal featuring automated abstract submission, speaker timelines, ticketing workflows, and sponsor showcases.',
+      stats: [
+        { num: '500+', lbl: 'Delegates', icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle>' },
+        { num: '100+', lbl: 'Papers', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>' },
+        { num: '20+', lbl: 'Sponsors', icon: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>' }
       ],
-      coreSolutionText: '',
-      techStatement: 'Built using React.',
+      techPills: [
+        { name: 'HTML5', stroke: '#E44D26', svg: '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>' },
+        { name: 'CSS3', stroke: '#1572B6', svg: '<path d="M12 2L2 7l10 5 10-5-10-5z"/>' },
+        { name: 'JavaScript', stroke: '#F7DF1E', svg: '<rect x="3" y="3" width="18" height="18" rx="2"/>' },
+        { name: 'PHP', stroke: '#777BB4', svg: '<ellipse cx="12" cy="12" rx="10" ry="6"/>' }
+      ],
       liveUrl: 'https://www.cacm2026.com/',
       displayUrl: 'cacm2026.com/',
       screenshot: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.cacm2026.com%2F?w=1200&h=800',
@@ -719,29 +695,20 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'creaprojects',
-      pillText: 'ARCHITECTURE STUDIO',
       title: 'Crea Projects',
-      subtitle: 'Portfolio Showcase',
-      description: 'A portfolio site for Crea Projects, a design studio spanning residential, commercial, hospitality, and institutional work.',
-      features: [
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>',
-          title: 'Visual Storytelling',
-          desc: 'Image-led portfolio experience'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
-          title: 'Signature Projects',
-          desc: 'Highlights like Oceanique and Ente Keralam'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-          title: 'Craftsmanship',
-          desc: 'Blending traditional with contemporary design'
-        }
+      description: 'A portfolio site for Crea Projects, a design studio spanning residential, commercial, hospitality, and institutional architecture.',
+      solutionTitle: 'The Solution',
+      solutionText: 'Created a high-impact, visual-first portfolio architecture celebrating signature projects like Oceanique and Ente Keralam with fluid motion transitions.',
+      stats: [
+        { num: '100+', lbl: 'Projects', icon: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>' },
+        { num: '20+', lbl: 'Years Exp', icon: '<circle cx="12" cy="12" r="10"></circle>' },
+        { num: '+200%', lbl: 'Inquiries', icon: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>' }
       ],
-      coreSolutionText: '',
-      techStatement: 'Built using React.',
+      techPills: [
+        { name: 'React', stroke: '#61DAFB', svg: '<circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/>' },
+        { name: 'Tailwind CSS', stroke: '#38BDF8', svg: '<path d="M12 4.5C7 4.5 3.5 7.5 3.5 10.5c0 4 5.5 4.5 5.5 7 0 1.5-1.5 2.5-3.5 2.5"/>' },
+        { name: 'GSAP', stroke: '#88CE02', svg: '<polygon points="12 2 2 7 12 12 22 7 12 2"/>' }
+      ],
       liveUrl: 'https://creaprojects.in/',
       displayUrl: 'creaprojects.in/',
       screenshot: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fcreaprojects.in%2F?w=1200&h=800',
@@ -749,29 +716,20 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'sherwood',
-      pillText: 'EDUCATIONAL INSTITUTION',
-      title: 'Sherwood',
-      subtitle: 'School Website & Portal',
+      title: 'Sherwood Public School',
       description: 'The official site for Sherwood Public School, an ICSE/ISC institution serving Nursery through Class XII since 1984.',
-      features: [
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
-          title: 'Admissions Portal',
-          desc: 'Streamlined enquiries for new students'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
-          title: 'Campus Life',
-          desc: 'Highlights of academics, events, and gallery'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-          title: 'Activity-Based',
-          desc: 'Showcasing a stress-free curriculum'
-        }
+      solutionTitle: 'The Solution',
+      solutionText: 'Developed a streamlined admissions portal and digital campus showcase enabling seamless enquiry workflows and interactive parent communications.',
+      stats: [
+        { num: '1000+', lbl: 'Students', icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle>' },
+        { num: '40+', lbl: 'Years Legacy', icon: '<circle cx="12" cy="12" r="10"></circle>' },
+        { num: '100%', lbl: 'Pass Rate', icon: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>' }
       ],
-      coreSolutionText: '',
-      techStatement: 'Built using React.',
+      techPills: [
+        { name: 'HTML5', stroke: '#E44D26', svg: '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>' },
+        { name: 'PHP', stroke: '#777BB4', svg: '<ellipse cx="12" cy="12" rx="10" ry="6"/>' },
+        { name: 'MySQL', stroke: '#00758F', svg: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>' }
+      ],
       liveUrl: 'https://sherwoodpublicschool.edu.in/',
       displayUrl: 'sherwoodpublicschool.edu.in/',
       screenshot: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fsherwoodpublicschool.edu.in%2F?w=1200&h=800',
@@ -779,29 +737,20 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'accel1',
-      pillText: 'CLIMATE INTELLIGENCE',
       title: 'Accel1',
-      subtitle: 'Sustainability Platforms',
       description: 'A climate-tech marketing site for Accel1, presenting an integrated suite of AI-driven sustainability platforms.',
-      features: [
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>',
-          title: 'Water Intelligence',
-          desc: 'HydroTRACE and monitoring systems'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
-          title: 'ESG Data Automation',
-          desc: 'BioFORGE and compliance automation tools'
-        },
-        {
-          icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#253F2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-          title: 'Early-Warning',
-          desc: 'AccelTRACK and AtmosPOD systems'
-        }
+      solutionTitle: 'The Solution',
+      solutionText: 'Architected a modern ESG data hub showcasing HydroTRACE, BioFORGE, and AccelTRACK with interactive real-time early warning telemetry previews.',
+      stats: [
+        { num: '10M+', lbl: 'Data Nodes', icon: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>' },
+        { num: '99.9%', lbl: 'Accuracy', icon: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>' },
+        { num: '15+', lbl: 'Platforms', icon: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>' }
       ],
-      coreSolutionText: '',
-      techStatement: 'Built using React.',
+      techPills: [
+        { name: 'React', stroke: '#61DAFB', svg: '<circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/>' },
+        { name: 'Next.js', stroke: '#000000', svg: '<circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M15 15V9"/>' },
+        { name: 'Tailwind CSS', stroke: '#38BDF8', svg: '<path d="M12 4.5C7 4.5 3.5 7.5 3.5 10.5c0 4 5.5 4.5 5.5 7 0 1.5-1.5 2.5-3.5 2.5"/>' }
+      ],
       liveUrl: 'https://www.accel1.com/',
       displayUrl: 'accel1.com/',
       screenshot: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.accel1.com%2F?w=1200&h=800',
@@ -812,82 +761,86 @@ document.addEventListener('DOMContentLoaded', () => {
   if (featuredSec) {
     let activeIndex = 0;
 
-    const projectPillEl = featuredSec.querySelector('.project-info-col-top .project-pill');
-    const projectPillTextEl = featuredSec.querySelector('.project-info-col-top .project-pill-text');
-    const projectSubtitleEl = featuredSec.querySelector('.project-info-col-top .project-subtitle');
-    const projectFeaturesGridEl = featuredSec.querySelector('.project-info-col-top .project-features-grid');
-    const coreSolutionBoxEl = featuredSec.querySelector('.core-solution-box');
-    const projectTitleEl = featuredSec.querySelector('.project-info-col-top .project-title');
-    const projectDescEl = featuredSec.querySelector('.project-info-col-top .project-description');
-    const solutionTextEl = featuredSec.querySelector('.core-solution-box .core-solution-text');
-    const addressBarTextEl = featuredSec.querySelector('.browser-address-bar span');
-    const scrollContainerEl = featuredSec.querySelector('.browser-content-scrollable');
-    const techStatementEl = featuredSec.querySelector('.project-info-col-bottom .tech-statement-text');
+    const projectTitleEl = featuredSec.querySelector('.showcase-project-title');
+    const projectDescEl = featuredSec.querySelector('.showcase-project-description');
+    const solutionHeadingEl = featuredSec.querySelector('.solution-card-heading');
+    const solutionTextEl = featuredSec.querySelector('.solution-card-text');
+    const statsGridEl = featuredSec.querySelector('.showcase-stats-grid');
+    const techContainerEl = featuredSec.querySelector('.tech-pill-container');
+    const addressBarTextEl = featuredSec.querySelector('.showcase-address-url');
+    const scrollContainerEl = featuredSec.querySelector('.showcase-browser-content');
+    const viewLiveBtn = featuredSec.querySelector('.btn-live-experience-green');
     
     const dotsContainer = featuredSec.querySelector('.featured-carousel-dots');
     const prevBtn = featuredSec.querySelector('.featured-nav-btn.prev');
     const nextBtn = featuredSec.querySelector('.featured-nav-btn.next');
-    const viewLiveBtn = featuredSec.querySelector('.btn-primary');
 
     const updateProjectDisplay = () => {
       const activeProj = projectsData[activeIndex];
 
-      // Update conditionally rendered elements for ESTIC layout
-      if (activeProj.pillText) {
-        projectPillTextEl.textContent = activeProj.pillText;
-        projectPillEl.style.display = 'inline-flex';
-      } else {
-        projectPillEl.style.display = 'none';
-      }
+      // Update text fields
+      if (projectTitleEl) projectTitleEl.textContent = activeProj.title;
+      if (projectDescEl) projectDescEl.textContent = activeProj.description;
+      if (solutionHeadingEl) solutionHeadingEl.textContent = activeProj.solutionTitle || 'The Solution';
+      if (solutionTextEl) solutionTextEl.textContent = activeProj.solutionText;
 
-      if (activeProj.subtitle) {
-        projectSubtitleEl.textContent = activeProj.subtitle;
-        projectSubtitleEl.style.display = 'block';
-      } else {
-        projectSubtitleEl.style.display = 'none';
-      }
-
-      if (activeProj.features && activeProj.features.length > 0) {
-        projectFeaturesGridEl.innerHTML = activeProj.features.map(f => `
-          <div class="feature-card">
-            <div class="feature-icon">${f.icon}</div>
-            <div class="feature-content">
-              <h5 class="feature-title">${f.title}</h5>
-              <p class="feature-desc">${f.desc}</p>
+      // Update Stats Grid
+      if (statsGridEl && activeProj.stats) {
+        statsGridEl.innerHTML = activeProj.stats.map(s => `
+          <div class="showcase-stat-card">
+            <div class="stat-badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                ${s.icon}
+              </svg>
+            </div>
+            <div class="stat-data">
+              <span class="stat-num">${s.num}</span>
+              <span class="stat-lbl">${s.lbl}</span>
             </div>
           </div>
         `).join('');
-        projectFeaturesGridEl.style.display = 'grid';
-        coreSolutionBoxEl.style.display = 'none';
-      } else {
-        projectFeaturesGridEl.style.display = 'none';
-        coreSolutionBoxEl.style.display = 'block';
-        solutionTextEl.textContent = activeProj.coreSolutionText;
       }
 
-      // Update text fields
-      projectTitleEl.textContent = activeProj.title;
-      projectDescEl.textContent = activeProj.description;
-      addressBarTextEl.textContent = activeProj.displayUrl;
-      techStatementEl.innerHTML = activeProj.techStatement;
-
-      // Update mock content
-      scrollContainerEl.innerHTML = '';
-      if (activeProj.useIframe) {
-        const iframe = document.createElement('iframe');
-        iframe.src = activeProj.liveUrl;
-        iframe.title = activeProj.title;
-        iframe.className = 'browser-scroll-iframe';
-        scrollContainerEl.appendChild(iframe);
-      } else {
-        const img = document.createElement('img');
-        img.src = activeProj.screenshot;
-        img.alt = activeProj.title;
-        img.className = 'browser-scroll-image';
-        scrollContainerEl.appendChild(img);
+      // Update Tech Pills
+      if (techContainerEl && activeProj.techPills) {
+        techContainerEl.innerHTML = activeProj.techPills.map(t => `
+          <div class="tech-pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="${t.stroke || '#85BD56'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              ${t.svg}
+            </svg>
+            <span>${t.name}</span>
+          </div>
+        `).join('');
       }
 
-      // Update carousel dots
+      // Update Address Bar & Live CTA Button
+      if (addressBarTextEl) addressBarTextEl.textContent = activeProj.displayUrl;
+      if (viewLiveBtn) {
+        viewLiveBtn.setAttribute('href', activeProj.liveUrl);
+        viewLiveBtn.setAttribute('data-id', activeProj.id);
+        viewLiveBtn.setAttribute('data-url', activeProj.liveUrl);
+        viewLiveBtn.setAttribute('data-domain', activeProj.displayUrl);
+      }
+
+      // Update Screenshot / Mock Content
+      if (scrollContainerEl) {
+        scrollContainerEl.innerHTML = '';
+        if (activeProj.useIframe) {
+          const iframe = document.createElement('iframe');
+          iframe.src = activeProj.liveUrl;
+          iframe.title = activeProj.title;
+          iframe.className = 'browser-scroll-iframe';
+          scrollContainerEl.appendChild(iframe);
+        } else {
+          const img = document.createElement('img');
+          img.src = activeProj.screenshot;
+          img.alt = activeProj.title;
+          img.className = 'browser-scroll-image';
+          scrollContainerEl.appendChild(img);
+        }
+      }
+
+      // Update Carousel Dots
       const dots = dotsContainer.querySelectorAll('.featured-dot');
       dots.forEach((dot, idx) => {
         dot.classList.toggle('active', idx === activeIndex);
@@ -958,13 +911,27 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
       };
 
-      viewLiveBtn.addEventListener('click', openOverlay);
-      closeBtn.addEventListener('click', closeOverlay);
-      previewOverlay.addEventListener('click', closeOverlay);
+      if (viewLiveBtn) {
+        viewLiveBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openOverlay();
+        });
+      }
 
-      previewOverlay.querySelector('.live-preview-window').addEventListener('click', (e) => {
-        e.stopPropagation();
-      });
+      const darkFrame = featuredSec.querySelector('.showcase-dark-frame');
+      if (darkFrame) {
+        darkFrame.addEventListener('click', openOverlay);
+      }
+
+      if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
+      if (previewOverlay) previewOverlay.addEventListener('click', closeOverlay);
+
+      const previewWindow = previewOverlay.querySelector('.live-preview-window');
+      if (previewWindow) {
+        previewWindow.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && previewOverlay.style.display === 'flex') {
