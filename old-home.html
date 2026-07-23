@@ -601,7 +601,7 @@
               <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
               <circle cx="2" cy="12" r="1.2" fill="#69686E" />
             </svg>
-            <span>FEATURED PROJECTS</span>
+            <span>Featured Projects</span>
             <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
               <circle cx="8" cy="2" r="1.2" fill="#69686E" />
               <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
@@ -621,7 +621,7 @@
         </div>
       </div>
 
-      <!-- Main container card holding the project details and preview -->
+      <!-- Main container card holding the project details and preview (Image 1 Layout) -->
       <div class="featured-project-card-frame">
         
         <!-- Top Showcase: Left Device Frame Preview + Right Details & Solution & Stats -->
@@ -783,8 +783,45 @@
     </div>
   </section>
 
+  <!-- Live Experience full browser modal preview -->
+  <div class="live-preview-overlay" style="display: none;">
+    <div class="live-preview-window">
+      <div class="live-preview-topbar">
+        <div class="live-preview-address-bar">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <span class="live-preview-url">estic.dst.gov.in/</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17 17 7M8 7h9v9" />
+          </svg>
+          <span class="live-preview-status-dot"></span>
+        </div>
 
+        <a href="" target="_blank" rel="noopener noreferrer" class="live-preview-open-btn">
+          <span>Open Website</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17 17 7M8 7h9v9" />
+          </svg>
+        </a>
 
+        <div class="live-preview-traffic-lights">
+          <span class="traffic-dot traffic-green"></span>
+          <span class="traffic-dot traffic-yellow"></span>
+          <button type="button" class="traffic-dot traffic-red" aria-label="Close preview">
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#7F1D1D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="live-preview-body">
+        <!-- Live iframe injected here -->
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== GLOBAL PRESENCE ==================== -->
   <section class="presence-section" id="presence">

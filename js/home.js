@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      // Reveal every section and footer as it scrolls in
-      const revealTargets = gsap.utils.toArray('section, footer');
+      // Reveal every section and footer as it scrolls in (excluding services section which has sticky cards)
+      const revealTargets = gsap.utils.toArray('section, footer').filter(el => !el.classList.contains('services-section') && el.id !== 'services' && !el.querySelector('.services-row'));
       revealTargets.forEach(el => {
+        // Slide-up + fade for every other section.
         gsap.fromTo(el,
           { autoAlpha: 0, y: 56 },
           {
@@ -27,30 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
       });
 
-      // SplitText Reveal Emulator for Heading Elements (h1, h2)
-      const textRevealTargets = gsap.utils.toArray('h1, h2');
-      textRevealTargets.forEach(heading => {
-        // Skip headings inside specific dynamic templates/carousels if needed
-        if (heading.closest('.video-card') || heading.closest('.live-preview-window')) return;
 
-        splitTextIntoRevealLines(heading);
-
-        const revealLines = heading.querySelectorAll('.text-reveal-line');
-        if (revealLines.length > 0) {
-          gsap.from(revealLines, {
-            yPercent: 110,
-            opacity: 0,
-            duration: 0.9,
-            ease: 'power3.out',
-            stagger: 0.08,
-            scrollTrigger: {
-              trigger: heading,
-              start: 'top 88%',
-              once: true,
-            }
-          });
-        }
-      });
     } else {
       // Fallback for reduced motion
       gsap.set('section, footer', { autoAlpha: 1, y: 0 });
@@ -535,13 +513,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const servicesSec = document.getElementById('services');
   if (servicesSec) {
     const cards = Array.from(servicesSec.querySelectorAll('.services-row'));
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    let lastActiveIndex = null;
+
+    // Read the computed CSS `top` for every card — matches React's updateStickyTops().
     let stickyTops = [];
 
     const updateStickyTops = () => {
       const isMobile = window.innerWidth <= 960;
-      stickyTops = cards.map(card => {
+      stickyTops = cards.map((card) => {
         const computedTop = parseFloat(window.getComputedStyle(card).top);
-        if (!isNaN(computedTop)) return computedTop;
+        if (!isNaN(computedTop)) {
+          return computedTop;
+        }
         return isMobile ? 60 : 100;
       });
     };
@@ -552,16 +536,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateCards = () => {
       const isMobile = window.innerWidth <= 960;
 
+      // On mobile, disable the scale-down stacking animation entirely — the cards
+      // simply slide over one another via sticky positioning, matching the React build.
       if (isMobile) {
-        cards.forEach(card => {
-          card.style.transform = '';
-          card.style.backgroundColor = '';
+        cards.forEach((card) => {
+          if (card.style.transform !== '') card.style.transform = '';
+          if (card.style.filter !== '') card.style.filter = '';
+          if (card.style.backgroundColor !== '') card.style.backgroundColor = '';
           card.classList.remove('is-active');
         });
         requestAnimationFrame(animateCards);
         return;
       }
 
+      // Desktop: determine which card is currently pinned
       let currentActiveIndex = null;
       cards.forEach((card, index) => {
         const rect = card.getBoundingClientRect();
@@ -581,23 +569,43 @@ document.addEventListener('DOMContentLoaded', () => {
           card.classList.remove('is-active');
         }
 
+        // Adding 10px tolerance for subpixel render scaling
         if (rect.top <= stickyTop + 10) {
           let progress = 0;
+
           if (index < cards.length - 1) {
             const nextCard = cards[index + 1];
             const nextRect = nextCard.getBoundingClientRect();
+
             const overlap = stickyTop + rect.height - nextRect.top;
             progress = Math.max(0, Math.min(overlap / rect.height, 1));
           }
 
           const scale = 1 - (progress * 0.06);
+
           card.style.transform = `scale(${scale})`;
+          card.style.filter = '';
           card.style.backgroundColor = '#FFF';
         } else {
           card.style.transform = 'scale(1)';
+          card.style.filter = '';
           card.style.backgroundColor = '#FFF';
         }
       });
+
+      // On touch devices there is no hover, so the pinned card drives its video.
+      if (!canHover && currentActiveIndex !== lastActiveIndex) {
+        cards.forEach((card, index) => {
+          const video = card.querySelector('video');
+          if (!video) return;
+          if (index === currentActiveIndex) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+        lastActiveIndex = currentActiveIndex;
+      }
 
       requestAnimationFrame(animateCards);
     };
@@ -605,19 +613,21 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animateCards);
 
     // Play/Pause Services Video mockups on hover
-    cards.forEach(card => {
-      const video = card.querySelector('video');
-      if (video) {
-        card.addEventListener('mouseenter', () => {
-          video.currentTime = 0;
-          video.play().catch(() => {});
-        });
-        card.addEventListener('mouseleave', () => {
-          video.pause();
-          video.currentTime = 0;
-        });
-      }
-    });
+    if (canHover) {
+      cards.forEach(card => {
+        const video = card.querySelector('video');
+        if (video) {
+          card.addEventListener('mouseenter', () => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+          });
+          card.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 0;
+          });
+        }
+      });
+    }
   }
 
   /* ==========================================

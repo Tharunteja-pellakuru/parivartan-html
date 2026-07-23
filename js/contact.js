@@ -27,30 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
       });
 
-      // SplitText Reveal Emulator for Heading Elements (h1, h2)
-      const textRevealTargets = gsap.utils.toArray('h1, h2');
-      textRevealTargets.forEach(heading => {
-        // Skip headings inside specific dynamic templates/carousels if needed
-        if (heading.closest('.video-card') || heading.closest('.live-preview-window')) return;
 
-        splitTextIntoRevealLines(heading);
-
-        const revealLines = heading.querySelectorAll('.text-reveal-line');
-        if (revealLines.length > 0) {
-          gsap.from(revealLines, {
-            yPercent: 110,
-            opacity: 0,
-            duration: 0.9,
-            ease: 'power3.out',
-            stagger: 0.08,
-            scrollTrigger: {
-              trigger: heading,
-              start: 'top 88%',
-              once: true,
-            }
-          });
-        }
-      });
     } else {
       // Fallback for reduced motion
       gsap.set('section, footer', { autoAlpha: 1, y: 0 });
