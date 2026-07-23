@@ -6153,3 +6153,759 @@ button {
 .life-footer-parivar-link:hover .life-title-leaf {
   transform: rotate(15deg) scale(1.15);
 }
+
+/* ==================== 3D COVERFLOW CAROUSEL ==================== */
+.featured-section {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  margin-bottom: 96px;
+}
+
+.featured-container {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.featured-coverflow-stage {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.featured-coverflow-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-coverflow-card {
+  position: absolute;
+  width: 58vw;
+  max-width: 780px;
+  min-width: 320px;
+  transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1),
+              filter 0.55s ease;
+  will-change: transform, opacity, filter;
+  cursor: pointer;
+  user-select: none;
+}
+
+.coverflow-media-frame {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  overflow: visible;
+  background: transparent;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  transition: transform 0.4s ease;
+  border: none;
+  box-shadow: none;
+}
+
+.coverflow-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
+}
+
+.coverflow-card-details {
+  margin-top: 16px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coverflow-card-details .featured-card-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.coverflow-card-details .featured-tech-pill {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1F2937;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 12.5px;
+  padding: 5px 13px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.coverflow-card-details .featured-tech-pill .tech-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.coverflow-card-details .mobile-visit-btn {
+  margin-top: 12px;
+  background: #85BD56;
+  color: #FFFFFF !important;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 16px rgba(133, 189, 86, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+  pointer-events: auto !important;
+}
+
+.coverflow-card-details .mobile-visit-btn:hover {
+  background: #94cb63;
+  transform: scale(1.04);
+}
+
+/* Active Center Card */
+.featured-coverflow-card.active {
+  z-index: 10;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: none;
+}
+
+.featured-coverflow-card.active .coverflow-card-details {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.featured-coverflow-card.active .coverflow-media-frame {
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* Left Card (Prev 1) */
+.featured-coverflow-card.prev-1 {
+  z-index: 5;
+  opacity: 0.6;
+  transform: translateX(-48%) scale(0.8);
+  filter: blur(1.5px) brightness(0.85);
+}
+
+/* Right Card (Next 1) */
+.featured-coverflow-card.next-1 {
+  z-index: 5;
+  opacity: 0.6;
+  transform: translateX(48%) scale(0.8);
+  filter: blur(1.5px) brightness(0.85);
+}
+
+/* Far Left Card (Prev 2) */
+.featured-coverflow-card.prev-2 {
+  z-index: 2;
+  opacity: 0.25;
+  transform: translateX(-78%) scale(0.65);
+  filter: blur(3px) brightness(0.7);
+}
+
+/* Far Right Card (Next 2) */
+.featured-coverflow-card.next-2 {
+  z-index: 2;
+  opacity: 0.25;
+  transform: translateX(78%) scale(0.65);
+  filter: blur(3px) brightness(0.7);
+}
+
+/* Hidden Offstage Cards */
+.featured-coverflow-card.hidden-left {
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(-120%) scale(0.5);
+  pointer-events: none;
+}
+
+.featured-coverflow-card.hidden-right {
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(120%) scale(0.5);
+  pointer-events: none;
+}
+
+/* Navigation Arrow Buttons */
+.coverflow-nav-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #060612;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+}
+
+.coverflow-nav-btn.prev {
+  left: 24px;
+}
+
+.coverflow-nav-btn.next {
+  right: 24px;
+}
+
+.coverflow-nav-btn:hover {
+  background: #85BD56;
+  color: #FFFFFF;
+  border-color: #85BD56;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.featured-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Hover veil: blurs the artwork and reveals Visit the Website & Tech Stack Pills on hover */
+.featured-card-hover-veil {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(10, 11, 16, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  z-index: 25;
+  padding: 24px;
+}
+
+.hover-veil-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transform: translateY(12px) scale(0.96);
+  transition: transform 0.35s ease;
+  text-align: center;
+  width: 100%;
+}
+
+/* Hover Triggers */
+.featured-coverflow-card:hover .featured-card-hover-veil,
+.coverflow-media-frame:hover .featured-card-hover-veil {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.featured-coverflow-card:hover .hover-veil-content,
+.coverflow-media-frame:hover .hover-veil-content {
+  transform: translateY(0) scale(1);
+}
+
+.featured-card-view-btn {
+  background: #85BD56;
+  color: #FFFFFF !important;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(133, 189, 86, 0.35);
+  transition: all 0.3s ease;
+}
+
+.featured-card-view-btn:hover {
+  background: #94cb63;
+  color: #FFFFFF !important;
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(133, 189, 86, 0.45);
+}
+
+.featured-card-view-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.featured-card-view-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.hover-veil-content .featured-card-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.hover-veil-content .featured-tech-pill {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(4px);
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+}
+
+.hover-veil-content .featured-tech-pill .tech-icon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+}
+
+.featured-card-item:hover .featured-card-media-frame {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* `object-fit` is not an animatable property, so switching cover -> contain on
+   activation snapped the image the instant the class flipped, before the card
+   had begun to widen. Holding `contain` in both states lets the image ease
+   between sizes instead of jumping. */
+.featured-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.08));
+  transition: width var(--featured-ease-duration) var(--featured-ease),
+              height var(--featured-ease-duration) var(--featured-ease);
+}
+
+.featured-card-item.active .featured-card-img {
+  width: 95%;
+  height: 95%;
+}
+
+.featured-card-title {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  margin: 16px 0 10px 0;
+  /* Collapsed cards are only 240px wide, so long titles wrapped to two or three
+     lines. That made an inactive card the tallest item in the strip, and since
+     the flex row stretches every card to match, the active card's pills ended
+     far above the strip's bottom -- all of that slack showing up as a gap above
+     the dots. One line keeps the expanded card the tallest, so there is none. */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The expanded card is wide enough for the full title. */
+.featured-card-item.active .featured-card-title {
+  white-space: normal;
+  overflow: visible;
+}
+
+/* Tech pills belong to the expanded card only. `display` is animated as a
+   discrete property so the row can fade in yet still take up no space while
+   hidden -- otherwise every collapsed card reserves several wrapped rows of
+   empty height. Browsers without allow-discrete simply snap it in. */
+.featured-card-tech-pills {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.featured-coverflow-card.active .featured-card-tech-pills {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.featured-tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #F3F4F6;
+  border-radius: 100px;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.featured-tech-pill .tech-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.featured-cards-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  position: relative;
+  width: 100%;
+}
+
+.featured-cards-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.featured-cards-dots .dot-pill {
+  width: 28px;
+  height: 8px;
+  border-radius: 4px;
+  background: #85BD56;
+  transition: all 0.3s ease;
+}
+
+.featured-cards-dots .dot-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D1D5DB;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 960px) {
+  .featured-section {
+    margin-bottom: 72px;
+  }
+
+  .featured-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .featured-header-left,
+  .featured-header-right {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featured-tagline {
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .featured-title {
+    text-align: center;
+  }
+
+  .featured-description {
+    text-align: center;
+  }
+
+  .featured-coverflow-stage {
+    height: 480px;
+    margin-top: 24px;
+    padding: 10px 0 20px 0;
+    overflow: visible;
+  }
+
+  .featured-coverflow-card {
+    width: 78vw;
+    max-width: 520px;
+    min-width: 280px;
+  }
+
+  .featured-coverflow-card.prev-1 {
+    transform: translateX(-40%) scale(0.82);
+    opacity: 0.5;
+  }
+
+  .featured-coverflow-card.next-1 {
+    transform: translateX(40%) scale(0.82);
+    opacity: 0.5;
+  }
+
+  .featured-coverflow-card.prev-2 {
+    transform: translateX(-68%) scale(0.68);
+    opacity: 0.2;
+  }
+
+  .featured-coverflow-card.next-2 {
+    transform: translateX(68%) scale(0.68);
+    opacity: 0.2;
+  }
+
+  .coverflow-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .coverflow-nav-btn.prev {
+    left: 8px;
+  }
+
+  .coverflow-nav-btn.next {
+    right: 8px;
+  }
+
+  .featured-card-title {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .featured-cards-bottom-bar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-section {
+    margin-bottom: 56px;
+  }
+
+  .featured-coverflow-stage {
+    height: 430px;
+    margin-top: 16px;
+    padding-bottom: 10px;
+    overflow: visible;
+  }
+
+  .featured-coverflow-card {
+    width: 86vw;
+    min-width: 260px;
+  }
+
+  .featured-coverflow-card.prev-1 {
+    transform: translateX(-35%) scale(0.8);
+    opacity: 0.4;
+  }
+
+  .featured-coverflow-card.next-1 {
+    transform: translateX(35%) scale(0.8);
+    opacity: 0.4;
+  }
+
+  .coverflow-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .coverflow-nav-btn.prev {
+    left: 4px;
+  }
+
+  .coverflow-nav-btn.next {
+    right: 4px;
+  }
+
+  .coverflow-card-details {
+    margin-top: 10px;
+  }
+
+  .featured-card-title {
+    font-size: 15.5px;
+    margin-top: 6px;
+  }
+
+  .coverflow-card-details .featured-card-tech-pills {
+    margin-top: 6px;
+  }
+
+  .coverflow-card-details .mobile-visit-btn {
+    margin-top: 6px;
+    padding: 7px 16px;
+    font-size: 12px;
+  }
+
+  .featured-cards-bottom-bar {
+    display: none !important;
+  }
+}
+
+/* ==================== UNIFORM GLOBAL SECTION SPACING ==================== */
+.services-section,
+.featured-section,
+.presence-section,
+.testimonials-section,
+.faqs-section,
+.cta-section,
+.contact-section {
+  margin-bottom: 96px !important;
+}
+
+.services-container,
+.featured-container,
+.presence-container,
+.testimonials-container,
+.faqs-container,
+.cta-container,
+.contact-container {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+/* Tablet Uniform Section Spacing */
+@media (max-width: 960px) {
+  .services-section,
+  .featured-section,
+  .presence-section,
+  .testimonials-section,
+  .faqs-section,
+  .cta-section,
+  .contact-section {
+    margin-bottom: 48px !important;
+  }
+
+  .services-container,
+  .featured-container,
+  .presence-container,
+  .testimonials-container,
+  .faqs-container,
+  .cta-container,
+  .contact-container {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+
+  /* Specific Gap Reductions Between Services & Featured Section */
+  .services-section {
+    margin-bottom: 0px !important;
+  }
+
+  .services-container {
+    padding-bottom: 4px !important;
+  }
+
+  .featured-container {
+    padding-top: 4px !important;
+  }
+
+  .service-btn-container {
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Specific Gap Reduction Between Global Presence & Testimonials */
+  .presence-section {
+    margin-bottom: 0px !important;
+  }
+
+  .presence-container {
+    padding-bottom: 4px !important;
+  }
+
+  .testimonials-container {
+    padding-top: 4px !important;
+  }
+}
+
+/* Mobile Uniform Section Spacing */
+@media (max-width: 480px) {
+  .services-section,
+  .featured-section,
+  .presence-section,
+  .testimonials-section,
+  .faqs-section,
+  .cta-section,
+  .contact-section {
+    margin-bottom: 36px !important;
+  }
+
+  .services-container,
+  .featured-container,
+  .presence-container,
+  .testimonials-container,
+  .faqs-container,
+  .cta-container,
+  .contact-container {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  /* Specific Gap Reductions Between Services & Featured Section */
+  .services-section {
+    margin-bottom: 0px !important;
+  }
+
+  .services-container {
+    padding-bottom: 0px !important;
+  }
+
+  .featured-container {
+    padding-top: 0px !important;
+  }
+
+  .service-btn-container {
+    margin-top: 4px !important;
+    margin-bottom: 0px !important;
+  }
+
+  /* Specific Gap Reduction Between Global Presence & Testimonials */
+  .presence-section {
+    margin-bottom: 0px !important;
+  }
+
+  .presence-container {
+    padding-bottom: 0px !important;
+  }
+
+  .testimonials-container {
+    padding-top: 0px !important;
+  }
+}

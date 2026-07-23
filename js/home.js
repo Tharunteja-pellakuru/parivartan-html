@@ -768,7 +768,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  if (featuredSec) {
+  // The old showcase markup (dots + prev/next nav) was replaced by the cards
+  // carousel further down, so these are normally absent. They must still be
+  // declared -- referencing them undeclared throws and kills the rest of this
+  // handler.
+  const dotsContainer = featuredSec ? featuredSec.querySelector('.featured-carousel-dots') : null;
+  const prevBtn = featuredSec ? featuredSec.querySelector('.featured-nav-btn.prev') : null;
+  const nextBtn = featuredSec ? featuredSec.querySelector('.featured-nav-btn.next') : null;
+
+  if (featuredSec && dotsContainer && prevBtn && nextBtn) {
     let activeIndex = 0;
 
     const projectTitleEl = featuredSec.querySelector('.showcase-project-title');
@@ -780,10 +788,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const addressBarTextEl = featuredSec.querySelector('.showcase-address-url');
     const scrollContainerEl = featuredSec.querySelector('.showcase-browser-content');
     const viewLiveBtn = featuredSec.querySelector('.btn-live-experience-green');
-    
-    const dotsContainer = featuredSec.querySelector('.featured-carousel-dots');
-    const prevBtn = featuredSec.querySelector('.featured-nav-btn.prev');
-    const nextBtn = featuredSec.querySelector('.featured-nav-btn.next');
 
     const updateProjectDisplay = () => {
       const activeProj = projectsData[activeIndex];
@@ -851,10 +855,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Update Carousel Dots
-      const dots = dotsContainer.querySelectorAll('.featured-dot');
-      dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === activeIndex);
-      });
+      if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.featured-dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === activeIndex);
+        });
+      }
     };
 
     // Render Dot Navigation Elements
@@ -1457,5 +1463,114 @@ document.addEventListener('DOMContentLoaded', () => {
         </table>
       </div>`;
     }
+  }
+
+  // ==================== 3D COVERFLOW CAROUSEL JS ====================
+  const coverflowTrack = document.getElementById('featuredCoverflowTrack');
+  const coverflowPrevBtn = document.getElementById('coverflowPrevBtn');
+  const coverflowNextBtn = document.getElementById('coverflowNextBtn');
+  const coverflowDots = document.getElementById('featuredCardsDots');
+
+  if (coverflowTrack) {
+    const cards = Array.from(coverflowTrack.querySelectorAll('.featured-coverflow-card'));
+    const totalCards = cards.length;
+    let activeIdx = 0;
+
+    const updateCoverflowState = () => {
+      cards.forEach((card, idx) => {
+        card.className = 'featured-coverflow-card';
+
+        let diff = idx - activeIdx;
+
+        // Circular wrap-around for infinite carousel loop
+        if (diff > totalCards / 2) diff -= totalCards;
+        if (diff < -totalCards / 2) diff += totalCards;
+
+        if (diff === 0) {
+          card.classList.add('active');
+        } else if (diff === 1) {
+          card.classList.add('next-1');
+        } else if (diff === -1) {
+          card.classList.add('prev-1');
+        } else if (diff === 2) {
+          card.classList.add('next-2');
+        } else if (diff === -2) {
+          card.classList.add('prev-2');
+        } else if (diff > 2) {
+          card.classList.add('hidden-right');
+        } else {
+          card.classList.add('hidden-left');
+        }
+      });
+
+      if (coverflowDots) {
+        const dots = coverflowDots.querySelectorAll('span');
+        dots.forEach((dot, idx) => {
+          if (idx === activeIdx) {
+            dot.className = 'dot-pill active';
+          } else {
+            dot.className = 'dot-circle';
+          }
+        });
+      }
+    };
+
+    const goToCard = (index) => {
+      activeIdx = (index + totalCards) % totalCards;
+      updateCoverflowState();
+    };
+
+    if (coverflowNextBtn) {
+      coverflowNextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToCard(activeIdx + 1);
+      });
+    }
+
+    if (coverflowPrevBtn) {
+      coverflowPrevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToCard(activeIdx - 1);
+      });
+    }
+
+    if (coverflowDots) {
+      const dots = coverflowDots.querySelectorAll('span');
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', (e) => {
+          e.preventDefault();
+          goToCard(idx);
+        });
+      });
+    }
+
+    // Allow clicking side cards to bring them to center
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', (e) => {
+        if (!card.classList.contains('active')) {
+          e.preventDefault();
+          goToCard(idx);
+        }
+      });
+    });
+
+    // Touch Swipe support
+    let touchStartX = 0;
+
+    coverflowTrack.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    coverflowTrack.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 40) {
+        goToCard(activeIdx + 1);
+      } else if (touchEndX - touchStartX > 40) {
+        goToCard(activeIdx - 1);
+      }
+    }, { passive: true });
+
+    // Initial render
+    updateCoverflowState();
   }
 });

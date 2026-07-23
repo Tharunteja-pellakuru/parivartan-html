@@ -621,163 +621,237 @@
         </div>
       </div>
 
-      <!-- Main container card holding the project details and preview -->
-      <div class="featured-project-card-frame">
-        
-        <!-- Top Showcase: Left Device Frame Preview + Right Details & Solution & Stats -->
-        <div class="showcase-top-grid">
+      <!-- 3D Coverflow Stage -->
+      <div class="featured-coverflow-stage" id="featuredCoverflowStage">
+        <div class="featured-coverflow-track" id="featuredCoverflowTrack">
           
-          <!-- Left Column: Dark Device Preview Screen Frame -->
-          <div class="showcase-visual-col">
-            <div class="showcase-dark-frame">
-              <div class="showcase-browser-topbar">
-                <div class="browser-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
+          <!-- Card 1: Sherwood Public School -->
+          <div class="featured-coverflow-card active" data-index="0">
+            <div class="coverflow-media-frame">
+              <img src="./assets/home/Featured/sherwood.png" alt="Sherwood Public School" class="coverflow-img" />
+              <div class="featured-card-hover-veil">
+                <div class="hover-veil-content">
+                  <a class="featured-card-view-btn" href="https://sherwoodpublicschool.in/" target="_blank" rel="noopener noreferrer">
+                    Visit the Website
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
+                  <div class="featured-card-tech-pills">
+                    <span class="featured-tech-pill"><img src="./assets/home/images/React.svg" alt="React" class="tech-icon" /> React</span>
+                  </div>
                 </div>
-                <div class="browser-address-bar">
-                  <svg width="10" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lock-icon">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                  <span class="showcase-address-url">estic.dst.gov.in/</span>
-                </div>
-              </div>
-              <div class="showcase-browser-content browser-content-scrollable">
-                <img src="./assets/home/estic_screenshot.png" alt="ESTIC DST Screenshot" class="browser-scroll-image" />
               </div>
             </div>
-          </div>
-
-          <!-- Right Column: Details, Solution Box, Divider, Impact Stats -->
-          <div class="showcase-details-col">
-            
-            <h3 class="showcase-project-title">ESTIC DST</h3>
-            
-            <p class="showcase-project-description">
-              A unified national scientific database and portal that aggregates, catalogs, and indexes research publications, patents, and S&T metrics across Indian institutions.
-            </p>
-
-            <!-- Solution Card Box -->
-            <div class="showcase-solution-card">
-              <div class="solution-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <circle cx="12" cy="12" r="6"></circle>
-                  <circle cx="12" cy="12" r="2"></circle>
+            <div class="coverflow-card-details">
+              <h3 class="featured-card-title">Sherwood Public School</h3>
+              <div class="featured-card-tech-pills">
+                <span class="featured-tech-pill"><img src="./assets/home/images/React.svg" alt="React" class="tech-icon" /> React</span>
+              </div>
+              <a class="featured-card-view-btn mobile-visit-btn" href="https://sherwoodpublicschool.in/" target="_blank" rel="noopener noreferrer">
+                Visit the Website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
                 </svg>
-              </div>
-              <div class="solution-content-wrap">
-                <h4 class="solution-card-heading">The Solution</h4>
-                <p class="solution-card-text">
-                  Built a high-performance portal linking major national research databases, integrating Elasticsearch query nodes, and implementing automated PDF cataloging.
-                </p>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: ESTIC DST -->
+          <div class="featured-coverflow-card next-1" data-index="1">
+            <div class="coverflow-media-frame">
+              <img src="./assets/home/Featured/estic.png" alt="ESTIC DST" class="coverflow-img" />
+              <div class="featured-card-hover-veil">
+                <div class="hover-veil-content">
+                  <a class="featured-card-view-btn" href="https://estic.dst.gov.in/" target="_blank" rel="noopener noreferrer">
+                    Visit the Website
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
+                  <div class="featured-card-tech-pills">
+                    <span class="featured-tech-pill"><img src="./assets/home/images/PHP.svg" alt="PHP" class="tech-icon" /> PHP</span>
+                    <span class="featured-tech-pill"><img src="./assets/home/images/MySQL.svg" alt="MySQL" class="tech-icon" /> MySQL</span>
+                    <span class="featured-tech-pill"><img src="./assets/home/images/HTML5.svg" alt="HTML" class="tech-icon" /> HTML</span>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <hr class="showcase-divider" />
-
-            <!-- Impact Stats Bar -->
-            <div class="showcase-stats-grid">
-              
-              <div class="showcase-stat-card">
-                <div class="stat-badge-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </div>
-                <div class="stat-data">
-                  <span class="stat-num stat-num-1">+120%</span>
-                  <span class="stat-lbl stat-lbl-1">Publications</span>
-                </div>
+            <div class="coverflow-card-details">
+              <h3 class="featured-card-title">ESTIC DST</h3>
+              <div class="featured-card-tech-pills">
+                <span class="featured-tech-pill"><img src="./assets/home/images/PHP.svg" alt="PHP" class="tech-icon" /> PHP</span>
+                <span class="featured-tech-pill"><img src="./assets/home/images/MySQL.svg" alt="MySQL" class="tech-icon" /> MySQL</span>
+                <span class="featured-tech-pill"><img src="./assets/home/images/HTML5.svg" alt="HTML" class="tech-icon" /> HTML</span>
               </div>
-
-              <div class="showcase-stat-card">
-                <div class="stat-badge-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                    <polyline points="17 6 23 6 23 12"></polyline>
-                  </svg>
-                </div>
-                <div class="stat-data">
-                  <span class="stat-num stat-num-2">+85%</span>
-                  <span class="stat-lbl stat-lbl-2">Query Speed</span>
-                </div>
-              </div>
-
-              <div class="showcase-stat-card">
-                <div class="stat-badge-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                </div>
-                <div class="stat-data">
-                  <span class="stat-num stat-num-3">35+</span>
-                  <span class="stat-lbl stat-lbl-3">Institutions</span>
-                </div>
-              </div>
-
+              <a class="featured-card-view-btn mobile-visit-btn" href="https://estic.dst.gov.in/" target="_blank" rel="noopener noreferrer">
+                Visit the Website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
             </div>
+          </div>
 
+          <!-- Card 3: Accel1 -->
+          <div class="featured-coverflow-card next-2" data-index="2">
+            <div class="coverflow-media-frame">
+              <img src="./assets/home/Featured/accel1.png" alt="Accel1" class="coverflow-img" />
+              <div class="featured-card-hover-veil">
+                <div class="hover-veil-content">
+                  <a class="featured-card-view-btn" href="https://accel1.com/" target="_blank" rel="noopener noreferrer">
+                    Visit the Website
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
+                  <div class="featured-card-tech-pills">
+                    <span class="featured-tech-pill"><img src="./assets/home/images/React.svg" alt="React" class="tech-icon" /> React</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="coverflow-card-details">
+              <h3 class="featured-card-title">Accel1</h3>
+              <div class="featured-card-tech-pills">
+                <span class="featured-tech-pill"><img src="./assets/home/images/React.svg" alt="React" class="tech-icon" /> React</span>
+              </div>
+              <a class="featured-card-view-btn mobile-visit-btn" href="https://accel1.com/" target="_blank" rel="noopener noreferrer">
+                Visit the Website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: Cacm -->
+          <div class="featured-coverflow-card hidden-right" data-index="3">
+            <div class="coverflow-media-frame">
+              <img src="./assets/home/Featured/Cacm.png" alt="Cacm" class="coverflow-img" />
+              <div class="featured-card-hover-veil">
+                <div class="hover-veil-content">
+                  <a class="featured-card-view-btn" href="https://cacm.in/" target="_blank" rel="noopener noreferrer">
+                    Visit the Website
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
+                  <div class="featured-card-tech-pills">
+                    <span class="featured-tech-pill"><img src="./assets/home/images/React.svg" alt="React" class="tech-icon" /> React</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="coverflow-card-details">
+              <h3 class="featured-card-title">Cacm</h3>
+              <div class="featured-card-tech-pills">
+                <span class="featured-tech-pill"><img src="./assets/home/images/React.svg" alt="React" class="tech-icon" /> React</span>
+              </div>
+              <a class="featured-card-view-btn mobile-visit-btn" href="https://cacm.in/" target="_blank" rel="noopener noreferrer">
+                Visit the Website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5: Crea India -->
+          <div class="featured-coverflow-card hidden-right" data-index="4">
+            <div class="coverflow-media-frame">
+              <img src="./assets/home/Featured/crea.png" alt="Crea India" class="coverflow-img" />
+              <div class="featured-card-hover-veil">
+                <div class="hover-veil-content">
+                  <a class="featured-card-view-btn" href="https://creaindia.com/" target="_blank" rel="noopener noreferrer">
+                    Visit the Website
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
+                  <div class="featured-card-tech-pills">
+                    <span class="featured-tech-pill"><img src="./assets/home/images/React.svg" alt="React" class="tech-icon" /> React</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="coverflow-card-details">
+              <h3 class="featured-card-title">Crea India</h3>
+              <div class="featured-card-tech-pills">
+                <span class="featured-tech-pill"><img src="./assets/home/images/React.svg" alt="React" class="tech-icon" /> React</span>
+              </div>
+              <a class="featured-card-view-btn mobile-visit-btn" href="https://creaindia.com/" target="_blank" rel="noopener noreferrer">
+                Visit the Website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6: Panfish -->
+          <div class="featured-coverflow-card prev-1" data-index="5">
+            <div class="coverflow-media-frame">
+              <img src="./assets/home/Featured/panfish.png" alt="Panfish" class="coverflow-img" />
+              <div class="featured-card-hover-veil">
+                <div class="hover-veil-content">
+                  <a class="featured-card-view-btn" href="https://panfish.in/" target="_blank" rel="noopener noreferrer">
+                    Visit the Website
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </a>
+                  <div class="featured-card-tech-pills">
+                    <span class="featured-tech-pill">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm.02 18a8 8 0 0 1-5.18-1.92l4.89-13.43a.5.5 0 0 1 .94 0l3.05 8.38.01.03 2.11-6.19a.5.5 0 0 1 .94.02l2.67 8.07A8 8 0 0 1 12.02 20z"/></svg>
+                      WordPress
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="coverflow-card-details">
+              <h3 class="featured-card-title">Panfish</h3>
+              <div class="featured-card-tech-pills">
+                <span class="featured-tech-pill">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm.02 18a8 8 0 0 1-5.18-1.92l4.89-13.43a.5.5 0 0 1 .94 0l3.05 8.38.01.03 2.11-6.19a.5.5 0 0 1 .94.02l2.67 8.07A8 8 0 0 1 12.02 20z"/></svg>
+                  WordPress
+                </span>
+              </div>
+              <a class="featured-card-view-btn mobile-visit-btn" href="https://panfish.in/" target="_blank" rel="noopener noreferrer">
+                Visit the Website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
+            </div>
           </div>
 
         </div>
 
-        <!-- Bottom Footer Bar: Technologies Used + Live Button -->
-        <div class="showcase-bottom-bar">
-          <div class="tech-section-wrap">
-            <span class="tech-label-heading">Technologies Used</span>
-            <div class="tech-pill-container">
-              <div class="tech-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E44D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                <span>HTML5</span>
-              </div>
-              <div class="tech-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#777BB4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="6"/></svg>
-                <span>PHP</span>
-              </div>
-              <div class="tech-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00758F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                <span>MySQL</span>
-              </div>
-              <div class="tech-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#005571" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <span>Elasticsearch</span>
-              </div>
-            </div>
-          </div>
-
-          <a href="https://estic.dst.gov.in/" target="_blank" rel="noopener noreferrer" class="btn-live-experience-green preview-live-btn">
-            <span>View Live Experience</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Carousel dots selector navigation -->
-      <div class="featured-carousel-controls">
-        <button type="button" class="featured-nav-btn prev" aria-label="Previous project">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Navigation Buttons (< >) -->
+        <button type="button" class="coverflow-nav-btn prev" id="coverflowPrevBtn" aria-label="Previous Project">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
-
-        <div class="featured-carousel-dots">
-          <!-- Injected via script.js -->
-        </div>
-
-        <button type="button" class="featured-nav-btn next" aria-label="Next project">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <button type="button" class="coverflow-nav-btn next" id="coverflowNextBtn" aria-label="Next Project">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6" />
           </svg>
         </button>
+      </div>
+
+      <!-- Bottom Dots Navigation Bar -->
+      <div class="featured-cards-bottom-bar">
+        <div class="featured-cards-dots" id="featuredCardsDots">
+          <span class="dot-pill active" data-index="0"></span>
+          <span class="dot-circle" data-index="1"></span>
+          <span class="dot-circle" data-index="2"></span>
+          <span class="dot-circle" data-index="3"></span>
+          <span class="dot-circle" data-index="4"></span>
+          <span class="dot-circle" data-index="5"></span>
+        </div>
       </div>
 
     </div>
