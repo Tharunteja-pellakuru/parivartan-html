@@ -1,41 +1,903 @@
+/* Satoshi Font Definitions (HTTPS Explicit for file:// & HTTP) */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff') format('woff');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
 @import url("./home.css");
 
 /* ==========================================================================
-   Work - Life at Parivartan Page Styles
+   Life at Parivartan Page Styles — Exact Mockup Design
    ========================================================================== */
 
-/* 
-   Since life.html now leverages the core design system and components 
-   defined in home.css, this file only serves to import the base styles 
-   and hold any truly bespoke overrides (currently none).
-*/
+.life-page-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
 
-/* Custom Life Hero Title */
-.life-hero-title {
-  font-size: 42px;
-  line-height: 1.2;
-  font-family: "Eras Md BT", 'DM Sans', system-ui, sans-serif;
-  font-weight: 400;
-  margin: 0 0 24px 0;
+/* Header & Section Title Standard */
+.life-section-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.life-section-header.header-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: left;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.life-tagline {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  color: #060612;
-  text-decoration: none !important;
-  transition: color 0.3s ease;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
-.life-hero-title:hover {
-  color: #85BD56;
-  text-decoration: none !important;
+.life-tagline span {
+  color: #69686E;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.life-title-leaf {
-  width: 36px;
+.life-main-heading {
+  color: #75BF46;
+  font-family: "Eras Md BT", 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(34px, 4.2vw, 46px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Heading styles for The Values We Live By, What Our Team Says, Benefits & Perks */
+.life-values-section .life-main-heading,
+.life-testimonials-section .life-main-heading,
+.life-perks-section .life-main-heading {
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Outfit', 'Inter', sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px;
+}
+
+.life-header-desc {
+  color: #69686E;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+  max-width: 480px;
+  text-align: right;
+}
+
+/* ==================== BENTO GALLERY SECTION ==================== */
+.life-bento-section {
+  padding: 40px 0 40px 0;
+  background: #FFFFFF;
+}
+
+.life-bento-grid {
+  display: grid;
+  grid-template-columns: 310px 1fr 310px;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bento-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Column 1 (Left) */
+.bento-card-celebrations-wrap {
+  background: #75BF46;
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 380px;
+  box-sizing: border-box;
+}
+
+.bento-celebrations-img {
+  width: 100%;
+  height: 285px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.bento-celebrations-label {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-top: 12px;
+  padding-left: 4px;
+}
+
+.bento-card-food-wrap {
+  height: 260px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.bento-card-food-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Column 2 (Middle) */
+.bento-row-top {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+}
+
+.bento-card-cheers-wrap {
+  height: 170px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.bento-card-cheers-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bento-card-worktext-wrap {
+  height: 170px;
+  background: #EFF2EC;
+  border-radius: 24px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.bento-worktext-heading {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.18;
+  color: #1F2937;
+  margin: 0;
+}
+
+.bento-card-green-wrap {
+  background: #75BF46;
+  border-radius: 24px;
+  padding: 28px 28px 0 28px;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.bento-green-bg-wave {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.bento-green-header {
+  position: relative;
+  z-index: 2;
+}
+
+.bento-green-tag {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.bento-green-score {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.bento-green-sub {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12.5px;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.bento-green-mockup-frame {
+  position: relative;
+  z-index: 2;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+  margin-top: 12px;
+  transform: translateY(12px);
+}
+
+.bento-mockup-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.bento-mockup-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bento-mockup-logo-leaf {
+  width: 14px;
   height: auto;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.life-hero-title:hover .life-title-leaf {
-  transform: rotate(15deg) scale(1.15);
+.bento-mockup-logo-text {
+  font-family: Outfit, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #75BF46;
+}
+
+.bento-mockup-nav-btn {
+  background: #85BD56;
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.bento-mockup-hero-body {
+  text-align: center;
+  padding: 16px 10px 10px 10px;
+}
+
+.bento-mockup-headline {
+  font-family: Outfit, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+.bento-mockup-headline span.orange { color: #F97316; }
+.bento-mockup-headline span.green { color: #75BF46; }
+
+.bento-mockup-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mockup-btn-primary {
+  background: #85BD56;
+  color: #FFF;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+
+.mockup-btn-dark {
+  background: #0F172A;
+  color: #FFF;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+
+.bento-row-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.bento-card-feedback-wrap {
+  background: #75BF46;
+  border-radius: 24px;
+  padding: 16px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160px;
+  box-sizing: border-box;
+}
+
+.bento-feedback-tag {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bento-feedback-white-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 12px 14px;
+  color: #1F2937;
+}
+
+.bento-feedback-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.bento-feedback-author {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.bento-feedback-badge {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #16A34A;
+  background: #DCFCE7;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.bento-feedback-body {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 10.5px;
+  line-height: 14.5px;
+  color: #475569;
+  margin: 0 0 6px 0;
+}
+
+.bento-feedback-stars {
+  color: #F59E0B;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.bento-card-meeting-wrap {
+  height: 160px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.bento-card-meeting-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Column 3 (Right) */
+.bento-card-enjoyments-wrap {
+  background: #75BF46;
+  border-radius: 24px;
+  padding: 16px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.bento-enjoyments-title {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 4px 4px;
+}
+
+.bento-enjoyment-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+.bento-card-insta-wrap {
+  background: #EFF2EC;
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.bento-insta-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bento-insta-logo-icon {
+  width: 16px;
+  height: auto;
+}
+
+.bento-insta-username {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.bento-insta-photo {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.bento-insta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #475569;
+  padding: 2px 2px 0 2px;
+}
+
+.bento-insta-actions-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ==================== NEXT STEP CTA BANNER ==================== */
+.life-nextstep-banner {
+  text-align: center;
+  margin: 56px auto 32px auto;
+}
+
+.life-nextstep-title {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 20px;
+}
+
+.life-nextstep-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.life-insta-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #060612;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.life-insta-btn:hover {
+  background: #75BF46;
+  transform: scale(1.08);
+}
+
+.life-audit-btn {
+  background: #060612;
+  color: #FFFFFF !important;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 100px;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.life-audit-btn:hover {
+  background: #75BF46;
+  transform: scale(1.04);
+}
+
+/* ==================== VALUES SECTION (EXACT MOCKUP MATCH) ==================== */
+.life-values-section {
+  padding: 80px 0 100px 0;
+  background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.values-landscape-stage {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  margin-top: 40px;
+  box-sizing: border-box;
+}
+
+.values-pins-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.value-pin-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.value-pin-content {
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.value-pin-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.value-leaf-icon {
+  width: 15px;
+  height: auto;
+  object-fit: contain;
+}
+
+.value-pin-label {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748B;
+
+}
+
+.value-pin-title {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0F172A;
+  margin: 0;
+  max-width: 220px;
+}
+
+/* Vertical pin stem line */
+.value-pin-line {
+  width: 1.5px;
+  background: #CBD5E1;
+  position: relative;
+  margin-left: 7px;
+  box-sizing: border-box;
+}
+
+/* Bottom pin anchor dot */
+.value-pin-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #75BF46;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 2px #75BF46;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+/* Staggered Heights for the 4 Pins */
+.pin-clarity .value-pin-line {
+  height: 160px;
+  margin-top: 16px;
+}
+
+.pin-craft {
+  margin-top: 48px;
+}
+
+.pin-craft .value-pin-line {
+  height: 190px;
+  margin-top: 16px;
+}
+
+.pin-change {
+  margin-top: 10px;
+}
+
+.pin-change .value-pin-line {
+  height: 170px;
+  margin-top: 16px;
+}
+
+.pin-care {
+  margin-top: 56px;
+}
+
+.pin-care .value-pin-line {
+  height: 200px;
+  margin-top: 16px;
+}
+
+/* Green Landscape Background Vector Art Image */
+.values-landscape-bg {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  width: 110%;
+  height: 300px;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.values-vector-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+/* ==================== TESTIMONIALS SECTION (TRUE VOICES) ==================== */
+.life-testimonials-section {
+  background: #F8F9FA;
+  padding: 80px 0;
+}
+
+.testimonials-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.testimonial-card-item {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 36px 28px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+}
+
+.testimonial-quote-icon {
+  color: #75BF46;
+  margin-bottom: 24px;
+}
+
+.testimonial-quote-text {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 24px;
+  color: #4B5563;
+  margin: 0 0 28px 0;
+}
+
+.testimonial-author-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-author-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(117, 191, 70, 0.15);
+  color: #599632;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-author-name {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.testimonial-author-role {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12.5px;
+  color: #6B7280;
+}
+
+/* ==================== PERKS SECTION ==================== */
+.life-perks-section {
+  padding: 80px 0;
+  background: #FFFFFF;
+}
+
+.perks-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.perk-card-item {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.perk-card-item:hover {
+  transform: translateY(-4px);
+  border-color: #75BF46;
+}
+
+.perk-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(117, 191, 70, 0.1);
+  color: #599632;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.perk-title {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 10px 0;
+}
+
+.perk-desc {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13.5px;
+  line-height: 22px;
+  color: #6B7280;
+  margin: 0;
+}
+
+/* ==================== RESPONSIVE ADAPTATIONS ==================== */
+.values-landscape-stage {
+  min-width: 900px;
+}
+
+.values-stage-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .life-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .life-section-header.header-split {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  .testimonials-cards-grid,
+  .perks-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-row-top,
+  .bento-row-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-cards-grid,
+  .perks-cards-grid {
+    grid-template-columns: 1fr;
+  }
 }

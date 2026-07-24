@@ -1,3 +1,5 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap');
+
 @font-face {
   font-family: "Eras Md BT";
   src: url('../assets/home/fonts/Eras-Md-BT-Medium.ttf') format("truetype");
@@ -1048,7 +1050,7 @@ button {
 }
 
 /* Responsive adjustment for Hero section */
-@media (max-width: 960px) {
+@media (max-width: 1300px) {
   .hero-section-container {
     padding: 0 24px;
   }
@@ -1932,7 +1934,7 @@ button {
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1200px) {
   .services-section {
     padding: 0 24px;
   }
@@ -1968,13 +1970,15 @@ button {
   }
   
   .services-header-desc {
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     text-align: center;
     margin: 0 auto;
   }
 
   .services-rows-list {
     gap: 0;
+    width: 100%;
   }
 
   .services-row {
@@ -1982,7 +1986,7 @@ button {
     align-content: start;
     gap: 16px;
     padding: 24px 16px;
-    text-align: left;
+    text-align: center;
     width: 100%;
     height: 640px;
     overflow: hidden;
@@ -2015,16 +2019,29 @@ button {
   }
 
   .services-row-col.col-left {
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .service-number {
+    text-align: center;
+  }
+
+  .service-title {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
   }
 
   .service-desc {
-    width: 100%;
-    max-width: 580px;
-    margin: 0;
-    font-size: 14.5px;
-    line-height: 22px;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    line-height: 24px;
   }
 
   .service-subservice-item {
@@ -3308,7 +3325,7 @@ button {
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 40px 0;
+  padding: 16px 0 40px 0;
   box-sizing: border-box;
 }
 
@@ -6159,7 +6176,7 @@ button {
   overflow-x: hidden;
   position: relative;
   width: 100%;
-  margin-bottom: 96px;
+  margin-bottom: 0;
 }
 
 .featured-container {
@@ -6171,14 +6188,14 @@ button {
 .featured-coverflow-stage {
   position: relative;
   width: 100%;
-  height: 560px;
-  margin-top: 56px;
+  height: 570px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   perspective: 1200px;
-  overflow: hidden;
-  padding: 20px 0;
+  overflow: visible;
+  padding: 0;
 }
 
 .featured-coverflow-track {
@@ -6227,7 +6244,8 @@ button {
 }
 
 .coverflow-card-details {
-  margin-top: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   opacity: 0;
   transform: translateY(12px);
@@ -6236,15 +6254,16 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.coverflow-card-details .featured-card-tech-pills {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
+.coverflow-card-details .featured-card-title {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.featured-card-tech-pills {
+  display: none !important;
 }
 
 .coverflow-card-details .featured-tech-pill {
@@ -6267,6 +6286,7 @@ button {
 }
 
 .coverflow-card-details .mobile-visit-btn {
+  display: none;
   margin-top: 12px;
   background: #85BD56;
   color: #FFFFFF !important;
@@ -6276,7 +6296,6 @@ button {
   padding: 10px 22px;
   border-radius: 10px;
   text-decoration: none !important;
-  display: inline-flex;
   align-items: center;
   gap: 6px;
   box-shadow: 0 6px 16px rgba(133, 189, 86, 0.3);
@@ -6593,7 +6612,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: 36px;
   position: relative;
   width: 100%;
 }
@@ -6659,10 +6678,10 @@ button {
   }
 
   .featured-coverflow-stage {
-    height: 480px;
-    margin-top: 24px;
-    padding: 10px 0 20px 0;
-    overflow: visible;
+    height: 380px !important;
+    margin-top: 16px !important;
+    padding: 0 !important;
+    overflow: visible !important;
   }
 
   .featured-coverflow-card {
@@ -6715,15 +6734,11 @@ button {
 }
 
 @media (max-width: 480px) {
-  .featured-section {
-    margin-bottom: 56px;
-  }
-
   .featured-coverflow-stage {
-    height: 430px;
-    margin-top: 16px;
-    padding-bottom: 10px;
-    overflow: visible;
+    height: 280px !important;
+    margin-top: 12px !important;
+    padding: 0 !important;
+    overflow: visible !important;
   }
 
   .featured-coverflow-card {
@@ -6764,10 +6779,12 @@ button {
   }
 
   .coverflow-card-details .featured-card-tech-pills {
+    display: flex;
     margin-top: 6px;
   }
 
   .coverflow-card-details .mobile-visit-btn {
+    display: inline-flex;
     margin-top: 6px;
     padding: 7px 16px;
     font-size: 12px;
@@ -6779,6 +6796,7 @@ button {
 }
 
 /* ==================== UNIFORM GLOBAL SECTION SPACING ==================== */
+.hero-section-container,
 .services-section,
 .featured-section,
 .presence-section,
@@ -6786,7 +6804,7 @@ button {
 .faqs-section,
 .cta-section,
 .contact-section {
-  margin-bottom: 96px !important;
+  margin-bottom: 80px !important;
 }
 
 .services-container,
@@ -6796,12 +6814,13 @@ button {
 .faqs-container,
 .cta-container,
 .contact-container {
-  padding-top: 40px !important;
-  padding-bottom: 40px !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
 }
 
 /* Tablet Uniform Section Spacing */
 @media (max-width: 960px) {
+  .hero-section-container,
   .services-section,
   .featured-section,
   .presence-section,
@@ -6819,44 +6838,14 @@ button {
   .faqs-container,
   .cta-container,
   .contact-container {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important;
-  }
-
-  /* Specific Gap Reductions Between Services & Featured Section */
-  .services-section {
-    margin-bottom: 0px !important;
-  }
-
-  .services-container {
-    padding-bottom: 4px !important;
-  }
-
-  .featured-container {
-    padding-top: 4px !important;
-  }
-
-  .service-btn-container {
-    margin-top: 8px !important;
-    margin-bottom: 4px !important;
-  }
-
-  /* Specific Gap Reduction Between Global Presence & Testimonials */
-  .presence-section {
-    margin-bottom: 0px !important;
-  }
-
-  .presence-container {
-    padding-bottom: 4px !important;
-  }
-
-  .testimonials-container {
-    padding-top: 4px !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
   }
 }
 
 /* Mobile Uniform Section Spacing */
 @media (max-width: 480px) {
+  .hero-section-container,
   .services-section,
   .featured-section,
   .presence-section,
@@ -6874,38 +6863,7 @@ button {
   .faqs-container,
   .cta-container,
   .contact-container {
-    padding-top: 16px !important;
-    padding-bottom: 16px !important;
-  }
-
-  /* Specific Gap Reductions Between Services & Featured Section */
-  .services-section {
-    margin-bottom: 0px !important;
-  }
-
-  .services-container {
-    padding-bottom: 0px !important;
-  }
-
-  .featured-container {
-    padding-top: 0px !important;
-  }
-
-  .service-btn-container {
-    margin-top: 4px !important;
-    margin-bottom: 0px !important;
-  }
-
-  /* Specific Gap Reduction Between Global Presence & Testimonials */
-  .presence-section {
-    margin-bottom: 0px !important;
-  }
-
-  .presence-container {
-    padding-bottom: 0px !important;
-  }
-
-  .testimonials-container {
-    padding-top: 0px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
   }
 }

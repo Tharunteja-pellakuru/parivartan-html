@@ -135,7 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBackdrop = document.querySelector('.menu-backdrop');
   const mobileDrawer = document.querySelector('.mobile-drawer');
 
-  if (menuBtn && menuBackdrop && mobileDrawer) {
+  if (menuBtn && menuBackdrop && mobileDrawer && !menuBtn.dataset.menuInitialized) {
+    menuBtn.dataset.menuInitialized = 'true';
     const toggleMenu = () => {
       const isOpen = menuBtn.classList.toggle('active');
       menuBackdrop.classList.toggle('open', isOpen);

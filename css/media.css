@@ -713,11 +713,17 @@
   pointer-events: none;
 }
 
-/* Reduced gap between Pagination & CTA Section */
+/* Spacing adjustments around CTA Section on Media page */
 .media-grid-section {
-  padding-bottom: 8px !important;
+  padding-bottom: 60px !important;
 }
 
 .media-grid-section + .cta-section .cta-container {
+  padding-top: 40px !important;
+  padding-bottom: 0px !important;
+}
+
+.media-grid-section ~ .contact-section .contact-inner {
   padding-top: 16px !important;
 }
+

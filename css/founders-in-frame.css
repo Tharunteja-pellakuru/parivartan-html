@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap');
+@import url("./home.css");
+
+/* Satoshi Font Definitions (HTTPS Explicit for file:// & HTTP) */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff') format('woff');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* ==========================================================================
+   Founders in Frame Page Styles
+   ========================================================================== */
+
+.fif-page-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Header & Section Title Standard */
+.fif-section-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.fif-section-header.header-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.fif-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.fif-tagline span {
+  color: #69686E !important;
+  font-family: Satoshi, sans-serif !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  line-height: 26px !important;
+  text-transform: uppercase !important;
+}
+
+.fif-main-heading {
+  color: #75BF46;
+  font-family: "Eras Md BT", 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(34px, 4.2vw, 46px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.fif-header-left {
+  max-width: 600px;
+  width: 100%;
+}
+
+.fif-header-split-title {
+  color: #060612;
+  font-family: Satoshi, sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px;
+  margin: 0;
+}
+
+.fif-header-desc {
+  color: #69686E;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  margin-top: 38px;
+  max-width: 440px;
+  text-align: left;
+}
+
+/* ==================== HERO SECTION (EXACT MOCKUP MATCH) ==================== */
+.fif-hero-section {
+  padding: 40px 0 60px 0;
+  background: #FFFFFF;
+}
+
+.fif-hero-outer-card {
+  background: #F4F5F2;
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid #E5E7EB;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 32px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.fif-hero-left-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 48px 40px;
+  border: 1px solid #EEEEEE;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.fif-hero-heading {
+  align-self: stretch;
+  color: #060612;
+  font-family: Satoshi, sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px;
+  margin: 0 0 20px 0;
+}
+
+.fif-hero-heading span.green-spotlight {
+  color: #85BD56;
+  font-family: Satoshi, sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px;
+}
+
+.fif-hero-desc {
+  align-self: stretch;
+  color: #69686E;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 175%;
+  margin: 0 0 32px 0;
+}
+
+.fif-hero-btn {
+  display: inline-flex !important;
+  padding: 12px 24px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border-radius: 8px !important;
+  background: var(--85BD56, #85BD56) !important;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #E1FFC8 !important;
+  color: #FFFFFF !important;
+  font-family: Satoshi, sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 28px !important;
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.fif-hero-btn:hover {
+  background: #77B34A !important;
+  box-shadow: 2px 2px 3px 0 rgba(255, 255, 255, 0.25) inset, 0 0 0 3px #E1FFC8 !important;
+  transform: translateY(-1px) !important;
+}
+
+.fif-hero-right-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.fif-anand-hero-img {
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==================== MISSION SECTION ==================== */
+.fif-mission-section {
+  padding: 60px 0 80px 0;
+  background: #F9FAFB;
+}
+
+.fif-mission-card {
+  background: #FFFFFF !important;
+  border-radius: 20px !important;
+  display: flex !important;
+  padding: 40px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 40px !important;
+  align-self: stretch !important;
+  border: 1px solid #EAEAEA !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+.fif-mission-text {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  max-width: none !important;
+  color: #69686E !important;
+  font-family: Satoshi, sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 175% !important;
+  margin: 0 !important;
+}
+
+.fif-stats-row {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 32px !important;
+  border-left: 1px solid #E5E7EB !important;
+  padding-left: 44px !important;
+  height: 100px !important;
+}
+
+.fif-stat-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+}
+
+.fif-stat-item:not(:last-child) {
+  border-right: 1px solid #E5E7EB !important;
+  padding-right: 32px !important;
+}
+
+.fif-stat-number {
+  color: #85BD56 !important;
+  font-family: Satoshi, sans-serif !important;
+  font-size: 38px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  margin-bottom: 8px !important;
+}
+
+.fif-stat-label {
+  color: #69686E !important;
+  font-family: Satoshi, sans-serif !important;
+  font-size: 13px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 140% !important;
+  white-space: nowrap !important;
+}
+
+/* ==================== RECENT EPISODES SECTION ==================== */
+.fif-episodes-section {
+  padding: 80px 0 0 0;
+  background: #FFFFFF;
+}
+
+.fif-episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  gap: 32px 24px;
+  margin-top: 56px;
+}
+
+.fif-episode-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.fif-episode-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.fif-thumb-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.fif-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fif-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #75BF46;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.fif-episode-card:hover .fif-play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: #599632;
+}
+
+.fif-episode-body {
+  padding: 16px 4px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.fif-episode-title {
+  font-family: Outfit, 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 8px 0;
+  line-height: 1.35;
+}
+
+.fif-episode-desc {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  color: #64748B;
+  margin: 0 0 16px 0;
+}
+
+.fif-episode-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12px;
+  color: #94A3B8;
+  font-weight: 500;
+  padding-top: 10px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.fif-view-more-container {
+  text-align: center;
+  margin-top: 56px;
+  padding-bottom: 56px;
+}
+
+.fif-view-more-btn {
+  display: inline-flex !important;
+  padding: 12px 24px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border-radius: 8px !important;
+  background: var(--85BD56, #85BD56) !important;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #E1FFC8 !important;
+  color: #FFFFFF !important;
+  font-family: Satoshi, sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 28px !important;
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.fif-view-more-btn:hover {
+  background: #77B34A !important;
+  box-shadow: 2px 2px 3px 0 rgba(255, 255, 255, 0.25) inset, 0 0 0 3px #E1FFC8 !important;
+  transform: translateY(-1px) !important;
+}
+
+.fif-view-more-btn svg,
+.fif-hero-btn svg {
+  width: 6px !important;
+  height: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+/* ==================== RESPONSIVE ADAPTATIONS ==================== */
+@media (max-width: 1024px) {
+  .fif-hero-outer-card {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .fif-mission-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+
+  .fif-stats-row {
+    border-left: none;
+    border-top: 1px solid #E2E8F0;
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .fif-episodes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .fif-section-header.header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .fif-header-desc {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .fif-episodes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fif-stats-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+/* ==================== VIDEO POPUP MODAL STYLES ==================== */
+.fif-video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fif-video-modal.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.fif-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.fif-modal-container {
+  position: relative;
+  width: 90%;
+  max-width: 920px;
+  background: #000000;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  transform: scale(0.92);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+}
+
+.fif-video-modal.active .fif-modal-container {
+  transform: scale(1);
+}
+
+.fif-modal-close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 20;
+}
+
+.fif-modal-close:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.08);
+}
+
+.fif-modal-iframe-wrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.fif-modal-iframe-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  background: #000000 !important;
+}

@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parivartan | Blogs & Insights</title>
-  <meta name="description" content="Explore valuable insights on website design, branding, digital marketing, social media strategies, SEO, and business growth from the Parivartan team.">
-  <link rel="stylesheet" href="./css/blogs.css">
+  <title>Parivartan | Founders in Frame</title>
+  <meta name="description" content="Exclusive video podcast series featuring raw, insightful conversations with innovative founders and entrepreneurs.">
+  <link rel="stylesheet" href="./css/founders-in-frame.css">
+  <!-- Fontshare Satoshi Font -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap" rel="stylesheet">
   <!-- Google Fonts: Outfit and Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +55,7 @@
   <!-- Mobile Drawer -->
   <nav class="mobile-drawer">
     <div class="drawer-menu-list">
+      <!-- Home -->
       <a href="./home.html" class="drawer-menu-item">
         <span class="drawer-menu-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -65,6 +68,7 @@
         </span>
       </a>
 
+      <!-- Our Story -->
       <a href="./story.html" class="drawer-menu-item">
         <span class="drawer-menu-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round">
@@ -94,7 +98,7 @@
       </a>
 
       <!-- Founders in Frame -->
-      <a href="./founders-in-frame.html" class="drawer-menu-item">
+      <a href="./founders-in-frame.html" class="drawer-menu-item active">
         <span class="drawer-menu-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="23 7 16 12 23 17 23 7"/>
@@ -107,6 +111,7 @@
         </span>
       </a>
 
+      <!-- Our Clients -->
       <a href="./clients.html" class="drawer-menu-item">
         <span class="drawer-menu-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round">
@@ -122,6 +127,7 @@
         </span>
       </a>
 
+      <!-- Our Work Submenu accordion -->
       <div class="drawer-menu-item-group expanded">
         <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="true">
           <span class="drawer-menu-icon">
@@ -162,9 +168,8 @@
         </div>
       </div>
 
-      
       <!-- Blogs -->
-      <a href="./blogs.html" class="drawer-menu-item active">
+      <a href="./blogs.html" class="drawer-menu-item">
         <span class="drawer-menu-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
@@ -193,8 +198,7 @@
       </a>
 
       <!-- Contact -->
-
-<a href="./contact.html" class="drawer-menu-item">
+      <a href="./contact.html" class="drawer-menu-item">
         <span class="drawer-menu-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z" />
@@ -232,237 +236,224 @@
     </div>
   </nav>
 
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <main>
+  <!-- ==================== HERO SECTION (EXACT MOCKUP MATCH) ==================== -->
+  <section class="fif-hero-section">
+    <div class="fif-page-container">
+      
+      <!-- Section Header -->
+      <div class="fif-section-header">
+        <div class="fif-tagline">
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+          <span>EXCLUSIVE VIDEO PODCAST SERIES</span>
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+        </div>
+        <h1 class="fif-main-heading">Founders in Frame</h1>
+      </div>
 
-    <!-- Featured Article Hero -->
-    <section class="blogs-hero-section">
-      <div class="blogs-hero-container">
-
-        <!-- Tagline -->
-        <div class="blogs-hero-tagline">
-          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
-            <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-            <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-            <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-            <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-            <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-          </svg>
-          <span>BLOGS & INSIGHTS</span>
-          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
-            <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-            <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-            <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-            <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-            <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-          </svg>
+      <!-- Hero Outer Card Container -->
+      <div class="fif-hero-outer-card">
+        
+        <!-- Left White Content Card -->
+        <div class="fif-hero-left-card">
+          <h2 class="fif-hero-heading">
+            The Podcast that puts<br />
+            founders in the<br />
+            <span class="green-spotlight">spotlight</span>
+          </h2>
+          <p class="fif-hero-desc">
+            A premium video podcast series featuring raw, insightful conversations with innovative founders and entrepreneurs. We dive deep into the real stories, challenges, and hard-won strategies behind building high-impact businesses.
+          </p>
+          <a href="https://youtu.be/4H2O_T6hIzg?si=ewitPO_nq3f-p5lr" data-video-id="4H2O_T6hIzg" class="fif-hero-btn">
+            <span>Watch Latest Episode</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+              <path d="M5 6C5.26522 6 5.51957 5.89464 5.70711 5.70711C5.89464 5.51957 6 5.26522 6 5C6 4.73478 5.89464 4.48043 5.70711 4.29289C5.51957 4.10536 5.26522 4 5 4C4.73478 4 4.48043 4.10536 4.29289 4.29289C4.10536 4.48043 4 4.73478 4 5C4 5.26522 4.10536 5.51957 4.29289 5.70711C4.48043 5.89464 4.73478 6 5 6ZM3 8C3.13132 8 3.26136 7.97413 3.38268 7.92388C3.50401 7.87362 3.61425 7.79997 3.70711 7.70711C3.79997 7.61425 3.87362 7.50401 3.92388 7.38268C3.97413 7.26136 4 7.13132 4 7C4 6.86868 3.97413 6.73864 3.92388 6.61732C3.87362 6.49599 3.79997 6.38575 3.70711 6.29289C3.61425 6.20003 3.50401 6.12638 3.38268 6.07612C3.26136 6.02587 3.13132 6 3 6C2.73478 6 2.48043 6.10536 2.29289 6.29289C2.10536 6.48043 2 6.73478 2 7C2 7.26522 2.10536 7.51957 2.29289 7.70711C2.48043 7.89464 2.73478 8 3 8ZM1 10C1.26522 10 1.51957 9.89464 1.70711 9.70711C1.89464 9.51957 2 9.26522 2 9C2 8.73478 1.89464 8.48043 1.70711 8.29289C1.51957 8.10536 1.26522 8 1 8C0.734784 8 0.48043 8.10536 0.292893 8.29289C0.105357 8.48043 0 8.73478 0 9C0 9.26522 0.105357 9.51957 0.292893 9.70711C0.48043 9.89464 0.734784 10 1 10ZM3 4C3.26522 4 3.51957 3.89464 3.70711 3.70711C3.89464 3.51957 4 3.26522 4 3C4 2.73478 3.89464 2.48043 3.70711 2.29289C3.51957 2.10536 3.26522 2 3 2C2.73478 2 2.48043 2.10536 2.29289 2.29289C2.10536 2.48043 2 2.73478 2 3C2 3.26522 2.10536 3.51957 2.29289 3.70711C2.48043 3.89464 2.73478 4 3 4ZM1 2C1.26522 2 1.51957 1.89464 1.70711 1.70711C1.89464 1.51957 2 1.26522 2 1C2 0.734784 1.89464 0.48043 1.70711 0.292893C1.51957 0.105357 1.26522 0 1 0C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2Z" fill="white"/>
+            </svg>
+          </a>
         </div>
 
-        <h1 class="blogs-hero-title">Featured Article</h1>
+        <!-- Right Graphic & Founder Photo Column -->
+        <div class="fif-hero-right-stage">
+          <img src="./assets/fif/Anand.png" alt="Founders in Frame - The Parivartan Stories" class="fif-anand-hero-img" />
+        </div>
 
-        <!-- Featured Card -->
-        <div class="blogs-featured-card-frame">
-          <div class="blogs-featured-card">
-            <div class="blogs-featured-card-inner">
+      </div>
 
-              <!-- Left: Text -->
-              <div class="blogs-featured-left">
-                <span class="blogs-featured-category cat-website-design">Website Design</span>
-                <h2 class="blogs-featured-heading">Why Your Website Is More Than<br>Just an Online Brochure</h2>
-                <p class="blogs-featured-desc">A modern website should do more than present information. It should build trust, guide users, generate enquiries, support marketing, and contribute to business growth.</p>
-              </div>
+    </div>
+  </section>
 
-              <!-- Right: Image -->
-              <div class="blogs-featured-right">
-                <img src="./assets/blogs/blog-hero-featured.png" alt="Featured Blog - Website Design" class="blogs-featured-image" />
-              </div>
+  <!-- ==================== MISSION SECTION ==================== -->
+  <section class="fif-mission-section">
+    <div class="fif-page-container">
+      
+      <div class="fif-section-header header-split">
+        <div class="fif-header-left">
+          <div class="fif-tagline">
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+            <span>MISSION STATEMENT</span>
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+          </div>
+          <h2 class="fif-header-split-title">Conversations Shaped by Collaboration</h2>
+        </div>
+        <p class="fif-header-desc">
+          Bringing together outstanding founders to share their genuine journeys, operational challenges, and practical insights.
+        </p>
+      </div>
 
+      <div class="fif-mission-card">
+        <p class="fif-mission-text">
+          Founders in Frame is a conversation series dedicated to showcasing those who go beyond standard roles — contributing with creativity, commitment, and a shared belief in doing meaningful work. We believe the best stories aren't just about successful outcomes, but the courage to test strategies, pivot gracefully, and build with purpose.
+        </p>
+        <div class="fif-stats-row">
+          <div class="fif-stat-item">
+            <span class="fif-stat-number">20+</span>
+            <span class="fif-stat-label">Episodes</span>
+          </div>
+          <div class="fif-stat-item">
+            <span class="fif-stat-number">15+</span>
+            <span class="fif-stat-label">Founders Featured</span>
+          </div>
+          <div class="fif-stat-item">
+            <span class="fif-stat-number">5</span>
+            <span class="fif-stat-label">Seasons</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== RECENT EPISODES SECTION ==================== -->
+  <section class="fif-episodes-section" id="episodes">
+    <div class="fif-page-container">
+      
+      <div class="fif-section-header" style="text-align: left;">
+        <div class="fif-tagline">
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+          <span>RECENT EPISODES</span>
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+        </div>
+        <h2 class="fif-header-split-title">View to the latest conversations</h2>
+      </div>
+
+      <div class="fif-episodes-grid">
+        
+        <!-- Episode 1 -->
+        <div class="fif-episode-card" data-video-id="4H2O_T6hIzg" data-start="0">
+          <a href="https://youtu.be/4H2O_T6hIzg" data-video-id="4H2O_T6hIzg" data-start="0" target="_blank" rel="noopener noreferrer" class="fif-thumb-container">
+            <img src="https://img.youtube.com/vi/4H2O_T6hIzg/hqdefault.jpg" alt="From Stage to School with Anuj Gurwara" class="fif-thumb-img" />
+            <div class="fif-play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </div>
+          </a>
+          <div class="fif-episode-body">
+            <h3 class="fif-episode-title">From Stage to School: The Inspiring Journey of Anuj Gurwara | Founders in Frame</h3>
+            <p class="fif-episode-desc">An inspiring conversation with educator, actor, and entrepreneur Anuj Gurwara on scaling passion into impact.</p>
+          </div>
+        </div>
+
+        <!-- Episode 2 -->
+        <div class="fif-episode-card" data-video-id="UCm6J1nXzBk" data-start="313">
+          <a href="https://youtu.be/UCm6J1nXzBk" data-video-id="UCm6J1nXzBk" data-start="313" target="_blank" rel="noopener noreferrer" class="fif-thumb-container">
+            <img src="https://img.youtube.com/vi/UCm6J1nXzBk/hqdefault.jpg" alt="Rithika Suits with Arun Malve" class="fif-thumb-img" />
+            <div class="fif-play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </a>
+          <div class="fif-episode-body">
+            <h3 class="fif-episode-title">The Journey Behind Rithika Suits with Arun Malve | Founders in Frame</h3>
+            <p class="fif-episode-desc">Discover the story of craftsmanship, brand differentiation, and scaling a beloved traditional fashion retail brand.</p>
+          </div>
+        </div>
+
+        <!-- Episode 3 -->
+        <div class="fif-episode-card" data-video-id="ZlFzLXwgvtk" data-start="466">
+          <a href="https://youtu.be/ZlFzLXwgvtk" data-video-id="ZlFzLXwgvtk" data-start="466" target="_blank" rel="noopener noreferrer" class="fif-thumb-container">
+            <img src="https://img.youtube.com/vi/ZlFzLXwgvtk/hqdefault.jpg" alt="Building Stabaka with Mr. Gopal Krishnan" class="fif-thumb-img" />
+            <div class="fif-play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </a>
+          <div class="fif-episode-body">
+            <h3 class="fif-episode-title">Founders in Frame | Building Stabaka with Clarity ft Mr. Gopal Krishnan</h3>
+            <p class="fif-episode-desc">Unpacking strategic clarity, team building, and long-term vision with Stabaka founder Mr. Gopal Krishnan.</p>
+          </div>
+        </div>
+
+        <!-- Episode 4 -->
+        <div class="fif-episode-card" data-video-id="L30rtzNLQoY" data-start="0">
+          <a href="https://youtu.be/L30rtzNLQoY" data-video-id="L30rtzNLQoY" data-start="0" target="_blank" rel="noopener noreferrer" class="fif-thumb-container">
+            <img src="https://img.youtube.com/vi/L30rtzNLQoY/hqdefault.jpg" alt="The Accel1 Journey with Sanjay Kommera" class="fif-thumb-img" />
+            <div class="fif-play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </a>
+          <div class="fif-episode-body">
+            <h3 class="fif-episode-title">Founders in Frame | The Accel1 Journey featuring Sanjay Kommera</h3>
+            <p class="fif-episode-desc">Accel1 founder Sanjay Kommera shares insights on pioneering digital solutions at the intersection of tech and sustainability.</p>
+          </div>
+        </div>
+
+        <!-- Episode 5 -->
+        <div class="fif-episode-card" data-video-id="bt96tscmCw0" data-start="46">
+          <a href="https://youtu.be/bt96tscmCw0" data-video-id="bt96tscmCw0" data-start="46" target="_blank" rel="noopener noreferrer" class="fif-thumb-container">
+            <img src="https://img.youtube.com/vi/bt96tscmCw0/hqdefault.jpg" alt="Anuradha Rao - PANFISH & Beyond" class="fif-thumb-img" />
+            <div class="fif-play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </a>
+          <div class="fif-episode-body">
+            <h3 class="fif-episode-title">Founders in Frame | The Journey with Anuradha Rao (CEO, PANFISH &amp; Beyond)</h3>
+            <p class="fif-episode-desc">PANFISH &amp; Beyond CEO Anuradha Rao discusses leading with vision, overcoming hurdles, and building enduring enterprises.</p>
+          </div>
+        </div>
+
+        <!-- Episode 6 -->
+        <div class="fif-episode-card" data-video-id="QaQAyjqGxSI" data-start="151">
+          <a href="https://youtu.be/QaQAyjqGxSI" data-video-id="QaQAyjqGxSI" data-start="151" target="_blank" rel="noopener noreferrer" class="fif-thumb-container">
+            <img src="https://img.youtube.com/vi/QaQAyjqGxSI/hqdefault.jpg" alt="The Andhra Canteen Story with Hyma Kesineni" class="fif-thumb-img" />
+            <div class="fif-play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </a>
+          <div class="fif-episode-body">
+            <h3 class="fif-episode-title">Founders in Frame — The Andhra Canteen Story | Featuring Hyma Kesineni</h3>
+            <p class="fif-episode-desc">Unpacking the story behind Andhra Canteen and the strategic playbook for building a thriving QSR brand.</p>
+          </div>
+        </div>
+
+        <!-- Episode 7 -->
+        <div class="fif-episode-card" data-video-id="l_1tKwKwEP0" data-start="0">
+          <a href="https://youtu.be/l_1tKwKwEP0" data-video-id="l_1tKwKwEP0" data-start="0" target="_blank" rel="noopener noreferrer" class="fif-thumb-container">
+            <img src="https://img.youtube.com/vi/l_1tKwKwEP0/hqdefault.jpg" alt="Satish Kocharekar" class="fif-thumb-img" />
+            <div class="fif-play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </a>
+          <div class="fif-episode-body">
+            <h3 class="fif-episode-title">Founders in Frame - Featuring Mr. Satish Kocharekar</h3>
+            <p class="fif-episode-desc">A full-circle dialogue with JJ School of Fine Arts alumnus and Livewires founder Satish Kocharekar on creative design.</p>
           </div>
         </div>
 
       </div>
-    </section>
 
-    <!-- Latest Insights + Blog Grid -->
-    <section class="blogs-insights-section">
-      <div class="blogs-insights-container">
-
-        <!-- Section Header -->
-        <div class="blogs-insights-header">
-          <div class="blogs-insights-left">
-            <div class="blogs-insights-tag">
-              <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35" class="insights-tag-arrow">
-                <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-                <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-                <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-                <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-                <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-              </svg>
-              <span>LATEST INSIGHTS</span>
-              <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35" class="insights-tag-arrow">
-                <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-                <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-                <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-                <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-                <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-              </svg>
-            </div>
-            <h2 class="blogs-insights-title">Ideas, trends, and strategies for digital-first brands.</h2>
-          </div>
-          <div class="blogs-insights-right">
-            <p class="blogs-insights-desc">Explore valuable and practical insights on website design, branding, digital marketing, social media strategies, SEO, and business growth from the talented Parivartan team.</p>
-          </div>
-        </div>
-
-        <!-- Blog Cards Grid -->
-        <div class="blogs-grid" id="blogs-grid">
-
-          <!-- Card 1 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-1.png" alt="Website brochure illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-website-design">Website Design</span>
-              <h3 class="blog-card-title">Why your website is more than just an online brochure</h3>
-              <p class="blog-card-desc">A modern website should do more than display information. It should build trust, guide users, generate enquiries, and support business growth.</p>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-2.png" alt="UI/UX design illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-uiux-design">UI/UX Design</span>
-              <h3 class="blog-card-title">How UI/UX design impacts business conversions</h3>
-              <p class="blog-card-desc">Good design is not just about how a website looks. It is about how easily users understand, navigate, and take action.</p>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-3.png" alt="Branding illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-branding">Branding</span>
-              <h3 class="blog-card-title">Branding mistakes that make businesses look outdated</h3>
-              <p class="blog-card-desc">From inconsistent visuals to unclear messaging, small branding gaps can affect how customers trust and remember your business.</p>
-            </div>
-          </article>
-
-          <!-- Card 4 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-4.png" alt="UI/UX conversion illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-uiux-design">UI/UX Design</span>
-              <h3 class="blog-card-title">How UI/UX design influences business conversions</h3>
-              <p class="blog-card-desc">A clear and intuitive experience helps users understand information faster, navigate with confidence, and take meaningful action.</p>
-            </div>
-          </article>
-
-          <!-- Card 5 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-5.png" alt="Website redesign illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-website-design">Website Design</span>
-              <h3 class="blog-card-title">When is the right time to redesign your website?</h3>
-              <p class="blog-card-desc">Slow performance, outdated visuals, confusing navigation, and poor mobile usability may indicate that your website needs more than a minor update.</p>
-            </div>
-          </article>
-
-          <!-- Card 6 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-6.png" alt="Branding mistakes illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-branding">Branding</span>
-              <h3 class="blog-card-title">Branding mistakes that can make a business look outdated</h3>
-              <p class="blog-card-desc">Inconsistent visuals, unclear messaging, and an unstructured identity can affect how customers perceive and remember a business.</p>
-            </div>
-          </article>
-
-          <!-- Card 7 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-7.png" alt="SEO essentials illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-seo">SEO</span>
-              <h3 class="blog-card-title">SEO essentials every business website should get right</h3>
-              <p class="blog-card-desc">Strong search visibility begins with the right content structure, page speed, keywords, technical foundation, and user experience.</p>
-            </div>
-          </article>
-
-          <!-- Card 8 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-8.png" alt="Social media illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-social-media">Social Media</span>
-              <h3 class="blog-card-title">Social media content that builds more than engagement</h3>
-              <p class="blog-card-desc">Effective social media content should create recognition, trust, relevance, and a stronger connection between the brand and its audience.</p>
-            </div>
-          </article>
-
-          <!-- Card 9 -->
-          <article class="blog-card">
-            <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-9.png" alt="Website speed illustration" class="blog-card-image" />
-            </div>
-            <div class="blog-card-content">
-              <span class="blog-card-category cat-web-development">Web Development</span>
-              <h3 class="blog-card-title">Why website speed matters for user experience and growth</h3>
-              <p class="blog-card-desc">A slow website can affect engagement, enquiries, search performance, and how customers perceive the credibility of a business.</p>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Pagination -->
-        <div class="blogs-pagination" id="blogs-pagination">
-          <button class="blogs-pagination-btn disabled" id="pagination-prev" aria-label="Previous page">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35" class="pagination-arrow-svg">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </button>
-          <button class="blogs-pagination-btn active" data-page="1">01</button>
-          <button class="blogs-pagination-btn" data-page="2">02</button>
-          <button class="blogs-pagination-btn" data-page="3">03</button>
-          <button class="blogs-pagination-btn" id="pagination-next" aria-label="Next page">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35" class="pagination-arrow-svg">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </button>
-        </div>
-
+      <div class="fif-view-more-container">
+        <a href="https://www.youtube.com/@eParivartan/playlists" target="_blank" rel="noopener noreferrer" class="fif-view-more-btn">
+          <span>View more podcasts</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+            <path d="M5 6C5.26522 6 5.51957 5.89464 5.70711 5.70711C5.89464 5.51957 6 5.26522 6 5C6 4.73478 5.89464 4.48043 5.70711 4.29289C5.51957 4.10536 5.26522 4 5 4C4.73478 4 4.48043 4.10536 4.29289 4.29289C4.10536 4.48043 4 4.73478 4 5C4 5.26522 4.10536 5.51957 4.29289 5.70711C4.48043 5.89464 4.73478 6 5 6ZM3 8C3.13132 8 3.26136 7.97413 3.38268 7.92388C3.50401 7.87362 3.61425 7.79997 3.70711 7.70711C3.79997 7.61425 3.87362 7.50401 3.92388 7.38268C3.97413 7.26136 4 7.13132 4 7C4 6.86868 3.97413 6.73864 3.92388 6.61732C3.87362 6.49599 3.79997 6.38575 3.70711 6.29289C3.61425 6.20003 3.50401 6.12638 3.38268 6.07612C3.26136 6.02587 3.13132 6 3 6C2.73478 6 2.48043 6.10536 2.29289 6.29289C2.10536 6.48043 2 6.73478 2 7C2 7.26522 2.10536 7.51957 2.29289 7.70711C2.48043 7.89464 2.73478 8 3 8ZM1 10C1.26522 10 1.51957 9.89464 1.70711 9.70711C1.89464 9.51957 2 9.26522 2 9C2 8.73478 1.89464 8.48043 1.70711 8.29289C1.51957 8.10536 1.26522 8 1 8C0.734784 8 0.48043 8.10536 0.292893 8.29289C0.105357 8.48043 0 8.73478 0 9C0 9.26522 0.105357 9.51957 0.292893 9.70711C0.48043 9.89464 0.734784 10 1 10ZM3 4C3.26522 4 3.51957 3.89464 3.70711 3.70711C3.89464 3.51957 4 3.26522 4 3C4 2.73478 3.89464 2.48043 3.70711 2.29289C3.51957 2.10536 3.26522 2 3 2C2.73478 2 2.48043 2.10536 2.29289 2.29289C2.10536 2.48043 2 2.73478 2 3C2 3.26522 2.10536 3.51957 2.29289 3.70711C2.48043 3.89464 2.73478 4 3 4ZM1 2C1.26522 2 1.51957 1.89464 1.70711 1.70711C1.89464 1.51957 2 1.26522 2 1C2 0.734784 1.89464 0.48043 1.70711 0.292893C1.51957 0.105357 1.26522 0 1 0C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2Z" fill="white"/>
+          </svg>
+        </a>
       </div>
-    </section>
 
-  </main>
+    </div>
+  </section>
 
   <!-- ==================== CTA COLLABORATE ==================== -->
   <section class="cta-section">
     <div class="cta-container">
       <div class="cta-outer-box">
-        <div class="cta-inner-box" style="background-image: url('./assets/home/cta_bg.png');">
+        <div class="cta-inner-box" style="background-image: url('./assets/life/cta_bg.png');">
           
           <!-- Left: collaborate text -->
           <div class="cta-left-content">
@@ -525,7 +516,7 @@
                 
                 <div class="available-collab-circles">
                   <div class="circle-logo-wrapper">
-                    <img src="./assets/home/Parivartan-Leaf.png" alt="Parivartan Logo" class="collab-leaf-logo" />
+                    <img src="./assets/life/Parivartan-Leaf.png" alt="Parivartan Logo" class="collab-leaf-logo" />
                   </div>
                   <span class="collab-plus">+</span>
                   <div class="circle-you-wrapper">
@@ -628,138 +619,136 @@
               <div class="contact-custom-dropdown-container">
                 <div class="contact-input-wrap contact-custom-dropdown-trigger">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.99905 5.00003C7.40571 5.00003 6.82569 5.17598 6.33234 5.50562C5.83899 5.83526 5.45448 6.3038 5.22741 6.85198C5.00035 7.40016 4.94094 8.00336 5.0567 8.5853C5.17245 9.16724 5.45817 9.70179 5.87773 10.1214C6.29729 10.5409 6.83184 10.8266 7.41378 10.9424C7.99572 11.0581 8.59892 10.9987 9.1471 10.7717C9.69528 10.5446 10.1638 10.1601 10.4935 9.66674C10.8231 9.17339 10.9991 8.59337 10.9991 8.00003C10.9982 7.20463 10.6819 6.44205 10.1195 5.87962C9.55703 5.31719 8.79445 5.00086 7.99905 5.00003ZM7.99905 10C7.60349 10 7.21681 9.88273 6.88791 9.66297C6.55901 9.44321 6.30267 9.13085 6.15129 8.7654C5.99992 8.39994 5.96031 7.99781 6.03748 7.60985C6.11465 7.22189 6.30513 6.86552 6.58484 6.58582C6.86454 6.30611 7.22091 6.11563 7.60887 6.03846C7.99683 5.96129 8.39897 6.00089 8.76442 6.15227C9.12987 6.30365 9.44223 6.55999 9.66199 6.88889C9.88175 7.21779 9.99905 7.60447 9.99905 8.00003C9.99905 8.53046 9.78834 9.03917 9.41327 9.41424C9.03819 9.78932 8.52949 10 7.99905 10ZM13.4991 8.13503C13.5016 8.04503 13.5016 7.95503 13.4991 7.86503L14.4316 6.70003C14.4804 6.63886 14.5143 6.56706 14.5304 6.49042C14.5464 6.41378 14.5443 6.33443 14.5241 6.25878C14.3712 5.68416 14.1425 5.13244 13.8441 4.61815C13.805 4.55085 13.7507 4.4936 13.6856 4.45096C13.6205 4.40832 13.5464 4.38146 13.4691 4.37253L11.9866 4.20753C11.9249 4.14253 11.8624 4.08003 11.7991 4.02003L11.6241 2.53378C11.6151 2.45641 11.5881 2.38222 11.5453 2.31711C11.5026 2.252 11.4452 2.19779 11.3778 2.15878C10.8633 1.86087 10.3117 1.63243 9.73718 1.4794C9.66147 1.45928 9.5821 1.45722 9.50546 1.47339C9.42881 1.48957 9.35704 1.52353 9.29593 1.57253L8.13405 2.50003C8.04405 2.50003 7.95405 2.50003 7.86405 2.50003L6.69905 1.5694C6.63788 1.52051 6.56609 1.48666 6.48944 1.4706C6.4128 1.45453 6.33346 1.45669 6.2578 1.4769C5.68327 1.63005 5.13159 1.85871 4.61718 2.1569C4.54988 2.19598 4.49263 2.25023 4.44998 2.31533C4.40734 2.38044 4.38049 2.45459 4.37155 2.5319L4.20655 4.0169C4.14155 4.07899 4.07905 4.14149 4.01905 4.2044L2.5328 4.37503C2.45543 4.38403 2.38124 4.41098 2.31613 4.45373C2.25103 4.49649 2.19681 4.55386 2.1578 4.62128C1.85989 5.13576 1.63145 5.68743 1.47843 6.2619C1.4583 6.33761 1.45624 6.41698 1.47242 6.49362C1.48859 6.57027 1.52255 6.64204 1.57155 6.70315L2.49905 7.86503C2.49905 7.95503 2.49905 8.04503 2.49905 8.13503L1.56843 9.30003C1.51953 9.3612 1.48569 9.43299 1.46962 9.50964C1.45355 9.58628 1.45571 9.66562 1.47593 9.74128C1.6288 10.3159 1.85747 10.8676 2.15593 11.3819C2.19501 11.4492 2.24926 11.5065 2.31436 11.5491C2.37946 11.5917 2.45362 11.6186 2.53093 11.6275L4.01343 11.7925C4.07551 11.8575 4.13801 11.92 4.20093 11.98L4.37405 13.4663C4.38305 13.5436 4.41 13.6178 4.45276 13.6829C4.49551 13.7481 4.55288 13.8023 4.6203 13.8413C5.13478 14.1392 5.68645 14.3676 6.26093 14.5207C6.33663 14.5408 6.416 14.5428 6.49265 14.5267C6.56929 14.5105 6.64106 14.4765 6.70218 14.4275L7.86405 13.5C7.95405 13.5025 8.04405 13.5025 8.13405 13.5L9.29905 14.4325C9.36022 14.4814 9.43202 14.5153 9.50866 14.5313C9.5853 14.5474 9.66465 14.5452 9.7403 14.525C10.3149 14.3722 10.8666 14.1435 11.3809 13.845C11.4482 13.806 11.5055 13.7517 11.5481 13.6866C11.5908 13.6215 11.6176 13.5473 11.6266 13.47L11.7916 11.9875C11.8566 11.9259 11.9191 11.8634 11.9791 11.8L13.4653 11.625C13.5427 11.616 13.6169 11.5891 13.682 11.5463C13.7471 11.5036 13.8013 11.4462 13.8403 11.3788C14.1382 10.8643 14.3667 10.3126 14.5197 9.73815C14.5398 9.66245 14.5419 9.58308 14.5257 9.50643C14.5095 9.42979 14.4756 9.35802 14.4266 9.2969L13.4991 8.13503ZM12.4928 7.72878C12.5034 7.90946 12.5034 8.0906 12.4928 8.27128C12.4854 8.39498 12.5241 8.51703 12.6016 8.61378L13.4884 9.7219C13.3867 10.0453 13.2564 10.3591 13.0991 10.6594L11.6866 10.8194C11.5635 10.8331 11.45 10.8919 11.3678 10.9844C11.2475 11.1197 11.1194 11.2478 10.9841 11.3682C10.8915 11.4503 10.8327 11.5639 10.8191 11.6869L10.6622 13.0982C10.3619 13.2555 10.0481 13.3858 9.72468 13.4875L8.61593 12.6007C8.5272 12.5298 8.41699 12.4912 8.30343 12.4913H8.27343C8.09275 12.5019 7.91161 12.5019 7.73093 12.4913C7.60723 12.4838 7.48517 12.5226 7.38843 12.6L6.27718 13.4875C5.95376 13.3858 5.64003 13.2555 5.33968 13.0982L5.17968 11.6875C5.16602 11.5645 5.10723 11.4509 5.01468 11.3688C4.87937 11.2485 4.75123 11.1203 4.63093 10.985C4.54876 10.8925 4.43519 10.8337 4.31218 10.82L2.90093 10.6625C2.74355 10.3622 2.61324 10.0485 2.51155 9.72503L3.39843 8.61628C3.47587 8.51953 3.51462 8.39748 3.50718 8.27378C3.49655 8.0931 3.49655 7.91196 3.50718 7.73128C3.51462 7.60758 3.47587 7.48552 3.39843 7.38878L2.51155 6.27815C2.61324 5.95474 2.74362 5.641 2.90093 5.34065L4.31155 5.18065C4.43456 5.167 4.54814 5.10821 4.63093 5.01565C4.75061 4.88035 4.87875 4.75221 5.01405 4.6319C5.10698 4.54968 5.16601 4.43585 5.17968 4.31253L5.33655 2.9019C5.63687 2.74452 5.95061 2.61422 6.27405 2.51253L7.3828 3.3994C7.47955 3.47684 7.6016 3.5156 7.7253 3.50815C7.90598 3.49753 8.08713 3.49753 8.2678 3.50815C8.3915 3.5156 8.51356 3.47684 8.6103 3.3994L9.72093 2.51253C10.0443 2.61429 10.3581 2.7446 10.6584 2.9019L10.8184 4.31253C10.8321 4.43554 10.8909 4.54911 10.9834 4.63128C11.1187 4.75159 11.2469 4.87972 11.3672 5.01503C11.4493 5.10758 11.5629 5.16637 11.6859 5.18003L13.0972 5.3369C13.2546 5.63722 13.3849 5.95096 13.4866 6.2744L12.5997 7.38315C12.5215 7.48071 12.4827 7.60403 12.4909 7.72878H12.4928Z" fill="#69686E"/>
+                    <path d="M7.99905 5.00003C7.40571 5.00003 6.82569 5.17598 6.33234 5.50562C5.83899 5.83526 5.45448 6.3038 5.22741 6.85198C5.00035 7.40016 4.94094 8.00336 5.0567 8.5853C5.17245 9.16724 5.45817 9.70179 5.87773 10.1214C6.29729 10.5409 6.83184 10.8266 7.41378 10.9424C7.99572 11.0581 8.59892 10.9987 9.1471 10.7717C9.69528 10.5446 10.1638 10.1601 10.4935 9.66674C10.8231 9.17339 10.9991 8.59337 10.9991 8.00003C10.9982 7.20463 10.6819 6.44205 10.1195 5.87962C9.55703 5.31719 8.79445 5.00086 7.99905 5.00003ZM7.99905 10C7.60349 10 7.21681 9.88273 6.88791 9.66297C6.55901 9.44321 6.30267 9.13085 6.15129 8.7654C5.99992 8.39994 5.96031 7.99781 6.03748 7.60985C6.11465 7.22189 6.30513 6.86552 6.58484 6.58582C6.86454 6.30611 7.22091 6.11563 7.60887 6.03846C7.99683 5.96129 8.39897 6.00089 8.76442 6.15227C9.12987 6.30365 9.44223 6.55999 9.66199 6.88889C9.88175 7.21779 9.99905 7.60447 9.99905 8.00003C9.99905 8.53046 9.78834 9.03917 9.41327 9.41424C9.03819 9.78932 8.52949 10 7.99905 10ZM13.4991 8.13503C13.5016 8.04503 13.5016 7.95503 13.4991 7.86503L14.4316 6.70003C14.4804 6.63886 14.5143 6.56706 14.5304 6.49042C14.5464 6.41378 14.5443 6.33443 14.5241 6.25878C14.3712 5.68416 14.1425 5.13244 14.8441 4.61815C13.805 4.55085 13.7507 4.4936 13.6856 4.45096C13.6205 4.40832 13.5464 4.38146 13.4691 4.37253L11.9866 4.20753C11.9249 4.14253 11.8624 4.08003 11.7991 4.02003L11.6241 2.53378C11.6151 2.45641 11.5881 2.38222 11.5453 2.31711C11.5026 2.252 11.4452 2.19779 11.3778 2.15878C10.8633 1.86087 10.3117 1.63243 9.73718 1.4794C9.66147 1.45928 9.5821 1.45722 9.50546 1.47339C9.42881 1.48957 9.35704 1.52353 9.29593 1.57253L8.13405 2.50003C8.04405 2.50003 7.95405 2.50003 7.86405 2.50003L6.69905 1.5694C6.63788 1.52051 6.56609 1.48666 6.48944 1.4706C6.4128 1.45453 6.33346 1.45669 6.2578 1.4769C5.68327 1.63005 5.13159 1.85871 4.61718 2.1569C4.54988 2.19598 4.49263 2.25023 4.44998 2.31533C4.40734 2.38044 4.38049 2.45459 4.37155 2.5319L4.20655 4.0169C4.14155 4.07899 4.07905 4.14149 4.01905 4.2044L2.5328 4.37503C2.45543 4.38403 2.38124 4.41098 2.31613 4.45373C2.25103 4.49649 2.19681 4.55386 2.1578 4.62128C1.85989 5.13576 1.63145 5.68743 1.47843 6.2619C1.4583 6.33761 1.45624 6.41698 1.47242 6.49362C1.48859 6.57027 1.52255 6.64204 1.57155 6.70315L2.49905 7.86503C2.49905 7.95503 2.49905 8.04503 2.49905 8.13503L1.56843 9.30003C1.51953 9.3612 1.48569 9.43299 1.46962 9.50964C1.45355 9.58628 1.45571 9.66562 1.47593 9.74128C1.6288 10.3159 1.85747 10.8676 2.15593 11.3819C2.19501 11.4492 2.24926 11.5065 2.31436 11.5491C2.37946 11.5917 2.45362 11.6186 2.53093 11.6275L4.01343 11.7925C4.07551 11.8575 4.13801 11.92 4.20093 11.98L4.37405 13.4663C4.38305 13.5436 4.41 13.6178 4.45276 13.6829C4.49551 13.7481 4.55288 13.8023 4.6203 13.8413C5.13478 14.1392 5.68645 14.3676 6.26093 14.5207C6.33663 14.5408 6.416 14.5428 6.49265 14.5267C6.56929 14.5105 6.64106 14.4765 6.70218 14.4275L7.86405 13.5C7.95405 13.5025 7.95405 13.5025 8.13405 13.5L9.29905 14.4325C9.36022 14.4814 9.43202 14.5153 9.50866 14.5313C9.5853 14.5474 9.66465 14.5452 9.7403 14.525C10.3149 14.3722 10.8666 14.1435 11.3809 13.845C11.4482 13.806 11.5055 13.7517 11.5481 13.6866C11.5908 13.6215 11.6176 13.5473 11.6266 13.47L11.7916 11.9875C11.8566 11.9259 11.9191 11.8634 11.9791 11.8L13.4653 11.625C13.5427 11.616 13.6169 11.5891 13.682 11.5463C13.7471 11.5036 13.8013 11.4462 13.8403 11.3788C14.1382 10.8643 14.3667 10.3126 14.5197 9.73815C14.5398 9.66245 14.5419 9.58308 14.5257 9.50643C14.5095 9.42979 14.4756 9.35802 14.4266 9.2969L13.4991 8.13503ZM12.4928 7.72878C12.5034 7.90946 12.5034 8.0906 12.4928 8.27128C12.4854 8.39498 12.5241 8.51703 12.6016 8.61378L13.4884 9.7219C13.3867 10.0453 13.2564 10.3591 13.0991 10.6594L11.6866 10.8194C11.5635 10.8331 11.45 10.8919 11.3678 10.9844C11.2475 11.1197 11.1194 11.2478 10.9841 11.3682C10.8915 11.4503 10.8327 11.5639 10.8191 11.6869L10.6622 13.0982C10.3619 13.2555 10.0481 13.3858 9.72468 13.4875L8.61593 12.6007C8.5272 12.5298 8.41699 12.4912 8.30343 12.4913H8.27343C8.09275 12.5019 7.91161 12.5019 7.73093 12.4913C7.60723 12.4838 7.48517 12.5226 7.38843 12.6L6.27718 13.4875C5.95376 13.3858 5.64003 13.2555 5.33968 13.0982L5.17968 11.6875C5.16602 11.5645 5.10723 11.4509 5.01468 11.3688C4.87937 11.2485 4.75123 11.1203 4.63093 10.985C4.54876 10.8925 4.43519 10.8337 4.31218 10.82L2.90093 10.6625C2.74355 10.3622 2.61324 10.0485 2.51155 9.72503L3.39843 8.61628C3.47587 8.51953 3.51462 8.39748 3.50718 8.27378C3.49655 8.0931 3.49655 7.91196 3.50718 7.73128C3.51462 7.60758 3.47587 7.48552 3.39843 7.38878L2.51155 6.27815C2.61324 5.95474 2.74362 5.641 2.90093 5.34065L4.31155 5.18065C4.43456 5.167 4.54814 5.10821 4.63093 5.01565C4.75061 4.88035 4.87875 4.75221 5.01405 4.6319C5.10698 4.54968 5.16601 4.43585 5.17968 4.31253L5.33655 2.9019C5.63687 2.74452 5.95061 2.61422 6.27405 2.51253L7.3828 3.3994C7.47955 3.47684 7.6016 3.5156 7.7253 3.50815C7.90598 3.49753 8.08713 3.49753 8.2678 3.50815C8.3915 3.5156 8.51356 3.47684 8.6103 3.3994L9.72093 2.51253C10.0443 2.61429 10.3581 2.7446 10.6584 2.9019L10.8184 4.31253C10.8321 4.43554 10.8909 4.54911 10.9834 4.63128C11.1187 4.75159 11.2469 4.87972 11.3672 5.01503C11.4493 5.10758 11.5629 5.16637 11.6859 5.18003L13.0972 5.3369C13.2546 5.63722 13.3849 5.95096 13.4866 6.2744L12.5997 7.38315C12.5215 7.48071 12.4827 7.60403 12.4909 7.72878H12.4928Z" fill="#69686E"/>
+                </svg>
+                <span class="contact-input-divider"></span>
+                <span class="contact-dropdown-selected-value placeholder">Select service</span>
+                <span class="contact-dropdown-chevron">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#8F8E93" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  <span class="contact-input-divider"></span>
-                  <span class="contact-dropdown-selected-value placeholder">Select service</span>
-                  <span class="contact-dropdown-chevron">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#8F8E93" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-                <input type="hidden" name="service" required />
+                </span>
               </div>
-            </div>
-
-          </div>
-
-          <!-- Website live preview field -->
-          <div class="contact-field contact-field-full contact-website-field">
-            <label for="website">Website (if any)</label>
-            <div class="contact-input-wrap">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.00001 11.3337H4.66668C3.78262 11.3337 2.93478 10.9825 2.30965 10.3573C1.68453 9.73223 1.33334 8.88438 1.33334 8.00033C1.33334 7.11627 1.68453 6.26842 2.30965 5.6433C2.93478 5.01818 3.78262 4.66699 4.66668 4.66699H6.00001M10 4.66699H11.3333C12.2174 4.66699 13.0652 5.01818 13.6904 5.6433C14.3155 6.26842 14.6667 7.11627 14.6667 8.00033C14.6667 8.88438 14.3155 9.73223 13.6904 10.3573C13.0652 10.9825 12.2174 11.3337 11.3333 11.3337H10M5.33334 8.00033H10.6667" stroke="#69686E" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="contact-input-divider"></span>
-              <input id="website" name="website" type="text" placeholder="Enter website URL" />
-              <span class="contact-dropdown-chevron" style="cursor: pointer;">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#8F8E93" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </div>
-
-            <!-- Previews slide wrap -->
-            <div class="contact-website-preview-collapse is-collapsed">
-              <div class="contact-website-preview-dropdown">
-                <div class="contact-website-preview-inner">
-                  <div class="contact-preview-frame-wrap">
-                    <div class="contact-preview-loading" style="display: none;">Loading preview…</div>
-                    <iframe src="" title="Website live preview" class="contact-preview-iframe" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" loading="lazy"></iframe>
-                  </div>
-                  <p class="contact-preview-hint">
-                    Some websites restrict embedding — <a href="" target="_blank" rel="noopener noreferrer">open in a new tab</a>.
-                  </p>
-                </div>
-              </div>
+              <input type="hidden" name="service" required />
             </div>
           </div>
 
-          <div class="contact-field contact-field-full">
-            <label for="message">Message *</label>
-            <div class="contact-input-wrap contact-textarea-wrap">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14.3538 3.64665L12.3538 1.64665C12.3073 1.60016 12.2522 1.56328 12.1915 1.53812C12.1308 1.51295 12.0657 1.5004 12 1.5C11.9343 1.5 11.8692 1.51295 11.8085 1.53812C11.7478 1.56328 11.6927 1.60016 11.6462 1.64665L5.64625 7.64665C5.59983 7.69312 5.56303 7.74827 5.53793 7.80897C5.51284 7.86967 5.49995 7.93472 5.5 8.0004V10.0004C5.5 10.133 5.55268 10.2602 5.64645 10.354C5.74021 10.4477 5.86739 10.5004 6 10.5004H8C8.06568 10.5005 8.13073 10.4876 8.19143 10.4625C8.25212 10.4374 8.30728 10.4006 8.35375 10.3542L14.3538 4.35415C14.4002 4.30771 14.4371 4.25257 14.4623 4.19187C14.4874 4.13117 14.5004 4.0661 14.5004 4.0004C14.5004 3.93469 14.4874 3.86963 14.4623 3.80893C14.4371 3.74823 14.4002 3.69308 14.3538 3.64665ZM7.79313 9.5004H6.5V8.20727L10.5 4.20727L11.7931 5.5004L7.79313 9.5004ZM12.5 4.79352L11.2069 3.5004L12 2.70727L13.2931 4.0004L12.5 4.79352ZM14 8.0004V13.0004C14 13.2656 13.8946 13.52 13.7071 13.7075C13.5196 13.8951 13.2652 14.0004 13 14.0004H3C2.73478 14.0004 2.48043 13.8951 2.29289 13.7075C2.10536 13.52 2 13.2656 2 13.0004V3.0004C2 2.73518 2.10536 2.48083 2.29289 2.29329C2.48043 2.10575 2.73478 2.0004 3 2.0004H8C8.13261 2.0004 8.25979 2.05308 8.35355 2.14684C8.44732 2.24061 8.5 2.36779 8.5 2.5004C8.5 2.63301 8.44732 2.76018 8.35355 2.85395C8.25979 2.94772 8.13261 3.0004 8 3.0004H3V13.0004H13V8.0004C13 7.86779 13.0527 7.74061 13.1464 7.64684C13.2402 7.55308 13.3674 7.5004 13.5 7.5004C13.6326 7.5004 13.7598 7.55308 13.8536 7.64684C13.9473 7.74061 14 7.86779 14 8.0004Z" fill="#69686E"/>
-              </svg>
-              <span class="contact-input-divider"></span>
-              <textarea id="message" name="message" placeholder="Write your message..." rows="4" required></textarea>
-            </div>
-          </div>
+        </div>
 
-          <!-- reCAPTCHA v2 checkbox container -->
-          <div class="contact-recaptcha-container">
-            <div id="contact-recaptcha"></div>
-          </div>
-
-          <button type="submit" class="contact-submit-btn">
-            <span>Start the Conversation</span>
-            <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
-              <circle cx="2" cy="2" r="1.2" fill="white" />
-              <circle cx="5" cy="4.5" r="1.2" fill="white" />
-              <circle cx="8" cy="7" r="1.2" fill="white" />
-              <circle cx="5" cy="9.5" r="1.2" fill="white" />
-              <circle cx="2" cy="12" r="1.2" fill="white" />
+        <!-- Website live preview field -->
+        <div class="contact-field contact-field-full contact-website-field">
+          <label for="website">Website (if any)</label>
+          <div class="contact-input-wrap">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.00001 11.3337H4.66668C3.78262 11.3337 2.93478 10.9825 2.30965 10.3573C1.68453 9.73223 1.33334 8.88438 1.33334 8.00033C1.33334 7.11627 1.68453 6.26842 2.30965 5.6433C2.93478 5.01818 3.78262 4.66699 4.66668 4.66699H6.00001M10 4.66699H11.3333C12.2174 4.66699 13.0652 5.01818 13.6904 5.6433C14.3155 6.26842 14.6667 7.11627 14.6667 8.00033C14.6667 8.88438 14.3155 9.73223 13.6904 10.3573C13.0652 10.9825 12.2174 11.3337 11.3333 11.3337H10M5.33334 8.00033H10.6667" stroke="#69686E" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </button>
-        </form>
+            <span class="contact-input-divider"></span>
+            <input id="website" name="website" type="text" placeholder="Enter website URL" />
+            <span class="contact-dropdown-chevron" style="cursor: pointer;">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#8F8E93" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
 
-        <!-- Right Side details info cards -->
-        <div class="contact-info-outer">
-          <div class="contact-info-card">
-            
-            <div class="contact-info-row">
-              <span class="contact-info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14.25 4.49941C15.5114 4.83159 16.6621 5.49262 17.5844 6.41498C18.5068 7.33735 19.1678 8.488 19.5 9.74941M13.5 7.49941C15.0488 7.91379 16.0856 8.95066 16.5 10.4994M14.6616 14.3752C14.7654 14.3061 14.8849 14.264 15.0091 14.2527C15.1334 14.2414 15.2585 14.2613 15.3731 14.3106L19.7944 16.2915C19.9434 16.3552 20.0677 16.4654 20.1489 16.6057C20.23 16.7459 20.2635 16.9087 20.2444 17.0696C20.0987 18.1581 19.5627 19.1566 18.736 19.8795C17.9093 20.6024 16.8482 21.0005 15.75 20.9996C12.3685 20.9996 9.12548 19.6563 6.73439 17.2652C4.3433 14.8741 3 11.6311 3 8.24961C2.99916 7.15143 3.3972 6.09032 4.12009 5.26361C4.84298 4.43691 5.84152 3.90089 6.93 3.75524C7.09091 3.73612 7.25368 3.76963 7.39395 3.85075C7.53422 3.93187 7.64444 4.05624 7.70813 4.20524L9.68906 8.63024C9.73774 8.74389 9.75756 8.86781 9.74676 8.99098C9.73596 9.11414 9.69489 9.23272 9.62719 9.33618L7.62375 11.7184C7.55269 11.8256 7.51066 11.9494 7.50179 12.0778C7.49291 12.2061 7.51749 12.3346 7.57313 12.4506C8.34844 14.0377 9.98906 15.6587 11.5809 16.4265C11.6975 16.4819 11.8266 16.5059 11.9553 16.4962C12.084 16.4865 12.208 16.4434 12.315 16.3712L14.6616 14.3752Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <div class="contact-info-text">
-                <span class="contact-info-label">Call Now</span>
-                <span class="contact-info-value">+91 98491 65443</span>
+          <!-- Previews slide wrap -->
+          <div class="contact-website-preview-collapse is-collapsed">
+            <div class="contact-website-preview-dropdown">
+              <div class="contact-website-preview-inner">
+                <div class="contact-preview-frame-wrap">
+                  <div class="contact-preview-loading" style="display: none;">Loading preview…</div>
+                  <iframe src="" title="Website live preview" class="contact-preview-iframe" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" loading="lazy"></iframe>
+                </div>
+                <p class="contact-preview-hint">
+                  Some websites restrict embedding — <a href="" target="_blank" rel="noopener noreferrer">open in a new tab</a>.
+                </p>
               </div>
             </div>
-
-            <div class="contact-info-row">
-              <span class="contact-info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z" stroke="white" stroke-width="1.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <div class="contact-info-text">
-                <span class="contact-info-label">Email Us</span>
-                <span class="contact-info-value">feedback@eparivartan.com</span>
-              </div>
-            </div>
-
-            <div class="contact-info-row">
-              <span class="contact-info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 12.75C13.6569 12.75 15 11.4069 15 9.75C15 8.09315 13.6569 6.75 12 6.75C10.3431 6.75 9 8.09315 9 9.75C9 11.4069 10.3431 12.75 12 12.75Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M19.5 9.75C19.5 16.5 12 21.75 12 21.75C12 21.75 4.5 16.5 4.5 9.75C4.5 7.76088 5.29018 5.85322 6.6967 4.4467C8.10322 3.04018 10.0109 2.25 12 2.25C13.9891 2.25 15.8968 3.04018 17.3033 4.4467C18.7098 5.85322 19.5 7.76088 19.5 9.75Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <div class="contact-info-text">
-                <span class="contact-info-label">Locations</span>
-                <span class="contact-info-value">Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033 Telangana State</span>
-              </div>
-            </div>
-
-            <div class="contact-info-row">
-              <span class="contact-info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <div class="contact-info-text">
-                <span class="contact-info-label">Working Hours</span>
-                <span class="contact-info-value">Monday-Friday: 10:30 AM - 7:00 PM</span>
-              </div>
-            </div>
-
           </div>
         </div>
 
+        <div class="contact-field contact-field-full">
+          <label for="message">Message *</label>
+          <div class="contact-input-wrap contact-textarea-wrap">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.3538 3.64665L12.3538 1.64665C12.3073 1.60016 12.2522 1.56328 12.1915 1.53812C12.1308 1.51295 12.0657 1.5004 12 1.5C11.9343 1.5 11.8692 1.51295 11.8085 1.53812C11.7478 1.56328 11.6927 1.60016 11.6462 1.64665L5.64625 7.64665C5.59983 7.69312 5.56303 7.74827 5.53793 7.80897C5.51284 7.86967 5.49995 7.93472 5.5 8.0004V10.0004C5.5 10.133 5.55268 10.2602 5.64645 10.354C5.74021 10.4477 5.86739 10.5004 6 10.5004H8C8.06568 10.5005 8.13073 10.4876 8.19143 10.4625C8.25212 10.4374 8.30728 10.4006 8.35375 10.3542L14.3538 4.35415C14.4002 4.30771 14.4371 4.25257 14.4623 4.19187C14.4874 4.13117 14.5004 4.0661 14.5004 4.0004C14.5004 3.93469 14.4874 3.86963 14.4623 3.80893C14.4371 3.74823 14.4002 3.69308 14.3538 3.64665ZM7.79313 9.5004H6.5V8.20727L10.5 4.20727L11.7931 5.5004L7.79313 9.5004ZM12.5 4.79352L11.2069 3.5004L12 2.70727L13.2931 4.0004L12.5 4.79352ZM14 8.0004V13.0004C14 13.2656 13.8946 13.52 13.7071 13.7075C13.5196 13.8951 13.2652 14.0004 13 14.0004H3C2.73478 14.0004 2.48043 13.8951 2.29289 13.7075C2.10536 13.52 2 13.2656 2 13.0004V3.0004C2 2.73518 2.10536 2.48083 2.29289 2.29329C2.48043 2.10575 2.73478 2.0004 3 2.0004H8C8.13261 2.0004 8.25979 2.05308 8.35355 2.14684C8.44732 2.24061 8.5 2.36779 8.5 2.5004C8.5 2.63301 8.44732 2.76018 8.35355 2.85395C8.25979 2.94772 8.13261 3.0004 8 3.0004H3V13.0004H13V8.0004C13 7.86779 13.0527 7.74061 13.1464 7.64684C13.2402 7.55308 13.3674 7.5004 13.5 7.5004C13.6326 7.5004 13.7598 7.55308 13.8536 7.64684C13.9473 7.74061 14 7.86779 14 8.0004Z" fill="#69686E"/>
+            </svg>
+            <span class="contact-input-divider"></span>
+            <textarea id="message" name="message" placeholder="Write your message..." rows="4" required></textarea>
+          </div>
+        </div>
+
+        <!-- reCAPTCHA v2 checkbox container -->
+        <div class="contact-recaptcha-container">
+          <div id="contact-recaptcha"></div>
+        </div>
+
+        <button type="submit" class="contact-submit-btn">
+          <span>Start the Conversation</span>
+          <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+            <circle cx="2" cy="2" r="1.2" fill="white" />
+            <circle cx="5" cy="4.5" r="1.2" fill="white" />
+            <circle cx="8" cy="7" r="1.2" fill="white" />
+            <circle cx="5" cy="9.5" r="1.2" fill="white" />
+            <circle cx="2" cy="12" r="1.2" fill="white" />
+          </svg>
+        </button>
+      </form>
+
+      <!-- Right Side details info cards -->
+      <div class="contact-info-outer">
+        <div class="contact-info-card">
+          
+          <div class="contact-info-row">
+            <span class="contact-info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.25 4.49941C15.5114 4.83159 16.6621 5.49262 17.5844 6.41498C18.5068 7.33735 19.1678 8.488 19.5 9.74941M13.5 7.49941C15.0488 7.91379 16.0856 8.95066 16.5 10.4994M14.6616 14.3752C14.7654 14.3061 14.8849 14.264 15.0091 14.2527C15.1334 14.2414 15.2585 14.2613 15.3731 14.3106L19.7944 16.2915C19.9434 16.3552 20.0677 16.4654 20.1489 16.6057C20.23 16.7459 20.2635 16.9087 20.2444 17.0696C20.0987 18.1581 19.5627 19.1566 18.736 19.8795C17.9093 20.6024 16.8482 21.0005 15.75 20.9996C12.3685 20.9996 9.12548 19.6563 6.73439 17.2652C4.3433 14.8741 3 11.6311 3 8.24961C2.99916 7.15143 3.3972 6.09032 4.12009 5.26361C4.84298 4.43691 5.84152 3.90089 6.93 3.75524C7.09091 3.73612 7.25368 3.76963 7.39395 3.85075C7.53422 3.93187 7.64444 4.05624 7.70813 4.20524L9.68906 8.63024C9.73774 8.74389 9.75756 8.86781 9.74676 8.99098C9.73596 9.11414 9.69489 9.23272 9.62719 9.33618L7.62375 11.7184C7.55269 11.8256 7.51066 11.9494 7.50179 12.0778C7.49291 12.2061 7.51749 12.3346 7.57313 12.4506C8.34844 14.0377 9.98906 15.6587 11.5809 16.4265C11.6975 16.4819 11.8266 16.5059 11.9553 16.4962C12.084 16.4865 12.208 16.4434 12.315 16.3712L14.6616 14.3752Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Call Now</span>
+              <span class="contact-info-value">+91 98491 65443</span>
+            </div>
+          </div>
+
+          <div class="contact-info-row">
+            <span class="contact-info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z" stroke="white" stroke-width="1.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Email Us</span>
+              <span class="contact-info-value">feedback@eparivartan.com</span>
+            </div>
+          </div>
+
+          <div class="contact-info-row">
+            <span class="contact-info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 12.75C13.6569 12.75 15 11.4069 15 9.75C15 8.09315 13.6569 6.75 12 6.75C10.3431 6.75 9 8.09315 9 9.75C9 11.4069 10.3431 12.75 12 12.75Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.5 9.75C19.5 16.5 12 21.75 12 21.75C12 21.75 4.5 16.5 4.5 9.75C4.5 7.76088 5.29018 5.85322 6.6967 4.4467C8.10322 3.04018 10.0109 2.25 12 2.25C13.9891 2.25 15.8968 3.04018 17.3033 4.4467C18.7098 5.85322 19.5 7.76088 19.5 9.75Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Locations</span>
+              <span class="contact-info-value">Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033 Telangana State</span>
+            </div>
+          </div>
+
+          <div class="contact-info-row">
+            <span class="contact-info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Working Hours</span>
+              <span class="contact-info-value">Monday-Friday: 10:30 AM - 7:00 PM</span>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -767,7 +756,7 @@
     <!-- Success Toast notify box -->
     <div class="contact-toast-container" role="status" aria-live="polite">
       <div class="contact-toast">
-        <img src="./assets/home/Parivartan-Leaf.png" alt="" class="contact-toast-leaf" draggable="false" />
+        <img src="./assets/life/Parivartan-Leaf.png" alt="" class="contact-toast-leaf" draggable="false" />
         <div class="contact-toast-text">
           <span class="contact-toast-title">Message sent!</span>
           <span class="contact-toast-desc">Thanks for reaching out — we'll be in touch shortly.</span>
@@ -776,7 +765,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
@@ -938,13 +926,28 @@
         Join the Parivar
         <img src="./assets/life/Parivartan-Leaf.png" alt="Leaf" class="life-title-leaf" />
       </a>
-      <span class="footer-copyright">&copy; 2026 Parivartan. All rights reserved</span>
+      <span class="footer-copyright">© 2026 Parivartan. All rights reserved</span>
     </div>
-  </footer>
+  <!-- Video Preview Modal Overlay (Matching home.html) -->
+  <div class="video-preview-overlay" id="fif-video-overlay" style="display: none;">
+    <div class="video-preview-modal">
+      <div class="video-preview-window">
+        <button type="button" class="video-preview-close" id="fif-video-close" aria-label="Close video">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
+        </button>
+        <iframe class="video-preview-player" id="fif-video-player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-preview-caption">
+        <span class="video-preview-caption-title" id="fif-video-title"></span>
+      </div>
+    </div>
+  </div>
 
   <!-- Loaded JS scripts -->
   <script src="./js/home.js"></script>
-  <script src="./js/blogs.js"></script>
+  <script src="./js/founders-in-frame.js"></script>
 
 </body>
 </html>
