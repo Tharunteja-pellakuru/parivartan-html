@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why your website is more than just an online brochure | Parivartan</title>
+  <meta name="description" content="A modern website should do more than present information. It should build trust, guide users, generate enquiries, support marketing, and contribute to business growth.">
+  <link rel="stylesheet" href="./css/blog-details.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="icon" type="image/png" href="./assets/home/Parivartan-Leaf.png">
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header-container">
+    <img src="./assets/life/Patch.png" alt="" class="header-patch" draggable="false" />
+    <div class="header-section header-left">
+      <a href="./index.html" class="header-logo-link">
+        <img src="./assets/life/Parivartan_Logo.png" alt="Parivartan Logo" class="header-logo" />
+      </a>
+    </div>
+    <div class="header-section header-middle">
+      <button class="menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="header-section header-right">
+      <a href="./contact.html" class="start-project-btn">
+        <span>Start a Project</span>
+        <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+          <circle cx="2" cy="2" r="1.2" fill="white" />
+          <circle cx="5" cy="4.5" r="1.2" fill="white" />
+          <circle cx="8" cy="7" r="1.2" fill="white" />
+          <circle cx="5" cy="9.5" r="1.2" fill="white" />
+          <circle cx="2" cy="12" r="1.2" fill="white" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile navigation overlay backdrop -->
+  <div class="menu-backdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer -->
+  <nav class="mobile-drawer">
+    <div class="drawer-menu-list">
+      <a href="./index.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Home</span>
+          <span class="drawer-menu-desc">Return to homepage</span>
+        </span>
+      </a>
+
+      <a href="./story.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="9" cy="8" r="3" />
+            <path d="M3.5 19c0-2.76 2.46-5 5.5-5s5.5 2.24 5.5 5" />
+            <path d="M15.5 4.3c1.44.42 2.5 1.76 2.5 3.35 0 1.6-1.06 2.93-2.5 3.35" />
+            <path d="M16 14.2c2.24.5 3.9 2.35 3.9 4.55" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Our Story</span>
+          <span class="drawer-menu-desc">Our story, mission &amp; values</span>
+        </span>
+      </a>
+
+      <!-- Life at Parivartan -->
+      <a href="./life.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Life at Parivartan</span>
+          <span class="drawer-menu-desc">Our culture, perks &amp; people</span>
+        </span>
+      </a>
+
+      <!-- Founders in Frame -->
+      <a href="./founders-in-frame.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Founders in Frame</span>
+          <span class="drawer-menu-desc">Exclusive video podcast series</span>
+        </span>
+      </a>
+
+      <a href="./clients.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="9" cy="8" r="3" />
+            <path d="M3.5 19c0-2.76 2.46-5 5.5-5s5.5 2.24 5.5 5" />
+            <path d="M15.5 4.3c1.44.42 2.5 1.76 2.5 3.35 0 1.6-1.06 2.93-2.5 3.35" />
+            <path d="M16 14.2c2.24.5 3.9 2.35 3.9 4.55" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Our Clients</span>
+          <span class="drawer-menu-desc">People we worked with</span>
+        </span>
+      </a>
+
+      <div class="drawer-menu-item-group expanded">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="true">
+          <span class="drawer-menu-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+              <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+              <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6" />
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">Our Work</span>
+            <span class="drawer-menu-desc">Explore our selected projects</span>
+          </span>
+          <span class="drawer-menu-chevron">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./work-websites.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Websites</span>
+          </a>
+          <a href="./work-webapps.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Web Applications</span>
+          </a>
+          <a href="./work-mobileapps.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Mobile Apps</span>
+          </a>
+          <a href="./work-ecommerce.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">eCommerce</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Blogs -->
+      <a href="./blogs.html" class="drawer-menu-item active">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Blogs</span>
+          <span class="drawer-menu-desc">Read our latest insights</span>
+        </span>
+      </a>
+
+      <!-- Media Features -->
+      <a href="./media.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Media Features</span>
+          <span class="drawer-menu-desc">Press &amp; publication coverage</span>
+        </span>
+      </a>
+
+      <!-- Awards -->
+      <a href="./awards.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="7" />
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Awards</span>
+          <span class="drawer-menu-desc">Annual recognition ceremony</span>
+        </span>
+      </a>
+
+      <!-- Contact -->
+      <a href="./contact.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Contact</span>
+          <span class="drawer-menu-desc">Let's connect &amp; build together</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Drawer CTA Panel -->
+    <div class="drawer-cta-panel">
+      <span class="drawer-cta-dot drawer-cta-dot-1"></span>
+      <span class="drawer-cta-dot drawer-cta-dot-2"></span>
+      <span class="drawer-cta-circle"></span>
+      <div class="drawer-cta-content">
+        <h3 class="drawer-cta-heading">
+          Let's build<br />
+          <span class="highlight">meaningful</span> impact
+        </h3>
+        <span class="drawer-cta-divider"></span>
+        <p class="drawer-cta-text">
+          We partner with forward-thinking brands to create digital experiences that drive growth.
+        </p>
+        <a href="./contact.html" class="drawer-cta-btn">
+          <span>Start a Project</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 11L11 3M11 3H4.5M11 3v6.5" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+      <img src="./assets/home/Parivartan-Leaf.png" alt="" class="drawer-cta-leaf" draggable="false" />
+    </div>
+  </nav>
+
+  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+  <main class="bd-main">
+    <div class="bd-container">
+
+      <!-- Blog Header -->
+      <div class="bd-header">
+        <div class="bd-tagline">
+          <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5.5 5.5L1 10" stroke="#69686E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>BLOG DETAILS</span>
+          <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 1L1.5 5.5L6 10" stroke="#69686E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <h1 class="bd-title">Why your website is more than just an online brochure</h1>
+        <p class="bd-subtitle">A modern website should do more than present information. It should build trust, guide users, generate enquiries, support marketing, and contribute to business growth.</p>
+
+        <!-- Meta Row -->
+        <div class="bd-meta-row">
+          <div class="bd-author">
+            <img src="./assets/story/Anand.png" alt="Admin" class="bd-avatar" />
+            <div class="bd-author-text">
+              <span class="bd-author-name">Admin</span>
+              <span class="bd-author-date">January 12.2025</span>
+            </div>
+          </div>
+          <span class="bd-meta-divider"></span>
+          <div class="bd-meta-item">
+            <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
+            <span>10min read</span>
+          </div>
+          <span class="bd-meta-divider"></span>
+          <div class="bd-meta-item">
+            <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+            <span>Website Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="bd-hero-image">
+        <img src="./assets/blogs/blog-hero-featured.png" alt="Why your website is more than just an online brochure" />
+      </div>
+
+      <!-- Article Body -->
+      <article class="bd-body">
+
+        <div class="bd-section-block">
+          <h2 class="bd-heading-intro">Introduction</h2>
+          <p>There was a time when having a website was enough. Businesses only needed a few pages, basic company information, service details, and contact information to create an online presence.</p>
+          <p class="bd-orange">But today, users expect more.</p>
+          <p>Your website is often the first serious interaction people have with your brand. Before they call you, visit your office, follow you on social media, or make an enquiry, they usually visit your website to understand who you are, what you offer, and whether they can trust you. That is why a website can no longer be treated like a digital brochure. It needs to function as a powerful business tool.</p>
+        </div>
+
+        <div class="bd-section-block">
+          <h2>1. Your website builds the first layer of trust</h2>
+          <p>When someone lands on your website, they immediately form an opinion about your business. A clean design, clear messaging, fast loading speed, mobile responsiveness, and professional presentation can make your brand feel credible and reliable. On the other hand, an outdated or confusing website can create doubt, even if your business is strong offline.</p>
+          <p>Your website should answer the user's first question clearly:</p>
+          <p class="bd-orange">"Can I trust this brand?"</p>
+          <p>Good website design helps build that trust before any conversation even begins.</p>
+        </div>
+
+        <div class="bd-section-block">
+          <h2>2. It guides users towards the right action</h2>
+          <p>A brochure only presents information. A good website guides people. Every section, headline, button, image, and page should have a purpose. Whether the goal is to generate enquiries, book appointments, showcase services, sell products, or build awareness, the website should make the next step easy. This is where strong UI/UX design plays an important role.</p>
+          <h4 class="bd-list-heading">A well-planned website helps users:</h4>
+          <ul class="bd-leaf-list">
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Understand your business quickly</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Explore services easily</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Find important information without confusion</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Take action with confidence</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Contact you without friction</span></li>
+          </ul>
+          <p>When the journey is simple, users are more likely to convert.</p>
+        </div>
+
+        <div class="bd-section-block">
+          <h2>3. It supports your marketing efforts</h2>
+          <p>Your website is the foundation of your digital marketing. Whether you run Google Ads, Meta Ads, SEO campaigns, email marketing, or social media promotions, most of your audience eventually reaches your website. If the website is not clear, fast, and conversion-focused, your marketing budget may not deliver its full value.</p>
+          <h4 class="bd-list-heading">A strong website supports marketing by offering:</h4>
+          <ul class="bd-leaf-list">
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Dedicated landing pages</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Clear calls to action</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>SEO-friendly content</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Lead capture forms</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Service-specific pages</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Analytics and tracking setup</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Strong mobile experience</span></li>
+          </ul>
+          <p>Marketing brings users to your website. The website should help convert them.</p>
+        </div>
+
+        <!-- Split Images Row 1 -->
+        <div class="bd-split-images">
+          <div class="bd-split-card"><img src="./assets/blogs/blogs-images-4.png" alt="Business discussion" /></div>
+          <div class="bd-split-card"><img src="./assets/blogs/blogs-images-5.png" alt="Team collaboration" /></div>
+        </div>
+
+        <div class="bd-section-block">
+          <h2>4. It communicates your brand better</h2>
+          <p>Your website is one of the strongest places to express your brand identity. It is where your colours, typography, tone of voice, visuals, content, and user experience come together. When done right, it helps people understand not just what you do, but how your brand feels.</p>
+          <h4 class="bd-list-heading">A strong website communicates:</h4>
+          <ul class="bd-leaf-list">
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your positioning</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your values</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your services</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your personality</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your process</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your credibility</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your difference</span></li>
+          </ul>
+          <p>This makes your brand more memorable and easier to trust.</p>
+        </div>
+
+        <div class="bd-section-block">
+          <h2>5. It helps you stand apart from competitors</h2>
+          <p>In almost every industry, customers compare options before making a decision. If your competitors have better websites, clearer content, stronger visuals, and easier enquiry flows, they may look more professional even if your actual services are better. A thoughtfully designed website helps you stand apart by presenting your strengths clearly.</p>
+          <h4 class="bd-list-heading">It allows you to show:</h4>
+          <ul class="bd-leaf-list">
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your work</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your experience</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your client base</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your testimonials</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your process</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your results</span></li>
+            <li><img src="./assets/home/Parivartan-Leaf.png" alt="" class="bd-leaf"/><span>Your industry understanding</span></li>
+          </ul>
+          <p>Your website should not just say you are good. It should make users feel confident about choosing you.</p>
+        </div>
+
+        <div class="bd-section-block">
+          <h2>6. It works 24/7 for your business</h2>
+          <p>Unlike a physical office or sales team, your website is available all the time. It can introduce your business, explain your services, showcase your work, answer common questions, collect enquiries, and support decision-making even outside business hours.</p>
+          <p class="bd-orange">A good website becomes a silent sales assistant.</p>
+          <p>It continues working for your brand whether your team is online or not.</p>
+        </div>
+
+        <div class="bd-section-block">
+          <h2>7. It creates long-term business value</h2>
+          <p>A website is not just a one-time digital asset. When built properly, it becomes a long-term growth platform. Over time, it can support SEO, content marketing, lead generation, campaign landing pages, blogs, case studies, product launches, recruitment, and customer communication.</p>
+          <p class="bd-orange">Instead of only existing online, your website should keep evolving with your business.</p>
+          <p>That is what separates a simple brochure website from a growth-focused digital platform.</p>
+        </div>
+
+        <!-- Split Images Row 2 -->
+        <div class="bd-split-images">
+          <div class="bd-split-card"><img src="./assets/blogs/blogs-images-2.png" alt="Woman at laptop" /></div>
+          <div class="bd-split-card"><img src="./assets/blogs/blogs-images-3.png" alt="Team working" /></div>
+        </div>
+
+        <div class="bd-section-block">
+          <h2 class="bd-heading-intro">Conclusion</h2>
+          <p>Your website is more than a place to display information. It is a space where users form opinions, build trust, explore your services, understand your brand, and decide whether to take the next step.</p>
+          <p>A modern website should be strategic, user-friendly, responsive, search-friendly, and built with business goals in mind.</p>
+          <p>When your website works well, it does more than represent your brand. It helps your brand grow.</p>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ==================== RELATED INSIGHTS ==================== -->
+  <section class="blogs-insights-section">
+    <div class="blogs-insights-container">
+      <div class="blogs-insights-header">
+        <div class="blogs-insights-left">
+          <div class="blogs-insights-tag">
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35" class="insights-tag-arrow">
+              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
+              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
+              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
+            </svg>
+            <span>INSIGHTS</span>
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35" class="insights-tag-arrow">
+              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
+              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
+              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
+            </svg>
+          </div>
+          <h2 class="blogs-insights-title">Read other parivartan insights &amp; blogs</h2>
+        </div>
+        <div class="blogs-insights-right">
+          <p class="blogs-insights-desc">Explore valuable and practical insights on website design, branding, digital marketing, social media strategies, SEO, and business growth from the talented Parivartan team.</p>
+        </div>
+      </div>
+
+      <div class="blogs-grid">
+        <article class="blog-card" onclick="window.location.href='./blog-details.html'">
+          <div class="blog-card-image-wrapper">
+            <img src="./assets/blogs/blogs-images-1.png" alt="Website brochure illustration" class="blog-card-image" />
+          </div>
+          <div class="blog-card-content">
+            <span class="blog-card-category cat-website-design">Website Design</span>
+            <h3 class="blog-card-title">Why your website is more than just an online brochure</h3>
+            <p class="blog-card-desc">A modern website should do more than display information. It should build trust, guide users, generate enquiries, and support business growth.</p>
+          </div>
+        </article>
+
+        <article class="blog-card" onclick="window.location.href='./blog-details.html'">
+          <div class="blog-card-image-wrapper">
+            <img src="./assets/blogs/blogs-images-7.png" alt="UI/UX design illustration" class="blog-card-image" />
+          </div>
+          <div class="blog-card-content">
+            <span class="blog-card-category cat-uiux-design">UI/UX Design</span>
+            <h3 class="blog-card-title">How UI/UX design impacts business conversions</h3>
+            <p class="blog-card-desc">Good design is not just about how a website looks. It is about how easily users understand, navigate, and take action.</p>
+          </div>
+        </article>
+
+        <article class="blog-card" onclick="window.location.href='./blog-details.html'">
+          <div class="blog-card-image-wrapper">
+            <img src="./assets/blogs/blogs-images-6.png" alt="Branding illustration" class="blog-card-image" />
+          </div>
+          <div class="blog-card-content">
+            <span class="blog-card-category cat-branding">Branding</span>
+            <h3 class="blog-card-title">Branding mistakes that make businesses look outdated</h3>
+            <p class="blog-card-desc">From inconsistent visuals to unclear messaging, small branding gaps can affect how customers trust and remember your business.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA COLLABORATE ==================== -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-outer-box">
+        <div class="cta-inner-box" style="background-image: url('./assets/home/cta_bg.png');">
+          
+          <!-- Left: collaborate text -->
+          <div class="cta-left-content">
+            <div class="cta-tagline">
+              <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+                <circle cx="2" cy="2" r="1.2" fill="white" />
+                <circle cx="5" cy="4.5" r="1.2" fill="white" />
+                <circle cx="8" cy="7" r="1.2" fill="white" />
+                <circle cx="5" cy="9.5" r="1.2" fill="white" />
+                <circle cx="2" cy="12" r="1.2" fill="white" />
+              </svg>
+              <span>LET'S COLLABORATE</span>
+              <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+                <circle cx="8" cy="2" r="1.2" fill="white" />
+                <circle cx="5" cy="4.5" r="1.2" fill="white" />
+                <circle cx="2" cy="7" r="1.2" fill="white" />
+                <circle cx="5" cy="9.5" r="1.2" fill="white" />
+                <circle cx="8" cy="12" r="1.2" fill="white" />
+              </svg>
+            </div>
+            <h2 class="cta-main-heading">
+              Ready to transform your digital presence?
+            </h2>
+            <p class="cta-description">
+              From websites and branding to campaigns and growth marketing, we help businesses build digital experiences that create impact.
+            </p>
+            <a href="./contact.html" class="cta-start-project-btn">
+              <span>Start Project</span>
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                <circle cx="2" cy="2" r="1.2" fill="white" />
+                <circle cx="5" cy="4.5" r="1.2" fill="white" />
+                <circle cx="8" cy="7" r="1.2" fill="white" />
+                <circle cx="5" cy="9.5" r="1.2" fill="white" />
+                <circle cx="2" cy="12" r="1.2" fill="white" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right: Book free call card -->
+          <div class="cta-right-content">
+            <div class="available-card-outer">
+              <div class="available-card-inner">
+                <div class="available-tagline">
+                  <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+                    <circle cx="2" cy="2" r="1.2" fill="#69686E" />
+                    <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+                    <circle cx="8" cy="7" r="1.2" fill="#69686E" />
+                    <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+                    <circle cx="2" cy="12" r="1.2" fill="#69686E" />
+                  </svg>
+                  <span>available for Project</span>
+                  <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+                    <circle cx="8" cy="2" r="1.2" fill="#69686E" />
+                    <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+                    <circle cx="2" cy="7" r="1.2" fill="#69686E" />
+                    <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+                    <circle cx="8" cy="12" r="1.2" fill="#69686E" />
+                  </svg>
+                </div>
+                
+                <div class="available-collab-circles">
+                  <div class="circle-logo-wrapper">
+                    <img src="./assets/home/Parivartan-Leaf.png" alt="Parivartan Logo" class="collab-leaf-logo" />
+                  </div>
+                  <span class="collab-plus">+</span>
+                  <div class="circle-you-wrapper">
+                    <span class="collab-you-text">You</span>
+                  </div>
+                </div>
+
+                <h3 class="available-card-title">Quick 15-minute call</h3>
+                <p class="available-card-desc">Pick a time that works for you.</p>
+                
+                <a href="./contact.html" class="available-book-call-btn">
+                  <span>Book a Free call</span>
+                  <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                    <circle cx="2" cy="2" r="1.2" fill="white" />
+                    <circle cx="5" cy="4.5" r="1.2" fill="white" />
+                    <circle cx="8" cy="7" r="1.2" fill="white" />
+                    <circle cx="5" cy="9.5" r="1.2" fill="white" />
+                    <circle cx="2" cy="12" r="1.2" fill="white" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-top">
+
+      <!-- Logo & Desc + Social -->
+      <div class="footer-col footer-brand">
+        <img src="./assets/life/Parivartan_Logo.png" alt="Parivartan" class="footer-logo" />
+        <p class="footer-desc">
+          Parivartan is a design and marketing agency helping businesses build stronger digital identities and scalable websites.
+        </p>
+        
+        <div class="footer-social">
+          <a href="https://www.facebook.com/eparivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9.198 21.5H13.198V13.49H16.802L17.198 9.51H13.198V7.5C13.198 7.23478 13.3034 6.98043 13.4909 6.79289C13.6784 6.60536 13.9328 6.5 14.198 6.5H17.198V2.5H14.198C12.8719 2.5 11.6002 3.02678 10.6625 3.96447C9.72479 4.90215 9.198 6.17392 9.198 7.5V9.51H7.198L6.802 13.49H9.198V21.5Z" fill="white"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/eparivartan/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12.001 9C11.2054 9 10.4423 9.31607 9.87968 9.87868C9.31707 10.4413 9.001 11.2044 9.001 12C9.001 12.7956 9.31707 13.5587 9.87968 14.1213C10.4423 14.6839 11.2054 15 12.001 15C12.7966 15 13.5597 14.6839 14.1223 14.1213C14.6849 13.5587 15.001 12.7956 15.001 12C15.001 11.2044 14.6849 10.4413 14.1223 9.87868C13.5597 9.31607 12.7966 9 12.001 9ZM12.001 7C13.3271 7 14.5989 7.52678 15.5365 8.46447C16.4742 9.40215 17.001 10.6739 17.001 12C17.001 13.3261 16.4742 14.5979 15.5365 15.5355C14.5989 16.4732 13.3271 17 12.001 17C10.6749 17 9.40315 16.4732 8.46547 15.5355C7.52778 14.5979 7.001 13.3261 7.001 12C7.001 10.6739 7.52778 9.40215 8.46547 8.46447C9.40315 7.52678 10.6749 7 12.001 7ZM18.501 6.75C18.501 7.08152 18.3693 7.39946 18.1349 7.63388C17.9005 7.8683 17.5825 8 17.251 8C16.9195 8 16.6015 7.8683 16.3671 7.63388C16.1327 7.39946 16.001 7.08152 16.001 6.75C16.001 6.41848 16.1327 6.10054 16.3671 5.86612C16.6015 5.6317 16.9195 5.5 17.251 5.5C17.5825 5.5 17.9005 5.6317 18.1349 5.86612C18.3693 6.10054 18.501 6.41848 18.501 6.75ZM12.001 4C9.527 4 9.123 4.007 7.972 4.058C7.188 4.095 6.662 4.2 6.174 4.39C5.76583 4.54037 5.39672 4.78063 5.094 5.093C4.78127 5.39562 4.54066 5.76474 4.39 6.173C4.2 6.663 4.095 7.188 4.059 7.971C4.007 9.075 4 9.461 4 12C4 14.475 4.007 14.878 4.058 16.029C4.095 16.812 4.2 17.339 4.389 17.826C4.559 18.261 4.759 18.574 5.091 18.906C5.428 19.242 5.741 19.443 6.171 19.609C6.665 19.8 7.191 19.906 7.971 19.942C9.075 19.994 9.461 20 12 20C14.475 20 14.878 19.993 16.029 19.942C16.811 19.905 17.337 19.8 17.826 19.611C18.2342 19.4606 18.6033 19.2204 18.906 18.908C19.243 18.572 19.444 18.259 19.61 17.828C19.8 17.336 19.906 16.81 19.942 16.028C19.994 14.925 20 14.538 20 12C20 9.526 19.993 9.122 19.942 7.971C19.905 7.189 19.799 6.661 19.61 6.173C19.4596 5.76483 19.2194 5.39572 18.907 5.093C18.6044 4.78027 18.2353 4.53966 17.827 4.389C17.337 4.199 16.811 4.094 16.029 4.058C14.926 4.006 14.54 4 12 4M12 2C14.717 2 15.056 2.01 16.123 2.06C17.187 2.11 17.913 2.277 18.55 2.525C19.21 2.779 19.766 3.123 20.322 3.678C20.8307 4.17773 21.2242 4.78247 21.475 5.45C21.722 6.087 21.89 6.813 21.94 7.878C21.987 8.944 22 9.283 22 12C22 14.717 21.99 15.056 21.94 16.122C21.89 17.188 21.722 17.912 21.475 18.55C21.2242 19.2175 20.8307 19.8223 20.322 20.322C19.8223 20.8307 19.2175 21.2242 18.55 21.475C17.913 21.722 17.187 21.89 16.123 21.94C15.056 21.987 14.717 22 12 22C9.283 22 8.944 21.99 7.877 21.94C6.813 21.89 6.088 21.722 5.45 21.475C4.78247 21.2242 4.17773 20.8307 3.678 20.322C3.16931 19.8223 2.77582 19.2175 2.525 18.55C2.277 17.913 2.11 17.187 2.06 16.122C2.012 15.056 2 14.717 2 12C2 9.283 2.01 8.944 2.06 7.878C2.11 6.812 2.277 6.088 2.525 5.45C2.77582 4.78247 3.16931 4.17773 3.678 3.678C4.17773 3.16931 4.78247 2.77582 5.45 2.525C6.087 2.277 6.812 2.11 7.877 2.06C8.945 2.013 9.284 2 12.001 2" fill="white"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/parivartan-software-&-multimedia-pvt-ltd-/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M6.94 5.00002C6.93974 5.53046 6.72877 6.03906 6.35351 6.41394C5.97825 6.78883 5.46944 6.99929 4.939 6.99902C4.40857 6.99876 3.89997 6.78779 3.52508 6.41253C3.1502 6.03727 2.93974 5.52846 2.94 4.99802C2.94027 4.46759 3.15124 3.95899 3.5265 3.5841C3.90176 3.20922 4.41057 2.99876 4.941 2.99902C5.47144 2.99929 5.98004 3.21026 6.35492 3.58552C6.72981 3.96078 6.94027 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z" fill="white"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@eParivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M14 12L10.5 14V10L14 12Z" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12.7084V11.2924C2 8.39739 2 6.94939 2.905 6.01839C3.811 5.08639 5.237 5.04639 8.088 4.96539C9.438 4.92739 10.818 4.90039 12 4.90039C13.182 4.90039 14.561 4.92739 15.912 4.96539C18.763 5.04639 20.189 5.08639 21.094 6.01839C21.999 6.95039 22 8.39839 22 11.2924V12.7074C22 15.6034 22 17.0504 21.095 17.9824C20.189 18.9134 18.764 18.9544 15.912 19.0344C14.562 19.0734 13.182 19.1004 12 19.1004C10.818 19.1004 9.439 19.0734 8.088 19.0344C5.237 18.9544 3.811 18.9144 2.905 17.9824C1.999 17.0504 2 15.6024 2 12.7084Z" stroke="white" stroke-width="1.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="./index.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Home</span><span class="swap-text-dup" aria-hidden="true">Home</span></span></a></li>
+          <li><a href="./story.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">About Us</span><span class="swap-text-dup" aria-hidden="true">About Us</span></span></a></li>
+          <li><a href="./life.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Life at Parivartan</span><span class="swap-text-dup" aria-hidden="true">Life at Parivartan</span></span></a></li>
+          <li><a href="./founders-in-frame.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Founders in Frame</span><span class="swap-text-dup" aria-hidden="true">Founders in Frame</span></span></a></li>
+          <li><a href="./index.html#portfolio" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Our Work</span><span class="swap-text-dup" aria-hidden="true">Our Work</span></span></a></li>
+          <li><a href="./clients.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Our Clients</span><span class="swap-text-dup" aria-hidden="true">Our Clients</span></span></a></li>
+          <li><a href="./blogs.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Blogs</span><span class="swap-text-dup" aria-hidden="true">Blogs</span></span></a></li>
+          <li><a href="./media.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Media Features</span><span class="swap-text-dup" aria-hidden="true">Media Features</span></span></a></li>
+          <li><a href="./awards.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Awards</span><span class="swap-text-dup" aria-hidden="true">Awards</span></span></a></li>
+          <li><a href="./contact.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Contact Us</span><span class="swap-text-dup" aria-hidden="true">Contact Us</span></span></a></li>
+        </ul>
+      </div>
+
+      <!-- Services links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-list">
+          <li><a href="./work-websites.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">UI/UX Design</span><span class="swap-text-dup" aria-hidden="true">UI/UX Design</span></span></a></li>
+          <li><a href="./work-websites.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">Web Development</span><span class="swap-text-dup" aria-hidden="true">Web Development</span></span></a></li>
+          <li><a href="./work-mobileapps.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">App Development</span><span class="swap-text-dup" aria-hidden="true">App Development</span></span></a></li>
+          <li><a href="./work-webapps.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">AEO Services</span><span class="swap-text-dup" aria-hidden="true">AEO Services</span></span></a></li>
+          <li><a href="./work-webapps.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">GEO Services</span><span class="swap-text-dup" aria-hidden="true">GEO Services</span></span></a></li>
+          <li><a href="./contact.html" class="swap-link"><span class="swap-wrap"><span class="swap-text-orig">SEO Services</span><span class="swap-text-dup" aria-hidden="true">SEO Services</span></span></a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col footer-contact">
+        <h4 class="footer-heading">Get In Touch</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M11.875 3.74951C12.9262 4.02633 13.8851 4.57718 14.6537 5.34582C15.4223 6.11446 15.9732 7.07333 16.25 8.12451M11.25 6.24951C12.5406 6.59482 13.4047 7.45889 13.75 8.74951M12.218 11.9794C12.3045 11.9218 12.4041 11.8867 12.5076 11.8773C12.6112 11.8679 12.7154 11.8844 12.8109 11.9255L16.4953 13.5762C16.6195 13.6293 16.7231 13.7212 16.7907 13.8381C16.8583 13.9549 16.8862 14.0906 16.8703 14.2247C16.7489 15.1317 16.3023 15.9639 15.6133 16.5663C14.9244 17.1687 14.0402 17.5004 13.125 17.4997C10.3071 17.4997 7.60457 16.3803 5.61199 14.3877C3.61942 12.3951 2.5 9.6926 2.5 6.87468C2.4993 5.95952 2.831 5.07526 3.43341 4.38634C4.03582 3.69742 4.86793 3.25074 5.775 3.12936C5.90909 3.11344 6.04473 3.14136 6.16162 3.20896C6.27851 3.27656 6.37037 3.3802 6.42344 3.50436L8.07422 7.19186C8.11478 7.28657 8.1313 7.38984 8.1223 7.49248C8.1133 7.59512 8.07907 7.69394 8.02266 7.78015L6.35313 9.7653C6.2939 9.85466 6.25888 9.95786 6.25149 10.0648C6.24409 10.1718 6.26458 10.2788 6.31094 10.3755C6.95703 11.6981 8.32422 13.0489 9.65078 13.6887C9.74795 13.7349 9.85548 13.7549 9.96276 13.7468C10.07 13.7388 10.1733 13.7028 10.2625 13.6426L12.218 11.9794Z" stroke="#85BD56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>+91 98491 65443</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M14.1666 7.50033L11.5583 9.58366C10.7 10.267 9.29162 10.267 8.43329 9.58366L5.83329 7.50033M14.1666 17.0837H5.83329C3.33329 17.0837 1.66663 15.8337 1.66663 12.917V7.08366C1.66663 4.16699 3.33329 2.91699 5.83329 2.91699H14.1666C16.6666 2.91699 18.3333 4.16699 18.3333 7.08366V12.917C18.3333 15.8337 16.6666 17.0837 14.1666 17.0837Z" stroke="#85BD56" stroke-width="1.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>feedback@eparivartan.com</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 20 28" fill="none">
+              <path d="M10 14.75C11.3807 14.75 12.5 13.6307 12.5 12.25C12.5 10.8693 11.3807 9.75 10 9.75C8.61929 9.75 7.5 10.8693 7.5 12.25C7.5 13.6307 8.61929 14.75 10 14.75Z" stroke="#85BD56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.25 12.25C16.25 17.875 10 22.25 10 22.25C10 22.25 3.75 17.875 3.75 12.25C3.75 10.5924 4.40848 9.00269 5.58058 7.83058C6.75269 6.65848 8.3424 6 10 6C11.6576 6 13.2473 6.65848 14.4194 7.83058C15.5915 9.00269 16.25 10.5924 16.25 12.25Z" stroke="#85BD56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033 Telangana State</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="https://careers.eparivartan.com/" target="_blank" rel="noopener noreferrer" class="footer-join-link life-footer-parivar-link">
+        Join the Parivar
+        <img src="./assets/home/Parivartan-Leaf.png" alt="Leaf" class="life-title-leaf" />
+      </a>
+      <span class="footer-copyright">&copy; 2026 Parivartan. All rights reserved</span>
+    </div>
+  </footer>
+
+  <!-- Loaded JS scripts -->
+  <script src="./js/index.js"></script>
+  <script src="./js/blog-details.js"></script>
+
+</body>
+</html>
