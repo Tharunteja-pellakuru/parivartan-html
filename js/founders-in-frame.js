@@ -55,15 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    const toggleBtn = mobileDrawer.querySelector('.dropdown-toggle-btn');
-    const itemGroup = mobileDrawer.querySelector('.drawer-menu-item-group');
-    if (toggleBtn && itemGroup) {
-      toggleBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isExpanded = itemGroup.classList.toggle('expanded');
-        toggleBtn.setAttribute('aria-expanded', isExpanded);
-      });
-    }
+    const toggleBtns = mobileDrawer.querySelectorAll('.dropdown-toggle-btn');
+    toggleBtns.forEach(toggleBtn => {
+      const itemGroup = toggleBtn.closest('.drawer-menu-item-group');
+      if (toggleBtn && itemGroup) {
+        toggleBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isExpanded = itemGroup.classList.toggle('expanded');
+          toggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
+      }
+    });
   }
 
   /* ==========================================

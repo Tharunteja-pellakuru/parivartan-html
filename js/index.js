@@ -123,15 +123,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Accordion group Inside mobile drawer (Our Work submenus)
-    const toggleBtn = mobileDrawer.querySelector('.dropdown-toggle-btn');
-    const itemGroup = mobileDrawer.querySelector('.drawer-menu-item-group');
-    if (toggleBtn && itemGroup) {
-      toggleBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isExpanded = itemGroup.classList.toggle('expanded');
-        toggleBtn.setAttribute('aria-expanded', isExpanded);
-      });
-    }
+    const toggleBtns = mobileDrawer.querySelectorAll('.dropdown-toggle-btn');
+    toggleBtns.forEach(toggleBtn => {
+      const itemGroup = toggleBtn.closest('.drawer-menu-item-group');
+      if (toggleBtn && itemGroup) {
+        toggleBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isExpanded = itemGroup.classList.toggle('expanded');
+          toggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
+      }
+    });
   }
 
   /* ==========================================
@@ -655,8 +657,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'MySQL', stroke: '#00758F', svg: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>' },
         { name: 'Elasticsearch', stroke: '#005571', svg: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>' }
       ],
-      liveUrl: 'https://estic.dst.gov.in/',
-      displayUrl: 'estic.dst.gov.in/',
+      liveUrl: 'https://estic2026.in/',
+      displayUrl: 'estic2026.in',
       screenshot: './assets/home/estic_screenshot.png',
       useIframe: false
     },
