@@ -1,0 +1,878 @@
+/* CSS for awards.html */
+@import url("./index.css");
+
+/* ==================== AWARDS HERO SECTION ==================== */
+.awards-hero-section {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 0 40px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.awards-hero-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 16px 0 0 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Tagline */
+.awards-hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.awards-hero-tagline span {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Title */
+.awards-title {
+  color: var(--85BD56, #85BD56);
+  font-family: "Eras Md BT", 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(34px, 4.2vw, 46px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+/* ===== FEATURED SHOWCASE FRAME ===== */
+.awards-featured-frame {
+  display: flex;
+  width: 100%;
+  max-width: 1320px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  border: 1px solid #FFFFFF;
+  background: #F5F5F5;
+  box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.14) inset;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+
+.awards-featured-card {
+  display: flex;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(6, 6, 18, 0.05);
+  overflow: hidden;
+  border: 1px solid #E5E4E2;
+}
+
+/* Desktop layout: Side-by-side using CSS Grid */
+@media (min-width: 1101px) {
+  .awards-featured-inner {
+    display: grid;
+    grid-template-columns: 1fr 520px;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "top  img"
+      "btm  img";
+    gap: 0;
+    width: 100%;
+  }
+
+  .awards-featured-left-top    { grid-area: top; }
+  .awards-featured-right       { grid-area: img; }
+  .awards-featured-left-bottom { grid-area: btm; }
+}
+
+.awards-featured-left-top,
+.awards-featured-left-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 44px 48px;
+  box-sizing: border-box;
+}
+
+.awards-featured-left-top {
+  padding-bottom: 0;
+}
+
+.awards-featured-left-bottom {
+  padding-top: 24px;
+}
+
+.awards-featured-heading {
+  color: #060612;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  margin: 0;
+}
+
+.awards-featured-heading .green-spotlight {
+  color: #85BD56;
+}
+
+.awards-featured-desc {
+  color: #69686E;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0 0 20px 0;
+  max-width: 600px;
+}
+
+.awards-featured-desc.desc-secondary {
+  margin-bottom: 32px;
+}
+
+/* Statistics Row */
+.awards-stats-row {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #E5E7EB;
+  padding-top: 28px;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+.awards-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.awards-stat-number {
+  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #85BD56;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.awards-stat-label {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #69686E;
+}
+
+/* Featured Right Image / Video Cover */
+.awards-featured-right {
+  width: 520px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  cursor: pointer;
+  align-self: stretch;
+}
+.awards-featured-img-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+
+.awards-featured-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Video Play Overlay */
+.video-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 6, 18, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.awards-featured-right:hover .video-play-overlay {
+  background: rgba(6, 6, 18, 0.3);
+}
+
+.play-btn-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #85BD56;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(133, 189, 86, 0.4), 0 0 0 0px rgba(255, 255, 255, 0.25);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.play-btn-circle svg {
+  margin-left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.awards-featured-right:hover .play-btn-circle {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(133, 189, 86, 0.5), 0 0 0 6px rgba(255, 255, 255, 0.25);
+}
+
+/* ==================== GALLERY SECTION ==================== */
+.awards-gallery-section {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 80px 40px;
+  box-sizing: border-box;
+}
+
+.awards-gallery-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* Split Section Header */
+.awards-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  width: 100%;
+  gap: 40px;
+}
+
+.header-left-part {
+  flex: 1.2;
+  text-align: left;
+}
+
+.header-right-part {
+  flex: 1;
+  text-align: left;
+}
+
+.awards-gallery-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.awards-gallery-tagline span {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 185.714% */
+  text-transform: uppercase;
+}
+
+.awards-gallery-title {
+  align-self: stretch;
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 56px; /* 127.273% */
+  margin: 0;
+}
+
+.awards-gallery-subtitle {
+  width: 483px;
+  max-width: 720px;
+  color: #69686E;
+  text-align: right;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 144.444% */
+  margin: 0;
+}
+
+/* ===== GALLERY FLEXBOX LAYOUT ===== */
+.awards-gallery-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  height: 600px; /* Standardized total gallery height */
+}
+
+/* Each half column */
+.gallery-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 16px;
+  min-width: 0;
+  height: 100%;
+}
+
+/* Inner row of 2 side-by-side images */
+.gallery-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+}
+
+/* Base gallery card */
+.gallery-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #E5E4E2;
+  box-shadow: 0 4px 16px rgba(6, 6, 18, 0.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  cursor: default;
+}
+
+/* Tall card — takes 2x the flex space */
+.gallery-card--tall {
+  flex: 1.8;
+}
+
+/* Image fills the full card */
+.gallery-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-card.video-card {
+  cursor: pointer;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(6, 6, 18, 0.1);
+  border-color: #85BD56;
+}
+
+
+
+/* Video Play Indicator */
+.video-play-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(133, 189, 86, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(133, 189, 86, 0.4);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+}
+
+.video-play-indicator svg {
+  margin-left: 2px;
+}
+
+.awards-grid-card:hover .video-play-indicator {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: #85BD56;
+}
+
+/* Card Label Overlay */
+.card-label-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  background: linear-gradient(188deg, rgba(6, 6, 18, 0) 0%, rgba(6, 6, 18, 0.75) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFFFFF;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.video-pill {
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ===== VIEW MORE ACTION ===== */
+.awards-view-more-container {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.awards-view-more-btn {
+  display: inline-flex !important;
+  padding: 12px 28px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border-radius: 8px !important;
+  background: var(--85BD56, #85BD56) !important;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #E1FFC8 !important;
+  color: #FFFFFF !important;
+  font-family: Satoshi, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 28px !important;
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.awards-view-more-btn:hover {
+  background: #77B34A !important;
+  box-shadow: 2px 2px 3px 0 rgba(255, 255, 255, 0.25) inset, 0 0 0 3px #E1FFC8 !important;
+  transform: translateY(-1px) !important;
+}
+
+.awards-view-more-btn svg {
+  width: 6px !important;
+  height: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+/* ==================== RESPONSIVE ADAPTATIONS ==================== */
+
+/* ── Tablet Landscape (≤ 1100px) ── */
+@media (max-width: 1100px) {
+  .awards-hero-section {
+    padding: 0 24px;
+  }
+
+  .awards-gallery-section {
+    padding: 60px 24px;
+  }
+
+  /* Stack Hero vertically */
+  .awards-featured-inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .awards-featured-left-top    { order: 1; padding: 36px 32px 12px 32px; align-items: center; text-align: center; }
+  .awards-featured-right       { order: 2; width: 100%; min-height: 280px; }
+  .awards-featured-left-bottom { order: 3; padding: 20px 32px 36px 32px; align-items: center; text-align: center; }
+
+  .awards-featured-heading {
+    text-align: center;
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  .awards-featured-desc {
+    text-align: center;
+  }
+
+  .awards-stats-row {
+    justify-content: center;
+  }
+
+  .awards-featured-img-wrap {
+    height: 100%;
+  }
+
+  /* Gallery Grid — 2 columns on tablet */
+  .awards-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+    gap: 20px;
+  }
+
+  .awards-grid-container .card1 {
+    grid-column: 1 / span 2;
+    grid-row: auto;
+  }
+  .awards-grid-container .card2 {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .awards-grid-container .card3 {
+    grid-column: 2;
+    grid-row: auto;
+  }
+  .awards-grid-container .card4 {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .awards-grid-container .card5 {
+    grid-column: 2;
+    grid-row: auto;
+  }
+  .awards-grid-container .card6 {
+    grid-column: 1 / span 2;
+    grid-row: auto;
+  }
+}
+
+/* ── Tablet Portrait (≤ 850px) ── */
+@media (max-width: 850px) {
+  .awards-hero-section {
+    padding: 0 20px;
+  }
+
+  .awards-gallery-section {
+    padding: 48px 20px;
+  }
+
+  .awards-title {
+    font-size: 38px;
+    line-height: 50px;
+  }
+
+  .awards-featured-frame {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .awards-featured-card {
+    border-radius: 14px;
+  }
+
+  .awards-featured-left-top {
+    padding: 28px 24px 8px 24px;
+  }
+
+  .awards-featured-left-bottom {
+    padding: 16px 24px 28px 24px;
+  }
+
+  .awards-featured-heading {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .awards-featured-desc {
+    font-size: 15px;
+  }
+
+  .awards-stats-row {
+    gap: 24px;
+  }
+
+  .awards-stat-number {
+    font-size: 30px;
+  }
+
+  /* Gallery Header */
+  .awards-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .awards-gallery-title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .awards-gallery-subtitle {
+    max-width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* ── Mobile Large (≤ 640px) ── */
+@media (max-width: 640px) {
+  .awards-hero-section {
+    padding: 0 16px;
+  }
+
+  .awards-gallery-section {
+    padding: 36px 16px;
+  }
+
+  .awards-hero-tagline span {
+    font-size: 11px;
+  }
+
+  .awards-title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .awards-featured-frame {
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .awards-featured-left-top {
+    padding: 24px 20px 8px 20px;
+  }
+
+  .awards-featured-left-bottom {
+    padding: 12px 20px 24px 20px;
+  }
+
+  .awards-featured-heading {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .awards-featured-desc {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .awards-stats-row {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+
+  .awards-stat-number {
+    font-size: 28px;
+  }
+
+  .awards-stat-label {
+    font-size: 13px;
+  }
+
+  .play-btn-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Gallery Bento Grid on Mobile — single column */
+  .awards-grid-container {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+    gap: 16px;
+  }
+
+  .awards-grid-container .card1,
+  .awards-grid-container .card2,
+  .awards-grid-container .card3,
+  .awards-grid-container .card4,
+  .awards-grid-container .card5,
+  .awards-grid-container .card6 {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .awards-grid-card.span-2-cols {
+    grid-column: span 1;
+  }
+
+  .awards-grid-card.span-2-rows {
+    grid-row: span 1;
+  }
+
+  .awards-grid-card {
+    border-radius: 14px;
+  }
+
+  .video-play-indicator {
+    width: 48px;
+    height: 48px;
+  }
+
+  .card-label-overlay {
+    padding: 16px;
+    font-size: 14px;
+  }
+}
+
+/* ── Mobile Small (≤ 480px) ── */
+@media (max-width: 480px) {
+  .awards-hero-section {
+    padding: 0 12px;
+  }
+
+  .awards-gallery-section {
+    padding: 28px 12px;
+  }
+
+  .awards-title {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .awards-featured-left-top {
+    padding: 20px 16px 6px 16px;
+  }
+
+  .awards-featured-left-bottom {
+    padding: 10px 16px 20px 16px;
+  }
+
+  .awards-featured-heading {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .awards-featured-desc {
+    font-size: 13.5px;
+  }
+
+  .awards-stat-number {
+    font-size: 24px;
+  }
+
+  .awards-gallery-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .awards-view-more-btn {
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+}
+
+/* ==================== LIGHTBOX MODAL ==================== */
+.video-preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(6, 6, 18, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.video-preview-modal.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.video-modal-container {
+  width: 100%;
+  max-width: 960px;
+  box-sizing: border-box;
+}
+
+.video-modal-iframe-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  background: #000000;
+}
+
+.video-modal-iframe-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 640px) {
+  .video-preview-modal {
+    padding: 20px 16px;
+  }
+
+  .video-modal-close {
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
