@@ -1,7 +1,7 @@
 /* ==================================================================
    Work — App Details page
    Handles the "More Projects" horizontal carousel navigation.
-   (Header / mobile-drawer behaviour is provided by home.js.)
+   (Header / mobile-drawer behaviour is provided by index.js.)
    ================================================================== */
 (function () {
   "use strict";
