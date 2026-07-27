@@ -59,6 +59,9 @@
 .fif-section-header {
   text-align: center;
   margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .fif-section-header.header-split {
@@ -148,6 +151,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .fif-hero-heading {
@@ -200,6 +205,7 @@
   border: none !important;
   outline: none !important;
   cursor: pointer !important;
+  white-space: nowrap !important;
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease !important;
 }
 
@@ -435,6 +441,7 @@
   border: none !important;
   outline: none !important;
   cursor: pointer !important;
+  white-space: nowrap !important;
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease !important;
 }
 
@@ -452,143 +459,534 @@
 }
 
 /* ==================== RESPONSIVE ADAPTATIONS ==================== */
+
+/* ── Tablet Landscape (≤ 1024px) ── */
 @media (max-width: 1024px) {
+  .fif-page-container {
+    padding: 0 20px;
+  }
+
+  /* Hero */
+  .fif-hero-section {
+    padding: 32px 0 48px 0;
+  }
+
   .fif-hero-outer-card {
     grid-template-columns: 1fr;
-    padding: 24px;
+    padding: 20px;
+    gap: 24px;
+  }
+
+  .fif-hero-left-card {
+    padding: 36px 32px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .fif-hero-heading {
+    font-size: 36px;
+    line-height: 46px;
+    text-align: center;
+  }
+
+  .fif-hero-heading span.green-spotlight {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  .fif-hero-desc {
+    text-align: center;
+  }
+
+  .fif-hero-right-stage {
+    justify-content: center;
+  }
+
+  .fif-anand-hero-img {
+    max-height: 340px;
+    margin: 0 auto;
+  }
+
+  /* Mission */
+  .fif-mission-section {
+    padding: 48px 0 64px 0;
   }
 
   .fif-mission-card {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 32px;
+    flex-direction: column !important;
+    gap: 32px !important;
+    padding: 32px !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .fif-mission-text {
+    text-align: center !important;
   }
 
   .fif-stats-row {
-    border-left: none;
-    border-top: 1px solid #E2E8F0;
-    padding-left: 0;
-    padding-top: 24px;
+    border-left: none !important;
+    border-top: 1px solid #E5E7EB !important;
+    padding-left: 0 !important;
+    padding-top: 24px !important;
+    height: auto !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .fif-stat-item {
+    align-items: center !important;
+  }
+
+  /* Episodes */
+  .fif-episodes-section {
+    padding: 60px 0 0 0;
   }
 
   .fif-episodes-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px 20px;
+    margin-top: 40px;
+  }
+
+  /* Section headers */
+  .fif-header-split-title {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .fif-main-heading {
+    font-size: clamp(28px, 4vw, 40px);
   }
 }
 
-@media (max-width: 640px) {
+/* ── Tablet Portrait (≤ 768px) ── */
+@media (max-width: 768px) {
+  .fif-page-container {
+    padding: 0 16px;
+  }
+
+  /* Hero */
+  .fif-hero-section {
+    padding: 24px 0 40px 0;
+  }
+
+  .fif-section-header {
+    margin-bottom: 24px;
+  }
+
+  .fif-main-heading {
+    font-size: clamp(26px, 6vw, 36px);
+  }
+
+  .fif-hero-outer-card {
+    padding: 16px;
+    border-radius: 18px;
+    gap: 20px;
+  }
+
+  .fif-hero-left-card {
+    padding: 28px 24px;
+    border-radius: 14px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .fif-hero-heading,
+  .fif-hero-heading span.green-spotlight {
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  .fif-hero-desc {
+    font-size: 15px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .fif-hero-btn {
+    font-size: 15px !important;
+    padding: 11px 20px !important;
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+
+  .fif-view-more-btn {
+    font-size: 15px !important;
+    padding: 11px 20px !important;
+    width: auto !important;
+  }
+
+  .fif-anand-hero-img {
+    max-height: 280px;
+  }
+
+  /* Mission */
+  .fif-mission-section {
+    padding: 40px 0 56px 0;
+  }
+
+  .fif-mission-card {
+    padding: 24px !important;
+    gap: 24px !important;
+    border-radius: 16px !important;
+  }
+
+  .fif-mission-text {
+    font-size: 15px !important;
+  }
+
+  .fif-stats-row {
+    gap: 24px !important;
+  }
+
+  .fif-stat-number {
+    font-size: 30px !important;
+  }
+
   .fif-section-header.header-split {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .fif-header-split-title {
+    font-size: 28px;
+    line-height: 38px;
   }
 
   .fif-header-desc {
-    text-align: left;
     max-width: 100%;
+    margin-top: 0;
+    font-size: 14px;
+  }
+
+  /* Episodes */
+  .fif-episodes-section {
+    padding: 48px 0 0 0;
   }
 
   .fif-episodes-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+    margin-top: 32px;
+  }
+
+  .fif-episode-card {
+    border-radius: 16px;
+    padding: 12px;
+  }
+
+  .fif-thumb-container {
+    height: 160px;
+    border-radius: 10px;
+  }
+
+  .fif-episode-title {
+    font-size: 14px;
+  }
+
+  .fif-episode-desc {
+    font-size: 12px;
+  }
+
+  .fif-view-more-container {
+    margin-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* ── Mobile Large (≤ 640px) ── */
+@media (max-width: 640px) {
+  .fif-page-container {
+    padding: 0 14px;
+  }
+
+  /* Hero */
+  .fif-hero-section {
+    padding: 20px 0 36px 0;
+  }
+
+  .fif-main-heading {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+
+  .fif-hero-outer-card {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .fif-hero-left-card {
+    padding: 24px 20px;
+    border-radius: 12px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .fif-hero-heading,
+  .fif-hero-heading span.green-spotlight {
+    font-size: 26px;
+    line-height: 34px;
+    text-align: center;
+  }
+
+  .fif-hero-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .fif-hero-btn {
+    width: 100% !important;
+    max-width: 260px !important;
+  }
+
+  .fif-anand-hero-img {
+    max-height: 240px;
+  }
+
+  /* Mission */
+  .fif-mission-card {
+    padding: 20px !important;
   }
 
   .fif-stats-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    flex-wrap: wrap !important;
+    gap: 16px 24px !important;
+    height: auto !important;
+  }
+
+  .fif-stat-item:not(:last-child) {
+    border-right: none !important;
+    padding-right: 0 !important;
+  }
+
+  .fif-stat-number {
+    font-size: 28px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Episodes */
+  .fif-episodes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .fif-thumb-container {
+    height: 200px;
+  }
+
+  .fif-episode-title {
+    font-size: 15px;
+  }
+
+  .fif-episode-desc {
+    font-size: 13px;
+  }
+
+  .fif-header-split-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .fif-view-more-container {
+    margin-top: 32px;
+    padding-bottom: 32px;
   }
 }
 
-/* ==================== VIDEO POPUP MODAL STYLES ==================== */
+/* ── Mobile Small (≤ 480px) ── */
+@media (max-width: 480px) {
+  .fif-page-container {
+    padding: 0 12px;
+  }
+
+  .fif-main-heading {
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .fif-hero-left-card {
+    padding: 20px 16px;
+  }
+
+  .fif-hero-heading,
+  .fif-hero-heading span.green-spotlight {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .fif-hero-desc {
+    font-size: 13.5px;
+  }
+
+  .fif-hero-btn {
+    font-size: 14px !important;
+    padding: 10px 18px !important;
+    width: 100% !important;
+    max-width: 240px !important;
+    justify-content: center !important;
+  }
+
+  .fif-view-more-btn {
+    font-size: 14px !important;
+    padding: 10px 18px !important;
+    width: auto !important;
+    min-width: 180px !important;
+    justify-content: center !important;
+  }
+
+  .fif-anand-hero-img {
+    max-height: 200px;
+  }
+
+  .fif-mission-card {
+    padding: 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .fif-mission-text {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .fif-stat-number {
+    font-size: 26px !important;
+  }
+
+  .fif-stat-label {
+    font-size: 12px !important;
+  }
+
+  .fif-header-split-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .fif-thumb-container {
+    height: 180px;
+  }
+
+  .fif-episode-card {
+    padding: 10px;
+  }
+
+  .fif-episode-title {
+    font-size: 14px;
+  }
+
+  .fif-tagline span {
+    font-size: 11px !important;
+  }
+}
+
+/* ==================== VIDEO POPUP MODAL ==================== */
+.video-preview-overlay,
 .fif-video-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 99999999 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(6, 6, 18, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+  z-index: 999999 !important;
 }
 
-.fif-video-modal.active {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
-
-.fif-modal-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 1;
-}
-
+.video-preview-modal,
 .fif-modal-container {
-  position: relative;
-  width: 90%;
-  max-width: 920px;
-  background: #000000;
-  border-radius: 18px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
-  transform: scale(0.92);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  z-index: 10;
+  position: relative !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  margin: auto !important;
 }
 
-.fif-video-modal.active .fif-modal-container {
-  transform: scale(1);
-}
-
-.fif-modal-close {
-  position: absolute;
-  top: -48px;
-  right: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #FFFFFF;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-  z-index: 20;
-}
-
-.fif-modal-close:hover {
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.08);
-}
-
+.video-preview-window,
 .fif-modal-iframe-wrap {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  border-radius: 18px;
-  overflow: hidden;
-  background: #000000;
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  padding-bottom: 0 !important;
+  background: #000000 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6) !important;
 }
 
+.video-preview-player,
 .fif-modal-iframe-wrap iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  border: none !important;
+  display: block !important;
   background: #000000 !important;
+  border: none !important;
+}
+
+.video-preview-caption {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  padding: 0 4px !important;
+}
+
+.video-preview-caption-title {
+  color: #FFFFFF !important;
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+}
+
+.video-preview-close,
+.fif-modal-close {
+  position: absolute !important;
+  top: -48px !important;
+  right: 0 !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, transform 0.2s ease !important;
+  z-index: 100 !important;
+}
+
+.video-preview-close:hover,
+.fif-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: scale(1.05) !important;
+}
+
+@media (max-width: 768px) {
+  .video-preview-overlay,
+  .fif-video-modal {
+    padding: 16px !important;
+  }
+  .video-preview-close,
+  .fif-modal-close {
+    top: -44px !important;
+  }
 }
