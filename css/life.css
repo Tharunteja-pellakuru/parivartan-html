@@ -1,44 +1,3 @@
-/* Satoshi Font Definitions (HTTPS Explicit for file:// & HTTP) */
-@font-face {
-  font-family: 'Satoshi';
-  src: url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff2') format('woff2'),
-       url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff') format('woff');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Satoshi';
-  src: url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2'),
-       url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff') format('woff');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Satoshi';
-  src: url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2'),
-       url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff') format('woff');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Satoshi';
-  src: url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2'),
-       url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff') format('woff');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Satoshi';
-  src: url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff2') format('woff2'),
-       url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff') format('woff');
-  font-weight: 900;
-  font-display: swap;
-  font-style: normal;
-}
 @import url("./index.css");
 
 /* ==========================================================================
@@ -860,28 +819,35 @@
 }
 
 /* ==================== RESPONSIVE ADAPTATIONS ==================== */
-.values-landscape-stage {
-  min-width: 900px;
-}
-
 .values-stage-scroll-wrapper {
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 20px;
+  overflow: visible;
 }
 
-@media (max-width: 1024px) {
+.values-landscape-stage {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ── Tablet Landscape (≤ 1100px) ── */
+@media (max-width: 1100px) {
+  .life-page-container {
+    padding: 0 20px;
+  }
+
   .life-bento-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .life-section-header.header-split {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 20px;
+  .bento-row-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bento-card-green-wrap {
+    height: auto;
+    min-height: 280px;
+    padding-bottom: 20px;
   }
 
   .testimonials-cards-grid,
@@ -890,14 +856,153 @@
   }
 }
 
+/* ── Tablet Portrait (≤ 850px) ── */
+@media (max-width: 850px) {
+  .life-section-header.header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .life-section-subtitle {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .life-section-title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  /* Values Section — Card Transformation */
+  .values-stage-scroll-wrapper {
+    overflow: visible;
+  }
+
+  .values-landscape-stage {
+    min-height: auto;
+    margin-top: 24px;
+    min-width: 0;
+  }
+
+  .values-pins-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .value-pin-item,
+  .pin-craft,
+  .pin-empathy,
+  .pin-ownership {
+    margin-top: 0 !important;
+  }
+
+  .value-pin-item {
+    background: #F8FAF7;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .value-pin-title {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .value-pin-line {
+    display: none;
+  }
+
+  .perks-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .testimonials-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .perk-card-box {
+    padding: 24px 20px;
+  }
+}
+
+/* ── Mobile Large (≤ 640px) ── */
 @media (max-width: 640px) {
+  .life-page-container {
+    padding: 0 16px;
+  }
+
   .bento-row-top,
   .bento-row-bottom {
     grid-template-columns: 1fr;
   }
 
+  .bento-card-celebrations-wrap {
+    height: auto;
+    min-height: 320px;
+  }
+
+  .bento-celebrations-img {
+    height: 220px;
+  }
+
+  .bento-card-food-wrap {
+    height: 200px;
+  }
+
+  .bento-card-cheers-wrap {
+    height: 160px;
+  }
+
+  .bento-card-worktext-wrap {
+    height: auto;
+    padding: 20px;
+  }
+
+  .bento-worktext-heading {
+    font-size: 22px;
+  }
+
+  .values-pins-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .value-pin-item {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+
   .testimonials-cards-grid,
   .perks-cards-grid {
     grid-template-columns: 1fr;
+  }
+
+  .life-section-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+/* ── Mobile Small (≤ 480px) ── */
+@media (max-width: 480px) {
+  .life-page-container {
+    padding: 0 12px;
+  }
+
+  .life-section-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .bento-green-score {
+    font-size: 34px;
+  }
+
+  .perk-card-box {
+    padding: 20px 16px;
   }
 }
