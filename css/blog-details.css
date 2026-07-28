@@ -355,3 +355,43 @@ main.bd-main {
     line-height: 28px;
   }
 }
+
+.app-back-link, .bd-back-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #505056 !important;
+  letter-spacing: 0.05em !important;
+  transition: color 0.2s ease !important;
+}
+
+.app-back-link:hover, .bd-back-link:hover {
+  color: #85BD56 !important;
+}
+
+.app-back-icon, .bd-back-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 12px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #EBEAEA !important;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 0 2px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.2s ease !important;
+}
+
+.app-back-link:hover .app-back-icon, .bd-back-link:hover .bd-back-icon {
+  border-color: #85BD56 !important;
+  box-shadow: inset 0 0 0 1px #85BD56, 0 4px 12px rgba(133, 189, 86, 0.25) !important;
+  transform: translateY(-1px) !important;
+}
+
+.app-back-link:hover .app-back-icon svg path, .bd-back-link:hover .bd-back-icon svg path {
+  fill: #85BD56 !important;
+}

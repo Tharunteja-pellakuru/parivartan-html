@@ -360,55 +360,55 @@
   align-self: stretch;
 }
 
-/* ===== PAGINATION ===== */
+
 .blogs-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   padding: 0 0 8px 0;
 }
 
 .blogs-pagination-btn {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
-  background: #FFFFFF;
-  border: none;
-  box-shadow: 
-    6px 6px 14px rgba(0, 0, 0, 0.06), 
-    -6px -6px 14px rgba(255, 255, 255, 1),
-    inset 4px 4px 10px rgba(0, 0, 0, 0.05),
-    inset -4px -4px 10px rgba(255, 255, 255, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #EBEAEA !important;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 0 2px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   cursor: pointer;
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: #69686E;
-  transition: all 0.25s ease;
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #505056 !important;
+  transition: all 0.25s ease !important;
 }
 
 .blogs-pagination-btn:hover {
-  color: #85BD56;
+  border-color: #85BD56 !important;
+  color: #85BD56 !important;
+  box-shadow: inset 0 0 0 1px #85BD56, 0 4px 12px rgba(133, 189, 86, 0.2) !important;
+  transform: translateY(-1px) !important;
 }
 
 .blogs-pagination-btn.active {
-  color: #85BD56;
-  font-weight: 600;
+  color: #85BD56 !important;
+  font-weight: 700 !important;
+  border-color: #85BD56 !important;
+  box-shadow: inset 0 0 0 1px #85BD56, 0 4px 12px rgba(133, 189, 86, 0.15) !important;
 }
 
 .blogs-pagination-btn.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
+  opacity: 0.35 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  border-color: #EBEAEA !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05) !important;
 }
 
-.pagination-arrow-svg {
-  display: block;
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1200px) {
