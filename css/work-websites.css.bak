@@ -228,78 +228,7 @@
   transform: scale(1.04);
 }
 
-/* ==========================================================================
-   Responsive Overrides for 1200px - 641px range
-   Keep side-by-side layout, maintain 16:9 image ratio, keep content sizes same
-   ========================================================================== */
-@media (max-width: 1200px) and (min-width: 641px) {
-  /* Hero Card - Keep side-by-side layout, make image 16:9 */
-  .websites-card-inner {
-    flex-direction: row;
-    align-items: stretch;
-    gap: 16px;
-    padding: 0;
-  }
-
-  .websites-card-left {
-    flex: 1;
-    padding: 40px 48px;
-  }
-
-  .websites-card-right {
-    width: 520px;
-    flex-shrink: 0;
-  }
-
-  .websites-mockup-image-container {
-    height: auto;
-    aspect-ratio: 16 / 9;
-    min-height: 0;
-  }
-
-  .websites-mockup-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Project Cards - Maintain 16:9 preview, keep card height same */
-  .websites-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
-
-  .websites-project-card {
-    height: 440px;
-    min-height: 440px;
-    max-height: 440px;
-    padding: 16px 20px 12px 20px;
-  }
-
-  .websites-card-preview {
-    height: auto;
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .websites-project-card:hover .websites-card-preview {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-
-  .websites-preview-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-}
-
-/* ==========================================================================
-   Responsive Overrides for 1200px and below (mobile/tablet portrait)
-   Stack layout for hero card
-   ========================================================================== */
+/* Responsive Overrides */
 @media (max-width: 1200px) {
   .websites-card-frame {
     padding: 12px;
@@ -324,8 +253,7 @@
   }
 
   .websites-mockup-image-container {
-    height: auto;
-    aspect-ratio: 16 / 9;
+    height: 380px;
     min-height: 0;
   }
 
@@ -333,7 +261,6 @@
     padding: 32px 24px;
   }
 }
-
 
 @media (max-width: 960px) {
   .websites-hero-section {
