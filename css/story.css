@@ -1546,3 +1546,231 @@
     margin-bottom: 12px;
   }
 }
+
+/* ==================== WHAT PARIVARTAN REALLY MEANS ==================== */
+.about-meaning-section {
+  width: 100%;
+  padding: 80px 40px;
+  background: linear-gradient(180deg, #FAFDFA 0%, #FFFFFF 100%);
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.about-meaning-container {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+  background: #FFFFFF;
+  border: 1.5px solid #E2EEDD;
+  border-radius: 24px;
+  padding: 48px 56px;
+  box-shadow: 0 10px 30px rgba(46, 125, 31, 0.05);
+}
+
+.about-meaning-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #2E7D1F;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.about-meaning-heading {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 20px 0;
+  line-height: 46px;
+}
+
+.about-meaning-text {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 17.5px;
+  line-height: 30px;
+  color: #4B5563;
+  margin: 0;
+}
+
+/* ==================== LEAF PHILOSOPHY ==================== */
+.about-leaf-tagline span {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #2E7D1F;
+  text-transform: uppercase;
+}
+
+.about-leaf-subtitle {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2E7D1F;
+  margin: 8px 0 24px 0;
+}
+
+.about-leaf-paragraphs p {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4B5563;
+  margin: 0 0 16px 0;
+}
+
+/* ==================== TEAM PHILOSOPHY ==================== */
+.about-team-philosophy-section {
+  width: 100%;
+  padding: 85px 40px;
+  background: #F4FBF1;
+  box-sizing: border-box;
+}
+
+.about-team-philosophy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-team-philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-section-badge {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #2E7D1F;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.about-team-philosophy-title {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px 0;
+  line-height: 44px;
+}
+
+.about-team-philosophy-subtitle {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2E7D1F;
+  margin: 0;
+}
+
+.about-team-philosophy-right p {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16.5px;
+  line-height: 27px;
+  color: #374151;
+  margin: 0 0 14px 0;
+}
+
+.about-team-philosophy-right p.highlight-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E6B0E;
+}
+
+/* ==================== DEFINING LINE ==================== */
+.member-defining-line {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #2E7D1F;
+  background: #F0F8EC;
+  border: 1px solid #D6E8CD;
+  padding: 8px 18px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.defining-tag {
+  color: #111827;
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+/* ==================== DIVIDER BANNER ==================== */
+.about-divider-banner {
+  width: 100%;
+  padding: 70px 40px;
+  background: linear-gradient(135deg, #1E6B0E 0%, #2E7D1F 100%);
+  color: #FFFFFF;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.about-divider-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-divider-quote-icon svg {
+  stroke: #8CCB72;
+  margin-bottom: 16px;
+}
+
+.about-divider-text {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 34px;
+  color: #F0F8EC;
+  margin: 0;
+}
+
+/* ==================== TIMELINE CLOSING STATEMENT ==================== */
+.timeline-closing-statement {
+  max-width: 720px;
+  margin: 60px auto 0 auto;
+  text-align: center;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #1E6B0E;
+  padding: 24px 36px;
+  background: #F0F8EC;
+  border-radius: 16px;
+  border: 1.5px solid #D6E8CD;
+  box-shadow: 0 4px 20px rgba(46, 125, 31, 0.08);
+}
+
+.timeline-closing-statement p {
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .about-team-philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-meaning-container {
+    padding: 32px 24px;
+  }
+
+  .about-meaning-heading {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .about-divider-text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
