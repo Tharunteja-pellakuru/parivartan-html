@@ -1196,7 +1196,7 @@
 }
 
 .timeline-container {
-  max-width: 1320px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
@@ -1226,27 +1226,51 @@
   color: #060612;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 52px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 62px;
-  margin: 0;
-  max-width: 700px;
   margin: 0 auto;
+  max-width: 700px;
+}
+
+.timeline-subheading {
+  color: #69686E;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  margin: 14px auto 0 auto;
+  max-width: 600px;
 }
 
 .timeline-wrapper {
   position: relative;
   width: 100%;
   padding: 40px 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.timeline-center-line {
+/* SVG Winding Curved Line Container */
+.timeline-svg-container {
   position: absolute;
   top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: #EAEAEA;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.timeline-svg-track {
+  stroke: #C8E2BF;
+  stroke-width: 3.5px;
+  stroke-dasharray: 6 6;
+}
+
+.timeline-svg-progress {
+  stroke: #2E7D1F;
+  stroke-width: 4px;
+  stroke-linecap: round;
 }
 
 .timeline-item {
@@ -1254,9 +1278,9 @@
   justify-content: flex-end;
   align-items: center;
   width: 50%;
-  padding-right: 60px;
+  padding-right: 45px;
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   box-sizing: border-box;
 }
 
@@ -1265,83 +1289,204 @@
   justify-content: flex-start;
   margin-left: 50%;
   padding-right: 0;
-  padding-left: 60px;
+  padding-left: 45px;
 }
 
 .timeline-item:last-child {
   margin-bottom: 0;
 }
 
-.timeline-leaf {
+/* Numbered Station Pin Badge on Winding Line */
+.timeline-pin {
   position: absolute;
-  right: -14px;
+  right: -16px;
   top: 50%;
   transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #2E7D1F;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 0 2px #2E7D1F, 0 4px 12px rgba(46, 125, 31, 0.3);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-.timeline-item.right .timeline-leaf {
+.timeline-pin span {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.timeline-item.right .timeline-pin {
   right: auto;
-  left: -8px;
+  left: -16px;
 }
 
-.timeline-year-box {
+/* Milestone Card Header & Year Tag */
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.timeline-card-year {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #2E7D1F;
+  letter-spacing: -0.01em;
+}
+
+/* Year Label Next to Line Pin */
+.timeline-year-label {
   position: absolute;
-  right: -140px;
   top: 50%;
   transform: translateY(-50%);
-  color: #85BD56;
-  font-family: 'Eras Md BT', 'Outfit', sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  opacity: 0.8;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #2E7D1F;
+  z-index: 3;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
-.timeline-item.right .timeline-year-box {
+.timeline-item .timeline-year-label {
+  right: 32px;
+}
+
+.timeline-item.right .timeline-year-label {
+  left: 32px;
+}
+
+/* Active & Hover Pin Effects */
+.timeline-item.active .timeline-pin {
+  background-color: #1E6B0E;
+  box-shadow: 0 0 0 3px #1E6B0E, 0 0 16px rgba(46, 125, 31, 0.4);
+}
+
+.timeline-item:hover .timeline-pin {
+  transform: translateY(-50%) scale(1.3);
+  background-color: #1E6B0E;
+  box-shadow: 0 0 0 4px #1E6B0E, 0 0 20px rgba(46, 125, 31, 0.5);
+}
+
+.timeline-item:hover .timeline-year-label {
+  transform: translateY(-50%) scale(1.1);
+  color: #1E6B0E;
+}
+
+/* Horizontal Stem Line Connecting Pin to Card */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 105px;
+  height: 2px;
+  background: #D4E7CA;
+  transform: translateY(-50%);
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+
+.timeline-item.right::before {
   right: auto;
-  left: -140px;
+  left: 15px;
 }
 
+.timeline-item.active::before {
+  background: #2E7D1F;
+}
+
+.timeline-item:hover::before {
+  background: #1E6B0E;
+}
+
+/* Milestone Card Container */
 .timeline-content-card {
-  background: #FAFAFA;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  text-align: left;
-  position: relative;
-  border: 1px solid #F0F0F0;
-  max-width: 480px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2EEDD;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 22px 24px;
+  max-width: 440px;
   width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
+  will-change: transform, box-shadow;
+  box-sizing: border-box;
 }
 
 .timeline-content-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-  border-color: #E0E0E0;
+  transform: translateY(-50%) translateY(-4px) scale(1.015); /* Keep vertical alignment smooth */
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(46, 125, 31, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+  border-color: #8CCB72;
+}
+
+/* Milestone Card Icon Box */
+.timeline-card-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: #F0F8EC;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 18px;
+  color: #2E7D1F;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.timeline-content-card:hover .timeline-card-icon {
+  transform: scale(1.08);
+  background: #E4F3DE;
+}
+
+/* Card Main Text Content */
+.timeline-card-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .timeline-title {
-  color: #060612;
+  color: #111827;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 32px;
-  margin: 0 0 12px 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 22px;
+  margin: 0 0 4px 0;
+  transition: color 0.3s ease;
+}
+
+.timeline-content-card:hover .timeline-title {
+  color: #1E6B0E;
 }
 
 .timeline-desc {
-  color: #69686E;
+  color: #6B7280;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 13.5px;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 19px;
   margin: 0;
 }
 
+/* Responsive adjustments */
 @media (max-width: 992px) {
   .timeline-section {
     padding: 80px 24px;
@@ -1353,47 +1498,51 @@
   }
 
   .timeline-center-line {
-    left: 20px;
+    left: 24px;
   }
 
   .timeline-item {
     width: 100%;
-    padding-left: 60px;
+    padding-left: 90px;
     padding-right: 0;
     justify-content: flex-start;
   }
   
   .timeline-item.right {
     margin-left: 0;
+    padding-left: 90px;
   }
 
-  .timeline-dot, .timeline-item.right .timeline-leaf {
-    left: 10px;
+  .timeline-pin, .timeline-item.right .timeline-pin {
+    left: 9px;
+    right: auto;
+  }
+
+  .timeline-year-label, .timeline-item.right .timeline-year-label {
+    left: 46px;
     right: auto;
   }
   
-  .timeline-year-box, .timeline-item.right .timeline-year-box {
-    position: relative;
+  .timeline-item::before, .timeline-item.right::before {
+    left: 24px;
     right: auto;
-    left: auto;
-    top: auto;
-    transform: none;
-    display: inline-block;
-    margin-bottom: 16px;
-    font-size: 24px;
+    width: 66px;
   }
-  
+
   .timeline-content-card {
     max-width: 100%;
-    padding: 32px 24px;
   }
 }
 
-.timeline-center-line-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0; /* Animated by GSAP */
-  background: #85BD56;
+@media (max-width: 480px) {
+  .timeline-content-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+  
+  .timeline-card-icon {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
 }

@@ -29,39 +29,118 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
       
-      // Timeline center line scrub fill animation
+      // Timeline SVG Winding Path logic
       const timelineWrapper = document.querySelector('.timeline-wrapper');
-      const timelineLineFill = document.querySelector('.timeline-center-line-fill');
-      if (timelineWrapper && timelineLineFill) {
-        gsap.to(timelineLineFill, {
-          height: '100%',
+      const svgTrack = document.querySelector('.timeline-svg-track');
+      const svgProgress = document.querySelector('.timeline-svg-progress');
+
+      const updateTimelineSvgPath = () => {
+        if (!timelineWrapper || !svgTrack) return;
+        const items = document.querySelectorAll('.timeline-item');
+        if (items.length === 0) return;
+
+        const wrapperRect = timelineWrapper.getBoundingClientRect();
+        const points = [];
+
+        items.forEach(item => {
+          const pin = item.querySelector('.timeline-pin');
+          if (pin) {
+            const pinRect = pin.getBoundingClientRect();
+            const x = pinRect.left + pinRect.width / 2 - wrapperRect.left;
+            const y = pinRect.top + pinRect.height / 2 - wrapperRect.top;
+            points.push({ x, y });
+          }
+        });
+
+        if (points.length < 2) return;
+
+        let d = `M ${points[0].x} ${points[0].y}`;
+        for (let i = 0; i < points.length - 1; i++) {
+          const p0 = points[i];
+          const p1 = points[i + 1];
+          const midY = (p0.y + p1.y) / 2;
+          d += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`;
+        }
+
+        svgTrack.setAttribute('d', d);
+        if (svgProgress) {
+          svgProgress.setAttribute('d', d);
+          const totalLength = svgProgress.getTotalLength();
+          if (totalLength) {
+            svgProgress.style.strokeDasharray = totalLength;
+            svgProgress.style.strokeDashoffset = totalLength;
+          }
+        }
+      };
+
+      updateTimelineSvgPath();
+      window.addEventListener('resize', updateTimelineSvgPath);
+
+      if (timelineWrapper && svgProgress) {
+        gsap.to(svgProgress, {
+          strokeDashoffset: 0,
           ease: 'none',
           scrollTrigger: {
             trigger: timelineWrapper,
-            start: 'top 50%',
-            end: 'bottom 50%',
-            scrub: true
+            start: 'top 65%',
+            end: 'bottom 75%',
+            scrub: 0.5
           }
         });
       }
 
-      // Timeline items scroll animation
+      // Timeline items scroll animation (Directional slide-in & dot pop)
       const timelineItems = gsap.utils.toArray('.timeline-item');
       timelineItems.forEach(item => {
-        gsap.fromTo(item, 
-          { autoAlpha: 0, y: 50 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 85%',
-              once: true
+        const isRight = item.classList.contains('right');
+        const card = item.querySelector('.timeline-content-card');
+        const pin = item.querySelector('.timeline-pin') || item.querySelector('.timeline-dot');
+
+        // Timeline Pin Pop Animation
+        if (pin) {
+          gsap.fromTo(pin,
+            { scale: 0, opacity: 0 },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 0.6,
+              ease: 'back.out(2.2)',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 82%',
+                once: true
+              }
             }
-          }
-        );
+          );
+        }
+
+        // Timeline Content Card Directional Reveal Animation
+        if (card) {
+          gsap.fromTo(card,
+            {
+              autoAlpha: 0,
+              x: isRight ? 70 : -70,
+              y: 25,
+              scale: 0.95
+            },
+            {
+              autoAlpha: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 84%',
+                once: true,
+                onEnter: () => {
+                  item.classList.add('active');
+                }
+              }
+            }
+          );
+        }
       });
     } else {
       // Fallback for reduced motion
