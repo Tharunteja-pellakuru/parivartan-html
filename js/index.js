@@ -1046,8 +1046,11 @@ document.addEventListener('DOMContentLoaded', () => {
      7. FAQS ACCORDION TOGGLES
      ========================================== */
   const faqsSec = document.getElementById('faqs');
-  if (faqsSec) {
+  if (faqsSec && !faqsSec.dataset.faqInitialized) {
+    faqsSec.dataset.faqInitialized = 'true';
     const items = faqsSec.querySelectorAll('.faq-item-card');
+    const openPath = 'M8.0137 14.6135L14.6134 8.01388M8.0137 8.01388L14.6134 14.6135';
+    const closedPath = 'M11.5 7V16M7 11.5H16';
 
     items.forEach(card => {
       card.addEventListener('click', () => {
@@ -1057,13 +1060,13 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => {
           item.classList.remove('is-open');
           const path = item.querySelector('.faq-toggle-btn svg path');
-          if (path) path.setAttribute('d', 'M11.5 7V16M7 11.5H16');
+          if (path) path.setAttribute('d', closedPath);
         });
 
         if (!isOpen) {
           card.classList.add('is-open');
           const path = card.querySelector('.faq-toggle-btn svg path');
-          if (path) path.setAttribute('d', 'M7 11.5H16');
+          if (path) path.setAttribute('d', openPath);
         }
       });
     });
@@ -1576,4 +1579,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render
     updateCoverflowState();
   }
+
+  /* ==========================================
+     Footer Group Accordion Toggles
+     ========================================== */
+  document.addEventListener('click', (e) => {
+    const header = e.target.closest('.footer-group-header');
+    if (header) {
+      e.preventDefault();
+      const parentGroup = header.closest('.footer-group');
+      if (parentGroup) {
+        const isOpen = parentGroup.classList.toggle('open');
+        header.classList.toggle('active', isOpen);
+      }
+    }
+  });
 });
+
