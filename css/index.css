@@ -740,13 +740,14 @@ button {
 }
 
 .hero-headline {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
   width: max-content;
   max-width: 100%;
-  font-family: "Eras Md BT", 'DM Sans', system-ui, sans-serif;
-  font-size: 50px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 62px;
   margin: 0 0 24px 0;
   text-align: left;
   white-space: nowrap;
@@ -865,6 +866,7 @@ button {
   text-decoration: none;
   cursor: pointer;
   border: none;
+  box-sizing: border-box;
   white-space: nowrap;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   flex: 0 0 auto;
@@ -2013,9 +2015,10 @@ button {
   }
 
   .services-row:nth-child(4) {
-    position: sticky !important;
-    top: 60px !important;
+    position: relative !important;
+    top: auto !important;
     z-index: 4;
+    height: auto !important;
   }
 
   .services-row-col.col-left {
@@ -2136,10 +2139,11 @@ button {
   }
 
   .services-row:nth-child(4) {
-    position: sticky !important;
-    top: 60px !important;
+    position: relative !important;
+    top: auto !important;
     z-index: 4;
-    height: 600px;
+    height: auto !important;
+    padding-bottom: 40px;
   }
 
   .service-title {
@@ -3039,10 +3043,16 @@ button {
     display: none;
   }
   .project-actions {
+    flex-direction: column;
     width: 100%;
+    gap: 8px;
   }
-  .btn-primary {
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
     width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
   }
 }
 
@@ -4194,33 +4204,41 @@ button {
     margin: 0 auto;
   }
 
-  /* Auto-scrolling marquee wrapper on mobile */
+  /* Swipe carousel wrapper on mobile */
   .video-testimonials-wrapper,
   .written-testimonials-wrapper {
     width: 100%;
-    overflow: hidden;
-    padding: 12px 0;
+    overflow-x: auto;
+    padding: 12px 16px;
     margin-bottom: 32px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  
+  .video-testimonials-wrapper::-webkit-scrollbar,
+  .written-testimonials-wrapper::-webkit-scrollbar {
+    display: none;
   }
 
   .video-testimonials-row {
     display: flex;
     gap: 16px;
     width: max-content;
-    animation: video-testimonials-scroll 25s linear infinite !important;
+    animation: none !important;
   }
 
   .written-testimonials-row {
     display: flex;
     gap: 16px;
     width: max-content;
-    animation: written-testimonials-scroll 35s linear infinite !important;
+    animation: none !important;
   }
 
   .video-card {
     width: 240px;
     height: 320px;
     flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
   .written-card {
@@ -4228,6 +4246,7 @@ button {
     max-width: 82vw;
     padding: 20px;
     flex-shrink: 0;
+    scroll-snap-align: center;
   }
 }
 
@@ -4244,11 +4263,11 @@ button {
   }
   .video-testimonials-row {
     gap: 12px;
-    animation-duration: 22s !important;
+    animation: none !important;
   }
   .written-testimonials-row {
     gap: 12px;
-    animation-duration: 30s !important;
+    animation: none !important;
   }
   .video-card {
     width: 205px;
@@ -5961,9 +5980,9 @@ button {
 /* Headings */
 .footer-heading {
   color: #0F172A;
-  font-family: "Eras Md BT", Satoshi, 'Outfit', 'DM Sans', system-ui, sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0 0 20px 0;
   position: relative;
   display: flex;
@@ -5972,11 +5991,7 @@ button {
 }
 
 .footer-heading-bar {
-  display: block;
-  width: 28px;
-  height: 3px;
-  background: #75BF46;
-  border-radius: 2px;
+  display: none;
 }
 
 /* Navigation Col */
@@ -6047,9 +6062,9 @@ button {
   display: none;
   list-style: none;
   margin: 4px 0 6px 0;
-  padding: 0 0 0 24px;
+  padding: 0 0 0 12px;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .footer-group.open .footer-sublist {
@@ -6057,18 +6072,42 @@ button {
 }
 
 .footer-sublist a {
-  color: #64748B;
+  color: #4B5563;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.2s ease;
-  padding: 3px 0;
-  display: inline-block;
+  transition: all 0.2s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.footer-sublist a:hover {
-  color: #599632;
+.footer-sublist a::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../assets/Parivartan-Leaf.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.footer-sublist a:hover,
+.footer-sublist a.active {
+  color: #4A8422;
+  background-color: #F0F5ED;
+}
+
+.footer-sublist a:hover::before,
+.footer-sublist a.active::before {
+  opacity: 1;
 }
 
 /* Services Col */
@@ -6116,6 +6155,33 @@ button {
   color: #599632;
 }
 
+.footer-group-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-service-item.footer-group {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.footer-service-item.footer-group .footer-group-header {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.footer-service-item.footer-group .footer-group-header:hover {
+  background: transparent;
+  color: #599632;
+}
+
+.footer-service-item.footer-group .footer-sublist {
+  padding-left: 46px;
+}
+
 /* Contact Col */
 .footer-contact-list {
   list-style: none;
@@ -6127,7 +6193,7 @@ button {
 
 .footer-contact-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid #F1F5F9;
@@ -6146,7 +6212,6 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
 .contact-text {
@@ -6284,6 +6349,25 @@ a.contact-text:hover {
   .footer-brand {
     grid-column: 1 / -1;
     max-width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .footer-brand .footer-logo {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .footer-brand .footer-desc {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .footer-brand .footer-social {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .footer-nav-col {
     grid-column: 1;
@@ -6326,6 +6410,33 @@ a.contact-text:hover {
 }
 
 @media (max-width: 575px) {
+  .footer-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .footer-logo {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .footer-desc {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .footer-social {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .footer-nav-col,
+  .footer-services-col,
+  .footer-contact-col {
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
   .footer {
     padding: 0 12px 20px 12px;
     margin-top: 24px;
@@ -6485,6 +6596,7 @@ a.contact-text:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  touch-action: pan-y;
 }
 
 .featured-coverflow-card {
@@ -6568,24 +6680,33 @@ a.contact-text:hover {
 .coverflow-card-details .mobile-visit-btn {
   display: none;
   margin-top: 12px;
-  background: #85BD56;
+  background: var(--85BD56, #85BD56);
   color: #FFFFFF !important;
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 10px;
+  font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 26px;
+  padding: 10px 24px;
+  border-radius: 8px;
   text-decoration: none !important;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 6px 16px rgba(133, 189, 86, 0.3);
-  transition: transform 0.3s ease, background 0.3s ease;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #E1FFC8;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: auto !important;
 }
 
 .coverflow-card-details .mobile-visit-btn:hover {
-  background: #94cb63;
-  transform: scale(1.04);
+  background: #7bb34d;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.25) inset, 0 0 0 3px #E1FFC8, 0 6px 14px rgba(133, 189, 86, 0.25);
+}
+
+.coverflow-card-details .mobile-visit-btn:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1) inset, 0 0 0 2px #E1FFC8;
 }
 
 /* Active Center Card */
@@ -6740,37 +6861,47 @@ a.contact-text:hover {
 }
 
 .featured-card-view-btn {
-  background: #85BD56;
-  color: #FFFFFF !important;
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 13px 28px;
-  border-radius: 12px;
-  text-decoration: none;
   display: inline-flex;
+  padding: 10px 24px;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  white-space: nowrap;
-  border: none;
+  border-radius: 8px;
+  background: var(--85BD56, #85BD56);
+  color: #FFFFFF !important;
+  font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  text-decoration: none !important;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(133, 189, 86, 0.35);
-  transition: all 0.3s ease;
+  border: none;
+  white-space: nowrap;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #E1FFC8;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .featured-card-view-btn:hover {
-  background: #94cb63;
+  transform: translateY(-2px);
+  background: #7bb34d;
   color: #FFFFFF !important;
-  transform: scale(1.05);
-  box-shadow: 0 12px 28px rgba(133, 189, 86, 0.45);
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.25) inset, 0 0 0 3px #E1FFC8, 0 6px 14px rgba(133, 189, 86, 0.25);
+}
+
+.featured-card-view-btn:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1) inset, 0 0 0 2px #E1FFC8;
 }
 
 .featured-card-view-btn svg {
-  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .featured-card-view-btn:hover svg {
-  transform: translate(2px, -2px);
+  transform: translateX(3px);
 }
 
 .hover-veil-content .featured-card-tech-pills {
@@ -7065,9 +7196,12 @@ a.contact-text:hover {
 
   .coverflow-card-details .mobile-visit-btn {
     display: inline-flex;
-    margin-top: 6px;
-    padding: 7px 16px;
-    font-size: 12px;
+    margin-top: 10px;
+    padding: 8px 18px;
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 20px;
+    border-radius: 8px;
   }
 
   .featured-cards-bottom-bar {

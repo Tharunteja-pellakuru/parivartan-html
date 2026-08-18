@@ -1,5 +1,25 @@
 @import url('./index.css');
 
+/* ==================== PAGE-LEVEL FONT OVERRIDE ====================
+   Ensure all sections on this page use Outfit, consistent with the
+   contact and CTA sections, overriding index.css Satoshi/DM Sans defaults.
+   ================================================================= */
+body,
+main,
+main * {
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+/* Preserve icon / SVG elements from inheriting font-family */
+main svg,
+main img {
+  font-family: inherit;
+}
+
 /* Mobile Apps Hero Section CSS */
 .mobile-apps-hero-section {
   width: 100%;
@@ -31,7 +51,7 @@
 
 .mobile-apps-hero-tagline span {
   color: var(--69686E, #69686E);
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif !important;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -41,19 +61,20 @@
 }
 
 .mobile-apps-hero-title {
-  color: var(--85BD56, #85BD56);
-  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
-  font-size: 50px;
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
   font-style: normal;
-  font-weight: 400;
-  line-height: 62px;
-  margin: 0 0 28px 0;
+  margin: 0 0 clamp(16px, 2vw, 28px) 0;
   text-align: center;
 }
 
 /* Outer Card Frame */
 .mobile-apps-card-frame {
   display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 1320px;
   padding: 16px;
@@ -103,7 +124,7 @@
 
 .mobile-apps-card-heading {
   color: var(--060612, #060612);
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 44px;
   font-style: normal;
   font-weight: 500;
@@ -117,7 +138,7 @@
 
 .mobile-apps-card-description {
   color: var(--69686E, #69686E);
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 14.5px;
   font-style: normal;
   font-weight: 400;
@@ -168,7 +189,7 @@
 }
 
 .mobile-apps-feature-title {
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: #060612;
@@ -176,7 +197,7 @@
 }
 
 .mobile-apps-feature-desc {
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 11px;
   color: #69686E;
   margin: 0;
@@ -486,7 +507,7 @@
 
 .project-title {
   color: var(--060612, #060612);
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
@@ -496,7 +517,7 @@
 
 .project-description {
   color: var(--69686E, #69686E);
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -538,7 +559,7 @@
 
 .project-highlight-text {
   color: var(--69686E, #69686E);
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -702,6 +723,7 @@
   transform: translateY(0);
   transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
+  border-radius: 42px;
 }
 
 /* Scroll state pans the tall phone image up to reveal the lower portion
@@ -777,7 +799,7 @@
 
 .project-card-title {
   color: #111827;
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
@@ -812,7 +834,7 @@
 }
 
 .project-tag-pill {
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   background-color: #F1F5F9;
   border: none;
   color: #6B7280;
@@ -835,7 +857,7 @@
   background: var(--project-color, #85BD56);
   color: #FFFFFF;
   box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.28) inset, 0 0 0 2px color-mix(in srgb, var(--project-color, #85BD56) 35%, #ffffff);
-  font-family: Satoshi, 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
@@ -882,3 +904,424 @@
     padding: 40px 20px;
   }
 }
+
+/* ==================== GLOBAL APP SECTION STYLES ==================== */
+.app-section-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  box-sizing: border-box;
+}
+
+.app-section-heading {
+  font-family: Satoshi, "DM Sans", system-ui, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+
+/* ==================== SECTION 3: WHY CHOOSE US ==================== */
+.app-why-choose-section {
+  background: #ffffff;
+  width: 100%;
+}
+
+.app-why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .app-why-choose-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-why-choose-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-why-card {
+  background: #ffffff;
+  border: 1px solid #EAEAEA;
+  border-radius: 16px;
+  padding: 30px;
+  box-sizing: border-box;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.app-why-card:hover {
+  transform: translateY(-6px);
+  border-color: #C2E2A6;
+  box-shadow: 0 12px 30px rgba(133, 189, 86, 0.08);
+}
+
+.app-why-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #F4FBF0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 1px solid #D8EEC8;
+}
+
+.app-why-icon-box img {
+  width: 22px;
+  height: 22px;
+}
+
+.app-why-title {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0 0 12px 0;
+  line-height: 26px;
+}
+
+.app-why-text {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 14.5px;
+  color: #69686E;
+  line-height: 24px;
+  margin: 0;
+}
+
+/* ==================== SECTION 4: WHAT YOU GET ==================== */
+.app-services-include-section {
+  background: #F9FBF8;
+  width: 100%;
+  border-top: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.app-services-include-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .app-services-include-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .app-services-include-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .app-services-include-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-service-include-card {
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  padding: 24px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.app-service-include-card:hover {
+  border-color: #85BD56;
+  box-shadow: 0 8px 24px rgba(133, 189, 86, 0.05);
+}
+
+.app-service-icon-wrapper {
+  margin-bottom: 16px;
+}
+
+.app-service-leaf-bullet {
+  width: 20px;
+  height: 20px;
+}
+
+.app-service-include-title {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0 0 10px 0;
+  line-height: 22px;
+}
+
+.app-service-include-text {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 13.5px;
+  color: #69686E;
+  line-height: 22px;
+  margin: 0;
+}
+
+/* ==================== SECTION 5: FAQ ==================== */
+.app-faq-section {
+  background: #ffffff;
+  width: 100%;
+}
+
+.app-faq-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-faq-item {
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.app-faq-item[open] {
+  border-color: #85BD56;
+}
+
+.app-faq-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 28px;
+  cursor: pointer;
+  list-style: none;
+  font-family: Satoshi, Inter, sans-serif;
+  box-sizing: border-box;
+}
+
+.app-faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.app-faq-question {
+  font-size: 17px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0;
+  font-family: Satoshi, Inter, sans-serif;
+}
+
+.app-faq-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.app-faq-icon::before,
+.app-faq-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #69686E;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Horizontal line */
+.app-faq-icon::before {
+  top: 9px;
+  left: 3px;
+  width: 14px;
+  height: 2px;
+}
+
+/* Vertical line */
+.app-faq-icon::after {
+  top: 3px;
+  left: 9px;
+  width: 2px;
+  height: 14px;
+}
+
+.app-faq-item[open] .app-faq-icon::after {
+  transform: rotate(90deg);
+  background-color: #85BD56;
+}
+
+.app-faq-item[open] .app-faq-icon::before {
+  background-color: #85BD56;
+}
+
+.app-faq-answer {
+  padding: 0 28px 22px 28px;
+  box-sizing: border-box;
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 14.5px;
+  color: #69686E;
+  line-height: 24px;
+}
+
+.app-faq-answer p {
+  margin: 0;
+}
+
+/* ==================== SECTION 6: TESTIMONIALS ==================== */
+.app-testimonials-section {
+  background: #F9FBF8;
+  width: 100%;
+  border-top: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.app-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .app-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-testimonial-card {
+  background: #ffffff;
+  border: 1px solid #EAEAEA;
+  border-radius: 16px;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.app-avatar-initials {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #EFF7EA;
+  color: #599632;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Satoshi, Inter, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.app-testimonial-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-client-name {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0;
+}
+
+.app-client-company {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 13px;
+  color: #69686E;
+  margin: 2px 0 0 0;
+}
+
+.app-testimonial-text {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 24px;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ==================== SECTION 7: CTA BANNER ==================== */
+.app-cta-banner-section {
+  background: #ffffff;
+  width: 100%;
+}
+
+.app-cta-banner-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  text-align: center;
+  background: linear-gradient(135deg, #1C3322 0%, #0D1B11 100%);
+  border-radius: 24px;
+  color: #ffffff;
+}
+
+.app-cta-banner-title {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+}
+
+.app-cta-banner-desc {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  max-width: 720px;
+  margin: 0 auto 32px auto;
+  color: #D1D5DB;
+}
+
+.app-cta-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: #85BD56;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #E1FFC8;
+  transition: all 0.3s ease;
+}
+
+.app-cta-banner-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.25) inset, 0 0 0 3px #E1FFC8, 0 6px 14px rgba(133, 189, 86, 0.2);
+}
+
+@media (max-width: 768px) {
+  .app-section-container {
+    padding: 60px 20px;
+  }
+  .app-section-heading {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 36px;
+  }
+  .app-cta-banner-title {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  .app-cta-banner-container {
+    padding: 60px 20px;
+  }
+}
+

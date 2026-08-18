@@ -43,13 +43,13 @@
 
 /* Title */
 .awards-title {
-  color: var(--85BD56, #85BD56);
-  font-family: "Eras Md BT", 'Outfit', 'Inter', sans-serif;
-  font-size: clamp(34px, 4.2vw, 46px);
-  font-style: normal;
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 44px;
   font-weight: 500;
-  line-height: 1.2;
-  margin: 0 0 28px 0;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
+  font-style: normal;
+  margin: 0 0 clamp(16px, 2vw, 28px) 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -520,22 +520,22 @@
     box-sizing: border-box;
   }
 
-  .awards-featured-left-top    { order: 1; padding: 36px 32px 12px 32px; align-items: center; text-align: center; }
+  .awards-featured-left-top    { order: 1; padding: 36px 32px 12px 32px; align-items: flex-start; text-align: left; }
   .awards-featured-right       { order: 2; width: 100%; min-height: 280px; }
-  .awards-featured-left-bottom { order: 3; padding: 20px 32px 36px 32px; align-items: center; text-align: center; }
+  .awards-featured-left-bottom { order: 3; padding: 20px 32px 36px 32px; align-items: flex-start; text-align: left; }
 
   .awards-featured-heading {
-    text-align: center;
+    text-align: left;
     font-size: 36px;
     line-height: 46px;
   }
 
   .awards-featured-desc {
-    text-align: center;
+    text-align: left;
   }
 
   .awards-stats-row {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .awards-featured-img-wrap {
@@ -601,22 +601,41 @@
   /* Gallery Header */
   .awards-section-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 16px;
     margin-bottom: 32px;
+  }
+
+  .header-left-part,
+  .header-right-part {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .awards-gallery-tagline {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .awards-gallery-title {
     font-size: 32px;
     line-height: 42px;
+    text-align: center !important;
   }
 
   .awards-gallery-subtitle {
     width: 100% !important;
     max-width: 100% !important;
-    text-align: left !important;
+    text-align: center !important;
     font-size: 16px !important;
     line-height: 24px !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Gallery Flexbox on Tablet */

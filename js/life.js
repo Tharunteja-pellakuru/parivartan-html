@@ -80,4 +80,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ===== reCAPTCHA Initialization ===== */
+  const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+  const RECAPTCHA_SITE_KEY = IS_LOCAL
+    ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Public Google validation key
+    : '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'; // Production key
+
+  let recaptchaCheckInterval = setInterval(() => {
+    if (window.grecaptcha && window.grecaptcha.render) {
+      try {
+        const container = document.getElementById('contact-recaptcha');
+        if (container && container.innerHTML === '') {
+          window.grecaptcha.render('contact-recaptcha', {
+            sitekey: RECAPTCHA_SITE_KEY,
+          });
+          clearInterval(recaptchaCheckInterval);
+        }
+      } catch (e) {
+        console.error('reCAPTCHA init error: ', e);
+      }
+    }
+  }, 500);
 });

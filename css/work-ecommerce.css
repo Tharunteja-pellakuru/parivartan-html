@@ -41,13 +41,13 @@
 }
 
 .ecommerce-hero-title {
-  color: var(--85BD56, #85BD56);
-  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
-  font-size: 50px;
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
   font-style: normal;
-  font-weight: 400;
-  line-height: 62px;
-  margin: 0 0 28px 0;
+  margin: 0 0 clamp(16px, 2vw, 28px) 0;
   text-align: center;
 }
 
@@ -379,172 +379,206 @@
   margin: 0 0 56px 0;
 }
 
-/* Projects Grid */
+/* Projects Grid — single column by default, 2 cols on large screens */
 .ecommerce-projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
   width: 100%;
 }
 
+/* ── Card Container ── */
 .ecommerce-project-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  height: 440px;
+  min-height: 440px;
+  max-height: 440px;
+  padding: 16px 20px 12px 20px;
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, border-color, box-shadow;
 }
 
-/* Macbook Mockup (same chassis + browser overlay pattern as Home's Featured section) */
-.ecommerce-macbook-wrapper {
+.ecommerce-project-card:hover {
+  transform: translateY(-6px);
+  border-color: #C2E2A6;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Screenshot Preview ── */
+.ecommerce-card-preview {
   position: relative;
   width: 100%;
-  margin: 0 auto 28px auto;
-  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.16));
-}
-
-.ecommerce-macbook-chassis {
-  width: 100%;
-  display: block;
-  height: auto;
-  pointer-events: none;
-}
-
-.ecommerce-macbook-screen-overlay {
-  position: absolute;
-  top: 7.7%;
-  left: 16.6%;
-  right: 16.6%;
-  bottom: 27.8%;
-  background: #192C3D;
+  height: 335px;
+  border-radius: 14px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border-radius: 2px;
+  background: #F1F5F9;
+  margin-bottom: 10px;
+  border: 1px solid #F0F0F0;
+  flex-shrink: 0;
+  transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1), margin-bottom 0.4s ease;
+  will-change: height, margin-bottom;
 }
 
-.ecommerce-browser-mockup {
+.ecommerce-project-card:hover .ecommerce-card-preview {
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.ecommerce-preview-image {
   width: 100%;
   height: 100%;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-}
-
-.ecommerce-browser-header {
-  display: flex;
-  align-items: center;
-  background: #F0F0F0;
-  padding: 5px 12px;
-  border-bottom: 1px solid #E6E6E6;
-  position: relative;
-}
-
-.ecommerce-browser-dots {
-  display: flex;
-  gap: 5px;
-  position: absolute;
-  left: 12px;
-}
-
-.ecommerce-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.ecommerce-dot-red { background: #FF5F56; }
-.ecommerce-dot-yellow { background: #FFBD2E; }
-.ecommerce-dot-green { background: #27C93F; }
-
-.ecommerce-browser-address-bar {
-  margin: 0 auto;
-  background: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px 12px;
-  width: 60%;
-  max-width: 280px;
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 9px;
-  color: #7A7A7A;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  border: 1px solid #E2E2E2;
-}
-
-.ecommerce-browser-address-bar .lock-icon {
-  width: 8px;
-  height: 8px;
-  opacity: 0.6;
-  flex-shrink: 0;
-}
-
-.ecommerce-browser-content-scrollable {
-  background: #FFFFFF;
-  position: relative;
-  width: 100%;
-  flex: 1;
-  overflow: hidden;
-}
-
-.ecommerce-browser-scroll-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
+  object-fit: cover;
+  object-position: top center;
   display: block;
-  transform: translateY(0);
   transition: transform 12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Scroll down the screenshot on hover, matching Featured's interaction */
-.ecommerce-macbook-wrapper:hover .ecommerce-browser-scroll-image {
-  transform: translateY(-70%);
+.ecommerce-project-card:hover .ecommerce-preview-image {
+  transform: translateY(-20%);
 }
 
-/* Project Name */
+/* ── Project Name ── */
 .ecommerce-project-name {
-  color: var(--060612, #060612);
+  color: #0F172A;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 20px;
-  font-style: normal;
+  font-size: 18.5px;
   font-weight: 700;
-  margin: 0 0 16px 0;
+  line-height: 25px;
+  margin: 0 0 4px 0;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 54px;
+  flex-shrink: 0;
+  transition: color 0.3s ease, margin-top 0.4s ease;
 }
 
-/* Buttons */
-.ecommerce-project-buttons {
+.ecommerce-project-card:hover .ecommerce-project-name {
+  margin-top: auto;
+}
+
+/* ── Project Meta (year • category) ── */
+.ecommerce-project-meta {
+  color: #94A3B8;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+  text-align: left;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.ecommerce-project-card:hover .ecommerce-project-meta {
+  color: #75BF46;
+}
+
+/* ── Hover Details (expand on hover) ── */
+.ecommerce-card-hover-details {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(8px);
+  transition:
+    max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-top 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 0;
+  will-change: max-height, opacity, transform, margin-top;
+}
+
+.ecommerce-project-card:hover .ecommerce-card-hover-details {
+  max-height: 320px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 8px;
+}
+
+/* ── Description ── */
+.ecommerce-project-details {
+  color: #64748B;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13.5px;
+  line-height: 22px;
+  margin: 0 0 10px 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Tags ── */
+.ecommerce-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.ecommerce-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid #D8EEC8;
+  background: #F4FBF0;
+  color: #4A8A2A;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ── Buttons ── */
+.ecommerce-project-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
   width: 100%;
-  max-width: 260px;
+  flex-shrink: 0;
 }
 
 .ecommerce-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 8px;
+  gap: 6px;
+  padding: 10px 28px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13.5px;
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .ecommerce-btn-primary {
-  background: var(--85BD56, #85BD56);
+  background: #85BD56;
   color: #FFFFFF;
   box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #E1FFC8;
 }
@@ -566,11 +600,34 @@
   color: #599632;
 }
 
-/* Responsive Overrides */
+/* ── Responsive Overrides ── */
 @media (max-width: 1024px) {
   .ecommerce-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .ecommerce-project-card {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .ecommerce-card-hover-details {
+    max-height: none;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 10px;
+  }
+
+  .ecommerce-card-preview {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .ecommerce-project-card:hover .ecommerce-card-preview {
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .ecommerce-projects-title {
@@ -593,7 +650,7 @@
 @media (max-width: 640px) {
   .ecommerce-projects-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .ecommerce-projects-title {
@@ -603,7 +660,13 @@
   }
 
   .ecommerce-project-buttons {
-    max-width: 320px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ecommerce-btn {
+    padding: 10px 14px;
+    font-size: 13px;
   }
 }
 

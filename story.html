@@ -12,6 +12,7 @@
   <meta property="og:description" content="Parivartan is built on one belief: real change cannot be forced - it must be designed. This is our story of transformation, people, and purpose.">
   <meta property="og:type" content="website">
   
+  <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/story.css">
   <!-- Google Fonts: Outfit and Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +24,16 @@
   <!-- Google reCAPTCHA API -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="icon" type="image/png" href="./assets/home/Parivartan-Leaf.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMHEDZJWJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPMHEDZJWJ');
+</script>
 </head>
 <body>
 
@@ -176,7 +187,7 @@
             <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
             <span class="submenu-label">Web Apps</span>
           </a>
-          <a href="./work-mobileapps.html" class="drawer-submenu-item">
+          <a href="./app-development.html" class="drawer-submenu-item">
             <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
             <span class="submenu-label">Mobile Apps</span>
           </a>
@@ -258,7 +269,7 @@
     <div class="about-hero-container">
       <div class="about-hero-tagline">
         <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
-        <span>OUR STORY</span>
+        <span>ABOUT US</span>
         <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
       </div>
 
@@ -291,9 +302,15 @@
 
               <div class="google-reviews-badge">
                 <div class="reviews-avatars-group">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Reviewer 1" class="avatar-img" />
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" alt="Reviewer 2" class="avatar-img" />
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop" alt="Reviewer 3" class="avatar-img" />
+                  <span class="avatar-img avatar-dummy" aria-label="Client avatar placeholder 1">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span class="avatar-img avatar-dummy" aria-label="Client avatar placeholder 2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span class="avatar-img avatar-dummy" aria-label="Client avatar placeholder 3">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
                   <div class="avatar-plus-more">+100</div>
                 </div>
 
@@ -321,29 +338,33 @@
   <!-- ==================== WHAT PARIVARTAN REALLY MEANS ==================== -->
   <section class="about-meaning-section">
     <div class="about-meaning-container">
-      <div class="about-meaning-tagline">
-        <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
-        <span>OUR PHILOSOPHY</span>
-        <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+      <div class="about-meaning-content">
+        <div class="about-meaning-tagline">
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+          <span>OUR PHILOSOPHY</span>
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+        </div>
+        <h2 class="about-meaning-heading">
+          What Parivartan Really <span class="highlight-green">Means</span>
+        </h2>
+        <p class="about-meaning-text">
+          Parivartan is a Sanskrit word for change, but not cosmetic change, short-term noise, or forced reinvention. It represents the kind of change you’re ready for, often before you consciously realise it. The kind that allows brands to evolve, grow, and emerge stronger without losing who they are at the core. This is the change we believe in, and this is the change we design.
+        </p>
       </div>
-      <h2 class="about-meaning-heading">
-        What Parivartan Really Means
-      </h2>
-      <p class="about-meaning-text">
-        Parivartan is a Sanskrit word for change, but not cosmetic change, short-term noise, or forced reinvention. It represents the kind of change you’re ready for, often before you consciously realise it. The kind that allows brands to evolve, grow, and emerge stronger without losing who they are at the core. This is the change we believe in, and this is the change we design.
-      </p>
     </div>
   </section>
-  
+
   <!-- ==================== ABOUT LEAF ==================== -->
   <section class="about-leaf-section">
     <div class="about-leaf-container">
       <div class="about-leaf-grid">
         <div class="about-leaf-left">
           <div class="about-leaf-tagline">
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
             <span>THE SYMBOL</span>
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
           </div>
-          <h2 class="about-leaf-title">The Leaf – A Symbol of Change</h2>
+          <h2 class="about-leaf-title">The Leaf – A <span class="highlight-green">Symbol of Change</span></h2>
           <h3 class="about-leaf-subtitle">More than a logo. A philosophy.</h3>
           
           <div class="about-leaf-paragraphs">
@@ -377,37 +398,28 @@
   </section>
 
   <!-- ==================== THE TEAM BEHIND THE CHANGE ==================== -->
-  <section class="about-team-philosophy-section">
-    <div class="about-team-philosophy-container">
-      <div class="about-team-philosophy-grid">
-        <div class="about-team-philosophy-left">
-          <span class="about-section-badge">OUR CRAFT</span>
-          <h2 class="about-team-philosophy-title">The Team Behind the Change</h2>
-          <h3 class="about-team-philosophy-subtitle">A team. A craft. A shared purpose.</h3>
-        </div>
-        <div class="about-team-philosophy-right">
-          <p>There are teams and then there is Team Parivartan.</p>
-          <p>Designers. Developers. Strategists. Filmmakers. Marketers. But more than titles, we are problem-solvers and creators.</p>
-          <p class="highlight-text">Artists at heart. Technologists by practice.</p>
-          <p>When you work with Parivartan, you don’t work with departments. You work with people who take ownership of ideas, outcomes, and long-term impact.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== ABOUT TEAM MEMBERS ==================== -->
   <section class="about-team-section">
     <div class="about-team-container">
       <div class="about-team-header">
         <div class="about-team-tagline">
           <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
-          <span>OUR LEADERSHIP</span>
+          <span>OUR CRAFT & LEADERSHIP</span>
           <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
         </div>
 
         <h2 class="about-team-title">
-          The People Behind Parivartan
+          The Team Behind <span class="highlight-green">the Change</span>
         </h2>
+        <h3 class="about-team-philosophy-subtitle" style="margin-bottom: 28px;">A team. A craft. A shared purpose.</h3>
+
+        <div class="about-craft-card-frame" style="margin-bottom: 48px;">
+          <div class="about-craft-card">
+            <p>There are teams and then there is Team Parivartan.</p>
+            <p>Designers. Developers. Strategists. Filmmakers. Marketers. But more than titles, we are problem-solvers and creators.</p>
+            <p class="highlight-text">Artists at heart. Technologists by practice.</p>
+            <p>When you work with Parivartan, you don’t work with departments. You work with people who take ownership of ideas, outcomes, and long-term impact.</p>
+          </div>
+        </div>
       </div>
 
       <div class="about-team-members-list">
@@ -434,7 +446,7 @@
           </div>
           <div class="team-text-column">
             <div class="member-defining-line">
-              <span class="defining-tag">Defining line:</span> Vision-driven, people-first, and relentlessly curious.
+              Vision-driven, people-first, and relentlessly curious.
             </div>
             <div class="member-description-paragraphs">
               <p class="member-desc-p">
@@ -450,7 +462,7 @@
           </div>
         </div>
 
-        <!-- Member 2: Chaitanya N -->
+        <!-- Member 2: Chaitanya Nagulapalli -->
         <div class="about-team-row layout-text-left">
           <div class="team-image-column">
             <div class="team-image-outer-card">
@@ -460,7 +472,7 @@
                     <span class="member-designation">CTO</span>
                     <div class="member-label-divider"></div>
                     <div class="member-name-row">
-                      <h3 class="member-name">Chaitanya N</h3>
+                      <h3 class="member-name">Chaitanya Nagulapalli</h3>
                       <a href="https://www.linkedin.com/in/chaitanyanagulpalli/" target="_blank" rel="noopener noreferrer" class="member-linkedin-link" aria-label="Chaitanya Nagulapalli LinkedIn Profile">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="member-linkedin-svg"><rect width="24" height="24" rx="4" fill="#0A66C2" /><path d="M8 19V9.33333H5V19H8ZM6.5 8.11111C7.55556 8.11111 8.33333 7.27778 8.33333 6.27778C8.33333 5.27778 7.55556 4.44444 6.5 4.44444C5.44444 4.44444 4.66667 5.27778 4.66667 6.27778C4.66667 7.27778 5.44444 8.11111 6.5 8.11111ZM19 19V13.8889C19 11.3889 18.4444 9.44444 15.5 9.44444C14.0556 9.44444 13.1111 10.2222 12.7222 10.9444H12.6667V9.66667H9.88889V19H12.7778V14.3889C12.7778 13.1667 13 12 14.5 12C15.9444 12 16 13.3889 16 14.4444V19H19Z" fill="white" /></svg>
                       </a>
@@ -472,7 +484,7 @@
           </div>
           <div class="team-text-column">
             <div class="member-defining-line">
-              <span class="defining-tag">Defining line:</span> The quiet force behind everything that works seamlessly.
+              The quiet force behind everything that works seamlessly.
             </div>
             <div class="member-description-paragraphs">
               <p class="member-desc-p">
@@ -510,7 +522,7 @@
           </div>
           <div class="team-text-column">
             <div class="member-defining-line">
-              <span class="defining-tag">Defining line:</span> The bridge between expectations and execution.
+              The bridge between expectations and execution.
             </div>
             <div class="member-description-paragraphs">
               <p class="member-desc-p">
@@ -542,7 +554,7 @@
           </div>
           <div class="team-text-column">
             <div class="member-defining-line">
-              <span class="defining-tag">Defining line:</span> Steady leadership with an eye for detail.
+              Steady leadership with an eye for detail.
             </div>
             <div class="member-description-paragraphs">
               <p class="member-desc-p">
@@ -569,6 +581,9 @@
                     <div class="member-label-divider"></div>
                     <div class="member-name-row">
                       <h3 class="member-name">Jagadeesh</h3>
+                      <a href="https://www.linkedin.com/in/jagadeesh-kumar-45a81874/" target="_blank" rel="noopener noreferrer" class="member-linkedin-link" aria-label="Jagadeesh LinkedIn Profile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="member-linkedin-svg"><rect width="24" height="24" rx="4" fill="#0A66C2" /><path d="M8 19V9.33333H5V19H8ZM6.5 8.11111C7.55556 8.11111 8.33333 7.27778 8.33333 6.27778C8.33333 5.27778 7.55556 4.44444 6.5 4.44444C5.44444 4.44444 4.66667 5.27778 4.66667 6.27778C4.66667 7.27778 5.44444 8.11111 6.5 8.11111ZM19 19V13.8889C19 11.3889 18.4444 9.44444 15.5 9.44444C14.0556 9.44444 13.1111 10.2222 12.7222 10.9444H12.6667V9.66667H9.88889V19H12.7778V14.3889C12.7778 13.1667 13 12 14.5 12C15.9444 12 16 13.3889 16 14.4444V19H19Z" fill="white" /></svg>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -577,7 +592,7 @@
           </div>
           <div class="team-text-column">
             <div class="member-defining-line">
-              <span class="defining-tag">Defining line:</span> Precision-driven and solution-oriented.
+              Precision-driven and solution-oriented.
             </div>
             <div class="member-description-paragraphs">
               <p class="member-desc-p">
@@ -598,6 +613,9 @@
                     <div class="member-label-divider"></div>
                     <div class="member-name-row">
                       <h3 class="member-name">Sandeep</h3>
+                      <a href="https://www.linkedin.com/in/hasanabadasandeep/" target="_blank" rel="noopener noreferrer" class="member-linkedin-link" aria-label="Sandeep LinkedIn Profile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="member-linkedin-svg"><rect width="24" height="24" rx="4" fill="#0A66C2" /><path d="M8 19V9.33333H5V19H8ZM6.5 8.11111C7.55556 8.11111 8.33333 7.27778 8.33333 6.27778C8.33333 5.27778 7.55556 4.44444 6.5 4.44444C5.44444 4.44444 4.66667 5.27778 4.66667 6.27778C4.66667 7.27778 5.44444 8.11111 6.5 8.11111ZM19 19V13.8889C19 11.3889 18.4444 9.44444 15.5 9.44444C14.0556 9.44444 13.1111 10.2222 12.7222 10.9444H12.6667V9.66667H9.88889V19H12.7778V14.3889C12.7778 13.1667 13 12 14.5 12C15.9444 12 16 13.3889 16 14.4444V19H19Z" fill="white" /></svg>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -606,7 +624,7 @@
           </div>
           <div class="team-text-column">
             <div class="member-defining-line">
-              <span class="defining-tag">Defining line:</span> Reliability built through experience.
+              Reliability built through experience.
             </div>
             <div class="member-description-paragraphs">
               <p class="member-desc-p">
@@ -640,23 +658,23 @@
       <div class="timeline-header">
         <div class="timeline-tagline">
           <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
-            <circle cx="2" cy="2" r="1.2" fill="#2E7D1F" />
-            <circle cx="5" cy="4.5" r="1.2" fill="#2E7D1F" />
-            <circle cx="8" cy="7" r="1.2" fill="#2E7D1F" />
-            <circle cx="5" cy="9.5" r="1.2" fill="#2E7D1F" />
-            <circle cx="2" cy="12" r="1.2" fill="#2E7D1F" />
+            <circle cx="2" cy="2" r="1.2" fill="#69686E" />
+            <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+            <circle cx="8" cy="7" r="1.2" fill="#69686E" />
+            <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+            <circle cx="2" cy="12" r="1.2" fill="#69686E" />
           </svg>
           <span>OUR JOURNEY</span>
           <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
-            <circle cx="8" cy="2" r="1.2" fill="#2E7D1F" />
-            <circle cx="5" cy="4.5" r="1.2" fill="#2E7D1F" />
-            <circle cx="2" cy="7" r="1.2" fill="#2E7D1F" />
-            <circle cx="5" cy="9.5" r="1.2" fill="#2E7D1F" />
-            <circle cx="8" cy="12" r="1.2" fill="#2E7D1F" />
+            <circle cx="8" cy="2" r="1.2" fill="#69686E" />
+            <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+            <circle cx="2" cy="7" r="1.2" fill="#69686E" />
+            <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+            <circle cx="8" cy="12" r="1.2" fill="#69686E" />
           </svg>
         </div>
         <h2 class="timeline-main-heading">
-          A Roadmap of Trust
+          A Roadmap of <span class="highlight-green">Trust</span>
         </h2>
         <p class="timeline-subheading">
           Milestones that shaped Parivartan into what it is today.
@@ -675,15 +693,12 @@
         <div class="timeline-item">
           <div class="timeline-pin"><span>01</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2002</span>
-              </div>
               <h3 class="timeline-title">It began at home.</h3>
               <p class="timeline-desc">Parivartan began in a dining hall with curiosity, ambition, and the belief that good work speaks louder than big setups.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2002</span>
             </div>
           </div>
         </div>
@@ -692,15 +707,12 @@
         <div class="timeline-item right">
           <div class="timeline-pin"><span>02</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2006</span>
-              </div>
               <h3 class="timeline-title">First shared office space.</h3>
               <p class="timeline-desc">A small but significant step toward becoming a real, growing team.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2006</span>
             </div>
           </div>
         </div>
@@ -709,15 +721,12 @@
         <div class="timeline-item">
           <div class="timeline-pin"><span>03</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2007</span>
-              </div>
               <h3 class="timeline-title">Application development takes shape.</h3>
               <p class="timeline-desc">The foundations of our technology and software capabilities were laid.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2007</span>
             </div>
           </div>
         </div>
@@ -726,15 +735,12 @@
         <div class="timeline-item right">
           <div class="timeline-pin"><span>04</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 3L2 10h20L12 3z"></path></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2008</span>
-              </div>
               <h3 class="timeline-title">First government project.</h3>
               <p class="timeline-desc">A milestone that brought responsibility, scale, and long-term trust.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2008</span>
             </div>
           </div>
         </div>
@@ -743,15 +749,12 @@
         <div class="timeline-item">
           <div class="timeline-pin"><span>05</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2012</span>
-              </div>
               <h3 class="timeline-title">A defining year of growth.</h3>
               <p class="timeline-desc">Major client wins across healthcare and enterprise sectors, including Care Hospitals, Green Gold, Makuta, and ARCI. This year also marked the completion of our first decade of work.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2012</span>
             </div>
           </div>
         </div>
@@ -760,15 +763,12 @@
         <div class="timeline-item right">
           <div class="timeline-pin"><span>06</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.4-.4.9-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.2-4.8a2 2 0 0 0 .5-1.4V9.5a2 2 0 0 0-2-2h-3.6a2 2 0 0 1-1.4-.6L11.5 5"></path><path d="M16 11V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v4"></path></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2014</span>
-              </div>
               <h3 class="timeline-title">3,000+ projects delivered.</h3>
               <p class="timeline-desc">Consistency, partnerships, and repeat trust became our biggest validation.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2014</span>
             </div>
           </div>
         </div>
@@ -777,15 +777,12 @@
         <div class="timeline-item">
           <div class="timeline-pin"><span>07</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2018</span>
-              </div>
               <h3 class="timeline-title">The digital shift begins.</h3>
               <p class="timeline-desc">We expanded strongly into digital-first thinking, platforms, and experiences.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2018</span>
             </div>
           </div>
         </div>
@@ -794,15 +791,12 @@
         <div class="timeline-item right">
           <div class="timeline-pin"><span>08</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2020</span>
-              </div>
-              <h3 class="timeline-title">Work didn’t stop; it adapted.</h3>
+              <h3 class="timeline-title">Work didn't stop; it adapted.</h3>
               <p class="timeline-desc">The team transitioned seamlessly to working from home, staying connected and committed.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2020</span>
             </div>
           </div>
         </div>
@@ -811,15 +805,12 @@
         <div class="timeline-item">
           <div class="timeline-pin"><span>09</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><circle cx="19" cy="11" r="3"></circle><path d="M19 14a3 3 0 0 1 3 3v2"></path></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2022</span>
-              </div>
               <h3 class="timeline-title">Two decades of Parivartan.</h3>
               <p class="timeline-desc">Twenty years of evolving with technology, clients, and ideas.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2022</span>
             </div>
           </div>
         </div>
@@ -828,15 +819,12 @@
         <div class="timeline-item right">
           <div class="timeline-pin"><span>10</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2023</span>
-              </div>
               <h3 class="timeline-title">Recognising excellence and expanding capabilities.</h3>
               <p class="timeline-desc">The Parivartan Excellence Awards were launched, and our mobile app development team was formed.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2023</span>
             </div>
           </div>
         </div>
@@ -845,15 +833,12 @@
         <div class="timeline-item">
           <div class="timeline-pin"><span>11</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2024</span>
-              </div>
               <h3 class="timeline-title">5,000+ projects completed.</h3>
               <p class="timeline-desc">A reflection of sustained effort, long-term relationships, and trust earned over time.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2024</span>
             </div>
           </div>
         </div>
@@ -862,15 +847,12 @@
         <div class="timeline-item right">
           <div class="timeline-pin"><span>12</span></div>
           <div class="timeline-content-card">
-            <div class="timeline-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            </div>
             <div class="timeline-card-main">
-              <div class="timeline-card-header">
-                <span class="timeline-card-year">2025</span>
-              </div>
               <h3 class="timeline-title">Still growing and still building.</h3>
               <p class="timeline-desc">Parivartan continues to evolve, with national-level visibility including work associated with the ESTIC Conference, and many new chapters ahead.</p>
+            </div>
+            <div class="timeline-card-year-panel">
+              <span class="timeline-card-year">2025</span>
             </div>
           </div>
         </div>
@@ -1234,12 +1216,12 @@
   <!-- Video Testimonials Full playback Overlay Modal -->
   <div class="video-preview-overlay" style="display: none;">
     <div class="video-preview-modal">
+      <button type="button" class="video-preview-close" aria-label="Close video">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+      </button>
       <div class="video-preview-window">
-        <button type="button" class="video-preview-close" aria-label="Close video">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 6l12 12M18 6 6 18" />
-          </svg>
-        </button>
         <iframe class="video-preview-player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="video-preview-caption">
@@ -1280,7 +1262,7 @@
             <p class="cta-description">
               From websites and branding to campaigns and growth marketing, we help businesses build digital experiences that create impact.
             </p>
-            <a href="#contact" class="cta-start-project-btn">
+            <a href="./contact.html" class="cta-start-project-btn">
               <span>Start Project</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
   <g clip-path="url(#clip0_947_85)">
@@ -1330,7 +1312,7 @@
                 <h3 class="available-card-title">Quick 15-minute call</h3>
                 <p class="available-card-desc">Pick a time that works for you.</p>
                 
-                <a href="#contact" class="available-book-call-btn">
+                <a href="./contact.html" class="available-book-call-btn">
                   <span>Book a Free call</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
   <g clip-path="url(#clip0_947_85)">
@@ -1377,9 +1359,8 @@
         </p>
       </div>
 
-      <!-- Main block details + Form -->
       <div class="contact-row-main">
-        <form class="contact-form">
+        <form class="contact-form" action="./contact-mailer.php" method="POST">
           <div class="contact-form-row">
             
             <div class="contact-field">
@@ -1578,6 +1559,7 @@
   </section>
 
   <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="footer-card">
       <div class="footer-top">
@@ -1622,14 +1604,27 @@
             Quick Links
             <span class="footer-heading-bar"></span>
           </h4>
-          <ul class="footer-list">
-            <li>
-              <a href="./index.html" class="footer-nav-link">Home</a>
+          <ul class="footer-service-list">
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+                </svg>
+              </div>
+              <a href="./index.html">Home</a>
             </li>
-            <li class="footer-group">
+            <li class="footer-service-item footer-group">
               <div class="footer-group-header">
-                <span>Inside Parivartan</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7"/>
+                      <rect x="3.5" y="7" width="17" height="12" rx="2.2"/>
+                    </svg>
+                  </div>
+                  <span>Inside Parivartan</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
               </div>
@@ -1639,10 +1634,18 @@
                 <li><a href="./founders-in-frame.html">Founders in Frame</a></li>
               </ul>
             </li>
-            <li class="footer-group">
+            <li class="footer-service-item footer-group">
               <div class="footer-group-header">
-                <span>In The Spotlight</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polygon points="12 8 8 16 16 16 12 8"/>
+                    </svg>
+                  </div>
+                  <span>In The Spotlight</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
               </div>
@@ -1651,28 +1654,53 @@
                 <li><a href="./awards.html">Awards</a></li>
               </ul>
             </li>
-            <li class="footer-group">
+            <li class="footer-service-item footer-group">
               <div class="footer-group-header">
-                <span>Our Work</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7"/>
+                      <rect x="3.5" y="7" width="17" height="12" rx="2.2"/>
+                      <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6"/>
+                    </svg>
+                  </div>
+                  <span>Our Work</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
               </div>
               <ul class="footer-sublist">
                 <li><a href="./work-websites.html">Websites</a></li>
                 <li><a href="./work-webapps.html">Web Apps</a></li>
-                <li><a href="./work-mobileapps.html">Mobile Apps</a></li>
+                <li><a href="./app-development.html">Mobile Apps</a></li>
                 <li><a href="./work-ecommerce.html">Ecommerce</a></li>
               </ul>
             </li>
-            <li>
-              <a href="./life.html" class="footer-nav-link">Life at Parivartan</a>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z"/>
+                </svg>
+              </div>
+              <a href="./life.html">Life at Parivartan</a>
             </li>
-            <li>
-              <a href="./blogs.html" class="footer-nav-link">Insights</a>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </div>
+              <a href="./blogs.html">Insights</a>
             </li>
-            <li>
-              <a href="./contact.html" class="footer-nav-link">Contact</a>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z"/>
+                </svg>
+              </div>
+              <a href="./contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -1711,7 +1739,7 @@
                   <line x1="12" y1="18" x2="12.01" y2="18"/>
                 </svg>
               </div>
-              <a href="./work-mobileapps.html">App Development</a>
+              <a href="./app-development.html">App Development</a>
             </li>
             <li class="footer-service-item">
               <div class="service-icon-box">
@@ -1802,7 +1830,5 @@
 
   <!-- Loaded JS script -->
   <script src="./js/story.js"></script>
-  <!-- Loaded JS script -->
-  <script src="./js/index.js"></script>
 </body>
 </html>

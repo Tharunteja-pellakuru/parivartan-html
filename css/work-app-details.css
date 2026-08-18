@@ -104,10 +104,11 @@
 /* ---------- Title & tags ---------- */
 .app-detail-title {
   color: #85BD56 !important;
-  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
-  font-size: 50px !important;
+  font-family: "Eras Md BT", Satoshi, 'Outfit', 'Inter', sans-serif !important;
+  font-size: clamp(32px, 4vw, 50px) !important;
+  font-style: normal !important;
   font-weight: 400 !important;
-  line-height: 1.2 !important;
+  line-height: clamp(40px, 4.8vw, 62px) !important;
   text-align: center;
   margin: 0 0 20px 0 !important;
 }
@@ -171,6 +172,7 @@
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 30px 55px rgba(6, 6, 18, 0.28));
+  border-radius: 42px;
 }
 
 /* ---------- Case study card ---------- */
@@ -606,4 +608,195 @@
 
 .app-back-link:hover .app-back-icon svg path, .bd-back-link:hover .bd-back-icon svg path {
   fill: #85BD56 !important;
+}
+
+/* ---------- Multi-screen Hero Layout ---------- */
+.app-screens-hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+
+.app-screens-hero-grid .app-hero-phone {
+  width: 100%;
+  max-width: calc(25% - 15px);
+  height: auto;
+  max-height: 460px;
+  flex: 1 1 0;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 15px 35px rgba(6, 6, 18, 0.18));
+}
+
+.app-screens-hero-grid .app-hero-phone:hover {
+  transform: translateY(-8px) scale(1.03);
+  filter: drop-shadow(0 25px 45px rgba(6, 6, 18, 0.25));
+}
+
+/* ---------- App Screens Showcase Grid ---------- */
+.app-screens-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 16px;
+  box-sizing: border-box;
+}
+
+.app-screen-card {
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(6, 6, 18, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-screen-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(6, 6, 18, 0.08);
+}
+
+.app-screen-card img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 36px;
+}
+
+/* ---------- Responsive Behavior: Desktop (All Screens) vs Mobile (Carousel) ---------- */
+@media (max-width: 868px) {
+  .app-hero-canvas {
+    padding: 24px 12px !important;
+  }
+
+  /* Hero Multi-screen Mobile Carousel */
+  .app-screens-hero-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    padding: 12px 6px 20px 6px !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .app-screens-hero-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+  .app-screens-hero-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+  .app-screens-hero-grid::-webkit-scrollbar-thumb {
+    background: #85BD56;
+    border-radius: 10px;
+  }
+
+  .app-screens-hero-grid .app-hero-phone {
+    flex: 0 0 78% !important;
+    max-width: 78% !important;
+    height: 360px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+  }
+
+  /* App Screens Showcase Mobile Carousel */
+  .app-screens-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    padding: 8px 10% 20px 10% !important;
+    width: 100% !important;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .app-screens-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .app-screen-card {
+    flex: 0 0 80% !important;
+    min-width: 250px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-screens-hero-grid .app-hero-phone {
+    flex: 0 0 85% !important;
+    max-width: 85% !important;
+    height: 310px !important;
+  }
+
+  .app-screens-grid {
+    padding: 8px 6% 20px 6% !important;
+  }
+  
+  .app-screen-card {
+    flex: 0 0 88% !important;
+  }
+}
+
+/* App Screens Carousel Controls */
+.app-screens-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.app-screen-nav {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #060612;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.app-screen-nav:hover {
+  background: #85BD56;
+  color: #FFFFFF;
+}
+
+.app-screen-nav.prev {
+  left: -8px;
+}
+
+.app-screen-nav.next {
+  right: -8px;
+}
+
+@media (max-width: 868px) {
+  .app-screen-nav {
+    display: flex;
+  }
 }

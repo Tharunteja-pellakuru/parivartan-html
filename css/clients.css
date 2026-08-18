@@ -56,13 +56,13 @@
 
 /* Heading: Clients we worked with */
 .clients-hero-title {
-  color: var(--85BD56, #85BD56);
-  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
-  font-size: 50px;
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
   font-style: normal;
-  font-weight: 400;
-  line-height: 62px;
-  margin: 0 0 28px 0;
+  margin: 0 0 clamp(16px, 2vw, 28px) 0;
   text-align: center;
 }
 
@@ -645,22 +645,34 @@
   }
   .client-logos-container {
     padding: 24px 0;
+    align-items: center;
+  }
+  .client-logos-tagline {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .client-logos-header-grid {
     flex-direction: column;
     gap: 16px;
     margin-bottom: 40px;
+    align-items: center;
   }
+  .client-logos-header-left,
   .client-logos-header-right {
     padding-top: 0;
+    text-align: center;
+    width: 100%;
   }
   .client-logos-title {
     font-size: 32px;
     line-height: 40px;
+    text-align: center;
   }
   .client-logos-desc {
     font-size: 15px;
     line-height: 26px;
+    text-align: center;
   }
 }
 
@@ -680,6 +692,12 @@
     height: 66px;
     padding: 12px 16px;
     border-radius: 12px;
+  }
+  /* Overrides for Viyash and Avanti logos to appear larger on mobile */
+  .marquee-logo-card:has(img[src*="viyash"]),
+  .marquee-logo-card:has(img[src*="avanti"]) {
+    width: 170px;
+    padding: 10px 8px;
   }
   .marquee-track {
     gap: 14px;

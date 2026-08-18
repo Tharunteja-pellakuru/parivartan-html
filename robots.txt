@@ -1,0 +1,11 @@
+User-agent: *
+User-agent: Googlebot
+User-agent: Googlebot-News
+User-agent: YahooSeeker
+User-agent: msnbot
+Disallow: 
+Disallow: /cgi-bin/
+Disallow: /backup/
+Sitemap: https://www.eparivartan.com/sitemap.xml
+Allow: /sitemap.xml
+Disallow: /*escaped_fragment=DONOTCRAWL

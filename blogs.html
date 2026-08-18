@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parivartan | Blogs & Insights</title>
   <meta name="description" content="Explore valuable insights on website design, branding, digital marketing, social media strategies, SEO, and business growth from the Parivartan team.">
+  <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/blogs.css">
   <!-- Google Fonts: Outfit and Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +15,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <link rel="icon" type="image/png" href="./assets/home/Parivartan-Leaf.png">
+  <!-- Google reCAPTCHA API -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMHEDZJWJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPMHEDZJWJ');
+</script>
 </head>
 <body>
 
@@ -167,7 +180,7 @@
             <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
             <span class="submenu-label">Web Apps</span>
           </a>
-          <a href="./work-mobileapps.html" class="drawer-submenu-item">
+          <a href="./app-development.html" class="drawer-submenu-item">
             <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
             <span class="submenu-label">Mobile Apps</span>
           </a>
@@ -247,7 +260,7 @@
   <!-- ==================== MAIN CONTENT ==================== -->
   <main>
 
-    <!-- Featured Article Hero -->
+    <!-- Blogs Hero Section -->
     <section class="blogs-hero-section">
       <div class="blogs-hero-container">
 
@@ -270,23 +283,23 @@
           </svg>
         </div>
 
-        <h1 class="blogs-hero-title">Featured Article</h1>
+        <h1 class="blogs-hero-title">Insights That Inspire Better Digital Decisions</h1>
 
-        <!-- Featured Card -->
+        <!-- Hero Card Frame -->
         <div class="blogs-featured-card-frame">
-          <div class="blogs-featured-card" onclick="window.location.href='./blog-details.html'">
+          <div class="blogs-featured-card">
             <div class="blogs-featured-card-inner">
 
-              <!-- Left: Text -->
+              <!-- Left: Text Content -->
               <div class="blogs-featured-left">
-                <span class="blogs-featured-category cat-website-design">Website Design</span>
-                <h2 class="blogs-featured-heading">Why Your Website Is More Than<br>Just an Online Brochure</h2>
-                <p class="blogs-featured-desc">A modern website should do more than present information. It should build trust, guide users, generate enquiries, support marketing, and contribute to business growth.</p>
+                <span class="blogs-featured-category cat-website-design">KNOWLEDGE & PERSPECTIVES</span>
+                <p class="blogs-hero-desc">Explore a curated collection of expert articles, practical guides, industry trends, and thought leadership covering technology, UI/UX design, AI, software development, digital marketing, and business strategy. Our insights are crafted to help businesses, entrepreneurs, and professionals stay ahead of the curve, solve real-world challenges, and make informed decisions.</p>
+                <p class="blogs-hero-desc highlight-text">Whether you're looking for actionable tips, emerging trends, or in-depth analysis, you'll find valuable knowledge to fuel innovation, accelerate growth, and create exceptional digital experiences.</p>
               </div>
 
               <!-- Right: Image -->
               <div class="blogs-featured-right">
-                <img src="./assets/blogs/blog-hero-featured.png" alt="Featured Blog - Website Design" class="blogs-featured-image" />
+                <img src="./assets/blogs/blog-hero-featured.png" alt="Insights That Inspire Better Digital Decisions" class="blogs-featured-image" />
               </div>
 
             </div>
@@ -333,12 +346,12 @@
           <!-- Card 1 -->
           <article class="blog-card" onclick="window.location.href='./blog-details.html'">
             <div class="blog-card-image-wrapper">
-              <img src="./assets/blogs/blogs-images-1.png" alt="Website brochure illustration" class="blog-card-image" />
+              <img src="./assets/blogs/blogs-images-1.png" alt="Website strategy illustration" class="blog-card-image" />
             </div>
             <div class="blog-card-content">
-              <span class="blog-card-category cat-website-design">Website Design</span>
-              <h3 class="blog-card-title">Why your website is more than just an online brochure</h3>
-              <p class="blog-card-desc">A modern website should do more than display information. It should build trust, guide users, generate enquiries, and support business growth.</p>
+              <span class="blog-card-category cat-website-design">Website Strategy</span>
+              <h3 class="blog-card-title">10 essential website elements that convert visitors into clients</h3>
+              <p class="blog-card-desc">From strategic call-to-actions to persuasive social proof, discover the key components every high-performing website must feature to drive conversions.</p>
             </div>
           </article>
 
@@ -440,6 +453,23 @@
 
         </div>
 
+
+
+        <!-- Mobile Carousel Navigation Controls (Visible on Mobile Only) -->
+        <div class="blogs-carousel-controls">
+          <button class="blogs-carousel-arrow blogs-carousel-prev" aria-label="Previous insight">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <div class="blogs-carousel-dots"></div>
+          <button class="blogs-carousel-arrow blogs-carousel-next" aria-label="Next insight">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+
         <!-- Pagination -->
                 <div class="blogs-pagination" id="blogs-pagination">
           <button class="blogs-pagination-btn disabled" id="pagination-prev" aria-label="Previous page">
@@ -499,7 +529,7 @@
             <p class="cta-description">
               From websites and branding to campaigns and growth marketing, we help businesses build digital experiences that create impact.
             </p>
-            <a href="#contact" class="cta-start-project-btn">
+            <a href="./contact.html" class="cta-start-project-btn">
               <span>Start Project</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
   <g clip-path="url(#clip0_947_85)">
@@ -549,7 +579,7 @@
                 <h3 class="available-card-title">Quick 15-minute call</h3>
                 <p class="available-card-desc">Pick a time that works for you.</p>
                 
-                <a href="#contact" class="available-book-call-btn">
+                <a href="./contact.html" class="available-book-call-btn">
                   <span>Book a Free call</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
   <g clip-path="url(#clip0_947_85)">
@@ -596,9 +626,8 @@
         </p>
       </div>
 
-      <!-- Main block details + Form -->
       <div class="contact-row-main">
-        <form class="contact-form">
+        <form class="contact-form" action="./contact-mailer.php" method="POST">
           <div class="contact-form-row">
             
             <div class="contact-field">
@@ -798,6 +827,7 @@
 
 
   <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="footer-card">
       <div class="footer-top">
@@ -842,14 +872,27 @@
             Quick Links
             <span class="footer-heading-bar"></span>
           </h4>
-          <ul class="footer-list">
-            <li>
-              <a href="./index.html" class="footer-nav-link">Home</a>
+          <ul class="footer-service-list">
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+                </svg>
+              </div>
+              <a href="./index.html">Home</a>
             </li>
-            <li class="footer-group">
+            <li class="footer-service-item footer-group">
               <div class="footer-group-header">
-                <span>Inside Parivartan</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7"/>
+                      <rect x="3.5" y="7" width="17" height="12" rx="2.2"/>
+                    </svg>
+                  </div>
+                  <span>Inside Parivartan</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
               </div>
@@ -859,10 +902,18 @@
                 <li><a href="./founders-in-frame.html">Founders in Frame</a></li>
               </ul>
             </li>
-            <li class="footer-group">
+            <li class="footer-service-item footer-group">
               <div class="footer-group-header">
-                <span>In The Spotlight</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polygon points="12 8 8 16 16 16 12 8"/>
+                    </svg>
+                  </div>
+                  <span>In The Spotlight</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
               </div>
@@ -871,28 +922,53 @@
                 <li><a href="./awards.html">Awards</a></li>
               </ul>
             </li>
-            <li class="footer-group">
+            <li class="footer-service-item footer-group">
               <div class="footer-group-header">
-                <span>Our Work</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7"/>
+                      <rect x="3.5" y="7" width="17" height="12" rx="2.2"/>
+                      <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6"/>
+                    </svg>
+                  </div>
+                  <span>Our Work</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
               </div>
               <ul class="footer-sublist">
                 <li><a href="./work-websites.html">Websites</a></li>
                 <li><a href="./work-webapps.html">Web Apps</a></li>
-                <li><a href="./work-mobileapps.html">Mobile Apps</a></li>
+                <li><a href="./app-development.html">Mobile Apps</a></li>
                 <li><a href="./work-ecommerce.html">Ecommerce</a></li>
               </ul>
             </li>
-            <li>
-              <a href="./life.html" class="footer-nav-link">Life at Parivartan</a>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z"/>
+                </svg>
+              </div>
+              <a href="./life.html">Life at Parivartan</a>
             </li>
-            <li>
-              <a href="./blogs.html" class="footer-nav-link">Insights</a>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </div>
+              <a href="./blogs.html">Insights</a>
             </li>
-            <li>
-              <a href="./contact.html" class="footer-nav-link">Contact</a>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z"/>
+                </svg>
+              </div>
+              <a href="./contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -931,7 +1007,7 @@
                   <line x1="12" y1="18" x2="12.01" y2="18"/>
                 </svg>
               </div>
-              <a href="./work-mobileapps.html">App Development</a>
+              <a href="./app-development.html">App Development</a>
             </li>
             <li class="footer-service-item">
               <div class="service-icon-box">

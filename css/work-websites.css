@@ -45,13 +45,13 @@
 }
 
 .websites-hero-title {
-  color: var(--85BD56, #85BD56);
-  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
-  font-size: 50px;
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
   font-style: normal;
-  font-weight: 400;
-  line-height: 62px;
-  margin: 0 0 28px 0;
+  margin: 0 0 clamp(16px, 2vw, 28px) 0;
   text-align: center;
 }
 
@@ -265,14 +265,14 @@
 
   /* Project Cards - Maintain 16:9 preview, keep card height same */
   .websites-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 40px;
   }
 
   .websites-project-card {
-    height: 440px;
-    min-height: 440px;
-    max-height: 440px;
+    height: auto;
+    min-height: auto;
+    max-height: none;
     padding: 16px 20px 12px 20px;
   }
 
@@ -546,7 +546,8 @@
   will-change: transform, border-color, box-shadow;
 }
 
-.websites-project-card:hover {
+.websites-project-card:hover,
+.websites-project-card.is-expanded {
   transform: translateY(-6px);
   border-color: #C2E2A6;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
@@ -567,7 +568,8 @@
   will-change: height, margin-bottom;
 }
 
-.websites-project-card:hover .websites-card-preview {
+.websites-project-card:hover .websites-card-preview,
+.websites-project-card.is-expanded .websites-card-preview {
   height: 200px;
   margin-bottom: 10px;
 }
@@ -601,7 +603,8 @@
   transition: color 0.3s ease, margin-top 0.4s ease;
 }
 
-.websites-project-card:hover .websites-project-name {
+.websites-project-card:hover .websites-project-name,
+.websites-project-card.is-expanded .websites-project-name {
   margin-top: auto;
 }
 
@@ -617,7 +620,8 @@
   transition: color 0.3s ease;
 }
 
-.websites-project-card:hover .websites-project-meta {
+.websites-project-card:hover .websites-project-meta,
+.websites-project-card.is-expanded .websites-project-meta {
   color: #75BF46;
 }
 
@@ -639,7 +643,8 @@
   will-change: max-height, opacity, transform, margin-top;
 }
 
-.websites-project-card:hover .websites-card-hover-details {
+.websites-project-card:hover .websites-card-hover-details,
+.websites-project-card.is-expanded .websites-card-hover-details {
   max-height: 320px;
   opacity: 1;
   transform: translateY(0);
@@ -665,7 +670,8 @@
   transition: color 0.3s ease;
 }
 
-.websites-project-card:hover .websites-project-details {
+.websites-project-card:hover .websites-project-details,
+.websites-project-card.is-expanded .websites-project-details {
   color: #0F172A;
 }
 
@@ -750,7 +756,7 @@
 /* Responsive Overrides */
 @media (max-width: 1024px) {
   .websites-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 40px;
   }
 
@@ -801,7 +807,8 @@
     margin-bottom: 12px;
   }
 
-  .websites-project-card:hover .websites-card-preview {
+  .websites-project-card:hover .websites-card-preview,
+  .websites-project-card.is-expanded .websites-card-preview {
     height: auto;
     aspect-ratio: 16 / 9;
   }
@@ -813,7 +820,18 @@
   }
 
   .websites-project-buttons {
-    max-width: 320px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .websites-btn {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    box-sizing: border-box;
+    justify-content: center;
   }
 
   .websites-category-tabs {

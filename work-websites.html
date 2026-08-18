@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parivartan | Web Design & Digital Marketing in Hyderabad</title>
   <meta name="description" content="Parivartan is a Hyderabad digital agency building websites, web & mobile apps, ecommerce stores, branding and social media marketing for brands worldwide.">
+  <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/work-websites.css">
   <!-- Google Fonts: Outfit and Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,15 +17,25 @@
   <!-- Google reCAPTCHA API -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="icon" type="image/png" href="./assets/home/Parivartan-Leaf.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMHEDZJWJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPMHEDZJWJ');
+</script>
 </head>
 <body>
 
   <!-- ==================== HEADER ==================== -->
   <header class="header-container">
-    <img src="./assets/work/websites/Patch.png" alt="" class="header-patch" draggable="false" />
+    <img src="./assets/home/Patch.png" alt="" class="header-patch" draggable="false" />
     <div class="header-section header-left">
       <a href="./index.html" class="header-logo-link">
-        <img src="./assets/work/websites/Parivartan_Logo.png" alt="Parivartan Logo" class="header-logo" />
+        <img src="./assets/home/Parivartan_Logo.png" alt="Parivartan Logo" class="header-logo" />
       </a>
     </div>
 
@@ -71,78 +82,18 @@
         </span>
       </a>
 
-      <!-- Our Story -->
-      <a href="./story.html" class="drawer-menu-item">
-        <span class="drawer-menu-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="9" cy="8" r="3" />
-            <path d="M3.5 19c0-2.76 2.46-5 5.5-5s5.5 2.24 5.5 5" />
-            <path d="M15.5 4.3c1.44.42 2.5 1.76 2.5 3.35 0 1.6-1.06 2.93-2.5 3.35" />
-            <path d="M16 14.2c2.24.5 3.9 2.35 3.9 4.55" />
-          </svg>
-        </span>
-        <span class="drawer-menu-text">
-          <span class="drawer-menu-title">Our Story</span>
-          <span class="drawer-menu-desc">Our story, mission &amp; values</span>
-        </span>
-      </a>
-
-      <!-- Life at Parivartan -->
-      <a href="./life.html" class="drawer-menu-item">
-        <span class="drawer-menu-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z" />
-          </svg>
-        </span>
-        <span class="drawer-menu-text">
-          <span class="drawer-menu-title">Life at Parivartan</span>
-          <span class="drawer-menu-desc">Our culture, perks &amp; people</span>
-        </span>
-      </a>
-
-      <!-- Founders in Frame -->
-      <a href="./founders-in-frame.html" class="drawer-menu-item">
-        <span class="drawer-menu-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="23 7 16 12 23 17 23 7"/>
-            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-          </svg>
-        </span>
-        <span class="drawer-menu-text">
-          <span class="drawer-menu-title">Founders in Frame</span>
-          <span class="drawer-menu-desc">Exclusive video podcast series</span>
-        </span>
-      </a>
-
-      <!-- Our Clients -->
-      <a href="./clients.html" class="drawer-menu-item">
-        <span class="drawer-menu-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="9" cy="8" r="3" />
-            <path d="M3.5 19c0-2.76 2.46-5 5.5-5s5.5 2.24 5.5 5" />
-            <path d="M15.5 4.3c1.44.42 2.5 1.76 2.5 3.35 0 1.6-1.06 2.93-2.5 3.35" />
-            <path d="M16 14.2c2.24.5 3.9 2.35 3.9 4.55" />
-          </svg>
-        </span>
-        <span class="drawer-menu-text">
-          <span class="drawer-menu-title">Our Clients</span>
-          <span class="drawer-menu-desc">People we worked with</span>
-        </span>
-      </a>
-
-      <!-- Our Work Submenu accordion -->
-      <div class="drawer-menu-item-group expanded">
-        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="true">
+      <!-- Inside Parivartan Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
           <span class="drawer-menu-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
-            <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
-            <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6" />
-          </svg>
-        </span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+              <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+            </svg>
+          </span>
           <span class="drawer-menu-text">
-            <span class="drawer-menu-title">Our Work</span>
-            <span class="drawer-menu-desc">Explore our selected projects</span>
+            <span class="drawer-menu-title">Inside Parivartan</span>
+            <span class="drawer-menu-desc">About our team &amp; clients</span>
           </span>
           <span class="drawer-menu-chevron">
             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
@@ -152,41 +103,24 @@
         </button>
 
         <div class="drawer-submenu-list">
-          <a href="./work-websites.html" class="drawer-submenu-item active">
+          <a href="./story.html" class="drawer-submenu-item">
             <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
-            <span class="submenu-label">Websites</span>
+            <span class="submenu-label">Our Story</span>
           </a>
-          <a href="./work-webapps.html" class="drawer-submenu-item">
+          <a href="./clients.html" class="drawer-submenu-item">
             <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
-            <span class="submenu-label">Web Applications</span>
+            <span class="submenu-label">Our Clients</span>
           </a>
-          <a href="./work-mobileapps.html" class="drawer-submenu-item">
+          <a href="./founders-in-frame.html" class="drawer-submenu-item">
             <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
-            <span class="submenu-label">Mobile Apps</span>
-          </a>
-          <a href="./work-ecommerce.html" class="drawer-submenu-item">
-            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
-            <span class="submenu-label">eCommerce</span>
+            <span class="submenu-label">Founders in Frame</span>
           </a>
         </div>
       </div>
-      <!-- Blogs -->
-      <a href="./blogs.html" class="drawer-menu-item">
-        <span class="drawer-menu-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-          </svg>
-        </span>
-        <span class="drawer-menu-text">
-          <span class="drawer-menu-title">Blogs</span>
-          <span class="drawer-menu-desc">Read our latest insights</span>
-        </span>
-      </a>
 
-            <!-- Spotlight Submenu accordion -->
-      <div class="drawer-menu-item-group expanded">
-        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="true">
+      <!-- In The Spotlight Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
           <span class="drawer-menu-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10" />
@@ -194,8 +128,8 @@
             </svg>
           </span>
           <span class="drawer-menu-text">
-            <span class="drawer-menu-title">Spotlight</span>
-            <span class="drawer-menu-desc">Media coverage &amp; awards</span>
+            <span class="drawer-menu-title">In The Spotlight</span>
+            <span class="drawer-menu-desc">Media &amp; awards</span>
           </span>
           <span class="drawer-menu-chevron">
             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
@@ -216,7 +150,75 @@
         </div>
       </div>
 
-<!-- Contact -->
+      <!-- Our Work Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
+          <span class="drawer-menu-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+              <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+              <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6" />
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">Our Work</span>
+            <span class="drawer-menu-desc">Explore our selected projects</span>
+          </span>
+          <span class="drawer-menu-chevron">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./work-websites.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Websites</span>
+          </a>
+          <a href="./work-webapps.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Web Apps</span>
+          </a>
+          <a href="./app-development.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Mobile Apps</span>
+          </a>
+          <a href="./work-ecommerce.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Ecommerce</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Life at Parivartan -->
+      <a href="./life.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Life at Parivartan</span>
+          <span class="drawer-menu-desc">Our culture, perks &amp; people</span>
+        </span>
+      </a>
+
+      <!-- Insights -->
+      <a href="./blogs.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Insights</span>
+          <span class="drawer-menu-desc">Read our latest insights</span>
+        </span>
+      </a>
+
+      <!-- Contact -->
       <a href="./contact.html" class="drawer-menu-item">
         <span class="drawer-menu-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -395,13 +397,6 @@
             role="tab"
             aria-selected="false"
             class="websites-category-tab "
-            data-category="E-commerce"
-          >E-commerce</button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected="false"
-            class="websites-category-tab "
             data-category="Hospitality"
           >Hospitality</button>
           <button
@@ -441,18 +436,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="estic"
-                      data-name="ESTIC — DST Science & Technology Portal"
-                      data-url="https://estic2026.in/"
-                      data-domain="estic2026.in"
-                      data-screenshot="./assets/work/websites/estic_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -481,18 +465,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="cacm2026"
-                      data-name="CACM-2026 Conference Portal"
-                      data-url="https://www.cacm2026.com/"
-                      data-domain="cacm2026.com"
-                      data-screenshot="./assets/work/websites/cacm2026_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -521,18 +494,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="arci"
-                      data-name="ARCI — International Advanced Research Centre"
-                      data-url="https://www.arci.res.in/"
-                      data-domain="arci.res.in"
-                      data-screenshot="./assets/work/websites/government/arci_screenshots.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -561,25 +523,14 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="incap"
-                      data-name="INCAP"
-                      data-url="https://www.incap.co.in/"
-                      data-domain="incap.co.in"
-                      data-screenshot="./assets/work/websites/incap_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
               <div class="websites-project-card is-visible" data-category="Government" >
                 <!-- Image Preview (Shrinks height on hover) -->
                 <div class="websites-card-preview">
-                  <img src="./assets/work/websites/government/apadcl_screenshot.png" alt="APADCL — Andhra Pradesh Airports Development Corporation website preview" class="websites-preview-image" />
+                  <img src="./assets/work/websites/government/APADCL.png" alt="APADCL — Andhra Pradesh Airports Development Corporation website preview" class="websites-preview-image" />
                 </div>
 
                 <!-- Name & Meta (Always visible) -->
@@ -601,18 +552,38 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="apadcl"
-                      data-name="APADCL — Andhra Pradesh Airports Development Corporation"
-                      data-url="https://www.apadcl.com/"
-                      data-domain="apadcl.com"
-                      data-screenshot="./assets/work/websites/government/apadcl_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!-- Centre of Excellence on E-Waste -->
+              <div class="websites-project-card is-visible" data-category="Government" >
+                <!-- Image Preview (Shrinks height on hover) -->
+                <div class="websites-card-preview">
+                  <img src="./assets/work/websites/government/COEoneWaste.png" alt="Centre of Excellence (CoE) in E-Waste Management website preview" class="websites-preview-image" onerror="this.src='./assets/work/websites/estic_screenshot.png'" />
+                </div>
+
+                <!-- Name & Meta (Always visible) -->
+                <h3 class="websites-project-name">Centre of Excellence (CoE) in E-Waste Management</h3>
+                <p class="websites-project-meta">2024 • UI/UX Design</p>
+
+                <!-- Hover Details (Expands into space created by image height reduction) -->
+                <div class="websites-card-hover-details">
+                  <p class="websites-project-details">The official website for the Centre of Excellence (CoE) in E-Waste Management, focusing on sustainable e-waste management and recycling initiatives.</p>
+                  <div class="websites-project-tags">
+                    <span class="websites-tag-pill">Government</span>
+                    <span class="websites-tag-pill">UI/UX</span>
+                    <span class="websites-tag-pill">Web App</span>
+                  </div>
+                  <div class="websites-project-buttons">
+                    <a href="https://www.coeonewaste.com/about-us.html" target="_blank" rel="noopener noreferrer" class="websites-btn websites-btn-primary">
+                      <span>Visit Live Website</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"/>
+                      </svg>
+                    </a>
+                    
                   </div>
                 </div>
               </div>
@@ -641,18 +612,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="epeindia"
-                      data-name="EPE India"
-                      data-url="https://www.epe-india.com/"
-                      data-domain="epe-india.com"
-                      data-screenshot="./assets/work/websites/corporate/epeindia_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -681,18 +641,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="prosapiens"
-                      data-name="ProSapiens"
-                      data-url="https://prosapiens.co.in/"
-                      data-domain="prosapiens.co.in"
-                      data-screenshot="./assets/work/websites/corporate/prosapiens_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -721,18 +670,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="annai"
-                      data-name="ANN AI"
-                      data-url="https://ann-ai.com/"
-                      data-domain="ann-ai.com"
-                      data-screenshot="./assets/work/websites/corporate/annai_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -761,18 +699,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="sapiensfirst"
-                      data-name="Sapiens First"
-                      data-url="https://sapiensfirst.com/"
-                      data-domain="sapiensfirst.com"
-                      data-screenshot="./assets/work/websites/corporate/sapiensfirst_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -801,18 +728,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="hariharanlaw"
-                      data-name="Hariharan Law"
-                      data-url="https://hariharanlaw.com/"
-                      data-domain="hariharanlaw.com"
-                      data-screenshot="./assets/work/websites/corporate/hariharanlaw_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -841,18 +757,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="rasterengineers"
-                      data-name="Raster Engineers"
-                      data-url="https://www.rasterengineers.com/"
-                      data-domain="rasterengineers.com"
-                      data-screenshot="./assets/work/websites/corporate/rasterengineers_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -881,18 +786,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="cognitivzen"
-                      data-name="CognitivZen"
-                      data-url="https://cognitivzen.com/"
-                      data-domain="cognitivzen.com"
-                      data-screenshot="./assets/work/websites/corporate/cognitivzen_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -921,18 +815,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="leadsolutions"
-                      data-name="Lead Solutions"
-                      data-url="https://lead-solutions.org/"
-                      data-domain="lead-solutions.org"
-                      data-screenshot="./assets/work/websites/corporate/leadsolutions_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -961,18 +844,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="viyash"
-                      data-name="Viyash"
-                      data-url="https://viyash.com/"
-                      data-domain="viyash.com"
-                      data-screenshot="./assets/work/websites/corporate/viyash_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1001,18 +873,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="ojone"
-                      data-name="Ojone"
-                      data-url="https://ojone.com/"
-                      data-domain="ojone.com"
-                      data-screenshot="./assets/work/websites/corporate/ojone_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1041,18 +902,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="infoshore"
-                      data-name="Infoshore"
-                      data-url="http://infoshore.com/"
-                      data-domain="infoshore.com"
-                      data-screenshot="./assets/work/websites/corporate/infoshore_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1081,18 +931,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="chhotabheembali"
-                      data-name="Chhota Bheem Bali"
-                      data-url="https://www.chhotabheem.com/bali/"
-                      data-domain="chhotabheem.com"
-                      data-screenshot="./assets/work/websites/corporate/chhotabheembali_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1121,18 +960,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="geceindia"
-                      data-name="GECE India"
-                      data-url="https://www.geceindia.com/index.html"
-                      data-domain="geceindia.com"
-                      data-screenshot="./assets/work/websites/corporate/geceindia_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1161,18 +989,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="aysit"
-                      data-name="AYS IT"
-                      data-url="https://www.aysit.in/"
-                      data-domain="aysit.in"
-                      data-screenshot="./assets/work/websites/corporate/aysit_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1201,18 +1018,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="learnsquare"
-                      data-name="Learn Square"
-                      data-url="https://learnsquare.co/"
-                      data-domain="learnsquare.co"
-                      data-screenshot="./assets/work/websites/education/learnsquare_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1241,18 +1047,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="comedk"
-                      data-name="COMEDK"
-                      data-url="https://www.comedk.org/"
-                      data-domain="comedk.org"
-                      data-screenshot="./assets/work/websites/education/comedk_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1281,18 +1076,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="acemanager"
-                      data-name="Ace Manager"
-                      data-url="https://www.ace-manager.com/"
-                      data-domain="ace-manager.com"
-                      data-screenshot="./assets/work/websites/education/acemanager_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1321,18 +1105,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="iwish"
-                      data-name="iWish Academy"
-                      data-url="https://iwish.academy/"
-                      data-domain="iwish.academy"
-                      data-screenshot="./assets/work/websites/education/iwish_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1361,18 +1134,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="kims"
-                      data-name="KIMS Konaseema Institute of Medical Sciences"
-                      data-url="https://kims.in/"
-                      data-domain="kims.in"
-                      data-screenshot="./assets/work/websites/education/kims_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1401,18 +1163,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="mjcollege"
-                      data-name="Muffakham Jah College of Engineering"
-                      data-url="https://mjcollege.ac.in/"
-                      data-domain="mjcollege.ac.in"
-                      data-screenshot="./assets/work/websites/education/mjcollege_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1441,18 +1192,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="sucp"
-                      data-name="Sultan-ul-Uloom College of Pharmacy"
-                      data-url="https://www.sucp.ac.in/"
-                      data-domain="sucp.ac.in"
-                      data-screenshot="./assets/work/websites/education/sucp_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1481,18 +1221,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="sultanululoom"
-                      data-name="Sultan-ul-Uloom Education Society"
-                      data-url="https://sultanululoom.in/"
-                      data-domain="sultanululoom.in"
-                      data-screenshot="./assets/work/websites/education/sultanululoom_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1521,18 +1250,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="gooverseasedu"
-                      data-name="Go Overseas"
-                      data-url="https://www.gooverseasedu.com/"
-                      data-domain="gooverseasedu.com"
-                      data-screenshot="./assets/work/websites/education/gooverseasedu_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1561,18 +1279,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="svishyd"
-                      data-name="Sadhu Vaswani International School Hyderabad"
-                      data-url="https://www.svishyd.edu.in/"
-                      data-domain="svishyd.edu.in"
-                      data-screenshot="./assets/work/websites/education/svishyd_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1601,18 +1308,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="svisnavimumbai"
-                      data-name="Sadhu Vaswani International School Navi Mumbai"
-                      data-url="https://www.svisnavimumbai.edu.in/"
-                      data-domain="svisnavimumbai.edu.in"
-                      data-screenshot="./assets/work/websites/education/svisnavimumbai_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1641,18 +1337,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="heritagevalley"
-                      data-name="Heritage Valley School"
-                      data-url="https://www.heritagevalley.co.in/"
-                      data-domain="heritagevalley.co.in"
-                      data-screenshot="./assets/work/websites/education/heritagevalley_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1681,18 +1366,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="sherwoodpublicschool"
-                      data-name="Sherwood Public School"
-                      data-url="https://sherwoodpublicschool.edu.in/"
-                      data-domain="sherwoodpublicschool.edu.in"
-                      data-screenshot="./assets/work/websites/education/sherwoodpublicschool_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1721,18 +1395,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="leadsolutions"
-                      data-name="Lead Solutions"
-                      data-url="https://lead-solutions.org/"
-                      data-domain="lead-solutions.org"
-                      data-screenshot="./assets/work/websites/corporate/leadsolutions_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1761,18 +1424,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="srivenkateshwaracollegeoffinearts"
-                      data-name="Sri Venkateshwara College of Fine Arts"
-                      data-url="https://www.srivenkateshwaracollegeoffinearts.com/"
-                      data-domain="srivenkateshwaracollegeoffinearts.com"
-                      data-screenshot="./assets/work/websites/education/srivenkateshwaracollegeoffinearts_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1801,18 +1453,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="welcomekidz"
-                      data-name="Welcome Kidz"
-                      data-url="https://welcomekidz.com/"
-                      data-domain="welcomekidz.com"
-                      data-screenshot="./assets/work/websites/education/welcomekidz_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1841,18 +1482,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="erafoundation"
-                      data-name="ERA Foundation"
-                      data-url="https://www.erafoundationindia.org/"
-                      data-domain="erafoundationindia.org"
-                      data-screenshot="./assets/work/websites/education/erafoundation_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1881,18 +1511,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="margforyou"
-                      data-name="Marg For You"
-                      data-url="https://www.margforyou.com/"
-                      data-domain="margforyou.com"
-                      data-screenshot="./assets/work/websites/education/margforyou_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1921,18 +1540,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="ksenandigama"
-                      data-name="Kakatiya School"
-                      data-url="https://www.ksenandigama.com/"
-                      data-domain="ksenandigama.com"
-                      data-screenshot="./assets/work/websites/education/ksenandigama_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -1961,18 +1569,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="vgsedu"
-                      data-name="Vidyanjali Grammar School"
-                      data-url="https://vgsedu.com/"
-                      data-domain="vgsedu.com"
-                      data-screenshot="./assets/work/websites/education/vgsedu_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2001,18 +1598,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="abssummit"
-                      data-name="ABS Summit"
-                      data-url="https://www.abssummit.in/"
-                      data-domain="abssummit.in"
-                      data-screenshot="./assets/work/websites/education/abssummit_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2041,18 +1627,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="isabsodcp"
-                      data-name="ISABS Organisation Development Certification Programme"
-                      data-url="https://www.isabsodcp.com/"
-                      data-domain="isabsodcp.com"
-                      data-screenshot="./assets/work/websites/education/isabsodcp_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2081,18 +1656,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="fndr"
-                      data-name="Foundation for Neglected Disease Research"
-                      data-url="https://www.fndr.in/"
-                      data-domain="fndr.in"
-                      data-screenshot="./assets/work/websites/education/fndr_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2121,18 +1685,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="isabs"
-                      data-name="ISABS"
-                      data-url="https://www.isabs.org/"
-                      data-domain="isabs.org"
-                      data-screenshot="./assets/work/websites/education/isabs_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2161,18 +1714,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="tradinovaint"
-                      data-name="Tradinova"
-                      data-url="https://www.tradinovaint.com/"
-                      data-domain="tradinovaint.com"
-                      data-screenshot="./assets/work/websites/enterprise/tradinovaint_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2201,18 +1743,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="empowersport"
-                      data-name="Empower Sports"
-                      data-url="https://www.empowersport.in"
-                      data-domain="empowersport.in"
-                      data-screenshot="./assets/work/websites/enterprise/empowersport_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2241,18 +1772,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="forevision"
-                      data-name="Forevision Instruments"
-                      data-url="https://forevision.in"
-                      data-domain="forevision.in"
-                      data-screenshot="./assets/work/websites/enterprise/forevision_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2281,18 +1801,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="gvconnect"
-                      data-name="GV Connect"
-                      data-url="https://gvconnect.in"
-                      data-domain="gvconnect.in"
-                      data-screenshot="./assets/work/websites/enterprise/gvconnect_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2321,18 +1830,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="legalasports"
-                      data-name="Legala Sports"
-                      data-url="https://www.legalasports.com"
-                      data-domain="legalasports.com"
-                      data-screenshot="./assets/work/websites/enterprise/legalasports_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2361,18 +1859,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="tridentalloys"
-                      data-name="Trident Alloys"
-                      data-url="https://tridentalloys.in"
-                      data-domain="tridentalloys.in"
-                      data-screenshot="./assets/work/websites/enterprise/tridentalloys_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2401,18 +1888,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="healvedaindia"
-                      data-name="Healveda"
-                      data-url="https://www.healvedaindia.com/"
-                      data-domain="healvedaindia.com"
-                      data-screenshot="./assets/work/websites/enterprise/healvedaindia_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2441,18 +1917,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="mysmartfi"
-                      data-name="My SmartFi"
-                      data-url="https://mysmartfi.com/"
-                      data-domain="mysmartfi.com"
-                      data-screenshot="./assets/work/websites/enterprise/mysmartfi_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2481,18 +1946,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="thanos"
-                      data-name="Thanos"
-                      data-url="http://thanos.in/"
-                      data-domain="thanos.in"
-                      data-screenshot="./assets/work/websites/enterprise/thanos_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2521,18 +1975,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="b5corp"
-                      data-name="B5 Corporation Pvt. Ltd."
-                      data-url="https://b5corp.com/"
-                      data-domain="b5corp.com"
-                      data-screenshot="./assets/work/websites/enterprise/b5corp_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2561,18 +2004,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="sanpragroup"
-                      data-name="Sanpra Group"
-                      data-url="http://www.sanpragroup.com/"
-                      data-domain="sanpragroup.com"
-                      data-screenshot="./assets/work/websites/enterprise/sanpragroup_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2601,18 +2033,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="mahti"
-                      data-name="Mahti"
-                      data-url="https://mahti.in/"
-                      data-domain="mahti.in"
-                      data-screenshot="./assets/work/websites/enterprise/mahti_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2641,18 +2062,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="govincapital"
-                      data-name="Govin Capital Pvt. Ltd."
-                      data-url="https://www.govincapital.com/"
-                      data-domain="govincapital.com"
-                      data-screenshot="./assets/work/websites/enterprise/govincapital_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2681,18 +2091,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="wedoimport"
-                      data-name="We Do Import"
-                      data-url="https://importingfromchina.in/"
-                      data-domain="importingfromchina.in"
-                      data-screenshot="./assets/work/websites/enterprise/wedoimport_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2721,18 +2120,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="stabaka"
-                      data-name="Stabaka Consulting Pvt. Ltd."
-                      data-url="https://www.stabaka.com/"
-                      data-domain="stabaka.com"
-                      data-screenshot="./assets/work/websites/enterprise/stabaka_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2761,18 +2149,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="augustconsulting"
-                      data-name="August Consulting"
-                      data-url="https://www.augustconsultingindia.com/"
-                      data-domain="augustconsultingindia.com"
-                      data-screenshot="./assets/work/websites/enterprise/augustconsulting_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2801,18 +2178,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="techiq"
-                      data-name="TechIQ"
-                      data-url="https://www.techiqinc.com/"
-                      data-domain="techiqinc.com"
-                      data-screenshot="./assets/work/websites/enterprise/techiq_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2841,18 +2207,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="infraniti"
-                      data-name="Infraniti"
-                      data-url="https://www.infraniti.com/"
-                      data-domain="infraniti.com"
-                      data-screenshot="./assets/work/websites/enterprise/infraniti_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2881,18 +2236,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="rostrespaces"
-                      data-name="Rostre Spaces"
-                      data-url="https://rostrespaces.in/"
-                      data-domain="rostrespaces.in"
-                      data-screenshot="./assets/work/websites/enterprise/rostrespaces_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2921,18 +2265,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="chicspaces"
-                      data-name="Chic Spaces"
-                      data-url="https://www.chicspaces.in/"
-                      data-domain="chicspaces.in"
-                      data-screenshot="./assets/work/websites/enterprise/chicspaces_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -2961,18 +2294,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="crea"
-                      data-name="Crea"
-                      data-url="https://creaprojects.in/"
-                      data-domain="creaprojects.in"
-                      data-screenshot="./assets/work/websites/enterprise/crea_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3001,18 +2323,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="kara"
-                      data-name="Kara"
-                      data-url="https://thestudiokara.com/"
-                      data-domain="thestudiokara.com"
-                      data-screenshot="./assets/work/websites/enterprise/kara_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3041,18 +2352,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="andhracanteen"
-                      data-name="Andhra Canteen"
-                      data-url="https://www.andhracanteen.com/"
-                      data-domain="andhracanteen.com"
-                      data-screenshot="./assets/work/websites/enterprise/andhracanteen_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3081,18 +2381,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="velocitydrafting"
-                      data-name="Velocity – The Drafting Pros"
-                      data-url="https://www.velocitydrafting.com/"
-                      data-domain="velocitydrafting.com"
-                      data-screenshot="./assets/work/websites/enterprise/velocitydrafting_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3121,18 +2410,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="hemanthenterprises"
-                      data-name="Hemanth Enterprises"
-                      data-url="https://www.hemantenterprises.org/"
-                      data-domain="hemantenterprises.org"
-                      data-screenshot="./assets/work/websites/enterprise/hemanthenterprises_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3161,18 +2439,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="anupamamenon"
-                      data-name="Dr. Anupama Menon"
-                      data-url="https://anupamamenon.com/"
-                      data-domain="anupamamenon.com"
-                      data-screenshot="./assets/work/websites/branding/anupamamenon_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3201,18 +2468,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="drshivachalla"
-                      data-name="Dr. Shiva Challa"
-                      data-url="https://www.drshivachalla.com/"
-                      data-domain="drshivachalla.com"
-                      data-screenshot="./assets/work/websites/branding/drshivachalla_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3241,18 +2497,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="nskuchipudi"
-                      data-name="NS Kuchipudi"
-                      data-url="https://www.nskuchipudi.com/"
-                      data-domain="nskuchipudi.com"
-                      data-screenshot="./assets/work/websites/branding/nskuchipudi_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3281,18 +2526,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="mkdentistry"
-                      data-name="MK Dentistry"
-                      data-url="https://mkdentistry.in/"
-                      data-domain="mkdentistry.in"
-                      data-screenshot="./assets/work/websites/hospitals/mkdentistry_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3321,18 +2555,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="intellinovahealthtech"
-                      data-name="IntelliNova HealthTech"
-                      data-url="https://www.intellinovahealthtech.com/"
-                      data-domain="intellinovahealthtech.com"
-                      data-screenshot="./assets/work/websites/hospitals/intellinovahealthtech_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3361,18 +2584,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="dallashealthpartner"
-                      data-name="Dallas Health Partner"
-                      data-url="https://dallashealthpartner.com/"
-                      data-domain="dallashealthpartner.com"
-                      data-screenshot="./assets/work/websites/hospitals/dallashealthpartner_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3401,18 +2613,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="orangecross"
-                      data-name="Orange Cross"
-                      data-url="https://www.orangecross.in/"
-                      data-domain="orangecross.in"
-                      data-screenshot="./assets/work/websites/hospitals/orangecross_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3441,18 +2642,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="triumphglobalhealth"
-                      data-name="Triumph Global Health"
-                      data-url="https://www.triumphglobalhealth.com/"
-                      data-domain="triumphglobalhealth.com"
-                      data-screenshot="./assets/work/websites/hospitals/triumphglobalhealth_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3481,18 +2671,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="medidochealth"
-                      data-name="Medido Health"
-                      data-url="https://www.medidochealth.com/"
-                      data-domain="medidochealth.com"
-                      data-screenshot="./assets/work/websites/hospitals/medidochealth_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3521,18 +2700,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="nisahospital"
-                      data-name="Nisa Hospital"
-                      data-url="https://www.nisahospital.in/"
-                      data-domain="nisahospital.in"
-                      data-screenshot="./assets/work/websites/hospitals/nisahospital_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3561,18 +2729,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="fifthvital"
-                      data-name="5th Vital"
-                      data-url="https://www.5thvital.com/"
-                      data-domain="5thvital.com"
-                      data-screenshot="./assets/work/websites/hospitals/fifthvital_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3605,18 +2762,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="summergreenresort"
-                      data-name="Summer Green Resort"
-                      data-url="https://summergreenresort.com/"
-                      data-domain="summergreenresort.com"
-                      data-screenshot="./assets/work/websites/hospitality/summergreenresort_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3645,18 +2791,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="mirchination"
-                      data-name="Mirchi Nation"
-                      data-url="https://mirchination.com/"
-                      data-domain="mirchination.com"
-                      data-screenshot="./assets/work/websites/hospitality/mirchination_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3685,18 +2820,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="tandooriflames"
-                      data-name="Tandoori Flames"
-                      data-url="https://www.tandooriflames.us/"
-                      data-domain="tandooriflames.us"
-                      data-screenshot="./assets/work/websites/hospitality/tandooriflames_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3725,18 +2849,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="bayleafnj"
-                      data-name="Bay Leaf Restaurant"
-                      data-url="https://www.bayleafnj.com/"
-                      data-domain="bayleafnj.com"
-                      data-screenshot="./assets/work/websites/hospitality/bayleafnj_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3765,18 +2878,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="eastinthewest"
-                      data-name="East in the West"
-                      data-url="https://eastinthewest.co.uk/"
-                      data-domain="eastinthewest.co.uk"
-                      data-screenshot="./assets/work/websites/hospitality/eastinthewest_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3805,18 +2907,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="abodehyderabad"
-                      data-name="Hotel Abode"
-                      data-url="https://www.abodehyderabad.com/"
-                      data-domain="abodehyderabad.com"
-                      data-screenshot="./assets/work/websites/hospitality/abodehyderabad_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3845,18 +2936,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="arastuinn"
-                      data-name="Arastu Inn"
-                      data-url="https://arastuinn.com/"
-                      data-domain="arastuinn.com"
-                      data-screenshot="./assets/work/websites/hospitality/arastuinn_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3885,18 +2965,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="shreevenkateshwarahotels"
-                      data-name="Shree Venkateshwara Hotels"
-                      data-url="https://www.shreevenkateshwarahotels.com/"
-                      data-domain="shreevenkateshwarahotels.com"
-                      data-screenshot="./assets/work/websites/hospitality/shreevenkateshwarahotels_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3925,18 +2994,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="arastugrand"
-                      data-name="Arastu Grand"
-                      data-url="https://www.arastugrand.com/"
-                      data-domain="arastugrand.com"
-                      data-screenshot="./assets/work/websites/hospitality/arastugrand_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -3965,18 +3023,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="emeteorstech"
-                      data-name="eMeteors Technologies"
-                      data-url="https://www.emeteorstech.com/"
-                      data-domain="emeteorstech.com"
-                      data-screenshot="./assets/work/websites/global/emeteorstech_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -4005,18 +3052,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="emaestrotech"
-                      data-name="eMaestro Technologies"
-                      data-url="https://www.emaestrotech.com/"
-                      data-domain="emaestrotech.com"
-                      data-screenshot="./assets/work/websites/global/emaestrotech_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -4045,18 +3081,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="getrinc"
-                      data-name="RINC"
-                      data-url="https://www.getrinc.com/"
-                      data-domain="getrinc.com"
-                      data-screenshot="./assets/work/websites/global/getrinc_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -4085,18 +3110,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="aiee"
-                      data-name="AIEE"
-                      data-url="https://aiee.com/"
-                      data-domain="aiee.com"
-                      data-screenshot="./assets/work/websites/global/aiee_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -4125,18 +3139,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="techvestglobal"
-                      data-name="TechVest Global"
-                      data-url="https://techvestglobal.com/"
-                      data-domain="techvestglobal.com"
-                      data-screenshot="./assets/work/websites/global/techvestglobal_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -4165,18 +3168,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="teradyneit"
-                      data-name="Teradyne IT"
-                      data-url="http://teradyneit.com/"
-                      data-domain="teradyneit.com"
-                      data-screenshot="./assets/work/websites/global/teradyneit_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -4205,18 +3197,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="seafurther"
-                      data-name="Sea Further"
-                      data-url="https://www.sea-further.com/"
-                      data-domain="sea-further.com"
-                      data-screenshot="./assets/work/websites/global/seafurther_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -4245,18 +3226,7 @@
                         <polyline points="9 18 15 12 9 6"/>
                       </svg>
                     </a>
-                    <button
-                      type="button"
-                      class="websites-btn websites-btn-secondary preview-live-btn"
-                      data-id="fooddrop"
-                      data-name="FoodDrop UAE"
-                      data-url="https://www.fooddrop.ae/"
-                      data-domain="fooddrop.ae"
-                      data-screenshot="./assets/work/websites/global/fooddrop_screenshot.png"
-                      data-embeddable="true"
-                    >
-                      <span>View more details</span>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -4341,7 +3311,7 @@
             <p class="cta-description">
               From websites and branding to campaigns and growth marketing, we help businesses build digital experiences that create impact.
             </p>
-            <a href="#contact" class="cta-start-project-btn">
+            <a href="./contact.html" class="cta-start-project-btn">
               <span>Start Project</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
   <g clip-path="url(#clip0_947_85)">
@@ -4391,7 +3361,7 @@
                 <h3 class="available-card-title">Quick 15-minute call</h3>
                 <p class="available-card-desc">Pick a time that works for you.</p>
                 
-                <a href="#contact" class="available-book-call-btn">
+                <a href="./contact.html" class="available-book-call-btn">
                   <span>Book a Free call</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
   <g clip-path="url(#clip0_947_85)">
@@ -4438,9 +3408,8 @@
         </p>
       </div>
 
-      <!-- Main block details + Form -->
       <div class="contact-row-main">
-        <form class="contact-form">
+        <form class="contact-form" action="./contact-mailer.php" method="POST">
           <div class="contact-form-row">
             
             <div class="contact-field">
@@ -4639,218 +3608,273 @@
   </section>
 
   <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="footer-card">
       <div class="footer-top">
         
+        <!-- Column 1: Brand -->
         <div class="footer-col footer-brand">
-        <img src="./assets/work/websites/Parivartan_Logo.png" alt="Parivartan" class="footer-logo" />
-        <p class="footer-desc">
-          Parivartan is a design and marketing agency helping businesses build stronger digital identities and scalable websites.
-        </p>
-        
-        <div class="footer-social">
-          <a href="https://www.facebook.com/eparivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9.198 21.5H13.198V13.49H16.802L17.198 9.51H13.198V7.5C13.198 7.23478 13.3034 6.98043 13.4909 6.79289C13.6784 6.60536 13.9328 6.5 14.198 6.5H17.198V2.5H14.198C12.8719 2.5 11.6002 3.02678 10.6625 3.96447C9.72479 4.90215 9.198 6.17392 9.198 7.5V9.51H7.198L6.802 13.49H9.198V21.5Z" fill="white"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/eparivartan/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12.001 9C11.2054 9 10.4423 9.31607 9.87968 9.87868C9.31707 10.4413 9.001 11.2044 9.001 12C9.001 12.7956 9.31707 13.5587 9.87968 14.1213C10.4423 14.6839 11.2054 15 12.001 15C12.7966 15 13.5597 14.6839 14.1223 14.1213C14.6849 13.5587 15.001 12.7956 15.001 12C15.001 11.2044 14.6849 10.4413 14.1223 9.87868C13.5597 9.31607 12.7966 9 12.001 9ZM12.001 7C13.3271 7 14.5989 7.52678 15.5365 8.46447C16.4742 9.40215 17.001 10.6739 17.001 12C17.001 13.3261 16.4742 14.5979 15.5365 15.5355C14.5989 16.4732 13.3271 17 12.001 17C10.6749 17 9.40315 16.4732 8.46547 15.5355C7.52778 14.5979 7.001 13.3261 7.001 12C7.001 10.6739 7.52778 9.40215 8.46547 8.46447C9.40315 7.52678 10.6749 7 12.001 7ZM18.501 6.75C18.501 7.08152 18.3693 7.39946 18.1349 7.63388C17.9005 7.8683 17.5825 8 17.251 8C16.9195 8 16.6015 7.8683 16.3671 7.63388C16.1327 7.39946 16.001 7.08152 16.001 6.75C16.001 6.41848 16.1327 6.10054 16.3671 5.86612C16.6015 5.6317 16.9195 5.5 17.251 5.5C17.5825 5.5 17.9005 5.6317 18.1349 5.86612C18.3693 6.10054 18.501 6.41848 18.501 6.75ZM12.001 4C9.527 4 9.123 4.007 7.972 4.058C7.188 4.095 6.662 4.2 6.174 4.39C5.76583 4.54037 5.39672 4.78063 5.094 5.093C4.78127 5.39562 4.54066 5.76474 4.39 6.173C4.2 6.663 4.095 7.188 4.059 7.971C4.007 9.075 4 9.461 4 12C4 14.475 4.007 14.878 4.058 16.029C4.095 16.812 4.2 17.339 4.389 17.826C4.559 18.261 4.759 18.574 5.091 18.906C5.428 19.242 5.741 19.443 6.171 19.609C6.665 19.8 7.191 19.906 7.971 19.942C9.075 19.994 9.461 20 12 20C14.475 20 14.878 19.993 16.029 19.942C16.811 19.905 17.337 19.8 17.826 19.611C18.2342 19.4606 18.6033 19.2204 18.906 18.908C19.243 18.572 19.444 18.259 19.61 17.828C19.8 17.336 19.906 16.81 19.942 16.028C19.994 14.925 20 14.538 20 12C20 9.526 19.993 9.122 19.942 7.971C19.905 7.189 19.799 6.661 19.61 6.173C19.4596 5.76483 19.2194 5.39572 18.907 5.093C18.6044 4.78027 18.2353 4.53966 17.827 4.389C17.337 4.199 16.811 4.094 16.029 4.058C14.926 4.006 14.54 4 12 4M12 2C14.717 2 15.056 2.01 16.123 2.06C17.187 2.11 17.913 2.277 18.55 2.525C19.21 2.779 19.766 3.123 20.322 3.678C20.8307 4.17773 21.2242 4.78247 21.475 5.45C21.722 6.087 21.89 6.813 21.94 7.878C21.987 8.944 22 9.283 22 12C22 14.717 21.99 15.056 21.94 16.122C21.89 17.188 21.722 17.912 21.475 18.55C21.2242 19.2175 20.8307 19.8223 20.322 20.322C19.8223 20.8307 19.2175 21.2242 18.55 21.475C17.913 21.722 17.187 21.89 16.123 21.94C15.056 21.987 14.717 22 12 22C9.283 22 8.944 21.99 7.877 21.94C6.813 21.89 6.088 21.722 5.45 21.475C4.78247 21.2242 4.17773 20.8307 3.678 20.322C3.16931 19.8223 2.77582 19.2175 2.525 18.55C2.277 17.913 2.11 17.187 2.06 16.122C2.012 15.056 2 14.717 2 12C2 9.283 2.01 8.944 2.06 7.878C2.11 6.812 2.277 6.088 2.525 5.45C2.77582 4.78247 3.16931 4.17773 3.678 3.678C4.17773 3.16931 4.78247 2.77582 5.45 2.525C6.087 2.277 6.812 2.11 7.877 2.06C8.945 2.013 9.284 2 12.001 2" fill="white"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/company/parivartan-software-&-multimedia-pvt-ltd-/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M6.94 5.00002C6.93974 5.53046 6.72877 6.03906 6.35351 6.41394C5.97825 6.78883 5.46944 6.99929 4.939 6.99902C4.40857 6.99876 3.89997 6.78779 3.52508 6.41253C3.1502 6.03727 2.93974 5.52846 2.94 4.99802C2.94027 4.46759 3.15124 3.95899 3.5265 3.5841C3.90176 3.20922 4.41057 2.99876 4.941 2.99902C5.47144 2.99929 5.98004 3.21026 6.35492 3.58552C6.72981 3.96078 6.94027 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z" fill="white"/>
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/@eParivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M14 12L10.5 14V10L14 12Z" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2 12.7084V11.2924C2 8.39739 2 6.94939 2.905 6.01839C3.811 5.08639 5.237 5.04639 8.088 4.96539C9.438 4.92739 10.818 4.90039 12 4.90039C13.182 4.90039 14.561 4.92739 15.912 4.96539C18.763 5.04639 20.189 5.08639 21.094 6.01839C21.999 6.95039 22 8.39839 22 11.2924V12.7074C22 15.6034 22 17.0504 21.095 17.9824C20.189 18.9134 18.764 18.9544 15.912 19.0344C14.562 19.0734 13.182 19.1004 12 19.1004C10.818 19.1004 9.439 19.0734 8.088 19.0344C5.237 18.9544 3.811 18.9144 2.905 17.9824C1.999 17.0504 2 15.6024 2 12.7084Z" stroke="white" stroke-width="1.5"/>
-            </svg>
+          <img src="./assets/home/Parivartan_Logo.png" alt="Parivartan" class="footer-logo" />
+          <p class="footer-desc">
+            Parivartan is a design and marketing agency helping businesses build stronger digital identities and scalable websites.
+          </p>
+          
+          <div class="footer-social">
+            <a href="https://www.facebook.com/eparivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/eparivartan/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/parivartan-software-&-multimedia-pvt-ltd-/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@eParivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.582 6.186a2.704 2.704 0 0 0-1.904-1.916C17.994 3.8 12 3.8 12 3.8s-5.994 0-7.678.47A2.704 2.704 0 0 0 2.418 6.186 28.528 28.528 0 0 0 1.95 12c.003 1.944.16 3.88.468 5.814a2.704 2.704 0 0 0 1.904 1.916C6.006 20.2 12 20.2 12 20.2s5.994 0 7.678-.47a2.704 2.704 0 0 0 1.904-1.916 28.528 28.528 0 0 0 .468-5.814 28.528 28.528 0 0 0-.468-5.814ZM9.75 15.52V8.48L15.9 12l-6.15 3.52Z" fill="white"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col footer-nav-col">
+          <h4 class="footer-heading">
+            Quick Links
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-service-list">
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+                </svg>
+              </div>
+              <a href="./index.html">Home</a>
+            </li>
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7"/>
+                      <rect x="3.5" y="7" width="17" height="12" rx="2.2"/>
+                    </svg>
+                  </div>
+                  <span>Inside Parivartan</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./story.html">Our Story</a></li>
+                <li><a href="./clients.html">Our Clients</a></li>
+                <li><a href="./founders-in-frame.html">Founders in Frame</a></li>
+              </ul>
+            </li>
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polygon points="12 8 8 16 16 16 12 8"/>
+                    </svg>
+                  </div>
+                  <span>In The Spotlight</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./media.html">Media Features</a></li>
+                <li><a href="./awards.html">Awards</a></li>
+              </ul>
+            </li>
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7"/>
+                      <rect x="3.5" y="7" width="17" height="12" rx="2.2"/>
+                      <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6"/>
+                    </svg>
+                  </div>
+                  <span>Our Work</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./work-websites.html">Websites</a></li>
+                <li><a href="./work-webapps.html">Web Apps</a></li>
+                <li><a href="./app-development.html">Mobile Apps</a></li>
+                <li><a href="./work-ecommerce.html">Ecommerce</a></li>
+              </ul>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z"/>
+                </svg>
+              </div>
+              <a href="./life.html">Life at Parivartan</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </div>
+              <a href="./blogs.html">Insights</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z"/>
+                </svg>
+              </div>
+              <a href="./contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-col footer-services-col">
+          <h4 class="footer-heading">
+            Services
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-service-list">
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <a href="./work-websites.html">UI/UX Design</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                  <line x1="14" y1="4" x2="10" y2="20"/>
+                </svg>
+              </div>
+              <a href="./work-websites.html">Web Development</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                  <line x1="12" y1="18" x2="12.01" y2="18"/>
+                </svg>
+              </div>
+              <a href="./app-development.html">App Development</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
+              <a href="./work-webapps.html">AEO Services</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <a href="./work-webapps.html">GEO Services</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6" y1="20" x2="6" y2="14"/>
+                  <path d="M4 8l4-4 4 4 6-6"/>
+                </svg>
+              </div>
+              <a href="./contact.html">SEO Services</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Get In Touch -->
+        <div class="footer-col footer-contact-col">
+          <h4 class="footer-heading">
+            Get In Touch
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <a href="tel:+919849165443" class="contact-text">+91 98491 65443</a>
+            </li>
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <a href="mailto:feedback@eparivartan.com" class="contact-text">feedback@eparivartan.com</a>
+            </li>
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <span class="contact-text">Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033 Telangana State</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <a href="https://careers.eparivartan.com/" target="_blank" rel="noopener noreferrer" class="footer-join-btn life-footer-parivar-link">
+            <span>Join the Parivar</span>
+            <img src="./assets/home/Parivartan-Leaf.png" alt="Leaf" class="life-title-leaf" />
           </a>
         </div>
-      </div>
 
-      <!-- Column 2: Quick Links -->
-      <div class="footer-col footer-nav-col">
-        <h4 class="footer-heading">Quick Links
-          <span class="footer-heading-bar"></span>
-        </h4>
-        <ul class="footer-list">
-          <li>
-            <a href="./index.html" class="footer-nav-link">Home</a>
-          </li>
-          <li class="footer-group">
-            <div class="footer-group-header">
-              <span>Inside Parivartan</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
-                <polyline points="9 18 15 12 9 6"/>
-              </svg>
-            </div>
-            <ul class="footer-sublist">
-              <li><a href="./story.html">Our Story</a></li>
-              <li><a href="./clients.html">Our Clients</a></li>
-              <li><a href="./founders-in-frame.html">Founders in Frame</a></li>
-            </ul>
-          </li>
-          <li class="footer-group">
-            <div class="footer-group-header">
-              <span>In The Spotlight</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
-                <polyline points="9 18 15 12 9 6"/>
-              </svg>
-            </div>
-            <ul class="footer-sublist">
-              <li><a href="./media.html">Media Features</a></li>
-              <li><a href="./awards.html">Awards</a></li>
-            </ul>
-          </li>
-          <li class="footer-group">
-            <div class="footer-group-header">
-              <span>Our Work</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
-                <polyline points="9 18 15 12 9 6"/>
-              </svg>
-            </div>
-            <ul class="footer-sublist">
-              <li><a href="./work-websites.html">Websites</a></li>
-              <li><a href="./work-webapps.html">Web Apps</a></li>
-              <li><a href="./work-mobileapps.html">Mobile Apps</a></li>
-              <li><a href="./work-ecommerce.html">Ecommerce</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="./life.html" class="footer-nav-link">Life at Parivartan</a>
-          </li>
-          <li>
-            <a href="./blogs.html" class="footer-nav-link">Insights</a>
-          </li>
-          <li>
-            <a href="./contact.html" class="footer-nav-link">Contact</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Services links -->
-      <div class="footer-col footer-services-col">
-        <h4 class="footer-heading">Services
-          <span class="footer-heading-bar"></span>
-        </h4>
-        <ul class="footer-service-list">
-          <li class="footer-service-item">
-            <div class="service-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <a href="./work-websites.html">UI/UX Design</a>
-          </li>
-          <li class="footer-service-item">
-            <div class="service-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6"/>
-                <polyline points="8 6 2 12 8 18"/>
-                <line x1="14" y1="4" x2="10" y2="20"/>
-              </svg>
-            </div>
-            <a href="./work-websites.html">Web Development</a>
-          </li>
-          <li class="footer-service-item">
-            <div class="service-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                <line x1="12" y1="18" x2="12.01" y2="18"/>
-              </svg>
-            </div>
-            <a href="./work-mobileapps.html">App Development</a>
-          </li>
-          <li class="footer-service-item">
-            <div class="service-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <circle cx="12" cy="12" r="6"/>
-                <circle cx="12" cy="12" r="2"/>
-              </svg>
-            </div>
-            <a href="./work-webapps.html">AEO Services</a>
-          </li>
-          <li class="footer-service-item">
-            <div class="service-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <a href="./work-webapps.html">GEO Services</a>
-          </li>
-          <li class="footer-service-item">
-            <div class="service-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"/>
-                <line x1="12" y1="20" x2="12" y2="4"/>
-                <line x1="6" y1="20" x2="6" y2="14"/>
-                <path d="M4 8l4-4 4 4 6-6"/>
-              </svg>
-            </div>
-            <a href="./contact.html">SEO Services</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Contact Info -->
-      <div class="footer-col footer-contact-col">
-        <h4 class="footer-heading">Get In Touch
-          <span class="footer-heading-bar"></span>
-        </h4>
-        <ul class="footer-contact-list">
-          <li class="footer-contact-item">
-            <div class="contact-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <a href="tel:+919849165443" class="contact-text">+91 98491 65443</a>
-          </li>
-          <li class="footer-contact-item">
-            <div class="contact-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <a href="mailto:feedback@eparivartan.com" class="contact-text">feedback@eparivartan.com</a>
-          </li>
-          <li class="footer-contact-item">
-            <div class="contact-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <span class="contact-text">Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033 Telangana State</span>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <div class="footer-bottom-left">
-        <a href="https://careers.eparivartan.com/" target="_blank" rel="noopener noreferrer" class="footer-join-btn life-footer-parivar-link">
-          <span>Join the Parivar</span>
-          <img src="./assets/home/Parivartan-Leaf.png" alt="Leaf" class="life-title-leaf" />
-        </a>
-      </div>
-      <div class="footer-bottom-right">
-        <span class="footer-copyright">© 2026 Parivartan. All rights reserved</span>
+        <div class="footer-bottom-right">
+          <span class="footer-copyright">© 2026 Parivartan. All rights reserved.</span>
+        </div>
       </div>
     </div>
-  </div>
   </footer>
 
   <!-- Loaded JS scripts -->

@@ -1,14 +1,24 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap');
+
+@font-face {
+  font-family: "Eras Md BT";
+  src: url('../assets/home/fonts/Eras-Md-BT-Medium.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import url("./index.css");
 
 /* ==========================================================================
-   Component: Hero.css
+   Component: Contact Page Styles — Fully Responsive & Fluid System
    ========================================================================== */
 
 /* Contact Hero Section Styles */
 .contact-hero-section {
   width: 100%;
   background: #ffffff;
-  padding: 0 40px;
+  padding: 0 clamp(16px, 3vw, 40px);
   overflow: hidden;
   position: relative;
   min-height: auto;
@@ -19,7 +29,7 @@
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 24px 0 40px 0;
+  padding: clamp(16px, 2vw, 24px) 0 clamp(24px, 3vw, 40px) 0;
   box-sizing: border-box;
   text-align: center;
   position: relative;
@@ -40,7 +50,7 @@
 .contact-hero-tagline span {
   color: var(--69686E, #69686E);
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   font-style: normal;
   font-weight: 700;
   line-height: 26px;
@@ -49,13 +59,13 @@
 
 /* Heading: Contact Us */
 .contact-hero-title {
-  color: var(--85BD56, #85BD56);
-  font-family: "Eras Md BT", Satoshi, 'Inter', sans-serif;
-  font-size: 50px;
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
   font-style: normal;
-  font-weight: 400;
-  line-height: 62px;
-  margin: 0 0 28px 0;
+  margin: 0 0 clamp(16px, 2vw, 28px) 0;
   text-align: center;
 }
 
@@ -64,10 +74,10 @@
   display: flex;
   width: 100%;
   max-width: 1320px;
-  padding: 16px;
+  padding: clamp(10px, 1.5vw, 16px);
   justify-content: center;
   align-items: center;
-  border-radius: 24px;
+  border-radius: clamp(16px, 2vw, 24px);
   border: 1px solid #FFFFFF;
   background: #F5F5F5;
   box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset;
@@ -80,7 +90,7 @@
   width: 100%;
   box-sizing: border-box;
   background: #FFFFFF;
-  border-radius: 18px;
+  border-radius: clamp(12px, 1.5vw, 18px);
   box-shadow: 0 10px 40px rgba(6, 6, 18, 0.05);
   overflow: hidden;
   border: 1px solid #E5E4E2;
@@ -105,26 +115,24 @@
   justify-content: space-between;
   align-items: flex-start;
   text-align: left;
-  padding: 40px 48px;
+  padding: clamp(24px, 3.5vw, 40px) clamp(20px, 4vw, 48px);
   box-sizing: border-box;
   background: #FFFFFF;
 }
 
 /* Paper Airplane wrapper */
 .paper-airplane-container {
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
+  display: none !important;
 }
 
 .contact-hero-card-heading {
-  color: #060612;
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 32px;
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(26px, 3.6vw, 44px);
   font-style: normal;
-  font-weight: 700;
-  line-height: 42px;
-  margin: 0 0 12px 0;
+  font-weight: 500;
+  line-height: clamp(34px, 4.4vw, 56px);
+  margin: 0 0 16px 0;
 }
 
 .contact-hero-card-heading .highlight-green {
@@ -132,11 +140,7 @@
 }
 
 .green-bar-underline {
-  width: 48px;
-  height: 4px;
-  background: #599632;
-  border-radius: 2px;
-  margin-bottom: 18px;
+  display: none !important;
 }
 
 .contact-hero-card-desc-group {
@@ -146,11 +150,12 @@
 .contact-hero-card-desc-group p {
   color: var(--69686E, #69686E);
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 14.5px;
+  font-size: clamp(13.5px, 1.1vw, 15px);
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 1.6;
   margin: 0 0 10px 0;
+  text-align: justify;
 }
 
 .contact-hero-card-desc-group p:last-child {
@@ -193,7 +198,7 @@
 
 .feature-info h4 {
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: clamp(13px, 1.05vw, 14px);
   font-weight: 700;
   color: #060612;
   margin: 0 0 4px 0;
@@ -201,10 +206,10 @@
 
 .feature-info p {
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: clamp(10.5px, 0.9vw, 11px);
   color: #69686E;
   margin: 0;
-  line-height: 15px;
+  line-height: 1.5;
 }
 
 .feature-vertical-divider {
@@ -216,7 +221,7 @@
 
 /* Right part of card: Image container */
 .contact-hero-card-right {
-  width: 520px;
+  width: clamp(340px, 38vw, 520px);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -226,7 +231,7 @@
 .contact-hero-image {
   width: 100%;
   height: 100%;
-  min-height: 416px;
+  min-height: 380px;
   background-color: lightgray;
   background-position: 50% 50%;
   background-size: cover;
@@ -272,7 +277,7 @@
 
 .banner-text h3 {
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: clamp(14px, 1.1vw, 15px);
   font-weight: 700;
   color: #FFFFFF;
   margin: 0 0 3px 0;
@@ -339,11 +344,12 @@
     margin: 0;
   }
   .contact-hero-image {
-    height: 380px;
+    height: 320px;
     min-height: 0;
   }
   .contact-hero-banner {
-    height: 96px;
+    height: auto;
+    padding: 16px 20px;
   }
   .contact-hero-card-left {
     padding: 32px 24px;
@@ -355,16 +361,7 @@
     padding: 0 24px;
   }
   .contact-hero-container {
-    padding: 64px 0 40px 0;
-  }
-  .contact-hero-title {
-    font-size: 40px;
-    line-height: 50px;
-    margin-bottom: 32px;
-  }
-  .contact-hero-card-heading {
-    font-size: 28px;
-    line-height: 38px;
+    padding: 40px 0 32px 0;
   }
   .contact-hero-features {
     flex-wrap: wrap;
@@ -395,13 +392,10 @@
     width: 100%;
     justify-content: center;
   }
-  .contact-hero-card-heading {
-    font-size: 24px;
-    line-height: 32px;
-  }
   .feature-item {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
   }
 }
 
@@ -410,7 +404,7 @@
     padding: 0 16px;
   }
   .contact-hero-container {
-    padding: 40px 0 24px 0;
+    padding: 32px 0 20px 0;
   }
   .contact-hero-image {
     height: 180px;
@@ -427,16 +421,7 @@
     gap: 8px;
     padding: 8px;
   }
-  .contact-hero-title {
-    font-size: 32px;
-    line-height: 40px;
-  }
-  .contact-hero-card-desc-group p {
-    font-size: 14px;
-    line-height: 22px;
-  }
 }
-
 
 /* ==========================================================================
    Component: Location.css
@@ -446,7 +431,7 @@
 .location-section {
   width: 100%;
   background: #FFFFFF;
-  padding: 0 40px;
+  padding: 0 clamp(16px, 3vw, 40px);
   box-sizing: border-box;
   overflow: visible;
   position: relative;
@@ -456,7 +441,7 @@
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 48px 0;
+  padding: clamp(32px, 4vw, 48px) 0;
   box-sizing: border-box;
   text-align: center;
 }
@@ -466,8 +451,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 40px;
-  margin-bottom: 56px;
+  gap: clamp(24px, 4vw, 40px);
+  margin-bottom: clamp(32px, 4vw, 56px);
   width: 100%;
 }
 
@@ -494,13 +479,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .location-tagline span {
   color: var(--69686E, #69686E);
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   font-style: normal;
   font-weight: 700;
   line-height: 26px;
@@ -510,11 +495,11 @@
 /* Heading styling */
 .location-main-heading {
   color: var(--060612, #060612);
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 44px;
+  font-family: Satoshi, 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(26px, 3.6vw, 44px);
   font-style: normal;
   font-weight: 500;
-  line-height: 56px;
+  line-height: 1.25;
   margin: 0;
 }
 
@@ -522,10 +507,10 @@
 .location-desc {
   color: var(--69686E, #69686E);
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: clamp(14px, 1.1vw, 16px);
   font-style: normal;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -533,9 +518,9 @@
 .location-map-wrapper {
   max-width: 1280px;
   width: 100%;
-  height: 622px;
+  height: clamp(280px, 45vw, 622px);
   aspect-ratio: 142/69;
-  border-radius: 16px;
+  border-radius: clamp(12px, 1.5vw, 16px);
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(6, 6, 18, 0.06);
   border: 1px solid #E5E4E2;
@@ -557,25 +542,12 @@
   .location-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 40px;
+    gap: 16px;
+    margin-bottom: 32px;
   }
   .location-header-left,
   .location-header-right {
     max-width: 100%;
-  }
-  .location-main-heading {
-    font-size: 36px;
-    line-height: 46px;
-  }
-  .location-map-wrapper {
-    height: 450px;
-  }
-}
-
-@media (max-width: 680px) {
-  .location-map-wrapper {
-    height: 350px;
   }
 }
 
@@ -586,18 +558,4 @@
   .location-container {
     padding: 20px 0;
   }
-  .location-main-heading {
-    font-size: 28px;
-    line-height: 36px;
-  }
-  .location-desc {
-    font-size: 15px;
-    line-height: 26px;
-  }
-  .location-map-wrapper {
-    height: 280px;
-    border-radius: 12px;
-  }
 }
-
-

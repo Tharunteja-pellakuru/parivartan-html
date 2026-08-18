@@ -92,11 +92,12 @@
 }
 
 .fif-main-heading {
-  color: #75BF46;
-  font-family: "Eras Md BT", 'Outfit', 'Inter', sans-serif;
-  font-size: clamp(34px, 4.2vw, 46px);
-  font-weight: 500;
-  line-height: 1.2;
+  font-family: Satoshi, Inter, sans-serif !important;
+  font-size: 44px !important;
+  font-weight: 500 !important;
+  line-height: 56px !important;
+  color: #060612 !important;
+  text-align: center;
   margin: 0;
 }
 
@@ -157,13 +158,13 @@
 }
 
 .fif-hero-heading {
-  align-self: stretch;
-  color: #060612;
-  font-family: Satoshi, sans-serif;
+  font-family: Satoshi, Inter, sans-serif;
   font-size: 44px;
-  font-style: normal;
   font-weight: 500;
   line-height: 56px;
+  color: rgb(6, 6, 18);
+  align-self: stretch;
+  font-style: normal;
   margin: 0 0 20px 0;
 }
 
@@ -349,6 +350,7 @@
   height: 200px;
   border-radius: 14px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .fif-thumb-img {
@@ -989,5 +991,142 @@
   .video-preview-close,
   .fif-modal-close {
     top: -44px !important;
+  }
+}
+
+/* ==================== FIF FEATURES ROW ==================== */
+.fif-features-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin: 48px auto;
+  max-width: 1000px;
+}
+
+.fif-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.fif-feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #F1F8ED; /* Light green background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fif-feature-text {
+  font-family: Satoshi, Inter, sans-serif;
+  text-align: left;
+  font-size: 14.5px;
+  line-height: 22px;
+  color: #69686E;
+  margin: 0;
+}
+
+.fif-feature-divider {
+  width: 1px;
+  height: 40px;
+  background-color: #EAEAEA;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .fif-features-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .fif-feature-divider {
+    display: none;
+  }
+}
+
+/* ==================== FIF WHY CARD ==================== */
+.fif-why-card {
+  display: flex !important;
+  flex-direction: row !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  align-items: stretch !important;
+  max-width: 1100px;
+  margin: 0 auto 64px auto !important;
+}
+
+.fif-why-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+}
+
+.fif-why-v-divider {
+  width: 1px;
+  background-color: #F0F0F0;
+  margin: 48px 0;
+}
+
+.fif-why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+}
+
+.fif-why-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #F1F8ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fif-why-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fif-why-title {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0;
+}
+
+.fif-why-desc {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 14.5px;
+  line-height: 22px;
+  color: #69686E;
+  margin: 0;
+}
+
+.fif-why-h-divider {
+  height: 1px;
+  background-color: #F0F0F0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .fif-why-card {
+    flex-direction: column !important;
+  }
+  .fif-why-v-divider {
+    display: none;
+  }
+  .fif-why-col {
+    padding: 32px;
   }
 }
