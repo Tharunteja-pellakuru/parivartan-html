@@ -602,12 +602,13 @@ const techConnectionsData = [
         return;
       }
 
-      // Desktop: determine which card is currently pinned
-      let currentActiveIndex = null;
+      // Desktop: determine which card is currently pinned/active in viewport
+      let currentActiveIndex = 0;
       cards.forEach((card, index) => {
         const rect = card.getBoundingClientRect();
         const stickyTop = stickyTops[index] || 100;
-        if (rect.top <= stickyTop + 10) {
+        // As soon as a card approaches within 200px of its sticky position, it activates & straightens!
+        if (rect.top <= stickyTop + 200) {
           currentActiveIndex = index;
         }
       });
@@ -618,8 +619,13 @@ const techConnectionsData = [
 
         if (index === currentActiveIndex) {
           card.classList.add('is-active');
+          card.classList.add('is-passed');
+        } else if (index < currentActiveIndex) {
+          card.classList.remove('is-active');
+          card.classList.add('is-passed');
         } else {
           card.classList.remove('is-active');
+          card.classList.remove('is-passed');
         }
 
         // Adding 10px tolerance for subpixel render scaling
@@ -646,8 +652,8 @@ const techConnectionsData = [
         }
       });
 
-      // On touch devices there is no hover, so the pinned card drives its video.
-      if (!canHover && currentActiveIndex !== lastActiveIndex) {
+      // Drive video play/pause on scroll when card reaches active sticky focus
+      if (currentActiveIndex !== lastActiveIndex) {
         cards.forEach((card, index) => {
           const video = card.querySelector('video');
           if (!video) return;

@@ -665,81 +665,17 @@ button {
   justify-content: center;
   background: #ffffff;
   width: 100%;
-  padding: 16px 40px 0 40px;
+  padding: 24px 40px 0 40px;
   box-sizing: border-box;
   overflow: visible;
-}
-
-@media (min-width: 961px) {
-  .hero-section-container {
-    min-height: calc(100vh - 96px);
-  }
-}
-
-/* Medium height screens (laptops 768px - 880px height) */
-@media (min-width: 961px) and (max-height: 880px) {
-  .hero-section-container {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin-bottom: 32px !important;
-  }
-  .hero-content-column {
-    padding-top: 16px;
-    padding-bottom: 24px;
-  }
-  .hero-visual-column {
-    padding-top: 0;
-    padding-bottom: 12px;
-  }
-  .hero-paragraph {
-    margin-bottom: 16px;
-  }
-  .hero-stats {
-    margin-bottom: 16px;
-  }
-  .hero-trusted-section {
-    margin-top: 16px;
-  }
-}
-
-/* Short height screens (laptops < 760px height) */
-@media (min-width: 961px) and (max-height: 760px) {
-  .hero-section-container {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-bottom: 24px !important;
-  }
-  .hero-headline {
-    font-size: 38px;
-    line-height: 48px;
-    margin-bottom: 8px;
-  }
-  .hero-paragraph {
-    font-size: 15px;
-    line-height: 24px;
-    margin-bottom: 12px;
-  }
-  .hero-content-column {
-    padding-top: 8px;
-    padding-bottom: 16px;
-  }
-  .hero-stats {
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-  .hero-stat-value {
-    font-size: 22px;
-  }
-  .hero-trusted-section {
-    margin-top: 12px;
-  }
+  height: auto;
 }
 
 .hero-inner-container {
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0 0 32px 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -768,7 +704,7 @@ button {
 .hero-card-row {
   display: flex;
   width: 100%;
-  align-items: stretch;
+  align-items: center;
   gap: 32px;
   box-sizing: border-box;
 }
@@ -783,7 +719,7 @@ button {
 .hero-content-column {
   align-items: flex-start;
   text-align: left;
-  padding: 24px 24px 48px 16px;
+  padding: 0 24px 16px 16px;
   box-sizing: border-box;
 }
 
@@ -1371,7 +1307,7 @@ button {
   width: 100%;
   flex: 1;
   height: 100%;
-  min-height: 640px;
+  min-height: 480px;
   background: transparent;
   display: flex;
   align-items: center;
@@ -1898,15 +1834,18 @@ button {
   background: #85BD56;
   border-radius: 12px;
   opacity: 1;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: rotate(15deg);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 0;
 }
 
-/* Offset background expansion on hover/active */
+/* Straighten and offset background when card is active, hovered, or passed */
 .services-row.is-hovered .service-mockup-green-bg,
-.services-row.is-active .service-mockup-green-bg {
-  top: -18px;
-  left: -18px;
+.services-row.is-active .service-mockup-green-bg,
+.services-row.is-passed .service-mockup-green-bg {
+  transform: rotate(0deg);
+  top: -16px;
+  left: -16px;
 }
 
 .service-mockup-img {
@@ -1914,18 +1853,23 @@ button {
   height: 100%;
   object-fit: cover;
   background: #FFF;
-  transform: rotate(0deg);
+  transform: rotate(15deg);
   border-radius: 12px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   z-index: 1;
 }
 
-/* Scale and lift transitions on hover */
+/* Straighten and scale video mockup when card is active, hovered, or passed */
+.services-row.is-passed .service-mockup-img {
+  transform: rotate(0deg);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+}
+
 .services-row.is-hovered .service-mockup-img,
 .services-row.is-active .service-mockup-img {
-  transform: scale(1.02) translateY(-4px);
+  transform: rotate(0deg) scale(1.02) translateY(-4px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
 }
 
@@ -7551,43 +7495,4 @@ a.contact-text:hover {
   transform: scale(1.25) rotate(15deg);
 }
 
-/* Force Hero Section to fit within viewport on desktop */
-@media (min-width: 1024px) {
-  .hero-section-container {
-    min-height: calc(100vh - 96px);
-    display: flex;
-  }
-  
-  .hero-inner-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: calc(100vh - 96px - 32px);
-  }
-  
-  .hero-card-frame {
-    flex: 1;
-    display: flex;
-    height: 100%;
-  }
-  
-  .hero-outer-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .hero-card-row {
-    flex: 1;
-    height: 100%;
-  }
 
-  .hero-content-column {
-    justify-content: center;
-  }
-  
-  .tech-ecosystem {
-    height: 100%;
-    min-height: 500px;
-  }
-}
