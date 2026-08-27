@@ -8,10 +8,15 @@ const initIndexApp = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      // Reveal every section and footer as it scrolls in (excluding services section which has sticky cards)
-      const revealTargets = gsap.utils.toArray('section, footer').filter(el => !el.classList.contains('services-section') && el.id !== 'services' && !el.querySelector('.services-row'));
+      // Reveal every section and footer as it scrolls in (excluding hero section and services section)
+      const revealTargets = gsap.utils.toArray('section, footer').filter(el => 
+        !el.classList.contains('hero-section-container') && 
+        !el.classList.contains('services-section') && 
+        el.id !== 'services' && 
+        !el.querySelector('.services-row')
+      );
       revealTargets.forEach(el => {
-        // Slide-up + fade for every other section.
+        // Slide-up + fade for remaining sections as they scroll into view.
         gsap.fromTo(el,
           { autoAlpha: 0, y: 56 },
           {
@@ -160,10 +165,10 @@ const initIndexApp = () => {
       { id: 'flutter', name: 'Flutter', size: 'medium', ring: 'outer', depth: 0.8, logo: './assets/home/tech/flutter.svg' },
       { id: 'figma', name: 'Figma', size: 'medium', ring: 'inner', depth: 0.8, logo: './assets/home/tech/figma.svg' },
       // Small Nodes (17)
-      { id: 'html', name: 'HTML5', size: 'small', ring: 'inner', depth: 0.6, logo: './assets/home/tech/html5.svg' },
-      { id: 'css', name: 'CSS3', size: 'small', ring: 'inner', depth: 0.6, logo: './assets/home/tech/css.svg' },
-      { id: 'javascript', name: 'JavaScript', size: 'small', ring: 'inner', depth: 0.5, logo: './assets/home/tech/javascript.svg' },
-      { id: 'typescript', name: 'TypeScript', size: 'small', ring: 'inner', depth: 0.5, logo: './assets/home/tech/typescript.svg' },
+      { id: 'html', name: 'HTML5', size: 'small', ring: 'outer', depth: 0.6, logo: './assets/home/tech/html5.svg' },
+      { id: 'css', name: 'CSS3', size: 'small', ring: 'outer', depth: 0.6, logo: './assets/home/tech/css.svg' },
+      { id: 'javascript', name: 'JavaScript', size: 'small', ring: 'outer', depth: 0.5, logo: './assets/home/tech/javascript.svg' },
+      { id: 'typescript', name: 'TypeScript', size: 'small', ring: 'outer', depth: 0.5, logo: './assets/home/tech/typescript.svg' },
       { id: 'express', name: 'Express', size: 'small', ring: 'outer', depth: 0.6, logo: './assets/home/tech/expressdotjs-light.svg' },
       { id: 'github', name: 'GitHub', size: 'small', ring: 'outer', depth: 0.5, logo: './assets/home/tech/github-light.svg' },
       { id: 'sqlite', name: 'SQLite', size: 'small', ring: 'outer', depth: 0.6, logo: './assets/home/tech/sqlite.svg' },
@@ -408,28 +413,23 @@ const techConnectionsData = [
       const pxY = mouseParallax.currentY;
 
       // Ring radii scaling
-      const baseRadius = Math.min(containerWidth, containerHeight);
       const isSmallScreen = window.innerWidth < 640;
       const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
 
-      let innerRadius = baseRadius * 0.37;
-      let outerRadius = baseRadius * 0.55;
+      // Calculate the maximum safe radius based on container size and icon margins
+      const nodeMargin = isSmallScreen ? 24 : isTablet ? 30 : 36;
+      const maxOuterRadius = Math.min(containerWidth, containerHeight) / 2 - nodeMargin;
+      
+      // Force outerRadius to exactly maxOuterRadius so it occupies the full safe space
+      let outerRadius = maxOuterRadius;
+      
+      // Inner radius ratio creating clean, well-proportioned gap between center node and outer ring
+      let innerRadius = maxOuterRadius * 0.54; 
 
       if (isSmallScreen) {
-        innerRadius = baseRadius * 0.30;
-        outerRadius = baseRadius * 0.45;
+        innerRadius = maxOuterRadius * 0.50;
       } else if (isTablet) {
-        innerRadius = baseRadius * 0.32;
-        outerRadius = baseRadius * 0.50;
-      }
-
-      // Max bounds validation to prevent viewport overflows
-      const nodeMargin = isSmallScreen ? 26 : isTablet ? 32 : 34;
-      const maxOuterRadius = Math.min(containerWidth, containerHeight) / 2 - nodeMargin;
-      if (outerRadius > maxOuterRadius) {
-        const scale = Math.max(maxOuterRadius / outerRadius, 0.5);
-        outerRadius *= scale;
-        innerRadius *= scale;
+        innerRadius = maxOuterRadius * 0.52;
       }
 
       const innerRotation = time * 0.03;
@@ -1023,6 +1023,36 @@ const techConnectionsData = [
     const titleText = videoOverlay.querySelector('.video-preview-caption-title');
     const noteText = videoOverlay.querySelector('.video-preview-caption-note');
 
+    // Video Testimonials Carousel Navigation Controls
+    const videoPrevBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-prev-btn');
+    const videoNextBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-next-btn');
+    const videoWrapper = testimonialsSec.querySelector('.video-testimonials-wrapper');
+
+    if (videoPrevBtn && videoNextBtn && videoWrapper) {
+      videoPrevBtn.addEventListener('click', () => {
+        videoWrapper.scrollBy({ left: -312, behavior: 'smooth' });
+      });
+
+      videoNextBtn.addEventListener('click', () => {
+        videoWrapper.scrollBy({ left: 312, behavior: 'smooth' });
+      });
+    }
+
+    // Written Testimonials Carousel Navigation Controls
+    const writtenPrevBtn = testimonialsSec.querySelector('.written-prev-btn');
+    const writtenNextBtn = testimonialsSec.querySelector('.written-next-btn');
+    const writtenWrapper = testimonialsSec.querySelector('.written-testimonials-wrapper');
+
+    if (writtenPrevBtn && writtenNextBtn && writtenWrapper) {
+      writtenPrevBtn.addEventListener('click', () => {
+        writtenWrapper.scrollBy({ left: -424, behavior: 'smooth' });
+      });
+
+      writtenNextBtn.addEventListener('click', () => {
+        writtenWrapper.scrollBy({ left: 424, behavior: 'smooth' });
+      });
+    }
+
     const videoMap = {
       'rithika-suits': {
         title: 'The Journey Behind Rithika Suits with Arun Malve | Founders in Frame',
@@ -1130,11 +1160,13 @@ const techConnectionsData = [
     contactForm.dataset.formInitialized = 'true';
     const servicesList = [
       'UI/UX Design',
-      'Web Development',
-      'App Development',
-      'AEO Services',
-      'GEO Services',
-      'SEO Services',
+      'Website Development',
+      'Custom Web Application',
+      'Mobile App Development',
+      'E-commerce Development',
+      'SEO / AEO / GEO',
+      'AMC / Technology Support',
+      'Other Technology Requirement',
     ];
 
     // Build Custom Dropdown Menu triggers
@@ -1823,3 +1855,17 @@ if (document.readyState !== 'loading') {
   document.addEventListener('DOMContentLoaded', initIndexApp);
 }
 
+
+// Sticky Navbar Animation Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.header-container');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
+});
