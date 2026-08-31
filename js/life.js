@@ -1,42 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* ==========================================
-     1. GSAP / SCROLLTRIGGER INITIALIZATION
-     ========================================== */
-  // Check if GSAP is loaded
-  if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Subtle animations for the page elements
-    gsap.from('.life-hero-content', {
-      duration: 1.2,
-      y: 40,
-      opacity: 0,
-      ease: 'power3.out'
+  // Navigation active highlighting
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const desktopNavItems = document.querySelectorAll('.desktop-nav .nav-item');
+
+  desktopNavItems.forEach(item => {
+    const dropdownLinks = item.querySelectorAll('.dropdown-menu a');
+    let hasActiveChild = false;
+
+    dropdownLinks.forEach(link => {
+      const linkPath = link.getAttribute('href') ? link.getAttribute('href').split('/').pop() : '';
+      if (linkPath && linkPath === currentPath) {
+        link.classList.add('active');
+        hasActiveChild = true;
+      } else {
+        link.classList.remove('active');
+      }
     });
 
-    gsap.from('.life-gallery-card', {
-      scrollTrigger: {
-        trigger: '.life-gallery-card',
-        start: 'top 85%'
-      },
-      duration: 1,
-      y: 50,
-      opacity: 0,
-      ease: 'power3.out'
-    });
+    const parentLink = item.querySelector('.nav-link');
+    if (hasActiveChild) {
+      item.classList.add('active');
+      if (parentLink) parentLink.classList.add('active');
+    }
+  });
 
-    gsap.from('.value-card-wrapper', {
-      scrollTrigger: {
-        trigger: '.values-grid',
-        start: 'top 80%'
-      },
-      duration: 0.8,
-      y: 40,
-      opacity: 0,
-      stagger: 0.15,
-      ease: 'power3.out'
-    });
-  }
+
+
 
   /* ==========================================
      2. MOBILE DRAWER NAVIGATION MENU

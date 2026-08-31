@@ -711,4 +711,431 @@
   }
 }
 
+/* ==========================================================================
+   Component: IndustryCategories.css & Philosophy.css
+   ========================================================================== */
+
+.industry-categories-section {
+  width: 100%;
+  background: #FAFAFA;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.industry-categories-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.industry-category-card {
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow: 0 4px 20px rgba(6, 6, 18, 0.03);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.industry-category-card:hover {
+  border-color: #D6D6D6;
+  box-shadow: 0 8px 30px rgba(6, 6, 18, 0.06);
+}
+
+.industry-category-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #F0EFED;
+}
+
+.industry-icon-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(133, 189, 86, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #599632;
+  flex-shrink: 0;
+}
+
+.industry-category-title {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #060612;
+  margin: 0;
+}
+
+.industry-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.industry-logo-item {
+  background: #FDFDFD;
+  border: 1px solid #EEEEEE;
+  border-radius: 14px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.industry-logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(0%);
+}
+
+.industry-logo-item:hover {
+  transform: translateY(-3px);
+  border-color: #85BD56;
+  box-shadow: 0 6px 18px rgba(133, 189, 86, 0.12);
+}
+
+/* Philosophy Section Styles */
+.clients-philosophy-section {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 0 40px;
+  box-sizing: border-box;
+  overflow: visible;
+  position: relative;
+}
+
+.clients-philosophy-outer-box {
+  display: flex;
+  width: 1280px;
+  max-width: 100%;
+  min-height: 482px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid #FFFFFF;
+  background: #F5F5F5;
+  box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.clients-philosophy-container {
+  width: 1248px;
+  max-width: 100%;
+  min-height: 450px;
+  background: #85BD56;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  padding: 56px 80px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-philosophy-left {
+  max-width: 720px;
+  flex: 1;
+}
+
+.clients-philosophy-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.clients-philosophy-heading {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 48px;
+  color: #FFFFFF;
+  margin: 0 0 20px 0;
+}
+
+.clients-philosophy-desc p {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 12px 0;
+}
+
+.clients-philosophy-desc p:last-child {
+  margin-bottom: 0;
+}
+
+.clients-philosophy-right {
+  flex-shrink: 0;
+}
+
+.clients-explore-btn {
+  display: inline-flex;
+  padding: 10px 24px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: var(--060612, #060612);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 26px;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #4A4A4A;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.clients-explore-btn:hover {
+  transform: translateY(-2px);
+  background: #121221;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.25) inset, 0 0 0 3px #4A4A4A, 0 6px 14px rgba(6, 6, 18, 0.15);
+}
+
+.clients-explore-btn .arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.clients-explore-btn:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Testimonials Carousel Nav Buttons */
+.testimonials-carousel-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  align-self: flex-end;
+}
+
+.testimonials-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #E0E0E0;
+  background: #FFFFFF;
+  color: #060612;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 2px 8px rgba(6, 6, 18, 0.04);
+}
+
+.testimonials-nav-btn:hover {
+  background: #85BD56;
+  border-color: #85BD56;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(133, 189, 86, 0.35);
+}
+
+.written-testimonials-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .industry-categories-section {
+    padding: 0 24px;
+  }
+  .industry-category-card {
+    padding: 24px;
+  }
+  .industry-logo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .clients-philosophy-section {
+    padding: 0 24px;
+  }
+  .clients-philosophy-outer-box {
+    width: 100%;
+    min-height: auto;
+    padding: 12px;
+    border-radius: 14px;
+  }
+  .clients-philosophy-container {
+    width: 100%;
+    min-height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .industry-categories-section {
+    padding: 0 16px;
+  }
+  .industry-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .industry-logo-item {
+    height: 80px;
+    padding: 10px;
+  }
+  .clients-philosophy-section {
+    padding: 0 16px;
+  }
+  .clients-philosophy-outer-box {
+    padding: 8px;
+    border-radius: 12px;
+  }
+  .clients-philosophy-container {
+    padding: 32px 20px;
+  }
+  .clients-philosophy-heading {
+    font-size: 26px;
+    line-height: 34px;
+  }
+}
+
+/* ==================== UNIFORM GLOBAL SECTION SPACING (CLIENTS PAGE) ==================== */
+.clients-hero-section,
+.client-logos-section,
+.industry-categories-section,
+.testimonials-section,
+.clients-philosophy-section,
+.cta-section,
+.contact-section {
+  margin-bottom: 60px !important;
+}
+
+.client-logos-container,
+.industry-categories-container,
+.testimonials-container,
+.cta-container,
+.contact-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.clients-hero-container {
+  padding-top: 24px !important;
+  padding-bottom: 0 !important;
+}
+
+/* Tablet Uniform Section Spacing */
+@media (max-width: 960px) {
+  .clients-hero-section,
+  .client-logos-section,
+  .industry-categories-section,
+  .testimonials-section,
+  .clients-philosophy-section,
+  .cta-section,
+  .contact-section {
+    margin-bottom: 44px !important;
+  }
+
+  .client-logos-container,
+  .industry-categories-container,
+  .testimonials-container,
+  .cta-container,
+  .contact-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .clients-hero-container {
+    padding-top: 8px !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Mobile Uniform Section Spacing */
+@media (max-width: 480px) {
+  .clients-hero-section,
+  .client-logos-section,
+  .industry-categories-section,
+  .testimonials-section,
+  .clients-philosophy-section,
+  .cta-section,
+  .contact-section {
+    margin-bottom: 32px !important;
+  }
+
+  .client-logos-container,
+  .industry-categories-container,
+  .testimonials-container,
+  .cta-container,
+  .contact-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .clients-hero-container {
+    padding-top: 4px !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* ==================== UNIFORM TITLE-TO-CONTENT HEADER GAPS (MATCHING INDEX.HTML) ==================== */
+.clients-hero-title,
+.client-logos-header-grid,
+.testimonials-header {
+  margin-bottom: 48px !important;
+}
+
+@media (max-width: 960px) {
+  .clients-hero-title,
+  .client-logos-header-grid,
+  .testimonials-header {
+    margin-bottom: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-hero-title,
+  .client-logos-header-grid,
+  .testimonials-header {
+    margin-bottom: 32px !important;
+  }
+}
+
+/* Tagline to Heading Gap */
+.clients-hero-tagline,
+.client-logos-tagline,
+.testimonials-tagline,
+.clients-philosophy-tagline,
+.cta-tagline,
+.available-tagline {
+  margin-bottom: 8px !important;
+}
+
 

@@ -312,10 +312,9 @@
 }
 
 .awards-gallery-subtitle {
-  width: 483px;
   max-width: 720px;
   color: #69686E;
-  text-align: right;
+  text-align: left;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 18px;
   font-style: normal;

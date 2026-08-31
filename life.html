@@ -13,9 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- GSAP CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
   <link rel="icon" type="image/png" href="./assets/home/Parivartan-Leaf.png">
   <!-- Google reCAPTCHA API -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -42,7 +41,68 @@
     </div>
 
     <div class="header-section header-middle">
-      <button class="menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+      <nav class="desktop-nav">
+        <div class="nav-item">
+          <a href="./index.html" class="nav-link">Home</a>
+        </div>
+        
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">What We Build<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> UI/UX Design</a>
+            <a href="./work-websites.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Web Development</a>
+            <a href="./work-webapps.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Custom Applications</a>
+            <a href="./app-development.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Mobile App Development</a>
+            <a href="./work-ecommerce.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> E-commerce Development</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Search & AI Visibility<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> SEO</a>
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> AEO</a>
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> GEO</a>
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> AI Search Visibility</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Our Work<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./work-websites.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Websites</a>
+            <a href="./work-webapps.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Custom Applications</a>
+            <a href="./app-development.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Mobile Apps</a>
+            <a href="./work-ecommerce.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> E-commerce</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown active">
+          <a href="#" class="nav-link active">About Parivartan<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#75BF46" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./story.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Our Story</a>
+            <a href="./clients.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Our Clients</a>
+            <a href="./life.html" class="dropdown-item active"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Life at Parivartan</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Insights<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./blogs.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Articles / Insights</a>
+            <a href="./founders-in-frame.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Founders in Frame</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Recognition<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./media.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Media Features</a>
+            <a href="./awards.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Parivartan Excellence Awards</a>
+          </div>
+        </div>
+      </nav>
+      <button class="menu-btn mobile-only" aria-label="Toggle Navigation Menu" aria-expanded="false">
         <span></span>
         <span></span>
       </button>
@@ -259,18 +319,60 @@
     </div>
   </nav>
 
+  <!-- ==================== LIFE HERO ==================== -->
+  <section class="life-hero-section">
+    <div class="life-hero-container">
+      <div class="life-hero-tagline">
+        <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+        <span>LIFE AT PARIVARTAN</span>
+        <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+      </div>
+
+      <h1 class="life-hero-title">
+        Life at <span class="green">Parivartan</span>
+      </h1>
+
+      <div class="life-hero-card-frame">
+        <div class="life-hero-card">
+          <div class="life-hero-inner-card">
+            <div class="life-hero-card-left">
+              <h2 class="life-hero-card-heading">
+                Technology may be what we create, but <span class="highlight-green">people are what make Parivartan.</span>
+              </h2>
+
+              <div class="life-hero-card-desc-group">
+                <p>
+                  Designers, developers, thinkers, problem-solvers, mentors, and learners are all part of our team. People with different skills and personalities come together every day to build something meaningful.
+                </p>
+                <p>
+                  Some have been with us for years. Some are just beginning their journey. Together, they make Parivartan what it is.
+                </p>
+              </div>
+            </div>
+
+            <div class="life-hero-card-right">
+              <div class="life-hero-image" style="background-image: url('./assets/life/life-hero.png');" role="img" aria-label="Life at Parivartan Team"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== BENTO GALLERY SECTION ==================== -->
   <section class="life-bento-section">
     <div class="life-page-container">
       
       <!-- Header -->
       <div class="life-section-header">
-        <div class="life-tagline">
-          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
-          <span>LIFE AT PARIVARTAN</span>
-          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+        <div class="life-section-header-left">
+          <div class="life-tagline">
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+            <span>OUR CULTURE IN PICTURES</span>
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+          </div>
+          <h2 class="life-main-heading">The People Behind Everything We Build.</h2>
         </div>
-        <h1 class="life-main-heading">A day inside Parivartan</h1>
       </div>
 
       <!-- Bento Grid -->
@@ -371,6 +473,218 @@
       </div>
 
 
+  <!-- ==================== METHODOLOGY SECTION ==================== -->
+  <section class="life-methodology-section">
+    <div class="life-page-container">
+      <div class="life-methodology-grid">
+        <div class="life-methodology-left">
+          <div class="life-tagline">
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+            <span>OUR CULTURE</span>
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+          </div>
+          <h2>Work. Learn. Build. Repeat.</h2>
+          <h3>Good work rarely happens in isolation.</h3>
+          <div class="life-methodology-paragraphs">
+            <p>Ideas are discussed. Designs are questioned. Code is reviewed. Problems are solved. Mistakes become lessons. Someone always knows something that someone else doesn’t.</p>
+            <p>That exchange of knowledge has shaped the way we work.</p>
+            <p>We believe people grow when they have the opportunity to learn, experiment, take responsibility, and become better at their craft.</p>
+          </div>
+        </div>
+        <div class="life-methodology-gallery">
+          <img src="./assets/life/life-culture.png" alt="Candid Work Moments" class="life-methodology-img large" />
+          <img src="./assets/story/timeline/office-2.png" alt="Team Discussions" class="life-methodology-img" />
+          <img src="./assets/story/timeline/office-3.png" alt="Design & Development Moments" class="life-methodology-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DIFFERENT PEOPLE ONE TEAM ==================== -->
+  <section class="life-teams-section">
+    <div class="life-page-container">
+      <div class="life-section-header">
+        <div class="life-section-header-left">
+          <div class="life-tagline">
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+            <span>OUR TEAMS</span>
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+          </div>
+          <h2 class="life-main-heading">Different People. One Team.</h2>
+        </div>
+      </div>
+
+      <div class="life-team-group-wrap">
+        <img src="./assets/life/parivartan-team-group.jpg" alt="Parivartan Team Group" class="life-team-group-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXCELLENCE AWARDS ==================== -->
+  <section class="life-awards-section">
+    <div class="life-page-container">
+      <div class="life-awards-container">
+        <div class="life-section-header">
+          <div class="life-section-header-left">
+            <div class="life-tagline">
+              <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+              <span>RECOGNITION</span>
+              <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+            </div>
+            <h2 class="life-main-heading">The Parivartan Excellence Awards</h2>
+          </div>
+          <div class="life-section-header-right">
+            <p class="life-header-desc">
+              In 2023, we introduced the Parivartan Excellence Awards to recognise people who contribute to the company not only through the work they deliver, but through the attitude, ownership, consistency and spirit they bring to the team. Some contributions cannot be seen in a project screenshot or a line of code. But they deserve to be recognised.
+            </p>
+          </div>
+        </div>
+
+        <div class="life-awards-gallery">
+          <div class="life-award-img-wrap"><img src="./assets/awards/awards-image-1.jpg" alt="Parivartan Excellence Award Moment" /></div>
+          <div class="life-award-img-wrap"><img src="./assets/awards/awards-image-2.jpg" alt="Parivartan Excellence Award Ceremony" /></div>
+          <div class="life-award-img-wrap"><img src="./assets/awards/awards-image-3.jpg" alt="Recognition Moment" /></div>
+          <div class="life-award-img-wrap"><img src="./assets/awards/awards-image-4.jpg" alt="Award Winner Celebration" /></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 10px;">
+          <a href="./awards.html" class="start-project-btn" style="display: inline-flex;">
+            <span>Explore the Parivartan Excellence Awards</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon"><g clip-path="url(#clip0_947_85)"><path d="M8 7C8.26522 7 8.51957 6.89464 8.70711 6.70711C8.89464 6.51957 9 6.26522 9 6C9 5.73478 8.89464 5.48043 8.70711 5.29289C8.51957 5.10536 8.26522 5 8 5C7.73478 5 7.48043 5.10536 7.29289 5.29289C7.10536 5.48043 7 5.73478 7 6C7 6.26522 7.10536 6.51957 7.29289 6.70711C7.48043 6.89464 7.73478 7 8 7ZM6 9C6.13132 9 6.26136 8.97413 6.38268 8.92388C6.50401 8.87362 6.61425 8.79997 6.70711 8.70711C6.79997 8.61425 6.87362 8.50401 6.92388 8.38268C6.97413 8.26136 7 8.13132 7 8C7 7.86868 6.97413 7.73864 6.92388 7.61732C6.87362 7.49599 6.79997 7.38575 6.70711 7.29289C6.61425 7.20003 6.50401 7.12638 6.38268 7.07612C6.26136 7.02587 6.13132 7 6 7C5.73478 7 5.48043 7.10536 5.29289 7.29289C5.10536 7.48043 5.73478 9 6 9ZM4 11C4.26522 11 4.51957 10.8946 4.70711 10.7071C4.89464 10.5196 5 10.2652 5 10C5 9.73478 4.89464 9.48043 4.70711 9.29289C4.51957 9.10536 4.26522 9 4 9C3.73478 9 3.48043 9.10536 3.29289 9.29289C3.10536 9.48043 3 9.73478 3 10C3 10.2652 3.10536 10.5196 3.29289 10.7071C3.48043 10.8946 3.73478 11 4 11ZM6 5C6.26522 5 6.51957 4.89464 6.70711 4.70711C6.89464 4.51957 7 4.26522 7 4C7 3.73478 6.89464 3.48043 6.70711 3.29289C6.51957 3.10536 6.26522 3 6 3C5.73478 3 5.48043 3.10536 5.29289 3.29289C5.10536 3.48043 5 3.73478 5 4C5 4.26522 5.10536 4.51957 5.29289 4.70711C5.48043 4.89464 5.73478 9 6 9ZM4 3C4.26522 3 4.51957 2.89464 4.70711 2.70711C4.89464 2.51957 5 2.26522 5 2C5 1.73478 4.89464 1.48043 4.70711 1.29289C4.51957 1.10536 4.26522 1 4 1C3.73478 1 3.48043 1.10536 3.29289 1.29289C3.10536 1.48043 3 1.73478 3 2C3 2.26522 3.10536 2.51957 3.29289 2.70711C3.48043 2.89464 3.73478 3 4 3Z" fill="white"/></g><defs><clipPath id="clip0_947_85"><rect width="12" height="12" fill="white"/></clipPath></defs></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LIFE BEYOND SCREEN ==================== -->
+  <section class="life-beyond-section">
+    <div class="life-page-container">
+      <div class="life-section-header" style="margin-bottom: 8px !important;">
+        <div class="life-section-header-left">
+          <div class="life-tagline">
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+            <span>BEYOND THE SCREEN</span>
+            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+          </div>
+          <h2 class="life-main-heading">And Then There Is Life Beyond the Screen.</h2>
+        </div>
+      </div>
+      <p class="life-header-desc" style="max-width: 100% !important; margin-bottom: 32px !important;">
+        Not every memorable moment at Parivartan happens in front of a computer. Birthdays. Celebrations. Festivals. Team lunches. Outings. Anniversaries. Awards. And plenty of completely ordinary days that somehow become memories. After more than two decades, there are quite a few of them.
+      </p>
+
+      <div class="life-masonry-grid">
+        <div class="life-masonry-item"><img src="./assets/awards/awards-image-5.jpg" alt="Life Beyond Screen" /></div>
+        <div class="life-masonry-item"><img src="./assets/awards/awards-image-6.jpg" alt="Team Outing" /></div>
+        <div class="life-masonry-item"><img src="./assets/life/life-image-1.png" alt="Celebrations" /></div>
+        <div class="life-masonry-item"><img src="./assets/story/timeline/photoshoot-2.png" alt="Team Lunch" /></div>
+        <div class="life-masonry-item"><img src="./assets/story/timeline/office-1.png" alt="Office Moments" /></div>
+        <div class="life-masonry-item"><img src="./assets/story/about-hero.jpg" alt="Parivartan Team" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CAREER / JOIN US CTA ==================== -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-outer-box">
+        <div class="cta-inner-box" style="background-image: url('./assets/life/cta_bg.png');">
+          
+          <!-- Left: Join Our Team text -->
+          <div class="cta-left-content">
+            <div class="cta-tagline">
+              <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+                <circle cx="2" cy="2" r="1.2" fill="white" />
+                <circle cx="5" cy="4.5" r="1.2" fill="white" />
+                <circle cx="8" cy="7" r="1.2" fill="white" />
+                <circle cx="5" cy="9.5" r="1.2" fill="white" />
+                <circle cx="2" cy="12" r="1.2" fill="white" />
+              </svg>
+              <span>JOIN OUR TEAM</span>
+              <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+                <circle cx="8" cy="2" r="1.2" fill="white" />
+                <circle cx="5" cy="4.5" r="1.2" fill="white" />
+                <circle cx="2" cy="7" r="1.2" fill="white" />
+                <circle cx="5" cy="9.5" r="1.2" fill="white" />
+                <circle cx="8" cy="12" r="1.2" fill="white" />
+              </svg>
+            </div>
+            <h2 class="cta-main-heading">
+              Want to Build Something With Us?
+            </h2>
+            <p class="cta-description">
+              We’re always interested in meeting people who are curious, willing to learn and serious about getting better at what they do. If you think you could bring something to Parivartan, and that Parivartan could add to your journey, we’d like to hear from you.
+            </p>
+            <a href="https://careers.eparivartan.com/" target="_blank" rel="noopener noreferrer" class="cta-start-project-btn">
+              <span>Explore Opportunities</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
+                <g clip-path="url(#clip0_947_85_career)">
+                  <path d="M8 7C8.26522 7 8.51957 6.89464 8.70711 6.70711C8.89464 6.51957 9 6.26522 9 6C9 5.73478 8.89464 5.48043 8.70711 5.29289C8.51957 5.10536 8.26522 5 8 5C7.73478 5 7.48043 5.10536 7.29289 5.29289C7.10536 5.48043 7 5.73478 7 6C7 6.26522 7.10536 6.51957 7.29289 6.70711C7.48043 6.89464 7.73478 7 8 7ZM6 9C6.13132 9 6.26136 8.97413 6.38268 8.92388C6.50401 8.87362 6.61425 8.79997 6.70711 8.70711C6.79997 8.61425 6.87362 8.50401 6.92388 8.38268C6.97413 8.26136 7 7.86868 6.92388 7.61732C6.87362 7.49599 6.79997 7.38575 6.70711 7.29289C6.61425 7.20003 6.50401 7.12638 6.38268 7.07612C6.26136 7.02587 6.13132 7 6 7C5.73478 7 5.48043 7.10536 5.29289 7.29289C5.10536 7.48043 5 7.73478 5 8C5 8.26522 5.10536 8.51957 5.29289 8.70711C5.48043 8.89464 5.73478 9 6 9ZM4 11C4.26522 11 4.51957 10.8946 4.70711 10.7071C4.89464 10.5196 5 10.2652 5 10C5 9.73478 4.89464 9.48043 4.70711 9.29289C4.51957 9.10536 4.26522 9 4 9C3.73478 9 3.48043 9.10536 3.29289 9.29289C3.10536 9.48043 3 9.73478 3 10C3 10.2652 3.10536 10.5196 3.29289 10.7071C3.48043 10.8946 3.73478 11 4 11ZM6 5C6.26522 5 6.51957 4.89464 6.70711 4.70711C6.89464 4.51957 7 4.26522 7 4C7 3.73478 6.89464 3.48043 6.70711 3.29289C6.51957 3.10536 6.26522 3 6 3C5.73478 3 5.48043 3.10536 5.29289 3.29289C5.10536 3.48043 5 3.73478 5 4C5 4.26522 5.10536 4.51957 5.29289 4.70711C5.48043 4.89464 5.73478 9 6 9ZM4 3C4.26522 3 4.51957 2.89464 4.70711 2.70711C4.89464 2.51957 5 2.26522 5 2C5 1.73478 4.89464 1.48043 4.70711 1.29289C4.51957 1.10536 4.26522 1 4 1C3.73478 1 3.48043 1.10536 3.29289 1.29289C3.10536 1.48043 3 1.73478 3 2C3 2.26522 3.10536 2.51957 3.29289 2.70711C3.48043 2.89464 3.73478 3 4 3Z" fill="white"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_947_85_career">
+                    <rect width="12" height="12" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right: Write to us card -->
+          <div class="cta-right-content">
+            <div class="available-card-outer">
+              <div class="available-card-inner">
+                <div class="available-tagline">
+                  <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+                    <circle cx="2" cy="2" r="1.2" fill="#69686E" />
+                    <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+                    <circle cx="8" cy="7" r="1.2" fill="#69686E" />
+                    <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+                    <circle cx="2" cy="12" r="1.2" fill="#69686E" />
+                  </svg>
+                  <span>JOIN PARIVARTAN</span>
+                  <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+                    <circle cx="8" cy="2" r="1.2" fill="#69686E" />
+                    <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+                    <circle cx="2" cy="7" r="1.2" fill="#69686E" />
+                    <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+                    <circle cx="8" cy="12" r="1.2" fill="#69686E" />
+                  </svg>
+                </div>
+                
+                <div class="available-collab-circles">
+                  <div class="circle-logo-wrapper">
+                    <img src="./assets/home/Parivartan-Leaf.png" alt="Parivartan Logo" class="collab-leaf-logo" />
+                  </div>
+                  <span class="collab-plus">+</span>
+                  <div class="circle-you-wrapper">
+                    <span class="collab-you-text">You</span>
+                  </div>
+                </div>
+
+                <h3 class="available-card-title">Write to Us</h3>
+                <p class="available-card-desc">Have questions or want to connect?</p>
+                
+                <a href="mailto:feedback@eparivartan.com" class="available-book-call-btn">
+                  <span>Write to Us</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
+                    <g clip-path="url(#clip0_947_85_write)">
+                      <path d="M8 7C8.26522 7 8.51957 6.89464 8.70711 6.70711C8.89464 6.51957 9 6.26522 9 6C9 5.73478 8.89464 5.48043 8.70711 5.29289C8.51957 5.10536 8.26522 5 8 5C7.73478 5 7.48043 5.10536 7.29289 5.29289C7.10536 5.48043 7 5.73478 7 6C7 6.26522 7.10536 6.51957 7.29289 6.70711C7.48043 6.89464 7.73478 7 8 7ZM6 9C6.13132 9 6.26136 8.97413 6.38268 8.92388C6.50401 8.87362 6.61425 8.79997 6.70711 8.70711C6.79997 8.61425 6.87362 8.50401 6.92388 8.38268C6.97413 8.26136 7 7.86868 6.92388 7.61732C6.87362 7.49599 6.79997 7.38575 6.70711 7.29289C6.61425 7.20003 6.50401 7.12638 6.38268 7.07612C6.26136 7.02587 6.13132 7 6 7C5.73478 7 5.48043 7.10536 5.29289 7.29289C5.10536 7.48043 5 7.73478 5 8C5 8.26522 5.10536 8.51957 5.29289 8.70711C5.48043 8.89464 5.73478 9 6 9ZM4 11C4.26522 11 4.51957 10.8946 4.70711 10.7071C4.89464 10.5196 5 10.2652 5 10C5 9.73478 4.89464 9.48043 4.70711 9.29289C4.51957 9.10536 4.26522 9 4 9C3.73478 9 3.48043 9.10536 3.29289 9.29289C3.10536 9.48043 3 9.73478 3 10C3 10.2652 3.10536 10.5196 3.29289 10.7071C3.48043 10.8946 3.73478 11 4 11ZM6 5C6.26522 5 6.51957 4.89464 6.70711 4.70711C6.89464 4.51957 7 4.26522 7 4C7 3.73478 6.89464 3.48043 6.70711 3.29289C6.51957 3.10536 6.26522 3 6 3C5.73478 3 5.48043 3.10536 5.29289 3.29289C5.10536 3.48043 5 3.73478 5 4C5 4.26522 5.10536 4.51957 5.29289 4.70711C5.48043 4.89464 5.73478 9 6 9ZM4 3C4.26522 3 4.51957 2.89464 4.70711 2.70711C4.89464 2.51957 5 2.26522 5 2C5 1.73478 4.89464 1.48043 4.70711 1.29289C4.51957 1.10536 4.26522 1 4 1C3.73478 1 3.48043 1.10536 3.29289 1.29289C3.10536 1.48043 3 1.73478 3 2C3 2.26522 3.10536 2.51957 3.29289 2.70711C3.48043 2.89464 3.73478 3 4 3Z" fill="white"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_947_85_write">
+                        <rect width="12" height="12" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </section>
 
@@ -378,8 +692,8 @@
   <section class="life-values-section">
     <div class="life-page-container">
       
-      <div class="life-section-header header-split">
-        <div class="life-header-left">
+      <div class="life-section-header" style="margin-bottom: 8px !important;">
+        <div class="life-section-header-left">
           <div class="life-tagline">
             <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
             <span>VALUES</span>
@@ -387,10 +701,10 @@
           </div>
           <h2 class="life-main-heading" style="color: #060612;">The Values We Live By</h2>
         </div>
-        <p class="life-header-desc">
-          Culture isn't written on our walls; it is practiced daily. These values form the foundation of everything we build and celebrate.
-        </p>
       </div>
+      <p class="life-header-desc" style="max-width: 100% !important; margin-bottom: 32px !important;">
+        Culture isn't written on our walls; it is practiced daily. These values form the foundation of everything we build and celebrate.
+      </p>
 
       <!-- Interactive Values Landscape Stage -->
       <div class="values-stage-scroll-wrapper">
@@ -473,18 +787,15 @@
   <section class="life-perks-section">
     <div class="life-page-container">
       
-      <div class="life-section-header header-split">
-        <div class="life-header-left">
+      <div class="life-section-header">
+        <div class="life-section-header-left">
           <div class="life-tagline">
             <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
-            <span>PERKS OF THE JOB</span>
+            <span>PERKS & BENEFITS</span>
             <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
           </div>
-          <h2 class="life-main-heading" style="color: #060612;">Benefits &amp; Perks</h2>
+          <h2 class="life-main-heading">Invested in Our Team's Growth and Well-Being.</h2>
         </div>
-        <p class="life-header-desc">
-          We take care of our own. Our holistic compensation extends far beyond monetary salaries to support your health, growth, and general well-being.
-        </p>
       </div>
 
       <div class="perks-cards-grid">
@@ -992,14 +1303,6 @@
                 </svg>
               </div>
               <a href="./blogs.html">Insights</a>
-            </li>
-            <li class="footer-service-item">
-              <div class="service-icon-box">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z"/>
-                </svg>
-              </div>
-              <a href="./contact.html">Contact</a>
             </li>
           </ul>
         </div>

@@ -1,5 +1,71 @@
 const initIndexApp = () => {
   /* ==========================================
+     0. ACTIVE NAV ITEM AUTO-HIGHLIGHT
+     ========================================== */
+  const rawPath = window.location.pathname.split('/').pop();
+  const currentPath = (!rawPath || rawPath === '' || rawPath === 'index.html') ? 'index.html' : rawPath;
+
+  // Clear existing active states first
+  document.querySelectorAll('.desktop-nav .nav-item').forEach(item => item.classList.remove('active'));
+  document.querySelectorAll('.desktop-nav .nav-link').forEach(link => link.classList.remove('active'));
+  document.querySelectorAll('.desktop-nav .dropdown-item').forEach(item => item.classList.remove('active'));
+  document.querySelectorAll('.mobile-drawer .drawer-menu-item').forEach(item => item.classList.remove('active'));
+  document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => item.classList.remove('active'));
+
+  if (currentPath === 'index.html') {
+    // On Homepage, ONLY highlight Home nav link
+    const homeNav = document.querySelector('.desktop-nav > .nav-item:first-child');
+    if (homeNav) {
+      homeNav.classList.add('active');
+      const homeLink = homeNav.querySelector('.nav-link');
+      if (homeLink) homeLink.classList.add('active');
+    }
+    const mobileHome = document.querySelector('.mobile-drawer a[href*="index.html"]');
+    if (mobileHome) mobileHome.classList.add('active');
+  } else {
+    // On subpages, highlight matching page and its parent dropdown
+    document.querySelectorAll('.desktop-nav .dropdown-item').forEach(item => {
+      const href = item.getAttribute('href');
+      if (!href) return;
+      const cleanHref = href.replace('./', '').split('/').pop();
+      if (cleanHref === currentPath && cleanHref !== 'index.html') {
+        item.classList.add('active');
+        const parentNav = item.closest('.nav-item');
+        if (parentNav) {
+          parentNav.classList.add('active');
+          const mainLink = parentNav.querySelector('.nav-link');
+          if (mainLink) mainLink.classList.add('active');
+        }
+      }
+    });
+
+    document.querySelectorAll('.desktop-nav > .nav-item > .nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      const cleanHref = href.replace('./', '').split('/').pop();
+      if (cleanHref === currentPath && cleanHref !== '#') {
+        link.classList.add('active');
+        const parentNav = link.closest('.nav-item');
+        if (parentNav) parentNav.classList.add('active');
+      }
+    });
+
+    document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => {
+      const href = item.getAttribute('href');
+      if (!href) return;
+      const cleanHref = href.replace('./', '').split('/').pop();
+      if (cleanHref === currentPath && cleanHref !== 'index.html') {
+        item.classList.add('active');
+        const parentGroup = item.closest('.drawer-menu-item-group');
+        if (parentGroup) {
+          const toggleBtn = parentGroup.querySelector('.drawer-menu-item');
+          if (toggleBtn) toggleBtn.classList.add('active');
+        }
+      }
+    });
+  }
+
+  /* ==========================================
      1. GLOBAL ANIMATION LAYER (GSAP REVEALS)
      ========================================== */
   if (typeof gsap !== 'undefined') {

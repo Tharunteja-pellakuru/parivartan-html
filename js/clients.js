@@ -1,4 +1,53 @@
 const initClientsApp = () => {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+
+  /* ==========================================
+     0. ACTIVE NAV ITEM AUTO-HIGHLIGHT
+     ========================================== */
+  const rawPath = window.location.pathname.split('/').pop();
+  const currentPath = (!rawPath || rawPath === '' || rawPath === 'index.html') ? 'clients.html' : rawPath;
+
+  // Clear existing active states first
+  document.querySelectorAll('.desktop-nav .nav-item').forEach(item => item.classList.remove('active'));
+  document.querySelectorAll('.desktop-nav .nav-link').forEach(link => link.classList.remove('active'));
+  document.querySelectorAll('.desktop-nav .dropdown-item').forEach(item => item.classList.remove('active'));
+  document.querySelectorAll('.mobile-drawer .drawer-menu-item').forEach(item => item.classList.remove('active'));
+  document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => item.classList.remove('active'));
+
+  document.querySelectorAll('.desktop-nav .dropdown-item').forEach(item => {
+    const href = item.getAttribute('href');
+    if (!href) return;
+    const cleanHref = href.replace('./', '').split('/').pop();
+    if (cleanHref === currentPath && cleanHref !== 'index.html') {
+      item.classList.add('active');
+      const parentNav = item.closest('.nav-item');
+      if (parentNav) {
+        parentNav.classList.add('active');
+        const mainLink = parentNav.querySelector('.nav-link');
+        if (mainLink) mainLink.classList.add('active');
+      }
+    }
+  });
+
+  document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => {
+    const href = item.getAttribute('href');
+    if (!href) return;
+    const cleanHref = href.replace('./', '').split('/').pop();
+    if (cleanHref === currentPath && cleanHref !== 'index.html') {
+      item.classList.add('active');
+      const parentGroup = item.closest('.drawer-menu-item-group');
+      if (parentGroup) {
+        const toggleBtn = parentGroup.querySelector('.drawer-menu-item');
+        if (toggleBtn) toggleBtn.classList.add('active');
+      }
+    }
+  });
+
   /* ==========================================
      1. GLOBAL ANIMATION LAYER (GSAP REVEALS)
      ========================================== */
@@ -8,8 +57,8 @@ const initClientsApp = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      // Reveal every section and footer as it scrolls in
-      const revealTargets = gsap.utils.toArray('section, footer');
+      // Reveal section and footer as it scrolls in (exclude top hero section to avoid refresh jump)
+      const revealTargets = gsap.utils.toArray('section, footer').filter(el => !el.classList.contains('clients-hero-section') && !el.classList.contains('hero-section'));
       revealTargets.forEach(el => {
         gsap.fromTo(el,
           { autoAlpha: 0, y: 56 },
@@ -149,6 +198,36 @@ const initClientsApp = () => {
     const iframe = videoOverlay.querySelector('.video-preview-player');
     const titleText = videoOverlay.querySelector('.video-preview-caption-title');
     const noteText = videoOverlay.querySelector('.video-preview-caption-note');
+
+    // Video Testimonials Carousel Navigation Controls
+    const videoPrevBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-prev-btn');
+    const videoNextBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-next-btn');
+    const videoWrapper = testimonialsSec.querySelector('.video-testimonials-wrapper');
+
+    if (videoPrevBtn && videoNextBtn && videoWrapper) {
+      videoPrevBtn.addEventListener('click', () => {
+        videoWrapper.scrollBy({ left: -312, behavior: 'smooth' });
+      });
+
+      videoNextBtn.addEventListener('click', () => {
+        videoWrapper.scrollBy({ left: 312, behavior: 'smooth' });
+      });
+    }
+
+    // Written Testimonials Carousel Navigation Controls
+    const writtenPrevBtn = testimonialsSec.querySelector('.written-prev-btn');
+    const writtenNextBtn = testimonialsSec.querySelector('.written-next-btn');
+    const writtenWrapper = testimonialsSec.querySelector('.written-testimonials-wrapper');
+
+    if (writtenPrevBtn && writtenNextBtn && writtenWrapper) {
+      writtenPrevBtn.addEventListener('click', () => {
+        writtenWrapper.scrollBy({ left: -424, behavior: 'smooth' });
+      });
+
+      writtenNextBtn.addEventListener('click', () => {
+        writtenWrapper.scrollBy({ left: 424, behavior: 'smooth' });
+      });
+    }
 
     const videoMap = {
       'rithika-suits': {

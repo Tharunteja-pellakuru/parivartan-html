@@ -57,11 +57,11 @@
 
 /* Header & Section Title Standard */
 .fif-section-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 36px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .fif-section-header.header-split {
@@ -1128,5 +1128,46 @@
   }
   .fif-why-col {
     padding: 32px;
+  }
+}
+
+/* ==================== UNIFORM GLOBAL SECTION SPACING (FOUNDERS PAGE) ==================== */
+.fif-hero-section,
+.fif-mission-section,
+.fif-episodes-section {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 100px !important;
+}
+
+.fif-hero-section {
+  padding-top: 24px !important;
+}
+
+.fif-view-more-container {
+  padding-bottom: 0 !important;
+}
+
+/* Tablet Uniform Section Spacing */
+@media (max-width: 960px) {
+  .fif-hero-section,
+  .fif-mission-section,
+  .fif-episodes-section {
+    margin-bottom: 80px !important;
+  }
+  .fif-hero-section {
+    padding-top: 8px !important;
+  }
+}
+
+/* Mobile Uniform Section Spacing */
+@media (max-width: 480px) {
+  .fif-hero-section,
+  .fif-mission-section,
+  .fif-episodes-section {
+    margin-bottom: 60px !important;
+  }
+  .fif-hero-section {
+    padding-top: 4px !important;
   }
 }

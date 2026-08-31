@@ -7495,4 +7495,28 @@ a.contact-text:hover {
   transform: scale(1.25) rotate(15deg);
 }
 
+/* Active Nav Item & Active Dropdown Item Styles */
+.nav-link.active,
+.nav-item.active > .nav-link {
+  color: #75BF46 !important;
+  font-weight: 600;
+}
+
+.nav-item.active > .nav-link svg,
+.nav-link.active svg path {
+  stroke: #75BF46;
+}
+
+.desktop-nav .dropdown-item.active {
+  background: rgba(133, 189, 86, 0.12);
+  color: #599632;
+  font-weight: 600;
+  padding-left: 24px;
+}
+
+.desktop-nav .dropdown-item.active img.submenu-leaf {
+  opacity: 1;
+  transform: scale(1.25) rotate(15deg);
+}
+
 

@@ -1,41 +1,281 @@
 @import url("./index.css");
 
-/* ==========================================================================
-   Life at Parivartan Page Styles — Fully Responsive & Fluid System
-   ========================================================================== */
-
-.life-page-container {
+/* ==================== LIFE HERO SECTION ==================== */
+.life-hero-section {
   width: 100%;
+  background: #ffffff;
+  padding: 0 40px;
+  overflow: hidden;
+  position: relative;
+  min-height: auto;
+  box-sizing: border-box;
+  margin-bottom: 60px !important;
+}
+
+.life-hero-container {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 40px);
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.life-hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.life-hero-tagline span {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.life-hero-title {
+  font-family: Satoshi, Inter, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: rgb(6, 6, 18);
+  font-style: normal;
+  margin: 0 0 clamp(16px, 2vw, 28px) 0;
+  text-align: center;
+}
+
+.life-hero-title .green {
+  color: var(--85BD56, #85BD56);
+}
+
+.life-hero-card-frame {
+  display: flex;
+  width: 100%;
+  max-width: 1320px;
+  padding: clamp(10px, 1.5vw, 16px);
+  justify-content: center;
+  align-items: center;
+  border-radius: clamp(16px, 2vw, 24px);
+  border: 1px solid #FFFFFF;
+  background: #F5F5F5;
+  box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset;
   box-sizing: border-box;
 }
 
-/* Header & Section Title Standard */
-.life-section-header {
-  text-align: center;
-  margin-bottom: clamp(24px, 3vw, 36px);
+.life-hero-card {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: clamp(12px, 1.5vw, 18px);
+  box-shadow: 0 10px 40px rgba(6, 6, 18, 0.05);
+  overflow: hidden;
+  border: 1px solid #E5E4E2;
 }
 
-.life-section-header.header-split {
+.life-hero-inner-card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.life-hero-card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: clamp(24px, 3.5vw, 40px) clamp(20px, 4vw, 48px);
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+
+.life-hero-card-heading {
+  color: var(--060612, #060612);
+  text-align: left;
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: clamp(26px, 3.6vw, 44px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: clamp(34px, 4.4vw, 56px);
+  margin: 0 0 16px 0;
+}
+
+.life-hero-card-heading .highlight-green {
+  color: #599632;
+}
+
+.life-hero-card-desc-group {
+  margin-bottom: 0;
+}
+
+.life-hero-card-desc-group p {
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: clamp(13.5px, 1.1vw, 15px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+  text-align: justify;
+}
+
+.life-hero-card-desc-group p:last-child {
+  margin-bottom: 0;
+}
+
+.life-hero-card-right {
+  width: clamp(300px, 36vw, 480px);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.life-hero-image {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  background-color: lightgray;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 960px) {
+  .life-hero-section,
+  .life-bento-section,
+  .life-methodology-section,
+  .life-teams-section,
+  .life-awards-section,
+  .life-beyond-section,
+  .life-values-section,
+  .life-perks-section,
+  .life-testimonials-section,
+  .life-career-cta-section {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 44px !important;
+  }
+  .life-hero-inner-card {
+    flex-direction: column-reverse;
+  }
+  .life-hero-card-right {
+    width: 100%;
+  }
+  .life-hero-image {
+    height: 300px;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .life-hero-section,
+  .life-bento-section,
+  .life-methodology-section,
+  .life-teams-section,
+  .life-awards-section,
+  .life-beyond-section,
+  .life-values-section,
+  .life-perks-section,
+  .life-testimonials-section,
+  .life-career-cta-section {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 32px !important;
+  }
+}
+
+/* Uniform Outer Section Width & Global Spacing matching remaining pages */
+.life-hero-section,
+.life-bento-section,
+.life-methodology-section,
+.life-teams-section,
+.life-awards-section,
+.life-beyond-section,
+.life-values-section,
+.life-perks-section,
+.life-testimonials-section,
+.life-career-cta-section,
+.cta-section,
+.contact-section {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 60px !important;
+  box-sizing: border-box;
+}
+
+.life-page-container,
+.life-hero-container,
+.cta-container,
+.contact-inner {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Header & Section Title Standard - Matching index.html (Image 2) */
+.life-section-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  text-align: left;
-  gap: clamp(24px, 4vw, 48px);
+  align-items: flex-start;
+  gap: 40px;
   margin-bottom: clamp(28px, 4vw, 48px);
+  width: 100%;
+}
+
+.life-section-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 720px;
+  width: 100%;
+  text-align: left;
+}
+
+.life-section-header-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 496px;
+  width: 100%;
+  text-align: left;
+  margin-top: 34px;
 }
 
 .life-tagline {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .life-tagline span {
-  font-family: Satoshi, Inter, sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 26px;
@@ -45,35 +285,29 @@
 }
 
 .life-main-heading {
-  font-family: Satoshi, Inter, sans-serif !important;
+  width: 100%;
+  max-width: 720px;
+  color: var(--060612, #060612);
+  font-family: Satoshi, 'Inter', sans-serif !important;
   font-size: 44px !important;
+  font-style: normal;
   font-weight: 500 !important;
   line-height: 56px !important;
-  color: #060612 !important;
-  text-align: center;
   margin: 0;
-}
-
-/* Heading styles for The Values We Live By, What Our Team Says, Benefits & Perks */
-.life-values-section .life-main-heading,
-.life-testimonials-section .life-main-heading,
-.life-perks-section .life-main-heading {
-  color: var(--060612, #060612);
-  font-family: Satoshi, 'Outfit', 'Inter', sans-serif;
-  font-size: clamp(26px, 3.6vw, 44px);
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.25;
+  text-align: left !important;
 }
 
 .life-header-desc {
-  color: #69686E;
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: clamp(13.5px, 1.1vw, 15px);
-  line-height: 1.6;
-  margin: 0;
-  max-width: 480px;
-  text-align: right;
+  color: var(--69686E, #69686E);
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px !important;
+  margin: 0 !important;
+  max-width: 496px !important;
+  width: 100% !important;
+  text-align: left !important;
 }
 
 /* ==================== BENTO GALLERY SECTION ==================== */
@@ -112,12 +346,12 @@
   width: 100%;
   height: clamp(220px, 21vw, 285px);
   object-fit: cover;
-  border-radius: clamp(16px, 2vw, 24px);
+  border-radius: clamp(14px, 1.5vw, 18px);
   display: block;
 }
 
 .bento-celebrations-label {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(16px, 1.5vw, 20px);
   font-weight: 700;
   color: #FFFFFF;
@@ -172,7 +406,7 @@
 }
 
 .bento-worktext-heading {
-  font-family: 'Satoshi', 'Outfit', 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(24px, 4vw, 50px);
   font-weight: 400;
   line-height: 1.2;
@@ -219,7 +453,7 @@
 }
 
 .bento-green-score {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(32px, 3.2vw, 42px);
   font-weight: 800;
   line-height: 1;
@@ -266,7 +500,7 @@
 }
 
 .bento-mockup-logo-text {
-  font-family: Outfit, sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 700;
   color: #75BF46;
@@ -287,7 +521,7 @@
 }
 
 .bento-mockup-headline {
-  font-family: Outfit, sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 700;
   color: #1E293B;
@@ -363,7 +597,7 @@
 }
 
 .bento-feedback-author {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: 11.5px;
   font-weight: 700;
   color: #0F172A;
@@ -420,7 +654,7 @@
 }
 
 .bento-enjoyments-title {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(13.5px, 1.1vw, 15px);
   font-weight: 700;
   color: #FFFFFF;
@@ -431,7 +665,7 @@
   width: 100%;
   height: clamp(120px, 11vw, 150px);
   object-fit: cover;
-  border-radius: clamp(16px, 2vw, 24px);
+  border-radius: clamp(14px, 1.5vw, 18px);
   display: block;
 }
 
@@ -457,7 +691,7 @@
 }
 
 .bento-insta-username {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: 12.5px;
   font-weight: 700;
   color: #0F172A;
@@ -467,7 +701,7 @@
   width: 100%;
   height: clamp(110px, 10vw, 130px);
   object-fit: cover;
-  border-radius: clamp(16px, 2vw, 24px);
+  border-radius: clamp(14px, 1.5vw, 18px);
   display: block;
 }
 
@@ -492,7 +726,7 @@
 }
 
 .life-nextstep-title {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(18px, 2vw, 24px);
   font-weight: 700;
   color: #0F172A;
@@ -602,7 +836,7 @@
 }
 
 .value-pin-title {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 700;
   line-height: 1.3;
@@ -690,7 +924,7 @@
 
 /* ==================== TESTIMONIALS SECTION (TRUE VOICES) ==================== */
 .life-testimonials-section {
-  background: #F8F9FA;
+  background: #FFFFFF;
   padding: clamp(48px, 6vw, 80px) 0;
 }
 
@@ -757,7 +991,7 @@
 }
 
 .testimonial-author-name {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: #111827;
@@ -810,7 +1044,7 @@
 }
 
 .perk-title {
-  font-family: Outfit, 'Inter', sans-serif;
+  font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(15.5px, 1.3vw, 17px);
   font-weight: 700;
   color: #111827;
@@ -1035,5 +1269,291 @@
   .testimonial-card-item {
     padding: 20px 16px;
     border-radius: 16px;
+  }
+}
+
+/* ==================== NEW LIFE PAGE SECTIONS ==================== */
+
+.life-hero-section {
+  padding: 40px 0 60px 0;
+  background: #FFFFFF;
+}
+
+.life-hero-content-box {
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+.life-hero-subtitle-text {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 500;
+  color: #599632;
+  line-height: 1.4;
+  margin: 16px 0 24px 0;
+}
+
+.life-hero-paragraphs p {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
+  color: #69686E;
+  margin: 0 0 14px 0;
+}
+
+.life-hero-paragraphs p:last-child {
+  margin-bottom: 0;
+}
+
+/* Culture & Methodology */
+.life-methodology-section {
+  padding: 70px 0;
+  background: #FFFFFF;
+}
+
+.life-methodology-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.life-methodology-left h2 {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #060612;
+  margin: 0 0 12px 0;
+}
+
+.life-methodology-left h3 {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 500;
+  color: #599632;
+  margin: 0 0 20px 0;
+}
+
+.life-methodology-paragraphs p {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #69686E;
+  margin: 0 0 14px 0;
+}
+
+.life-methodology-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.life-methodology-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #EAEAEA;
+}
+
+.life-methodology-img.large {
+  grid-column: span 2;
+  height: 260px;
+}
+
+/* Different People One Team */
+.life-teams-section {
+  padding: 70px 0;
+  background: #FFFFFF;
+}
+
+.life-team-group-wrap {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #EDEDED;
+  box-shadow: 0 12px 36px rgba(6, 6, 18, 0.06);
+  background: #FFFFFF;
+}
+
+.life-team-group-img {
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Excellence Awards Section */
+.life-awards-section {
+  padding: 70px 0;
+  background: #FFFFFF;
+  color: #060612;
+}
+
+.life-awards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.life-awards-header-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.life-awards-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.life-awards-title {
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #060612;
+  margin: 0;
+}
+
+.life-awards-subtitle {
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: #599632;
+  font-weight: 500;
+  margin: 0;
+}
+
+.life-awards-desc-row {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.life-awards-desc-row p {
+  font-family: Satoshi, 'Inter', sans-serif !important;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #69686E;
+  margin: 0 0 10px 0;
+}
+
+.life-awards-desc-row p:last-child {
+  margin-bottom: 0;
+}
+
+.life-awards-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.life-award-img-wrap {
+  height: 240px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #EDEDED;
+}
+
+.life-award-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.life-award-img-wrap:hover img {
+  transform: scale(1.05);
+}
+
+/* Life Beyond Screen Gallery */
+.life-beyond-section {
+  padding: 70px 0;
+  background: #FFFFFF;
+}
+
+.life-masonry-grid {
+  columns: 3 280px;
+  column-gap: 20px;
+  width: 100%;
+}
+
+.life-masonry-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #EDEDED;
+  box-shadow: 0 4px 16px rgba(6, 6, 18, 0.04);
+}
+
+.life-masonry-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Career / Join Us CTA */
+.life-career-cta-section {
+  padding: 80px 0;
+  background: #FFFFFF;
+}
+
+.life-career-card {
+  background: linear-gradient(135deg, #0D1609 0%, #172712 100%);
+  border-radius: 24px;
+  padding: 60px 48px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+
+.life-career-left {
+  max-width: 680px;
+}
+
+.life-career-title {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 12px 0 20px 0;
+}
+
+.life-career-desc p {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 12px 0;
+}
+
+.life-career-btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 960px) {
+  .life-methodology-grid,
+  .life-awards-header-grid,
+  .life-career-card {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .life-career-card {
+    padding: 40px 28px;
   }
 }
