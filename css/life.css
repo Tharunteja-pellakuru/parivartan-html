@@ -16,7 +16,7 @@
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 0;
+  padding: 24px 0 0 0;
   box-sizing: border-box;
   text-align: center;
   position: relative;
@@ -173,6 +173,10 @@
     padding-right: 24px;
     margin-bottom: 44px !important;
   }
+  .life-hero-container {
+    padding-top: 8px !important;
+    padding-bottom: 0 !important;
+  }
   .life-hero-inner-card {
     flex-direction: column-reverse;
   }
@@ -200,6 +204,10 @@
     padding-right: 16px;
     margin-bottom: 32px !important;
   }
+  .life-hero-container {
+    padding-top: 4px !important;
+    padding-bottom: 0 !important;
+  }
 }
 
 /* Uniform Outer Section Width & Global Spacing matching remaining pages */
@@ -225,13 +233,23 @@
 }
 
 .life-page-container,
-.life-hero-container,
 .cta-container,
 .contact-inner {
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
   padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+.life-hero-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-top: 24px !important;
   padding-bottom: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -1273,11 +1291,6 @@
 }
 
 /* ==================== NEW LIFE PAGE SECTIONS ==================== */
-
-.life-hero-section {
-  padding: 40px 0 60px 0;
-  background: #FFFFFF;
-}
 
 .life-hero-content-box {
   max-width: 900px;

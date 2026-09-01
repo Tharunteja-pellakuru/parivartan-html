@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>UI/UX Design for Digital Products That People Can Actually Use | eParivartan</title>
+  <meta content="We create user-friendly interfaces and user experiences for websites, applications and digital products by combining knowledge of user needs, business requirements and technology." name="description" />
+  <link href="./css/index.css" rel="stylesheet" />
+  <link href="./css/work-websites.css" rel="stylesheet" />
+  <link href="./css/ui-ux-design.css" rel="stylesheet" />
+  <!-- Google Fonts: Outfit and Inter -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Google reCAPTCHA API -->
+  <script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+  <link href="./assets/home/Parivartan-Leaf.png" rel="icon" type="image/png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMHEDZJWJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-SPMHEDZJWJ');
+  </script>
+</head>
+<body class="uiux-page">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header-container">
+    <img src="./assets/home/Patch.png" alt="" class="header-patch" draggable="false" />
+    <div class="header-section header-left">
+      <a href="./index.html" class="header-logo-link">
+        <img src="./assets/home/Parivartan_Logo.png" alt="Parivartan Logo" class="header-logo" />
+      </a>
+    </div>
+
+    <div class="header-section header-middle">
+      <nav class="desktop-nav">
+        <div class="nav-item">
+          <a href="./index.html" class="nav-link">Home</a>
+        </div>
+        
+        <div class="nav-item has-dropdown active">
+          <a href="#" class="nav-link active">What We Build<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./ui-ux-design.html" class="dropdown-item active"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> UI/UX Design</a>
+            <a href="./work-websites.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Web Development</a>
+            <a href="./work-webapps.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Custom Applications</a>
+            <a href="./app-development.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Mobile App Development</a>
+            <a href="./work-ecommerce.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> E-commerce Development</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Search &amp; AI Visibility<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> SEO</a>
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> AEO</a>
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> GEO</a>
+            <a href="./index.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> AI Search Visibility</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Our Work<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./work-websites.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Websites</a>
+            <a href="./work-webapps.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Custom Applications</a>
+            <a href="./app-development.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Mobile Apps</a>
+            <a href="./work-ecommerce.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> E-commerce</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">About Parivartan<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./story.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Our Story</a>
+            <a href="./clients.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Our Clients</a>
+            <a href="./life.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Life at Parivartan</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Insights<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./blogs.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Articles / Insights</a>
+            <a href="./founders-in-frame.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Founders in Frame</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Recognition<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./media.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Media Features</a>
+            <a href="./awards.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Parivartan Excellence Awards</a>
+          </div>
+        </div>
+      </nav>
+      <button class="menu-btn mobile-only" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="header-section header-right">
+      <a href="./contact.html" class="start-project-btn">
+        <span>Contact</span>
+       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
+  <g clip-path="url(#clip0_947_85)">
+    <path d="M8 7C8.26522 7 8.51957 6.89464 8.70711 6.70711C8.89464 6.51957 9 6.26522 9 6C9 5.73478 8.89464 5.48043 8.70711 5.29289C8.51957 5.10536 8.26522 5 8 5C7.73478 5 7.48043 5.10536 7.29289 5.29289C7.10536 5.48043 7 5.73478 7 6C7 6.26522 7.10536 6.51957 7.29289 6.70711C7.48043 6.89464 7.73478 7 8 7ZM6 9C6.13132 9 6.26136 8.97413 6.38268 8.92388C6.50401 8.87362 6.61425 8.79997 6.70711 8.70711C6.79997 8.61425 6.87362 8.50401 6.92388 8.38268C6.97413 8.26136 7 8.13132 7 8C7 7.86868 6.97413 7.73864 6.92388 7.61732C6.87362 7.49599 6.79997 7.38575 6.70711 7.29289C6.61425 7.20003 6.50401 7.12638 6.38268 7.07612C6.26136 7.02587 6.13132 7 6 7C5.73478 7 5.48043 7.10536 5.29289 7.29289C5.10536 7.48043 5 7.73478 5 8C5 8.26522 5.10536 8.51957 5.29289 8.70711C5.48043 8.89464 5.73478 9 6 9ZM4 11C4.26522 11 4.51957 10.8946 4.70711 10.7071C4.89464 10.5196 5 10.2652 5 10C5 9.73478 4.89464 9.48043 4.70711 9.29289C4.51957 9.10536 4.26522 9 4 9C3.73478 9 3.48043 9.10536 3.29289 9.29289C3.10536 9.48043 3 9.73478 3 10C3 10.2652 3.10536 10.5196 3.29289 10.7071C3.48043 10.8946 3.73478 11 4 11ZM6 5C6.26522 5 6.51957 4.89464 6.70711 4.70711C6.89464 4.51957 7 4.26522 7 4C7 3.73478 6.89464 3.48043 6.70711 3.29289C6.51957 3.10536 6.26522 3 6 3C5.73478 3 5.48043 3.10536 5.29289 3.29289C5.10536 3.48043 5 3.73478 5 4C5 4.26522 5.10536 4.51957 5.29289 4.70711C5.48043 4.89464 5.73478 5 6 5ZM4 3C4.26522 3 4.51957 2.89464 4.70711 2.70711C4.89464 2.51957 5 2.26522 5 2C5 1.73478 4.89464 1.48043 4.70711 1.29289C4.51957 1.10536 4.26522 1 4 1C3.73478 1 3.48043 1.10536 3.29289 1.29289C3.10536 1.48043 3 1.73478 3 2C3 2.26522 3.10536 2.51957 3.29289 2.70711C3.48043 2.89464 3.73478 3 4 3Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_947_85">
+      <rect width="12" height="12" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile navigation overlay backdrop -->
+  <div class="menu-backdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer -->
+  <nav class="mobile-drawer">
+    <div class="drawer-menu-list">
+      <!-- Home -->
+      <a href="./index.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Home</span>
+          <span class="drawer-menu-desc">Return to homepage</span>
+        </span>
+      </a>
+
+      <!-- Inside Parivartan Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
+          <span class="drawer-menu-icon">
+           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+              <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">Inside Parivartan</span>
+            <span class="drawer-menu-desc">About our team &amp; clients</span>
+          </span>
+          <span class="drawer-menu-chevron">
+           <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./story.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Our Story</span>
+          </a>
+          <a href="./clients.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Our Clients</span>
+          </a>
+          <a href="./founders-in-frame.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Founders in Frame</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- In The Spotlight Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
+          <span class="drawer-menu-icon">
+           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="12 8 8 16 16 16 12 8" />
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">In The Spotlight</span>
+            <span class="drawer-menu-desc">Media &amp; awards</span>
+          </span>
+          <span class="drawer-menu-chevron">
+           <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./media.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Media Features</span>
+          </a>
+          <a href="./awards.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Parivartan Excellence Awards</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Our Work Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
+          <span class="drawer-menu-icon">
+           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+              <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+              <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6" />
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">Our Work</span>
+            <span class="drawer-menu-desc">Explore our selected projects</span>
+          </span>
+          <span class="drawer-menu-chevron">
+           <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./work-websites.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Websites</span>
+          </a>
+          <a href="./work-webapps.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Web Apps</span>
+          </a>
+          <a href="./app-development.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Mobile Apps</span>
+          </a>
+          <a href="./work-ecommerce.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Ecommerce</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Life at Parivartan -->
+      <a href="./life.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Life at Parivartan</span>
+          <span class="drawer-menu-desc">Our culture, perks &amp; people</span>
+        </span>
+      </a>
+
+      <!-- Insights -->
+      <a href="./blogs.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Insights</span>
+          <span class="drawer-menu-desc">Read our latest insights</span>
+        </span>
+      </a>
+
+      <!-- Contact -->
+      <a href="./contact.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Contact</span>
+          <span class="drawer-menu-desc">Let's connect &amp; build together</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Drawer CTA Panel -->
+    <div class="drawer-cta-panel">
+      <span class="drawer-cta-dot drawer-cta-dot-1"></span>
+      <span class="drawer-cta-dot drawer-cta-dot-2"></span>
+      <span class="drawer-cta-circle"></span>
+      <div class="drawer-cta-content">
+        <h3 class="drawer-cta-heading">
+          Let's build<br />
+          <span class="highlight">meaningful</span> impact
+        </h3>
+        <span class="drawer-cta-divider"></span>
+        <p class="drawer-cta-text">
+          We partner with forward-thinking brands to create digital experiences that drive growth.
+        </p>
+        <a href="./contact.html" class="drawer-cta-btn">
+          <span>Contact</span>
+         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 11L11 3M11 3H4.5M11 3v6.5" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+      <img src="./assets/home/Parivartan-Leaf.png" alt="" class="drawer-cta-leaf" draggable="false" />
+    </div>
+  </nav>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="websites-hero-section">
+      <div class="websites-hero-container">
+        
+        <!-- Tagline -->
+        <div class="websites-hero-tagline">
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
+          <span>OUR WORK</span>
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
+        </div>
+
+        <!-- Section Title -->
+        <h1 class="websites-hero-title">UI/UX Design</h1>
+
+        <!-- Outer Card Frame -->
+        <div class="websites-card-frame">
+          <div class="websites-card">
+            <div class="websites-card-inner">
+              
+              <!-- Left Column: Content -->
+              <div class="websites-card-left">
+                <h2 class="websites-card-heading">
+                  Distinctive UI/UX design built to perform <span class="highlight-green">and grow.</span>
+                </h2>
+
+                <div class="websites-card-desc-group">
+                  <p>
+                    We create user-friendly interfaces and user experiences for websites, applications and digital products by combining knowledge of user needs, business requirements and technology so that complicated interactions feel simple.
+                  </p>
+                  <p>
+                    From corporate websites and educational platforms to SaaS portals and mobile applications, every project is shaped around the brand, its audience, and its business goals.
+                  </p>
+                </div>
+
+                <hr class="websites-divider-line" />
+
+                <!-- 4 Features Row -->
+                <div class="websites-features-row">
+                  <div class="websites-feature-item">
+                    <div class="websites-feature-icon-circle">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5" /><circle cx="18" cy="19" r="2.5" /><circle cx="12" cy="5" r="2.5" /><path d="M12 7.5v6M8.3 17.7 11 12M15.7 17.7 13 12" /></svg>
+                    </div>
+                    <h4 class="websites-feature-title">Strategy First</h4>
+                    <p class="websites-feature-desc">Purpose-driven design that aligns with your goals.</p>
+                  </div>
+
+                  <div class="websites-feature-divider"></div>
+
+                  <div class="websites-feature-item">
+                    <div class="websites-feature-icon-circle">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="1.5" /><line x1="6" y1="18" x2="12" y2="18" /><rect x="17" y="8" width="5" height="9" rx="1" /></svg>
+                    </div>
+                    <h4 class="websites-feature-title">Responsive Design</h4>
+                    <p class="websites-feature-desc">Seamless experience across all devices and screen sizes.</p>
+                  </div>
+
+                  <div class="websites-feature-divider"></div>
+
+                  <div class="websites-feature-item">
+                    <div class="websites-feature-icon-circle">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 2.2.7 4.3 2 6l1.5-1.5a8 8 0 1 1 13 0l1.5 1.5a10 10 0 0 0 2-6A10 10 0 0 0 12 2z" /><path d="M12 6v6l4 2" /></svg>
+                    </div>
+                    <h4 class="websites-feature-title">Performance Focused</h4>
+                    <p class="websites-feature-desc">Fast-loading, intuitive interfaces that drive results.</p>
+                  </div>
+
+                  <div class="websites-feature-divider"></div>
+
+                  <div class="websites-feature-item">
+                    <div class="websites-feature-icon-circle">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                    </div>
+                    <h4 class="websites-feature-title">Reliable &amp; Scalable</h4>
+                    <p class="websites-feature-desc">Built with design systems and future-ready specs.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Hero Collage Image -->
+              <div class="websites-card-right">
+                <div class="websites-mockup-image-container">
+                  <img src="./assets/work/websites/Websites-hero.png" alt="UI/UX Design Mockups Collage" class="websites-mockup-image" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 1. PLATFORMS SECTION ==================== -->
+    <section class="uiux-section uiux-section--light" id="platforms">
+      <div class="uiux-container">
+        <div class="uiux-section-header">
+          <div class="uiux-tagline">
+            <span>PLATFORMS &amp; ECOSYSTEMS</span>
+          </div>
+          <h2 class="uiux-heading">UI/UX Design Across Digital Platforms</h2>
+          <p class="uiux-desc">
+            We create digital experiences for websites, applications and enterprise platforms, integrating user needs with business objectives and technology requirements.
+          </p>
+        </div>
+
+        <div class="uiux-platforms-grid">
+          <!-- Card 1: Websites -->
+          <div class="uiux-platform-card">
+            <div>
+              <div class="uiux-platform-top">
+                <div class="uiux-platform-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                  </svg>
+                </div>
+                <span class="uiux-platform-num">#01</span>
+              </div>
+              <h3 class="uiux-platform-title">Websites</h3>
+              <p class="uiux-platform-desc">
+                We design websites for corporate, institutional, e-commerce and content-heavy environments with clear navigation, usability and responsive behaviour in mind.
+              </p>
+            </div>
+            <div class="uiux-platform-tags">
+              <span class="uiux-tag">Corporate Portals</span>
+              <span class="uiux-tag">Institutional Hubs</span>
+              <span class="uiux-tag">E-commerce Stores</span>
+              <span class="uiux-tag">Content Architecture</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Web Applications -->
+          <div class="uiux-platform-card">
+            <div>
+              <div class="uiux-platform-top">
+                <div class="uiux-platform-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                  </svg>
+                </div>
+                <span class="uiux-platform-num">#02</span>
+              </div>
+              <h3 class="uiux-platform-title">Web Applications</h3>
+              <p class="uiux-platform-desc">
+                We design interfaces for custom applications, portals, dashboards and business systems where users need to complete specific tasks efficiently.
+              </p>
+            </div>
+            <div class="uiux-platform-tags">
+              <span class="uiux-tag">Custom Portals</span>
+              <span class="uiux-tag">Operational Dashboards</span>
+              <span class="uiux-tag">Task Efficiency</span>
+              <span class="uiux-tag">SaaS Interfaces</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Enterprise Platforms -->
+          <div class="uiux-platform-card">
+            <div>
+              <div class="uiux-platform-top">
+                <div class="uiux-platform-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="3" y1="9" x2="21" y2="9"/>
+                    <line x1="9" y1="21" x2="9" y2="9"/>
+                  </svg>
+                </div>
+                <span class="uiux-platform-num">#03</span>
+              </div>
+              <h3 class="uiux-platform-title">Enterprise Platforms</h3>
+              <p class="uiux-platform-desc">
+                Experiences for complicated workflows, multiple user roles, large amounts of information, data and operational processes.
+              </p>
+            </div>
+            <div class="uiux-platform-tags">
+              <span class="uiux-tag">Multi-role Roles</span>
+              <span class="uiux-tag">Approval Workflows</span>
+              <span class="uiux-tag">Data Visualisation</span>
+              <span class="uiux-tag">High-volume Data</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Mobile Applications -->
+          <div class="uiux-platform-card">
+            <div>
+              <div class="uiux-platform-top">
+                <div class="uiux-platform-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                  </svg>
+                </div>
+                <span class="uiux-platform-num">#04</span>
+              </div>
+              <h3 class="uiux-platform-title">Mobile Applications</h3>
+              <p class="uiux-platform-desc">
+                Mobile experiences that are intuitive and designed with regard to the ways in which people interact with products and carry out tasks on smaller screens.
+              </p>
+            </div>
+            <div class="uiux-platform-tags">
+              <span class="uiux-tag">iOS &amp; Android</span>
+              <span class="uiux-tag">Touch Gestures</span>
+              <span class="uiux-tag">Mobile-First Logic</span>
+              <span class="uiux-tag">Cross-Platform</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. UI vs UX CORE BREAKDOWN ==================== -->
+    <section class="uiux-section">
+      <div class="uiux-container">
+        <div class="uiux-section-header">
+          <div class="uiux-tagline">
+            <span>THE PARIVARTAN APPROACH</span>
+          </div>
+          <h2 class="uiux-heading">Good Interfaces Are Simple. Good Experiences Feel Simple.</h2>
+          <p class="uiux-desc">
+            UI and UX work together, but they address different problems. User Experience (UX) defines how people navigate, understand and complete tasks within a digital product. User Interface (UI) turns that experience into a clear, consistent and engaging visual interface. At Parivartan, we design both together, so the end result is not merely visually impressive but also user-friendly, practical and ready for development.
+          </p>
+        </div>
+
+        <div class="uiux-compare-grid">
+          <!-- UX Column -->
+          <div class="uiux-compare-card uiux-compare-card--ux">
+            <div class="uiux-compare-header">
+              <h3 class="uiux-compare-title">User Experience (UX)</h3>
+              <span class="uiux-compare-badge">Structure &amp; Function</span>
+            </div>
+            <ul class="uiux-compare-list">
+              <li class="uiux-compare-item">
+                <div class="uiux-compare-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="uiux-compare-item-content">
+                  <h4>User Journeys</h4>
+                  <p>Mapping the way different users browse the product and meet their goals.</p>
+                </div>
+              </li>
+              <li class="uiux-compare-item">
+                <div class="uiux-compare-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <div class="uiux-compare-item-content">
+                  <h4>Information Architecture</h4>
+                  <p>Designing the information, navigation and functionality in such a way that users can quickly find what they need.</p>
+                </div>
+              </li>
+              <li class="uiux-compare-item">
+                <div class="uiux-compare-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <div class="uiux-compare-item-content">
+                  <h4>Wireframes &amp; Prototypes</h4>
+                  <p>Creating and validating the structure and experience before detailed visual design and development begin.</p>
+                </div>
+              </li>
+              <li class="uiux-compare-item">
+                <div class="uiux-compare-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="uiux-compare-item-content">
+                  <h4>Usability &amp; Interaction</h4>
+                  <p>Eliminating unnecessary steps and making complex tasks easier to understand and complete.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- UI Column -->
+          <div class="uiux-compare-card uiux-compare-card--ui">
+            <div class="uiux-compare-header">
+              <h3 class="uiux-compare-title">User Interface (UI)</h3>
+              <span class="uiux-compare-badge">Visual &amp; Polish</span>
+            </div>
+            <ul class="uiux-compare-list">
+              <li class="uiux-compare-item">
+                <div class="uiux-compare-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                </div>
+                <div class="uiux-compare-item-content">
+                  <h4>Visual Interface Design</h4>
+                  <p>Designing interfaces that are refined and consistent with both the brand and the purpose of the product.</p>
+                </div>
+              </li>
+              <li class="uiux-compare-item">
+                <div class="uiux-compare-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="uiux-compare-item-content">
+                  <h4>Responsive Design</h4>
+                  <p>Creating experiences that function consistently on desktop, tablet and mobile devices.</p>
+                </div>
+              </li>
+              <li class="uiux-compare-item">
+                <div class="uiux-compare-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div class="uiux-compare-item-content">
+                  <h4>Components &amp; Design Systems</h4>
+                  <p>Creating reusable interface components that maintain a consistent appearance as the product evolves.</p>
+                </div>
+              </li>
+              <li class="uiux-compare-item">
+                <div class="uiux-compare-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="uiux-compare-item-content">
+                  <h4>Developer-Ready Design</h4>
+                  <p>Keeping practicality in mind, we design interfaces with a focus on development, responsiveness and real-world implementation.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. CAPABILITIES & CHALLENGES ==================== -->
+    <section class="uiux-section uiux-section--light" id="selected-work">
+      <div class="uiux-container">
+        <div class="uiux-section-header">
+          <div class="uiux-tagline">
+            <span>REAL-WORLD CAPABILITIES</span>
+          </div>
+          <h2 class="uiux-heading">Designed for Real Users. Built Around Real Requirements.</h2>
+          <p class="uiux-desc">
+            We apply our UI/UX expertise to websites, applications, enterprise platforms and mobile products. Instead of designing screens in isolation, we start by understanding what users need to achieve, what the business needs the product to do and how the technology will ultimately function.
+          </p>
+        </div>
+
+        <div class="uiux-challenges-grid">
+          <!-- Item 1 -->
+          <div class="uiux-challenge-card">
+            <div class="uiux-challenge-img">
+              <img src="./assets/home/Featured/CACM.png" alt="Corporate and Enterprise Websites" loading="lazy" />
+            </div>
+            <div class="uiux-challenge-body">
+              <h3 class="uiux-challenge-title">Corporate &amp; Enterprise Websites</h3>
+              <p class="uiux-challenge-desc">Clear brand storytelling, accessible navigation, and high-performance digital experiences for large organisations.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="uiux-challenge-card">
+            <div class="uiux-challenge-img">
+              <img src="./assets/work/webapps/Web-App-1.png" alt="Custom Applications & Portals" loading="lazy" />
+            </div>
+            <div class="uiux-challenge-body">
+              <h3 class="uiux-challenge-title">Custom Applications &amp; Portals</h3>
+              <p class="uiux-challenge-desc">Intuitive interface architecture for task-driven tools, customer portals, and internal productivity software.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="uiux-challenge-card">
+            <div class="uiux-challenge-img">
+              <img src="./assets/home/enterprise_dashboard_ui.jpg" alt="Business Dashboards" loading="lazy" />
+            </div>
+            <div class="uiux-challenge-body">
+              <h3 class="uiux-challenge-title">Business Dashboards</h3>
+              <p class="uiux-challenge-desc">Data-dense operational dashboards designed for fast readability, real-time metrics, and instant decision making.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="uiux-challenge-card">
+            <div class="uiux-challenge-img">
+              <img src="./assets/home/Featured/SHERWOOD.png" alt="Government & Institutional Platforms" loading="lazy" />
+            </div>
+            <div class="uiux-challenge-body">
+              <h3 class="uiux-challenge-title">Government &amp; Institutional Platforms</h3>
+              <p class="uiux-challenge-desc">Accessible, multilingual, and highly structured digital portals handling massive public user traffic.</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="uiux-challenge-card">
+            <div class="uiux-challenge-img">
+              <img src="./assets/work/mobileapps/mobile_hero_mockup.png" alt="Mobile Applications" loading="lazy" />
+            </div>
+            <div class="uiux-challenge-body">
+              <h3 class="uiux-challenge-title">Mobile Applications</h3>
+              <p class="uiux-challenge-desc">Native-feel mobile apps built around intuitive gesture navigation, one-handed usability, and rapid interactions.</p>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="uiux-challenge-card">
+            <div class="uiux-challenge-img">
+              <img src="./assets/home/Featured/CREA.png" alt="Complex Information Architecture" loading="lazy" />
+            </div>
+            <div class="uiux-challenge-body">
+              <h3 class="uiux-challenge-title">Complex Information Architecture</h3>
+              <p class="uiux-challenge-desc">Multi-tiered structures transformed into clean, browsable experiences with intuitive search and discovery.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Badges Banner -->
+        <div class="uiux-metrics-banner">
+          <div class="uiux-metrics-header">
+            <h3>Measurable &amp; Factual Architecture</h3>
+            <p>Demonstrated experience across complex enterprise challenges</p>
+          </div>
+          <div class="uiux-metrics-grid">
+            <div class="uiux-metric-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="uiux-metric-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span class="uiux-metric-text">1,000+ Pages Structured</span>
+            </div>
+            <div class="uiux-metric-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="uiux-metric-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span class="uiux-metric-text">Multiple User Roles</span>
+            </div>
+            <div class="uiux-metric-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="uiux-metric-icon"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span class="uiux-metric-text">Multilingual Interface</span>
+            </div>
+            <div class="uiux-metric-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="uiux-metric-icon"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              <span class="uiux-metric-text">Complex Approval Workflows</span>
+            </div>
+            <div class="uiux-metric-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="uiux-metric-icon"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              <span class="uiux-metric-text">Mobile-First Experience</span>
+            </div>
+            <div class="uiux-metric-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="uiux-metric-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              <span class="uiux-metric-text">Large Data &amp; Content Structures</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. METHODOLOGY & PROCESS ==================== -->
+    <section class="uiux-section">
+      <div class="uiux-container">
+        <div class="uiux-section-header">
+          <div class="uiux-tagline">
+            <span>OUR METHODOLOGY</span>
+          </div>
+          <h2 class="uiux-heading">From Complexity to Clarity</h2>
+          <p class="uiux-desc">
+            All projects are different, but our UI/UX method follows a well-defined process, starting with understanding the problem and ending with the delivery of a developable interface.
+          </p>
+        </div>
+
+        <div class="uiux-process-grid">
+          <!-- Step 1 -->
+          <div class="uiux-process-card">
+            <span class="uiux-process-step-num">01 — UNDERSTAND</span>
+            <h3 class="uiux-process-title">Requirements &amp; User Research</h3>
+            <p class="uiux-process-desc">
+              We start by reviewing the business requirements, users, objectives, existing problems and technical environment. By studying the problem before we design the interface, we can make better decisions at every stage of the project.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="uiux-process-card">
+            <span class="uiux-process-step-num">02 — STRUCTURE</span>
+            <h3 class="uiux-process-title">Architecture &amp; Journeys</h3>
+            <p class="uiux-process-desc">
+              We define the user journeys, information architecture, navigation, workflows and content hierarchy. This forms the basis for how users will navigate and interact with the product.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="uiux-process-card">
+            <span class="uiux-process-step-num">03 — WIREFRAME</span>
+            <h3 class="uiux-process-title">Layouts &amp; Functionality</h3>
+            <p class="uiux-process-desc">
+              Before any detailed visual design starts, we create wireframes that define screen layouts, interactions and functionality.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="uiux-process-card">
+            <span class="uiux-process-step-num">04 — PROTOTYPE</span>
+            <h3 class="uiux-process-title">Interaction Validation</h3>
+            <p class="uiux-process-desc">
+              For products that require interaction validation, we create prototypes to demonstrate how key user journeys, interactions and functionality will work.
+            </p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="uiux-process-card">
+            <span class="uiux-process-step-num">05 — DESIGN</span>
+            <h3 class="uiux-process-title">Visual Interface &amp; Design System</h3>
+            <p class="uiux-process-desc">
+              We create the visual interface, typography, components, layouts, responsive behaviour and design system. The interface balances usability, brand identity and practical implementation.
+            </p>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="uiux-process-card">
+            <span class="uiux-process-step-num">06 — VALIDATE &amp; REFINE</span>
+            <h3 class="uiux-process-title">Review &amp; Refinement</h3>
+            <p class="uiux-process-desc">
+              We review the experience against user requirements, business objectives and implementation considerations, and refine it where necessary.
+            </p>
+          </div>
+
+          <!-- Step 7: Wide card spanning row -->
+          <div class="uiux-process-card uiux-process-card--wide">
+            <div>
+              <span class="uiux-process-step-num">07 — DEVELOPMENT HANDOFF</span>
+              <h3 class="uiux-process-title">Specifications &amp; Engineering Collaboration</h3>
+            </div>
+            <p class="uiux-process-desc">
+              For development, we prepare designs, components, behaviours and specifications. Our designers and developers collaborate at every stage of the process, reducing the gap between what is designed and what is built.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. WHY PARIVARTAN ==================== -->
+    <section class="uiux-section uiux-section--light">
+      <div class="uiux-container">
+        <div class="uiux-section-header">
+          <div class="uiux-tagline">
+            <span>WHY PARIVARTAN FOR UI/UX?</span>
+          </div>
+          <h2 class="uiux-heading">Because We Understand What Happens After the Design Is Approved.</h2>
+          <p class="uiux-desc">
+            Parivartan isn’t a standalone design studio. Our UI/UX designers work alongside developers and technology teams who build websites, enterprise applications and mobile platforms. That changes the way we approach design. We consider usability, responsiveness, scalability, performance, development feasibility and long-term maintainability while designing the experience.
+          </p>
+        </div>
+
+        <div class="uiux-why-grid">
+          <!-- Feature 1 -->
+          <div class="uiux-why-card">
+            <div class="uiux-why-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="uiux-why-title">24+ Years of Digital Experience</h3>
+              <p class="uiux-why-desc">Our experience spans websites, applications and digital platforms across industries, organisations and technologies.</p>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="uiux-why-card">
+            <div class="uiux-why-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="uiux-why-title">Design + Technology Under One Roof</h3>
+              <p class="uiux-why-desc">Designers and developers work together rather than handing projects between disconnected teams.</p>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="uiux-why-card">
+            <div class="uiux-why-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="uiux-why-title">Experience with Complex Requirements</h3>
+              <p class="uiux-why-desc">From corporate and institutional websites to government platforms and custom enterprise applications, we understand that different users and organisations require very different digital experiences.</p>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="uiux-why-card">
+            <div class="uiux-why-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="uiux-why-title">Built for Implementation</h3>
+              <p class="uiux-why-desc">We design interfaces that aren’t merely presentation concepts. They are intended to become functioning digital products.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. FAQ SECTION ==================== -->
+    <section class="uiux-section">
+      <div class="uiux-container">
+        <div class="uiux-section-header">
+          <div class="uiux-tagline">
+            <span>FREQUENTLY ASKED QUESTIONS</span>
+          </div>
+          <h2 class="uiux-heading">Questions Businesses Ask Us About UI/UX Design</h2>
+        </div>
+
+        <div class="uiux-faq-list">
+          <!-- Question 1 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">1. What is UI/UX design?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>UI/UX design covers both how a digital product works and how users interact with it. UX focuses on structure, journeys, usability and interactions, while UI focuses on the visual interface, components, layouts and presentation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">2. Does Parivartan provide UI/UX design for existing websites and applications?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Yes. We can evaluate an existing website or application and redesign its user experience and interface without necessarily rebuilding the entire product. Where technology limitations affect the experience, we can also recommend redevelopment or modernisation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">3. Do you design UI/UX for enterprise applications and dashboards?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Yes. We design interfaces for custom applications, enterprise portals, dashboards, workflows, reporting systems and other business platforms involving complex processes or multiple user roles.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">4. Do you provide UI/UX design for mobile apps?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Yes. We design mobile application experiences for iOS, Android and cross-platform applications, including user journeys, wireframes, interfaces, components and interactive prototypes where required.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">5. Can you design the UI/UX while another company develops the application?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Yes. UI/UX can be undertaken as an independent engagement. We can provide structured designs, components, interaction guidance and developer-ready assets for implementation by your internal or external development team.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">6. What is the difference between website design and UI/UX design?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Website design typically focuses on creating the structure and visual presentation of a website. UI/UX design goes deeper into how users navigate, interact with information, complete tasks and experience the overall digital product.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 7 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">7. Do you create wireframes and prototypes before designing?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Yes, where the project requires them. For applications and complex platforms, wireframes and prototypes can help establish workflows, structure and interactions before detailed visual design begins.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 8 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">8. Can you create a design system for an existing product?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Yes. We can develop or standardise a design system for an existing website, application or digital product to improve consistency and make future development easier to manage.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 9 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">9. Do you conduct UX audits of existing websites and applications?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Yes. We can review an existing digital product for navigation, information architecture, usability, interface consistency, responsiveness and other experience issues and recommend improvements.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 10 -->
+          <div class="uiux-faq-item">
+            <button class="uiux-faq-trigger" type="button">
+              <span class="uiux-faq-question">10. Does Parivartan also develop the products it designs?</span>
+              <span class="uiux-faq-icon">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <div class="uiux-faq-content">
+              <div class="uiux-faq-answer">
+                <p>Yes. Parivartan provides website development, custom application development and mobile app development in addition to UI/UX design. Clients can engage us for UI/UX alone or for the complete design-and-development lifecycle.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. BOTTOM CTA SECTION ==================== -->
+    <section class="uiux-cta-section">
+      <div class="uiux-container">
+        <div class="uiux-cta-card">
+          <div class="uiux-cta-inner">
+            <h2 class="uiux-cta-title">Have a Digital Product That Needs a Better Experience?</h2>
+            <p class="uiux-cta-desc">
+              Whether you’re designing something new or improving an existing website, application or digital platform, let’s create an experience that’s simpler to use and practical to build.
+            </p>
+            <div class="uiux-cta-buttons">
+              <a href="./contact.html" class="uiux-btn-primary">
+                <span>Discuss Your UI/UX Project</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="./work-websites.html" class="uiux-cta-btn-light">
+                <span>View Our Work</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-wrapper">
+    <div class="footer-container">
+      
+      <!-- Footer Top Grid -->
+      <div class="footer-top">
+        
+        <!-- Column 1: Brand & Bio -->
+        <div class="footer-col footer-brand-col">
+          <a href="./index.html" class="footer-logo-link">
+            <img src="./assets/home/Parivartan_Logo.png" alt="Parivartan Logo" class="footer-logo" />
+          </a>
+          <p class="footer-bio">
+            We build systems that work. Scalable web, mobile, custom software, and digital marketing that perform quietly in the background.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links (Accordion on mobile) -->
+        <div class="footer-col footer-links-col">
+          <h4 class="footer-heading">
+            Quick Links
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-service-list footer-accordion-list">
+            
+            <!-- 1. Home -->
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+                </svg>
+              </div>
+              <a href="./index.html">Home</a>
+            </li>
+
+            <!-- 2. What We Build -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                      <polyline points="2 17 12 22 22 17"/>
+                      <polyline points="2 12 12 17 22 12"/>
+                    </svg>
+                  </div>
+                  <span>What We Build</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./ui-ux-design.html">UI/UX Design</a></li>
+                <li><a href="./work-websites.html">Web Development</a></li>
+                <li><a href="./work-webapps.html">Custom Applications</a></li>
+                <li><a href="./app-development.html">Mobile App Development</a></li>
+                <li><a href="./work-ecommerce.html">E-commerce Development</a></li>
+              </ul>
+            </li>
+
+            <!-- 3. Search & AI Visibility -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"/>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                  </div>
+                  <span>Search &amp; AI Visibility</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./index.html">SEO</a></li>
+                <li><a href="./index.html">AEO</a></li>
+                <li><a href="./index.html">GEO</a></li>
+                <li><a href="./index.html">AI Search Visibility</a></li>
+              </ul>
+            </li>
+
+            <!-- 4. Our Work -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+                      <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+                      <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6" />
+                    </svg>
+                  </div>
+                  <span>Our Work</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./work-websites.html">Websites</a></li>
+                <li><a href="./work-webapps.html">Custom Applications</a></li>
+                <li><a href="./app-development.html">Mobile Apps</a></li>
+                <li><a href="./work-ecommerce.html">E-commerce</a></li>
+              </ul>
+            </li>
+
+            <!-- 5. About Parivartan -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z" />
+                    </svg>
+                  </div>
+                  <span>About Parivartan</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./story.html">Our Story</a></li>
+                <li><a href="./clients.html">Our Clients</a></li>
+                <li><a href="./life.html">Life at Parivartan</a></li>
+              </ul>
+            </li>
+
+            <!-- 6. Insights -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                  </div>
+                  <span>Insights</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./blogs.html">Articles / Insights</a></li>
+                <li><a href="./founders-in-frame.html">Founders in Frame</a></li>
+              </ul>
+            </li>
+
+            <!-- 7. Recognition -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="8" r="7"/>
+                      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                    </svg>
+                  </div>
+                  <span>Recognition</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./media.html">Media Features</a></li>
+                <li><a href="./awards.html">Parivartan Excellence Awards</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-col footer-services-col">
+          <h4 class="footer-heading">
+            Services
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-service-list">
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <a href="./ui-ux-design.html">UI/UX Design</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                  <line x1="14" y1="4" x2="10" y2="20"/>
+                </svg>
+              </div>
+              <a href="./work-websites.html">Web Development</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                  <line x1="12" y1="18" x2="12.01" y2="18"/>
+                </svg>
+              </div>
+              <a href="./app-development.html">Mobile App Development</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <a href="./work-webapps.html">Custom Applications</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
+              <a href="./work-webapps.html">AEO Services</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <a href="./work-webapps.html">GEO Services</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6" y1="20" x2="6" y2="14"/>
+                  <path d="M4 8l4-4 4 4 6-6"/>
+                </svg>
+              </div>
+              <a href="./contact.html">SEO Services</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Get In Touch -->
+        <div class="footer-col footer-contact-col">
+          <h4 class="footer-heading">
+            Get In Touch
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <a href="tel:+919849165443" class="contact-text">+91 98491 65443</a>
+            </li>
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <a href="mailto:feedback@eparivartan.com" class="contact-text">feedback@eparivartan.com</a>
+            </li>
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <span class="contact-text">Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033 Telangana State</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <a href="https://careers.eparivartan.com/" target="_blank" rel="noopener noreferrer" class="footer-join-btn life-footer-parivar-link">
+            <span>Join the Parivar</span>
+            <img src="./assets/home/Parivartan-Leaf.png" alt="Leaf" class="life-title-leaf" />
+          </a>
+        </div>
+
+        <div class="footer-bottom-right">
+          <span class="footer-copyright">© 2026 Parivartan. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./js/index.js"></script>
+  <script src="./js/ui-ux-design.js"></script>
+</body>
+</html>

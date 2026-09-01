@@ -627,131 +627,130 @@ const techConnectionsData = [
   }
 
   /* ==========================================
-     4. SERVICES OVERLAPPING CARD DECK SCROLL
+     4. SERVICES FOLDER CARDS ANIMATION
      ========================================== */
   const servicesSec = document.getElementById('services');
   if (servicesSec) {
+    const folderCards = servicesSec.querySelectorAll('.folder-card');
+    if (folderCards.length > 0 && typeof gsap !== 'undefined') {
+      gsap.from(folderCards, {
+        scrollTrigger: {
+          trigger: '.services-folders-grid',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        duration: 0.85,
+        y: 30,
+        opacity: 0,
+        stagger: 0.08,
+        ease: 'power3.out'
+      });
+    }
+
     const cards = Array.from(servicesSec.querySelectorAll('.services-row'));
-    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    let lastActiveIndex = null;
+    if (cards.length > 0) {
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      let lastActiveIndex = null;
+      let stickyTops = [];
 
-    // Read the computed CSS `top` for every card — matches React's updateStickyTops().
-    let stickyTops = [];
-
-    const updateStickyTops = () => {
-      const isMobile = window.innerWidth <= 960;
-      stickyTops = cards.map((card) => {
-        const computedTop = parseFloat(window.getComputedStyle(card).top);
-        if (!isNaN(computedTop)) {
-          return computedTop;
-        }
-        return isMobile ? 60 : 100;
-      });
-    };
-
-    updateStickyTops();
-    window.addEventListener('resize', updateStickyTops);
-
-    const animateCards = () => {
-      const isMobile = window.innerWidth <= 960;
-
-      // On mobile, disable the scale-down stacking animation entirely — the cards
-      // simply slide over one another via sticky positioning, matching the React build.
-      if (isMobile) {
-        cards.forEach((card) => {
-          if (card.style.transform !== '') card.style.transform = '';
-          if (card.style.filter !== '') card.style.filter = '';
-          if (card.style.backgroundColor !== '') card.style.backgroundColor = '';
-          card.classList.remove('is-active');
+      const updateStickyTops = () => {
+        const isMobile = window.innerWidth <= 960;
+        stickyTops = cards.map((card) => {
+          const computedTop = parseFloat(window.getComputedStyle(card).top);
+          return !isNaN(computedTop) ? computedTop : (isMobile ? 60 : 100);
         });
-        requestAnimationFrame(animateCards);
-        return;
-      }
+      };
 
-      // Desktop: determine which card is currently pinned/active in viewport
-      let currentActiveIndex = 0;
-      cards.forEach((card, index) => {
-        const rect = card.getBoundingClientRect();
-        const stickyTop = stickyTops[index] || 100;
-        // As soon as a card approaches within 200px of its sticky position, it activates & straightens!
-        if (rect.top <= stickyTop + 200) {
-          currentActiveIndex = index;
-        }
-      });
+      updateStickyTops();
+      window.addEventListener('resize', updateStickyTops);
 
-      cards.forEach((card, index) => {
-        const rect = card.getBoundingClientRect();
-        const stickyTop = stickyTops[index] || 100;
-
-        if (index === currentActiveIndex) {
-          card.classList.add('is-active');
-          card.classList.add('is-passed');
-        } else if (index < currentActiveIndex) {
-          card.classList.remove('is-active');
-          card.classList.add('is-passed');
-        } else {
-          card.classList.remove('is-active');
-          card.classList.remove('is-passed');
+      const animateCards = () => {
+        const isMobile = window.innerWidth <= 960;
+        if (isMobile) {
+          cards.forEach((card) => {
+            if (card.style.transform !== '') card.style.transform = '';
+            if (card.style.filter !== '') card.style.filter = '';
+            if (card.style.backgroundColor !== '') card.style.backgroundColor = '';
+            card.classList.remove('is-active');
+          });
+          requestAnimationFrame(animateCards);
+          return;
         }
 
-        // Adding 10px tolerance for subpixel render scaling
-        if (rect.top <= stickyTop + 10) {
-          let progress = 0;
-
-          if (index < cards.length - 1) {
-            const nextCard = cards[index + 1];
-            const nextRect = nextCard.getBoundingClientRect();
-
-            const overlap = stickyTop + rect.height - nextRect.top;
-            progress = Math.max(0, Math.min(overlap / rect.height, 1));
-          }
-
-          const scale = 1 - (progress * 0.06);
-
-          card.style.transform = `scale(${scale})`;
-          card.style.filter = '';
-          card.style.backgroundColor = '#FFF';
-        } else {
-          card.style.transform = 'scale(1)';
-          card.style.filter = '';
-          card.style.backgroundColor = '#FFF';
-        }
-      });
-
-      // Drive video play/pause on scroll when card reaches active sticky focus
-      if (currentActiveIndex !== lastActiveIndex) {
+        let currentActiveIndex = 0;
         cards.forEach((card, index) => {
-          const video = card.querySelector('video');
-          if (!video) return;
-          if (index === currentActiveIndex) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
+          const rect = card.getBoundingClientRect();
+          const stickyTop = stickyTops[index] || 100;
+          if (rect.top <= stickyTop + 200) {
+            currentActiveIndex = index;
           }
         });
-        lastActiveIndex = currentActiveIndex;
-      }
+
+        cards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const stickyTop = stickyTops[index] || 100;
+
+          if (index === currentActiveIndex) {
+            card.classList.add('is-active');
+            card.classList.add('is-passed');
+          } else if (index < currentActiveIndex) {
+            card.classList.remove('is-active');
+            card.classList.add('is-passed');
+          } else {
+            card.classList.remove('is-active');
+            card.classList.remove('is-passed');
+          }
+
+          if (rect.top <= stickyTop + 10) {
+            let progress = 0;
+            if (index < cards.length - 1) {
+              const nextCard = cards[index + 1];
+              const nextRect = nextCard.getBoundingClientRect();
+              const overlap = stickyTop + rect.height - nextRect.top;
+              progress = Math.max(0, Math.min(overlap / rect.height, 1));
+            }
+            const scale = 1 - (progress * 0.06);
+            card.style.transform = `scale(${scale})`;
+            card.style.backgroundColor = '#FFF';
+          } else {
+            card.style.transform = 'scale(1)';
+            card.style.backgroundColor = '#FFF';
+          }
+        });
+
+        if (currentActiveIndex !== lastActiveIndex) {
+          cards.forEach((card, index) => {
+            const video = card.querySelector('video');
+            if (!video) return;
+            if (index === currentActiveIndex) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          });
+          lastActiveIndex = currentActiveIndex;
+        }
+
+        requestAnimationFrame(animateCards);
+      };
 
       requestAnimationFrame(animateCards);
-    };
 
-    requestAnimationFrame(animateCards);
-
-    // Play/Pause Services Video mockups on hover
-    if (canHover) {
-      cards.forEach(card => {
-        const video = card.querySelector('video');
-        if (video) {
-          card.addEventListener('mouseenter', () => {
-            video.currentTime = 0;
-            video.play().catch(() => {});
-          });
-          card.addEventListener('mouseleave', () => {
-            video.pause();
-            video.currentTime = 0;
-          });
-        }
-      });
+      if (canHover) {
+        cards.forEach(card => {
+          const video = card.querySelector('video');
+          if (video) {
+            card.addEventListener('mouseenter', () => {
+              video.play().catch(() => {});
+            });
+            card.addEventListener('mouseleave', () => {
+              if (!card.classList.contains('is-active')) {
+                video.pause();
+              }
+            });
+          }
+        });
+      }
     }
   }
 
