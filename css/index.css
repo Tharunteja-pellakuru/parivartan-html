@@ -4619,7 +4619,7 @@ button {
   right: 0;
   bottom: 0;
   opacity: 0.64;
-  background-image: var(--bg-image);
+  background-image: var(--bg-image, url('../assets/home/cta_bg.png'));
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
