@@ -1870,8 +1870,8 @@
 .uiux-philosophy-cards {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  margin-bottom: 36px;
+  gap: 56px;
+  margin-bottom: 48px;
 }
 
 .uiux-philosophy-card {
@@ -1880,14 +1880,27 @@
   border: 2.2px solid #0088FF;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 40px;
+  align-items: stretch;
   position: relative;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 /* Figma 4 Corner Selection Handles */
+.uiux-card-handles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
 .uiux-card-handles .uiux-handle {
   position: absolute;
   width: 10px;
@@ -1899,19 +1912,34 @@
 }
 
 .uiux-handle--tl { top: -6px; left: -6px; }
+.uiux-handle--tc { top: -6px; left: calc(50% - 5px); }
 .uiux-handle--tr { top: -6px; right: -6px; }
+.uiux-handle--ml { top: calc(50% - 5px); left: -6px; }
+.uiux-handle--mr { top: calc(50% - 5px); right: -6px; }
 .uiux-handle--bl { bottom: -6px; left: -6px; }
+.uiux-handle--bc { bottom: -6px; left: calc(50% - 5px); }
 .uiux-handle--br { bottom: -6px; right: -6px; }
 
 .uiux-philosophy-img-box {
   border-radius: 16px;
-  height: 380px;
+  flex: 1 1 50%;
+  width: 50%;
+  min-height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.uiux-philosophy-img {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .uiux-philosophy-img-box--yellow {
@@ -1921,16 +1949,17 @@
 .uiux-vector-svg {
   width: 100%;
   height: 100%;
-  max-height: 340px;
+  max-height: 320px;
 }
 
 .uiux-philosophy-card-body {
+  flex: 1 1 50%;
+  width: 50%;
   padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-  min-height: 360px;
+  box-sizing: border-box;
 }
 
 /* Badges for UX Card */
@@ -1938,74 +1967,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  gap: 20px;
+  margin: 10px auto 24px auto;
   width: 100%;
+  max-width: 340px;
 }
 
 .uiux-philosophy-badges-row {
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 100%;
 }
 
 .uiux-philosophy-badges-row:nth-child(1) {
-  margin-left: 60px;
-  gap: 16px;
+  justify-content: center;
+  gap: 20px;
+  padding-left: 24px;
 }
 
 .uiux-philosophy-badges-row:nth-child(2) {
-  margin-left: 20px;
-  gap: 28px;
-  margin-top: 12px;
+  justify-content: center;
+  gap: 32px;
+  padding-right: 12px;
 }
 
 .uiux-badge-pill {
-  padding: 8px 18px;
-  border-radius: 10px;
   font-family: var(--font-satoshi);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  border: 2px solid #1E1E1E;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
 .uiux-badge-toggle {
-  background: #FFFFFF;
-  padding: 6px 12px;
-  border-radius: 14px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
-  width: 46px;
-  height: 24px;
-  position: relative;
-}
-
-.uiux-toggle-knob {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #1E1E1E;
-  display: block;
 }
 
 .uiux-badge-process {
   background: #FFC700;
   color: #1E1E1E;
-  transform: rotate(8deg);
+  border: 2px solid #1E1E1E;
+  border-radius: 8px;
+  padding: 8px 22px;
+  transform: rotate(7deg);
 }
 
 .uiux-badge-chart {
-  background: #FFFFFF;
-  padding: 8px 14px;
-  border-radius: 12px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
 }
 
 .uiux-badge-testing {
   background: #75BF46;
   color: #FFFFFF;
+  border: 2px solid #1E1E1E;
+  border-radius: 8px;
+  padding: 8px 24px;
   transform: rotate(-6deg);
 }
 
@@ -2055,7 +2080,13 @@
 .uiux-dot-dark { background: #060612; }
 .uiux-dot-white { background: #FFFFFF; border: 2px solid #E5E7EB; }
 
-/* Card Title & Desc */
+/* Card Title & Desc Group */
+.uiux-philosophy-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .uiux-philosophy-card-title {
   font-family: var(--font-satoshi);
   font-size: 34px;
@@ -2083,6 +2114,98 @@
 .uiux-highlight-ui {
   color: #EAB308;
   font-weight: 700;
+}
+
+/* User Experience (UX) Stack Cards */
+.uiux-ux-cards-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.uiux-ux-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #FFFFFF;
+  border: 2.2px solid #0088FF;
+  border-radius: 0px;
+  box-shadow: none;
+  position: relative;
+  width: 100%;
+  max-width: 755px;
+  height: 440px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.uiux-ux-card-body {
+  flex: 0 0 320px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  box-sizing: border-box;
+  z-index: 5;
+  padding: 48px 0 48px 48px;
+}
+
+.uiux-ux-card-num {
+  font-family: var(--font-satoshi);
+  font-size: 38px;
+  font-weight: 700;
+  color: #FF9900;
+  line-height: 1;
+  display: block;
+}
+
+.uiux-ux-card-title {
+  align-self: stretch;
+  color: #010001;
+  font-family: Satoshi, 'DM Sans', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.uiux-ux-img-box {
+  flex: 1 1 auto;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.uiux-ux-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right bottom;
+  display: block;
+}
+
+.uiux-ux-img--card-1,
+.uiux-ux-img--card-2,
+.uiux-ux-img--card-3,
+.uiux-ux-img--card-4 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right bottom;
+  display: block;
 }
 
 /* Bottom Banner */
@@ -2142,8 +2265,15 @@
   }
 
   .uiux-philosophy-card {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    padding: 24px;
     gap: 24px;
+  }
+
+  .uiux-philosophy-img-box,
+  .uiux-philosophy-card-body {
+    width: 100%;
+    flex: 1 1 100%;
   }
 
   .uiux-philosophy-banner {
