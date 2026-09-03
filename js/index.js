@@ -1200,7 +1200,7 @@ const techConnectionsData = [
   if (faqsSec && !faqsSec.dataset.faqInitialized) {
     faqsSec.dataset.faqInitialized = 'true';
     const items = faqsSec.querySelectorAll('.faq-item-card');
-    const openPath = 'M8.0137 14.6135L14.6134 8.01388M8.0137 8.01388L14.6134 14.6135';
+    const openPath = 'M7 11.5H16';
     const closedPath = 'M11.5 7V16M7 11.5H16';
 
     items.forEach(card => {
