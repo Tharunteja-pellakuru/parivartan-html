@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile App Development Built Around How People Actually Use It | eParivartan</title>
+  <meta name="description" content="We design and develop mobile applications that blend intuitive user experiences with solid technology. Customer-facing, business, and enterprise mobile solutions built around your users." />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/ui-ux-design.css" />
+  <link rel="stylesheet" href="./css/web-development.css" />
+  <link rel="stylesheet" href="./css/mobile-app-development.css" />
+  
+  <!-- Google Fonts: Outfit, Inter, and Satoshi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Google reCAPTCHA API -->
+  <script async defer src="https://www.google.com/recaptcha/api.js"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/home/Parivartan-Leaf.png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPMHEDZJWJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-SPMHEDZJWJ');
+  </script>
+</head>
+<body class="mobile-app-page web-dev-page">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header-container">
+    <img src="./assets/home/Patch.png" alt="" class="header-patch" draggable="false" />
+    <div class="header-section header-left">
+      <a href="./index.html" class="header-logo-link">
+        <img src="./assets/home/Parivartan_Logo.png" alt="Parivartan Logo" class="header-logo" />
+      </a>
+    </div>
+
+    <div class="header-section header-middle">
+      <nav class="desktop-nav">
+        <div class="nav-item">
+          <a href="./index.html" class="nav-link">Home</a>
+        </div>
+        
+        <div class="nav-item has-dropdown active">
+          <a href="#" class="nav-link active">What We Build<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./ui-ux-design.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> UI/UX Design</a>
+            <a href="./web-development.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Web Development</a>
+            <a href="./custom-applications.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Custom Applications</a>
+            <a href="./mobile-app-development.html" class="dropdown-item active"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Mobile App Development</a>
+            <a href="./work-ecommerce.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> E-commerce Development</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Search & AI Visibility<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./seo-aeo-geo.html#seo" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> SEO</a>
+            <a href="./seo-aeo-geo.html#aeo" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> AEO</a>
+            <a href="./seo-aeo-geo.html#geo" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> GEO</a>
+            <a href="./seo-aeo-geo.html#ai-visibility" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> AI Search Visibility</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Our Work<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./work-websites.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Websites</a>
+            <a href="./work-webapps.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Custom Applications</a>
+            <a href="./app-development.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Mobile Apps</a>
+            <a href="./work-ecommerce.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> E-commerce</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">About Parivartan<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./story.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Our Story</a>
+            <a href="./clients.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Our Clients</a>
+            <a href="./life.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Life at Parivartan</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Insights<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./blogs.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Articles / Insights</a>
+            <a href="./founders-in-frame.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Founders in Frame</a>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <a href="#" class="nav-link">Recognition<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="./media.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Media Features</a>
+            <a href="./awards.html" class="dropdown-item"><img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" /> Parivartan Excellence Awards</a>
+          </div>
+        </div>
+      </nav>
+      <button class="menu-btn mobile-only" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="header-section header-right">
+      <a href="./contact.html" class="start-project-btn">
+        <span>Contact</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
+          <g clip-path="url(#clip0_947_85)">
+            <path d="M8 7C8.26522 7 8.51957 6.89464 8.70711 6.70711C8.89464 6.51957 9 6.26522 9 6C9 5.73478 8.89464 5.48043 8.70711 5.29289C8.51957 5.10536 8.26522 5 8 5C7.73478 5 7.48043 5.10536 7.29289 5.29289C7.10536 5.48043 7 5.73478 7 6C7 6.26522 7.10536 6.51957 7.29289 6.70711C7.48043 6.89464 7.73478 7 8 7ZM6 9C6.13132 9 6.26136 8.97413 6.38268 8.92388C6.50401 8.87362 6.61425 8.79997 6.70711 8.70711C6.79997 8.61425 6.87362 8.50401 6.92388 8.38268C6.97413 8.26136 7 8.13132 7 8C7 7.86868 6.97413 7.73864 6.92388 7.61732C6.87362 7.49599 6.79997 7.38575 6.70711 7.29289C6.61425 7.20003 6.50401 7.12638 6.38268 7.07612C6.26136 7.02587 6.13132 7 6 7C5.73478 7 5.48043 7.10536 5.29289 7.29289C5.10536 7.48043 5 7.73478 5 8C5 8.26522 5.10536 8.51957 5.29289 8.70711C5.48043 8.89464 5.73478 9 6 9ZM4 11C4.26522 11 4.51957 10.8946 4.70711 10.7071C4.89464 10.5196 5 10.2652 5 10C5 9.73478 4.89464 9.48043 4.70711 9.29289C4.51957 9.10536 4.26522 9 4 9C3.73478 9 3.48043 9.10536 3.29289 9.29289C3.10536 9.48043 3 9.73478 3 10C3 10.2652 3.10536 10.5196 3.29289 10.7071C3.48043 10.8946 3.73478 11 4 11ZM6 5C6.26522 5 6.51957 4.89464 6.70711 4.70711C6.89464 4.51957 7 4.26522 7 4C7 3.73478 6.89464 3.48043 6.70711 3.29289C6.51957 3.10536 6.26522 3 6 3C5.73478 3 5.48043 3.10536 5.29289 3.29289C5.10536 3.48043 5 3.73478 5 4C5 4.26522 5.10536 4.51957 5.29289 4.70711C5.48043 4.89464 5.73478 5 6 5ZM4 3C4.26522 3 4.51957 2.89464 4.70711 2.70711C4.89464 2.51957 5 2.26522 5 2C5 1.73478 4.89464 1.48043 4.70711 1.29289C4.51957 1.10536 4.26522 1 4 1C3.73478 1 3.48043 1.10536 3.29289 1.29289C3.10536 1.48043 3 1.73478 3 2C3 2.26522 3.10536 2.51957 3.29289 2.70711C3.48043 2.89464 3.73478 3 4 3Z" fill="white"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_947_85">
+              <rect width="12" height="12" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile navigation overlay backdrop -->
+  <div class="menu-backdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer -->
+  <nav class="mobile-drawer">
+    <div class="drawer-menu-list">
+      <!-- Home -->
+      <a href="./index.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Home</span>
+          <span class="drawer-menu-desc">Return to homepage</span>
+        </span>
+      </a>
+
+      <!-- What We Build Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn active" aria-expanded="false">
+          <span class="drawer-menu-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">What We Build</span>
+            <span class="drawer-menu-desc">Services &amp; Solutions</span>
+          </span>
+          <span class="drawer-menu-chevron">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./ui-ux-design.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">UI/UX Design</span>
+          </a>
+          <a href="./web-development.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Web Development</span>
+          </a>
+          <a href="./custom-applications.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Custom Applications</span>
+          </a>
+          <a href="./mobile-app-development.html" class="drawer-submenu-item active">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Mobile App Development</span>
+          </a>
+          <a href="./work-ecommerce.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">E-commerce Development</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Search & AI Visibility Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
+          <span class="drawer-menu-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">Search &amp; AI Visibility</span>
+            <span class="drawer-menu-desc">SEO, AEO, GEO &amp; AI Search</span>
+          </span>
+          <span class="drawer-menu-chevron">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./seo-aeo-geo.html#seo" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">SEO</span>
+          </a>
+          <a href="./seo-aeo-geo.html#aeo" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">AEO</span>
+          </a>
+          <a href="./seo-aeo-geo.html#geo" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">GEO</span>
+          </a>
+          <a href="./seo-aeo-geo.html#ai-visibility" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">AI Search Visibility</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Inside Parivartan Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
+          <span class="drawer-menu-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+              <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">Inside Parivartan</span>
+            <span class="drawer-menu-desc">About our team &amp; clients</span>
+          </span>
+          <span class="drawer-menu-chevron">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./story.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Our Story</span>
+          </a>
+          <a href="./clients.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Our Clients</span>
+          </a>
+          <a href="./founders-in-frame.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Founders in Frame</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- In The Spotlight Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
+          <span class="drawer-menu-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="12 8 8 16 16 16 12 8" />
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">In The Spotlight</span>
+            <span class="drawer-menu-desc">Media &amp; awards</span>
+          </span>
+          <span class="drawer-menu-chevron">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./media.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Media Features</span>
+          </a>
+          <a href="./awards.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Parivartan Excellence Awards</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Our Work Submenu -->
+      <div class="drawer-menu-item-group">
+        <button type="button" class="drawer-menu-item dropdown-toggle-btn" aria-expanded="false">
+          <span class="drawer-menu-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7" />
+              <rect x="3.5" y="7" width="17" height="12" rx="2.2" />
+              <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6" />
+            </svg>
+          </span>
+          <span class="drawer-menu-text">
+            <span class="drawer-menu-title">Our Work</span>
+            <span class="drawer-menu-desc">Explore our selected projects</span>
+          </span>
+          <span class="drawer-menu-chevron">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-chevron">
+              <path d="M1 1.5l5 5 5-5" stroke="#75BF46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="drawer-submenu-list">
+          <a href="./work-websites.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Websites</span>
+          </a>
+          <a href="./work-webapps.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Web Apps</span>
+          </a>
+          <a href="./app-development.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Mobile Apps</span>
+          </a>
+          <a href="./work-ecommerce.html" class="drawer-submenu-item">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="" class="submenu-leaf" />
+            <span class="submenu-label">Ecommerce</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Life at Parivartan -->
+      <a href="./life.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Life at Parivartan</span>
+          <span class="drawer-menu-desc">Our culture, perks &amp; people</span>
+        </span>
+      </a>
+
+      <!-- Insights -->
+      <a href="./blogs.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Insights</span>
+          <span class="drawer-menu-desc">Read our latest insights</span>
+        </span>
+      </a>
+
+      <!-- Contact -->
+      <a href="./contact.html" class="drawer-menu-item">
+        <span class="drawer-menu-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3.5h2.7l1.3 3.8-1.9 1.6c.9 2.1 2.5 3.7 4.6 4.6l1.6-1.9 3.8 1.3V16c0 1.66-1.34 3-3 3C9.4 19 5 14.6 5 9c0-1.66 1.34-3 3-3H6z" />
+          </svg>
+        </span>
+        <span class="drawer-menu-text">
+          <span class="drawer-menu-title">Contact</span>
+          <span class="drawer-menu-desc">Let's connect &amp; build together</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Drawer CTA Panel -->
+    <div class="drawer-cta-panel">
+      <span class="drawer-cta-dot drawer-cta-dot-1"></span>
+      <span class="drawer-cta-dot drawer-cta-dot-2"></span>
+      <span class="drawer-cta-circle"></span>
+      <div class="drawer-cta-content">
+        <h3 class="drawer-cta-heading">
+          Let's build<br />
+          <span class="highlight">meaningful</span> impact
+        </h3>
+        <span class="drawer-cta-divider"></span>
+        <p class="drawer-cta-text">
+          We partner with forward-thinking brands to create digital experiences that drive growth.
+        </p>
+        <a href="./contact.html" class="drawer-cta-btn">
+          <span>Contact</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 11L11 3M11 3H4.5M11 3v6.5" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+      <img src="./assets/home/Parivartan-Leaf.png" alt="" class="drawer-cta-leaf" draggable="false" />
+    </div>
+  </nav>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+    
+    <!-- ==================== 1. HERO SECTION ==================== -->
+    <section class="uiux-hero-section">
+      <div class="uiux-hero-container">
+        
+        <!-- Tagline / Eyebrow -->
+        <div class="uiux-hero-eyebrow">
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+            <circle cx="2" cy="2" r="1.2" fill="#69686E" />
+            <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+            <circle cx="8" cy="7" r="1.2" fill="#69686E" />
+            <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+            <circle cx="2" cy="12" r="1.2" fill="#69686E" />
+          </svg>
+          <span>MOBILE APP DEVELOPMENT PARTNER</span>
+          <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
+            <circle cx="8" cy="2" r="1.2" fill="#69686E" />
+            <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
+            <circle cx="2" cy="7" r="1.2" fill="#69686E" />
+            <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
+            <circle cx="8" cy="12" r="1.2" fill="#69686E" />
+          </svg>
+        </div>
+
+        <!-- Hero Title -->
+        <h1 class="uiux-hero-title">
+          Mobile App Development Built<br />
+          Around How People<br />
+          Actually Use It
+        </h1>
+
+        <!-- Hero Subtitle -->
+        <p class="uiux-hero-subtitle">
+          We design and develop mobile applications that blend intuitive user experiences with solid technology. Whether they are customer-facing, business or enterprise applications, we build mobile solutions around your users, functionality and business requirements.
+        </p>
+
+        <!-- Hero Pills -->
+        <div class="uiux-hero-pills">
+          <span class="uiux-pill">iOS (Swift &amp; SwiftUI)</span>
+          <span class="uiux-pill">Android (Kotlin &amp; Jetpack)</span>
+          <span class="uiux-pill">Flutter &amp; React Native</span>
+          <span class="uiux-pill">Offline-First Caching</span>
+          <span class="uiux-pill">App Store Optimization</span>
+        </div>
+
+        <!-- Hero Action Buttons -->
+        <div class="uiux-hero-actions">
+          <a href="./contact.html" class="start-project-btn">
+            <span>Discuss Your Mobile App</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
+              <path d="M8 7C8.26522 7 8.51957 6.89464 8.70711 6.70711C8.89464 6.51957 9 6.26522 9 6C9 5.73478 8.89464 5.48043 8.70711 5.29289C8.51957 5.10536 8.26522 5 8 5C7.73478 5 7.48043 5.10536 7.29289 5.29289C7.10536 5.48043 7 5.73478 7 6C7 6.26522 7.10536 6.51957 7.29289 6.70711C7.48043 6.89464 7.73478 7 8 7ZM6 9C6.13132 9 6.26136 8.97413 6.38268 8.92388C6.50401 8.87362 6.61425 8.79997 6.70711 8.70711C6.79997 8.61425 6.87362 8.50401 6.92388 8.38268C6.97413 8.26136 7 8.13132 7 8C7 7.86868 6.97413 7.73864 6.92388 7.61732C6.87362 7.49599 6.79997 7.38575 6.70711 7.29289C6.61425 7.20003 6.50401 7.12638 6.38268 7.07612C6.26136 7.02587 6.13132 7 6 7C5.73478 7 5.48043 7.10536 5.29289 7.29289C5.10536 7.48043 5 7.73478 5 8C5 8.26522 5.10536 8.51957 5.29289 8.70711C5.48043 8.89464 5.73478 9 6 9ZM4 11C4.26522 11 4.51957 10.8946 4.70711 10.7071C4.89464 10.5196 5 10.2652 5 10C5 9.73478 4.89464 9.48043 4.70711 9.29289C4.51957 9.10536 4.26522 9 4 9C3.73478 9 3.48043 9.10536 3.29289 9.29289C3.10536 9.48043 3 9.73478 3 10C3 10.2652 3.10536 10.5196 3.29289 10.7071C3.48043 10.8946 3.73478 11 4 11ZM6 5C6.26522 5 6.51957 4.89464 6.70711 4.70711C6.89464 4.51957 7 4.26522 7 4C7 3.73478 6.89464 3.48043 6.70711 3.29289C6.51957 3.10536 6.26522 3 6 3C5.73478 3 5.48043 3.10536 5.29289 3.29289C5.10536 3.48043 5 3.73478 5 4C5 4.26522 5.10536 4.51957 5.29289 4.70711C5.48043 4.89464 5.73478 5 6 5ZM4 3C4.26522 3 4.51957 2.89464 4.70711 2.70711C4.89464 2.51957 5 2.26522 5 2C5 1.73478 4.89464 1.48043 4.70711 1.29289C4.51957 1.10536 4.26522 1 4 1C3.73478 1 3.48043 1.10536 3.29289 1.29289C3.10536 1.48043 3 1.73478 3 2C3 2.26522 3.10536 2.51957 3.29289 2.70711C3.48043 2.89464 3.73478 3 4 3Z" fill="white"/>
+            </svg>
+          </a>
+          <a href="#what-we-build" class="hero-btn hero-btn-black">
+            <span>View Our Work</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
+              <path d="M8 7C8.26522 7 8.51957 6.89464 8.70711 6.70711C8.89464 6.51957 9 6.26522 9 6C9 5.73478 8.89464 5.48043 8.70711 5.29289C8.51957 5.10536 8.26522 5 8 5C7.73478 5 7.48043 5.10536 7.29289 5.29289C7.10536 5.48043 7 5.73478 7 6C7 6.26522 7.10536 6.51957 7.29289 6.70711C7.48043 6.89464 7.73478 7 8 7ZM6 9C6.13132 9 6.26136 8.97413 6.38268 8.92388C6.50401 8.87362 6.61425 8.79997 6.70711 8.70711C6.79997 8.61425 6.87362 8.50401 6.92388 8.38268C6.97413 8.26136 7 8.13132 7 8C7 7.86868 6.97413 7.73864 6.92388 7.61732C6.87362 7.49599 6.79997 7.38575 6.70711 7.29289C6.61425 7.20003 6.50401 7.12638 6.38268 7.07612C6.26136 7.02587 6.13132 7 6 7C5.73478 7 5.48043 7.10536 5.29289 7.29289C5.10536 7.48043 5 7.73478 5 8C5 8.26522 5.10536 8.51957 5.29289 8.70711C5.48043 8.89464 5.73478 9 6 9ZM4 11C4.26522 11 4.51957 10.8946 4.70711 10.7071C4.89464 10.5196 5 10.2652 5 10C5 9.73478 4.89464 9.48043 4.70711 9.29289C4.51957 9.10536 4.26522 9 4 9C3.73478 9 3.48043 9.10536 3.29289 9.29289C3.10536 9.48043 3 9.73478 3 10C3 10.2652 3.10536 10.5196 3.29289 10.7071C3.48043 10.8946 3.73478 11 4 11ZM6 5C6.26522 5 6.51957 4.89464 6.70711 4.70711C6.89464 4.51957 7 4.26522 7 4C7 3.73478 6.89464 3.48043 6.70711 3.29289C6.51957 3.10536 6.26522 3 6 3C5.73478 3 5.48043 3.10536 5.29289 3.29289C5.10536 3.48043 5 3.73478 5 4C5 4.26522 5.10536 4.51957 5.29289 4.70711C5.48043 4.89464 5.73478 5 6 5ZM4 3C4.26522 3 4.51957 2.89464 4.70711 2.70711C4.89464 2.51957 5 2.26522 5 2C5 1.73478 4.89464 1.48043 4.70711 1.29289C4.51957 1.10536 4.26522 1 4 1C3.73478 1 3.48043 1.10536 3.29289 1.29289C3.10536 1.48043 3 1.73478 3 2C3 2.26522 3.10536 2.51957 3.29289 2.70711C3.48043 2.89464 3.73478 3 4 3Z" fill="white"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Hero Showcase Frame Section -->
+        <div class="mobile-hero-showcase" id="mobileShowcase">
+          <!-- Phone mockups: Center phone is always visible; Left and Right slide out on hover -->
+          <div class="mobile-hero-phones">
+            <div class="mobile-hero-phone phone-left">
+              <img src="./assets/work/mobileapps/screens/Hemanth-Entp/HemanthEntp-image-3.png" alt="Hemanth Enterprises App" draggable="false" />
+            </div>
+            <div class="mobile-hero-phone phone-center">
+              <img src="./assets/work/mobileapps/screens/Rental/Rental-app-image-1.png" alt="Rental App" draggable="false" />
+            </div>
+            <div class="mobile-hero-phone phone-right">
+              <img src="./assets/work/mobileapps/screens/Clapkartel/Clapkartel-image-1.png" alt="Clap Kartel App" draggable="false" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 2. WHAT WE BUILD (EXPERTISE GRID) ==================== -->
+    <section class="uiux-section uiux-section--expertise" id="what-we-build">
+      <div class="uiux-container">
+        
+        <!-- Standard Header -->
+        <div class="services-header">
+          <div class="services-header-left">
+            <span class="services-tagline">WHAT WE BUILD</span>
+            <h2 class="services-main-heading">
+              End-to-End Mobile Solutions Tailored to Your Business Goals
+            </h2>
+          </div>
+          <div class="services-header-right">
+            <h3 class="services-header-subhead">
+              Tailored mobility solutions from MVP stage to enterprise scale.
+            </h3>
+            <p class="services-header-desc">
+              Whether building a consumer product, an internal enterprise field tool, or an on-demand marketplace, our engineering team ensures lightning-fast 60/120fps fluid interaction, rock-solid security, and seamless offline connectivity.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4-Card Expertise Grid -->
+        <div class="expertise-grid">
+          
+          <!-- Card 1: iOS -->
+          <div class="expertise-card">
+            <div class="expertise-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"></path>
+                <path d="M10 2c1 .5 2 2 2 5"></path>
+              </svg>
+            </div>
+            <h3 class="expertise-card-title">Native iOS App Development</h3>
+            <p class="expertise-card-desc">
+              Precision-crafted iOS applications built with Swift and SwiftUI. We leverage Apple's native frameworks (CoreML, HealthKit, ARKit, Apple Pay, WidgetKit) for optimal battery efficiency, fluid 120Hz ProMotion interaction, and pristine App Store adherence.
+            </p>
+            <ul class="expertise-card-tags">
+              <li>Swift</li>
+              <li>SwiftUI</li>
+              <li>CoreData</li>
+              <li>Apple Pay</li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Android -->
+          <div class="expertise-card">
+            <div class="expertise-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="expertise-card-title">Native Android App Development</h3>
+            <p class="expertise-card-desc">
+              Engineered with Kotlin and Jetpack Compose, ensuring responsive performance across thousands of diverse Android device models, tablets, and form factors. Full compliance with Google Material 3 guidelines and Android Enterprise security standards.
+            </p>
+            <ul class="expertise-card-tags">
+              <li>Kotlin</li>
+              <li>Jetpack Compose</li>
+              <li>Room DB</li>
+              <li>Google Pay</li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Cross-Platform -->
+          <div class="expertise-card">
+            <div class="expertise-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="expertise-card-title">Cross-Platform (Flutter &amp; React Native)</h3>
+            <p class="expertise-card-desc">
+              Accelerate time-to-market and optimize development budgets with unified single-codebase cross-platform development. We build cross-platform apps that achieve near-native compilation speeds, seamless hardware access, and uniform UI across both platforms.
+            </p>
+            <ul class="expertise-card-tags">
+              <li>Flutter</li>
+              <li>React Native</li>
+              <li>Dart</li>
+              <li>TypeScript</li>
+            </ul>
+          </div>
+
+          <!-- Card 4: Enterprise & On-Demand -->
+          <div class="expertise-card">
+            <div class="expertise-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="expertise-card-title">Enterprise Mobility &amp; IoT Solutions</h3>
+            <p class="expertise-card-desc">
+              Field mobility, workforce management, and IoT device companion apps engineered for harsh conditions and spotty connectivity. Featuring offline data synchronization, MDM policy compliance, role-based biometrics, and secure ERP/CRM backend sync.
+            </p>
+            <ul class="expertise-card-tags">
+              <li>Offline Sync</li>
+              <li>MDM Ready</li>
+              <li>Bluetooth/IoT</li>
+              <li>Biometrics</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 3. TECH (TECH STACK & ECOSYSTEM) ==================== -->
+    <section class="uiux-section stack-section" id="tech">
+      <div class="uiux-container">
+        
+        <!-- Standard Header -->
+        <div class="services-header">
+          <div class="services-header-left">
+            <span class="services-tagline">MOBILE TECH ECOSYSTEM</span>
+            <h2 class="services-main-heading">
+              Modern Mobile Technologies &amp; Scalable Cloud Infrastructure
+            </h2>
+          </div>
+          <div class="services-header-right">
+            <h3 class="services-header-subhead">
+              Engineered with proven languages, reactive architectures, and enterprise cloud services.
+            </h3>
+            <p class="services-header-desc">
+              We select our mobile technology stack based on memory efficiency, rendering performance, offline reliability, and long-term maintainability. Our apps scale seamlessly to millions of daily active users.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tech Ecosystem Canvas & Cards Grid -->
+        <div class="stack-ecosystem-wrapper">
+          <div class="stack-ecosystem-visual">
+            <canvas id="tech-ecosystem" style="width: 100%; height: 380px; display: block; border-radius: 20px; background: #FAFDF8; border: 1px solid rgba(117,191,70,0.15);"></canvas>
+          </div>
+
+          <!-- Continuous Marquee Pills -->
+          <div class="stack-marquee-wrap" style="margin-top: 30px;">
+            <div class="stack-marquee-track">
+              <span class="stack-pill">Swift</span>
+              <span class="stack-pill">SwiftUI</span>
+              <span class="stack-pill">Kotlin</span>
+              <span class="stack-pill">Jetpack Compose</span>
+              <span class="stack-pill">Flutter</span>
+              <span class="stack-pill">React Native</span>
+              <span class="stack-pill">Firebase</span>
+              <span class="stack-pill">GraphQL</span>
+              <span class="stack-pill">REST APIs</span>
+              <span class="stack-pill">SQLite / Realm</span>
+              <span class="stack-pill">AWS Amplify</span>
+              <span class="stack-pill">Fastlane CI/CD</span>
+              <span class="stack-pill">App Store Connect</span>
+              <span class="stack-pill">Google Play Console</span>
+              <!-- Duplicate for infinite marquee loop -->
+              <span class="stack-pill">Swift</span>
+              <span class="stack-pill">SwiftUI</span>
+              <span class="stack-pill">Kotlin</span>
+              <span class="stack-pill">Jetpack Compose</span>
+              <span class="stack-pill">Flutter</span>
+              <span class="stack-pill">React Native</span>
+              <span class="stack-pill">Firebase</span>
+              <span class="stack-pill">GraphQL</span>
+            </div>
+          </div>
+
+          <!-- Bottom Tech Action -->
+          <div class="stack-cta-row" style="margin-top: 36px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="./contact.html" class="web-dev-btn-primary">
+              <span>Discuss Your Mobile Architecture</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#how-it-works" class="web-dev-btn-secondary">
+              <span>Explore Development Lifecycle</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 4. HOW IT WORKS (DEVELOPMENT PROCESS) ==================== -->
+    <section class="uiux-section" id="how-it-works" style="background-color: #FAFAFA;">
+      <div class="uiux-container">
+        
+        <!-- Standard Header -->
+        <div class="services-header">
+          <div class="services-header-left">
+            <span class="services-tagline">HOW WE WORK</span>
+            <h2 class="services-main-heading">
+              A Proven Lifecycle from Concept to App Store Launch
+            </h2>
+          </div>
+          <div class="services-header-right">
+            <h3 class="services-header-subhead">
+              Transparent, milestone-driven execution ensuring App Store approval and high user ratings.
+            </h3>
+            <p class="services-header-desc">
+              Building a world-class mobile app requires rigorous engineering, iterative test builds, and deep platform compliance. Our 8-stage methodology eliminates surprises and accelerates release.
+            </p>
+          </div>
+        </div>
+
+        <!-- 8-Step Timeline Process Card -->
+        <div class="dev-process-card" style="box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset; background: #FCFCFC; border-radius: 30px; padding: clamp(24px, 4vw, 44px);">
+          <div class="dev-process-timeline">
+            
+            <!-- Step 1 -->
+            <div class="process-step-item">
+              <div class="process-step-num">01</div>
+              <div class="process-step-content">
+                <h4 class="process-step-title">Discovery &amp; Strategy</h4>
+                <p class="process-step-desc">Target audience definition, feature scoping, monetization strategy, and platform recommendation (Native vs. Cross-Platform).</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step-item">
+              <div class="process-step-num">02</div>
+              <div class="process-step-content">
+                <h4 class="process-step-title">Mobile UX &amp; Wireframing</h4>
+                <p class="process-step-desc">User journeys, gesture patterns, navigation flows, and interactive low-fidelity prototypes designed for thumb reach and ergonomics.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step-item">
+              <div class="process-step-num">03</div>
+              <div class="process-step-content">
+                <h4 class="process-step-title">UI Design &amp; Prototypes</h4>
+                <p class="process-step-desc">High-fidelity UI mockups complying with Apple Human Interface Guidelines and Google Material 3 design systems with dark mode support.</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step-item">
+              <div class="process-step-num">04</div>
+              <div class="process-step-content">
+                <h4 class="process-step-title">Agile Frontend Development</h4>
+                <p class="process-step-desc">Sprint-based modular coding using Swift, Kotlin, or Flutter with continuous integration builds delivered weekly via TestFlight and Play Console.</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-step-item">
+              <div class="process-step-num">05</div>
+              <div class="process-step-content">
+                <h4 class="process-step-title">Backend &amp; API Integration</h4>
+                <p class="process-step-desc">Connecting authentication services, payment processors, push notification relays, third-party APIs, and offline data synchronization.</p>
+              </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="process-step-item">
+              <div class="process-step-num">06</div>
+              <div class="process-step-content">
+                <h4 class="process-step-title">Device &amp; QA Testing</h4>
+                <p class="process-step-desc">Exhaustive testing across real iOS and Android devices checking battery drain, memory leaks, slow network states, and automated regressions.</p>
+              </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="process-step-item">
+              <div class="process-step-num">07</div>
+              <div class="process-step-content">
+                <h4 class="process-step-title">App Store &amp; Play Store Deployment</h4>
+                <p class="process-step-desc">App Store Optimization (ASO), metadata preparation, privacy disclosures, and end-to-end guidance through Apple and Google review approvals.</p>
+              </div>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="process-step-item">
+              <div class="process-step-num">08</div>
+              <div class="process-step-content">
+                <h4 class="process-step-title">Monitoring &amp; OS Updates</h4>
+                <p class="process-step-desc">Post-launch crash monitoring, performance analytics, user rating tracking, and timely annual updates for major new iOS and Android versions.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Banner Card Below Process -->
+        <div class="dev-process-banner" style="margin-top: 24px; padding: 28px 36px; background: #FCFCFC; border-radius: 24px; box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <h4 style="font-size: 18px; font-weight: 700; color: #111827; margin: 0 0 6px 0;">Need Long-Term App Support, OS Upgrades &amp; Feature Iteration?</h4>
+            <p style="font-size: 14px; color: #4B5563; margin: 0;">We provide proactive maintenance SLAs, security patch updates, and continuous feature sprints.</p>
+          </div>
+          <a href="./contact.html" class="web-dev-btn-primary" style="white-space: nowrap;">
+            <span>Get App Support Plan</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. FAQ SECTION ==================== -->
+    <section class="faqs-section" id="faqs">
+      <div class="faqs-container uiux-container">
+        
+        <!-- Standard Header -->
+        <div class="services-header">
+          <div class="services-header-left">
+            <span class="services-tagline">FREQUENTLY ASKED QUESTIONS</span>
+            <h2 class="services-main-heading">
+              Answers to Common Questions on Mobile App Development
+            </h2>
+          </div>
+          <div class="services-header-right">
+            <h3 class="services-header-subhead">
+              Everything you need to know about platforms, approvals, and budgets.
+            </h3>
+            <p class="services-header-desc">
+              Have specific questions about native versus cross-platform apps, App Store guidelines, or development timelines? Find straightforward answers below or reach out directly to our team.
+            </p>
+          </div>
+        </div>
+
+        <!-- Accordion Cards -->
+        <div class="faqs-content">
+          <div class="faqs-single-column">
+            
+            <!-- 1. Open by default -->
+            <div class="faq-item-card is-open">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">Which is better for my project: Native (iOS &amp; Android) or Cross-Platform (Flutter &amp; React Native)?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#75BF46" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">Both approaches have distinct strengths depending on your product goals.<br /><br /><strong>Native (Swift &amp; Kotlin)</strong> is ideal for apps requiring heavy hardware acceleration, AR/VR, complex background tasks, or bleeding-edge OS APIs.<br /><br /><strong>Cross-Platform (Flutter or React Native)</strong> allows you to build a single unified codebase that runs seamlessly across both iOS and Android, reducing time-to-market and development costs by up to 40% while delivering near-native performance for 95% of business applications.</p>
+              </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">How long does it take to develop and launch a mobile application?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">Development timelines depend on feature complexity and scope:<br /><br />• <strong>MVP / Fast-Track Application:</strong> 8 to 12 weeks.<br />• <strong>Medium-Scale Business Application:</strong> 3 to 5 months.<br />• <strong>Complex Enterprise / Real-time Ecosystem:</strong> 6+ months with continuous milestone iterations.<br /><br />We provide transparent milestone schedules and weekly demo builds throughout the engineering cycle.</p>
+              </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">Do you handle the App Store and Google Play Store submission and approval process?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">Yes, completely. We manage the entire store deployment process, including Developer Account configuration, code signing, SSL certificate management, privacy policy compliance, App Store Review Guidelines adherence, screenshot generation, and App Store Optimization (ASO).</p>
+              </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">Can you integrate our existing web platform, database, or ERP into the mobile app?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">Yes. We regularly connect mobile frontends to existing web applications, databases (PostgreSQL, MySQL, MongoDB), ERPs (SAP, Oracle, NetSuite), CRMs (Salesforce, HubSpot), payment gateways, and proprietary internal systems via RESTful APIs and GraphQL.</p>
+              </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">How do you ensure data security and user privacy in mobile applications?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">We build apps following zero-trust principles. We implement end-to-end data encryption (AES-256), SSL/TLS pinning, secure storage (iOS Keychain and Android Keystore), biometric authentication (Face ID &amp; Fingerprint), and full compliance with GDPR, HIPAA, and industry-specific privacy mandates.</p>
+              </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">Can the mobile app work offline without an active internet connection?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">Yes. We architect offline-first mobile applications using local embedded databases (SQLite, Realm, or WatermelonDB). Users can browse content, draft forms, or perform tasks without internet, and the application seamlessly synchronizes all cached modifications once network connection is restored.</p>
+              </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">What happens when Apple or Google release new iOS and Android OS updates?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">Our continuous maintenance contracts ensure that as Apple and Google unveil new annual operating system versions (such as iOS 18/19 and Android 15/16), we test and update your codebase against developer betas, ensuring zero day compatibility, avoiding deprecation issues, and taking advantage of new OS capabilities.</p>
+              </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">Can you redesign or take over an existing mobile app developed by another agency?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">Yes. We perform a structured technical and UI/UX audit of legacy mobile applications. We can refactor and stabilize existing codebases, modernize outdated UI, eliminate performance bottlenecks, or perform an incremental migration to modern frameworks.</p>
+              </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">How do you test the app across different smartphones, screen sizes, and OS versions?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">We test apps using both an in-house lab of physical smartphones/tablets and cloud-based automated device farms (BrowserStack / Firebase Test Lab). We test across multiple screen densities, aspect ratios, OS versions, and unstable network conditions to ensure consistent performance.</p>
+              </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">Do you assist with in-app payments, subscriptions, and wallet integrations?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">Yes. We implement Apple In-App Purchases (StoreKit 2), Google Play Billing, Stripe, Razorpay, Apple Pay, and Google Pay, complete with server-side receipt validation, auto-renewing subscription logic, and entitlement management (e.g. RevenueCat).</p>
+              </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">How do push notifications and user engagement tracking work?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">We integrate push notification services (Apple APNs, Firebase Cloud Messaging, OneSignal) supporting rich media notifications, deep linking directly to specific app screens, automated segmented campaigns, and behavioral analytics (Mixpanel, Google Analytics for Firebase).</p>
+              </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="faq-item-card">
+              <div class="faq-question-row">
+                <h3 class="faq-question-text">Who owns the source code and intellectual property once the app is developed?</h3>
+                <button class="faq-toggle-btn" aria-label="Toggle Answer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 23 23" fill="none">
+                    <circle cx="11.5" cy="11.5" r="11.5" fill="#111827" class="faq-circle-fill"/>
+                    <path class="faq-icon-path" d="M11.5 7V16M7 11.5H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="faq-answer-row">
+                <p class="faq-answer-text">You own 100% of the intellectual property and code. Upon project completion and milestone settlement, all Git repositories, design files (Figma), database schemas, and App Store developer credentials are fully transferred to your team.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 6. CTA SECTION ==================== -->
+    <section class="uiux-section cta-section">
+      <div class="uiux-container">
+        <div class="cta-gradient-card">
+          <div class="cta-badge">
+            <img src="./assets/home/Parivartan-Leaf.png" alt="Leaf" class="cta-badge-leaf" />
+            <span>TRANSFORM YOUR MOBILE PRESENCE</span>
+          </div>
+
+          <h2 class="cta-card-heading">
+            Ready to Build a High-Impact Mobile Application?
+          </h2>
+
+          <p class="cta-card-desc">
+            From initial product strategy to App Store launch and continuous scaling, our team is ready to engineer a mobile experience that your users will love.
+          </p>
+
+          <div class="cta-card-actions">
+            <a href="./contact.html" class="cta-btn-primary">
+              <span>Book a Free App Consultation</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="./work-websites.html" class="cta-btn-secondary">
+              <span>Explore Our Work</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 7. FOOTER (SAME AS HOME PAGE INDEX.HTML) ==================== -->
+  <footer class="footer">
+    <div class="footer-card">
+      <div class="footer-top">
+        
+        <!-- Column 1: Brand -->
+        <div class="footer-col footer-brand">
+          <img src="./assets/home/Parivartan_Logo.png" alt="Parivartan" class="footer-logo" />
+          <p class="footer-desc">
+            Parivartan is a technology company that designs and develops websites, applications, and web platforms for businesses, institutions, and government organisations.
+          </p>
+          
+          <div class="footer-social">
+            <a href="https://www.facebook.com/eparivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/eparivartan/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/parivartan-software-&-multimedia-pvt-ltd-/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@eParivartan" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.582 6.186a2.704 2.704 0 0 0-1.904-1.916C17.994 3.8 12 3.8 12 3.8s-5.994 0-7.678.47A2.704 2.704 0 0 0 2.418 6.186 28.528 28.528 0 0 0 1.95 12c.003 1.944.16 3.88.468 5.814a2.704 2.704 0 0 0 1.904 1.916C6.006 20.2 12 20.2 12 20.2s5.994 0 7.678-.47a2.704 2.704 0 0 0 1.904-1.916 28.528 28.528 0 0 0 .468-5.814 28.528 28.528 0 0 0-.468-5.814ZM9.75 15.52V8.48L15.9 12l-6.15 3.52Z" fill="white"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col footer-nav-col">
+          <h4 class="footer-heading">
+            Quick Links
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-service-list">
+            <!-- 1. Home -->
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4H9v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+                </svg>
+              </div>
+              <a href="./index.html">Home</a>
+            </li>
+
+            <!-- 2. What We Build -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                      <polyline points="2 17 12 22 22 17"/>
+                      <polyline points="2 12 12 17 22 12"/>
+                    </svg>
+                  </div>
+                  <span>What We Build</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./ui-ux-design.html">UI/UX Design</a></li>
+                <li><a href="./web-development.html">Web Development</a></li>
+                <li><a href="./custom-applications.html">Custom Applications</a></li>
+                <li><a href="./mobile-app-development.html">Mobile App Development</a></li>
+                <li><a href="./work-ecommerce.html">E-commerce Development</a></li>
+              </ul>
+            </li>
+
+            <!-- 3. Search & AI Visibility -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"/>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                  </div>
+                  <span>Search &amp; AI Visibility</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./seo-aeo-geo.html#seo">SEO</a></li>
+                <li><a href="./seo-aeo-geo.html#aeo">AEO</a></li>
+                <li><a href="./seo-aeo-geo.html#geo">GEO</a></li>
+                <li><a href="./seo-aeo-geo.html#ai-visibility">AI Search Visibility</a></li>
+              </ul>
+            </li>
+
+            <!-- 4. Our Work -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h3c.83 0 1.5.67 1.5 1.5V7"/>
+                      <rect x="3.5" y="7" width="17" height="12" rx="2.2"/>
+                      <path d="M3.5 12.5h17M10.5 12.5v1.6h3v-1.6"/>
+                    </svg>
+                  </div>
+                  <span>Our Work</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./work-websites.html">Websites</a></li>
+                <li><a href="./work-webapps.html">Custom Applications</a></li>
+                <li><a href="./mobile-app-development.html">Mobile Apps</a></li>
+                <li><a href="./work-ecommerce.html">E-commerce</a></li>
+              </ul>
+            </li>
+
+            <!-- 5. About Parivartan -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 20.5s-7.2-4.4-9.6-8.9C.9 8.3 2.6 4.9 5.9 4.4c2-.3 4 .6 5 2.2 1-1.6 3-2.5 5-2.2 3.3.5 5 3.9 3.5 7.2-2.4 4.5-9.6 8.9-9.6 8.9Z"/>
+                    </svg>
+                  </div>
+                  <span>About Parivartan</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./story.html">Our Story</a></li>
+                <li><a href="./clients.html">Our Clients</a></li>
+                <li><a href="./life.html">Life at Parivartan</a></li>
+              </ul>
+            </li>
+
+            <!-- 6. Insights -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                  </div>
+                  <span>Insights</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./blogs.html">Articles / Insights</a></li>
+                <li><a href="./founders-in-frame.html">Founders in Frame</a></li>
+              </ul>
+            </li>
+
+            <!-- 7. Recognition -->
+            <li class="footer-service-item footer-group">
+              <div class="footer-group-header">
+                <div class="footer-group-title-wrapper">
+                  <div class="service-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="8" r="7"/>
+                      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                    </svg>
+                  </div>
+                  <span>Recognition</span>
+                </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#75BF46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="footer-chevron">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+              <ul class="footer-sublist">
+                <li><a href="./media.html">Media Features</a></li>
+                <li><a href="./awards.html">Parivartan Excellence Awards</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-col footer-services-col">
+          <h4 class="footer-heading">
+            Services
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-service-list">
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <a href="./ui-ux-design.html">UI/UX Design</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                  <line x1="14" y1="4" x2="10" y2="20"/>
+                </svg>
+              </div>
+              <a href="./web-development.html">Web Development</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                  <line x1="12" y1="18" x2="12.01" y2="18"/>
+                </svg>
+              </div>
+              <a href="./mobile-app-development.html">Mobile App Development</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <a href="./custom-applications.html">Custom Applications</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
+              <a href="./seo-aeo-geo.html#aeo">AEO Services</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <a href="./seo-aeo-geo.html#geo">GEO Services</a>
+            </li>
+            <li class="footer-service-item">
+              <div class="service-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6" y1="20" x2="6" y2="14"/>
+                  <path d="M4 8l4-4 4 4 6-6"/>
+                </svg>
+              </div>
+              <a href="./seo-aeo-geo.html#seo">SEO Services</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Get In Touch -->
+        <div class="footer-col footer-contact-col">
+          <h4 class="footer-heading">
+            Get In Touch
+            <span class="footer-heading-bar"></span>
+          </h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <a href="tel:+919849165443" class="contact-text">+91 98491 65443</a>
+            </li>
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <a href="mailto:feedback@eparivartan.com" class="contact-text">feedback@eparivartan.com</a>
+            </li>
+            <li class="footer-contact-item">
+              <div class="contact-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <span class="contact-text">Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033 Telangana State</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <a href="https://careers.eparivartan.com/" target="_blank" rel="noopener noreferrer" class="footer-join-btn life-footer-parivar-link">
+            <span>Join the Parivar</span>
+            <img src="./assets/home/Parivartan-Leaf.png" alt="Leaf" class="life-title-leaf" />
+          </a>
+        </div>
+
+        <div class="footer-bottom-right">
+          <span class="footer-copyright">© 2026 Parivartan. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./js/index.js"></script>
+  <script src="./js/mobile-app-development.js"></script>
+</body>
+</html>

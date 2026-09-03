@@ -1,0 +1,58 @@
+/**
+ * Custom Applications Page Styles - eParivartan
+ * Fully synchronized with web-development.css, ui-ux-design.css & index.css
+ */
+
+@import url('./index.css');
+@import url('./ui-ux-design.css');
+@import url('./web-development.css');
+
+/* Specific Custom Applications Page Overrides */
+.custom-apps-page {
+  background-color: #FFFFFF;
+  color: #060612;
+  font-family: Satoshi, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   SECTION SPACING (STANDARDIZED BASED ON STORY.HTML)
+   ========================================================================== */
+body.custom-apps-page .uiux-section,
+body.custom-apps-page .uiux-why-choose-section,
+body.custom-apps-page .faqs-section,
+body.custom-apps-page .cta-section {
+  padding-top: clamp(36px, 4.5vw, 60px) !important;
+  padding-bottom: clamp(36px, 4.5vw, 60px) !important;
+  margin-bottom: 0 !important;
+}
+
+body.custom-apps-page .faqs-section {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.custom-apps-page .faqs-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px !important;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  body.custom-apps-page .faqs-container {
+    padding: 0 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.custom-apps-page .faqs-container {
+    padding: 0 16px !important;
+  }
+}
+
+body.custom-apps-page .services-header {
+  margin-bottom: 36px;
+}

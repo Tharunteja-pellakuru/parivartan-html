@@ -595,7 +595,7 @@ button {
 
 .drawer-submenu-list {
   max-height: 0;
-  overflow: visible;
+  overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s ease;
   padding-left: 48px;
   display: flex;
@@ -605,7 +605,7 @@ button {
 }
 
 .drawer-menu-item-group.expanded .drawer-submenu-list {
-  max-height: 220px;
+  max-height: 280px;
   padding-top: 4px;
   padding-bottom: 10px;
 }

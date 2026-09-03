@@ -1,0 +1,1173 @@
+/**
+ * Web Development Page Styles - eParivartan
+ * Fully synchronized with ui-ux-design.css & index.css
+ */
+
+@import url('./index.css');
+@import url('./ui-ux-design.css');
+
+/* Specific Web Development Page Overrides */
+.web-dev-page {
+  background-color: #FFFFFF;
+  color: #060612;
+  font-family: Satoshi, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   SECTION SPACING (STANDARDIZED BASED ON STORY.HTML)
+   ========================================================================== */
+body.web-dev-page .uiux-section,
+body.web-dev-page .uiux-why-choose-section,
+body.web-dev-page .faqs-section,
+body.web-dev-page .cta-section {
+  padding-top: clamp(36px, 4.5vw, 60px) !important;
+  padding-bottom: clamp(36px, 4.5vw, 60px) !important;
+  margin-bottom: 0 !important;
+}
+
+body.web-dev-page .faqs-section {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.web-dev-page .faqs-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px !important;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  body.web-dev-page .faqs-container {
+    padding: 0 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.web-dev-page .faqs-container {
+    padding: 0 16px !important;
+  }
+}
+
+body.web-dev-page .services-header {
+  margin-bottom: 36px;
+}
+
+/* ==========================================================================
+   WEB DEVELOPMENT HERO SHOWCASE - EXACT FIGMA VARIANT ANIMATION
+   ========================================================================== */
+@property --rotate-transform {
+  syntax: '<angle>';
+  initial-value: 0rad;
+  inherits: false;
+}
+
+.web-dev-hero-showcase {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 10px 0;
+  cursor: pointer;
+  perspective: 1400px;
+  overflow: visible !important;
+}
+
+.web-dev-showcase-stage {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+  overflow: visible !important;
+}
+
+.web-dev-showcase-img {
+  width: 100%;
+  max-width: 840px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+  will-change: opacity, transform;
+}
+
+/* Default Tilted 3D State (Property 1=2.png) */
+.web-dev-img-tilted {
+  position: relative;
+  opacity: 1;
+  transform: scale(1) translate(0px, 0px) rotate(0rad);
+  transition: opacity 300ms ease, transform 300ms ease;
+  z-index: 1;
+}
+
+/* Straight Flat Hover State (Property 1=Default.png) */
+.web-dev-img-flat {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.96) rotate(-0.06rad);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease, transform 300ms ease;
+  z-index: 2;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+}
+
+/* Hover: Dissolves from tilted into flat view with smooth left-to-right rotation */
+.web-dev-hero-showcase:hover .web-dev-img-tilted {
+  opacity: 0;
+  transform: scale(1.03) translate(20px, 0px) rotate(0.06rad);
+}
+
+.web-dev-hero-showcase:hover .web-dev-img-flat {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0rad);
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .web-dev-showcase-stage {
+    min-height: 280px;
+  }
+}
+
+/* ==========================================================================
+   OUR PHILOSOPHY SECTION & IDE WINDOW MOCKUP
+   ========================================================================== */
+.philosophy-section {
+  padding: clamp(36px, 4.5vw, 60px) 0 !important;
+  margin-bottom: 0 !important;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+/* IDE Code Editor / Browser Mockup Window */
+.ide-window {
+  width: 100%;
+  max-width: 1200px;
+  margin: 36px auto 0 auto;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Window Header / Titlebar */
+.ide-titlebar {
+  height: 52px;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.ide-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ide-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ide-dot--red {
+  background-color: #FF5F56;
+}
+
+.ide-dot--yellow {
+  background-color: #FFBD2E;
+}
+
+.ide-dot--green {
+  background-color: #27C93F;
+}
+
+.ide-address-pill {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 5px 24px;
+  font-size: 12px;
+  color: #4A5568;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.ide-action .ide-discuss-btn {
+  background-color: #1868DB;
+  color: #FFFFFF;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.ide-action .ide-discuss-btn:hover {
+  background-color: #1255B8;
+  transform: translateY(-1px);
+}
+
+/* Window Body */
+.ide-body {
+  display: flex;
+  min-height: 480px;
+  background: #FFFFFF;
+}
+
+/* Left Activity Bar */
+.ide-activity-bar {
+  width: 52px;
+  border-right: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.ide-activity-top,
+.ide-activity-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.ide-activity-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #94A3B8;
+  cursor: pointer;
+  height: 32px;
+  transition: color 0.2s ease;
+}
+
+.ide-activity-item:hover,
+.ide-activity-item.active {
+  color: #1E293B;
+}
+
+.ide-active-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #EF4444;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+/* 3x2 Grid of Philosophy Cards */
+.ide-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.ide-card {
+  padding: 40px 36px;
+  border-right: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  transition: background-color 0.25s ease;
+}
+
+.ide-card:hover {
+  background-color: #FAFBF9;
+}
+
+.ide-card:nth-child(3n) {
+  border-right: none;
+}
+
+.ide-card:nth-child(n+4) {
+  border-bottom: none;
+}
+
+.ide-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #EAF7E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.ide-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.015em;
+}
+
+.ide-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Bottom Status Bar */
+.ide-statusbar {
+  height: 32px;
+  border-top: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 11.5px;
+  color: #64748B;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.ide-status-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ide-status-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ide-status-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .ide-card {
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 860px) {
+  .ide-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .ide-card:nth-child(3n) {
+    border-right: 1px solid #E2E8F0;
+  }
+  .ide-card:nth-child(2n) {
+    border-right: none;
+  }
+  .ide-card:nth-child(n+4) {
+    border-bottom: 1px solid #E2E8F0;
+  }
+  .ide-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .ide-activity-bar {
+    display: none;
+  }
+  .ide-grid {
+    grid-template-columns: 1fr;
+  }
+  .ide-card {
+    border-right: none !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+  }
+  .ide-card:last-child {
+    border-bottom: none !important;
+  }
+  .ide-status-right {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   CONTENT MANAGEMENT SECTION & CMS EXPLORER
+   ========================================================================== */
+.cms-section {
+  padding: clamp(36px, 4.5vw, 60px) 0 !important;
+  margin-bottom: 0 !important;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.cms-section .services-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.services-header-subhead {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #060612;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.01em;
+  max-width: 500px;
+}
+
+.cms-section .services-header-desc {
+  max-width: 500px;
+  margin: 0;
+}
+
+.cms-window {
+  margin-top: 52px;
+}
+
+.cms-body {
+  display: flex;
+  min-height: 560px;
+  background: #FFFFFF;
+}
+
+/* CMS Explorer Column */
+.cms-explorer {
+  width: 350px;
+  border-right: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.cms-explorer-header {
+  height: 40px;
+  border-bottom: 1px solid #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  box-sizing: border-box;
+}
+
+.cms-explorer-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #64748B;
+}
+
+.cms-explorer-dots {
+  font-size: 13px;
+  color: #94A3B8;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.cms-explorer-body {
+  padding: 18px 20px;
+  flex: 1;
+}
+
+.cms-intro-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14.5px;
+  line-height: 1.4;
+  color: #0F172A;
+  margin-bottom: 16px;
+}
+
+.cms-intro-chevron {
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 1px;
+}
+
+.cms-intro-text strong {
+  font-weight: 700;
+}
+
+.cms-folder-row {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-left: 14px;
+  margin-bottom: 14px;
+}
+
+.cms-folder-arrow {
+  font-size: 10px;
+  color: #64748B;
+  margin-right: 6px;
+}
+
+.cms-folder-icon {
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.cms-folder-name {
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.cms-items-list {
+  margin-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cms-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1E293B;
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.cms-item:hover {
+  color: #75BF46;
+  transform: translateX(2px);
+}
+
+.cms-leaf-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cms-explorer-accordions {
+  border-top: 1px solid #E2E8F0;
+}
+
+.cms-accordion-tab {
+  height: 30px;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #475569;
+  cursor: pointer;
+  background: #FFFFFF;
+  transition: background-color 0.15s ease;
+}
+
+.cms-accordion-tab:hover {
+  background-color: #F8FAFC;
+}
+
+.cms-accordion-tab:last-child {
+  border-bottom: none;
+}
+
+/* Right Artwork Preview Panel */
+.cms-preview-panel {
+  flex: 1;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.cms-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Bottom Note below CMS window */
+.cms-footer-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #0F172A;
+  max-width: 820px;
+  margin: 40px auto 0 auto;
+  text-align: center;
+}
+
+/* Responsive adjustments for CMS section */
+@media (max-width: 880px) {
+  .cms-body {
+    flex-direction: column;
+  }
+  .cms-explorer {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #E2E8F0;
+  }
+  .cms-preview-panel {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 680px) {
+  .cms-items-list {
+    margin-left: 12px;
+  }
+  .cms-intro-heading {
+    font-size: 13.5px;
+  }
+  .cms-footer-text {
+    font-size: 14.5px;
+  }
+}
+
+/* ==========================================================================
+   TECH STACK CONSTELLATION SECTION
+   ========================================================================== */
+.stack-section {
+  padding: clamp(36px, 4.5vw, 60px) 0 !important;
+  margin-bottom: 0 !important;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.stack-intro-text {
+  text-align: center;
+  font-size: 15.5px;
+  color: #64748B;
+  margin: 28px auto 20px auto;
+  max-width: 650px;
+}
+
+.stack-constellation-wrap {
+  width: 100%;
+  max-width: 680px;
+  height: 520px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.stack-constellation-wrap .tech-ecosystem {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .stack-constellation-wrap {
+    height: 440px;
+  }
+  .stack-constellation-wrap .tech-ecosystem {
+    min-height: 440px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stack-constellation-wrap {
+    height: 360px;
+  }
+  .stack-constellation-wrap .tech-ecosystem {
+    min-height: 360px;
+  }
+}
+
+.stack-desc-text {
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #64748B;
+  max-width: 720px;
+  margin: 36px auto 32px auto;
+}
+
+/* Technology Pills Marquee Track */
+.stack-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 14px 0 24px 0;
+  margin-bottom: 24px;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.stack-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: stack-marquee-loop 35s linear infinite;
+  will-change: transform;
+}
+
+.stack-marquee-container:hover .stack-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes stack-marquee-loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.stack-pills-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 12px;
+  flex-shrink: 0;
+}
+
+.stack-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  background-color: #F1F5F9;
+  color: #475569;
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+}
+
+.stack-pill:hover {
+  background-color: #E2E8F0;
+  color: #1E293B;
+}
+
+.stack-pill.active {
+  background-color: #FFFFFF;
+  border-color: #75BF46;
+  color: #75BF46;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(117, 191, 70, 0.18);
+}
+
+.stack-pill-arrow {
+  color: #94A3B8;
+  font-size: 16px;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Bottom CTA Row */
+.stack-cta-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.stack-cta-row .start-project-btn,
+.stack-cta-row .hero-btn {
+  font-size: 15px;
+  padding: 11px 26px;
+}
+
+@media (max-width: 640px) {
+  .stack-cta-row {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .stack-cta-row .start-project-btn,
+  .stack-cta-row .hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   HOW WE WORK - 8-STEP PROCESS TIMELINE & SUPPORT BANNER
+   ========================================================================== */
+.dev-process-card {
+  background: #FCFCFC;
+  border-radius: 30px;
+  /* inner sh */
+  box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset;
+  padding: 56px 64px 20px 64px;
+  margin-top: 32px;
+  box-sizing: border-box;
+}
+
+.dev-process-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.dev-process-step {
+  display: flex;
+  align-items: stretch;
+  gap: 36px;
+  position: relative;
+}
+
+.dev-step-col-num {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.dev-step-digit {
+  font-size: 32px;
+  font-weight: 700;
+  color: #75BF46;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.dev-step-dashline {
+  width: 2px;
+  flex: 1;
+  min-height: 52px;
+  border-left: 2px dashed #D1D5DB;
+  margin: 14px 0 10px 0;
+}
+
+.dev-step-col-info {
+  padding-bottom: 42px;
+  flex: 1;
+  padding-top: 2px;
+}
+
+.dev-step-heading {
+  font-size: 19px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.dev-step-para {
+  font-size: 14.5px;
+  font-weight: 400;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 820px;
+}
+
+/* Process Bottom Support Banner Card */
+.dev-process-banner {
+  display: flex;
+  padding: 30px 26px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 30px;
+  background: #FCFCFC;
+  /* inner sh */
+  box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset;
+  justify-content: space-between;
+  margin-top: 24px;
+  box-sizing: border-box;
+}
+
+.dev-process-banner-left {
+  flex: 1;
+  max-width: 760px;
+}
+
+.dev-process-banner-title {
+  font-size: 18.5px;
+  font-weight: 700;
+  color: #060612;
+  line-height: 1.45;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.dev-process-banner-desc {
+  font-size: 14px;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.dev-process-banner-right {
+  flex-shrink: 0;
+}
+
+@media (max-width: 880px) {
+  .dev-process-card {
+    padding: 36px 28px 10px 28px;
+  }
+  .dev-process-step {
+    gap: 20px;
+  }
+  .dev-step-digit {
+    font-size: 26px;
+  }
+  .dev-process-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 28px;
+  }
+  .dev-process-banner-right {
+    width: 100%;
+  }
+  .dev-process-banner-right .start-project-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   FINDABILITY SECTION ("Websites Designed to Be Found")
+   ========================================================================== */
+.findability-section {
+  padding: clamp(36px, 4.5vw, 60px) 0 !important;
+  margin-bottom: 0 !important;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.findability-intro-text {
+  text-align: center;
+  font-size: 15.5px;
+  color: #64748B;
+  margin: 28px auto 20px auto;
+  max-width: 600px;
+}
+
+.findability-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.findability-card {
+  background: #FCFCFC;
+  border-radius: 20px;
+  border: 1px solid #EDEDED;
+  padding: 34px 28px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.findability-card:hover {
+  transform: translateY(-4px);
+  border-color: #75BF46;
+  box-shadow: 0 10px 30px rgba(117, 191, 70, 0.1);
+}
+
+.findability-card-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.findability-card-title {
+  font-size: 17.5px;
+  font-weight: 700;
+  color: #060612;
+  line-height: 1.35;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.findability-footer-note {
+  text-align: center;
+  font-size: 15px;
+  color: #64748B;
+  margin: 32px auto 0 auto;
+  max-width: 840px;
+  line-height: 1.6;
+}
+
+.findability-footer-note strong {
+  color: #060612;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .findability-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .findability-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .findability-card {
+    min-height: 150px;
+    padding: 28px 24px;
+  }
+  .findability-card-title {
+    font-size: 16.5px;
+  }
+}
+
+/* ==========================================================================
+   WHY CHOOSE US - APPROACH TO WEB DEVELOPMENT (5 CARDS 3+2 LAYOUT)
+   ========================================================================== */
+.why-approach-section {
+  padding: clamp(36px, 4.5vw, 60px) 0 !important;
+  margin-bottom: 0 !important;
+  position: relative;
+}
+
+.why-approach-section .services-header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.why-approach-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  margin-top: 36px;
+}
+
+.why-approach-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.why-approach-row-top .uiux-why-card-outer {
+  flex: 1;
+  max-width: 380px;
+}
+
+.why-approach-row-bottom .uiux-why-card-outer {
+  flex: 1;
+  max-width: 380px;
+}
+
+.why-approach-section .uiux-why-card-inner {
+  background: #FEF6E9;
+  border-radius: 22px;
+  padding: 34px 28px 36px 28px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  box-sizing: border-box;
+}
+
+.why-approach-section .uiux-why-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1E293B;
+  line-height: 1.35;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 992px) {
+  .why-approach-heading {
+    font-size: 32px;
+  }
+  .why-approach-row {
+    flex-wrap: wrap;
+  }
+  .why-approach-row-top .uiux-why-card-outer,
+  .why-approach-row-bottom .uiux-why-card-outer {
+    max-width: calc(50% - 12px);
+    flex: 1 1 calc(50% - 12px);
+  }
+}
+
+@media (max-width: 640px) {
+  .why-approach-heading {
+    font-size: 26px;
+  }
+  .why-approach-row-top .uiux-why-card-outer,
+  .why-approach-row-bottom .uiux-why-card-outer {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .why-approach-section .uiux-why-card-inner {
+    min-height: 170px;
+    padding: 28px 24px;
+  }
+  .why-approach-section .uiux-why-card-title {
+    font-size: 17.5px;
+  }
+}
+
+
+
+
+
+
