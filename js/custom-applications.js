@@ -28,4 +28,28 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('active');
     }
   });
+
+  // Process Evolution interactive step switching
+  const stepCards = document.querySelectorAll('.evolution-step-card');
+  const previewTitle = document.getElementById('evolution-active-title');
+  const previewCaption = document.getElementById('evolution-active-caption');
+
+  if (stepCards.length > 0) {
+    stepCards.forEach((card) => {
+      card.addEventListener('click', function () {
+        stepCards.forEach((c) => c.classList.remove('is-active'));
+        this.classList.add('is-active');
+
+        const title = this.getAttribute('data-title');
+        const caption = this.getAttribute('data-caption');
+
+        if (previewTitle && title) {
+          previewTitle.textContent = title;
+        }
+        if (previewCaption && caption) {
+          previewCaption.textContent = caption;
+        }
+      });
+    });
+  }
 });

@@ -1,0 +1,461 @@
+/* ==========================================================================
+   TECHNOLOGY SUPPORT & MAINTENANCE STYLESHEET
+   Page: technology-support.html
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BASE TYPOGRAPHY (MATCHING REMAINING SERVICE PAGES)
+   -------------------------------------------------------------------------- */
+body.tech-support-page,
+.tech-support-page button,
+.tech-support-page input,
+.tech-support-page select,
+.tech-support-page textarea {
+  font-family: Satoshi, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Services Header Alignment */
+.services-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 500px;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SHOWCASE: SYSTEM MONITORING & HEALTH DASHBOARD
+   -------------------------------------------------------------------------- */
+.tech-hero-showcase {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 24px;
+  background: #0B0E14;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25), 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-showcase-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #11151F;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tech-topbar-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.tech-topbar-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.tech-topbar-dot.red { background: #FF5F56; }
+.tech-topbar-dot.yellow { background: #FFBD2E; }
+.tech-topbar-dot.green { background: #27C93F; }
+
+.tech-topbar-title {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  color: #9CA3AF;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tech-live-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #75BF46;
+  box-shadow: 0 0 10px #75BF46;
+  animation: pulse-live 2s infinite;
+}
+
+@keyframes pulse-live {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(117, 191, 70, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(117, 191, 70, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(117, 191, 70, 0); }
+}
+
+.tech-showcase-body {
+  padding: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: radial-gradient(circle at 50% 0%, rgba(117, 191, 70, 0.08) 0%, transparent 70%);
+}
+
+.tech-metric-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.tech-metric-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(117, 191, 70, 0.4);
+}
+
+.tech-metric-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tech-metric-val {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+  font-family: Satoshi, sans-serif;
+}
+
+.tech-metric-val span {
+  color: #75BF46;
+  font-size: 20px;
+}
+
+.tech-metric-desc {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+/* --------------------------------------------------------------------------
+   2. BEYOND MAINTENANCE 6-CARDS GRID
+   -------------------------------------------------------------------------- */
+.tech-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.tech-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-6px);
+  border-color: #75BF46;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+}
+
+.tech-card-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #F4F9F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.tech-card:hover .tech-card-icon-wrap {
+  background: #E8F4DE;
+}
+
+.tech-card-title {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #060612;
+  margin: 0 0 12px 0;
+  line-height: 1.35;
+}
+
+.tech-card-desc {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #69686E;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. ENGAGEMENT MODELS: 3-COLUMN CARDS
+   -------------------------------------------------------------------------- */
+.tech-models-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 44px;
+}
+
+.tech-model-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 22px;
+  padding: 40px 34px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tech-model-card:hover {
+  transform: translateY(-6px);
+  border-color: #75BF46;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.tech-model-card.featured {
+  border-color: #75BF46;
+  box-shadow: 0 12px 30px rgba(117, 191, 70, 0.12);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FDF7 100%);
+}
+
+.tech-model-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  background: #F0FDF4;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+}
+
+.tech-model-card.featured .tech-model-badge {
+  background: #75BF46;
+  color: #FFFFFF;
+  border: none;
+}
+
+.tech-model-title {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #060612;
+  margin: 0 0 14px 0;
+  line-height: 1.3;
+}
+
+.tech-model-desc {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #69686E;
+  margin: 0 0 24px 0;
+}
+
+.tech-model-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.tech-model-features li {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #374151;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tech-model-features li svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.tech-model-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  background: #F3F4F6;
+  color: #111827;
+  border: 1px solid #E5E7EB;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.tech-model-card:hover .tech-model-btn,
+.tech-model-card.featured .tech-model-btn {
+  background: #75BF46;
+  color: #FFFFFF;
+  border-color: #75BF46;
+}
+
+/* --------------------------------------------------------------------------
+   4. MONITORING WHAT MATTERS: 12 PILLS BADGE GRID
+   -------------------------------------------------------------------------- */
+.tech-monitoring-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 40px;
+  justify-content: flex-start;
+}
+
+.tech-monitoring-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.tech-monitoring-item:hover {
+  border-color: #75BF46;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tech-monitoring-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #75BF46;
+  box-shadow: 0 0 6px rgba(117, 191, 70, 0.5);
+  flex-shrink: 0;
+}
+
+.tech-monitoring-text {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1F2937;
+}
+
+/* --------------------------------------------------------------------------
+   5. BUILT FOR THE LONG TERM: PARTNERSHIP SHOWCASE
+   -------------------------------------------------------------------------- */
+.tech-partnership-wrap {
+  margin-top: 44px;
+  background: linear-gradient(135deg, #0B0E14 0%, #151A24 100%);
+  border-radius: 24px;
+  padding: 56px;
+  color: #FFFFFF;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tech-partnership-content h3 {
+  font-family: Satoshi, sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 18px 0;
+  color: #FFFFFF;
+}
+
+.tech-partnership-content p {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #9CA3AF;
+  margin: 0 0 24px 0;
+}
+
+.tech-partnership-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.tech-stat-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tech-stat-number {
+  font-family: Satoshi, sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #75BF46;
+  line-height: 1;
+}
+
+.tech-stat-label {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  color: #D1D5DB;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .tech-showcase-body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tech-cards-grid,
+  .tech-models-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tech-partnership-wrap {
+    grid-template-columns: 1fr;
+    padding: 40px 28px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-showcase-body {
+    grid-template-columns: 1fr;
+    padding: 24px 18px;
+  }
+  .tech-cards-grid,
+  .tech-models-grid {
+    grid-template-columns: 1fr;
+  }
+  .tech-partnership-stats {
+    grid-template-columns: 1fr;
+  }
+}
