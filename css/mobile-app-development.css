@@ -1135,6 +1135,124 @@ body.mobile-app-page .services-header {
   }
 }
 
+/* ==========================================================================
+   UNIFORM GLOBAL SECTION SPACING (EXACT SAME AS INDEX.HTML)
+   ========================================================================== */
+body.mobile-app-page .uiux-hero-section,
+body.mobile-app-page .uiux-section,
+body.mobile-app-page .uiux-why-choose-section,
+body.mobile-app-page .why-mobile-section,
+body.mobile-app-page .why-approach-section,
+body.mobile-app-page .faqs-section,
+body.mobile-app-page .cta-section {
+  margin-bottom: 60px !important;
+}
+
+body.mobile-app-page .uiux-hero-section {
+  padding-top: 48px !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 60px !important;
+}
+
+body.mobile-app-page .uiux-section,
+body.mobile-app-page .why-mobile-section,
+body.mobile-app-page .why-approach-section,
+body.mobile-app-page .uiux-why-choose-section {
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+}
+
+body.mobile-app-page .uiux-hero-container,
+body.mobile-app-page .uiux-container,
+body.mobile-app-page .faqs-container,
+body.mobile-app-page .cta-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Tablet Uniform Section Spacing (<= 960px) */
+@media (max-width: 960px) {
+  body.mobile-app-page .uiux-hero-section,
+  body.mobile-app-page .uiux-section,
+  body.mobile-app-page .uiux-why-choose-section,
+  body.mobile-app-page .why-mobile-section,
+  body.mobile-app-page .why-approach-section,
+  body.mobile-app-page .faqs-section,
+  body.mobile-app-page .cta-section {
+    margin-bottom: 44px !important;
+  }
+
+  body.mobile-app-page .uiux-hero-section {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 44px !important;
+  }
+
+  body.mobile-app-page .uiux-section,
+  body.mobile-app-page .why-mobile-section,
+  body.mobile-app-page .why-approach-section,
+  body.mobile-app-page .uiux-why-choose-section {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+
+  body.mobile-app-page .uiux-container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  body.mobile-app-page .uiux-container,
+  body.mobile-app-page .faqs-container,
+  body.mobile-app-page .cta-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Mobile Uniform Section Spacing (<= 480px) */
+@media (max-width: 480px) {
+  body.mobile-app-page .uiux-hero-section,
+  body.mobile-app-page .uiux-section,
+  body.mobile-app-page .uiux-why-choose-section,
+  body.mobile-app-page .why-mobile-section,
+  body.mobile-app-page .why-approach-section,
+  body.mobile-app-page .faqs-section,
+  body.mobile-app-page .cta-section {
+    margin-bottom: 32px !important;
+  }
+
+  body.mobile-app-page .uiux-hero-section {
+    padding-top: 32px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 32px !important;
+  }
+
+  body.mobile-app-page .uiux-section,
+  body.mobile-app-page .why-mobile-section,
+  body.mobile-app-page .why-approach-section,
+  body.mobile-app-page .uiux-why-choose-section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+
+  body.mobile-app-page .uiux-container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  body.mobile-app-page .uiux-container,
+  body.mobile-app-page .faqs-container,
+  body.mobile-app-page .cta-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+
 
 
 
