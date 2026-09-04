@@ -84,11 +84,11 @@ const initIndexApp = () => {
       revealTargets.forEach(el => {
         // Slide-up + fade for remaining sections as they scroll into view.
         gsap.fromTo(el,
-          { autoAlpha: 0, y: 56 },
+          { opacity: 0, y: 40 },
           {
-            autoAlpha: 1,
+            opacity: 1,
             y: 0,
-            duration: 1,
+            duration: 0.8,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
@@ -1100,12 +1100,19 @@ const techConnectionsData = [
     const videoWrapper = testimonialsSec.querySelector('.video-testimonials-wrapper');
 
     if (videoPrevBtn && videoNextBtn && videoWrapper) {
+      const getStep = () => {
+        const card = videoWrapper.querySelector('.video-card');
+        const row = videoWrapper.querySelector('.video-testimonials-row');
+        const gap = row ? (parseInt(window.getComputedStyle(row).gap) || 16) : 16;
+        return card ? (card.offsetWidth + gap) : 312;
+      };
+
       videoPrevBtn.addEventListener('click', () => {
-        videoWrapper.scrollBy({ left: -312, behavior: 'smooth' });
+        videoWrapper.scrollBy({ left: -getStep(), behavior: 'smooth' });
       });
 
       videoNextBtn.addEventListener('click', () => {
-        videoWrapper.scrollBy({ left: 312, behavior: 'smooth' });
+        videoWrapper.scrollBy({ left: getStep(), behavior: 'smooth' });
       });
     }
 
@@ -1115,12 +1122,19 @@ const techConnectionsData = [
     const writtenWrapper = testimonialsSec.querySelector('.written-testimonials-wrapper');
 
     if (writtenPrevBtn && writtenNextBtn && writtenWrapper) {
+      const getStep = () => {
+        const card = writtenWrapper.querySelector('.written-card');
+        const row = writtenWrapper.querySelector('.written-testimonials-row');
+        const gap = row ? (parseInt(window.getComputedStyle(row).gap) || 16) : 16;
+        return card ? (card.offsetWidth + gap) : 424;
+      };
+
       writtenPrevBtn.addEventListener('click', () => {
-        writtenWrapper.scrollBy({ left: -424, behavior: 'smooth' });
+        writtenWrapper.scrollBy({ left: -getStep(), behavior: 'smooth' });
       });
 
       writtenNextBtn.addEventListener('click', () => {
-        writtenWrapper.scrollBy({ left: 424, behavior: 'smooth' });
+        writtenWrapper.scrollBy({ left: getStep(), behavior: 'smooth' });
       });
     }
 
@@ -1816,6 +1830,16 @@ const techConnectionsData = [
             dot.className = 'dot-circle';
           }
         });
+      }
+
+      const activeCard = cards[activeIdx];
+      const activeBtn = activeCard ? (activeCard.querySelector('.mobile-visit-btn') || activeCard.querySelector('.featured-card-view-btn')) : null;
+      const mobileFixedBtn = document.getElementById('coverflowMobileVisitBtn');
+      if (mobileFixedBtn && activeBtn) {
+        const hrefVal = activeBtn.getAttribute('href');
+        if (hrefVal) {
+          mobileFixedBtn.setAttribute('href', hrefVal);
+        }
       }
     };
 

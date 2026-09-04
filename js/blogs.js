@@ -1,5 +1,11 @@
 const initBlogsApp = () => {
 
+  // Ensure page starts at the top upon navigation
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   /* ===== GSAP Scroll Animations ===== */
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
@@ -68,7 +74,7 @@ const initBlogsApp = () => {
       }
     }
 
-    function updatePagination(page) {
+    function updatePagination(page, isInitialLoad = false) {
       currentPage = page;
 
       const isMobile = window.innerWidth <= 768;
@@ -100,8 +106,8 @@ const initBlogsApp = () => {
         ScrollTrigger.refresh();
       }
 
-      // 5. Scroll to top of blogs section (after repaint so ScrollTrigger doesn't override)
-      if (!isMobile) {
+      // 5. Scroll to top of blogs section ONLY when user manually changes page (not on initial page load)
+      if (!isMobile && !isInitialLoad) {
         requestAnimationFrame(() => {
           const target = document.querySelector('.blogs-insights-header');
           if (target) {
@@ -115,7 +121,7 @@ const initBlogsApp = () => {
 
 
     window.addEventListener('resize', () => {
-      updatePagination(currentPage);
+      updatePagination(currentPage, true);
       if (typeof initBlogsCarousel === 'function') initBlogsCarousel();
     });
 
@@ -133,7 +139,7 @@ const initBlogsApp = () => {
 
     // Initialize
     renderPaginationButtons();
-    updatePagination(1);
+    updatePagination(1, true);
   }
 
   /* ===== INSIGHTS Mobile Carousel Logic ===== */

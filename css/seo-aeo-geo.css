@@ -21,7 +21,7 @@ body.seo-page {
   background-color: #FFFFFF !important;
   color: #060612;
   font-family: var(--font-satoshi);
-  overflow-x: hidden;
+  overflow-x: clip;
   margin: 0;
   padding: 0;
 }

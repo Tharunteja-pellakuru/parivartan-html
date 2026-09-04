@@ -1138,16 +1138,29 @@
   }
 
   .awards-stats-row {
-    flex-wrap: wrap;
-    gap: 16px 24px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(6px, 2.5vw, 16px);
+    width: 100%;
+  }
+
+  .awards-stat-item {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .awards-stat-number {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .awards-stat-label {
-    font-size: 13px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .awards-stat-divider {
+    height: 32px;
   }
 
   .contribution-col-left .contribution-img-card {
@@ -1281,7 +1294,16 @@
   }
 
   .awards-stat-number {
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  .awards-stat-label {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .awards-stat-divider {
+    height: 28px;
   }
 
   .contribution-heading,

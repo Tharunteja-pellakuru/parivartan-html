@@ -93,9 +93,9 @@
 
 .fif-main-heading {
   font-family: Satoshi, Inter, sans-serif !important;
-  font-size: 44px !important;
-  font-weight: 500 !important;
-  line-height: 56px !important;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
   color: #060612 !important;
   text-align: center;
   margin: 0;
@@ -133,59 +133,70 @@
 }
 
 .fif-hero-outer-card {
-  background: #F4F5F2;
-  border-radius: 24px;
-  padding: 24px;
-  border: 1px solid #E5E7EB;
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 32px;
+  display: flex;
+  width: 100%;
+  max-width: 1320px;
+  padding: 16px;
+  justify-content: center;
   align-items: center;
+  border-radius: 24px;
+  border: 1px solid #FFFFFF;
+  background: #F5F5F5;
+  box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.14) inset;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
-.fif-hero-left-card {
+.fif-hero-card {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  width: 100%;
   background: #FFFFFF;
   border-radius: 18px;
-  padding: 48px 40px;
-  border: 1px solid #EEEEEE;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 40px rgba(6, 6, 18, 0.05);
+  overflow: hidden;
+  border: 1px solid #E5E4E2;
+}
+
+.fif-hero-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px 36px;
   box-sizing: border-box;
-  width: 100%;
+  text-align: left;
 }
 
 .fif-hero-heading {
   font-family: Satoshi, Inter, sans-serif;
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 500;
-  line-height: 56px;
+  line-height: 50px;
   color: rgb(6, 6, 18);
   align-self: stretch;
   font-style: normal;
-  margin: 0 0 20px 0;
+  margin: 0 0 14px 0;
 }
 
 .fif-hero-heading span.green-spotlight {
   color: #85BD56;
   font-family: Satoshi, sans-serif;
-  font-size: 44px;
+  font-size: 40px;
   font-style: normal;
   font-weight: 500;
-  line-height: 56px;
+  line-height: 50px;
 }
 
 .fif-hero-desc {
   align-self: stretch;
   color: #69686E;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
-  line-height: 175%;
-  margin: 0 0 32px 0;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
 }
 
 .fif-hero-btn {
@@ -217,20 +228,24 @@
   transform: translateY(-1px) !important;
 }
 
+.fif-hero-right,
 .fif-hero-right-stage {
-  position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
 }
 
+.fif-hero-img,
 .fif-anand-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  max-height: 440px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -471,43 +486,41 @@
 
   /* Hero */
   .fif-hero-section {
-    padding: 32px 0 48px 0;
+    padding: 24px 0 40px 0;
   }
 
   .fif-hero-outer-card {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .fif-hero-card {
     grid-template-columns: 1fr;
-    padding: 20px;
-    gap: 24px;
+    border-radius: 14px;
   }
 
-  .fif-hero-left-card {
-    padding: 36px 32px;
-    align-items: center;
-    text-align: center;
+  .fif-hero-left {
+    padding: 28px 24px;
+    align-items: flex-start;
+    text-align: left;
   }
 
-  .fif-hero-heading {
-    font-size: 36px;
-    line-height: 46px;
-    text-align: center;
-  }
-
+  .fif-hero-heading,
   .fif-hero-heading span.green-spotlight {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: 34px !important;
+    line-height: 44px !important;
+    text-align: left;
   }
 
   .fif-hero-desc {
-    text-align: center;
+    text-align: left;
+    font-size: 15px;
   }
 
+  .fif-hero-right,
   .fif-hero-right-stage {
-    justify-content: center;
-  }
-
-  .fif-anand-hero-img {
-    max-height: 340px;
-    margin: 0 auto;
+    height: 280px;
+    position: relative;
   }
 
   /* Mission */
@@ -552,14 +565,15 @@
     margin-top: 40px;
   }
 
-  /* Section headers */
+  /* Section headers & Page titles */
   .fif-header-split-title {
-    font-size: 34px;
-    line-height: 44px;
+    font-size: 34px !important;
+    line-height: 44px !important;
   }
 
   .fif-main-heading {
-    font-size: clamp(28px, 4vw, 40px);
+    font-size: 34px !important;
+    line-height: 44px !important;
   }
 }
 
@@ -571,7 +585,7 @@
 
   /* Hero */
   .fif-hero-section {
-    padding: 24px 0 40px 0;
+    padding: 20px 0 36px 0;
   }
 
   .fif-section-header {
@@ -579,40 +593,39 @@
   }
 
   .fif-main-heading {
-    font-size: clamp(26px, 6vw, 36px);
+    font-size: 32px !important;
+    line-height: 42px !important;
   }
 
   .fif-hero-outer-card {
-    padding: 16px;
-    border-radius: 18px;
-    gap: 20px;
+    padding: 12px;
+    border-radius: 16px;
   }
 
-  .fif-hero-left-card {
-    padding: 28px 24px;
-    border-radius: 14px;
-    align-items: center;
-    text-align: center;
+  .fif-hero-left {
+    padding: 24px 20px;
+    border-radius: 12px;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .fif-hero-heading,
   .fif-hero-heading span.green-spotlight {
-    font-size: 30px;
-    line-height: 40px;
-    text-align: center;
+    font-size: 30px !important;
+    line-height: 40px !important;
+    text-align: left;
   }
 
   .fif-hero-desc {
     font-size: 15px;
-    margin-bottom: 24px;
-    text-align: center;
+    margin-bottom: 20px;
+    text-align: left;
   }
 
   .fif-hero-btn {
     font-size: 15px !important;
     padding: 11px 20px !important;
-    width: 100% !important;
-    max-width: 280px !important;
+    width: auto !important;
   }
 
   .fif-view-more-btn {
@@ -621,8 +634,10 @@
     width: auto !important;
   }
 
-  .fif-anand-hero-img {
-    max-height: 280px;
+  .fif-hero-right,
+  .fif-hero-right-stage {
+    height: 240px;
+    position: relative;
   }
 
   /* Mission */
@@ -656,8 +671,8 @@
   }
 
   .fif-header-split-title {
-    font-size: 28px;
-    line-height: 38px;
+    font-size: 32px !important;
+    line-height: 42px !important;
   }
 
   .fif-header-desc {
@@ -709,46 +724,49 @@
 
   /* Hero */
   .fif-hero-section {
-    padding: 20px 0 36px 0;
+    padding: 16px 0 32px 0;
   }
 
   .fif-main-heading {
-    font-size: clamp(24px, 7vw, 32px);
+    font-size: 30px !important;
+    line-height: 40px !important;
   }
 
   .fif-hero-outer-card {
-    padding: 12px;
+    padding: 10px;
     border-radius: 14px;
   }
 
-  .fif-hero-left-card {
-    padding: 24px 20px;
+  .fif-hero-left {
+    padding: 20px 16px;
     border-radius: 12px;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .fif-hero-heading,
   .fif-hero-heading span.green-spotlight {
-    font-size: 26px;
-    line-height: 34px;
-    text-align: center;
+    font-size: 28px !important;
+    line-height: 38px !important;
+    text-align: left;
   }
 
   .fif-hero-desc {
     font-size: 14px;
-    line-height: 1.65;
-    margin-bottom: 20px;
-    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    text-align: left;
   }
 
   .fif-hero-btn {
     width: 100% !important;
-    max-width: 260px !important;
+    max-width: 100% !important;
   }
 
-  .fif-anand-hero-img {
-    max-height: 240px;
+  .fif-hero-right,
+  .fif-hero-right-stage {
+    height: 200px;
+    position: relative;
   }
 
   /* Mission */
@@ -792,8 +810,8 @@
   }
 
   .fif-header-split-title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 28px !important;
+    line-height: 38px !important;
   }
 
   .fif-view-more-container {
@@ -809,29 +827,30 @@
   }
 
   .fif-main-heading {
-    font-size: 22px;
-    line-height: 1.25;
+    font-size: 26px !important;
+    line-height: 34px !important;
   }
 
-  .fif-hero-left-card {
-    padding: 20px 16px;
+  .fif-hero-left {
+    padding: 16px 14px;
   }
 
   .fif-hero-heading,
   .fif-hero-heading span.green-spotlight {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 24px !important;
+    line-height: 32px !important;
   }
 
   .fif-hero-desc {
     font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 16px;
   }
 
   .fif-hero-btn {
     font-size: 14px !important;
-    padding: 10px 18px !important;
+    padding: 10px 16px !important;
     width: 100% !important;
-    max-width: 240px !important;
     justify-content: center !important;
   }
 
@@ -843,8 +862,10 @@
     justify-content: center !important;
   }
 
-  .fif-anand-hero-img {
-    max-height: 200px;
+  .fif-hero-right,
+  .fif-hero-right-stage {
+    height: 180px;
+    position: relative;
   }
 
   .fif-mission-card {
@@ -866,8 +887,8 @@
   }
 
   .fif-header-split-title {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 24px !important;
+    line-height: 32px !important;
   }
 
   .fif-thumb-container {

@@ -24,7 +24,7 @@
   background-color: #FFFFFF;
   color: var(--dark-text);
   font-family: var(--font-satoshi);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .uiux-container {
