@@ -205,14 +205,18 @@ body.mobile-app-page .services-header {
   border-radius: 28px;
 }
 
-/* ===== HOVER: Center phone remains hero, Left & Right slide out with equal padding & tight gap ===== */
-.mobile-hero-showcase:hover .phone-left {
+/* ===== HOVER & IN-VIEW: Center phone remains hero, Left & Right slide out with equal padding & tight gap ===== */
+.mobile-hero-showcase:hover .phone-left,
+.mobile-hero-showcase.is-in-view .phone-left,
+.mobile-hero-showcase.is-active .phone-left {
   translate: calc(-50% - 248px) -50%;
   opacity: 1;
   pointer-events: auto;
 }
 
-.mobile-hero-showcase:hover .phone-right {
+.mobile-hero-showcase:hover .phone-right,
+.mobile-hero-showcase.is-in-view .phone-right,
+.mobile-hero-showcase.is-active .phone-right {
   translate: calc(-50% + 248px) -50%;
   opacity: 1;
   pointer-events: auto;
@@ -254,10 +258,14 @@ body.mobile-app-page .services-header {
   .phone-right img {
     border-radius: 20px;
   }
-  .mobile-hero-showcase:hover .phone-left {
+  .mobile-hero-showcase:hover .phone-left,
+  .mobile-hero-showcase.is-in-view .phone-left,
+  .mobile-hero-showcase.is-active .phone-left {
     translate: calc(-50% - 186px) -50%;
   }
-  .mobile-hero-showcase:hover .phone-right {
+  .mobile-hero-showcase:hover .phone-right,
+  .mobile-hero-showcase.is-in-view .phone-right,
+  .mobile-hero-showcase.is-active .phone-right {
     translate: calc(-50% + 186px) -50%;
   }
 }
@@ -284,10 +292,14 @@ body.mobile-app-page .services-header {
   .phone-right img {
     border-radius: 14px;
   }
-  .mobile-hero-showcase:hover .phone-left {
+  .mobile-hero-showcase:hover .phone-left,
+  .mobile-hero-showcase.is-in-view .phone-left,
+  .mobile-hero-showcase.is-active .phone-left {
     translate: calc(-50% - 134px) -50%;
   }
-  .mobile-hero-showcase:hover .phone-right {
+  .mobile-hero-showcase:hover .phone-right,
+  .mobile-hero-showcase.is-in-view .phone-right,
+  .mobile-hero-showcase.is-active .phone-right {
     translate: calc(-50% + 134px) -50%;
   }
 }

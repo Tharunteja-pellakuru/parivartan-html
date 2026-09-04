@@ -316,9 +316,56 @@ body.tech-support-page,
 }
 
 .tech-model-btn {
+  display: inline-flex;
   width: 100% !important;
+  padding: 12px 24px;
+  align-items: center;
   justify-content: center !important;
+  gap: 8px;
+  border-radius: 8px;
+  background: var(--85BD56, #85BD56);
+  border: none;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.16) inset, 0 0 0 2px #E1FFC8;
+  color: #FFF !important;
+  position: relative;
+  z-index: 2;
+  font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
   box-sizing: border-box;
+  margin-top: auto;
+}
+
+.tech-model-btn:hover {
+  transform: translateY(-2px);
+  background: #75BF46;
+  box-shadow: 
+    2px 2px 2px 0 rgba(255, 255, 255, 0.25) inset, 
+    0 0 0 3px #E1FFC8,
+    0 4px 14px rgba(117, 191, 70, 0.35);
+  color: #FFF !important;
+}
+
+.tech-model-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 
+    2px 2px 2px 0 rgba(0, 0, 0, 0.1) inset, 
+    0 0 0 2px #E1FFC8;
+}
+
+.tech-model-btn .arrow-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tech-model-btn:hover .arrow-icon {
+  transform: translateX(3px);
 }
 
 /* --------------------------------------------------------------------------
@@ -695,6 +742,8 @@ body.tech-support-page,
 body.tech-support-page .faqs-section {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
   width: 100%;
   box-sizing: border-box;
 }
@@ -724,18 +773,22 @@ body.tech-support-page .faqs-container {
    ========================================================================== */
 body.tech-support-page .uiux-hero-section,
 body.tech-support-page .uiux-section,
-body.tech-support-page .why-approach-section,
+body.tech-support-page .why-mobile-section,
 body.tech-support-page .faqs-section,
 body.tech-support-page .cta-section {
   margin-bottom: 60px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
 }
 
 body.tech-support-page .uiux-hero-section {
-  padding-top: 24px !important;
+  padding-top: 48px !important;
   padding-bottom: 0 !important;
   margin-bottom: 60px !important;
+}
+
+/* Restore proper inner padding for all content sections */
+body.tech-support-page .uiux-section {
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
 }
 
 body.tech-support-page .uiux-hero-container {
@@ -743,29 +796,60 @@ body.tech-support-page .uiux-hero-container {
   padding-bottom: 0 !important;
 }
 
-body.tech-support-page .uiux-container,
-body.tech-support-page .faqs-container,
+body.tech-support-page .uiux-container {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+body.tech-support-page .faqs-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 body.tech-support-page .cta-container {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+
+/* Why Parivartan section inner padding */
+body.tech-support-page .why-mobile-section {
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
 }
 
 /* Tablet Uniform Section Spacing (<= 960px) */
 @media (max-width: 960px) {
   body.tech-support-page .uiux-hero-section,
   body.tech-support-page .uiux-section,
-  body.tech-support-page .why-approach-section,
+  body.tech-support-page .why-mobile-section,
   body.tech-support-page .faqs-section,
   body.tech-support-page .cta-section {
     margin-bottom: 44px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
   }
 
   body.tech-support-page .uiux-hero-section {
-    padding-top: 16px !important;
+    padding-top: 40px !important;
     padding-bottom: 0 !important;
     margin-bottom: 44px !important;
+  }
+
+  body.tech-support-page .uiux-section {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+
+  body.tech-support-page .why-mobile-section {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+
+  body.tech-support-page .uiux-container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   body.tech-support-page .uiux-container,
@@ -780,18 +864,33 @@ body.tech-support-page .cta-container {
 @media (max-width: 480px) {
   body.tech-support-page .uiux-hero-section,
   body.tech-support-page .uiux-section,
-  body.tech-support-page .why-approach-section,
+  body.tech-support-page .why-mobile-section,
   body.tech-support-page .faqs-section,
   body.tech-support-page .cta-section {
     margin-bottom: 32px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
   }
 
   body.tech-support-page .uiux-hero-section {
-    padding-top: 12px !important;
+    padding-top: 32px !important;
     padding-bottom: 0 !important;
     margin-bottom: 32px !important;
+  }
+
+  body.tech-support-page .uiux-section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+
+  body.tech-support-page .why-mobile-section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+
+  body.tech-support-page .uiux-container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   body.tech-support-page .uiux-container,
@@ -799,6 +898,79 @@ body.tech-support-page .cta-container {
   body.tech-support-page .cta-container {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   WHY PARIVARTAN / CHOOSE US (WARM CREAM 5-CARD GRID)
+   -------------------------------------------------------------------------- */
+.why-cream-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 48px;
+  width: 100%;
+}
+
+.why-cream-card {
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: 388px;
+  min-width: 280px;
+  background: #FFF8F1;
+  border-radius: 24px;
+  padding: 36px 32px 32px 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 180px;
+  border: 1px solid #FFEADA;
+  box-shadow: 0 0 0 6px #FFFFFF, 0 16px 36px -8px rgba(220, 160, 100, 0.14), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-cream-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 6px #FFFFFF, 0 22px 44px -8px rgba(220, 160, 100, 0.22), 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.why-cream-icon {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.why-cream-title {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #1E293B;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+@media (max-width: 992px) {
+  .why-cream-card {
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 640px) {
+  .why-cream-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 28px 24px;
+    min-height: auto;
+  }
+  .why-cream-icon {
+    margin-bottom: 20px;
   }
 }
 

@@ -25,6 +25,13 @@
     gtag('js', new Date());
     gtag('config', 'G-SPMHEDZJWJ');
   </script>
+  <!-- Prevent smooth-scroll jump to top on page refresh -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
 </head>
 <body class="seo-page">
 

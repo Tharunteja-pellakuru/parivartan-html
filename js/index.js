@@ -1942,6 +1942,51 @@ const techConnectionsData = [
       }
     }
   });
+
+  /* ==========================================
+     HERO SHOWCASE SCROLL & HOVER TRIGGER
+     Trigger effect when scrolled into view/reached,
+     while also preserving smooth hover and tap toggling
+     ========================================== */
+  const initHeroShowcaseObserver = () => {
+    const showcases = document.querySelectorAll('.web-dev-hero-showcase, .mobile-hero-showcase, #webDevShowcase, #mobileShowcase');
+    if (!showcases.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Delay slightly (180ms) so user catches the initial 3D view before it smoothly straightens
+            setTimeout(() => {
+              if (entry.target) {
+                entry.target.classList.add('is-in-view');
+              }
+            }, 180);
+          } else {
+            // Remove when leaving so it re-triggers smoothly on re-entry
+            entry.target.classList.remove('is-in-view');
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -8% 0px'
+      });
+
+      showcases.forEach(el => observer.observe(el));
+    } else {
+      // Fallback: trigger immediately if IntersectionObserver is not available
+      showcases.forEach(el => el.classList.add('is-in-view'));
+    }
+
+    // Interactive Click/Tap Toggle (allows user to flip between 3D and flat on click/tap)
+    showcases.forEach(el => {
+      el.addEventListener('click', () => {
+        el.classList.toggle('is-in-view');
+      });
+    });
+  };
+
+  initHeroShowcaseObserver();
 };
 
 if (document.readyState !== 'loading') {

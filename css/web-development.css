@@ -107,11 +107,11 @@ body.web-dev-page .services-header {
   position: relative;
   opacity: 1;
   transform: scale(1) translate(0px, 0px) rotate(0rad);
-  transition: opacity 300ms ease, transform 300ms ease;
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
 }
 
-/* Straight Flat Hover State (Property 1=Default.png) */
+/* Straight Flat Hover / In-View State (Property 1=Default.png) */
 .web-dev-img-flat {
   position: absolute;
   top: 50%;
@@ -119,26 +119,74 @@ body.web-dev-page .services-header {
   transform: translate(-50%, -50%) scale(0.96) rotate(-0.06rad);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 300ms ease, transform 300ms ease;
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
 }
 
-/* Hover: Dissolves from tilted into flat view with smooth left-to-right rotation */
-.web-dev-hero-showcase:hover .web-dev-img-tilted {
+/* Hover & In-View (Scroll-Triggered): Dissolves from tilted into flat view with smooth left-to-right rotation */
+.web-dev-hero-showcase:hover .web-dev-img-tilted,
+.web-dev-hero-showcase.is-in-view .web-dev-img-tilted,
+.web-dev-hero-showcase.is-active .web-dev-img-tilted {
   opacity: 0;
   transform: scale(1.03) translate(20px, 0px) rotate(0.06rad);
 }
 
-.web-dev-hero-showcase:hover .web-dev-img-flat {
+.web-dev-hero-showcase:hover .web-dev-img-flat,
+.web-dev-hero-showcase.is-in-view .web-dev-img-flat,
+.web-dev-hero-showcase.is-active .web-dev-img-flat {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1) rotate(0rad);
   pointer-events: auto;
 }
 
+.web-dev-hero-showcase.is-in-view,
+.web-dev-hero-showcase.is-active {
+  border-color: #DCDCE0;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.06);
+}
+
+.web-dev-hero-showcase.is-in-view:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.08);
+}
+
 @media (max-width: 768px) {
   .web-dev-showcase-stage {
     min-height: 280px;
+  }
+}
+
+/* ==========================================================================
+   WHAT WE BUILD: CARD 04 (CONTENT-RICH WEBSITES) MOCKUP IMAGE
+   ========================================================================== */
+.uiux-expertise-img--content-rich {
+  width: 276.298px;
+  height: 184.199px;
+  transform: rotate(-10.725deg);
+  aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  background: url('../assets/services/web-development/content-rich-websites.png') lightgray -16.545px -28.673px / 110.823% 124.675% no-repeat;
+  box-shadow: 0 15px 22px -12px #000, 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  margin-top: auto;
+  margin-left: -5%;
+  margin-bottom: -25px;
+  position: relative;
+  z-index: 1;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.uiux-expertise-card:hover .uiux-expertise-img--content-rich {
+  transform: rotate(-10.725deg) scale(1.04);
+  box-shadow: 0 20px 28px -10px #000, 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 480px) {
+  .uiux-expertise-img--content-rich {
+    margin-left: 0;
+    margin-bottom: -15px;
   }
 }
 

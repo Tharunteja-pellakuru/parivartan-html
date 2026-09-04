@@ -55,7 +55,7 @@ body.seo-page {
    1. HERO SECTION (STANDARDIZED MATCHING TECHNOLOGY-SUPPORT.HTML)
    ========================================================================== */
 .uiux-hero-section {
-  padding: 24px 20px 0 20px;
+  padding: 48px 20px 0 20px;
   background-color: #FFFFFF;
   display: flex;
   justify-content: center;
@@ -314,6 +314,9 @@ body.seo-page {
     grid-template-columns: 1fr;
     padding: 24px 18px;
   }
+  .uiux-hero-section {
+    padding-top: 40px;
+  }
   .uiux-hero-title {
     font-size: 38px;
     line-height: 46px;
@@ -321,6 +324,9 @@ body.seo-page {
 }
 
 @media (max-width: 480px) {
+  .uiux-hero-section {
+    padding-top: 32px;
+  }
   .uiux-hero-title {
     font-size: 32px;
     line-height: 40px;
