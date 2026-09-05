@@ -597,6 +597,17 @@
     padding-left: 16px;
     padding-right: 16px;
   }
+  .contact-hero-title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .contact-hero-card-left {
+    padding: 24px 16px;
+  }
+  .contact-hero-card-heading {
+    font-size: 22px;
+    line-height: 30px;
+  }
   .location-main-heading {
     font-size: 26px !important;
     line-height: 34px !important;
@@ -606,3 +617,102 @@
     line-height: 22px !important;
   }
 }
+
+@media (max-width: 360px) {
+  .contact-hero-section,
+  .contact-section,
+  .location-section,
+  .faqs-section,
+  .cta-section {
+    margin-bottom: 24px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .contact-hero-container {
+    padding: 16px 0 16px 0;
+  }
+  .contact-hero-title {
+    font-size: 24px !important;
+    line-height: 32px !important;
+    margin-bottom: 12px !important;
+  }
+  .contact-hero-card-frame {
+    padding: 6px;
+    border-radius: 12px;
+  }
+  .contact-hero-outer-card {
+    border-radius: 10px;
+  }
+  .contact-hero-inner-card {
+    padding: 4px;
+    gap: 6px;
+  }
+  .contact-hero-card-left {
+    padding: 16px 10px;
+  }
+  .contact-hero-card-heading {
+    font-size: 18px !important;
+    line-height: 24px !important;
+    margin-bottom: 10px;
+  }
+  .contact-hero-card-desc-group p {
+    font-size: 12.5px;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .feature-icon-circle {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+  }
+  .feature-icon-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+  .feature-info h4 {
+    font-size: 12px;
+  }
+  .feature-info p {
+    font-size: 10.5px;
+  }
+  .contact-hero-image {
+    height: 150px;
+  }
+  .contact-hero-banner {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+  .banner-left-info {
+    gap: 10px;
+  }
+  .banner-icon-circle {
+    width: 36px;
+    height: 36px;
+  }
+  .banner-icon-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+  .banner-text h3 {
+    font-size: 13px;
+  }
+  .banner-get-in-touch-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  .location-main-heading {
+    font-size: 20px !important;
+    line-height: 28px !important;
+  }
+  .location-desc {
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+  .location-header {
+    margin-bottom: 20px;
+  }
+  .location-map-wrapper {
+    height: 220px;
+  }
+}
+

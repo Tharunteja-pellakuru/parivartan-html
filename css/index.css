@@ -5718,6 +5718,8 @@ button {
   font-style: normal;
   font-weight: 500;
   line-height: 32px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 1200px) {
@@ -5950,6 +5952,164 @@ button {
     -webkit-transform: scale(0.77);
     -webkit-transform-origin: 0 0;
     margin-bottom: -25px;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    padding-top: 60px !important;
+  }
+  .header-container,
+  .header-container.scrolled {
+    height: 58px !important;
+    min-height: 58px !important;
+    padding: 6px 8px !important;
+  }
+  .header-logo {
+    height: 26px !important;
+    max-width: 105px !important;
+  }
+  .header-middle {
+    margin-right: 4px !important;
+  }
+  .start-project-btn {
+    padding: 5px 8px !important;
+    font-size: 11.5px !important;
+    height: 32px !important;
+    gap: 4px !important;
+  }
+  .start-project-btn svg {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .mobile-drawer {
+    top: 58px !important;
+    max-height: calc(100vh - 58px) !important;
+  }
+  .contact-section {
+    padding: 0 10px !important;
+  }
+  .contact-inner {
+    padding: 16px 0 8px 0 !important;
+  }
+  .contact-heading {
+    font-size: 22px !important;
+    line-height: 30px !important;
+  }
+  .contact-intro-text {
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+  .contact-input-wrap {
+    padding: 8px 10px !important;
+    gap: 8px !important;
+    border-radius: 8px !important;
+  }
+  .contact-input-wrap input,
+  .contact-input-wrap select,
+  .contact-input-wrap textarea,
+  .contact-input-wrap input::placeholder,
+  .contact-input-wrap textarea::placeholder,
+  .contact-dropdown-selected-value {
+    font-size: 13px !important;
+  }
+  .contact-input-divider {
+    height: 14px !important;
+  }
+  .contact-submit-btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    gap: 6px !important;
+  }
+  .contact-submit-btn span {
+    white-space: normal;
+    word-break: break-word;
+  }
+  .contact-info-outer {
+    padding: 4px !important;
+  }
+  .contact-info-card {
+    padding: 12px 10px !important;
+    gap: 12px !important;
+  }
+  .contact-info-icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .contact-info-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .contact-info-label {
+    font-size: 11px !important;
+  }
+  .contact-info-value {
+    font-size: 12px !important;
+    line-height: 16px !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+  .contact-recaptcha-container {
+    transform: scale(0.72);
+    transform-origin: 0 0;
+    -webkit-transform: scale(0.72);
+    -webkit-transform-origin: 0 0;
+    margin-bottom: -28px;
+  }
+  .faqs-main-heading,
+  .cta-main-heading {
+    font-size: 22px !important;
+    line-height: 30px !important;
+  }
+  .faqs-header-desc,
+  .cta-header-desc {
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+  .faq-item-card {
+    padding: 12px 10px !important;
+  }
+  .faq-question-text {
+    font-size: 13px !important;
+    line-height: 18px !important;
+  }
+  .faq-toggle-btn {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .cta-inner-box {
+    padding: 20px 12px !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .footer-bottom-left, .footer-bottom-right {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 300px) {
+  .contact-recaptcha-container {
+    transform: scale(0.66);
+    transform-origin: 0 0;
+    -webkit-transform: scale(0.66);
+    -webkit-transform-origin: 0 0;
+    margin-bottom: -35px;
+  }
+  .header-logo {
+    max-width: 95px !important;
+  }
+  .start-project-btn {
+    padding: 5px 6px !important;
+    font-size: 11px !important;
   }
 }
 
