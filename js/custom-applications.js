@@ -21,14 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Active link indicator
-  const currentPath = window.location.pathname.split('/').pop();
-  document.querySelectorAll('.dropdown-item, .drawer-submenu-item').forEach((link) => {
-    if (link.getAttribute('href') && link.getAttribute('href').includes('custom-applications.html')) {
-      link.classList.add('active');
-    }
-  });
-
   // Process Evolution interactive step switching
   const stepCards = document.querySelectorAll('.evolution-step-card');
   const previewTitle = document.getElementById('evolution-active-title');

@@ -21,13 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Active link indicator
-  document.querySelectorAll('.dropdown-item, .drawer-submenu-item').forEach((link) => {
-    if (link.getAttribute('href') && (link.getAttribute('href').includes('mobile-app-development.html') || link.getAttribute('href').includes('app-development.html'))) {
-      link.classList.add('active');
-    }
-  });
-
   // Mobile Tech Constellation Canvas (if canvas exists)
   const canvas = document.getElementById('tech-ecosystem');
   if (canvas) {

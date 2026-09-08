@@ -1,32 +1,85 @@
 const initClientsApp = () => {
 
-  /* ==========================================
-     0. ACTIVE NAV ITEM AUTO-HIGHLIGHT
+    /* ==========================================
+     0. ACTIVE NAV ITEM AUTO-HIGHLIGHT (SINGLE ITEM GUARANTEED)
      ========================================== */
-  const rawPath = window.location.pathname.split('/').pop();
-  const currentPath = (!rawPath || rawPath === '' || rawPath === 'index.html') ? 'clients.html' : rawPath;
+  const highlightActiveNav = () => {
+    let rawPath = window.location.pathname.split('/').pop().split('#')[0];
+    const currentPath = (!rawPath || rawPath === '' || rawPath === '/') ? 'index.html' : rawPath;
 
-  // Clear existing active states first
-  document.querySelectorAll('.desktop-nav .nav-item').forEach(item => item.classList.remove('active'));
-  document.querySelectorAll('.desktop-nav .nav-link').forEach(link => link.classList.remove('active'));
-  document.querySelectorAll('.desktop-nav .dropdown-item').forEach(item => item.classList.remove('active'));
-  document.querySelectorAll('.mobile-drawer .drawer-menu-item').forEach(item => item.classList.remove('active'));
-  document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => item.classList.remove('active'));
+    // Clear ALL active states first across all desktop and mobile nav items
+    document.querySelectorAll('.desktop-nav .nav-item, .desktop-nav .nav-link, .desktop-nav .dropdown-item, .mobile-drawer .drawer-menu-item, .mobile-drawer .drawer-submenu-item').forEach(el => {
+      el.classList.remove('active');
+    });
 
-  document.querySelectorAll('.desktop-nav .dropdown-item').forEach(item => {
-    const href = item.getAttribute('href');
-    if (!href) return;
-    const cleanHref = href.replace('./', '').split('/').pop();
-    if (cleanHref === currentPath && cleanHref !== 'index.html') {
-      item.classList.add('active');
-      const parentNav = item.closest('.nav-item');
-      if (parentNav) {
-        parentNav.classList.add('active');
-        const mainLink = parentNav.querySelector('.nav-link');
-        if (mainLink) mainLink.classList.add('active');
+    if (currentPath === 'index.html') {
+      const homeNav = document.querySelector('.desktop-nav > .nav-item:first-child');
+      if (homeNav) {
+        homeNav.classList.add('active');
+        const homeLink = homeNav.querySelector('.nav-link');
+        if (homeLink) homeLink.classList.add('active');
       }
+      const mobileHome = document.querySelector('.mobile-drawer a[href*="index.html"]');
+      if (mobileHome) mobileHome.classList.add('active');
+      return;
     }
-  });
+
+    let desktopMatched = false;
+    let mobileMatched = false;
+
+    // 1. Highlight Desktop Dropdown (ONLY FIRST EXACT MATCH)
+    document.querySelectorAll('.desktop-nav .dropdown-item').forEach(item => {
+      if (desktopMatched) return;
+      const href = item.getAttribute('href');
+      if (!href) return;
+      const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+      if (linkPath === currentPath && linkPath !== 'index.html' && linkPath !== '#') {
+        item.classList.add('active');
+        desktopMatched = true;
+        const parentNav = item.closest('.nav-item');
+        if (parentNav) {
+          parentNav.classList.add('active');
+          const mainLink = parentNav.querySelector('.nav-link');
+          if (mainLink) mainLink.classList.add('active');
+        }
+      }
+    });
+
+    // 2. Highlight Top-level Nav Link if no dropdown matched
+    if (!desktopMatched) {
+      document.querySelectorAll('.desktop-nav > .nav-item > .nav-link').forEach(link => {
+        if (desktopMatched) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+        if (linkPath === currentPath && linkPath !== '#') {
+          link.classList.add('active');
+          desktopMatched = true;
+          const parentNav = link.closest('.nav-item');
+          if (parentNav) parentNav.classList.add('active');
+        }
+      });
+    }
+
+    // 3. Highlight Mobile Drawer Item (ONLY FIRST EXACT MATCH)
+    document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => {
+      if (mobileMatched) return;
+      const href = item.getAttribute('href');
+      if (!href) return;
+      const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+      if (linkPath === currentPath && linkPath !== 'index.html' && linkPath !== '#') {
+        item.classList.add('active');
+        mobileMatched = true;
+        const parentGroup = item.closest('.drawer-menu-item-group');
+        if (parentGroup) {
+          const toggleBtn = parentGroup.querySelector('.drawer-menu-item');
+          if (toggleBtn) toggleBtn.classList.add('active');
+        }
+      }
+    });
+  };
+
+  highlightActiveNav();
 
   document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => {
     const href = item.getAttribute('href');
@@ -193,19 +246,64 @@ const initClientsApp = () => {
     const titleText = videoOverlay.querySelector('.video-preview-caption-title');
     const noteText = videoOverlay.querySelector('.video-preview-caption-note');
 
+    // Helper to setup carousel navigation with automatic visual disabled states on end cards
+    const setupCarouselNav = (wrapper, prevBtn, nextBtn, stepCalc) => {
+      if (!wrapper || !prevBtn || !nextBtn) return;
+
+      const updateButtonsState = () => {
+        const scrollLeft = wrapper.scrollLeft;
+        const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+
+        const isAtStart = scrollLeft <= 5;
+        const isAtEnd = scrollLeft >= maxScroll - 5;
+
+        prevBtn.disabled = isAtStart;
+        nextBtn.disabled = isAtEnd;
+
+        if (isAtStart) {
+          prevBtn.classList.add('disabled');
+        } else {
+          prevBtn.classList.remove('disabled');
+        }
+
+        if (isAtEnd) {
+          nextBtn.classList.add('disabled');
+        } else {
+          nextBtn.classList.remove('disabled');
+        }
+      };
+
+      prevBtn.addEventListener('click', () => {
+        const step = typeof stepCalc === 'function' ? stepCalc() : stepCalc;
+        wrapper.scrollBy({ left: -step, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const step = typeof stepCalc === 'function' ? stepCalc() : stepCalc;
+        wrapper.scrollBy({ left: step, behavior: 'smooth' });
+      });
+
+      wrapper.addEventListener('scroll', updateButtonsState, { passive: true });
+      window.addEventListener('resize', updateButtonsState);
+
+      updateButtonsState();
+      setTimeout(updateButtonsState, 200);
+      setTimeout(updateButtonsState, 800);
+    };
+
     // Video Testimonials Carousel Navigation Controls
     const videoPrevBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-prev-btn');
     const videoNextBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-next-btn');
     const videoWrapper = testimonialsSec.querySelector('.video-testimonials-wrapper');
 
     if (videoPrevBtn && videoNextBtn && videoWrapper) {
-      videoPrevBtn.addEventListener('click', () => {
-        videoWrapper.scrollBy({ left: -312, behavior: 'smooth' });
-      });
-
-      videoNextBtn.addEventListener('click', () => {
-        videoWrapper.scrollBy({ left: 312, behavior: 'smooth' });
-      });
+      const getVideoStep = () => {
+        const card = videoWrapper.querySelector('.video-card');
+        const row = videoWrapper.querySelector('.video-testimonials-row');
+        const gap = row ? (parseInt(window.getComputedStyle(row).gap) || 16) : 16;
+        return card ? (card.offsetWidth + gap) : 312;
+      };
+      setupCarouselNav(videoWrapper, videoPrevBtn, videoNextBtn, getVideoStep);
     }
 
     // Written Testimonials Carousel Navigation Controls
@@ -214,13 +312,13 @@ const initClientsApp = () => {
     const writtenWrapper = testimonialsSec.querySelector('.written-testimonials-wrapper');
 
     if (writtenPrevBtn && writtenNextBtn && writtenWrapper) {
-      writtenPrevBtn.addEventListener('click', () => {
-        writtenWrapper.scrollBy({ left: -424, behavior: 'smooth' });
-      });
-
-      writtenNextBtn.addEventListener('click', () => {
-        writtenWrapper.scrollBy({ left: 424, behavior: 'smooth' });
-      });
+      const getWrittenStep = () => {
+        const card = writtenWrapper.querySelector('.written-card');
+        const row = writtenWrapper.querySelector('.written-testimonials-row');
+        const gap = row ? (parseInt(window.getComputedStyle(row).gap) || 16) : 16;
+        return card ? (card.offsetWidth + gap) : 424;
+      };
+      setupCarouselNav(writtenWrapper, writtenPrevBtn, writtenNextBtn, getWrittenStep);
     }
 
     const videoMap = {

@@ -17,12 +17,18 @@
    SECTION SPACING (STANDARDIZED BASED ON STORY.HTML)
    ========================================================================== */
 body.web-dev-page .uiux-section,
+body.web-dev-page .philosophy-section,
+body.web-dev-page .cms-section,
+body.web-dev-page .stack-section,
+body.web-dev-page .findability-section,
+body.web-dev-page .why-approach-section,
 body.web-dev-page .uiux-why-choose-section,
 body.web-dev-page .faqs-section,
 body.web-dev-page .cta-section {
-  padding-top: clamp(36px, 4.5vw, 60px) !important;
-  padding-bottom: clamp(36px, 4.5vw, 60px) !important;
-  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 80px !important;
 }
 
 body.web-dev-page .faqs-section {
@@ -102,7 +108,7 @@ body.web-dev-page .services-header {
   will-change: opacity, transform;
 }
 
-/* Default Tilted 3D State (Property 1=2.png) */
+/* Default Tilted 3D State (image-1.png) */
 .web-dev-img-tilted {
   position: relative;
   opacity: 1;
@@ -111,7 +117,7 @@ body.web-dev-page .services-header {
   z-index: 1;
 }
 
-/* Straight Flat Hover / In-View State (Property 1=Default.png) */
+/* Straight Flat Hover / In-View State (image-2.png.png) */
 .web-dev-img-flat {
   position: absolute;
   top: 50%;
@@ -166,11 +172,11 @@ body.web-dev-page .services-header {
   transform: rotate(-10.725deg);
   aspect-ratio: 3 / 2;
   border-radius: 8px;
-  background: url('../assets/services/web-development/content-rich-websites.png') lightgray -16.545px -28.673px / 110.823% 124.675% no-repeat;
+  object-fit: cover;
   box-shadow: 0 15px 22px -12px #000, 0 2px 8px 0 rgba(0, 0, 0, 0.04);
   margin-top: auto;
   margin-left: -5%;
-  margin-bottom: -25px;
+  margin-bottom: 10px;
   position: relative;
   z-index: 1;
   display: block;
@@ -190,12 +196,37 @@ body.web-dev-page .services-header {
   }
 }
 
+/* Mobile: Horizontally align all expertise card images */
+@media (max-width: 768px) {
+  .web-dev-page .uiux-expertise-img--websites,
+  .web-dev-page .uiux-expertise-img--webapps,
+  .web-dev-page .uiux-expertise-img--enterprise,
+  .web-dev-page .uiux-expertise-img--content-rich {
+    width: 85% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    transform-origin: center !important;
+    margin: 16px auto -10px auto !important;
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .web-dev-page .uiux-expertise-img--websites,
+  .web-dev-page .uiux-expertise-img--webapps,
+  .web-dev-page .uiux-expertise-img--enterprise,
+  .web-dev-page .uiux-expertise-img--content-rich {
+    width: 80% !important;
+    margin: 12px auto -8px auto !important;
+  }
+}
+
 /* ==========================================================================
    OUR PHILOSOPHY SECTION & IDE WINDOW MOCKUP
    ========================================================================== */
 .philosophy-section {
-  padding: clamp(36px, 4.5vw, 60px) 0 !important;
-  margin-bottom: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 80px !important;
   background-color: #FFFFFF;
   position: relative;
 }
@@ -473,14 +504,70 @@ body.web-dev-page .services-header {
   .ide-status-right {
     display: none;
   }
+  .ide-titlebar {
+    padding: 0 14px;
+    height: 44px;
+    gap: 8px;
+  }
+  .ide-address-pill {
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+  .ide-action .ide-discuss-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  .ide-card {
+    padding: 24px 20px;
+  }
+  .ide-card-title {
+    font-size: 17px;
+  }
+  .ide-card-desc {
+    font-size: 13px;
+  }
+  .ide-card-icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 16px;
+  }
+  .ide-body {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .ide-titlebar {
+    padding: 0 10px;
+    height: 40px;
+  }
+  .ide-dot {
+    width: 8px;
+    height: 8px;
+  }
+  .ide-controls {
+    gap: 5px;
+  }
+  .ide-address-pill {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+  .ide-action .ide-discuss-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  .ide-statusbar {
+    padding: 0 10px;
+    font-size: 10px;
+  }
 }
 
 /* ==========================================================================
    CONTENT MANAGEMENT SECTION & CMS EXPLORER
    ========================================================================== */
 .cms-section {
-  padding: clamp(36px, 4.5vw, 60px) 0 !important;
-  margin-bottom: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 80px !important;
   background-color: #FFFFFF;
   position: relative;
 }
@@ -720,8 +807,8 @@ body.web-dev-page .services-header {
    TECH STACK CONSTELLATION SECTION
    ========================================================================== */
 .stack-section {
-  padding: clamp(36px, 4.5vw, 60px) 0 !important;
-  margin-bottom: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 80px !important;
   background-color: #FFFFFF;
   position: relative;
 }
@@ -873,7 +960,6 @@ body.web-dev-page .services-header {
   .stack-cta-row {
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -881,6 +967,7 @@ body.web-dev-page .services-header {
   .stack-cta-row .hero-btn {
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
   }
 }
 
@@ -970,6 +1057,7 @@ body.web-dev-page .services-header {
   justify-content: space-between;
   margin-top: 24px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .dev-process-banner-left {
@@ -1018,6 +1106,36 @@ body.web-dev-page .services-header {
   .dev-process-banner-right .start-project-btn {
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dev-process-banner {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+  .dev-process-banner-title {
+    font-size: 15.5px;
+    line-height: 1.4;
+  }
+  .dev-process-banner-desc {
+    font-size: 13px;
+  }
+  .dev-process-card {
+    padding: 28px 18px 8px 18px;
+    border-radius: 20px;
+  }
+  .dev-step-digit {
+    font-size: 22px;
+    min-width: 28px;
+  }
+  .dev-step-title {
+    font-size: 16px;
+  }
+  .dev-step-desc {
+    font-size: 13px;
   }
 }
 
@@ -1025,8 +1143,8 @@ body.web-dev-page .services-header {
    FINDABILITY SECTION ("Websites Designed to Be Found")
    ========================================================================== */
 .findability-section {
-  padding: clamp(36px, 4.5vw, 60px) 0 !important;
-  margin-bottom: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 80px !important;
   background-color: #FFFFFF;
   position: relative;
 }
@@ -1125,9 +1243,10 @@ body.web-dev-page .services-header {
    WHY CHOOSE US - APPROACH TO WEB DEVELOPMENT (5 CARDS 3+2 LAYOUT)
    ========================================================================== */
 .why-approach-section {
-  padding: clamp(36px, 4.5vw, 60px) 0 !important;
-  margin-bottom: 0 !important;
+  padding: 80px 0 120px 0 !important;
+  margin-bottom: 80px !important;
   position: relative;
+  overflow: visible !important;
 }
 
 .why-approach-section .services-header-right {
@@ -1138,28 +1257,24 @@ body.web-dev-page .services-header {
 
 .why-approach-cards-wrap {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 24px;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
   width: 100%;
   margin-top: 36px;
 }
 
 .why-approach-row {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  width: 100%;
+  display: contents;
 }
 
-.why-approach-row-top .uiux-why-card-outer {
-  flex: 1;
-  max-width: 380px;
-}
-
+.why-approach-row-top .uiux-why-card-outer,
 .why-approach-row-bottom .uiux-why-card-outer {
-  flex: 1;
-  max-width: 380px;
+  flex: 1 1 0;
+  max-width: calc(20% - 20px);
+  min-width: 180px;
 }
 
 .why-approach-section .uiux-why-card-inner {
@@ -1186,13 +1301,10 @@ body.web-dev-page .services-header {
   .why-approach-heading {
     font-size: 32px;
   }
-  .why-approach-row {
-    flex-wrap: wrap;
-  }
   .why-approach-row-top .uiux-why-card-outer,
   .why-approach-row-bottom .uiux-why-card-outer {
-    max-width: calc(50% - 12px);
-    flex: 1 1 calc(50% - 12px);
+    max-width: calc(33.333% - 16px);
+    flex: 1 1 calc(33.333% - 16px);
   }
 }
 
@@ -1215,30 +1327,35 @@ body.web-dev-page .services-header {
 }
 
 /* ==========================================================================
-   UNIFORM GLOBAL SECTION SPACING (EXACT SAME AS INDEX.HTML)
+   PERFECT UNIFORM GLOBAL SECTION SPACING MATCHING INDEX.HTML & UI-UX-DESIGN.HTML
    ========================================================================== */
 body.web-dev-page .uiux-hero-section,
 body.web-dev-page .uiux-section,
-body.web-dev-page .uiux-why-choose-section,
+body.web-dev-page .philosophy-section,
+body.web-dev-page .cms-section,
+body.web-dev-page .stack-section,
+body.web-dev-page .findability-section,
 body.web-dev-page .why-mobile-section,
 body.web-dev-page .why-approach-section,
+body.web-dev-page .uiux-why-choose-section,
 body.web-dev-page .faqs-section,
-body.web-dev-page .cta-section {
-  margin-bottom: 60px !important;
+body.web-dev-page .cta-section,
+body.web-dev-page #platforms,
+body.web-dev-page #philosophy,
+body.web-dev-page #technology-stack,
+body.web-dev-page #process,
+body.web-dev-page #findability,
+body.web-dev-page #why-choose-us,
+body.web-dev-page #faqs {
+  margin-top: 0 !important;
+  margin-bottom: 80px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 body.web-dev-page .uiux-hero-section {
-  padding-top: 48px !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 60px !important;
-}
-
-body.web-dev-page .uiux-section,
-body.web-dev-page .why-mobile-section,
-body.web-dev-page .why-approach-section,
-body.web-dev-page .uiux-why-choose-section {
-  padding-top: 56px !important;
-  padding-bottom: 56px !important;
+  padding-top: 24px !important;
+  margin-bottom: 80px !important;
 }
 
 body.web-dev-page .uiux-hero-container,
@@ -1253,26 +1370,31 @@ body.web-dev-page .cta-container {
 @media (max-width: 960px) {
   body.web-dev-page .uiux-hero-section,
   body.web-dev-page .uiux-section,
-  body.web-dev-page .uiux-why-choose-section,
+  body.web-dev-page .philosophy-section,
+  body.web-dev-page .cms-section,
+  body.web-dev-page .stack-section,
+  body.web-dev-page .findability-section,
   body.web-dev-page .why-mobile-section,
   body.web-dev-page .why-approach-section,
+  body.web-dev-page .uiux-why-choose-section,
   body.web-dev-page .faqs-section,
-  body.web-dev-page .cta-section {
-    margin-bottom: 44px !important;
+  body.web-dev-page .cta-section,
+  body.web-dev-page #platforms,
+  body.web-dev-page #philosophy,
+  body.web-dev-page #technology-stack,
+  body.web-dev-page #process,
+  body.web-dev-page #findability,
+  body.web-dev-page #why-choose-us,
+  body.web-dev-page #faqs {
+    margin-top: 0 !important;
+    margin-bottom: 56px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   body.web-dev-page .uiux-hero-section {
-    padding-top: 40px !important;
-    padding-bottom: 0 !important;
-    margin-bottom: 44px !important;
-  }
-
-  body.web-dev-page .uiux-section,
-  body.web-dev-page .why-mobile-section,
-  body.web-dev-page .why-approach-section,
-  body.web-dev-page .uiux-why-choose-section {
-    padding-top: 44px !important;
-    padding-bottom: 44px !important;
+    padding-top: 20px !important;
+    margin-bottom: 56px !important;
   }
 
   body.web-dev-page .uiux-container {
@@ -1294,26 +1416,31 @@ body.web-dev-page .cta-container {
 @media (max-width: 480px) {
   body.web-dev-page .uiux-hero-section,
   body.web-dev-page .uiux-section,
-  body.web-dev-page .uiux-why-choose-section,
+  body.web-dev-page .philosophy-section,
+  body.web-dev-page .cms-section,
+  body.web-dev-page .stack-section,
+  body.web-dev-page .findability-section,
   body.web-dev-page .why-mobile-section,
   body.web-dev-page .why-approach-section,
+  body.web-dev-page .uiux-why-choose-section,
   body.web-dev-page .faqs-section,
-  body.web-dev-page .cta-section {
-    margin-bottom: 32px !important;
+  body.web-dev-page .cta-section,
+  body.web-dev-page #platforms,
+  body.web-dev-page #philosophy,
+  body.web-dev-page #technology-stack,
+  body.web-dev-page #process,
+  body.web-dev-page #findability,
+  body.web-dev-page #why-choose-us,
+  body.web-dev-page #faqs {
+    margin-top: 0 !important;
+    margin-bottom: 40px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   body.web-dev-page .uiux-hero-section {
-    padding-top: 32px !important;
-    padding-bottom: 0 !important;
-    margin-bottom: 32px !important;
-  }
-
-  body.web-dev-page .uiux-section,
-  body.web-dev-page .why-mobile-section,
-  body.web-dev-page .why-approach-section,
-  body.web-dev-page .uiux-why-choose-section {
-    padding-top: 36px !important;
-    padding-bottom: 36px !important;
+    padding-top: 16px !important;
+    margin-bottom: 40px !important;
   }
 
   body.web-dev-page .uiux-container {
