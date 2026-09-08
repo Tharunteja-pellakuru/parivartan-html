@@ -265,7 +265,7 @@ const initIndexApp = () => {
       { id: 'woocommerce', name: 'WooCommerce', size: 'small', ring: 'outer', depth: 0.6, logo: './assets/home/tech/woocommerce.svg' }
     ];
 const techConnectionsData = [
-  // Center → major stacks
+  // Center → major Tech Stacks
   { from: 'center', to: 'react' },
   { from: 'center', to: 'nodejs' },
   { from: 'center', to: 'python' },
@@ -315,7 +315,7 @@ const techConnectionsData = [
   { from: 'mysql', to: 'xampp' },
   { from: 'woocommerce', to: 'mysql' },
 
-  // Shopify (own ecosystem — Liquid-based, not sharing WP's stack)
+  // Shopify (own ecosystem — Liquid-based, not sharing WP's Tech Stack)
   { from: 'shopify', to: 'javascript' },
   { from: 'shopify', to: 'css' },
 
@@ -1210,11 +1210,16 @@ const techConnectionsData = [
         title: 'A Decade of Professional Relationship',
         youtubeId: 'QaQAyjqGxSI',
         start: 151
+      },
+      'vimeo-testimonial': {
+        title: '700 SPF Machete',
+        vimeoId: '1061296672'
       }
     };
 
     playButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         // Find which testimonial video based on markup wrappers
         const cardWrapper = btn.closest('.video-card');
         if (!cardWrapper) return;
@@ -1224,12 +1229,42 @@ const techConnectionsData = [
         const config = videoMap[key];
         if (!config) return;
 
-        titleText.textContent = config.title;
-        noteText.textContent = config.note || '';
-        
-        iframe.src = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start}&autoplay=1&rel=0`;
-        videoOverlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        // Stop & clean up any other inline video currently playing
+        document.querySelectorAll('.video-card iframe.inline-video-iframe').forEach(existingIframe => {
+          const parentCard = existingIframe.closest('.video-card');
+          if (parentCard && parentCard !== cardWrapper) {
+            existingIframe.remove();
+            const overlay = parentCard.querySelector('.video-card-overlay');
+            if (overlay) overlay.style.display = 'block';
+          }
+        });
+
+        // Hide card overlay and inject iframe inside card
+        const overlay = cardWrapper.querySelector('.video-card-overlay');
+        let embedSrc = '';
+        if (config.vimeoId) {
+          embedSrc = `https://player.vimeo.com/video/${config.vimeoId}?autoplay=1&autopause=0&badge=0&autofocus=0`;
+        } else if (config.youtubeId) {
+          embedSrc = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&rel=0`;
+        }
+
+        let iframeEl = cardWrapper.querySelector('iframe.inline-video-iframe');
+        if (!iframeEl) {
+          iframeEl = document.createElement('iframe');
+          iframeEl.className = 'inline-video-iframe';
+          iframeEl.src = embedSrc;
+          iframeEl.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+          iframeEl.setAttribute('allowfullscreen', 'true');
+          iframeEl.style.cssText = 'width: 100%; height: 100%; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: #000;';
+          cardWrapper.appendChild(iframeEl);
+        } else {
+          iframeEl.src = embedSrc;
+          iframeEl.style.display = 'block';
+        }
+
+        if (overlay) {
+          overlay.style.display = 'none';
+        }
       });
     });
 

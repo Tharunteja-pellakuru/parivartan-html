@@ -1959,8 +1959,8 @@ button {
   transition: filter 0.28s ease;
 }
 
-/* Floating Hover Preview Cards Stack (Emerges from inside the folder) */
-.folder-hover-stack {
+/* Floating Hover Preview Cards Tech Stack (Emerges from inside the folder) */
+.folder-hover-Tech Stack {
   position: absolute;
   top: 20px;
   left: clamp(140px, 45%, 300px);
@@ -1977,7 +1977,7 @@ button {
   will-change: transform, opacity;
 }
 
-.folder-card:hover .folder-hover-stack {
+.folder-card:hover .folder-hover-Tech Stack {
   opacity: 1;
   transform: translateY(-75px) scale(1.05);
   pointer-events: auto;
@@ -7456,7 +7456,7 @@ a.contact-text:hover {
   border-radius: 16px;
 }
 
-/* Hover veil: blurs the artwork and reveals Visit the Website & Tech Stack Pills on hover */
+/* Hover veil: blurs the artwork and reveals Visit the Website & Tech Tech Stack Pills on hover */
 .featured-card-hover-veil {
   position: absolute;
   inset: 0;

@@ -19,7 +19,7 @@
 body.web-dev-page .uiux-section,
 body.web-dev-page .philosophy-section,
 body.web-dev-page .cms-section,
-body.web-dev-page .stack-section,
+body.web-dev-page .Tech Stack-section,
 body.web-dev-page .findability-section,
 body.web-dev-page .why-approach-section,
 body.web-dev-page .uiux-why-choose-section,
@@ -804,16 +804,16 @@ body.web-dev-page .services-header {
 }
 
 /* ==========================================================================
-   TECH STACK CONSTELLATION SECTION
+   TECH Tech Stack CONSTELLATION SECTION
    ========================================================================== */
-.stack-section {
+.Tech Stack-section {
   padding: 0 !important;
   margin-bottom: 80px !important;
   background-color: #FFFFFF;
   position: relative;
 }
 
-.stack-intro-text {
+.Tech Stack-intro-text {
   text-align: center;
   font-size: 15.5px;
   color: #64748B;
@@ -821,7 +821,7 @@ body.web-dev-page .services-header {
   max-width: 650px;
 }
 
-.stack-constellation-wrap {
+.Tech Stack-constellation-wrap {
   width: 100%;
   max-width: 680px;
   height: 520px;
@@ -832,7 +832,7 @@ body.web-dev-page .services-header {
   position: relative;
 }
 
-.stack-constellation-wrap .tech-ecosystem {
+.Tech Stack-constellation-wrap .tech-ecosystem {
   width: 100%;
   height: 100%;
   min-height: 520px;
@@ -840,24 +840,24 @@ body.web-dev-page .services-header {
 }
 
 @media (max-width: 768px) {
-  .stack-constellation-wrap {
+  .Tech Stack-constellation-wrap {
     height: 440px;
   }
-  .stack-constellation-wrap .tech-ecosystem {
+  .Tech Stack-constellation-wrap .tech-ecosystem {
     min-height: 440px;
   }
 }
 
 @media (max-width: 480px) {
-  .stack-constellation-wrap {
+  .Tech Stack-constellation-wrap {
     height: 360px;
   }
-  .stack-constellation-wrap .tech-ecosystem {
+  .Tech Stack-constellation-wrap .tech-ecosystem {
     min-height: 360px;
   }
 }
 
-.stack-desc-text {
+.Tech Stack-desc-text {
   text-align: center;
   font-size: 15px;
   line-height: 1.65;
@@ -867,7 +867,7 @@ body.web-dev-page .services-header {
 }
 
 /* Technology Pills Marquee Track */
-.stack-marquee-container {
+.Tech Stack-marquee-container {
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -877,18 +877,18 @@ body.web-dev-page .services-header {
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
 
-.stack-marquee-track {
+.Tech Stack-marquee-track {
   display: flex;
   width: max-content;
-  animation: stack-marquee-loop 35s linear infinite;
+  animation: Tech Stack-marquee-loop 35s linear infinite;
   will-change: transform;
 }
 
-.stack-marquee-container:hover .stack-marquee-track {
+.Tech Stack-marquee-container:hover .Tech Stack-marquee-track {
   animation-play-state: paused;
 }
 
-@keyframes stack-marquee-loop {
+@keyframes Tech Stack-marquee-loop {
   0% {
     transform: translateX(0);
   }
@@ -897,7 +897,7 @@ body.web-dev-page .services-header {
   }
 }
 
-.stack-pills-group {
+.Tech Stack-pills-group {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -905,7 +905,7 @@ body.web-dev-page .services-header {
   flex-shrink: 0;
 }
 
-.stack-pill {
+.Tech Stack-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -921,12 +921,12 @@ body.web-dev-page .services-header {
   border: 1.5px solid transparent;
 }
 
-.stack-pill:hover {
+.Tech Stack-pill:hover {
   background-color: #E2E8F0;
   color: #1E293B;
 }
 
-.stack-pill.active {
+.Tech Stack-pill.active {
   background-color: #FFFFFF;
   border-color: #75BF46;
   color: #75BF46;
@@ -934,7 +934,7 @@ body.web-dev-page .services-header {
   box-shadow: 0 2px 10px rgba(117, 191, 70, 0.18);
 }
 
-.stack-pill-arrow {
+.Tech Stack-pill-arrow {
   color: #94A3B8;
   font-size: 16px;
   line-height: 1;
@@ -942,7 +942,7 @@ body.web-dev-page .services-header {
 }
 
 /* Bottom CTA Row */
-.stack-cta-row {
+.Tech Stack-cta-row {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -950,21 +950,21 @@ body.web-dev-page .services-header {
   margin-top: 14px;
 }
 
-.stack-cta-row .start-project-btn,
-.stack-cta-row .hero-btn {
+.Tech Stack-cta-row .start-project-btn,
+.Tech Stack-cta-row .hero-btn {
   font-size: 15px;
   padding: 11px 26px;
 }
 
 @media (max-width: 640px) {
-  .stack-cta-row {
+  .Tech Stack-cta-row {
     flex-direction: column;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
-  .stack-cta-row .start-project-btn,
-  .stack-cta-row .hero-btn {
+  .Tech Stack-cta-row .start-project-btn,
+  .Tech Stack-cta-row .hero-btn {
     width: 100%;
     justify-content: center;
     box-sizing: border-box;
@@ -1333,7 +1333,7 @@ body.web-dev-page .uiux-hero-section,
 body.web-dev-page .uiux-section,
 body.web-dev-page .philosophy-section,
 body.web-dev-page .cms-section,
-body.web-dev-page .stack-section,
+body.web-dev-page .Tech Stack-section,
 body.web-dev-page .findability-section,
 body.web-dev-page .why-mobile-section,
 body.web-dev-page .why-approach-section,
@@ -1342,7 +1342,7 @@ body.web-dev-page .faqs-section,
 body.web-dev-page .cta-section,
 body.web-dev-page #platforms,
 body.web-dev-page #philosophy,
-body.web-dev-page #technology-stack,
+body.web-dev-page #technology-Tech Stack,
 body.web-dev-page #process,
 body.web-dev-page #findability,
 body.web-dev-page #why-choose-us,
@@ -1372,7 +1372,7 @@ body.web-dev-page .cta-container {
   body.web-dev-page .uiux-section,
   body.web-dev-page .philosophy-section,
   body.web-dev-page .cms-section,
-  body.web-dev-page .stack-section,
+  body.web-dev-page .Tech Stack-section,
   body.web-dev-page .findability-section,
   body.web-dev-page .why-mobile-section,
   body.web-dev-page .why-approach-section,
@@ -1381,7 +1381,7 @@ body.web-dev-page .cta-container {
   body.web-dev-page .cta-section,
   body.web-dev-page #platforms,
   body.web-dev-page #philosophy,
-  body.web-dev-page #technology-stack,
+  body.web-dev-page #technology-Tech Stack,
   body.web-dev-page #process,
   body.web-dev-page #findability,
   body.web-dev-page #why-choose-us,
@@ -1394,7 +1394,7 @@ body.web-dev-page .cta-container {
 
   body.web-dev-page .uiux-hero-section {
     padding-top: 20px !important;
-    margin-bottom: 56px !important;
+    margin-bottom: 32px !important;
   }
 
   body.web-dev-page .uiux-container {
@@ -1418,7 +1418,7 @@ body.web-dev-page .cta-container {
   body.web-dev-page .uiux-section,
   body.web-dev-page .philosophy-section,
   body.web-dev-page .cms-section,
-  body.web-dev-page .stack-section,
+  body.web-dev-page .Tech Stack-section,
   body.web-dev-page .findability-section,
   body.web-dev-page .why-mobile-section,
   body.web-dev-page .why-approach-section,
@@ -1427,7 +1427,7 @@ body.web-dev-page .cta-container {
   body.web-dev-page .cta-section,
   body.web-dev-page #platforms,
   body.web-dev-page #philosophy,
-  body.web-dev-page #technology-stack,
+  body.web-dev-page #technology-Tech Stack,
   body.web-dev-page #process,
   body.web-dev-page #findability,
   body.web-dev-page #why-choose-us,
@@ -1440,7 +1440,7 @@ body.web-dev-page .cta-container {
 
   body.web-dev-page .uiux-hero-section {
     padding-top: 16px !important;
-    margin-bottom: 40px !important;
+    margin-bottom: 24px !important;
   }
 
   body.web-dev-page .uiux-container {

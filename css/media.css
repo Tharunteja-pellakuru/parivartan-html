@@ -778,7 +778,7 @@
     padding: 48px 24px;
   }
 
-  /* Stack featured card vertically: top → image → bottom */
+  /* Tech Stack featured card vertically: top → image → bottom */
   .media-featured-inner {
     display: flex;
     flex-direction: column;
