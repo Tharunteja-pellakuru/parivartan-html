@@ -19,7 +19,7 @@
 body.web-dev-page .uiux-section,
 body.web-dev-page .philosophy-section,
 body.web-dev-page .cms-section,
-body.web-dev-page .Tech Stack-section,
+body.web-dev-page .stack-section,
 body.web-dev-page .findability-section,
 body.web-dev-page .why-approach-section,
 body.web-dev-page .uiux-why-choose-section,
@@ -72,16 +72,17 @@ body.web-dev-page .services-header {
 }
 
 .web-dev-hero-showcase {
-  margin-top: 24px;
+  position: relative;
   width: 100%;
-  max-width: 1024px;
+  max-width: 960px;
+  margin: 56px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  padding: 10px 0;
+  padding: 0 !important;
   cursor: pointer;
   perspective: 1400px;
   overflow: visible !important;
@@ -158,6 +159,9 @@ body.web-dev-page .services-header {
 }
 
 @media (max-width: 768px) {
+  .web-dev-hero-showcase {
+    margin-top: 30px;
+  }
   .web-dev-showcase-stage {
     min-height: 280px;
   }
@@ -804,16 +808,16 @@ body.web-dev-page .services-header {
 }
 
 /* ==========================================================================
-   TECH Tech Stack CONSTELLATION SECTION
+   TECH STACK CONSTELLATION SECTION
    ========================================================================== */
-.Tech Stack-section {
+.stack-section {
   padding: 0 !important;
   margin-bottom: 80px !important;
   background-color: #FFFFFF;
   position: relative;
 }
 
-.Tech Stack-intro-text {
+.stack-intro-text {
   text-align: center;
   font-size: 15.5px;
   color: #64748B;
@@ -821,7 +825,7 @@ body.web-dev-page .services-header {
   max-width: 650px;
 }
 
-.Tech Stack-constellation-wrap {
+.stack-constellation-wrap {
   width: 100%;
   max-width: 680px;
   height: 520px;
@@ -832,7 +836,7 @@ body.web-dev-page .services-header {
   position: relative;
 }
 
-.Tech Stack-constellation-wrap .tech-ecosystem {
+.stack-constellation-wrap .tech-ecosystem {
   width: 100%;
   height: 100%;
   min-height: 520px;
@@ -840,24 +844,24 @@ body.web-dev-page .services-header {
 }
 
 @media (max-width: 768px) {
-  .Tech Stack-constellation-wrap {
+  .stack-constellation-wrap {
     height: 440px;
   }
-  .Tech Stack-constellation-wrap .tech-ecosystem {
+  .stack-constellation-wrap .tech-ecosystem {
     min-height: 440px;
   }
 }
 
 @media (max-width: 480px) {
-  .Tech Stack-constellation-wrap {
+  .stack-constellation-wrap {
     height: 360px;
   }
-  .Tech Stack-constellation-wrap .tech-ecosystem {
+  .stack-constellation-wrap .tech-ecosystem {
     min-height: 360px;
   }
 }
 
-.Tech Stack-desc-text {
+.stack-desc-text {
   text-align: center;
   font-size: 15px;
   line-height: 1.65;
@@ -867,7 +871,7 @@ body.web-dev-page .services-header {
 }
 
 /* Technology Pills Marquee Track */
-.Tech Stack-marquee-container {
+.stack-marquee-container {
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -877,18 +881,18 @@ body.web-dev-page .services-header {
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
 
-.Tech Stack-marquee-track {
+.stack-marquee-track {
   display: flex;
   width: max-content;
-  animation: Tech Stack-marquee-loop 35s linear infinite;
+  animation: stack-marquee-loop 35s linear infinite;
   will-change: transform;
 }
 
-.Tech Stack-marquee-container:hover .Tech Stack-marquee-track {
+.stack-marquee-container:hover .stack-marquee-track {
   animation-play-state: paused;
 }
 
-@keyframes Tech Stack-marquee-loop {
+@keyframes stack-marquee-loop {
   0% {
     transform: translateX(0);
   }
@@ -897,7 +901,7 @@ body.web-dev-page .services-header {
   }
 }
 
-.Tech Stack-pills-group {
+.stack-pills-group {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -905,7 +909,7 @@ body.web-dev-page .services-header {
   flex-shrink: 0;
 }
 
-.Tech Stack-pill {
+.stack-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -921,12 +925,12 @@ body.web-dev-page .services-header {
   border: 1.5px solid transparent;
 }
 
-.Tech Stack-pill:hover {
+.stack-pill:hover {
   background-color: #E2E8F0;
   color: #1E293B;
 }
 
-.Tech Stack-pill.active {
+.stack-pill.active {
   background-color: #FFFFFF;
   border-color: #75BF46;
   color: #75BF46;
@@ -934,7 +938,7 @@ body.web-dev-page .services-header {
   box-shadow: 0 2px 10px rgba(117, 191, 70, 0.18);
 }
 
-.Tech Stack-pill-arrow {
+.stack-pill-arrow {
   color: #94A3B8;
   font-size: 16px;
   line-height: 1;
@@ -942,7 +946,7 @@ body.web-dev-page .services-header {
 }
 
 /* Bottom CTA Row */
-.Tech Stack-cta-row {
+.stack-cta-row {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -950,21 +954,21 @@ body.web-dev-page .services-header {
   margin-top: 14px;
 }
 
-.Tech Stack-cta-row .start-project-btn,
-.Tech Stack-cta-row .hero-btn {
+.stack-cta-row .start-project-btn,
+.stack-cta-row .hero-btn {
   font-size: 15px;
   padding: 11px 26px;
 }
 
 @media (max-width: 640px) {
-  .Tech Stack-cta-row {
+  .stack-cta-row {
     flex-direction: column;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
-  .Tech Stack-cta-row .start-project-btn,
-  .Tech Stack-cta-row .hero-btn {
+  .stack-cta-row .start-project-btn,
+  .stack-cta-row .hero-btn {
     width: 100%;
     justify-content: center;
     box-sizing: border-box;
@@ -1333,7 +1337,7 @@ body.web-dev-page .uiux-hero-section,
 body.web-dev-page .uiux-section,
 body.web-dev-page .philosophy-section,
 body.web-dev-page .cms-section,
-body.web-dev-page .Tech Stack-section,
+body.web-dev-page .stack-section,
 body.web-dev-page .findability-section,
 body.web-dev-page .why-mobile-section,
 body.web-dev-page .why-approach-section,
@@ -1342,7 +1346,7 @@ body.web-dev-page .faqs-section,
 body.web-dev-page .cta-section,
 body.web-dev-page #platforms,
 body.web-dev-page #philosophy,
-body.web-dev-page #technology-Tech Stack,
+body.web-dev-page #technology-stack,
 body.web-dev-page #process,
 body.web-dev-page #findability,
 body.web-dev-page #why-choose-us,
@@ -1355,7 +1359,7 @@ body.web-dev-page #faqs {
 
 body.web-dev-page .uiux-hero-section {
   padding-top: 24px !important;
-  margin-bottom: 80px !important;
+  margin-bottom: 56px !important;
 }
 
 body.web-dev-page .uiux-hero-container,
@@ -1372,7 +1376,7 @@ body.web-dev-page .cta-container {
   body.web-dev-page .uiux-section,
   body.web-dev-page .philosophy-section,
   body.web-dev-page .cms-section,
-  body.web-dev-page .Tech Stack-section,
+  body.web-dev-page .stack-section,
   body.web-dev-page .findability-section,
   body.web-dev-page .why-mobile-section,
   body.web-dev-page .why-approach-section,
@@ -1381,7 +1385,7 @@ body.web-dev-page .cta-container {
   body.web-dev-page .cta-section,
   body.web-dev-page #platforms,
   body.web-dev-page #philosophy,
-  body.web-dev-page #technology-Tech Stack,
+  body.web-dev-page #technology-stack,
   body.web-dev-page #process,
   body.web-dev-page #findability,
   body.web-dev-page #why-choose-us,
@@ -1394,7 +1398,7 @@ body.web-dev-page .cta-container {
 
   body.web-dev-page .uiux-hero-section {
     padding-top: 20px !important;
-    margin-bottom: 32px !important;
+    margin-bottom: 40px !important;
   }
 
   body.web-dev-page .uiux-container {
@@ -1418,7 +1422,7 @@ body.web-dev-page .cta-container {
   body.web-dev-page .uiux-section,
   body.web-dev-page .philosophy-section,
   body.web-dev-page .cms-section,
-  body.web-dev-page .Tech Stack-section,
+  body.web-dev-page .stack-section,
   body.web-dev-page .findability-section,
   body.web-dev-page .why-mobile-section,
   body.web-dev-page .why-approach-section,
@@ -1427,7 +1431,7 @@ body.web-dev-page .cta-container {
   body.web-dev-page .cta-section,
   body.web-dev-page #platforms,
   body.web-dev-page #philosophy,
-  body.web-dev-page #technology-Tech Stack,
+  body.web-dev-page #technology-stack,
   body.web-dev-page #process,
   body.web-dev-page #findability,
   body.web-dev-page #why-choose-us,

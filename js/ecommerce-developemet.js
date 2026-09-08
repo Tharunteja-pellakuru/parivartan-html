@@ -37,4 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease';
     });
   });
+
+  // 4. Hero Showcase Grow-on-Scroll Animation
+  const heroShowcase = document.querySelector('.ecommerce-showcase-wrapper');
+  if (heroShowcase) {
+    const showcaseObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            heroShowcase.classList.add('is-visible');
+            showcaseObserver.unobserve(heroShowcase);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -60px 0px'
+      }
+    );
+    showcaseObserver.observe(heroShowcase);
+  }
 });

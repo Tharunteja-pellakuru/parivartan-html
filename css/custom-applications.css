@@ -12,18 +12,74 @@
   background-color: #FFFFFF;
   color: #060612;
   font-family: Satoshi, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ==========================================================================
-   SECTION SPACING (STANDARDIZED BASED ON STORY.HTML)
+   SECTION SPACING (STANDARDIZED BASED ON INDEX.HTML UNIFORM SPACING)
    ========================================================================== */
+body.custom-apps-page .uiux-hero-section,
 body.custom-apps-page .uiux-section,
-body.custom-apps-page .uiux-why-choose-section,
+body.custom-apps-page .process-workflow-section,
+body.custom-apps-page .process-evolution-section,
+body.custom-apps-page .role-separation-section,
+body.custom-apps-page .dashboards-intelligence-section,
+body.custom-apps-page .stack-section,
+body.custom-apps-page .why-mobile-section,
+body.custom-apps-page .why-approach-section,
 body.custom-apps-page .faqs-section,
 body.custom-apps-page .cta-section {
-  padding-top: clamp(36px, 4.5vw, 60px) !important;
-  padding-bottom: clamp(36px, 4.5vw, 60px) !important;
-  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 60px !important;
+}
+
+body.custom-apps-page .uiux-hero-section {
+  padding-top: 24px !important;
+  padding-bottom: 0 !important;
+}
+
+@media (max-width: 960px) {
+  body.custom-apps-page .uiux-hero-section,
+  body.custom-apps-page .uiux-section,
+  body.custom-apps-page .process-workflow-section,
+  body.custom-apps-page .process-evolution-section,
+  body.custom-apps-page .role-separation-section,
+  body.custom-apps-page .dashboards-intelligence-section,
+  body.custom-apps-page .stack-section,
+  body.custom-apps-page .why-mobile-section,
+  body.custom-apps-page .why-approach-section,
+  body.custom-apps-page .faqs-section,
+  body.custom-apps-page .cta-section {
+    margin-bottom: 44px !important;
+  }
+
+  body.custom-apps-page .uiux-hero-section {
+    padding-top: 20px !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.custom-apps-page .uiux-hero-section,
+  body.custom-apps-page .uiux-section,
+  body.custom-apps-page .process-workflow-section,
+  body.custom-apps-page .process-evolution-section,
+  body.custom-apps-page .role-separation-section,
+  body.custom-apps-page .dashboards-intelligence-section,
+  body.custom-apps-page .stack-section,
+  body.custom-apps-page .why-mobile-section,
+  body.custom-apps-page .why-approach-section,
+  body.custom-apps-page .faqs-section,
+  body.custom-apps-page .cta-section {
+    margin-bottom: 32px !important;
+  }
+
+  body.custom-apps-page .uiux-hero-section {
+    padding-top: 16px !important;
+    padding-bottom: 0 !important;
+  }
 }
 
 body.custom-apps-page .faqs-section {
@@ -99,30 +155,133 @@ body.custom-apps-page .services-header {
 }
 
 /* ==========================================================================
-   WHAT WE BUILD / EXPERTISE 6-CARD GRID (3x2 LAYOUT)
+   WHAT WE BUILD / EXPERTISE GRID (EXACT 284px x 509px CARD SIZES)
    ========================================================================== */
 body.custom-apps-page .uiux-expertise-grid {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 28px !important;
-  margin-top: 50px;
+  grid-template-columns: repeat(3, 284px) !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  margin-top: 60px;
 }
 
 body.custom-apps-page .uiux-expertise-card {
-  min-height: 540px;
+  width: 284px !important;
+  max-width: 284px !important;
+  min-width: 284px !important;
+  height: 509px !important;
+  min-height: 509px !important;
+  max-height: 509px !important;
+  padding: 36px 24px 0 24px !important;
+  border-radius: 24px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+body.custom-apps-page .uiux-expertise-num {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: #EAB308 !important;
+  line-height: 1 !important;
+  margin-bottom: 12px !important;
+}
+
+body.custom-apps-page .uiux-expertise-card-title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #060612 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.4px !important;
+  min-height: 50px !important;
+  margin-bottom: 12px !important;
+}
+
+body.custom-apps-page .uiux-expertise-card-desc {
+  font-size: 13.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #69686E !important;
+  margin-bottom: 16px !important;
+  height: 90px !important;
+  min-height: 90px !important;
+  max-height: 90px !important;
+}
+
+/* Card Images: position at bottom of card with tilt angle rotate(-7.717deg) and aspect-ratio 105/82 */
+body.custom-apps-page .uiux-expertise-img,
+body.custom-apps-page .uiux-expertise-img--websites,
+body.custom-apps-page .uiux-expertise-img--webapps,
+body.custom-apps-page .uiux-expertise-img--enterprise {
+  width: 116% !important;
+  max-width: none !important;
+  aspect-ratio: 105 / 82 !important;
+  transform: rotate(-7.717deg) !important;
+  transform-origin: center center !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  margin-left: -5% !important;
+  margin-top: auto !important;
+  margin-bottom: -15px !important;
+  display: block !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease !important;
+}
+
+body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img,
+body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--websites,
+body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--webapps,
+body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise {
+  transform: rotate(-7.717deg) scale(1.04) !important;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16) !important;
 }
 
 @media (max-width: 1024px) {
   body.custom-apps-page .uiux-expertise-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 24px !important;
+    justify-content: center !important;
+    gap: 20px !important;
+  }
+  body.custom-apps-page .uiux-expertise-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
 }
 
 @media (max-width: 640px) {
   body.custom-apps-page .uiux-expertise-grid {
     grid-template-columns: 1fr !important;
-    gap: 20px !important;
+    justify-content: stretch !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+  body.custom-apps-page .uiux-expertise-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 480px !important;
+    max-height: none !important;
+    padding: 32px 20px 0 20px !important;
+    margin: 0 !important;
+  }
+  body.custom-apps-page .uiux-expertise-card-title {
+    min-height: auto !important;
+    margin-bottom: 10px !important;
+  }
+  body.custom-apps-page .uiux-expertise-card-desc {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-bottom: 20px !important;
+  }
+  body.custom-apps-page .uiux-expertise-img,
+  body.custom-apps-page .uiux-expertise-img--websites,
+  body.custom-apps-page .uiux-expertise-img--webapps,
+  body.custom-apps-page .uiux-expertise-img--enterprise {
+    width: 104% !important;
+    margin-left: -2% !important;
+    margin-bottom: -10px !important;
   }
 }
 
@@ -305,7 +464,7 @@ body.custom-apps-page .uiux-expertise-card {
 }
 
 /* ==========================================================================
-   PROCESS EVOLUTION SECTION (FROM MANUAL PROCESSES TO DIGITAL WORKFLOWS)
+   PROCESS EVOLUTION SECTION (2-COLUMN GRID OF STEP CARDS)
    ========================================================================== */
 .process-evolution-section {
   position: relative;
@@ -316,104 +475,47 @@ body.custom-apps-page .uiux-expertise-card {
 }
 
 .process-evolution-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-  gap: 32px;
-  align-items: stretch;
-  margin-bottom: 24px;
-}
-
-/* Left Showcase Card */
-.process-evolution-preview-card {
-  background: #FFFFFF;
-  border: 1px solid #EDEDF2;
-  border-radius: 24px;
-  padding: 28px 24px 22px 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-.evolution-preview-title {
-  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #111827;
-  margin: 0 0 16px 0;
-  letter-spacing: -0.2px;
-}
-
-.evolution-preview-img-wrap {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 16px;
-  background: #F3F4F6;
-  flex: 1;
-  display: flex;
-  min-height: 380px;
-}
-
-.evolution-preview-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
+  margin-bottom: 24px;
+  width: 100%;
 }
 
-.evolution-preview-caption {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: auto;
-}
-
-.evolution-caption-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #58A72B;
-  flex-shrink: 0;
-  margin-top: 5px;
-}
-
-.evolution-caption-text {
-  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
-  font-size: 13px;
-  color: #6B7280;
-  line-height: 1.45;
-}
-
-/* Right Column Steps */
 .process-evolution-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: space-between;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
 }
 
 .evolution-step-card {
   background: #FFFFFF;
   border: 1px solid #EDEDF2;
-  border-radius: 16px;
-  padding: 16px 20px;
+  border-radius: 18px;
+  padding: 22px 24px;
   display: flex;
   align-items: center;
   gap: 20px;
   transition: all 0.25s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
 }
 
 .evolution-step-card:hover {
-  border-color: #CBD5E1;
-  transform: translateX(3px);
+  border-color: #58A72B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(88, 167, 43, 0.08);
 }
 
 .evolution-step-card.is-active {
   border: 1.5px solid #58A72B;
   box-shadow: 0 4px 14px rgba(88, 167, 43, 0.08);
+}
+
+@media (max-width: 768px) {
+  .process-evolution-steps {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
 }
 
 .evolution-step-num {
@@ -643,6 +745,13 @@ body.custom-apps-page .uiux-expertise-card {
   margin-bottom: 60px !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  overflow-x: hidden;
+}
+
+.dashboards-intelligence-section .uiux-container {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .dashboards-grid {
@@ -650,6 +759,8 @@ body.custom-apps-page .uiux-expertise-card {
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   margin-bottom: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .dashboard-card {
@@ -663,6 +774,8 @@ body.custom-apps-page .uiux-expertise-card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .dashboard-card:hover {
@@ -691,6 +804,9 @@ body.custom-apps-page .uiux-expertise-card {
   line-height: 1.35;
   margin: 0 0 8px 0;
   letter-spacing: -0.2px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .dashboard-card-desc {
@@ -699,6 +815,9 @@ body.custom-apps-page .uiux-expertise-card {
   color: #6B7280;
   line-height: 1.45;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .dashboards-highlight-banner {
@@ -708,6 +827,8 @@ body.custom-apps-page .uiux-expertise-card {
   text-align: center;
   margin-bottom: 32px;
   box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
 }
 
 .dashboards-banner-text {
@@ -717,6 +838,8 @@ body.custom-apps-page .uiux-expertise-card {
   color: #111827;
   line-height: 1.5;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .dashboards-cta-group {
@@ -725,6 +848,8 @@ body.custom-apps-page .uiux-expertise-card {
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -738,9 +863,9 @@ body.custom-apps-page .uiux-expertise-card {
   }
 }
 
-@media (max-width: 640px) {
-  .dashboards-intelligence-section {
-    margin-bottom: 32px !important;
+@media (max-width: 768px) {
+  .dashboards-intelligence-section .services-main-heading br {
+    display: none;
   }
 
   .dashboards-grid {
@@ -749,16 +874,29 @@ body.custom-apps-page .uiux-expertise-card {
   }
 
   .dashboard-card {
-    padding: 20px 16px;
+    padding: 20px 14px;
     border-radius: 16px;
   }
 
+  .dashboard-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+
   .dashboard-card-title {
-    font-size: 14.5px;
+    font-size: 14px;
   }
 
   .dashboard-card-desc {
     font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .dashboards-highlight-banner {
+    padding: 16px 18px;
+    border-radius: 10px;
   }
 
   .dashboards-banner-text {
@@ -768,18 +906,53 @@ body.custom-apps-page .uiux-expertise-card {
   .dashboards-cta-group {
     flex-direction: column;
     width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .dashboards-cta-group .start-project-btn,
   .dashboards-cta-group .hero-btn {
-    width: 100%;
-    justify-content: center;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
   }
 }
 
 @media (max-width: 480px) {
   .dashboards-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .dashboard-card {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+
+  .dashboard-card-icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 14px;
+  }
+
+  .dashboard-card-title {
+    font-size: 14.5px;
+  }
+
+  .dashboard-card-desc {
+    font-size: 12.5px;
+  }
+
+  .dashboards-highlight-banner {
+    padding: 14px 16px;
+  }
+
+  .dashboards-banner-text {
+    font-size: 13.5px;
   }
 }
 
@@ -837,132 +1010,83 @@ body.custom-apps-page .dev-process-step:last-child .dev-step-col-info {
 }
 
 /* ==========================================================================
-   WHY CHOOSE US (WHY PARIVARTAN FOR CUSTOM APPLICATIONS)
+   WHY CHOOSE US (SINGLE HORIZONTAL ROW LAYOUT FOR ALL CARDS)
    ========================================================================== */
-.why-mobile-section {
+body.custom-apps-page .why-approach-section {
   position: relative;
   background-color: #FFFFFF;
-  background-image: url('../assets/services/ui-ux/why/why-bg.png');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  margin-bottom: 60px !important;
-  padding: 0 !important;
 }
 
-.why-mobile-section .services-header {
-  margin-bottom: 48px;
+body.custom-apps-page .why-approach-cards-wrap {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+  width: 100% !important;
+  margin-top: 36px !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
 }
 
-.why-mobile-section .services-header-right {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 34px;
+body.custom-apps-page .why-approach-row {
+  display: contents !important;
 }
 
-.why-mobile-section .services-header-subhead {
-  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: #060612;
-  margin: 0;
-  letter-spacing: -0.01em;
-  max-width: 560px;
+body.custom-apps-page .uiux-why-card-outer {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
 }
 
-.why-mobile-section .services-header-desc {
-  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
-  font-size: 15px;
-  line-height: 1.65;
-  color: #64748B;
-  margin: 0;
-  max-width: 560px;
+body.custom-apps-page .why-approach-section .uiux-why-card-inner {
+  background: #FEF6E9 !important;
+  border-radius: 20px !important;
+  padding: 26px 18px 28px 18px !important;
+  justify-content: space-between !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 180px !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
 }
 
-.why-mobile-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
+body.custom-apps-page .why-approach-section .uiux-why-card-icon {
+  margin-bottom: 18px !important;
 }
 
-.why-mobile-card {
-  width: 284px;
-  height: 242px;
-  flex-shrink: 0;
-  box-sizing: border-box;
-  background: #FFFFFF;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1.5px solid #E2E8F0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+body.custom-apps-page .why-approach-section .uiux-why-card-title {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #1E293B !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  letter-spacing: -0.01em !important;
+  word-wrap: break-word !important;
 }
 
-.why-mobile-card:hover {
-  transform: translateY(-4px);
-  border-color: #CBD5E1;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-}
-
-.why-mobile-card-top {
-  height: 154px;
-  background: #549E2D;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.why-mobile-card-bottom {
-  background: #FFFFFF;
-  padding: 18px 20px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid #F1F5F9;
-}
-
-.why-mobile-card-title {
-  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #111827;
-  line-height: 1.35;
-  margin: 0;
-}
-
-@media (max-width: 960px) {
-  .why-mobile-section {
-    margin-bottom: 44px !important;
+@media (max-width: 1024px) {
+  body.custom-apps-page .why-approach-cards-wrap {
+    flex-wrap: wrap !important;
+    gap: 16px !important;
   }
-  .why-mobile-section .services-header-right {
-    margin-top: 0;
-  }
-  .why-mobile-grid {
-    max-width: 600px;
-    gap: 20px;
+  body.custom-apps-page .uiux-why-card-outer {
+    flex: 1 1 calc(33.333% - 12px) !important;
+    max-width: calc(33.333% - 12px) !important;
   }
 }
 
-@media (max-width: 640px) {
-  .why-mobile-section {
-    margin-bottom: 32px !important;
+@media (max-width: 768px) {
+  body.custom-apps-page .uiux-why-card-outer {
+    flex: 1 1 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
   }
-  .why-mobile-grid {
-    justify-content: center;
-  }
-  .why-mobile-card {
-    width: 100%;
-    max-width: 320px;
+}
+
+@media (max-width: 480px) {
+  body.custom-apps-page .uiux-why-card-outer {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
   }
 }
 
