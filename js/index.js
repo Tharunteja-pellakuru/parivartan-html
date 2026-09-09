@@ -206,24 +206,51 @@ const initIndexApp = () => {
 
   if (menuBtn && menuBackdrop && mobileDrawer && !menuBtn.dataset.menuInitialized) {
     menuBtn.dataset.menuInitialized = 'true';
+    let savedScrollY = 0;
+
+    const openMenu = () => {
+      savedScrollY = window.scrollY || window.pageYOffset;
+      menuBtn.classList.add('active');
+      menuBackdrop.classList.add('open');
+      mobileDrawer.classList.add('open');
+      document.documentElement.classList.add('menu-open');
+      document.body.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+      document.body.style.top = `-${savedScrollY}px`;
+    };
+
+    const closeMenu = () => {
+      menuBtn.classList.remove('active');
+      menuBackdrop.classList.remove('open');
+      mobileDrawer.classList.remove('open');
+      document.documentElement.classList.remove('menu-open');
+      document.body.classList.remove('menu-open');
+      document.body.style.overflow = '';
+      document.body.style.top = '';
+      if (savedScrollY !== undefined && savedScrollY !== null) {
+        window.scrollTo(0, savedScrollY);
+      }
+    };
+
     const toggleMenu = () => {
-      const isOpen = menuBtn.classList.toggle('active');
-      menuBackdrop.classList.toggle('open', isOpen);
-      mobileDrawer.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      const isOpen = !mobileDrawer.classList.contains('open');
+      if (isOpen) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
     };
 
     menuBtn.addEventListener('click', toggleMenu);
-    menuBackdrop.addEventListener('click', toggleMenu);
+    menuBackdrop.addEventListener('click', closeMenu);
+
+    menuBackdrop.addEventListener('touchmove', (e) => {
+      if (e.cancelable) e.preventDefault();
+    }, { passive: false });
 
     // Close menu drawer on navigation link clicks (hash navigation)
     mobileDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        menuBackdrop.classList.remove('open');
-        mobileDrawer.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
     });
 
     // Accordion group Inside mobile drawer (Our Work submenus)

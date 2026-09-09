@@ -379,15 +379,41 @@ body {
     line-height: 38px;
   }
   .clients-hero-stats {
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-wrap: nowrap;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: flex-start;
   }
   .stat-item {
-    flex: unset;
-    width: calc(50% - 10px);
+    flex: 1 1 0px;
+    min-width: 0;
+    align-items: center;
+    text-align: center;
+  }
+  .stat-icon-circle {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 8px;
+  }
+  .stat-icon-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+  .stat-info h4 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .stat-info p {
+    font-size: 11px;
+    line-height: 15px;
   }
   .stat-vertical-divider {
-    display: none;
+    display: block;
+    width: 1px;
+    align-self: stretch;
+    background: rgba(0, 0, 0, 0.08);
+    opacity: 0.6;
+    margin: 0 4px;
   }
 }
 
@@ -408,10 +434,6 @@ body {
     font-size: 24px;
     line-height: 32px;
   }
-  .stat-item {
-    align-items: center;
-    text-align: center;
-  }
 }
 
 @media (max-width: 480px) {
@@ -420,6 +442,17 @@ body {
   }
   .clients-hero-container {
     padding: 4px 0 24px 0;
+  }
+  .clients-hero-stats {
+    gap: 4px;
+  }
+  .stat-info h4 {
+    font-size: 16.5px;
+    line-height: 20px;
+  }
+  .stat-info p {
+    font-size: 10px;
+    line-height: 13px;
   }
   .clients-hero-image {
     flex: none;
@@ -661,34 +694,34 @@ body {
   }
   .client-logos-container {
     padding: 24px 0;
-    align-items: center;
+    align-items: flex-start;
   }
   .client-logos-tagline {
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: flex-start;
+    margin-left: 0;
+    margin-right: 0;
   }
   .client-logos-header-grid {
     flex-direction: column;
     gap: 16px;
     margin-bottom: 40px;
-    align-items: center;
+    align-items: flex-start;
   }
   .client-logos-header-left,
   .client-logos-header-right {
     padding-top: 0;
-    text-align: center;
+    text-align: left;
     width: 100%;
   }
   .client-logos-title {
     font-size: 32px;
     line-height: 40px;
-    text-align: center;
+    text-align: left;
   }
   .client-logos-desc {
     font-size: 15px;
     line-height: 26px;
-    text-align: center;
+    text-align: left;
   }
 }
 

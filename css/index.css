@@ -293,6 +293,17 @@ button {
   transform: translateX(3px);
 }
 
+/* Lock page scroll completely when mobile navigation menu is open */
+html.menu-open,
+body.menu-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  position: fixed !important;
+  width: 100% !important;
+  touch-action: none !important;
+  overscroll-behavior: none !important;
+}
+
 /* Backdrop blur behind the drawer */
 .menu-backdrop {
   position: fixed;
@@ -595,9 +606,9 @@ button {
   }
 
   .header-logo {
-    height: 36px;
-    width: auto;
-    max-width: 170px;
+    height: 54px !important;
+    width: auto !important;
+    max-width: 230px !important;
     object-fit: contain;
     margin-top: auto !important;
     margin-bottom: auto !important;
@@ -663,19 +674,19 @@ button {
 
 @media (max-width: 480px) {
   .header-container {
-    height: 66px !important;
-    min-height: 66px !important;
+    height: 72px !important;
+    min-height: 72px !important;
     padding: 10px 12px 10px 16px !important;
   }
 
   .header-container.scrolled {
-    height: 66px !important;
-    min-height: 66px !important;
+    height: 72px !important;
+    min-height: 72px !important;
   }
 
   .header-logo {
-    height: 32px;
-    max-width: 150px;
+    height: 48px !important;
+    max-width: 210px !important;
   }
 
   .header-middle {
@@ -5228,18 +5239,27 @@ button {
     gap: 48px;
   }
   .cta-left-content {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start !important;
+    text-align: left !important;
     flex: none;
     width: 100%;
+  }
+  .cta-tagline {
+    justify-content: flex-start !important;
+    margin-left: 0 !important;
   }
   .cta-main-heading {
     width: 100%;
     font-size: 38px;
     line-height: 48px;
+    text-align: left !important;
   }
   .cta-description {
     width: 100%;
+    text-align: left !important;
+  }
+  .cta-start-project-btn {
+    align-self: flex-start !important;
   }
   .cta-right-content {
     flex: none;
@@ -6054,14 +6074,14 @@ button {
 
   .header-container,
   .header-container.scrolled {
-    height: 56px !important;
-    min-height: 56px !important;
-    padding: 6px 8px !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 6px 10px !important;
   }
 
   .header-logo {
-    height: 24px !important;
-    max-width: 95px !important;
+    height: 42px !important;
+    max-width: 180px !important;
   }
 
   .header-middle {
@@ -8288,8 +8308,8 @@ a.contact-text:hover {
     align-items: center !important;
   }
   header.header-container .header-logo {
-    height: 38px !important;
-    max-width: 160px !important;
+    height: 48px !important;
+    max-width: 210px !important;
     width: auto !important;
     display: block !important;
     flex-shrink: 0 !important;
@@ -8375,8 +8395,8 @@ a.contact-text:hover {
     align-items: center !important;
   }
   header.header-container .header-logo {
-    height: 34px !important;
-    max-width: 145px !important;
+    height: 46px !important;
+    max-width: 200px !important;
     width: auto !important;
     display: block !important;
     flex-shrink: 0 !important;
@@ -8462,8 +8482,8 @@ a.contact-text:hover {
     align-items: center !important;
   }
   header.header-container .header-logo {
-    height: 30px !important;
-    max-width: 130px !important;
+    height: 44px !important;
+    max-width: 190px !important;
     width: auto !important;
     display: block !important;
     flex-shrink: 0 !important;
