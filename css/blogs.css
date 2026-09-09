@@ -685,7 +685,7 @@
   }
 
   .blogs-hero-container {
-    padding-top: 4px;
+    padding-top: 24px !important;
   }
 }
 

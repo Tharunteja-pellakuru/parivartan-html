@@ -204,12 +204,12 @@ button {
 .menu-btn {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   background: transparent;
   border: none;
   cursor: pointer;
-  width: 100%;
-  height: 100%;
+  width: 44px;
+  height: 44px;
   align-items: center;
   justify-content: center;
   transition: opacity 0.25s ease;
@@ -217,27 +217,27 @@ button {
 
 .menu-btn span {
   display: block;
-  width: 18px;
-  height: 1.5px;
+  width: 24px;
+  height: 2.5px;
   background: #73BF44;
-  border-radius: 1px;
+  border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .menu-btn:hover span:first-child {
-  transform: translateY(-0.75px) scaleX(0.85);
+  transform: translateY(-1px) scaleX(0.9);
 }
 
 .menu-btn:hover span:last-child {
-  transform: translateY(0.75px) scaleX(0.85);
+  transform: translateY(1px) scaleX(0.9);
 }
 
 .menu-btn.active span:first-child {
-  transform: translateY(2.75px) rotate(45deg);
+  transform: translateY(3.75px) rotate(45deg);
 }
 
 .menu-btn.active span:last-child {
-  transform: translateY(-2.75px) rotate(-45deg);
+  transform: translateY(-3.75px) rotate(-45deg);
 }
 
 .header-right {
@@ -606,9 +606,9 @@ body.menu-open {
   }
 
   .header-logo {
-    height: 54px !important;
+    height: 56px !important;
     width: auto !important;
-    max-width: 230px !important;
+    max-width: 250px !important;
     object-fit: contain;
     margin-top: auto !important;
     margin-bottom: auto !important;
@@ -621,7 +621,7 @@ body.menu-open {
   .header-middle {
     flex: 0 0 auto;
     margin-left: auto;
-    margin-right: 30px;
+    margin-right: 20px;
     width: auto;
     height: 100%;
     display: flex;
@@ -642,8 +642,8 @@ body.menu-open {
   }
 
   .menu-btn {
-    width: 40px;
-    height: 40px;
+    width: 44px !important;
+    height: 44px !important;
     padding: 4px;
     margin-top: auto !important;
     margin-bottom: auto !important;
@@ -654,11 +654,11 @@ body.menu-open {
 
   .mobile-drawer {
     position: fixed;
-    top: 76px;
+    top: 92px !important;
     left: 50%;
     transform: translate(-50%, 0);
     width: min(420px, 92vw);
-    max-height: calc(100vh - 90px);
+    max-height: calc(100vh - 110px) !important;
     z-index: 999;
     flex-direction: column;
   }
@@ -674,23 +674,23 @@ body.menu-open {
 
 @media (max-width: 480px) {
   .header-container {
-    height: 72px !important;
-    min-height: 72px !important;
-    padding: 10px 12px 10px 16px !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    padding: 10px 16px !important;
   }
 
   .header-container.scrolled {
-    height: 72px !important;
-    min-height: 72px !important;
+    height: 76px !important;
+    min-height: 76px !important;
   }
 
   .header-logo {
-    height: 48px !important;
-    max-width: 210px !important;
+    height: 52px !important;
+    max-width: 230px !important;
   }
 
   .header-middle {
-    margin-right: 24px;
+    margin-right: 16px;
   }
 
   .header-patch {
@@ -699,8 +699,8 @@ body.menu-open {
   }
 
   .mobile-drawer {
-    top: 70px;
-    max-height: calc(100vh - 82px);
+    top: 88px !important;
+    max-height: calc(100vh - 104px) !important;
   }
 }
 
@@ -726,10 +726,13 @@ body.menu-open {
 }
 
 .drawer-submenu-list {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s ease;
+  max-height: 0 !important;
+  opacity: 0;
+  overflow: hidden !important;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, padding 0.3s ease;
   padding-left: 48px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -737,9 +740,10 @@ body.menu-open {
 }
 
 .drawer-menu-item-group.expanded .drawer-submenu-list {
-  max-height: 380px;
-  padding-top: 4px;
-  padding-bottom: 10px;
+  max-height: 500px !important;
+  opacity: 1;
+  padding-top: 4px !important;
+  padding-bottom: 10px !important;
 }
 
 .drawer-submenu-item {
@@ -6074,18 +6078,18 @@ body.menu-open {
 
   .header-container,
   .header-container.scrolled {
-    height: 64px !important;
-    min-height: 64px !important;
-    padding: 6px 10px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    padding: 8px 12px !important;
   }
 
   .header-logo {
-    height: 42px !important;
-    max-width: 180px !important;
+    height: 48px !important;
+    max-width: 210px !important;
   }
 
   .header-middle {
-    margin-right: 4px !important;
+    margin-right: 8px !important;
   }
 
   .start-project-btn {
@@ -6101,14 +6105,14 @@ body.menu-open {
   }
 
   .menu-btn {
-    width: 34px !important;
-    height: 34px !important;
+    width: 40px !important;
+    height: 40px !important;
     padding: 2px !important;
   }
 
   .mobile-drawer {
-    top: 56px !important;
-    max-height: calc(100vh - 56px) !important;
+    top: 84px !important;
+    max-height: calc(100vh - 96px) !important;
   }
 
   /* Hero Section */
@@ -6130,7 +6134,7 @@ body.menu-open {
   }
 
   .hero-card-row {
-    padding-top: 16px !important;
+    padding-top: 24px !important;
     padding-bottom: 20px !important;
   }
 

@@ -106,6 +106,11 @@ const initWebsitesApp = () => {
 
     const openMenu = () => {
       savedScrollY = window.scrollY || window.pageYOffset;
+      mobileDrawer.querySelectorAll('.drawer-menu-item-group').forEach(group => {
+        group.classList.remove('expanded');
+        const toggleBtn = group.querySelector('.dropdown-toggle-btn');
+        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+      });
       menuBtn.classList.add('active');
       menuBackdrop.classList.add('open');
       mobileDrawer.classList.add('open');

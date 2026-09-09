@@ -1,11 +1,10 @@
-@import url("./index.css");
-
-/* Fix double scroll — prevent horizontal overflow on this page */
+/* Fix double scroll — prevent horizontal overflow on this page without creating secondary scroll viewports */
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
+
 
 /* ==========================================================================
    Component: Hero.css
@@ -728,10 +727,10 @@ body {
 @media (max-width: 480px) {
   .client-logos-section {
     padding: 0 16px;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   .clients-hero-section {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   .client-logos-container {
     padding: 20px 0;
@@ -1206,7 +1205,7 @@ body {
   }
 
   .clients-hero-container {
-    padding-top: 8px !important;
+    padding-top: 24px !important;
     padding-bottom: 0 !important;
   }
 }
@@ -1233,7 +1232,7 @@ body {
   }
 
   .clients-hero-container {
-    padding-top: 4px !important;
+    padding-top: 24px !important;
     padding-bottom: 0 !important;
   }
 }

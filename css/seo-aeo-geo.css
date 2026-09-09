@@ -346,7 +346,7 @@ body.seo-page {
     padding: 24px 18px;
   }
   .uiux-hero-section {
-    padding-top: 20px !important;
+    padding-top: 24px !important;
   }
   .uiux-hero-title {
     font-size: 38px;
@@ -356,7 +356,7 @@ body.seo-page {
 
 @media (max-width: 480px) {
   .uiux-hero-section {
-    padding-top: 4px !important;
+    padding-top: 24px !important;
   }
   .uiux-hero-title {
     font-size: 32px;
@@ -1608,8 +1608,135 @@ body.seo-page {
 }
 
 /* ==========================================================================
-   9. WHY PARIVARTAN (6 Value Pillars)
+   9. WHY PARIVARTAN (6 Value Pillars: 3 cards per row x 2 rows = 6 cards)
    ========================================================================== */
+body.seo-page #why-choose-us,
+body.seo-page .why-approach-section {
+  position: relative;
+  overflow: hidden;
+}
+
+body.seo-page #why-choose-us::before,
+body.seo-page .why-approach-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/services/ui-ux/why/why-bg.webp') center center / 100% 100% no-repeat;
+  filter: invert(1);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.seo-page #why-choose-us::after,
+body.seo-page .why-approach-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 85%, #FFFFFF 100%),
+    linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.6) 14%, rgba(255, 255, 255, 0) 35%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.seo-page #why-choose-us > *,
+body.seo-page .why-approach-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+body.seo-page .why-approach-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin-top: 36px;
+}
+
+body.seo-page .why-approach-row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+  align-items: stretch;
+}
+
+body.seo-page .why-approach-row-top .uiux-why-card-outer,
+body.seo-page .why-approach-row-bottom .uiux-why-card-outer {
+  flex: 1 1 0;
+  min-width: 0;
+  width: calc(33.333% - 16px);
+  max-width: calc(33.333% - 16px);
+  box-sizing: border-box;
+}
+
+body.seo-page .why-approach-section .uiux-why-card-inner {
+  background: #FFF9F0;
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 200px;
+  box-sizing: border-box;
+  border: 1px solid rgba(245, 176, 37, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.seo-page .why-approach-section .uiux-why-card-outer:hover .uiux-why-card-inner {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(245, 176, 37, 0.12);
+}
+
+body.seo-page .why-approach-section .uiux-why-card-icon {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+}
+
+body.seo-page .why-approach-section .uiux-why-card-title {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #060612;
+  line-height: 28px;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  body.seo-page .why-approach-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  body.seo-page .why-approach-row-top .uiux-why-card-outer,
+  body.seo-page .why-approach-row-bottom .uiux-why-card-outer {
+    flex: 1 1 calc(50% - 10px);
+    width: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 640px) {
+  body.seo-page .why-approach-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  body.seo-page .why-approach-row-top .uiux-why-card-outer,
+  body.seo-page .why-approach-row-bottom .uiux-why-card-outer {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 .seo-why-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2223,3 +2350,48 @@ body.seo-page {
     gap: 6px;
   }
 }
+
+/* ==================== UNIFORM GLOBAL SECTION SPACING FOR SEO-AEO-GEO PAGE ==================== */
+body.seo-page .seo-section,
+body.seo-page #why-choose-us,
+body.seo-page #faqs,
+body.seo-page .why-approach-section,
+body.seo-page .faqs-section {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body.seo-page .seo-container,
+body.seo-page .faqs-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media (max-width: 960px) {
+  body.seo-page .seo-section,
+  body.seo-page #why-choose-us,
+  body.seo-page #faqs,
+  body.seo-page .why-approach-section,
+  body.seo-page .faqs-section {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.seo-page .seo-section,
+  body.seo-page #why-choose-us,
+  body.seo-page #faqs,
+  body.seo-page .why-approach-section,
+  body.seo-page .faqs-section {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
