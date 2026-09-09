@@ -150,6 +150,37 @@ body.seo-page {
   user-select: none;
 }
 
+.uiux-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 28px auto;
+  max-width: 720px;
+}
+
+.uiux-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  background: #F4F8F1;
+  border: 1px solid #D6E8CD;
+  border-radius: 20px;
+  color: #2F4F1E;
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+
+.uiux-pill:hover {
+  background: #EAF4E6;
+  border-color: #BBDCAE;
+}
+
 .uiux-hero-actions {
   display: flex;
   align-items: center;
@@ -325,7 +356,7 @@ body.seo-page {
 
 @media (max-width: 480px) {
   .uiux-hero-section {
-    padding-top: 32px;
+    padding-top: 4px;
   }
   .uiux-hero-title {
     font-size: 32px;
@@ -1540,6 +1571,13 @@ body.seo-page {
   flex-shrink: 0;
 }
 
+.seo-metric-leaf {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .seo-metric-label {
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 15px;
@@ -1637,7 +1675,7 @@ body.seo-page {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .seo-journey-grid {
+  .seo-journey-flowchart {
     grid-template-columns: repeat(3, 1fr);
   }
   
@@ -1683,7 +1721,6 @@ body.seo-page {
   .seo-capabilities-grid,
   .seo-why-grid,
   .seo-questions-grid,
-  .seo-journey-grid,
   .seo-ai-queries-grid,
   .seo-matrix-grid,
   .seo-metrics-grid {
@@ -1702,6 +1739,32 @@ body.seo-page {
     font-size: 26px;
     line-height: 36px;
   }
+
+  body.seo-page .cta-inner-box {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 32px 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .uiux-hero-title br {
+    display: none;
+  }
+
+  .seo-journey-flowchart {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .seo-journey-title {
+    min-height: auto;
+    font-size: 15px;
+  }
+
+  .seo-matrix-item[style*="grid-column: span 2"] {
+    grid-column: span 1 !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1713,19 +1776,293 @@ body.seo-page {
     padding: 24px 0;
   }
   
-  .seo-hero-title {
+  .uiux-hero-title {
     font-size: 28px;
     line-height: 38px;
   }
-  
-  .seo-hero-actions {
-    flex-direction: column;
-    width: 100%;
+
+  .uiux-hero-subtitle {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
   }
   
-  .seo-hero-actions a {
+  .uiux-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .uiux-hero-actions a {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
+    justify-content: center;
+  }
+
+  .tech-hero-showcase {
+    margin-top: 28px;
+    border-radius: 16px;
+  }
+
+  .tech-showcase-topbar {
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-topbar-title {
+    font-size: 11.5px;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .tech-topbar-status {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .seo-questions-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .seo-question-card {
+    padding: 20px 18px;
+    border-radius: 14px;
+  }
+
+  .seo-shift-bridge {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px 16px;
+    border-radius: 12px;
+    margin-top: 24px;
+  }
+
+  .seo-bridge-text {
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .seo-video-player-card {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
+  .seo-video-player-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .seo-pillar-hcard {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 22px 16px;
+    border-radius: 16px;
+  }
+
+  .seo-pillar-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .seo-pillar-tagline {
+    font-size: 13.5px;
+  }
+
+  .seo-pillar-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .seo-pillar-tags {
+    padding-top: 14px;
+    gap: 6px;
+  }
+
+  .seo-pillar-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .seo-ai-banner {
+    margin-top: 32px;
+  }
+
+  .seo-ai-outer-box {
+    padding: 8px;
+    border-radius: 14px;
+  }
+
+  .seo-ai-inner-box {
+    padding: 24px 16px;
+    border-radius: 10px;
+  }
+
+  .seo-ai-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .seo-ai-desc {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .seo-ai-queries-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .seo-ai-query-pill {
+    padding: 12px 14px;
+  }
+
+  .seo-ai-query-text {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .seo-ai-footer .cta-start-project-btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .seo-capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .seo-capability-tile {
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .seo-capability-title {
+    font-size: 14.5px;
+    line-height: 1.35;
+  }
+
+  .seo-foundation-box {
+    padding: 20px 16px;
+    border-radius: 16px;
+    margin-top: 14px;
+  }
+
+  .seo-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .seo-matrix-item {
+    padding: 14px 16px;
+    border-radius: 10px;
+  }
+
+  .seo-matrix-text {
+    font-size: 13.5px;
+  }
+
+  .seo-hero-sublead {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  .seo-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .seo-metric-card {
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+
+  .seo-metric-label {
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+
+  .seo-why-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .seo-why-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .seo-why-title {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .seo-why-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  body.seo-page .cta-outer-box {
+    padding: 8px !important;
+  }
+
+  body.seo-page .cta-inner-box {
+    padding: 24px 16px !important;
+    border-radius: 12px !important;
+  }
+
+  body.seo-page .cta-main-heading {
+    font-size: 24px !important;
+    line-height: 32px !important;
+  }
+
+  body.seo-page .cta-description {
+    font-size: 14px !important;
+    line-height: 24px !important;
+    margin-bottom: 20px !important;
+  }
+
+  body.seo-page .cta-actions-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  body.seo-page .cta-actions-group a {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  body.seo-page .available-card-outer {
+    width: 100% !important;
+  }
+
+  body.seo-page .available-card-inner {
+    padding: 20px 16px !important;
+  }
+
+  body.seo-page .available-card-title {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .seo-journey-flowchart {
+    grid-template-columns: 1fr;
   }
 }

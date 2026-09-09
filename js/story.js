@@ -77,35 +77,22 @@ const initStoryApp = () => {
         }
       }
     });
+
+    if (!mobileMatched) {
+      document.querySelectorAll('.mobile-drawer > .drawer-menu-list > a.drawer-menu-item').forEach(link => {
+        if (mobileMatched) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+        if (linkPath === currentPath && linkPath !== '#') {
+          link.classList.add('active');
+          mobileMatched = true;
+        }
+      });
+    }
   };
 
   highlightActiveNav();
-
-    document.querySelectorAll('.desktop-nav > .nav-item > .nav-link').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href) return;
-      const cleanHref = href.replace('./', '').split('/').pop();
-      if (cleanHref === currentPath && cleanHref !== '#') {
-        link.classList.add('active');
-        const parentNav = link.closest('.nav-item');
-        if (parentNav) parentNav.classList.add('active');
-      }
-    });
-
-    document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => {
-      const href = item.getAttribute('href');
-      if (!href) return;
-      const cleanHref = href.replace('./', '').split('/').pop();
-      if (cleanHref === currentPath && cleanHref !== 'index.html') {
-        item.classList.add('active');
-        const parentGroup = item.closest('.drawer-menu-item-group');
-        if (parentGroup) {
-          const toggleBtn = parentGroup.querySelector('.drawer-menu-item');
-          if (toggleBtn) toggleBtn.classList.add('active');
-        }
-      }
-    });
-  }
 
   /* ==========================================
      1. GLOBAL ANIMATION LAYER (GSAP REVEALS)
@@ -137,7 +124,7 @@ const initStoryApp = () => {
 
 
       
-      // Timeline SVG Winding Path logic
+      // Timeline SVG Path logic (Independent of pin transform scales)
       const timelineWrapper = document.querySelector('.timeline-wrapper');
       const svgTrack = document.querySelector('.timeline-svg-track');
       const svgProgress = document.querySelector('.timeline-svg-progress');
@@ -147,23 +134,37 @@ const initStoryApp = () => {
         const items = document.querySelectorAll('.timeline-item');
         if (items.length === 0) return;
 
-        const wrapperRect = timelineWrapper.getBoundingClientRect();
         const points = [];
-
         items.forEach(item => {
-          const pin = item.querySelector('.timeline-pin');
-          if (pin) {
-            const pinRect = pin.getBoundingClientRect();
-            const x = pinRect.left + pinRect.width / 2 - wrapperRect.left;
-            const y = pinRect.top + pinRect.height / 2 - wrapperRect.top;
-            points.push({ x, y });
+          let top = item.offsetTop;
+          let parent = item.offsetParent;
+          while (parent && parent !== timelineWrapper) {
+            top += parent.offsetTop;
+            parent = parent.offsetParent;
           }
+          const y = top + item.offsetHeight / 2;
+          const isMobile = window.innerWidth <= 992;
+          const isSmallMobile = window.innerWidth <= 480;
+          let x = timelineWrapper.offsetWidth / 2;
+          if (isSmallMobile) {
+            x = 20;
+          } else if (isMobile) {
+            x = 25;
+          }
+          points.push({ x, y });
         });
 
-        let d = `M ${points[0].x} ${points[0].y}`;
-        for (let i = 1; i < points.length; i++) {
-          d += ` L ${points[i].x} ${points[i].y}`;
-        }
+        if (points.length === 0) return;
+
+        const startY = Math.max(0, points[0].y - 35);
+        const endY = points[points.length - 1].y + 35;
+        const lineX = points[0].x;
+
+        let d = `M ${lineX} ${startY}`;
+        points.forEach(pt => {
+          d += ` L ${lineX} ${pt.y}`;
+        });
+        d += ` L ${lineX} ${endY}`;
 
         svgTrack.setAttribute('d', d);
         if (svgProgress) {
@@ -171,13 +172,22 @@ const initStoryApp = () => {
           const totalLength = svgProgress.getTotalLength();
           if (totalLength) {
             svgProgress.style.strokeDasharray = totalLength;
-            svgProgress.style.strokeDashoffset = totalLength;
+            if (!svgProgress.style.strokeDashoffset || svgProgress.style.strokeDashoffset === '') {
+              svgProgress.style.strokeDashoffset = totalLength;
+            }
           }
         }
       };
 
       updateTimelineSvgPath();
-      window.addEventListener('resize', updateTimelineSvgPath);
+      window.addEventListener('resize', () => {
+        updateTimelineSvgPath();
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      });
+      window.addEventListener('load', () => {
+        updateTimelineSvgPath();
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      });
 
       if (timelineWrapper && svgProgress) {
         gsap.to(svgProgress, {
@@ -185,9 +195,22 @@ const initStoryApp = () => {
           ease: 'none',
           scrollTrigger: {
             trigger: timelineWrapper,
-            start: 'top 65%',
-            end: 'bottom 75%',
-            scrub: 0.5
+            start: 'top 70%',
+            end: 'bottom 80%',
+            scrub: 0.3,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const items = document.querySelectorAll('.timeline-item');
+              const total = items.length;
+              items.forEach((item, index) => {
+                const threshold = index / Math.max(1, total - 1);
+                if (progress >= threshold - 0.04) {
+                  item.classList.add('line-reached');
+                } else {
+                  item.classList.remove('line-reached');
+                }
+              });
+            }
           }
         });
       }
@@ -196,6 +219,7 @@ const initStoryApp = () => {
       const timelineItems = gsap.utils.toArray('.timeline-item');
       timelineItems.forEach(item => {
         const isRight = item.classList.contains('right');
+        const isMobile = window.innerWidth <= 992;
         const card = item.querySelector('.timeline-content-card');
         const pin = item.querySelector('.timeline-pin') || item.querySelector('.timeline-dot');
 
@@ -210,7 +234,7 @@ const initStoryApp = () => {
               ease: 'back.out(2.2)',
               scrollTrigger: {
                 trigger: item,
-                start: 'top 82%',
+                start: 'top 85%',
                 once: true
               }
             }
@@ -222,8 +246,8 @@ const initStoryApp = () => {
           gsap.fromTo(card,
             {
               autoAlpha: 0,
-              x: isRight ? 70 : -70,
-              y: 25,
+              x: isMobile ? 0 : (isRight ? 70 : -70),
+              y: isMobile ? 30 : 25,
               scale: 0.95
             },
             {
@@ -235,7 +259,7 @@ const initStoryApp = () => {
               ease: 'power3.out',
               scrollTrigger: {
                 trigger: item,
-                start: 'top 84%',
+                start: 'top 85%',
                 once: true,
                 onEnter: () => {
                   item.classList.add('active');

@@ -1074,6 +1074,10 @@
     padding: 0 14px;
   }
 
+  .media-hero-container {
+    padding: 4px 0 0 0;
+  }
+
   .media-title {
     font-size: 22px;
     line-height: 30px;

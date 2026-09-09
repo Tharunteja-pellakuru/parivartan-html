@@ -612,23 +612,48 @@ body.ecommerce-page,
 /* --------------------------------------------------------------------------
    10. WHY CHOOSE US - APPROACH CARDS FLEX LAYOUT
    -------------------------------------------------------------------------- */
+body.ecommerce-page .why-approach-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+body.ecommerce-page .why-approach-row {
+  display: flex !important;
+  flex-direction: row;
+  width: 100%;
+  gap: 16px;
+  justify-content: center;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
 body.ecommerce-page .why-approach-row-top .uiux-why-card-outer {
-  flex: 1 1 calc(25% - 18px);
-  max-width: calc(25% - 18px);
-  min-width: 200px;
+  flex: 1 1 0;
+  width: calc(25% - 12px);
+  max-width: calc(25% - 12px);
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 body.ecommerce-page .why-approach-row-bottom .uiux-why-card-outer {
-  flex: 0 1 calc(30% - 18px);
-  max-width: calc(30% - 18px);
-  min-width: 200px;
+  flex: 1 1 0;
+  width: calc(33.333% - 11px);
+  max-width: calc(33.333% - 11px);
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 @media (max-width: 992px) {
+  body.ecommerce-page .why-approach-row {
+    flex-wrap: wrap !important;
+  }
   body.ecommerce-page .why-approach-row-top .uiux-why-card-outer,
   body.ecommerce-page .why-approach-row-bottom .uiux-why-card-outer {
-    flex: 1 1 calc(50% - 12px);
-    max-width: calc(50% - 12px);
+    flex: 1 1 calc(50% - 10px);
+    width: calc(50% - 10px);
+    max-width: calc(50% - 10px);
   }
 }
 
@@ -636,6 +661,7 @@ body.ecommerce-page .why-approach-row-bottom .uiux-why-card-outer {
   body.ecommerce-page .why-approach-row-top .uiux-why-card-outer,
   body.ecommerce-page .why-approach-row-bottom .uiux-why-card-outer {
     flex: 1 1 100%;
+    width: 100%;
     max-width: 100%;
   }
 }
@@ -645,7 +671,7 @@ body.ecommerce-page .why-approach-row-bottom .uiux-why-card-outer {
    -------------------------------------------------------------------------- */
 body.ecommerce-page .uiux-hero-section {
   margin-bottom: 60px !important;
-  padding-top: 24px !important;
+  padding-top: 4px !important;
   padding-bottom: 0 !important;
 }
 
@@ -750,5 +776,323 @@ body.ecommerce-page .ecommerce-card-icon {
   body.ecommerce-page #why-choose-us,
   body.ecommerce-page #faqs {
     margin-bottom: 36px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. COMPLETE E-COMMERCE MOBILE RESPONSIVENESS OVERRIDES
+   -------------------------------------------------------------------------- */
+body.ecommerce-page {
+  overflow-x: clip;
+}
+
+@media (max-width: 992px) {
+  body.ecommerce-page .ecommerce-cards-grid,
+  body.ecommerce-page .ecommerce-platforms-grid,
+  body.ecommerce-page .ecommerce-mobile-grid,
+  body.ecommerce-page .ecommerce-perf-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  body.ecommerce-page .ecommerce-integrations-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  body.ecommerce-page .cta-inner-box {
+    flex-direction: column !important;
+    padding: 36px 24px !important;
+    gap: 32px !important;
+  }
+
+  body.ecommerce-page .cta-left-content,
+  body.ecommerce-page .cta-right-content {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body.ecommerce-page .services-main-heading {
+    font-size: clamp(24px, 5.5vw, 32px) !important;
+    line-height: 1.3 !important;
+  }
+
+  body.ecommerce-page .services-header-desc,
+  body.ecommerce-page .services-header-subhead {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Hide static break tags on mobile for natural text flow */
+  body.ecommerce-page .services-main-heading br,
+  body.ecommerce-page .cta-main-heading br,
+  body.ecommerce-page .uiux-why-card-title br,
+  body.ecommerce-page .platform-title br {
+    display: none;
+  }
+
+  /* Hero Showcase */
+  body.ecommerce-page .ecommerce-hero-showcase {
+    margin-top: 20px !important;
+  }
+
+  body.ecommerce-page .ecommerce-showcase-wrapper {
+    border-radius: 18px !important;
+  }
+
+  body.ecommerce-page .ecommerce-hero-img {
+    border-radius: 18px !important;
+  }
+
+  /* Single Column Grids */
+  body.ecommerce-page .ecommerce-cards-grid,
+  body.ecommerce-page .ecommerce-platforms-grid,
+  body.ecommerce-page .ecommerce-mobile-grid,
+  body.ecommerce-page .ecommerce-perf-grid,
+  body.ecommerce-page .ecommerce-integrations-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin-top: 28px !important;
+  }
+
+  /* Card Padding Adjustments */
+  body.ecommerce-page .ecommerce-card,
+  body.ecommerce-page .ecommerce-platform-card,
+  body.ecommerce-page .mobile-pillar-card,
+  body.ecommerce-page .perf-focus-card,
+  body.ecommerce-page .integration-badge-card {
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  body.ecommerce-page .platform-card-header {
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  body.ecommerce-page .platform-logo-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+
+  body.ecommerce-page .platform-title {
+    font-size: 20px;
+  }
+
+  body.ecommerce-page .platform-desc {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  /* Search Pillars */
+  body.ecommerce-page .ecommerce-search-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px !important;
+    margin-top: 28px !important;
+  }
+
+  body.ecommerce-page .search-pillar-item {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 16px;
+    padding: 14px 18px;
+    justify-content: flex-start;
+  }
+
+  body.ecommerce-page .search-pillar-text {
+    white-space: normal;
+    word-break: break-word;
+    font-size: 14px;
+  }
+
+  /* Connected 10-Step Timeline Process */
+  body.ecommerce-page .dev-process-card {
+    padding: 24px 18px !important;
+    border-radius: 20px !important;
+    margin-top: 28px !important;
+  }
+
+  body.ecommerce-page .dev-process-step {
+    gap: 16px !important;
+  }
+
+  body.ecommerce-page .dev-step-col-num {
+    width: 32px !important;
+  }
+
+  body.ecommerce-page .dev-step-digit {
+    font-size: 20px !important;
+  }
+
+  body.ecommerce-page .dev-step-col-info {
+    padding-bottom: 24px !important;
+  }
+
+  body.ecommerce-page .dev-step-heading {
+    font-size: 18px !important;
+    margin-bottom: 6px;
+  }
+
+  body.ecommerce-page .dev-step-para {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Why Choose Us Cards */
+  body.ecommerce-page .why-approach-cards-wrap {
+    gap: 14px !important;
+  }
+
+  body.ecommerce-page .uiux-why-card-outer {
+    border-radius: 20px !important;
+    padding: 8px !important;
+  }
+
+  body.ecommerce-page .uiux-why-card-inner {
+    padding: 22px 18px !important;
+    border-radius: 16px !important;
+    min-height: unset !important;
+  }
+
+  body.ecommerce-page .uiux-why-card-title {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* FAQs Section Mobile Optimization */
+  body.ecommerce-page .faqs-outer-card {
+    padding: 10px !important;
+    border-radius: 16px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.ecommerce-page .faqs-single-column,
+  body.ecommerce-page .faqs-inner-grid,
+  body.ecommerce-page .faqs-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  body.ecommerce-page .faq-item-card {
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.ecommerce-page .faq-question-row {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  body.ecommerce-page .faq-question-text {
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    font-weight: 600 !important;
+    color: #060612 !important;
+    flex: 1 1 auto !important;
+    margin: 0 !important;
+    text-align: left !important;
+    word-break: break-word !important;
+  }
+
+  body.ecommerce-page .faq-toggle-btn {
+    flex-shrink: 0 !important;
+    width: 26px !important;
+    height: 26px !important;
+    margin-top: 2px !important;
+  }
+
+  body.ecommerce-page .faq-toggle-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  body.ecommerce-page .faq-answer-row {
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid #F0F2F5 !important;
+    width: 100% !important;
+  }
+
+  body.ecommerce-page .faq-answer-text {
+    max-width: 100% !important;
+    font-size: 13.5px !important;
+    line-height: 1.6 !important;
+    color: #69686E !important;
+    width: 100% !important;
+  }
+
+  /* CTA Banner & Button Responsiveness */
+  body.ecommerce-page .available-book-call-btn,
+  body.ecommerce-page .start-project-btn {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+
+  body.ecommerce-page .available-book-call-btn span,
+  body.ecommerce-page .start-project-btn span {
+    white-space: nowrap !important;
+    font-size: 13.5px !important;
+    line-height: 1.3 !important;
+    word-break: keep-all !important;
+    hyphens: none !important;
+  }
+
+  body.ecommerce-page .cta-inner-box {
+    padding: 28px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  body.ecommerce-page .cta-main-heading {
+    font-size: clamp(22px, 5.5vw, 28px) !important;
+    line-height: 1.3 !important;
+  }
+
+  body.ecommerce-page .cta-description {
+    font-size: 14px !important;
+  }
+
+  body.ecommerce-page .cta-actions-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  body.ecommerce-page .cta-actions-group a {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  body.ecommerce-page .uiux-container,
+  body.ecommerce-page .faqs-container,
+  body.ecommerce-page .cta-container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  body.ecommerce-page .available-book-call-btn span,
+  body.ecommerce-page .start-project-btn span {
+    font-size: 12.5px !important;
   }
 }

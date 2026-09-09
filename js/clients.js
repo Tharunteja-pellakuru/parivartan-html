@@ -77,23 +77,22 @@ const initClientsApp = () => {
         }
       }
     });
+
+    if (!mobileMatched) {
+      document.querySelectorAll('.mobile-drawer > .drawer-menu-list > a.drawer-menu-item').forEach(link => {
+        if (mobileMatched) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+        if (linkPath === currentPath && linkPath !== '#') {
+          link.classList.add('active');
+          mobileMatched = true;
+        }
+      });
+    }
   };
 
   highlightActiveNav();
-
-  document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => {
-    const href = item.getAttribute('href');
-    if (!href) return;
-    const cleanHref = href.replace('./', '').split('/').pop();
-    if (cleanHref === currentPath && cleanHref !== 'index.html') {
-      item.classList.add('active');
-      const parentGroup = item.closest('.drawer-menu-item-group');
-      if (parentGroup) {
-        const toggleBtn = parentGroup.querySelector('.drawer-menu-item');
-        if (toggleBtn) toggleBtn.classList.add('active');
-      }
-    }
-  });
 
   /* ==========================================
      1. GLOBAL ANIMATION LAYER (GSAP REVEALS)

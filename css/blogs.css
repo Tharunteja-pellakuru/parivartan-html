@@ -683,6 +683,10 @@
     flex: 0 0 88% !important;
     min-width: 250px !important;
   }
+
+  .blogs-hero-container {
+    padding-top: 4px;
+  }
 }
 
 /* Reduced gap between Pagination & CTA Section */

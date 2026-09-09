@@ -1,5 +1,12 @@
 @import url("./index.css");
 
+/* Fix double scroll — prevent horizontal overflow on this page */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* ==========================================================================
    Component: Hero.css
    ========================================================================== */
@@ -412,7 +419,7 @@
     padding: 0 16px;
   }
   .clients-hero-container {
-    padding: 24px 0 24px 0;
+    padding: 4px 0 24px 0;
   }
   .clients-hero-image {
     flex: none;
@@ -451,8 +458,10 @@
   background: #ffffff;
   padding: 0 40px;
   overflow: hidden;
+  overflow-x: clip;
   position: relative;
   box-sizing: border-box;
+  isolation: isolate;
 }
 
 .client-logos-container {
@@ -686,6 +695,10 @@
 @media (max-width: 480px) {
   .client-logos-section {
     padding: 0 16px;
+    overflow-x: hidden;
+  }
+  .clients-hero-section {
+    overflow-x: hidden;
   }
   .client-logos-container {
     padding: 20px 0;
@@ -711,6 +724,7 @@
   }
   .client-logos-marquee-wrapper {
     gap: 14px;
+    overflow: hidden;
   }
   .client-logos-marquee-wrapper::before,
   .client-logos-marquee-wrapper::after {
@@ -1027,6 +1041,16 @@
   }
   .industry-category-card {
     padding: 24px;
+    border-radius: 18px;
+  }
+  .industry-category-header {
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+  }
+  .industry-category-title {
+    font-size: 20px;
+    line-height: 28px;
   }
   .industry-logo-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -1054,13 +1078,37 @@
   .industry-categories-section {
     padding: 0 16px;
   }
+  .industry-category-card {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+  .industry-category-header {
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+  .industry-icon-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+  .industry-icon-badge svg {
+    width: 18px;
+    height: 18px;
+  }
+  .industry-category-title {
+    font-size: 17px;
+    line-height: 23px;
+    font-weight: 700;
+  }
   .industry-logo-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
   .industry-logo-item {
     height: 80px;
-    padding: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
   }
   .clients-philosophy-section {
     padding: 0 16px;

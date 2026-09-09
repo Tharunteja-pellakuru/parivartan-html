@@ -724,7 +724,7 @@
 
   /* Hero */
   .fif-hero-section {
-    padding: 16px 0 32px 0;
+    padding: 4px 0 32px 0;
   }
 
   .fif-main-heading {
@@ -737,36 +737,53 @@
     border-radius: 14px;
   }
 
-  .fif-hero-left {
-    padding: 20px 16px;
+  /* Mobile hero reorder: Title → Image → Description */
+  .fif-hero-card {
+    display: flex;
+    flex-direction: column;
     border-radius: 12px;
-    align-items: flex-start;
-    text-align: left;
   }
 
-  .fif-hero-heading,
+  /* Flatten .fif-hero-left so its children become direct flex items */
+  .fif-hero-left {
+    display: contents;
+  }
+
+  .fif-hero-heading {
+    order: 1;
+    padding: 20px 16px 14px 16px;
+    margin: 0;
+    text-align: left;
+    font-size: 28px !important;
+    line-height: 38px !important;
+  }
+
   .fif-hero-heading span.green-spotlight {
     font-size: 28px !important;
     line-height: 38px !important;
-    text-align: left;
-  }
-
-  .fif-hero-desc {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 18px;
-    text-align: left;
-  }
-
-  .fif-hero-btn {
-    width: 100% !important;
-    max-width: 100% !important;
   }
 
   .fif-hero-right,
   .fif-hero-right-stage {
-    height: 200px;
+    order: 2;
+    height: 220px;
     position: relative;
+  }
+
+  .fif-hero-desc {
+    order: 3;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 14px 16px 0 16px;
+    text-align: left;
+  }
+
+  .fif-hero-btn {
+    order: 4;
+    width: calc(100% - 32px) !important;
+    max-width: calc(100% - 32px) !important;
+    margin: 16px 16px 16px 16px !important;
   }
 
   /* Mission */
@@ -831,11 +848,13 @@
     line-height: 34px !important;
   }
 
-  .fif-hero-left {
-    padding: 16px 14px;
+  /* display:contents means padding on fif-hero-left has no effect – apply to children */
+  .fif-hero-heading {
+    padding: 16px 14px 12px 14px;
+    font-size: 24px !important;
+    line-height: 32px !important;
   }
 
-  .fif-hero-heading,
   .fif-hero-heading span.green-spotlight {
     font-size: 24px !important;
     line-height: 32px !important;
@@ -844,13 +863,16 @@
   .fif-hero-desc {
     font-size: 13.5px;
     line-height: 1.55;
-    margin-bottom: 16px;
+    padding: 12px 14px 0 14px;
+    margin: 0;
   }
 
   .fif-hero-btn {
     font-size: 14px !important;
     padding: 10px 16px !important;
-    width: 100% !important;
+    width: calc(100% - 28px) !important;
+    max-width: calc(100% - 28px) !important;
+    margin: 14px 14px 14px 14px !important;
     justify-content: center !important;
   }
 
@@ -1158,11 +1180,16 @@
 .fif-episodes-section {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-  margin-bottom: 100px !important;
+  margin-bottom: 80px !important;
 }
 
 .fif-hero-section {
   padding-top: 24px !important;
+  margin-bottom: 56px !important;
+}
+
+.fif-section-header {
+  margin-bottom: 36px;
 }
 
 .fif-view-more-container {
@@ -1174,10 +1201,14 @@
   .fif-hero-section,
   .fif-mission-section,
   .fif-episodes-section {
-    margin-bottom: 80px !important;
+    margin-bottom: 56px !important;
   }
   .fif-hero-section {
-    padding-top: 8px !important;
+    padding-top: 20px !important;
+    margin-bottom: 40px !important;
+  }
+  .fif-section-header {
+    margin-bottom: 24px !important;
   }
 }
 
@@ -1186,9 +1217,16 @@
   .fif-hero-section,
   .fif-mission-section,
   .fif-episodes-section {
-    margin-bottom: 60px !important;
+    margin-bottom: 40px !important;
   }
   .fif-hero-section {
-    padding-top: 4px !important;
+    padding-top: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  .fif-section-header {
+    margin-bottom: 20px !important;
+  }
+  .fif-tagline {
+    margin-bottom: 10px !important;
   }
 }

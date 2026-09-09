@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Hero Showcase Grow-on-Scroll Animation
+  // 4. Hero Showcase Grow-on-Scroll Animation (Page Down and Page Up)
   const heroShowcase = document.querySelector('.ecommerce-showcase-wrapper');
   if (heroShowcase) {
     const showcaseObserver = new IntersectionObserver(
@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             heroShowcase.classList.add('is-visible');
-            showcaseObserver.unobserve(heroShowcase);
+          } else {
+            heroShowcase.classList.remove('is-visible');
           }
         });
       },

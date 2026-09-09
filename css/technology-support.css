@@ -46,11 +46,13 @@ body.tech-support-page,
   padding: 16px 24px;
   background: #F8FAFC;
   border-bottom: 1px solid #E5E7EB;
+  gap: 16px;
 }
 
 .tech-topbar-dots {
   display: flex;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .tech-topbar-dot {
@@ -68,9 +70,11 @@ body.tech-support-page,
   font-weight: 500;
   color: #374151;
   letter-spacing: 0.02em;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  text-align: center;
 }
 
 .tech-live-indicator {
@@ -80,12 +84,18 @@ body.tech-support-page,
   background: #75BF46;
   box-shadow: 0 0 10px rgba(117, 191, 70, 0.7);
   animation: pulse-live 2s infinite;
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 @keyframes pulse-live {
   0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(117, 191, 70, 0.7); }
   70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(117, 191, 70, 0); }
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(117, 191, 70, 0); }
+}
+
+.tech-topbar-status-wrap {
+  flex-shrink: 0;
 }
 
 .tech-topbar-status {
@@ -742,8 +752,8 @@ body.tech-support-page,
 body.tech-support-page .faqs-section {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  padding-top: 56px !important;
-  padding-bottom: 56px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   width: 100%;
   box-sizing: border-box;
 }
@@ -774,49 +784,27 @@ body.tech-support-page .faqs-container {
 body.tech-support-page .uiux-hero-section,
 body.tech-support-page .uiux-section,
 body.tech-support-page .why-mobile-section,
+body.tech-support-page .uiux-why-choose-section,
+body.tech-support-page .why-approach-section,
 body.tech-support-page .faqs-section,
 body.tech-support-page .cta-section {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   margin-bottom: 60px !important;
 }
 
 body.tech-support-page .uiux-hero-section {
-  padding-top: 48px !important;
+  padding-top: 24px !important;
   padding-bottom: 0 !important;
   margin-bottom: 60px !important;
 }
 
-/* Restore proper inner padding for all content sections */
-body.tech-support-page .uiux-section {
-  padding-top: 56px !important;
-  padding-bottom: 56px !important;
-}
-
-body.tech-support-page .uiux-hero-container {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-body.tech-support-page .uiux-container {
-  padding-left: 40px !important;
-  padding-right: 40px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-body.tech-support-page .faqs-container {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
+body.tech-support-page .uiux-hero-container,
+body.tech-support-page .uiux-container,
+body.tech-support-page .faqs-container,
 body.tech-support-page .cta-container {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-}
-
-/* Why Parivartan section inner padding */
-body.tech-support-page .why-mobile-section {
-  padding-top: 56px !important;
-  padding-bottom: 56px !important;
 }
 
 /* Tablet Uniform Section Spacing (<= 960px) */
@@ -824,39 +812,24 @@ body.tech-support-page .why-mobile-section {
   body.tech-support-page .uiux-hero-section,
   body.tech-support-page .uiux-section,
   body.tech-support-page .why-mobile-section,
+  body.tech-support-page .uiux-why-choose-section,
+  body.tech-support-page .why-approach-section,
   body.tech-support-page .faqs-section,
   body.tech-support-page .cta-section {
-    margin-bottom: 44px !important;
-  }
-
-  body.tech-support-page .uiux-hero-section {
-    padding-top: 40px !important;
+    padding-top: 0 !important;
     padding-bottom: 0 !important;
     margin-bottom: 44px !important;
   }
 
-  body.tech-support-page .uiux-section {
-    padding-top: 44px !important;
-    padding-bottom: 44px !important;
-  }
-
-  body.tech-support-page .why-mobile-section {
-    padding-top: 44px !important;
-    padding-bottom: 44px !important;
+  body.tech-support-page .uiux-hero-section {
+    padding-top: 20px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 44px !important;
   }
 
   body.tech-support-page .uiux-container {
     padding-left: 24px !important;
     padding-right: 24px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  body.tech-support-page .uiux-container,
-  body.tech-support-page .faqs-container,
-  body.tech-support-page .cta-container {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
   }
 }
 
@@ -865,79 +838,66 @@ body.tech-support-page .why-mobile-section {
   body.tech-support-page .uiux-hero-section,
   body.tech-support-page .uiux-section,
   body.tech-support-page .why-mobile-section,
+  body.tech-support-page .uiux-why-choose-section,
+  body.tech-support-page .why-approach-section,
   body.tech-support-page .faqs-section,
   body.tech-support-page .cta-section {
-    margin-bottom: 32px !important;
-  }
-
-  body.tech-support-page .uiux-hero-section {
-    padding-top: 32px !important;
+    padding-top: 0 !important;
     padding-bottom: 0 !important;
     margin-bottom: 32px !important;
   }
 
-  body.tech-support-page .uiux-section {
-    padding-top: 36px !important;
-    padding-bottom: 36px !important;
-  }
-
-  body.tech-support-page .why-mobile-section {
-    padding-top: 36px !important;
-    padding-bottom: 36px !important;
+  body.tech-support-page .uiux-hero-section {
+    padding-top: 4px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 32px !important;
   }
 
   body.tech-support-page .uiux-container {
     padding-left: 16px !important;
     padding-right: 16px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  body.tech-support-page .uiux-container,
-  body.tech-support-page .faqs-container,
-  body.tech-support-page .cta-container {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
   }
 }
 
 /* --------------------------------------------------------------------------
-   WHY PARIVARTAN / CHOOSE US (WARM CREAM 5-CARD GRID)
+   WHY PARIVARTAN / CHOOSE US (WARM CREAM SINGLE ROW 5-CARD GRID)
    -------------------------------------------------------------------------- */
 .why-cream-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
   margin-top: 48px;
   width: 100%;
 }
 
 .why-cream-card {
-  flex: 0 0 calc(33.333% - 16px);
-  max-width: 388px;
-  min-width: 280px;
+  flex: 1 1 0;
+  width: 0;
+  min-width: 0;
   background: #FFF8F1;
-  border-radius: 24px;
-  padding: 36px 32px 32px 32px;
+  border-radius: 20px;
+  padding: 32px 18px 28px 18px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
-  min-height: 180px;
+  min-height: 200px;
   border: 1px solid #FFEADA;
-  box-shadow: 0 0 0 6px #FFFFFF, 0 16px 36px -8px rgba(220, 160, 100, 0.14), 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0 0 4px #FFFFFF, 0 12px 28px -6px rgba(220, 160, 100, 0.12), 0 4px 10px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .why-cream-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 0 6px #FFFFFF, 0 22px 44px -8px rgba(220, 160, 100, 0.22), 0 6px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px #FFFFFF, 0 20px 40px -8px rgba(220, 160, 100, 0.2), 0 6px 16px rgba(0, 0, 0, 0.04);
 }
 
 .why-cream-icon {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -947,7 +907,7 @@ body.tech-support-page .why-mobile-section {
 
 .why-cream-title {
   font-family: Satoshi, 'Inter', -apple-system, sans-serif;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.35;
   color: #1E293B;
@@ -955,22 +915,684 @@ body.tech-support-page .why-mobile-section {
   letter-spacing: -0.2px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+  .why-cream-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
   .why-cream-card {
-    flex: 0 0 calc(50% - 12px);
-    max-width: calc(50% - 12px);
+    flex: 0 0 calc(33.333% - 12px);
+    width: auto;
+    min-width: 200px;
+    max-width: calc(33.333% - 12px);
   }
 }
 
 @media (max-width: 640px) {
+  .why-cream-grid {
+    flex-direction: column;
+    gap: 16px;
+  }
   .why-cream-card {
     flex: 0 0 100%;
+    width: 100%;
     max-width: 100%;
-    padding: 28px 24px;
+    padding: 24px 20px;
     min-height: auto;
   }
   .why-cream-icon {
+    margin-bottom: 16px;
+  }
+}
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE RESPONSIVENESS (< 768px & < 480px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Prevent unnatural line breaks in headings on mobile */
+  body.tech-support-page .uiux-hero-title br,
+  body.tech-support-page .services-main-heading br,
+  body.tech-support-page .tech-partnership-content h3.cta-main-heading br,
+  body.tech-support-page .cta-main-heading br {
+    display: none;
+  }
+
+  /* Hero Section Mobile Polish */
+  body.tech-support-page .uiux-hero-title {
+    font-size: 30px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  body.tech-support-page .uiux-hero-subtitle {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  body.tech-support-page .uiux-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  body.tech-support-page .uiux-hero-actions .start-project-btn,
+  body.tech-support-page .uiux-hero-actions .hero-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box;
+  }
+
+  /* Dashboard Showcase Mobile Polish */
+  .tech-hero-showcase {
+    margin-top: 32px;
+    border-radius: 16px;
+  }
+
+  .tech-showcase-topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .tech-topbar-dots {
+    order: 1;
+  }
+
+  .tech-topbar-status-wrap {
+    order: 2;
+  }
+
+  .tech-topbar-title {
+    order: 3;
+    width: 100%;
+    flex: 0 0 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.45;
+    margin-top: 4px;
+  }
+
+  .tech-topbar-status {
+    font-size: 10.5px;
+  }
+
+  .tech-showcase-body {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 20px 14px;
+  }
+
+  .tech-metric-box {
+    padding: 16px 14px;
+    border-radius: 12px;
+  }
+
+  .tech-metric-val {
+    font-size: 26px;
+  }
+
+  /* Section Main Headings */
+  body.tech-support-page .services-main-heading {
+    font-size: 26px !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.4px !important;
+  }
+
+  /* 6 Cards Grid */
+  .tech-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .tech-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .tech-card-icon-wrap {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+  }
+
+  .tech-card-title {
+    font-size: 19px;
+    margin-bottom: 8px;
+  }
+
+  .tech-card-desc {
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  /* 3 Engagement Models Grid */
+  .tech-models-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .tech-model-card {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .tech-model-title {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  .tech-model-desc {
+    font-size: 14.5px;
+    line-height: 1.6;
     margin-bottom: 20px;
+  }
+
+  /* Monitoring Pills */
+  .tech-monitoring-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin-top: 24px !important;
+    width: 100% !important;
+  }
+
+  .tech-monitoring-item {
+    padding: 10px 16px !important;
+    font-size: 13.5px !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Client Partnerships Showcase */
+  .tech-partnership-outer {
+    margin-top: 28px;
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  .tech-partnership-inner {
+    padding: 32px 20px;
+    border-radius: 12px;
+    gap: 28px;
+    flex-direction: column;
+  }
+
+  .tech-partnership-content h3.cta-main-heading {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .tech-partnership-content p.cta-description {
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  .tech-partnership-content .cta-start-project-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .tech-partnership-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .tech-partnership-stats-grid .tech-stat-card {
+    padding: 14px 12px;
+  }
+
+  .tech-partnership-stats-grid .tech-stat-number {
+    font-size: 26px;
+  }
+
+  .tech-partnership-stats-grid .tech-stat-label {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 480px) {
+  body.tech-support-page .uiux-hero-title {
+    font-size: 25px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.tech-support-page .uiux-hero-subtitle {
+    font-size: 14px !important;
+  }
+
+  .tech-showcase-body {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  body.tech-support-page .services-main-heading {
+    font-size: 23px !important;
+  }
+
+  .tech-partnership-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .tech-partnership-stats-grid .tech-stat-number {
+    font-size: 24px;
+  }
+}
+
+/* ==========================================================================
+   TARGETED MOBILE RESPONSIVENESS FOR CLIENT PARTNERSHIPS, FAQS & MAINTAIN & SCALE
+   ========================================================================== */
+
+/* 1. CLIENT PARTNERSHIPS SECTION RESPONSIVE */
+@media (max-width: 960px) {
+  body.tech-support-page .tech-partnership-outer {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 12px !important;
+    margin-top: 28px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .tech-partnership-inner {
+    height: auto !important;
+    min-height: auto !important;
+    flex-direction: column !important;
+    padding: 36px 24px !important;
+    gap: 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .tech-partnership-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  body.tech-support-page .tech-partnership-content h3.cta-main-heading {
+    font-size: 32px !important;
+    line-height: 40px !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 14px !important;
+  }
+
+  body.tech-support-page .tech-partnership-content p.cta-description {
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  body.tech-support-page .tech-partnership-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  body.tech-support-page .tech-partnership-right .tech-stats-card-outer {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .tech-partnership-right .tech-stats-card-inner {
+    width: 100% !important;
+    padding: 20px 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .tech-partnership-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body.tech-support-page .tech-partnership-outer {
+    padding: 8px !important;
+    border-radius: 16px !important;
+    margin-top: 24px !important;
+  }
+
+  body.tech-support-page .tech-partnership-inner {
+    padding: 28px 18px !important;
+    border-radius: 12px !important;
+    gap: 24px !important;
+  }
+
+  body.tech-support-page .tech-partnership-content h3.cta-main-heading {
+    font-size: 26px !important;
+    line-height: 34px !important;
+    margin-bottom: 12px !important;
+  }
+
+  body.tech-support-page .tech-partnership-content h3.cta-main-heading br {
+    display: none !important;
+  }
+
+  body.tech-support-page .tech-partnership-content p.cta-description {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  body.tech-support-page .tech-partnership-content .cta-start-project-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    margin-top: 12px !important;
+  }
+
+  body.tech-support-page .tech-partnership-stats-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  body.tech-support-page .tech-partnership-stats-grid .tech-stat-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 16px 18px !important;
+    border-radius: 12px !important;
+    background: #F9FAFB !important;
+    border: 1px solid #ECECEC !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  body.tech-support-page .tech-partnership-stats-grid .tech-stat-number {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #85BD56 !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+    min-width: 75px !important;
+    text-align: left !important;
+  }
+
+  body.tech-support-page .tech-partnership-stats-grid .tech-stat-label {
+    font-size: 13.5px !important;
+    line-height: 1.4 !important;
+    color: #374151 !important;
+    font-weight: 500 !important;
+    flex: 1 1 auto !important;
+  }
+}
+
+@media (max-width: 380px) {
+  body.tech-support-page .tech-partnership-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 2. FAQS SECTION RESPONSIVE POLISH */
+@media (max-width: 768px) {
+  body.tech-support-page #faqs .faqs-outer-card {
+    padding: 10px !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page #faqs .faqs-single-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  body.tech-support-page #faqs .faq-item-card {
+    padding: 16px 16px !important;
+    border-radius: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page #faqs .faq-question-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  body.tech-support-page #faqs .faq-question-text {
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    font-weight: 600 !important;
+    color: #060612 !important;
+    flex: 1 1 auto !important;
+  }
+
+  body.tech-support-page #faqs .faq-toggle-btn {
+    flex-shrink: 0 !important;
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  body.tech-support-page #faqs .faq-answer-row {
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid #F0F2F5 !important;
+    width: 100% !important;
+  }
+
+  body.tech-support-page #faqs .faq-answer-text {
+    font-size: 13.5px !important;
+    line-height: 1.6 !important;
+    color: #69686E !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.tech-support-page #faqs .faqs-outer-card {
+    padding: 8px !important;
+  }
+
+  body.tech-support-page #faqs .faq-item-card {
+    padding: 14px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  body.tech-support-page #faqs .faq-question-text {
+    font-size: 14.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  body.tech-support-page #faqs .faq-answer-text {
+    font-size: 13px !important;
+  }
+}
+
+/* 3. MAINTAIN & SCALE (CTA SECTION) RESPONSIVE POLISH */
+@media (max-width: 960px) {
+  body.tech-support-page .cta-section {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .cta-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .cta-outer-box {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .cta-inner-box {
+    height: auto !important;
+    min-height: auto !important;
+    flex-direction: column !important;
+    padding: 36px 24px !important;
+    gap: 36px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .cta-left-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  body.tech-support-page .cta-left-content h2.cta-main-heading {
+    width: 100% !important;
+    font-size: 32px !important;
+    line-height: 40px !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 14px !important;
+  }
+
+  body.tech-support-page .cta-left-content p.cta-description {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  body.tech-support-page .cta-actions-group {
+    width: 100% !important;
+    margin-top: 16px !important;
+  }
+
+  body.tech-support-page .cta-right-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  body.tech-support-page .available-card-outer {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .available-card-inner {
+    width: 100% !important;
+    height: auto !important;
+    padding: 24px 20px !important;
+    align-items: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  body.tech-support-page .available-book-call-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body.tech-support-page .cta-outer-box {
+    padding: 8px !important;
+    border-radius: 16px !important;
+  }
+
+  body.tech-support-page .cta-inner-box {
+    padding: 28px 18px !important;
+    border-radius: 12px !important;
+    gap: 28px !important;
+  }
+
+  body.tech-support-page .cta-left-content h2.cta-main-heading {
+    font-size: 26px !important;
+    line-height: 34px !important;
+    margin-bottom: 12px !important;
+  }
+
+  body.tech-support-page .cta-left-content h2.cta-main-heading br {
+    display: none !important;
+  }
+
+  body.tech-support-page .cta-left-content p.cta-description {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  body.tech-support-page .cta-actions-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  body.tech-support-page .cta-start-project-btn,
+  body.tech-support-page .start-project-btn,
+  body.tech-support-page .hero-btn,
+  body.tech-support-page .tech-model-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 18px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+    min-height: 46px !important;
+  }
+
+  body.tech-support-page .cta-start-project-btn span,
+  body.tech-support-page .start-project-btn span,
+  body.tech-support-page .hero-btn span,
+  body.tech-support-page .tech-model-btn span {
+    text-align: center !important;
+  }
+
+  body.tech-support-page .cta-start-project-btn .arrow-icon,
+  body.tech-support-page .start-project-btn .arrow-icon,
+  body.tech-support-page .hero-btn .arrow-icon,
+  body.tech-support-page .tech-model-btn .arrow-icon {
+    flex-shrink: 0 !important;
+    margin-left: 4px !important;
+  }
+
+  body.tech-support-page .available-card-outer {
+    padding: 10px !important;
+  }
+
+  body.tech-support-page .available-card-inner {
+    padding: 18px 14px !important;
+  }
+
+  body.tech-support-page .available-card-title {
+    font-size: 20px !important;
+  }
+
+  body.tech-support-page .available-card-desc {
+    font-size: 13.5px !important;
   }
 }
 

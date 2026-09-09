@@ -1,7 +1,12 @@
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 const initIndexApp = () => {
-    /* ==========================================
-     0. ACTIVE NAV ITEM AUTO-HIGHLIGHT (SINGLE ITEM GUARANTEED)
-     ========================================== */
+  window.scrollTo(0, 0);
+  /* ==========================================
+   0. ACTIVE NAV ITEM AUTO-HIGHLIGHT (SINGLE ITEM GUARANTEED)
+   ========================================== */
   const highlightActiveNav = () => {
     let rawPath = window.location.pathname.split('/').pop().split('#')[0];
     const currentPath = (!rawPath || rawPath === '' || rawPath === '/') ? 'index.html' : rawPath;
@@ -76,6 +81,19 @@ const initIndexApp = () => {
         }
       }
     });
+
+    if (!mobileMatched) {
+      document.querySelectorAll('.mobile-drawer > .drawer-menu-list > a.drawer-menu-item').forEach(link => {
+        if (mobileMatched) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+        if (linkPath === currentPath && linkPath !== '#') {
+          link.classList.add('active');
+          mobileMatched = true;
+        }
+      });
+    }
   };
 
   highlightActiveNav();
@@ -2081,12 +2099,14 @@ if (document.readyState !== 'loading') {
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.header-container');
   if (header) {
-    window.addEventListener('scroll', () => {
+    const updateHeader = () => {
       if (window.scrollY > 50) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-    });
+    };
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
   }
 });
