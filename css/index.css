@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Eras Md BT";
-  src: url('../assets/home/fonts/Eras-Md-BT-Medium.ttf') format("truetype");
+  src: url('../assets/home/fonts/eras-md-bt-medium.ttf') format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -4961,7 +4961,7 @@ body.menu-open {
   right: 0;
   bottom: 0;
   opacity: 0.64;
-  background-image: var(--bg-image, url('../assets/home/cta_bg.png'));
+  background-image: var(--bg-image, url('../assets/home/cta-bg.png'));
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6792,7 +6792,7 @@ body.menu-open {
   display: block;
   width: 16px;
   height: 16px;
-  background-image: url('../assets/Parivartan-Leaf.png');
+  background-image: url('../assets/common/parivartan-leaf.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

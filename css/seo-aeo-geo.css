@@ -1376,7 +1376,7 @@ body.seo-page {
   right: 0;
   bottom: 0;
   opacity: 0.64;
-  background-image: var(--bg-image, url('../assets/home/cta_bg.png'));
+  background-image: var(--bg-image, url('../assets/home/cta-bg.png'));
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1624,7 +1624,7 @@ body.seo-page .why-approach-section::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../assets/services/ui-ux/why/why-bg.webp') center center / 100% 100% no-repeat;
+  background: url('../assets/what-we-build/ui-ux-design/why/why-bg.webp') center center / 100% 100% no-repeat;
   filter: invert(1);
   opacity: 0.45;
   pointer-events: none;
