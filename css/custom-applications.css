@@ -212,14 +212,15 @@ body.custom-apps-page .uiux-expertise-img,
 body.custom-apps-page .uiux-expertise-img--websites,
 body.custom-apps-page .uiux-expertise-img--webapps,
 body.custom-apps-page .uiux-expertise-img--enterprise {
-  width: 116% !important;
+  width: 120% !important;
   max-width: none !important;
   aspect-ratio: 105 / 82 !important;
   transform: rotate(-7.717deg) !important;
-  transform-origin: center center !important;
+  transform-origin: top left !important;
   object-fit: cover !important;
+  object-position: top center !important;
   border-radius: 8px !important;
-  margin-left: -5% !important;
+  margin-left: -6% !important;
   margin-top: auto !important;
   margin-bottom: -15px !important;
   display: block !important;
@@ -231,7 +232,7 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img,
 body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--websites,
 body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--webapps,
 body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise {
-  transform: rotate(-7.717deg) scale(1.04) !important;
+  transform: rotate(-7.717deg) scale(1.03) !important;
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16) !important;
 }
 

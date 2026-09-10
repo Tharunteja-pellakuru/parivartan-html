@@ -734,40 +734,40 @@ main img {
 .project-card-float-group {
   position: absolute;
   right: 4%;
-  bottom: 20px;
+  bottom: 16px;
   top: auto;
   transform: none;
-  width: clamp(60px, 18%, 84px);
+  width: clamp(44px, 12.5%, 58px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   z-index: 3;
 }
 
 .project-card-float-btn {
   display: block;
   width: 100%;
-  aspect-ratio: 1.25 / 1;
-  border-radius: 12px;
+  aspect-ratio: 1.22 / 1;
+  border-radius: 9px;
   overflow: hidden;
   cursor: pointer;
   border: 2px solid #ffffff;
   background: #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.05);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   box-sizing: border-box;
 }
 
 .project-card-float-btn:hover {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .project-card-float-btn.active {
   border-color: var(--project-color);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-  transform: scale(1.04);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transform: scale(1.03);
 }
 
 .project-card-float-btn img {
@@ -1354,8 +1354,10 @@ body.app-dev-page #contact {
 
 body.app-dev-page .mobile-apps-hero-section,
 body.app-dev-page #mobile-app-section,
+body.app-dev-page #uiux-hero-section,
 .mobile-apps-hero-section,
-#mobile-app-section {
+#mobile-app-section,
+#uiux-hero-section {
   padding-top: 24px !important;
   margin-bottom: 60px !important;
 }
@@ -1406,8 +1408,10 @@ body.app-dev-page .contact-inner {
 
   body.app-dev-page .mobile-apps-hero-section,
   body.app-dev-page #mobile-app-section,
+  body.app-dev-page #uiux-hero-section,
   .mobile-apps-hero-section,
-  #mobile-app-section {
+  #mobile-app-section,
+  #uiux-hero-section {
     padding-top: 20px !important;
     margin-bottom: 44px !important;
   }
@@ -1459,8 +1463,10 @@ body.app-dev-page .contact-inner {
 
   body.app-dev-page .mobile-apps-hero-section,
   body.app-dev-page #mobile-app-section,
+  body.app-dev-page #uiux-hero-section,
   .mobile-apps-hero-section,
-  #mobile-app-section {
+  #mobile-app-section,
+  #uiux-hero-section {
     padding-top: 16px !important;
     margin-bottom: 32px !important;
   }
