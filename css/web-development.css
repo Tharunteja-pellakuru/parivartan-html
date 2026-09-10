@@ -171,33 +171,23 @@ body.web-dev-page .services-header {
    WHAT WE BUILD: CARD 04 (CONTENT-RICH WEBSITES) MOCKUP IMAGE
    ========================================================================== */
 .uiux-expertise-img--content-rich {
-  width: 276.298px;
-  height: 184.199px;
-  transform: rotate(-10.725deg);
-  aspect-ratio: 3 / 2;
-  border-radius: 8px;
+  width: 145%;
+  max-width: none;
+  transform: rotate(-10deg);
+  transform-origin: top left;
+  margin-left: -8%;
+  margin-bottom: -20px;
+  filter: drop-shadow(-10px 18px 25px rgba(0, 0, 0, 0.10));
+  display: block;
   object-fit: cover;
-  box-shadow: 0 15px 22px -12px #000, 0 2px 8px 0 rgba(0, 0, 0, 0.04);
-  margin-top: auto;
-  margin-left: -5%;
-  margin-bottom: 10px;
   position: relative;
   z-index: 1;
-  display: block;
-  flex-shrink: 0;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
 }
 
 .uiux-expertise-card:hover .uiux-expertise-img--content-rich {
-  transform: rotate(-10.725deg) scale(1.04);
-  box-shadow: 0 20px 28px -10px #000, 0 4px 12px 0 rgba(0, 0, 0, 0.08);
-}
-
-@media (max-width: 480px) {
-  .uiux-expertise-img--content-rich {
-    margin-left: 0;
-    margin-bottom: -15px;
-  }
+  transform: rotate(-10deg) scale(1.03);
+  filter: drop-shadow(-12px 22px 30px rgba(0, 0, 0, 0.14));
 }
 
 /* Mobile: Horizontally align all expertise card images */

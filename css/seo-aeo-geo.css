@@ -88,6 +88,7 @@ body.seo-page {
   text-transform: uppercase;
   color: #69686E;
   margin-bottom: 20px;
+  white-space: nowrap;
 }
 
 .uiux-hero-title {
