@@ -2520,3 +2520,18 @@ body.app-dev-page .faqs-header .app-section-heading {
     height: 32px;
   }
 }
+
+/* Hide hover overlays and "Visit the Website" on mobile / touch viewports */
+@media (max-width: 960px), (hover: none) {
+  .featured-card-hover-veil,
+  .hover-veil-content,
+  .featured-coverflow-card:hover .featured-card-hover-veil,
+  .coverflow-media-frame:hover .featured-card-hover-veil,
+  .featured-card-item:hover .featured-card-hover-veil {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+

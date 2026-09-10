@@ -1053,17 +1053,30 @@ body {
 
 @media (max-width: 768px) {
   .written-testimonials-header-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-top: 32px;
-    margin-bottom: 20px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    margin-top: 32px !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
   }
   
   .written-testimonials-heading {
-    font-size: 24px;
-    text-align: center;
+    font-size: 24px !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  .written-testimonials-header-bar .testimonials-carousel-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    align-self: flex-end !important;
+    width: auto !important;
+    gap: 12px !important;
+    grid-column: auto !important;
+    justify-self: end !important;
   }
 }
 
