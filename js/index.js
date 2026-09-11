@@ -107,9 +107,13 @@ const initIndexApp = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      // Reveal every section and footer as it scrolls in (excluding hero section and services section)
+      // Reveal every section as it scrolls in (excluding heroes, services, cta, contact form, and footer to prevent slow pop-in)
       const revealTargets = gsap.utils.toArray('section, footer').filter(el => 
         !el.classList.contains('hero-section-container') && 
+        !el.classList.contains('websites-hero-section') && 
+        !el.classList.contains('cta-section') && 
+        !el.classList.contains('contact-section') && 
+        el.tagName.toLowerCase() !== 'footer' && 
         !el.classList.contains('services-section') && 
         el.id !== 'services' && 
         !el.querySelector('.services-row')
@@ -121,16 +125,19 @@ const initIndexApp = () => {
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.6,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 88%',
+              start: 'top 90%',
               once: true,
             }
           }
         );
       });
+
+      // Keep CTA, contact form, and footer immediately visible without lag
+      gsap.set('.cta-section, .contact-section, footer', { opacity: 1, autoAlpha: 1, y: 0, clearProps: 'transform' });
 
 
     } else {

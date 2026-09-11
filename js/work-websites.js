@@ -8,29 +8,35 @@ const initWebsitesApp = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      // Reveal every section and footer as it scrolls in
-      const revealTargets = gsap.utils.toArray('section, footer');
+      // Reveal directory content sections as they scroll in
+      const revealTargets = gsap.utils.toArray('section').filter(el => 
+        !el.classList.contains('websites-hero-section') &&
+        !el.classList.contains('cta-section') &&
+        !el.classList.contains('contact-section')
+      );
       revealTargets.forEach(el => {
         gsap.fromTo(el,
-          { autoAlpha: 0, y: 56 },
+          { autoAlpha: 0, y: 30 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 1,
+            duration: 0.5,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 88%',
+              start: 'top 92%',
               once: true,
             }
           }
         );
       });
 
+      // Keep CTA, contact form, and footer immediately visible so they don't load slowly or pop in with delay
+      gsap.set('.cta-section, .contact-section, footer', { autoAlpha: 1, opacity: 1, y: 0, clearProps: 'transform' });
 
     } else {
       // Fallback for reduced motion
-      gsap.set('section, footer', { autoAlpha: 1, y: 0 });
+      gsap.set('section, footer', { autoAlpha: 1, opacity: 1, y: 0 });
     }
 
     // Refresh ScrollTrigger when images load to ensure correct layouts
