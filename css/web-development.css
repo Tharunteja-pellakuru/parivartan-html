@@ -810,7 +810,7 @@ body.web-dev-page .services-header {
 .stack-intro-text {
   text-align: center;
   font-size: 15.5px;
-  color: #64748B;
+  color: #383840;
   margin: 28px auto 20px auto;
   max-width: 650px;
 }
@@ -855,7 +855,7 @@ body.web-dev-page .services-header {
   text-align: center;
   font-size: 15px;
   line-height: 1.65;
-  color: #64748B;
+  color: #383840;
   max-width: 720px;
   margin: 36px auto 32px auto;
 }

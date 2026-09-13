@@ -8,6 +8,82 @@
   font-display: swap;
 }
 
+:root {
+  --69686E: #383840;
+  --muted-text: #383840;
+}
+
+/* Global Dark Grey Title Tags (Taglines) & Section Descriptions across All Pages */
+[class*="-tagline"] span,
+[class*="-eyebrow"] span,
+.hero-tagline,
+.uiux-hero-eyebrow,
+.about-hero-tagline span,
+.about-hero-story-tagline span,
+.about-story-tagline span,
+.about-team-tagline span,
+.timeline-tagline span,
+.about-leaf-tagline span,
+.about-meaning-tagline span,
+.about-team-philosophy-tagline span,
+.awards-hero-tagline span,
+.contribution-tagline span,
+.gallery-tagline span,
+.mobile-apps-hero-tagline span,
+.websites-hero-tagline span,
+.web-apps-hero-tagline span,
+.contact-hero-tagline span,
+.location-tagline span,
+.life-hero-tagline span,
+.life-tagline span,
+.fif-tagline span,
+.blogs-hero-tagline span,
+.clients-hero-tagline span,
+.client-logos-tagline span,
+.ecommerce-hero-tagline span,
+.uiux-tagline span,
+.uiux-hero-eyebrow span,
+.media-hero-tagline span,
+.media-story-continues-tagline span {
+  color: #383840 !important;
+}
+
+[class*="-tagline"] svg circle,
+[class*="-eyebrow"] svg circle,
+.hero-tagline-container svg circle,
+.uiux-hero-eyebrow svg circle {
+  fill: #383840 !important;
+}
+
+.cta-tagline span {
+  color: #FFFFFF !important;
+}
+
+.cta-tagline svg circle {
+  fill: #FFFFFF !important;
+}
+
+.hero-paragraph,
+.uiux-hero-subtitle,
+.services-header-desc,
+.featured-subheading,
+.presence-header-desc,
+.testimonials-header-desc,
+.faqs-header-desc,
+.contact-header-desc,
+.uiux-why-full-desc p,
+.uiux-expertise-card-desc,
+.uiux-philosophy-subtext,
+.uiux-philosophy-card-desc,
+.uiux-ux-card-desc,
+.stack-intro-text,
+.stack-desc-text,
+.footer-desc,
+[class*="-header-desc"],
+[class*="-subheading"] {
+  color: #383840 !important;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
@@ -882,7 +958,7 @@ body.menu-open {
 }
 
 .hero-tagline {
-  color: #69686E;
+  color: #383840;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -927,7 +1003,7 @@ body.menu-open {
 .hero-paragraph {
   width: 100%;
   max-width: 580px;
-  color: #69686E;
+  color: #383840;
   text-align: left;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 16px;
@@ -996,7 +1072,7 @@ body.menu-open {
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #69686E;
+  color: #383840;
   white-space: nowrap;
 }
 
@@ -1774,6 +1850,16 @@ body.menu-open {
   align-items: flex-start;
 }
 
+.hero-tagline-container svg circle,
+.services-tagline svg circle,
+.featured-tagline svg circle,
+.presence-tagline svg circle,
+.testimonials-tagline svg circle,
+.faqs-tagline svg circle,
+.available-tagline svg circle {
+  fill: #383840;
+}
+
 .services-tagline {
   display: flex;
   align-items: center;
@@ -1782,7 +1868,7 @@ body.menu-open {
 }
 
 .services-tagline span {
-  color: #69686E;
+  color: #383840;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -1813,7 +1899,7 @@ body.menu-open {
 }
 
 .services-header-desc {
-  color: #69686E;
+  color: #383840;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -2306,7 +2392,7 @@ body.menu-open {
 }
 
 .featured-tagline span {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -2328,7 +2414,7 @@ body.menu-open {
 }
 
 .featured-subheading {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -3445,7 +3531,7 @@ body.menu-open {
 }
 
 .presence-tagline span {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -3467,7 +3553,7 @@ body.menu-open {
 }
 
 .presence-header-desc {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -3722,7 +3808,7 @@ body.menu-open {
   background: #FFFFFF;
   border: 1.5px solid #FFFFFF;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 5;
@@ -3966,7 +4052,7 @@ body.menu-open {
 }
 
 .testimonials-tagline span {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -3988,7 +4074,7 @@ body.menu-open {
 }
 
 .testimonials-header-desc {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -4644,7 +4730,7 @@ body.menu-open {
 }
 
 .faqs-tagline span {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -4656,17 +4742,17 @@ body.menu-open {
 .faqs-main-heading {
   width: 100%;
   max-width: 720px;
-  color: var(--060612, #060612);
+  color: rgb(6, 6, 18);
   font-family: Satoshi, sans-serif;
-  font-size: 40px;
+  font-size: 44px;
   font-style: normal;
-  font-weight: 700;
-  line-height: 1.25;
+  font-weight: 500;
+  line-height: 56px;
   margin: 0;
 }
 
 .faqs-header-desc {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -5123,7 +5209,7 @@ body.menu-open {
 }
 
 .available-tagline span {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -6667,7 +6753,7 @@ body.menu-open {
 }
 
 .footer-desc {
-  color: #64748B;
+  color: #383840;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.65;

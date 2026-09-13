@@ -11,7 +11,7 @@
   --bright-orange: #FA6D00;
   --vibrant-yellow: #F5DC38;
   --dark-text: #060612;
-  --muted-text: #69686E;
+  --muted-text: #383840;
   --light-bg: #F8F9FA;
   --card-border: #ECECEE;
   --font-satoshi: Satoshi, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -1026,7 +1026,7 @@
 }
 
 .uiux-why-full-desc p {
-  color: #69686E;
+  color: #383840;
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -1226,7 +1226,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
-  color: #69686E;
+  color: #383840;
   margin: 0;
   max-width: 100%;
 }
@@ -1460,6 +1460,10 @@
   text-align: center;
 }
 
+.uiux-hero-eyebrow svg circle {
+  fill: #383840;
+}
+
 .uiux-hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -1470,7 +1474,7 @@
   line-height: 26px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #69686E;
+  color: #383840;
   margin-bottom: 20px;
   white-space: nowrap;
 }
@@ -1488,7 +1492,7 @@
 }
 
 .uiux-hero-subtitle {
-  color: #69686E;
+  color: #383840;
   font-family: var(--font-satoshi);
   font-size: 17px;
   font-weight: 400;
@@ -1794,7 +1798,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
-  color: #69686E;
+  color: #383840;
   margin: 0 0 32px 0;
   height: 110px;
   min-height: 110px;
@@ -2057,7 +2061,7 @@
   font-family: var(--font-satoshi);
   font-size: 16px;
   line-height: 1.6;
-  color: #69686E;
+  color: #383840;
   max-width: 360px;
   margin: 0;
 }
@@ -2301,7 +2305,7 @@
   font-family: var(--font-satoshi);
   font-size: 15px;
   line-height: 1.6;
-  color: #4B5563;
+  color: #383840;
   margin: 0;
   max-width: 440px;
 }
@@ -2386,7 +2390,7 @@
 
 .uiux-ux-card-desc {
   align-self: stretch;
-  color: #69686E;
+  color: #383840;
   font-family: Satoshi, var(--font-satoshi), sans-serif;
   font-size: 18px;
   font-style: normal;
