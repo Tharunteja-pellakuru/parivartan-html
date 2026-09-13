@@ -607,7 +607,7 @@ body {
 
 .marquee-track {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   width: max-content;
   flex-shrink: 0;
   will-change: transform;

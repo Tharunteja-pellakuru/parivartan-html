@@ -2148,4 +2148,59 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
   }
+
+  // Handle click on "View Our Work" buttons & "Our Work" header link to show ONLY Header Our Work Menu
+  document.addEventListener('click', (e) => {
+    // 1. Click on "View Our Work" button/link anywhere on page
+    const btn = e.target.closest('a, button');
+    if (btn && btn.textContent && btn.textContent.trim().toLowerCase().includes('view our work')) {
+      const isDropdownOption = btn.closest('.dropdown-menu, .mobile-drawer');
+      if (!isDropdownOption) {
+        e.preventDefault();
+
+        // Smooth scroll to top header
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Find "Our Work" nav item in header navigation and open its dropdown
+        const navItems = document.querySelectorAll('.has-dropdown');
+        navItems.forEach(item => {
+          const link = item.querySelector('.nav-link, a');
+          if (link && link.textContent.trim().toLowerCase().includes('our work')) {
+            item.classList.add('is-open');
+          } else {
+            item.classList.remove('is-open');
+          }
+        });
+        return;
+      }
+    }
+
+    // 2. Click on top-level nav link with dropdown in header
+    const clickedNavGroup = e.target.closest('.has-dropdown');
+    const clickedNavLink = e.target.closest('.nav-link');
+
+    if (clickedNavGroup && clickedNavLink) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = clickedNavGroup.classList.contains('is-open');
+      
+      document.querySelectorAll('.has-dropdown').forEach(item => {
+        if (item !== clickedNavGroup) item.classList.remove('is-open');
+      });
+
+      if (!isOpen) {
+        clickedNavGroup.classList.add('is-open');
+      } else {
+        clickedNavGroup.classList.remove('is-open');
+      }
+      return;
+    }
+
+    // 3. Clicking outside header navigation closes any open dropdown menu
+    if (!e.target.closest('.header-container, .desktop-nav, .has-dropdown')) {
+      document.querySelectorAll('.has-dropdown').forEach(item => {
+        item.classList.remove('is-open');
+      });
+    }
+  });
 });

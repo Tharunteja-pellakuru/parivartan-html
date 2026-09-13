@@ -45,8 +45,9 @@
         </div>
         
         <div class="nav-item has-dropdown">
-          <a href="#" class="nav-link">What We Build<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="./web-development.html" class="nav-link">What We Build<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#85BD56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="dropdown-menu">
+            <a href="./seo-aeo-geo.html" class="dropdown-item"><img src="./assets/home/parivartan-leaf.webp" alt="" class="submenu-leaf"  loading="lazy" /> Search &amp; AI Visibility</a>
             <a href="./web-development.html" class="dropdown-item"><img src="./assets/home/parivartan-leaf.webp" alt="" class="submenu-leaf"  loading="lazy" /> Web Development</a>
             <a href="./ecommerce-development.html" class="dropdown-item"><img src="./assets/home/parivartan-leaf.webp" alt="" class="submenu-leaf"  loading="lazy" /> E-commerce Development</a>
             <a href="./custom-applications.html" class="dropdown-item"><img src="./assets/home/parivartan-leaf.webp" alt="" class="submenu-leaf"  loading="lazy" /> Custom Applications</a>
@@ -553,7 +554,7 @@
   </defs>
 </svg>
                   </a>
-                  <button type="button" class="hero-btn hero-btn-black" onclick="document.querySelector('.menu-btn').click(); setTimeout(() => { const workMenuBtn = Array.from(document.querySelectorAll('.drawer-menu-item-group .drawer-menu-title')).find(el => el.textContent === 'Our Work')?.closest('.dropdown-toggle-btn'); if(workMenuBtn && workMenuBtn.getAttribute('aria-expanded') !== 'true') workMenuBtn.click(); }, 300);">
+                  <a href="./work-websites.html" class="hero-btn hero-btn-black">
                     <span>View Our Work</span>
                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" class="arrow-icon">
   <g clip-path="url(#clip0_947_85)">
@@ -565,7 +566,7 @@
     </clipPath>
   </defs>
 </svg>
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -699,8 +700,19 @@
       
       <!-- Row 1 -->
       <div class="folder-row folder-row-1">
-        <!-- Web Development -->
-        <a href="./work-websites.html" class="folder-card folder-card--grey folder-card-1">
+        <!-- 1. Search & AI Visibility -->
+        <a href="./seo-aeo-geo.html" class="folder-card folder-card--grey folder-card-1">
+          <div class="folder-bg"></div>
+          <div class="folder-hover-stack">
+            <div class="preview-card preview-card-1"><img src="assets/home/featured/panfish.webp" alt="SEO Project 1" loading="lazy"></div>
+            <div class="preview-card preview-card-2"><img src="assets/home/featured/accel1.webp" alt="SEO Project 2" loading="lazy"></div>
+            <div class="preview-card preview-card-3"><img src="assets/home/featured/estic.webp" alt="SEO Project 3" loading="lazy"></div>
+          </div>
+          <h3 class="folder-title">Search &amp; AI Visibility</h3>
+        </a>
+
+        <!-- 2. Web Development -->
+        <a href="./work-websites.html" class="folder-card folder-card--yellow folder-card-2">
           <div class="folder-bg"></div>
           <div class="folder-hover-stack">
             <div class="preview-card preview-card-1"><img src="assets/our-work/websites/cacm2026-screenshot.webp" alt="Web Project 1" loading="lazy"></div>
@@ -709,9 +721,12 @@
           </div>
           <h3 class="folder-title">Web Development</h3>
         </a>
+      </div>
 
-        <!-- E-commerce Development -->
-        <a href="./work-ecommerce.html" class="folder-card folder-card--yellow folder-card-2">
+      <!-- Row 2 -->
+      <div class="folder-row folder-row-2">
+        <!-- 3. E-commerce Development -->
+        <a href="./work-ecommerce.html" class="folder-card folder-card--green folder-card-3">
           <div class="folder-bg"></div>
           <div class="folder-hover-stack">
             <div class="preview-card preview-card-1"><img src="assets/our-work/ecommerce/amsu.webp" alt="Ecommerce 1" loading="lazy"></div>
@@ -720,12 +735,9 @@
           </div>
           <h3 class="folder-title">E-commerce Development</h3>
         </a>
-      </div>
 
-      <!-- Row 2 -->
-      <div class="folder-row folder-row-2">
-        <!-- Custom Applications -->
-        <a href="./work-webapps.html" class="folder-card folder-card--green folder-card-3">
+        <!-- 4. Custom Applications -->
+        <a href="./work-webapps.html" class="folder-card folder-card--orange folder-card-4">
           <div class="folder-bg"></div>
           <div class="folder-hover-stack">
             <div class="preview-card preview-card-1"><img src="assets/our-work/webapps/web-app-1.webp" alt="Web App 1" loading="lazy"></div>
@@ -735,8 +747,8 @@
           <h3 class="folder-title">Custom Applications</h3>
         </a>
 
-        <!-- Mobile App Development -->
-        <a href="./app-development.html" class="folder-card folder-card--orange folder-card-4">
+        <!-- 5. Mobile App Development -->
+        <a href="./app-development.html" class="folder-card folder-card--offwhite folder-card-5">
           <div class="folder-bg"></div>
           <div class="folder-hover-stack">
             <div class="preview-card preview-card-1"><img src="assets/home/images/rental-app.webp" alt="Mobile App 1" loading="lazy"></div>
@@ -745,9 +757,12 @@
           </div>
           <h3 class="folder-title">Mobile App Development</h3>
         </a>
+      </div>
 
-        <!-- UI/UX Design -->
-        <a href="./ui-ux-design.html" class="folder-card folder-card--offwhite folder-card-5">
+      <!-- Row 3 -->
+      <div class="folder-row folder-row-3">
+        <!-- 6. UI/UX Design -->
+        <a href="./ui-ux-design.html" class="folder-card folder-card--yellow folder-card-6">
           <div class="folder-bg"></div>
           <div class="folder-hover-stack">
             <div class="preview-card preview-card-1"><img src="assets/home/featured/cacm.webp" alt="UI/UX Project 1" loading="lazy"></div>
@@ -756,12 +771,9 @@
           </div>
           <h3 class="folder-title">UI/UX Design</h3>
         </a>
-      </div>
 
-      <!-- Row 3 -->
-      <div class="folder-row folder-row-3">
-        <!-- Technology Support -->
-        <a href="./work-websites.html" class="folder-card folder-card--yellow folder-card-6">
+        <!-- 7. Technology Support -->
+        <a href="./technology-support.html" class="folder-card folder-card--green folder-card-7">
           <div class="folder-bg"></div>
           <div class="folder-hover-stack">
             <div class="preview-card preview-card-1"><img src="assets/our-work/webapps/web-app-4.webp" alt="Tech Support 1" loading="lazy"></div>
@@ -769,17 +781,6 @@
             <div class="preview-card preview-card-3"><img src="assets/home/enterprise-dashboard-ui.webp" alt="Tech Support 3" loading="lazy"></div>
           </div>
           <h3 class="folder-title">Technology Support</h3>
-        </a>
-
-        <!-- SEO, AEO & GEO -->
-        <a href="./work-websites.html" class="folder-card folder-card--green folder-card-7">
-          <div class="folder-bg"></div>
-          <div class="folder-hover-stack">
-            <div class="preview-card preview-card-1"><img src="assets/home/featured/panfish.webp" alt="SEO Project 1" loading="lazy"></div>
-            <div class="preview-card preview-card-2"><img src="assets/home/featured/accel1.webp" alt="SEO Project 2" loading="lazy"></div>
-            <div class="preview-card preview-card-3"><img src="assets/home/featured/estic.webp" alt="SEO Project 3" loading="lazy"></div>
-          </div>
-          <h3 class="folder-title">SEO, AEO &amp; GEO</h3>
         </a>
       </div>
 

@@ -610,19 +610,7 @@
 
 /* Project Meta */
 .websites-project-meta {
-  color: #94A3B8;
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  margin: 0;
-  text-align: left;
-  flex-shrink: 0;
-  transition: color 0.3s ease;
-}
-
-.websites-project-card:hover .websites-project-meta,
-.websites-project-card.is-expanded .websites-project-meta {
-  color: #75BF46;
+  display: none !important;
 }
 
 /* Expandable Hover Details (Butter smooth height & opacity expansion) */
