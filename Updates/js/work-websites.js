@@ -872,6 +872,62 @@ const initWebsitesApp = () => {
       </div>`;
     }
   }
+
+  /* ==========================================
+     MOVE TO TOP BUTTON
+     ========================================== */
+  const moveToTopBtn = document.getElementById('moveToTopBtn');
+  const projectsSection = document.querySelector('.websites-projects-section');
+  const projectsTitle = document.querySelector('.websites-projects-title');
+
+  if (moveToTopBtn) {
+    const getTargetScrollY = () => {
+      const targetElement = projectsTitle || projectsSection;
+      if (!targetElement) return 0;
+      const header = document.querySelector('.header-container');
+      const headerOffset = (header ? header.offsetHeight : 80) + 20;
+      return targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+    };
+
+    const checkScrollPosition = () => {
+      // Trigger when user is in the Website cards part
+      if (projectsSection) {
+        const targetTop = getTargetScrollY();
+        // Show button once user has scrolled into the cards section below the tabs header
+        if (window.pageYOffset >= targetTop + 140) {
+          moveToTopBtn.classList.add('is-visible');
+        } else {
+          moveToTopBtn.classList.remove('is-visible');
+        }
+      } else {
+        if (window.pageYOffset > 500) {
+          moveToTopBtn.classList.add('is-visible');
+        } else {
+          moveToTopBtn.classList.remove('is-visible');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', checkScrollPosition, { passive: true });
+    checkScrollPosition();
+
+    moveToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetElement = projectsTitle || projectsSection;
+      if (targetElement) {
+        const targetTop = getTargetScrollY();
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: 'smooth'
+        });
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
 };
 
 if (document.readyState !== 'loading') {

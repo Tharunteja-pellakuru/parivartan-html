@@ -263,6 +263,16 @@ const initIndexApp = () => {
       const itemGroup = toggleBtn.closest('.drawer-menu-item-group');
       if (toggleBtn && itemGroup) {
         toggleBtn.addEventListener('click', (e) => {
+          const titleEl = toggleBtn.querySelector('.drawer-menu-title');
+          const isSearchAi = titleEl && titleEl.textContent.trim().toLowerCase().includes('search & ai visibility');
+          const clickedChevron = e.target.closest('.drawer-menu-chevron');
+          
+          if (isSearchAi && !clickedChevron) {
+            closeMenu();
+            window.location.href = './seo-aeo-geo.html';
+            return;
+          }
+
           e.preventDefault();
           const isExpanded = itemGroup.classList.toggle('expanded');
           toggleBtn.setAttribute('aria-expanded', isExpanded);
@@ -2217,6 +2227,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickedNavLink = e.target.closest('.nav-link');
 
     if (clickedNavGroup && clickedNavLink) {
+      const href = clickedNavLink.getAttribute('href');
+      // If clicking "Search & AI Visibility" (or any link with a valid destination page), allow redirecting directly
+      if (href && href !== '#' && !href.startsWith('javascript:')) {
+        if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
+          window.location.href = href;
+        }
+        return;
+      }
+
       e.preventDefault();
       e.stopPropagation();
       const isOpen = clickedNavGroup.classList.contains('is-open');

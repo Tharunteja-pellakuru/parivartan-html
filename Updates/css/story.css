@@ -122,8 +122,9 @@ body {
 
 /* Left part of card: Text content */
 .about-hero-card-left {
-  flex: 0 0 38%;
-  max-width: 460px;
+  flex: 0 0 50%;
+  width: 50%;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -290,7 +291,9 @@ body {
 
 /* Right part of card: Image container */
 .about-hero-card-right {
-  flex: 1 1 62%;
+  flex: 0 0 50%;
+  width: 50%;
+  max-width: 50%;
   min-width: 0;
   display: flex;
   align-items: center;
