@@ -115,20 +115,21 @@ body {
   width: 100%;
   height: 100%;
   justify-content: space-between;
-  align-items: stretch;
-  gap: 16px;
+  align-items: center;
+  gap: 0;
   box-sizing: border-box;
 }
 
 /* Left part of card: Text content */
 .about-hero-card-left {
-  flex: 1;
+  flex: 0 0 38%;
+  max-width: 460px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   text-align: left;
-  padding: clamp(24px, 3.5vw, 40px) clamp(20px, 4vw, 48px);
+  padding: clamp(20px, 2.5vw, 36px) clamp(20px, 2.5vw, 36px);
   box-sizing: border-box;
   background: #FFFFFF;
 }
@@ -289,21 +290,23 @@ body {
 
 /* Right part of card: Image container */
 .about-hero-card-right {
-  width: clamp(300px, 32vw, 440px);
-  flex-shrink: 0;
+  flex: 1 1 62%;
+  min-width: 0;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
 }
 
 .about-hero-image {
   width: 100%;
   height: 100%;
-  min-height: 320px;
-  background-color: lightgray;
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 /* Responsive Overrides */
@@ -326,11 +329,15 @@ body {
     margin: 0;
   }
   .about-hero-image {
-    height: 320px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1536 / 1024;
     min-height: 0;
+    border-radius: 10px;
   }
   .about-hero-card-left {
-    padding: 32px 24px;
+    padding: 24px 16px;
+    max-width: 100%;
   }
 }
 
@@ -352,7 +359,9 @@ body {
 
 @media (max-width: 600px) {
   .about-hero-image {
-    height: 220px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
     min-height: 0;
   }
   .google-reviews-badge {
@@ -374,7 +383,9 @@ body {
     padding: 4px 0 20px 0;
   }
   .about-hero-image {
-    height: 180px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
     min-height: 0;
   }
   .about-hero-card-frame,
