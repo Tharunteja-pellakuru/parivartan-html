@@ -298,32 +298,6 @@ const initIndexApp = () => {
   }
 
   /* ==========================================
-     2.5 VIEW OUR WORK BUTTON -> MOBILE DRAWER OUR WORK CARD
-     ========================================== */
-  const viewOurWorkBtns = document.querySelectorAll('.hero-btn-black, a[href*="work-websites.html"]');
-
-  viewOurWorkBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      if (window.innerWidth <= 1000) {
-        e.preventDefault();
-        if (typeof window.openMobileDrawerWithGroup === 'function') {
-          window.openMobileDrawerWithGroup('Our Work');
-        } else {
-          const drawer = document.querySelector('.mobile-drawer');
-          const backdrop = document.querySelector('.menu-backdrop');
-          const btn = document.querySelector('.menu-btn');
-          if (drawer && backdrop) {
-            drawer.classList.add('open');
-            backdrop.classList.add('open');
-            if (btn) btn.classList.add('active');
-            document.body.classList.add('menu-open');
-          }
-        }
-      }
-    });
-  });
-
-  /* ==========================================
      3. TECH ECOSYSTEM PARTICLES CONSTELLATION
      ========================================== */
   const ecoContainer = document.getElementById('techEcosystem');
@@ -944,25 +918,25 @@ const techConnectionsData = [
       useIframe: true
     },
     {
-      id: 'creaprojects',
-      title: 'Crea Projects',
-      description: 'A portfolio site for Crea Projects, a design studio spanning residential, commercial, hospitality, and institutional architecture.',
+      id: 'summergreen',
+      title: 'Summer Green Resorts',
+      description: 'A premium resort in Hyderabad offering luxury accommodation, banquets, adventure activities, corporate events, weddings, and family getaways.',
       solutionTitle: 'The Solution',
-      solutionText: 'Created a high-impact, visual-first portfolio architecture celebrating signature projects like Oceanique and Ente Keralam with fluid motion transitions.',
+      solutionText: 'Engineered a modern, visually immersive hospitality portal with direct booking capabilities, interactive resort showcase, and event inquiry workflows.',
       stats: [
-        { num: '100+', lbl: 'Projects', icon: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>' },
-        { num: '20+', lbl: 'Years Exp', icon: '<circle cx="12" cy="12" r="10"></circle>' },
-        { num: '+200%', lbl: 'Inquiries', icon: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>' }
+        { num: '50+', lbl: 'Luxury Rooms', icon: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>' },
+        { num: '1000+', lbl: 'Events Hosted', icon: '<circle cx="12" cy="12" r="10"></circle>' },
+        { num: '4.5★', lbl: 'Guest Rating', icon: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>' }
       ],
       techPills: [
-        { name: 'React', stroke: '#61DAFB', svg: '<circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/>' },
-        { name: 'Tailwind CSS', stroke: '#38BDF8', svg: '<path d="M12 4.5C7 4.5 3.5 7.5 3.5 10.5c0 4 5.5 4.5 5.5 7 0 1.5-1.5 2.5-3.5 2.5"/>' },
-        { name: 'GSAP', stroke: '#88CE02', svg: '<polygon points="12 2 2 7 12 12 22 7 12 2"/>' }
+        { name: 'HTML5', stroke: '#E44D26', svg: '<circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/>' },
+        { name: 'CSS3/Responsive', stroke: '#264DE4', svg: '<path d="M12 4.5C7 4.5 3.5 7.5 3.5 10.5c0 4 5.5 4.5 5.5 7 0 1.5-1.5 2.5-3.5 2.5"/>' },
+        { name: 'JavaScript', stroke: '#F7DF1E', svg: '<polygon points="12 2 2 7 12 12 22 7 12 2"/>' }
       ],
-      liveUrl: 'https://creaprojects.in/',
-      displayUrl: 'creaprojects.in/',
-      screenshot: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fcreaprojects.in%2F?w=1200&h=800',
-      useIframe: true
+      liveUrl: 'https://www.summergreenresort.com/',
+      displayUrl: 'summergreenresort.com/',
+      screenshot: './assets/home/featured/summer-green.webp',
+      useIframe: false
     },
     {
       id: 'sherwood',
@@ -2203,9 +2177,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn && btn.textContent && btn.textContent.trim().toLowerCase().includes('view our work')) {
       const isDropdownOption = btn.closest('.dropdown-menu, .mobile-drawer');
       if (!isDropdownOption) {
+        const href = btn.getAttribute('href');
+        // If it's a real destination page link (like ./work-websites.html, ./work-ecommerce.html, ./work-webapps.html), allow normal navigation
+        if (href && href !== '#' && !href.startsWith('#') && !href.startsWith('javascript:')) {
+          return;
+        }
+
         e.preventDefault();
 
-        // Smooth scroll to top header
+        // On mobile, open mobile drawer to 'Our Work'
+        if (window.innerWidth <= 1000) {
+          if (typeof window.openMobileDrawerWithGroup === 'function') {
+            window.openMobileDrawerWithGroup('Our Work');
+          } else {
+            const drawer = document.querySelector('.mobile-drawer');
+            const backdrop = document.querySelector('.menu-backdrop');
+            const menuBtn = document.querySelector('.menu-btn');
+            if (drawer && backdrop) {
+              drawer.classList.add('open');
+              backdrop.classList.add('open');
+              if (menuBtn) menuBtn.classList.add('active');
+              document.body.classList.add('menu-open');
+            }
+          }
+          return;
+        }
+
+        // Smooth scroll to top header on desktop
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         // Find "Our Work" nav item in header navigation and open its dropdown

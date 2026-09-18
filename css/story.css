@@ -317,30 +317,47 @@ body {
   .about-hero-card-frame {
     padding: 12px;
     border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .about-hero-card {
     border-radius: 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .about-hero-inner-card {
     flex-direction: column-reverse;
-    gap: 12px;
-    padding: 12px;
+    align-items: stretch;
+    width: 100%;
+    gap: 16px;
+    padding: 16px;
   }
   .about-hero-card-right {
+    flex: none;
     width: 100%;
+    max-width: 100%;
     height: auto;
     margin: 0;
+    display: block;
   }
   .about-hero-image {
     width: 100%;
+    max-width: 100%;
     height: auto;
-    aspect-ratio: 1536 / 1024;
-    min-height: 0;
     border-radius: 10px;
+    display: block;
+    object-fit: cover;
   }
   .about-hero-card-left {
-    padding: 24px 16px;
+    flex: none;
+    width: 100%;
     max-width: 100%;
+    padding: 16px 8px 12px 8px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  .about-hero-card-desc-group p {
+    text-align: left;
   }
 }
 
@@ -360,12 +377,33 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .about-hero-card-heading {
+    font-size: clamp(24px, 4.5vw, 32px);
+    line-height: 1.3;
+    margin-bottom: 14px;
+    text-align: left;
+  }
+  .about-hero-card-desc-group p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+}
+
 @media (max-width: 600px) {
+  .about-hero-inner-card {
+    padding: 12px;
+    gap: 14px;
+  }
   .about-hero-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 2;
-    min-height: 0;
+    border-radius: 8px;
+  }
+  .about-hero-card-left {
+    padding: 12px 4px 8px 4px;
   }
   .google-reviews-badge {
     flex-direction: column;
@@ -383,26 +421,40 @@ body {
     padding: 0 16px;
   }
   .about-hero-container {
-    padding: 4px 0 20px 0;
+    padding: 8px 0 20px 0;
   }
-  .about-hero-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 2;
-    min-height: 0;
+  .about-hero-title {
+    font-size: 32px !important;
+    line-height: 40px !important;
+    margin-bottom: 24px !important;
   }
   .about-hero-card-frame,
   .about-craft-card-frame {
-    padding: 8px;
+    padding: 8px !important;
     border-radius: 16px;
+    width: 100%;
   }
   .about-hero-card,
   .about-craft-card {
     border-radius: 12px;
+    width: 100%;
   }
   .about-hero-inner-card {
-    gap: 8px;
+    gap: 12px;
     padding: 8px;
+  }
+  .about-hero-card-left {
+    padding: 10px 4px 6px 4px;
+  }
+  .about-hero-card-heading {
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 12px;
+  }
+  .about-hero-card-desc-group p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
   }
 }
 
@@ -1878,6 +1930,13 @@ body {
   color: #9CA3AF !important;
   box-shadow: none !important;
   transform: none !important;
+}
+
+.testimonials-nav-btn svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
 }
 
 /* Video Testimonials carousel track */

@@ -122,8 +122,6 @@ const initWebsitesApp = () => {
       mobileDrawer.classList.add('open');
       document.documentElement.classList.add('menu-open');
       document.body.classList.add('menu-open');
-      document.body.style.overflow = 'hidden';
-      document.body.style.top = `-${savedScrollY}px`;
     };
 
     const closeMenu = () => {
@@ -132,11 +130,6 @@ const initWebsitesApp = () => {
       mobileDrawer.classList.remove('open');
       document.documentElement.classList.remove('menu-open');
       document.body.classList.remove('menu-open');
-      document.body.style.overflow = '';
-      document.body.style.top = '';
-      if (savedScrollY !== undefined && savedScrollY !== null) {
-        window.scrollTo(0, savedScrollY);
-      }
     };
 
     const toggleMenu = () => {
@@ -280,7 +273,15 @@ const initWebsitesApp = () => {
       const screenshot = btn.getAttribute('data-screenshot');
 
       previewUrl.textContent = domain;
-      previewOpenBtn.href = url;
+      if (url && url !== '#') {
+        previewOpenBtn.href = url;
+        const btnSpan = previewOpenBtn.querySelector('span');
+        if (btnSpan) btnSpan.textContent = 'Open Website';
+      } else {
+        previewOpenBtn.href = screenshot;
+        const btnSpan = previewOpenBtn.querySelector('span');
+        if (btnSpan) btnSpan.textContent = 'Open Full Image';
+      }
 
       if (embeddable) {
         previewBody.innerHTML = `<iframe src="${url}" title="Live preview" class="websites-live-preview-iframe" allowfullscreen></iframe>`;
