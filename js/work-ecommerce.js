@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Add a hidden fallback image (local screenshot) that we can show if the iframe is blocked.
       const fallbackImg = document.createElement('img');
-      fallbackImg.src = './assets/our-work/ecommerce/maagaani-screenshot.png';
+      fallbackImg.src = './assets/our-work/ecommerce/maagaani-screenshot.webp';
       fallbackImg.alt = domain + ' screenshot fallback';
       fallbackImg.className = 'ecommerce-live-preview-screenshot';
       fallbackImg.style.display = 'none';

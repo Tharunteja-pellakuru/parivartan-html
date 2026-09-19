@@ -870,7 +870,7 @@ const techConnectionsData = [
       ],
       liveUrl: 'https://estic2026.in/',
       displayUrl: 'estic2026.in',
-      screenshot: './assets/our-work/websites/estic-screenshot.png',
+      screenshot: './assets/our-work/websites/estic-screenshot.webp',
       useIframe: false
     },
     {
