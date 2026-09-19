@@ -6,6 +6,6 @@ User-agent: msnbot
 Disallow: 
 Disallow: /cgi-bin/
 Disallow: /backup/
-Sitemap: https://www.eparivartan.com/sitemap.xml
+Sitemap: https://eparivartan.com/sitemap.xml
 Allow: /sitemap.xml
 Disallow: /*escaped_fragment=DONOTCRAWL
