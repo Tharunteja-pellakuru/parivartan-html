@@ -401,16 +401,6 @@ const initStoryApp = () => {
       const itemGroup = toggleBtn.closest('.drawer-menu-item-group');
       if (toggleBtn && itemGroup) {
         toggleBtn.addEventListener('click', (e) => {
-          const titleEl = toggleBtn.querySelector('.drawer-menu-title');
-          const isSearchAi = titleEl && titleEl.textContent.trim().toLowerCase().includes('search & ai visibility');
-          const clickedChevron = e.target.closest('.drawer-menu-chevron');
-          
-          if (isSearchAi && !clickedChevron) {
-            closeMenu();
-            window.location.href = './seo-aeo-geo.html';
-            return;
-          }
-
           e.preventDefault();
           const isExpanded = itemGroup.classList.toggle('expanded');
           toggleBtn.setAttribute('aria-expanded', isExpanded);

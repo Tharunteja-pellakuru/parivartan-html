@@ -263,16 +263,6 @@ const initIndexApp = () => {
       const itemGroup = toggleBtn.closest('.drawer-menu-item-group');
       if (toggleBtn && itemGroup) {
         toggleBtn.addEventListener('click', (e) => {
-          const titleEl = toggleBtn.querySelector('.drawer-menu-title');
-          const isSearchAi = titleEl && titleEl.textContent.trim().toLowerCase().includes('search & ai visibility');
-          const clickedChevron = e.target.closest('.drawer-menu-chevron');
-          
-          if (isSearchAi && !clickedChevron) {
-            closeMenu();
-            window.location.href = './seo-aeo-geo.html';
-            return;
-          }
-
           e.preventDefault();
           const isExpanded = itemGroup.classList.toggle('expanded');
           toggleBtn.setAttribute('aria-expanded', isExpanded);
@@ -557,6 +547,10 @@ const techConnectionsData = [
     const tick = (timestamp) => {
       const containerWidth = ecoContainer.clientWidth;
       const containerHeight = ecoContainer.clientHeight;
+      if (containerWidth === 0 || containerHeight === 0) {
+        requestAnimationFrame(tick);
+        return;
+      }
       const centerX = containerWidth / 2;
       const centerY = containerHeight / 2;
       const time = timestamp * 0.001;
@@ -1561,26 +1555,72 @@ const techConnectionsData = [
     });
 
     // reCAPTCHA init script configuration
-    const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
-    const RECAPTCHA_SITE_KEY = IS_LOCAL
-      ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Public Google validation key
-      : '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'; // Production key
+    const isProduction = ['eparivartan.com', 'www.eparivartan.com'].includes(window.location.hostname);
+    const RECAPTCHA_SITE_KEY = isProduction
+      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Production key
+      : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // Universal Google test key (works on all localhosts/IPs)
 
-    let recaptchaCheckInterval = setInterval(() => {
-      if (window.grecaptcha && window.grecaptcha.render) {
+    const recaptchaContainer = document.getElementById('contact-recaptcha');
+    if (recaptchaContainer) {
+      recaptchaContainer.setAttribute('data-sitekey', RECAPTCHA_SITE_KEY);
+      recaptchaContainer.classList.add('g-recaptcha');
+    }
+
+    let recaptchaRendered = false;
+    const renderRecaptchaWidget = () => {
+      if (recaptchaRendered) return;
+      const target = document.getElementById('contact-recaptcha');
+      if (!target) return;
+      
+      if (target.children.length > 0 && target.querySelector('iframe')) {
+        recaptchaRendered = true;
+        return;
+      }
+
+      if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
         try {
-          const container = document.getElementById('contact-recaptcha');
-          if (container && container.innerHTML === '') {
-            window.grecaptcha.render('contact-recaptcha', {
-              sitekey: RECAPTCHA_SITE_KEY,
-            });
-            clearInterval(recaptchaCheckInterval);
-          }
+          window.grecaptcha.render(target, {
+            sitekey: RECAPTCHA_SITE_KEY,
+          });
+          recaptchaRendered = true;
         } catch (e) {
-          console.error('reCAPTCHA init error: ', e);
+          if (String(e).toLowerCase().includes('already been rendered')) {
+            recaptchaRendered = true;
+          } else {
+            console.warn('reCAPTCHA render notice: ', e);
+          }
         }
       }
-    }, 500);
+    };
+
+    // Ensure Google API script is present
+    if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js';
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    if (window.grecaptcha && typeof window.grecaptcha.ready === 'function') {
+      window.grecaptcha.ready(renderRecaptchaWidget);
+    }
+
+    let recaptchaAttempts = 0;
+    const recaptchaCheckInterval = setInterval(() => {
+      recaptchaAttempts++;
+      if (recaptchaRendered || recaptchaAttempts > 25) {
+        clearInterval(recaptchaCheckInterval);
+        return;
+      }
+      if (window.grecaptcha) {
+        if (typeof window.grecaptcha.ready === 'function') {
+          window.grecaptcha.ready(renderRecaptchaWidget);
+        } else if (typeof window.grecaptcha.render === 'function') {
+          renderRecaptchaWidget();
+        }
+      }
+    }, 400);
 
     // Form Submissions API Integration
     const submitBtn = contactForm.querySelector('.contact-submit-btn');
@@ -2145,7 +2185,28 @@ const techConnectionsData = [
     });
   };
 
+  /* ==========================================
+     MOBILE HERO STACKED CARDS CLICK-TO-FRONT
+     ========================================== */
+  const initHeroMobileCards = () => {
+    const stage = document.querySelector('.hero-mobile-view .stage');
+    if (!stage) return;
+
+    stage.addEventListener('click', (e) => {
+      const card = e.target.closest('.card');
+      if (!card || !stage.contains(card)) return;
+
+      const isAlreadyFront = card.classList.contains('is-front');
+      stage.querySelectorAll('.card').forEach(c => c.classList.remove('is-front'));
+
+      if (!isAlreadyFront) {
+        card.classList.add('is-front');
+      }
+    });
+  };
+
   initHeroShowcaseObserver();
+  initHeroMobileCards();
 };
 
 if (document.readyState !== 'loading') {
@@ -2160,6 +2221,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.header-container');
   if (header) {
     const updateHeader = () => {
+      document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
       if (window.scrollY > 50) {
         header.classList.add('scrolled');
       } else {
@@ -2168,6 +2230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader, { passive: true });
   }
 
   // Handle click on "View Our Work" buttons & "Our Work" header link to show ONLY Header Our Work Menu

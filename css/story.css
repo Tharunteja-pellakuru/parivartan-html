@@ -2184,23 +2184,15 @@ body {
 .author-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  text-align: left;
 }
 
 .author-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #E4E7EC;
+  display: none !important;
 }
 
 .author-avatar-dummy {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #F0F2F5;
-  flex-shrink: 0;
+  display: none !important;
 }
 
 .author-details {
@@ -2208,6 +2200,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  gap: 2px;
 }
 
 .author-name {
@@ -2215,6 +2208,8 @@ body {
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 15px;
   font-weight: 700;
+  text-align: left;
+  line-height: 1.25;
 }
 
 .author-meta {
@@ -2222,6 +2217,8 @@ body {
   font-family: Satoshi, 'DM Sans', system-ui, sans-serif;
   font-size: 13px;
   font-weight: 500;
+  text-align: left;
+  line-height: 1.35;
 }
 
 .company-logo-wrapper {

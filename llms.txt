@@ -1,0 +1,55 @@
+# Parivartan (eParivartan)
+
+> Parivartan (eParivartan) is a technology company based in Hyderabad, India, that designs and develops websites, mobile apps, custom applications and e-commerce platforms for businesses, institutions and government organisations, and provides SEO, AEO and GEO services.
+
+Parivartan started in 2002 and has more than 24 years of experience in digital design and development. It delivers technology solutions across 20+ countries and works with international clients remotely. Designers and developers work together through each project, from requirements and UI/UX design to development, deployment and long-term support. Technology is chosen per project; capabilities include React, JavaScript, TypeScript, PHP, Python, WordPress, MySQL, PostgreSQL, MongoDB and REST APIs.
+
+- Location: Flat no 201, Vasudha Avenue, Road Number 10, Kavuri Hills, Hyderabad - 500033, Telangana, India
+- Phone: +91 98491 65443
+- Email: feedback@eparivartan.com
+- Working hours: Monday to Friday, 10:30 AM - 7:00 PM (IST)
+
+## Core Services
+
+- [Web Development](https://eparivartan.com/web-development.html): Corporate, institutional, government and content-rich websites, custom CMS, multilingual and accessible builds, with technical SEO foundations built in.
+- [Mobile App Development](https://eparivartan.com/mobile-app-development.html): Mobile app design and development, from UI/UX through to launch and support.
+- [Custom Applications](https://eparivartan.com/custom-applications.html): Custom software for complex business logic, workflows and operational systems, including portals and internal management tools.
+- [UI/UX Design](https://eparivartan.com/ui-ux-design.html): Wireframes, visual design and interaction design that define layouts and functionality before development.
+- [E-commerce Development](https://eparivartan.com/ecommerce-development.html): E-commerce websites and platforms with payment, CRM and third-party system integrations.
+- [Search & AI Visibility (SEO / AEO / GEO)](https://eparivartan.com/seo-aeo-geo.html): Ongoing optimisation for search engines (SEO), answer engines (AEO) and generative AI platforms (GEO).
+- [Technology Support](https://eparivartan.com/technology-support.html): Hosting support, SSL management, backups, security updates, monitoring, maintenance and enhancements.
+
+## Portfolio
+
+- [Websites Portfolio](https://eparivartan.com/work-websites.html): Selected website projects by Parivartan.
+- [Custom Applications Portfolio](https://eparivartan.com/work-webapps.html): Selected custom web application and portal projects.
+- [Mobile Apps Portfolio](https://eparivartan.com/app-development.html): Mobile app projects and case studies.
+- [E-commerce Portfolio](https://eparivartan.com/work-ecommerce.html): Selected e-commerce projects.
+- [UI/UX Design Portfolio](https://eparivartan.com/work-ui-ux.html): Selected UI/UX design projects.
+
+## Case Studies
+
+- [Rental App](https://eparivartan.com/rental-app-details.html): Mobile app for property rental management covering properties, tenants, locations, tenant onboarding and rent payment tracking.
+- [Clap Kartel](https://eparivartan.com/clap-kartel-details.html): Social entertainment platform connecting artists, creators and film professionals through talent profiles, media sharing, rentals, jobs, learning and industry services.
+- [CAD Career Coach](https://eparivartan.com/cad-career-coach-details.html): Career platform for civil and mechanical engineering students and professionals, with jobs, technical training, industry resources and recruiter connections.
+- [Hemanth Enterprises](https://eparivartan.com/hemanth-enterprises-details.html): B2B sanitary solutions platform with multi-brand product selection, comparison, quotation generation and cost estimation.
+- [HR Portal](https://eparivartan.com/hr-portal-details.html): Mobile workforce app for attendance, daily work reports, task tracking, leave balances and company announcements.
+- [Minutes of Meeting](https://eparivartan.com/minutes-of-meeting-details.html): Meeting management platform that records, organises and summarises discussions, generates key points and action items, and shares them by email.
+- [Tandoori Flames](https://eparivartan.com/tandoori-flames-details.html): Restaurant mobile app for food ordering, menu browsing, table reservation and real-time order tracking.
+- [Vastra Sethu](https://eparivartan.com/vastra-sethu-details.html): Apparel and textile e-commerce platform connecting manufacturers, wholesalers and retailers, with bulk ordering and real-time inventory tracking.
+
+## Company
+
+- [Home](https://eparivartan.com/index.html): Overview of Parivartan's services, work and approach.
+- [Our Story](https://eparivartan.com/story.html): Parivartan's history, mission, vision and values.
+- [Our Clients](https://eparivartan.com/clients.html): Clients and organisations Parivartan has worked with.
+- [Contact](https://eparivartan.com/contact.html): Start a project or request a consultation.
+
+## Optional
+
+- [Life at Parivartan](https://eparivartan.com/life.html): Team culture and working environment.
+- [Articles / Insights](https://eparivartan.com/blogs.html): Articles on technology, design and digital strategy.
+- [Founders in Frame](https://eparivartan.com/founders-in-frame.html): Perspectives from Parivartan's founders.
+- [Media Features](https://eparivartan.com/media.html): Press coverage and brand announcements.
+- [Parivartan Excellence Awards](https://eparivartan.com/awards.html): Awards and recognition.
+- [Careers](https://careers.eparivartan.com/): Open roles at Parivartan.

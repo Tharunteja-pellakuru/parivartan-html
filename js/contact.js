@@ -367,26 +367,57 @@ const initContactApp = () => {
     });
 
     // reCAPTCHA init script configuration
-    const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
-    const RECAPTCHA_SITE_KEY = IS_LOCAL
-      ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Public Google validation key
-      : '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'; // Production key
+    const isProduction = ['eparivartan.com', 'www.eparivartan.com'].includes(window.location.hostname);
+    const RECAPTCHA_SITE_KEY = isProduction
+      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Production key
+      : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // Universal Google test key (works on all localhosts/IPs)
 
-    let recaptchaCheckInterval = setInterval(() => {
-      if (window.grecaptcha && window.grecaptcha.render) {
+    const recaptchaContainer = document.getElementById('contact-recaptcha');
+    if (recaptchaContainer) {
+      recaptchaContainer.setAttribute('data-sitekey', RECAPTCHA_SITE_KEY);
+      recaptchaContainer.classList.add('g-recaptcha');
+    }
+
+    let recaptchaRendered = false;
+    const renderRecaptchaWidget = () => {
+      if (recaptchaRendered) return;
+      const target = document.getElementById('contact-recaptcha');
+      if (!target) return;
+      if (target.children.length > 0 && target.querySelector('iframe')) {
+        recaptchaRendered = true;
+        return;
+      }
+      if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
         try {
-          const container = document.getElementById('contact-recaptcha');
-          if (container && container.innerHTML === '') {
-            window.grecaptcha.render('contact-recaptcha', {
-              sitekey: RECAPTCHA_SITE_KEY,
-            });
-            clearInterval(recaptchaCheckInterval);
-          }
+          window.grecaptcha.render(target, { sitekey: RECAPTCHA_SITE_KEY });
+          recaptchaRendered = true;
         } catch (e) {
-          console.error('reCAPTCHA init error: ', e);
+          if (String(e).toLowerCase().includes('already been rendered')) {
+            recaptchaRendered = true;
+          }
         }
       }
-    }, 500);
+    };
+
+    if (window.grecaptcha && typeof window.grecaptcha.ready === 'function') {
+      window.grecaptcha.ready(renderRecaptchaWidget);
+    }
+
+    let recaptchaAttempts = 0;
+    const recaptchaCheckInterval = setInterval(() => {
+      recaptchaAttempts++;
+      if (recaptchaRendered || recaptchaAttempts > 25) {
+        clearInterval(recaptchaCheckInterval);
+        return;
+      }
+      if (window.grecaptcha) {
+        if (typeof window.grecaptcha.ready === 'function') {
+          window.grecaptcha.ready(renderRecaptchaWidget);
+        } else if (typeof window.grecaptcha.render === 'function') {
+          renderRecaptchaWidget();
+        }
+      }
+    }, 400);
 
     // Form Submissions API Integration
     const submitBtn = contactForm.querySelector('.contact-submit-btn');

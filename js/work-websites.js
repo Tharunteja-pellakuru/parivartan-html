@@ -193,7 +193,7 @@ const initWebsitesApp = () => {
       // Filter project cards
       projectCards.forEach(card => {
         const cardCategory = card.getAttribute('data-category');
-        if (cardCategory === selectedCategory) {
+        if (selectedCategory === 'All' || cardCategory === selectedCategory) {
           card.style.display = 'flex';
           card.classList.add('is-visible');
           visibleCount++;
@@ -206,12 +206,17 @@ const initWebsitesApp = () => {
       // Filter empty states
       emptyStates.forEach(state => {
         const stateCategory = state.getAttribute('data-category');
-        if (stateCategory === selectedCategory && visibleCount === 0) {
+        if (selectedCategory !== 'All' && stateCategory === selectedCategory && visibleCount === 0) {
           state.style.display = 'flex';
         } else {
           state.style.display = 'none';
         }
       });
+
+      // Scroll active chip into view horizontally on mobile
+      if (window.innerWidth <= 768) {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
 
       // Trigger GSAP stagger reveal animation on newly visible cards
       if (typeof gsap !== 'undefined' && visibleCount > 0) {
@@ -223,10 +228,56 @@ const initWebsitesApp = () => {
     });
   });
 
+  // Enable smooth mouse drag-to-scroll on tabs container (helpful for desktop touch/trackpad testing)
+  const categoryTabsContainer = document.querySelector('.websites-category-tabs');
+  if (categoryTabsContainer) {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    categoryTabsContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      categoryTabsContainer.classList.add('is-dragging');
+      startX = e.pageX - categoryTabsContainer.offsetLeft;
+      scrollLeft = categoryTabsContainer.scrollLeft;
+    });
+
+    categoryTabsContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      categoryTabsContainer.classList.remove('is-dragging');
+    });
+
+    categoryTabsContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      categoryTabsContainer.classList.remove('is-dragging');
+    });
+
+    categoryTabsContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - categoryTabsContainer.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      categoryTabsContainer.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  // Update dynamic --header-height for sticky category chips on mobile
+  const updateHeaderHeight = () => {
+    const header = document.querySelector('.header-container');
+    if (header) {
+      document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    }
+  };
+  updateHeaderHeight();
+  window.addEventListener('resize', updateHeaderHeight, { passive: true });
+
   /* ==========================================
      3B. CLICK TO TOGGLE (OPEN / CLOSE) PROJECT CARDS
      ========================================== */
   document.addEventListener('click', (e) => {
+    // On mobile screens, cards always show full details without clicking
+    if (window.innerWidth <= 768) return;
+
     const card = e.target.closest('.websites-project-card');
     const isInteractive = e.target.closest('a, button, input, .preview-live-btn, .websites-btn');
 
@@ -493,26 +544,57 @@ const initWebsitesApp = () => {
     });
 
     // reCAPTCHA init script configuration
-    const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
-    const RECAPTCHA_SITE_KEY = IS_LOCAL
-      ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Public Google validation key
-      : '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'; // Production key
+    const isProduction = ['eparivartan.com', 'www.eparivartan.com'].includes(window.location.hostname);
+    const RECAPTCHA_SITE_KEY = isProduction
+      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Production key
+      : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // Universal Google test key (works on all localhosts/IPs)
 
-    let recaptchaCheckInterval = setInterval(() => {
-      if (window.grecaptcha && window.grecaptcha.render) {
+    const recaptchaContainer = document.getElementById('contact-recaptcha');
+    if (recaptchaContainer) {
+      recaptchaContainer.setAttribute('data-sitekey', RECAPTCHA_SITE_KEY);
+      recaptchaContainer.classList.add('g-recaptcha');
+    }
+
+    let recaptchaRendered = false;
+    const renderRecaptchaWidget = () => {
+      if (recaptchaRendered) return;
+      const target = document.getElementById('contact-recaptcha');
+      if (!target) return;
+      if (target.children.length > 0 && target.querySelector('iframe')) {
+        recaptchaRendered = true;
+        return;
+      }
+      if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
         try {
-          const container = document.getElementById('contact-recaptcha');
-          if (container && container.innerHTML === '') {
-            window.grecaptcha.render('contact-recaptcha', {
-              sitekey: RECAPTCHA_SITE_KEY,
-            });
-            clearInterval(recaptchaCheckInterval);
-          }
+          window.grecaptcha.render(target, { sitekey: RECAPTCHA_SITE_KEY });
+          recaptchaRendered = true;
         } catch (e) {
-          console.error('reCAPTCHA init error: ', e);
+          if (String(e).toLowerCase().includes('already been rendered')) {
+            recaptchaRendered = true;
+          }
         }
       }
-    }, 500);
+    };
+
+    if (window.grecaptcha && typeof window.grecaptcha.ready === 'function') {
+      window.grecaptcha.ready(renderRecaptchaWidget);
+    }
+
+    let recaptchaAttempts = 0;
+    const recaptchaCheckInterval = setInterval(() => {
+      recaptchaAttempts++;
+      if (recaptchaRendered || recaptchaAttempts > 25) {
+        clearInterval(recaptchaCheckInterval);
+        return;
+      }
+      if (window.grecaptcha) {
+        if (typeof window.grecaptcha.ready === 'function') {
+          window.grecaptcha.ready(renderRecaptchaWidget);
+        } else if (typeof window.grecaptcha.render === 'function') {
+          renderRecaptchaWidget();
+        }
+      }
+    }, 400);
 
     // Form Submissions API Integration
     const submitBtn = contactForm.querySelector('.contact-submit-btn');
@@ -872,62 +954,6 @@ const initWebsitesApp = () => {
         </table>
       </div>`;
     }
-  }
-
-  /* ==========================================
-     MOVE TO TOP BUTTON
-     ========================================== */
-  const moveToTopBtn = document.getElementById('moveToTopBtn');
-  const projectsSection = document.querySelector('.websites-projects-section');
-  const projectsTitle = document.querySelector('.websites-projects-title');
-
-  if (moveToTopBtn) {
-    const getTargetScrollY = () => {
-      const targetElement = projectsTitle || projectsSection;
-      if (!targetElement) return 0;
-      const header = document.querySelector('.header-container');
-      const headerOffset = (header ? header.offsetHeight : 80) + 20;
-      return targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-    };
-
-    const checkScrollPosition = () => {
-      // Trigger when user is in the Website cards part
-      if (projectsSection) {
-        const targetTop = getTargetScrollY();
-        // Show button once user has scrolled into the cards section below the tabs header
-        if (window.pageYOffset >= targetTop + 140) {
-          moveToTopBtn.classList.add('is-visible');
-        } else {
-          moveToTopBtn.classList.remove('is-visible');
-        }
-      } else {
-        if (window.pageYOffset > 500) {
-          moveToTopBtn.classList.add('is-visible');
-        } else {
-          moveToTopBtn.classList.remove('is-visible');
-        }
-      }
-    };
-
-    window.addEventListener('scroll', checkScrollPosition, { passive: true });
-    checkScrollPosition();
-
-    moveToTopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetElement = projectsTitle || projectsSection;
-      if (targetElement) {
-        const targetTop = getTargetScrollY();
-        window.scrollTo({
-          top: Math.max(0, targetTop),
-          behavior: 'smooth'
-        });
-      } else {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
-    });
   }
 };
 

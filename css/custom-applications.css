@@ -280,9 +280,18 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise
   body.custom-apps-page .uiux-expertise-img--websites,
   body.custom-apps-page .uiux-expertise-img--webapps,
   body.custom-apps-page .uiux-expertise-img--enterprise {
-    width: 104% !important;
-    margin-left: -2% !important;
-    margin-bottom: -10px !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
+    transform: rotate(0deg) !important;
+    transform-origin: center center !important;
+    border-radius: 8px 8px 0 0 !important;
+  }
+  body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img,
+  body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--websites,
+  body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--webapps,
+  body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise {
+    transform: rotate(0deg) scale(1.02) !important;
   }
 }
 
