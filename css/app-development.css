@@ -745,6 +745,49 @@ main img {
   z-index: 3;
 }
 
+/* Floating Store Badges on App Cards */
+.project-card-store-badges {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  z-index: 6;
+}
+
+.project-card-store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: #111827 !important;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card-store-badge:hover {
+  background: #0D0F12;
+  color: #FFFFFF !important;
+  border-color: #0D0F12;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.project-card-store-badge svg {
+  flex-shrink: 0;
+}
+
 .project-card-float-btn {
   display: block;
   width: 100%;

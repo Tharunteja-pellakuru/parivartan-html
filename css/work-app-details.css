@@ -135,6 +135,186 @@
   letter-spacing: 0.01em;
 }
 
+/* ---------- Store Badges & Download CTAs ---------- */
+.app-detail-store-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: -16px;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.store-badge-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  border-radius: 14px;
+  background: #0E1015;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.store-badge-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transition: left 0.6s ease;
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.store-badge-link:hover::before {
+  left: 150%;
+}
+
+.store-badge-link:hover {
+  transform: translateY(-2px);
+  background: #171A21;
+  border-color: rgba(133, 189, 86, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22), 0 0 16px rgba(133, 189, 86, 0.25);
+  color: #FFFFFF !important;
+}
+
+.store-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.store-badge-icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.store-badge-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.store-badge-sub {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9E9EA7;
+  transition: color 0.2s ease;
+}
+
+.store-badge-link:hover .store-badge-sub {
+  color: #CFD4DC;
+}
+
+.store-badge-name {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+.store-badge-arrow {
+  margin-left: 4px;
+  opacity: 0.6;
+  transform: translateX(0);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.store-badge-link:hover .store-badge-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* In-Card App Download Box */
+.app-download-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 24px 28px;
+  background: #FFFFFF;
+  border: 1px solid #EBEAEA;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-top: 14px;
+}
+
+.app-download-content {
+  flex: 1 1 300px;
+}
+
+.app-download-title {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #060612;
+  margin: 0 0 6px 0;
+}
+
+.app-download-desc {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 14px;
+  color: #69686E;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.app-download-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .app-detail-store-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .app-detail-store-links .store-badge-link {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  .app-download-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .app-download-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .app-download-actions .store-badge-link {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
 /* ---------- Hero image ---------- */
 .app-hero-frame {
   width: 100%;
