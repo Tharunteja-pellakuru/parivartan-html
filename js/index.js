@@ -1171,89 +1171,138 @@ const techConnectionsData = [
   const testimonialsSec = document.getElementById('testimonials');
   const videoOverlay = document.querySelector('.video-preview-overlay');
 
-  if (testimonialsSec && videoOverlay) {
+  if (testimonialsSec && videoOverlay && !testimonialsSec.dataset.stepCarouselInitialized) {
+    testimonialsSec.dataset.stepCarouselInitialized = 'true';
     const playButtons = testimonialsSec.querySelectorAll('.play-button');
     const closeBtn = videoOverlay.querySelector('.video-preview-close');
     const iframe = videoOverlay.querySelector('.video-preview-player');
     const titleText = videoOverlay.querySelector('.video-preview-caption-title');
     const noteText = videoOverlay.querySelector('.video-preview-caption-note');
 
-    // Helper to setup carousel navigation with automatic visual disabled states on end cards
-    const setupCarouselNav = (wrapper, prevBtn, nextBtn, stepCalc) => {
-      if (!wrapper || !prevBtn || !nextBtn) return;
+    // Step-based Carousel Navigation (3 cards at a step on desktop)
+    const setupStepCarousel = (wrapper, row, prevBtn, nextBtn, cardSelector) => {
+      if (!wrapper || !row || !prevBtn || !nextBtn) return;
 
-      const updateButtonsState = () => {
-        const scrollLeft = wrapper.scrollLeft;
-        const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+      const cards = Array.from(row.querySelectorAll(cardSelector));
+      if (!cards.length) return;
 
-        const isAtStart = scrollLeft <= 5;
-        const isAtEnd = scrollLeft >= maxScroll - 5;
+      let currentStep = 0;
 
-        prevBtn.disabled = isAtStart;
-        nextBtn.disabled = isAtEnd;
-
-        if (isAtStart) {
-          prevBtn.classList.add('disabled');
-        } else {
-          prevBtn.classList.remove('disabled');
-        }
-
-        if (isAtEnd) {
-          nextBtn.classList.add('disabled');
-        } else {
-          nextBtn.classList.remove('disabled');
-        }
+      const getCardsPerView = () => {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 960) return 2;
+        return 3;
       };
 
-      prevBtn.addEventListener('click', () => {
-        const step = typeof stepCalc === 'function' ? stepCalc() : stepCalc;
-        wrapper.scrollBy({ left: -step, behavior: 'smooth' });
+      const getMaxStep = () => {
+        const cpv = getCardsPerView();
+        return Math.max(0, Math.ceil(cards.length / cpv) - 1);
+      };
+
+      const updateCarousel = () => {
+        const cpv = getCardsPerView();
+        const maxStep = getMaxStep();
+        if (currentStep > maxStep) currentStep = maxStep;
+        if (currentStep < 0) currentStep = 0;
+
+        const firstCard = cards[0];
+        if (!firstCard) return;
+        const cardWidth = firstCard.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(row).gap) || 24;
+
+        let targetIndex = currentStep * cpv;
+        if (targetIndex > cards.length - cpv) {
+          targetIndex = Math.max(0, cards.length - cpv);
+        }
+
+        const offset = targetIndex * (cardWidth + gap);
+        row.style.transform = `translateX(-${offset}px)`;
+
+        // Stop any playing video if moving away from visible cards
+        const playingVideos = row.querySelectorAll('video.inline-video-player, iframe.inline-video-iframe');
+        playingVideos.forEach(media => {
+          const parent = media.closest(cardSelector);
+          if (parent) {
+            const cardIdx = cards.indexOf(parent);
+            if (cardIdx < targetIndex || cardIdx >= targetIndex + cpv) {
+              media.remove();
+              const overlay = parent.querySelector('.video-card-overlay');
+              if (overlay) overlay.style.display = 'block';
+            }
+          }
+        });
+      };
+
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const maxStep = getMaxStep();
+        currentStep = currentStep > 0 ? currentStep - 1 : maxStep;
+        updateCarousel();
       });
 
-      nextBtn.addEventListener('click', () => {
-        const step = typeof stepCalc === 'function' ? stepCalc() : stepCalc;
-        wrapper.scrollBy({ left: step, behavior: 'smooth' });
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const maxStep = getMaxStep();
+        currentStep = currentStep < maxStep ? currentStep + 1 : 0;
+        updateCarousel();
       });
 
-      wrapper.addEventListener('scroll', updateButtonsState, { passive: true });
-      window.addEventListener('resize', updateButtonsState);
+      // Swipe support for touch devices
+      let startX = 0;
+      let isSwiping = false;
 
-      updateButtonsState();
-      setTimeout(updateButtonsState, 200);
-      setTimeout(updateButtonsState, 800);
+      wrapper.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          startX = e.touches[0].clientX;
+          isSwiping = true;
+        }
+      }, { passive: true });
+
+      wrapper.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
+        isSwiping = false;
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        const maxStep = getMaxStep();
+        if (diff > 45) {
+          currentStep = currentStep < maxStep ? currentStep + 1 : 0;
+          updateCarousel();
+        } else if (diff < -45) {
+          currentStep = currentStep > 0 ? currentStep - 1 : maxStep;
+          updateCarousel();
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', updateCarousel);
+      updateCarousel();
+      setTimeout(updateCarousel, 300);
     };
 
     // Video Testimonials Carousel Navigation Controls
     const videoPrevBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-prev-btn');
     const videoNextBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-next-btn');
     const videoWrapper = testimonialsSec.querySelector('.video-testimonials-wrapper');
+    const videoRow = testimonialsSec.querySelector('.video-testimonials-row');
 
-    if (videoPrevBtn && videoNextBtn && videoWrapper) {
-      const getVideoStep = () => {
-        const card = videoWrapper.querySelector('.video-card');
-        const row = videoWrapper.querySelector('.video-testimonials-row');
-        const gap = row ? (parseInt(window.getComputedStyle(row).gap) || 16) : 16;
-        return card ? (card.offsetWidth + gap) : 312;
-      };
-      setupCarouselNav(videoWrapper, videoPrevBtn, videoNextBtn, getVideoStep);
+    if (videoPrevBtn && videoNextBtn && videoWrapper && videoRow) {
+      setupStepCarousel(videoWrapper, videoRow, videoPrevBtn, videoNextBtn, '.video-card');
     }
 
     // Written Testimonials Carousel Navigation Controls
     const writtenPrevBtn = testimonialsSec.querySelector('.written-prev-btn');
     const writtenNextBtn = testimonialsSec.querySelector('.written-next-btn');
     const writtenWrapper = testimonialsSec.querySelector('.written-testimonials-wrapper');
+    const writtenRow = testimonialsSec.querySelector('.written-testimonials-row');
 
-    if (writtenPrevBtn && writtenNextBtn && writtenWrapper) {
-      const getWrittenStep = () => {
-        const card = writtenWrapper.querySelector('.written-card');
-        const row = writtenWrapper.querySelector('.written-testimonials-row');
-        const gap = row ? (parseInt(window.getComputedStyle(row).gap) || 16) : 16;
-        return card ? (card.offsetWidth + gap) : 424;
-      };
-      setupCarouselNav(writtenWrapper, writtenPrevBtn, writtenNextBtn, getWrittenStep);
+    if (writtenPrevBtn && writtenNextBtn && writtenWrapper && writtenRow) {
+      setupStepCarousel(writtenWrapper, writtenRow, writtenPrevBtn, writtenNextBtn, '.written-card');
     }
 
     const videoMap = {
+      'sudha-analyticals': {
+        title: 'Client Testimonial - Sudha Analyticals (Mr. Srinivas Gullala)',
+        videoSrc: 'videos/sudha%20analyticals.mp4'
+      },
       'rithika-suits': {
         title: 'The Journey Behind Rithika Suits with Arun Malve | Founders in Frame',
         youtubeId: 'UCm6J1nXzBk',
@@ -1298,37 +1347,56 @@ const techConnectionsData = [
         const config = videoMap[key];
         if (!config) return;
 
-        // Stop & clean up any other inline video currently playing
-        document.querySelectorAll('.video-card iframe.inline-video-iframe').forEach(existingIframe => {
-          const parentCard = existingIframe.closest('.video-card');
+        // Stop & clean up any other inline video or iframe currently playing
+        document.querySelectorAll('.video-card iframe.inline-video-iframe, .video-card video.inline-video-player').forEach(existingMedia => {
+          const parentCard = existingMedia.closest('.video-card');
           if (parentCard && parentCard !== cardWrapper) {
-            existingIframe.remove();
+            existingMedia.remove();
             const overlay = parentCard.querySelector('.video-card-overlay');
             if (overlay) overlay.style.display = 'block';
           }
         });
 
-        // Hide card overlay and inject iframe inside card
+        // Hide card overlay and inject video/iframe inside card
         const overlay = cardWrapper.querySelector('.video-card-overlay');
-        let embedSrc = '';
-        if (config.vimeoId) {
-          embedSrc = `https://player.vimeo.com/video/${config.vimeoId}?autoplay=1&autopause=0&badge=0&autofocus=0`;
-        } else if (config.youtubeId) {
-          embedSrc = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&rel=0`;
-        }
 
-        let iframeEl = cardWrapper.querySelector('iframe.inline-video-iframe');
-        if (!iframeEl) {
-          iframeEl = document.createElement('iframe');
-          iframeEl.className = 'inline-video-iframe';
-          iframeEl.src = embedSrc;
-          iframeEl.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
-          iframeEl.setAttribute('allowfullscreen', 'true');
-          iframeEl.style.cssText = 'width: 100%; height: 100%; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: #000;';
-          cardWrapper.appendChild(iframeEl);
+        if (config.videoSrc) {
+          let videoEl = cardWrapper.querySelector('video.inline-video-player');
+          if (!videoEl) {
+            videoEl = document.createElement('video');
+            videoEl.className = 'inline-video-player';
+            videoEl.src = config.videoSrc;
+            videoEl.controls = true;
+            videoEl.autoplay = true;
+            videoEl.playsInline = true;
+            videoEl.style.cssText = 'width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: #000;';
+            cardWrapper.appendChild(videoEl);
+          } else {
+            videoEl.src = config.videoSrc;
+            videoEl.style.display = 'block';
+            videoEl.play().catch(() => {});
+          }
         } else {
-          iframeEl.src = embedSrc;
-          iframeEl.style.display = 'block';
+          let embedSrc = '';
+          if (config.vimeoId) {
+            embedSrc = `https://player.vimeo.com/video/${config.vimeoId}?autoplay=1&autopause=0&badge=0&autofocus=0`;
+          } else if (config.youtubeId) {
+            embedSrc = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&rel=0`;
+          }
+
+          let iframeEl = cardWrapper.querySelector('iframe.inline-video-iframe');
+          if (!iframeEl) {
+            iframeEl = document.createElement('iframe');
+            iframeEl.className = 'inline-video-iframe';
+            iframeEl.src = embedSrc;
+            iframeEl.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+            iframeEl.setAttribute('allowfullscreen', 'true');
+            iframeEl.style.cssText = 'width: 100%; height: 100%; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: #000;';
+            cardWrapper.appendChild(iframeEl);
+          } else {
+            iframeEl.src = embedSrc;
+            iframeEl.style.display = 'block';
+          }
         }
 
         if (overlay) {
@@ -2186,15 +2254,42 @@ const techConnectionsData = [
   };
 
   /* ==========================================
-     MOBILE HERO STACKED CARDS CLICK-TO-FRONT
+     MOBILE HERO STACKED CARDS ANIMATION & INTERACTION
      ========================================== */
   const initHeroMobileCards = () => {
     const stage = document.querySelector('.hero-mobile-view .stage');
     if (!stage) return;
 
+    // Trigger entrance fan-out when in view, then activate smooth continuous floating wave
+    const startAnimations = () => {
+      stage.classList.add('is-animated');
+      setTimeout(() => {
+        stage.classList.add('is-floating');
+      }, 950);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+            observer.unobserve(stage);
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(stage);
+    } else {
+      startAnimations();
+    }
+
+    // Tap-to-front toggle interaction
     stage.addEventListener('click', (e) => {
       const card = e.target.closest('.card');
-      if (!card || !stage.contains(card)) return;
+      if (!card || !stage.contains(card)) {
+        // Tapped outside card, return all cards to natural floating wave
+        stage.querySelectorAll('.card').forEach(c => c.classList.remove('is-front'));
+        return;
+      }
 
       const isAlreadyFront = card.classList.contains('is-front');
       stage.querySelectorAll('.card').forEach(c => c.classList.remove('is-front'));
