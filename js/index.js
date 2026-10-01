@@ -1398,43 +1398,43 @@ const techConnectionsData = [
     const videoMap = {
       'sudha-analyticals': {
         title: 'Client Testimonial - Sudha Analyticals (Mr. Srinivas Gullala)',
-        vimeoId: '1231599790',
-        vimeoHash: 'de09610d36'
+        vimeoId: '1231934338',
+        vimeoHash: 'c57e488781'
       },
       'anuj-gurwara': {
         title: 'Client Testimonial - Sherwood Public School (Mr. Anuj Gurwara)',
-        vimeoId: '1231599622',
-        vimeoHash: 'd653ecbe44'
+        vimeoId: '1231934155',
+        vimeoHash: '4076544a5d'
       },
       'andhra-canteen': {
         title: 'Founders in Frame - Andhra Canteen (Ms. Hyma Kesineni)',
-        vimeoId: '1231599623',
-        vimeoHash: 'cd36d71c15'
+        vimeoId: '1231934154',
+        vimeoHash: '882ccd0e91'
       },
       'clapkartel': {
         title: 'Founders in Frame - Clap Kartel (Mr. Raghu Tirumala)',
-        vimeoId: '1231599624',
-        vimeoHash: 'ee8ea61051'
+        vimeoId: '1231934203',
+        vimeoHash: 'beac68efbb'
       },
       'ritebooks': {
         title: 'Client Testimonial - RiteBook Technologies (Mr. Raghavender Srirampur)',
-        vimeoId: '1231599695',
-        vimeoHash: '188fbede0c'
+        vimeoId: '1231934289',
+        vimeoHash: 'e5919fe7e3'
       },
       'rithika-suits': {
         title: 'Founders in Frame - Rithika Suits (Ms. Natasha Malve)',
-        vimeoId: '1231599781',
-        vimeoHash: '840d538418'
+        vimeoId: '1231934318',
+        vimeoHash: '86ae31087f'
       },
       'viyash': {
         title: 'Client Testimonial - Viyash Scientific Limited (Mr. Kiran Varma)',
-        vimeoId: '1231599791',
-        vimeoHash: 'f604f80835'
+        vimeoId: '1231934365',
+        vimeoHash: '9a288e052b'
       },
       'b5-corp': {
         title: 'Client Testimonial - B5 Corporation (Mr. KVS Subramanyam)',
-        vimeoId: '1231599625',
-        vimeoHash: 'baf1c47af4'
+        vimeoId: '1231934156',
+        vimeoHash: 'c91b59a553'
       },
 
     };
@@ -1544,14 +1544,23 @@ const techConnectionsData = [
 
     // Vimeo Dynamic Folder Sync
     const VIMEO_FOLDER_CONFIG = {
-      token: '30cdb5a307c04b87889ef4a76c592dd6',
+      token: '5d63bd959c426c041b02851ea5fb3971',
       userId: '254778851',
-      folderId: '30724917',
-      cacheKey: 'eparivartan_vimeo_testimonials_cache',
-      cacheDurationMs: 10 * 60 * 1000 // 10 minutes cache
+      folderId: '30738577',
+      cacheKey: 'eparivartan_vimeo_testimonials_cache_v2',
+      cacheDurationMs: 2 * 60 * 1000 // 2 minutes cache
     };
 
     const customThumbMap = {
+      '1231934338': { key: 'sudha-analyticals', thumb: 'assets/testimonials/sudha-analyticals-thumb.webp', title: 'Sudha Analyticals - Mr. Srinivas Gullala' },
+      '1231934155': { key: 'anuj-gurwara', thumb: 'assets/testimonials/anuj-gurwara-thumb.webp', title: 'Sherwood Public School - Mr. Anuj Gurwara' },
+      '1231934154': { key: 'andhra-canteen', thumb: 'assets/testimonials/andhra-canteen-thumb.webp', title: 'Andhra Canteen - Ms. Hyma Kesineni' },
+      '1231934203': { key: 'clapkartel', thumb: 'assets/testimonials/clapkartel-thumb.webp', title: 'Clap Kartel - Mr. Raghu Tirumala' },
+      '1231934289': { key: 'ritebooks', thumb: 'assets/testimonials/ritebooks-thumb.webp', title: 'RiteBook Technologies - Mr. Raghavender Srirampur' },
+      '1231934318': { key: 'rithika-suits', thumb: 'assets/testimonials/rithika-suits-thumb.webp', title: 'Rithika Suits - Ms. Natasha Malve' },
+      '1231934365': { key: 'viyash', thumb: 'assets/testimonials/viyash-thumb.webp', title: 'Viyash Scientific Limited - Mr. Kiran Varma' },
+      '1231934156': { key: 'b5-corp', thumb: 'assets/testimonials/b5-corp-thumb.webp', title: 'B5 Corporation - Mr. KVS Subramanyam' },
+      // Fallback mappings
       '1231599790': { key: 'sudha-analyticals', thumb: 'assets/testimonials/sudha-analyticals-thumb.webp', title: 'Sudha Analyticals - Mr. Srinivas Gullala' },
       '1231599622': { key: 'anuj-gurwara', thumb: 'assets/testimonials/anuj-gurwara-thumb.webp', title: 'Sherwood Public School - Mr. Anuj Gurwara' },
       '1231599623': { key: 'andhra-canteen', thumb: 'assets/testimonials/andhra-canteen-thumb.webp', title: 'Andhra Canteen - Ms. Hyma Kesineni' },
@@ -1566,14 +1575,19 @@ const techConnectionsData = [
       if (!row) return;
       try {
         let vimeoVideos = null;
-        const cached = sessionStorage.getItem(VIMEO_FOLDER_CONFIG.cacheKey);
-        if (cached) {
-          try {
-            const parsed = JSON.parse(cached);
-            if (Date.now() - parsed.timestamp < VIMEO_FOLDER_CONFIG.cacheDurationMs && Array.isArray(parsed.videos)) {
-              vimeoVideos = parsed.videos;
-            }
-          } catch (_) {}
+        const urlParams = new URLSearchParams(window.location.search);
+        const bypassCache = urlParams.has('nocache') || urlParams.has('refresh');
+
+        if (!bypassCache) {
+          const cached = sessionStorage.getItem(VIMEO_FOLDER_CONFIG.cacheKey);
+          if (cached) {
+            try {
+              const parsed = JSON.parse(cached);
+              if (Date.now() - parsed.timestamp < VIMEO_FOLDER_CONFIG.cacheDurationMs && Array.isArray(parsed.videos)) {
+                vimeoVideos = parsed.videos;
+              }
+            } catch (_) {}
+          }
         }
 
         if (!vimeoVideos) {
@@ -1608,10 +1622,11 @@ const techConnectionsData = [
 
           const preset = customThumbMap[id];
           const key = preset ? preset.key : `vimeo-${id}`;
-          const title = v.name || (preset ? preset.title : 'Client Testimonial');
+          const rawTitle = v.name || (preset ? preset.title : 'Client Testimonial');
+          const safeTitle = rawTitle.replace(/"/g, '&quot;');
 
           videoMap[key] = {
-            title: title,
+            title: rawTitle,
             vimeoId: id,
             vimeoHash: hash
           };
@@ -1632,9 +1647,9 @@ const techConnectionsData = [
             card.setAttribute('data-id', key);
             card.innerHTML = `
               <div class="video-card-overlay">
-                ${thumbUrl ? `<img src="${thumbUrl}" alt="${title}" class="video-card-bg-img" loading="lazy" />` : ''}
+                ${thumbUrl ? `<img src="${thumbUrl}" alt="${safeTitle}" class="video-card-bg-img" loading="lazy" />` : ''}
                 <div class="play-button-wrapper">
-                  <button type="button" class="play-button" aria-label="Play testimonial from ${title}">
+                  <button type="button" class="play-button" aria-label="Play testimonial from ${safeTitle}">
                     <svg width="14" height="16" viewBox="0 0 14 16" fill="white" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13 8L1 15V1L13 8Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
