@@ -225,8 +225,81 @@ const initWebsitesApp = () => {
           { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out', overwrite: 'auto' }
         );
       }
+
+      // Smoothly move to the first visible card
+      requestAnimationFrame(() => {
+        const firstTarget = document.querySelector('.websites-project-card.is-visible') || document.querySelector('.websites-empty-state[style*="display: flex"]');
+        if (firstTarget) {
+          const header = document.querySelector('.header-container');
+          const mobileDropdown = document.querySelector('.websites-category-mobile-dropdown');
+          const desktopTabs = document.querySelector('.websites-category-tabs');
+
+          const headerH = header ? header.offsetHeight : 72;
+          const filterH = (window.innerWidth <= 768 && mobileDropdown && mobileDropdown.offsetHeight > 0)
+            ? mobileDropdown.offsetHeight
+            : (desktopTabs && desktopTabs.offsetHeight > 0 ? desktopTabs.offsetHeight : 54);
+
+          const totalOffset = headerH + filterH + 16;
+          const targetTop = firstTarget.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+
+          window.scrollTo({
+            top: Math.max(0, targetTop),
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   });
+
+  /* ==========================================
+     3A. MOBILE CATEGORY DROPDOWN HANDLER
+     ========================================== */
+  const mobileDropdownTrigger = document.querySelector('.websites-dropdown-trigger');
+  const mobileDropdownOptions = document.querySelector('.websites-dropdown-options');
+  const mobileDropdownLabel = document.querySelector('.websites-dropdown-selected-label');
+  const mobileDropdownItems = document.querySelectorAll('.websites-dropdown-option');
+
+  if (mobileDropdownTrigger && mobileDropdownOptions) {
+    mobileDropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileDropdownOptions.classList.toggle('open');
+      mobileDropdownTrigger.classList.toggle('active', isOpen);
+      mobileDropdownTrigger.setAttribute('aria-expanded', isOpen);
+    });
+
+    mobileDropdownItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedCategory = item.getAttribute('data-category');
+
+        if (mobileDropdownLabel) {
+          mobileDropdownLabel.textContent = selectedCategory;
+        }
+
+        mobileDropdownItems.forEach(opt => opt.classList.remove('active'));
+        item.classList.add('active');
+
+        mobileDropdownOptions.classList.remove('open');
+        mobileDropdownTrigger.classList.remove('active');
+        mobileDropdownTrigger.setAttribute('aria-expanded', 'false');
+
+        // Trigger matching tab button to sync filtering, GSAP animations & state
+        const matchingTab = Array.from(tabButtons).find(tab => tab.getAttribute('data-category') === selectedCategory);
+        if (matchingTab) {
+          matchingTab.click();
+        }
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.websites-category-mobile-dropdown')) {
+        mobileDropdownOptions.classList.remove('open');
+        mobileDropdownTrigger.classList.remove('active');
+        mobileDropdownTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
   // Enable smooth mouse drag-to-scroll on tabs container (helpful for desktop touch/trackpad testing)
   const categoryTabsContainer = document.querySelector('.websites-category-tabs');

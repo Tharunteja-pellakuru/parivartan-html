@@ -424,6 +424,23 @@
   box-shadow: 0 4px 12px rgba(133, 189, 86, 0.3);
 }
 
+/* Laurel Badge & Mobile Arrow - Hidden on Desktop */
+.media-laurel-badge {
+  display: none;
+}
+
+.media-mobile-arrow {
+  display: none;
+}
+
+.media-pub-year-prefix {
+  display: inline;
+}
+
+.media-card-divider {
+  display: none;
+}
+
 /* Cards Grid Layout */
 .media-cards-grid {
   display: grid;
@@ -923,6 +940,247 @@
   }
 }
 
+/* ── Mobile View - Media Cards Redesign (≤ 768px) ── */
+@media (max-width: 768px) {
+  .media-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  .media-card-item {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .media-card-item:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+  }
+
+  /* 1. Laurel Badge Wreath with Year */
+  .media-laurel-badge {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(20px, 6vw, 32px) !important;
+    order: 1 !important;
+    margin: 16px auto 24px auto !important;
+    width: 100% !important;
+  }
+
+  .media-laurel-leaf {
+    width: 44px !important;
+    height: 70px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .media-laurel-right {
+    transform: scaleX(-1) !important;
+  }
+
+  .media-laurel-year {
+    font-family: 'Outfit', 'Satoshi', sans-serif !important;
+    font-size: 54px !important;
+    font-weight: 800 !important;
+    color: #85BD56 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* 2. Topbar (Publisher & Category Tag) */
+  .media-card-topbar {
+    order: 2 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+  }
+
+  .media-publisher-tag {
+    font-family: 'Satoshi', 'Inter', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #85BD56 !important;
+  }
+
+  .media-publisher-tag svg,
+  .media-pub-year-prefix {
+    display: none !important;
+  }
+
+  .media-pub-name {
+    color: #85BD56 !important;
+    font-weight: 500 !important;
+  }
+
+  .media-date-tag {
+    font-family: 'Satoshi', 'Inter', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: #71717A !important;
+  }
+
+  /* 3. Card Body: Flattened via display: contents */
+  .media-card-body {
+    display: contents !important;
+    padding: 0 !important;
+  }
+
+  /* Title - Placed Before Image */
+  .media-card-title {
+    order: 3 !important;
+    font-family: 'Satoshi', 'Inter', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #060612 !important;
+    line-height: 1.25 !important;
+    margin: 0 0 16px 0 !important;
+    text-align: left !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* 4. Feature Image Container */
+  .media-card-img-wrap {
+    order: 4 !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    background: #FFF !important;
+    border-radius: 16px !important;
+    border: none !important;
+    box-shadow: 0 0 6px 1px rgba(6, 6, 18, 0.16) inset !important;
+    padding: 14px !important;
+    margin-bottom: 18px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .media-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    transform: none !important;
+  }
+
+  .media-card-item:hover .media-card-img {
+    transform: none !important;
+  }
+
+  /* 5. Gallery Thumbs (if applicable) */
+  .media-card-gallery {
+    order: 5 !important;
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+    padding: 0 !important;
+  }
+
+  /* 6. Description Text */
+  .media-card-text {
+    order: 6 !important;
+    font-family: 'Satoshi', 'Inter', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: #69686E !important;
+    line-height: 1.6 !important;
+    margin: 0 0 16px 0 !important;
+    text-align: left !important;
+  }
+
+  /* 7. Action Link */
+  .media-card-action {
+    order: 7 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    color: #85BD56 !important;
+    font-family: 'Satoshi', 'Inter', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: fit-content !important;
+  }
+
+  .media-card-action:hover {
+    color: #6CA53E !important;
+  }
+
+  .media-action-label {
+    display: inline !important;
+  }
+
+  .media-action-icon-wrap {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 12px !important;
+    height: 12px !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  .media-action-icon-wrap svg {
+    width: 12px !important;
+    height: 12px !important;
+    display: block !important;
+  }
+
+  .media-action-icon-wrap svg path {
+    fill: #85BD56 !important;
+    transition: fill 0.3s ease !important;
+  }
+
+  .media-card-action:hover .media-action-icon-wrap {
+    transform: translateX(4px) !important;
+  }
+
+  .media-card-action:hover .media-action-icon-wrap svg path {
+    fill: #6CA53E !important;
+  }
+
+  .media-mobile-arrow {
+    display: none !important;
+  }
+
+  /* 8. Mobile Divider Line */
+  .media-card-divider {
+    order: 8 !important;
+    display: flex !important;
+    padding: 12px 0 8px 0 !important;
+    align-items: flex-start !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .media-divider-line {
+    width: 100% !important;
+    height: 1px !important;
+    background: #EBEAEA !important;
+    border: none !important;
+  }
+}
+
 /* ── Mobile Large (≤ 640px) ── */
 @media (max-width: 640px) {
   .media-hero-section {
@@ -1027,29 +1285,6 @@
 
   .media-stat-label {
     font-size: 13px;
-  }
-
-  .media-card-topbar {
-    padding: 14px 18px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .media-card-img-wrap {
-    height: 220px;
-    padding: 14px;
-  }
-
-  .media-card-body {
-    padding: 20px 20px 18px 20px;
-  }
-
-  .media-card-title {
-    font-size: 18px;
-  }
-
-  .media-card-text {
-    font-size: 14px;
   }
 
   .media-filter-bar {
@@ -1175,23 +1410,6 @@
 
   .media-stat-card {
     padding: 16px 12px;
-  }
-
-  .media-card-img-wrap {
-    height: 190px;
-    padding: 12px;
-  }
-
-  .media-card-body {
-    padding: 16px 16px 14px 16px;
-  }
-
-  .media-card-title {
-    font-size: 16px;
-  }
-
-  .media-card-text {
-    font-size: 13.5px;
   }
 
   .media-grid-title {

@@ -438,6 +438,31 @@ body.ecommerce-page,
   border-color: #D1E4C5;
 }
 
+.perf-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(84, 158, 45, 0.09);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: #58A72B;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.perf-focus-card:hover .perf-card-icon {
+  background: rgba(84, 158, 45, 0.16);
+  transform: scale(1.05);
+}
+
+.perf-card-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .perf-card-top {
   margin-bottom: 18px;
 }
@@ -721,8 +746,9 @@ body.ecommerce-page .perf-focus-card {
   padding: 26px 26px !important;
 }
 
-body.ecommerce-page .ecommerce-card-icon {
-  margin-bottom: 12px !important;
+body.ecommerce-page .ecommerce-card-icon,
+body.ecommerce-page .perf-card-icon {
+  margin-bottom: 16px !important;
 }
 
 /* Tablet Uniform Section Spacing (<= 960px) */

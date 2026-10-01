@@ -576,7 +576,35 @@
             class="websites-category-tab "
             data-category="Design"
           >Design</button>
-</div>
+    </div>
+
+    <!-- Mobile Category Dropdown (Mobile Only) -->
+    <div class="websites-category-mobile-dropdown">
+      <div class="websites-dropdown-container">
+        <button type="button" class="websites-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+          <span class="websites-dropdown-selected-label">All</span>
+          <span class="websites-dropdown-chevron">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#060612" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <ul class="websites-dropdown-options" role="listbox">
+          <li class="websites-dropdown-option active" data-category="All" role="option">All</li>
+          <li class="websites-dropdown-option" data-category="Government" role="option">Government</li>
+          <li class="websites-dropdown-option" data-category="Enterprise" role="option">Enterprise</li>
+          <li class="websites-dropdown-option" data-category="Medical & Hospitals" role="option">Medical &amp; Hospitals</li>
+          <li class="websites-dropdown-option" data-category="Travel and Hospitality" role="option">Travel and Hospitality</li>
+          <li class="websites-dropdown-option" data-category="Corporate" role="option">Corporate</li>
+          <li class="websites-dropdown-option" data-category="Education" role="option">Education</li>
+          <li class="websites-dropdown-option" data-category="Accounts" role="option">Accounts</li>
+          <li class="websites-dropdown-option" data-category="Real Estate" role="option">Real Estate</li>
+          <li class="websites-dropdown-option" data-category="Organizations" role="option">Organizations</li>
+          <li class="websites-dropdown-option" data-category="Personal Branding" role="option">Personal Branding</li>
+          <li class="websites-dropdown-option" data-category="Design" role="option">Design</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="websites-projects-container">
       <!-- Project Cards Grid -->
@@ -1639,6 +1667,34 @@
                 </div>
               </div>
 
+              <div class="websites-project-card is-visible" data-category="Medical & Hospitals">
+                <!-- Image Preview (Shrinks height on hover) -->
+                <div class="websites-card-preview">
+                  <img src="./assets/our-work/websites/hospitals/medicbay.webp" alt="Medicbay website preview" class="websites-preview-image" loading="lazy" />
+                </div>
+
+                <!-- Name & Meta (Always visible) -->
+                <h3 class="websites-project-name">Medicbay</h3>
+
+                <!-- Hover Details (Expands into space created by image height reduction) -->
+                <div class="websites-card-hover-details">
+                  <p class="websites-project-details">A comprehensive healthcare web platform facilitating digital doctor appointments, telemedicine consultations, diagnostic services, and wellness tracking.</p>
+                  <div class="websites-project-tags">
+                    <span class="websites-tag-pill">Medical &amp; Hospitals</span>
+                    <span class="websites-tag-pill">Healthcare</span>
+                    <span class="websites-tag-pill">Telemedicine</span>
+                  </div>
+                  <div class="websites-project-buttons">
+                    <a href="https://medicbay.com/" target="_blank" rel="noopener noreferrer" class="websites-btn websites-btn-primary">
+                      <span>Visit Live Website</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
 
 
               <!-- ═══ TRAVEL AND HOSPITALITY ═══ -->
@@ -2347,62 +2403,6 @@
                   </div>
                   <div class="websites-project-buttons">
                     <a href="https://techvestglobal.com/" target="_blank" rel="noopener noreferrer" class="websites-btn websites-btn-primary">
-                      <span>Visit Live Website</span>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="websites-project-card is-visible" data-category="Corporate">
-                <!-- Image Preview (Shrinks height on hover) -->
-                <div class="websites-card-preview">
-                  <img src="./assets/our-work/websites/corporate/buywell-tech.webp" alt="Buywell Tech website preview" class="websites-preview-image" loading="lazy" />
-                </div>
-
-                <!-- Name & Meta (Always visible) -->
-                <h3 class="websites-project-name">Buywell Tech</h3>
-
-                <!-- Hover Details (Expands into space created by image height reduction) -->
-                <div class="websites-card-hover-details">
-                  <p class="websites-project-details">A technology solutions company empowering businesses with custom software development, cloud infrastructure, and innovative digital product engineering.</p>
-                  <div class="websites-project-tags">
-                    <span class="websites-tag-pill">Corporate</span>
-                    <span class="websites-tag-pill">Software Dev</span>
-                    <span class="websites-tag-pill">Cloud Tech</span>
-                  </div>
-                  <div class="websites-project-buttons">
-                    <a href="https://www.buywelltech.com/" target="_blank" rel="noopener noreferrer" class="websites-btn websites-btn-primary">
-                      <span>Visit Live Website</span>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="websites-project-card is-visible" data-category="Corporate">
-                <!-- Image Preview (Shrinks height on hover) -->
-                <div class="websites-card-preview">
-                  <img src="./assets/our-work/websites/corporate/hdfc-relife-insurance.webp" alt="HDFC Re-life Insurance website preview" class="websites-preview-image" loading="lazy" />
-                </div>
-
-                <!-- Name & Meta (Always visible) -->
-                <h3 class="websites-project-name">HDFC Re-life Insurance</h3>
-
-                <!-- Hover Details (Expands into space created by image height reduction) -->
-                <div class="websites-card-hover-details">
-                  <p class="websites-project-details">A premier international life reinsurance company operating from DIFC, offering tailored reinsurance solutions and risk management across global markets.</p>
-                  <div class="websites-project-tags">
-                    <span class="websites-tag-pill">Corporate</span>
-                    <span class="websites-tag-pill">Reinsurance</span>
-                    <span class="websites-tag-pill">Financial Services</span>
-                  </div>
-                  <div class="websites-project-buttons">
-                    <a href="https://www.hdfclifere.com/" target="_blank" rel="noopener noreferrer" class="websites-btn websites-btn-primary">
                       <span>Visit Live Website</span>
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="9 18 15 12 9 6"/>

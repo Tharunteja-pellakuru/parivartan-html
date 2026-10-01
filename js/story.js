@@ -424,14 +424,16 @@ const initStoryApp = () => {
     const titleText = videoOverlay ? videoOverlay.querySelector('.video-preview-caption-title') : null;
     const noteText = videoOverlay ? videoOverlay.querySelector('.video-preview-caption-note') : null;
 
-    // Step-based Carousel Navigation (3 cards at a step on desktop)
-    const setupStepCarousel = (wrapper, row, prevBtn, nextBtn, cardSelector) => {
-      if (!wrapper || !row || !prevBtn || !nextBtn) return;
+    // Infinite Step-based Carousel Navigation (3 cards at a step on desktop)
+    const setupStepCarousel = (wrapper, row, prevBtn, nextBtn, cardSelector, onCardInit) => {
+      if (!wrapper || !row || !prevBtn || !nextBtn) return () => {};
 
-      const cards = Array.from(row.querySelectorAll(cardSelector));
-      if (!cards.length) return;
-
-      let currentStep = 0;
+      const TRANSITION_STYLE = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+      let numOriginal = 0;
+      let currentIndex = 0;
+      let isAnimating = false;
+      let autoScrollTimer = null;
+      let isPaused = false;
 
       const getCardsPerView = () => {
         if (window.innerWidth <= 600) return 1;
@@ -439,37 +441,60 @@ const initStoryApp = () => {
         return 3;
       };
 
-      const getMaxStep = () => {
-        const cpv = getCardsPerView();
-        return Math.max(0, Math.ceil(cards.length / cpv) - 1);
+      const initClones = () => {
+        // Clean up any existing clones
+        row.querySelectorAll('.is-clone').forEach(el => el.remove());
+
+        const originalCards = Array.from(row.querySelectorAll(cardSelector)).filter(c => !c.classList.contains('is-clone'));
+        numOriginal = originalCards.length;
+        if (numOriginal === 0) return;
+
+        // Prefix clones
+        const prefixFragment = document.createDocumentFragment();
+        originalCards.forEach(c => {
+          const clone = c.cloneNode(true);
+          clone.classList.add('is-clone');
+          delete clone.dataset.cardEventsAttached;
+          if (typeof onCardInit === 'function') onCardInit(clone);
+          prefixFragment.appendChild(clone);
+        });
+        row.insertBefore(prefixFragment, originalCards[0]);
+
+        // Suffix clones
+        const suffixFragment = document.createDocumentFragment();
+        originalCards.forEach(c => {
+          const clone = c.cloneNode(true);
+          clone.classList.add('is-clone');
+          delete clone.dataset.cardEventsAttached;
+          if (typeof onCardInit === 'function') onCardInit(clone);
+          suffixFragment.appendChild(clone);
+        });
+        row.appendChild(suffixFragment);
+
+        currentIndex = numOriginal;
+        updatePosition(false);
       };
 
-      const updateCarousel = () => {
-        const cpv = getCardsPerView();
-        const maxStep = getMaxStep();
-        if (currentStep > maxStep) currentStep = maxStep;
-        if (currentStep < 0) currentStep = 0;
+      const updatePosition = (animate = true) => {
+        const allCards = Array.from(row.querySelectorAll(cardSelector));
+        if (!allCards.length) return;
 
-        const firstCard = cards[0];
-        if (!firstCard) return;
+        const firstCard = allCards[0];
         const cardWidth = firstCard.offsetWidth;
         const gap = parseInt(window.getComputedStyle(row).gap) || 24;
+        const offset = currentIndex * (cardWidth + gap);
 
-        let targetIndex = currentStep * cpv;
-        if (targetIndex > cards.length - cpv) {
-          targetIndex = Math.max(0, cards.length - cpv);
-        }
-
-        const offset = targetIndex * (cardWidth + gap);
+        row.style.transition = animate ? TRANSITION_STYLE : 'none';
         row.style.transform = `translateX(-${offset}px)`;
 
         // Stop any playing video if moving away from visible cards
+        const cpv = getCardsPerView();
         const playingVideos = row.querySelectorAll('video.inline-video-player, iframe.inline-video-iframe');
         playingVideos.forEach(media => {
           const parent = media.closest(cardSelector);
           if (parent) {
-            const cardIdx = cards.indexOf(parent);
-            if (cardIdx < targetIndex || cardIdx >= targetIndex + cpv) {
+            const cardIdx = allCards.indexOf(parent);
+            if (cardIdx < currentIndex || cardIdx >= currentIndex + cpv) {
               media.remove();
               const overlay = parent.querySelector('.video-card-overlay');
               if (overlay) overlay.style.display = 'block';
@@ -478,18 +503,101 @@ const initStoryApp = () => {
         });
       };
 
+      const checkBoundary = () => {
+        if (numOriginal <= 0) return;
+        if (currentIndex >= 2 * numOriginal) {
+          row.style.transition = 'none';
+          currentIndex -= numOriginal;
+          updatePosition(false);
+          void row.offsetWidth; // force reflow
+        } else if (currentIndex < numOriginal) {
+          row.style.transition = 'none';
+          currentIndex += numOriginal;
+          updatePosition(false);
+          void row.offsetWidth; // force reflow
+        }
+      };
+
+      row.addEventListener('transitionend', (e) => {
+        if (e.target !== row || e.propertyName !== 'transform') return;
+        checkBoundary();
+        isAnimating = false;
+      });
+
+      const moveNext = () => {
+        if (isAnimating || numOriginal <= 0) return;
+        isAnimating = true;
+        const cpv = getCardsPerView();
+        currentIndex += cpv;
+        updatePosition(true);
+
+        setTimeout(() => {
+          if (isAnimating) {
+            checkBoundary();
+            isAnimating = false;
+          }
+        }, 700);
+      };
+
+      const movePrev = () => {
+        if (isAnimating || numOriginal <= 0) return;
+        isAnimating = true;
+        const cpv = getCardsPerView();
+        currentIndex -= cpv;
+        updatePosition(true);
+
+        setTimeout(() => {
+          if (isAnimating) {
+            checkBoundary();
+            isAnimating = false;
+          }
+        }, 700);
+      };
+
+      // Auto-scroll every 3 seconds
+      const startAutoScroll = () => {
+        stopAutoScroll();
+        autoScrollTimer = setInterval(() => {
+          if (isPaused) return;
+          // Don't auto-scroll if a video or iframe is currently playing inside this carousel
+          const activeMedia = row.querySelector('video.inline-video-player, iframe.inline-video-iframe');
+          if (activeMedia) return;
+
+          moveNext();
+        }, 3000);
+      };
+
+      const stopAutoScroll = () => {
+        if (autoScrollTimer) {
+          clearInterval(autoScrollTimer);
+          autoScrollTimer = null;
+        }
+      };
+
+      const restartAutoScroll = () => {
+        stopAutoScroll();
+        startAutoScroll();
+      };
+
+      // Pause on hover
+      wrapper.addEventListener('mouseenter', () => { isPaused = true; });
+      wrapper.addEventListener('mouseleave', () => { isPaused = false; });
+
+      // Pause when page is hidden
+      document.addEventListener('visibilitychange', () => {
+        isPaused = document.visibilityState === 'hidden';
+      });
+
       prevBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const maxStep = getMaxStep();
-        currentStep = currentStep > 0 ? currentStep - 1 : maxStep;
-        updateCarousel();
+        movePrev();
+        restartAutoScroll();
       });
 
       nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const maxStep = getMaxStep();
-        currentStep = currentStep < maxStep ? currentStep + 1 : 0;
-        updateCarousel();
+        moveNext();
+        restartAutoScroll();
       });
 
       // Swipe support for touch devices
@@ -500,27 +608,297 @@ const initStoryApp = () => {
         if (e.touches && e.touches.length === 1) {
           startX = e.touches[0].clientX;
           isSwiping = true;
+          isPaused = true;
         }
       }, { passive: true });
 
       wrapper.addEventListener('touchend', (e) => {
         if (!isSwiping) return;
         isSwiping = false;
+        isPaused = false;
         const endX = e.changedTouches[0].clientX;
         const diff = startX - endX;
-        const maxStep = getMaxStep();
         if (diff > 45) {
-          currentStep = currentStep < maxStep ? currentStep + 1 : 0;
-          updateCarousel();
+          moveNext();
         } else if (diff < -45) {
-          currentStep = currentStep > 0 ? currentStep - 1 : maxStep;
-          updateCarousel();
+          movePrev();
         }
+        restartAutoScroll();
       }, { passive: true });
 
-      window.addEventListener('resize', updateCarousel);
-      updateCarousel();
-      setTimeout(updateCarousel, 300);
+      window.addEventListener('resize', () => {
+        updatePosition(false);
+      });
+
+      initClones();
+      setTimeout(() => updatePosition(false), 50);
+      setTimeout(() => updatePosition(false), 300);
+      startAutoScroll();
+
+      return () => {
+        initClones();
+      };
+    };
+
+    const videoMap = {
+      'sudha-analyticals': {
+        title: 'Client Testimonial - Sudha Analyticals (Mr. Srinivas Gullala)',
+        vimeoId: '1231599790',
+        vimeoHash: 'de09610d36'
+      },
+      'anuj-gurwara': {
+        title: 'Client Testimonial - Sherwood Public School (Mr. Anuj Gurwara)',
+        vimeoId: '1231599622',
+        vimeoHash: 'd653ecbe44'
+      },
+      'andhra-canteen': {
+        title: 'Founders in Frame - Andhra Canteen (Ms. Hyma Kesineni)',
+        vimeoId: '1231599623',
+        vimeoHash: 'cd36d71c15'
+      },
+      'clapkartel': {
+        title: 'Founders in Frame - Clap Kartel (Mr. Raghu Tirumala)',
+        vimeoId: '1231599624',
+        vimeoHash: 'ee8ea61051'
+      },
+      'ritebooks': {
+        title: 'Client Testimonial - RiteBook Technologies (Mr. Raghavender Srirampur)',
+        vimeoId: '1231599695',
+        vimeoHash: '188fbede0c'
+      },
+      'rithika-suits': {
+        title: 'Founders in Frame - Rithika Suits (Ms. Natasha Malve)',
+        vimeoId: '1231599781',
+        vimeoHash: '840d538418'
+      },
+      'viyash': {
+        title: 'Client Testimonial - Viyash Scientific Limited (Mr. Kiran Varma)',
+        vimeoId: '1231599791',
+        vimeoHash: 'f604f80835'
+      },
+      'b5-corp': {
+        title: 'Client Testimonial - B5 Corporation (Mr. KVS Subramanyam)',
+        vimeoId: '1231599625',
+        vimeoHash: 'baf1c47af4'
+      },
+
+    };
+
+    const handlePlayVideo = (cardWrapper) => {
+      if (!cardWrapper) return;
+      const key = cardWrapper.getAttribute('data-id');
+      const config = videoMap[key];
+      if (!config) return;
+
+      // Stop & clean up any other inline video or iframe currently playing
+      document.querySelectorAll('.video-card iframe.inline-video-iframe, .video-card video.inline-video-player').forEach(existingMedia => {
+        const parentCard = existingMedia.closest('.video-card');
+        if (parentCard && parentCard !== cardWrapper) {
+          if (existingMedia.tagName.toLowerCase() === 'video') {
+            existingMedia.pause();
+          }
+          existingMedia.remove();
+          const overlay = parentCard.querySelector('.video-card-overlay');
+          if (overlay) overlay.style.display = 'block';
+        }
+      });
+
+      // Hide card overlay and inject video/iframe inside card
+      const overlay = cardWrapper.querySelector('.video-card-overlay');
+
+      if (config.videoSrc) {
+        let videoEl = cardWrapper.querySelector('video.inline-video-player');
+        if (!videoEl) {
+          videoEl = document.createElement('video');
+          videoEl.className = 'inline-video-player';
+          videoEl.src = config.videoSrc;
+          videoEl.controls = true;
+          videoEl.autoplay = true;
+          videoEl.playsInline = true;
+          videoEl.style.cssText = 'width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: transparent;';
+          
+          videoEl.addEventListener('ended', () => {
+            videoEl.remove();
+            if (overlay) overlay.style.display = 'block';
+          });
+
+          cardWrapper.appendChild(videoEl);
+        } else {
+          videoEl.src = config.videoSrc;
+          videoEl.style.display = 'block';
+          videoEl.currentTime = 0;
+          videoEl.play().catch(() => {});
+        }
+      } else {
+        let embedSrc = '';
+        if (config.vimeoId) {
+          const hashParam = config.vimeoHash ? `h=${config.vimeoHash}&` : '';
+          embedSrc = `https://player.vimeo.com/video/${config.vimeoId}?${hashParam}autoplay=1&autopause=0&badge=0&title=0&byline=0&portrait=0`;
+        } else if (config.youtubeId) {
+          embedSrc = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&rel=0`;
+        }
+
+        let iframeEl = cardWrapper.querySelector('iframe.inline-video-iframe');
+        if (!iframeEl) {
+          iframeEl = document.createElement('iframe');
+          iframeEl.className = 'inline-video-iframe';
+          iframeEl.src = embedSrc;
+          iframeEl.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframeEl.setAttribute('allowfullscreen', 'true');
+          iframeEl.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          iframeEl.setAttribute('title', config.title || 'Video Testimonial');
+          iframeEl.style.cssText = 'width: 100%; height: 100%; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: transparent;';
+          cardWrapper.appendChild(iframeEl);
+        } else {
+          iframeEl.src = embedSrc;
+          iframeEl.style.display = 'block';
+        }
+      }
+
+      if (overlay) {
+        overlay.style.display = 'none';
+      }
+    };
+
+    const attachCardEvents = (cardWrapper) => {
+      if (!cardWrapper || cardWrapper.dataset.cardEventsAttached) return;
+      cardWrapper.dataset.cardEventsAttached = 'true';
+
+      const playBtn = cardWrapper.querySelector('.play-button');
+      if (playBtn) {
+        playBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handlePlayVideo(cardWrapper);
+        });
+      }
+
+      const overlay = cardWrapper.querySelector('.video-card-overlay');
+      if (overlay) {
+        overlay.style.cursor = 'pointer';
+        overlay.addEventListener('click', (e) => {
+          if (playBtn && (e.target === playBtn || playBtn.contains(e.target))) {
+            return;
+          }
+          handlePlayVideo(cardWrapper);
+        });
+      }
+    };
+
+    // Attach to existing cards
+    testimonialsSec.querySelectorAll('.video-card').forEach(attachCardEvents);
+
+    // Vimeo Dynamic Folder Sync
+    const VIMEO_FOLDER_CONFIG = {
+      token: '30cdb5a307c04b87889ef4a76c592dd6',
+      userId: '254778851',
+      folderId: '30724917',
+      cacheKey: 'eparivartan_vimeo_testimonials_cache',
+      cacheDurationMs: 10 * 60 * 1000 // 10 minutes cache
+    };
+
+    const customThumbMap = {
+      '1231599790': { key: 'sudha-analyticals', thumb: 'assets/testimonials/sudha-analyticals-thumb.webp', title: 'Sudha Analyticals - Mr. Srinivas Gullala' },
+      '1231599622': { key: 'anuj-gurwara', thumb: 'assets/testimonials/anuj-gurwara-thumb.webp', title: 'Sherwood Public School - Mr. Anuj Gurwara' },
+      '1231599623': { key: 'andhra-canteen', thumb: 'assets/testimonials/andhra-canteen-thumb.webp', title: 'Andhra Canteen - Ms. Hyma Kesineni' },
+      '1231599624': { key: 'clapkartel', thumb: 'assets/testimonials/clapkartel-thumb.webp', title: 'Clap Kartel - Mr. Raghu Tirumala' },
+      '1231599695': { key: 'ritebooks', thumb: 'assets/testimonials/ritebooks-thumb.webp', title: 'RiteBook Technologies - Mr. Raghavender Srirampur' },
+      '1231599781': { key: 'rithika-suits', thumb: 'assets/testimonials/rithika-suits-thumb.webp', title: 'Rithika Suits - Ms. Natasha Malve' },
+      '1231599791': { key: 'viyash', thumb: 'assets/testimonials/viyash-thumb.webp', title: 'Viyash Scientific Limited - Mr. Kiran Varma' },
+      '1231599625': { key: 'b5-corp', thumb: 'assets/testimonials/b5-corp-thumb.webp', title: 'B5 Corporation - Mr. KVS Subramanyam' }
+    };
+
+    const syncVimeoFolderTestimonials = async (row, onNewCardsAdded) => {
+      if (!row) return;
+      try {
+        let vimeoVideos = null;
+        const cached = sessionStorage.getItem(VIMEO_FOLDER_CONFIG.cacheKey);
+        if (cached) {
+          try {
+            const parsed = JSON.parse(cached);
+            if (Date.now() - parsed.timestamp < VIMEO_FOLDER_CONFIG.cacheDurationMs && Array.isArray(parsed.videos)) {
+              vimeoVideos = parsed.videos;
+            }
+          } catch (_) {}
+        }
+
+        if (!vimeoVideos) {
+          const res = await fetch(`https://api.vimeo.com/users/${VIMEO_FOLDER_CONFIG.userId}/projects/${VIMEO_FOLDER_CONFIG.folderId}/videos?per_page=100&fields=name,uri,player_embed_url,embed.html,pictures`, {
+            headers: {
+              'Authorization': `bearer ${VIMEO_FOLDER_CONFIG.token}`
+            }
+          });
+          if (res.ok) {
+            const json = await res.json();
+            vimeoVideos = json.data || [];
+            sessionStorage.setItem(VIMEO_FOLDER_CONFIG.cacheKey, JSON.stringify({
+              timestamp: Date.now(),
+              videos: vimeoVideos
+            }));
+          }
+        }
+
+        if (!Array.isArray(vimeoVideos) || !vimeoVideos.length) return;
+
+        let hasNewCards = false;
+
+        vimeoVideos.forEach(v => {
+          const id = v.uri ? v.uri.split('/').pop() : null;
+          if (!id) return;
+
+          let hash = '';
+          if (v.player_embed_url) {
+            const match = v.player_embed_url.match(/h=([a-zA-Z0-9]+)/);
+            if (match) hash = match[1];
+          }
+
+          const preset = customThumbMap[id];
+          const key = preset ? preset.key : `vimeo-${id}`;
+          const title = v.name || (preset ? preset.title : 'Client Testimonial');
+
+          videoMap[key] = {
+            title: title,
+            vimeoId: id,
+            vimeoHash: hash
+          };
+
+          const existingCard = row.querySelector(`.video-card[data-id="${key}"]`);
+          if (!existingCard) {
+            let thumbUrl = '';
+            if (preset && preset.thumb) {
+              thumbUrl = preset.thumb;
+            } else if (v.pictures && Array.isArray(v.pictures.sizes) && v.pictures.sizes.length > 0) {
+              const sizes = v.pictures.sizes;
+              const preferred = sizes.find(s => s.width >= 640 && s.width <= 1280) || sizes[sizes.length - 1];
+              thumbUrl = preferred ? preferred.link : '';
+            }
+
+            const card = document.createElement('div');
+            card.className = 'video-card video-card--custom-graphic';
+            card.setAttribute('data-id', key);
+            card.innerHTML = `
+              <div class="video-card-overlay">
+                ${thumbUrl ? `<img src="${thumbUrl}" alt="${title}" class="video-card-bg-img" loading="lazy" />` : ''}
+                <div class="play-button-wrapper">
+                  <button type="button" class="play-button" aria-label="Play testimonial from ${title}">
+                    <svg width="14" height="16" viewBox="0 0 14 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13 8L1 15V1L13 8Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            `;
+            row.appendChild(card);
+            attachCardEvents(card);
+            hasNewCards = true;
+          }
+        });
+
+        if (hasNewCards && typeof onNewCardsAdded === 'function') {
+          onNewCardsAdded();
+        }
+      } catch (err) {
+        console.warn('Vimeo dynamic testimonials sync:', err);
+      }
     };
 
     // Video Testimonials Carousel Navigation Controls
@@ -530,7 +908,8 @@ const initStoryApp = () => {
     const videoRow = testimonialsSec.querySelector('.video-testimonials-row');
 
     if (videoPrevBtn && videoNextBtn && videoWrapper && videoRow) {
-      setupStepCarousel(videoWrapper, videoRow, videoPrevBtn, videoNextBtn, '.video-card');
+      const updateVideoCarousel = setupStepCarousel(videoWrapper, videoRow, videoPrevBtn, videoNextBtn, '.video-card', attachCardEvents);
+      syncVimeoFolderTestimonials(videoRow, updateVideoCarousel);
     }
 
     // Written Testimonials Carousel Navigation Controls
@@ -542,113 +921,6 @@ const initStoryApp = () => {
     if (writtenPrevBtn && writtenNextBtn && writtenWrapper && writtenRow) {
       setupStepCarousel(writtenWrapper, writtenRow, writtenPrevBtn, writtenNextBtn, '.written-card');
     }
-
-    const videoMap = {
-      'sudha-analyticals': {
-        title: 'Client Testimonial - Sudha Analyticals (Mr. Srinivas Gullala)',
-        videoSrc: 'videos/sudha%20analyticals.mp4'
-      },
-      'rithika-suits': {
-        title: 'The Journey Behind Rithika Suits with Arun Malve | Founders in Frame',
-        youtubeId: 'UCm6J1nXzBk',
-        start: 313
-      },
-      'subramanyam': {
-        title: 'Client Testimonial',
-        youtubeId: 'ZlFzLXwgvtk',
-        start: 466
-      },
-      'stabaka': {
-        title: 'Building the Brand Stabaka',
-        youtubeId: 'L30rtzNLQoY',
-        start: 0,
-        note: 'This interview is not a testimonial. It focuses on the journey of building the Stabaka brand.'
-      },
-      'accel1': {
-        title: 'Accel1 Founder Testimonial',
-        youtubeId: 'bt96tscmCw0',
-        start: 46
-      },
-      'decade-journey': {
-        title: 'A Decade of Professional Relationship',
-        youtubeId: 'QaQAyjqGxSI',
-        start: 151
-      },
-      'vimeo-testimonial': {
-        title: '700 SPF Machete',
-        vimeoId: '1061296672'
-      }
-    };
-
-    playButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        // Find which testimonial video based on markup wrappers
-        const cardWrapper = btn.closest('.video-card');
-        if (!cardWrapper) return;
-        
-        // Find card key/id
-        const key = cardWrapper.getAttribute('data-id');
-        const config = videoMap[key];
-        if (!config) return;
-
-        // Stop & clean up any other inline video or iframe currently playing
-        document.querySelectorAll('.video-card iframe.inline-video-iframe, .video-card video.inline-video-player').forEach(existingMedia => {
-          const parentCard = existingMedia.closest('.video-card');
-          if (parentCard && parentCard !== cardWrapper) {
-            existingMedia.remove();
-            const overlay = parentCard.querySelector('.video-card-overlay');
-            if (overlay) overlay.style.display = 'block';
-          }
-        });
-
-        // Hide card overlay and inject video/iframe inside card
-        const overlay = cardWrapper.querySelector('.video-card-overlay');
-
-        if (config.videoSrc) {
-          let videoEl = cardWrapper.querySelector('video.inline-video-player');
-          if (!videoEl) {
-            videoEl = document.createElement('video');
-            videoEl.className = 'inline-video-player';
-            videoEl.src = config.videoSrc;
-            videoEl.controls = true;
-            videoEl.autoplay = true;
-            videoEl.playsInline = true;
-            videoEl.style.cssText = 'width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: #000;';
-            cardWrapper.appendChild(videoEl);
-          } else {
-            videoEl.src = config.videoSrc;
-            videoEl.style.display = 'block';
-            videoEl.play().catch(() => {});
-          }
-        } else {
-          let embedSrc = '';
-          if (config.vimeoId) {
-            embedSrc = `https://player.vimeo.com/video/${config.vimeoId}?autoplay=1&autopause=0&badge=0&autofocus=0`;
-          } else if (config.youtubeId) {
-            embedSrc = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&rel=0`;
-          }
-
-          let iframeEl = cardWrapper.querySelector('iframe.inline-video-iframe');
-          if (!iframeEl) {
-            iframeEl = document.createElement('iframe');
-            iframeEl.className = 'inline-video-iframe';
-            iframeEl.src = embedSrc;
-            iframeEl.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
-            iframeEl.setAttribute('allowfullscreen', 'true');
-            iframeEl.style.cssText = 'width: 100%; height: 100%; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: #000;';
-            cardWrapper.appendChild(iframeEl);
-          } else {
-            iframeEl.src = embedSrc;
-            iframeEl.style.display = 'block';
-          }
-        }
-
-        if (overlay) {
-          overlay.style.display = 'none';
-        }
-      });
-    });
 
     if (closeBtn && videoOverlay && iframe) {
       const closeVideo = () => {
