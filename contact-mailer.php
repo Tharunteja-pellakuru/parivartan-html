@@ -183,7 +183,7 @@ $clientBody = '
                     <!-- TOP BRAND HEADER -->
                     <tr>
                         <td style="padding:40px 40px 24px 40px;text-align:center;">
-                            <img src="https://eparivartan.com/images/logo.svg" alt="eParivartan Logo" style="height:38px;display:inline-block;vertical-align:middle;" />
+                            <img src="https://eparivartan.com/images/parivartan-logo.webp" alt="eParivartan Logo" style="height:38px;display:inline-block;vertical-align:middle;" />
                             <div style="height:1px;background-color:#f1f5f9;margin-top:24px;"></div>
                         </td>
                     </tr>
@@ -273,7 +273,7 @@ $adminBody = '
                     <!-- TOP BRAND HEADER -->
                     <tr>
                         <td style="padding:40px 40px 24px 40px;text-align:center;">
-                            <img src="https://eparivartan.com/images/logo.svg" alt="eParivartan Logo" style="height:38px;display:inline-block;vertical-align:middle;" />
+                            <img src="https://eparivartan.com/images/parivartan-logo.webp" alt="eParivartan Logo" style="height:38px;display:inline-block;vertical-align:middle;" />
                             <div style="height:1px;background-color:#f1f5f9;margin-top:24px;"></div>
                         </td>
                     </tr>

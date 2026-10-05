@@ -1211,7 +1211,7 @@ const initClientsApp = () => {
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 560px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);">
           <tr>
             <td style="padding: 40px 40px 24px 40px; text-align: center;">
-              <img src="https://eparivartan.com/images/logo.svg" alt="eParivartan Logo" style="height: 38px; display: inline-block; vertical-align: middle;" />
+              <img src="https://eparivartan.com/images/parivartan-logo.webp" alt="eParivartan Logo" style="height: 38px; display: inline-block; vertical-align: middle;" />
               <div style="height: 1px; background-color: #f1f5f9; margin-top: 24px;"></div>
             </td>
           </tr>
@@ -1303,7 +1303,7 @@ const initClientsApp = () => {
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 560px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);">
           <tr>
             <td style="padding: 40px 40px 24px 40px; text-align: center;">
-              <img src="https://eparivartan.com/images/logo.svg" alt="eParivartan Logo" style="height: 38px; display: inline-block; vertical-align: middle;" />
+              <img src="https://eparivartan.com/images/parivartan-logo.webp" alt="eParivartan Logo" style="height: 38px; display: inline-block; vertical-align: middle;" />
               <div style="height: 1px; background-color: #f1f5f9; margin-top: 24px;"></div>
             </td>
           </tr>
