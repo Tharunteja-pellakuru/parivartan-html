@@ -236,6 +236,7 @@
 
 .store-badge-arrow {
   margin-left: 4px;
+  flex-shrink: 0;
   opacity: 0.6;
   transform: translateX(0);
   transition: transform 0.2s ease, opacity 0.2s ease;

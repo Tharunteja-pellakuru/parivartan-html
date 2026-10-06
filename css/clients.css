@@ -924,6 +924,10 @@ body {
   letter-spacing: 0.08em;
 }
 
+.clients-philosophy-tagline span {
+  color: #FFFFFF !important;
+}
+
 .clients-philosophy-heading {
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 38px;

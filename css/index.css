@@ -55,7 +55,8 @@
   fill: #383840 !important;
 }
 
-.cta-tagline span {
+.cta-tagline span,
+.clients-philosophy-tagline span {
   color: #FFFFFF !important;
 }
 
