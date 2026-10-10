@@ -1436,7 +1436,16 @@ const techConnectionsData = [
         vimeoId: '1231934156',
         vimeoHash: 'c91b59a553'
       },
-
+      'alankar-studios': {
+        title: 'Founders in Frame - Studio Alankar (Mr. Dhrumil Kumar)',
+        vimeoId: '1231934158',
+        vimeoHash: 'ed2617491a'
+      },
+      'panfish': {
+        title: 'Client Testimonial - Panfish Solutions (Ms. Anuradha Rao)',
+        vimeoId: '1231934286',
+        vimeoHash: 'bdfb32785d'
+      },
     };
 
     const handlePlayVideo = (cardWrapper) => {
@@ -1560,6 +1569,8 @@ const techConnectionsData = [
       '1231934318': { key: 'rithika-suits', thumb: 'assets/testimonials/rithika-suits-thumb.webp', title: 'Rithika Suits - Ms. Natasha Malve' },
       '1231934365': { key: 'viyash', thumb: 'assets/testimonials/viyash-thumb.webp', title: 'Viyash Scientific Limited - Mr. Kiran Varma' },
       '1231934156': { key: 'b5-corp', thumb: 'assets/testimonials/b5-corp-thumb.webp', title: 'B5 Corporation - Mr. KVS Subramanyam' },
+      '1231934158': { key: 'alankar-studios', thumb: 'assets/testimonials/alankar-studios-thumb.webp', title: 'Studio Alankar - Mr. Dhrumil Kumar' },
+      '1231934286': { key: 'panfish', thumb: 'assets/testimonials/panfish-thumb.webp', title: 'Panfish Solutions - Ms. Anuradha Rao' },
       // Fallback mappings
       '1231599790': { key: 'sudha-analyticals', thumb: 'assets/testimonials/sudha-analyticals-thumb.webp', title: 'Sudha Analyticals - Mr. Srinivas Gullala' },
       '1231599622': { key: 'anuj-gurwara', thumb: 'assets/testimonials/anuj-gurwara-thumb.webp', title: 'Sherwood Public School - Mr. Anuj Gurwara' },
@@ -1672,8 +1683,8 @@ const techConnectionsData = [
     };
 
     // Video Testimonials Carousel Navigation Controls
-    const videoPrevBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-prev-btn');
-    const videoNextBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-next-btn');
+    const videoPrevBtn = testimonialsSec.querySelector('.testimonials-prev-btn');
+    const videoNextBtn = testimonialsSec.querySelector('.testimonials-next-btn');
     const videoWrapper = testimonialsSec.querySelector('.video-testimonials-wrapper');
     const videoRow = testimonialsSec.querySelector('.video-testimonials-row');
 
@@ -2587,8 +2598,55 @@ const techConnectionsData = [
     });
   };
 
+  /* ==========================================
+     GLOBAL PRESENCE COUNTRIES SCROLL OBSERVER
+     Scroll starts only after reaching the section + 2 seconds delay
+     ========================================== */
+  const initPresenceMarqueeObserver = () => {
+    const presenceSection = document.querySelector('#presence, .presence-section');
+    const track = document.querySelector('.presence-countries-track');
+    if (!presenceSection || !track) return;
+
+    let timer = null;
+    let hasStarted = false;
+
+    const startScrolling = () => {
+      if (hasStarted) return;
+      hasStarted = true;
+      track.classList.add('is-scrolling');
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!hasStarted && !timer) {
+              timer = setTimeout(() => {
+                startScrolling();
+                observer.unobserve(presenceSection);
+              }, 2000);
+            }
+          } else {
+            if (!hasStarted && timer) {
+              clearTimeout(timer);
+              timer = null;
+            }
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      observer.observe(presenceSection);
+    } else {
+      setTimeout(startScrolling, 2000);
+    }
+  };
+
   initHeroShowcaseObserver();
   initHeroMobileCards();
+  initPresenceMarqueeObserver();
 };
 
 if (document.readyState !== 'loading') {
