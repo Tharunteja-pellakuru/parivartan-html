@@ -1171,19 +1171,42 @@ const techConnectionsData = [
   const testimonialsSec = document.getElementById('testimonials');
   const videoOverlay = document.querySelector('.video-preview-overlay');
 
-  if (testimonialsSec && videoOverlay && !testimonialsSec.dataset.stepCarouselInitialized) {
+  if (testimonialsSec && !testimonialsSec.dataset.stepCarouselInitialized) {
     testimonialsSec.dataset.stepCarouselInitialized = 'true';
     const playButtons = testimonialsSec.querySelectorAll('.play-button');
-    const closeBtn = videoOverlay.querySelector('.video-preview-close');
-    const iframe = videoOverlay.querySelector('.video-preview-player');
-    const titleText = videoOverlay.querySelector('.video-preview-caption-title');
-    const noteText = videoOverlay.querySelector('.video-preview-caption-note');
+    const closeBtn = videoOverlay ? videoOverlay.querySelector('.video-preview-close') : null;
+    const iframe = videoOverlay ? videoOverlay.querySelector('.video-preview-player') : null;
+    const titleText = videoOverlay ? videoOverlay.querySelector('.video-preview-caption-title') : null;
+    const noteText = videoOverlay ? videoOverlay.querySelector('.video-preview-caption-note') : null;
+
+    // Helper functions for inline video playback directly inside the video card
+    const closeInlineVideo = (card) => {
+      if (!card) return;
+      const container = card.querySelector('.inline-video-container');
+      if (container) {
+        container.remove();
+      }
+      card.classList.remove('is-playing-video');
+      const overlay = card.querySelector('.video-card-overlay');
+      if (overlay) {
+        overlay.style.display = '';
+      }
+    };
+
+    const closeAllInlineVideos = (exceptCard = null) => {
+      testimonialsSec.querySelectorAll('.video-card.is-playing-video, .video-card .inline-video-container').forEach(el => {
+        const card = el.classList.contains('video-card') ? el : el.closest('.video-card');
+        if (card && card !== exceptCard) {
+          closeInlineVideo(card);
+        }
+      });
+    };
 
     // Infinite Step-based Carousel Navigation (3 cards at a step on desktop)
     const setupStepCarousel = (wrapper, row, prevBtn, nextBtn, cardSelector, onCardInit) => {
       if (!wrapper || !row || !prevBtn || !nextBtn) return () => {};
 
-      const TRANSITION_STYLE = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+      const TRANSITION_STYLE = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
       let numOriginal = 0;
       let currentIndex = 0;
       let isAnimating = false;
@@ -1191,7 +1214,7 @@ const techConnectionsData = [
       let isPaused = false;
 
       const getCardsPerView = () => {
-        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 768) return 1;
         if (window.innerWidth <= 960) return 2;
         return 3;
       };
@@ -1210,6 +1233,12 @@ const techConnectionsData = [
           const clone = c.cloneNode(true);
           clone.classList.add('is-clone');
           delete clone.dataset.cardEventsAttached;
+          delete clone.dataset.writtenEventsAttached;
+          clone.classList.remove('is-playing-video');
+          const existingContainer = clone.querySelector('.inline-video-container');
+          if (existingContainer) existingContainer.remove();
+          const overlay = clone.querySelector('.video-card-overlay');
+          if (overlay) overlay.style.display = '';
           if (typeof onCardInit === 'function') onCardInit(clone);
           prefixFragment.appendChild(clone);
         });
@@ -1221,6 +1250,12 @@ const techConnectionsData = [
           const clone = c.cloneNode(true);
           clone.classList.add('is-clone');
           delete clone.dataset.cardEventsAttached;
+          delete clone.dataset.writtenEventsAttached;
+          clone.classList.remove('is-playing-video');
+          const existingContainer = clone.querySelector('.inline-video-container');
+          if (existingContainer) existingContainer.remove();
+          const overlay = clone.querySelector('.video-card-overlay');
+          if (overlay) overlay.style.display = '';
           if (typeof onCardInit === 'function') onCardInit(clone);
           suffixFragment.appendChild(clone);
         });
@@ -1234,25 +1269,29 @@ const techConnectionsData = [
         const allCards = Array.from(row.querySelectorAll(cardSelector));
         if (!allCards.length) return;
 
-        const firstCard = allCards[0];
-        const cardWidth = firstCard.offsetWidth;
-        const gap = parseInt(window.getComputedStyle(row).gap) || 24;
-        const offset = currentIndex * (cardWidth + gap);
+        const targetCard = allCards[currentIndex];
+        let offset = 0;
+        if (targetCard) {
+          offset = targetCard.offsetLeft;
+        } else {
+          const firstCard = allCards[0];
+          const cardRect = firstCard.getBoundingClientRect();
+          const gap = parseFloat(window.getComputedStyle(row).gap) || 24;
+          offset = currentIndex * (cardRect.width + gap);
+        }
 
         row.style.transition = animate ? TRANSITION_STYLE : 'none';
-        row.style.transform = `translateX(-${offset}px)`;
+        row.style.transform = `translate3d(-${offset}px, 0, 0)`;
 
         // Stop any playing video if moving away from visible cards
         const cpv = getCardsPerView();
-        const playingVideos = row.querySelectorAll('video.inline-video-player, iframe.inline-video-iframe');
+        const playingVideos = row.querySelectorAll('video.inline-video-player, iframe.inline-video-iframe, .inline-video-container');
         playingVideos.forEach(media => {
           const parent = media.closest(cardSelector);
           if (parent) {
             const cardIdx = allCards.indexOf(parent);
             if (cardIdx < currentIndex || cardIdx >= currentIndex + cpv) {
-              media.remove();
-              const overlay = parent.querySelector('.video-card-overlay');
-              if (overlay) overlay.style.display = 'block';
+              closeInlineVideo(parent);
             }
           }
         });
@@ -1282,8 +1321,7 @@ const techConnectionsData = [
       const moveNext = () => {
         if (isAnimating || numOriginal <= 0) return;
         isAnimating = true;
-        const cpv = getCardsPerView();
-        currentIndex += cpv;
+        currentIndex += 1;
         updatePosition(true);
 
         setTimeout(() => {
@@ -1291,14 +1329,13 @@ const techConnectionsData = [
             checkBoundary();
             isAnimating = false;
           }
-        }, 700);
+        }, 850);
       };
 
       const movePrev = () => {
         if (isAnimating || numOriginal <= 0) return;
         isAnimating = true;
-        const cpv = getCardsPerView();
-        currentIndex -= cpv;
+        currentIndex -= 1;
         updatePosition(true);
 
         setTimeout(() => {
@@ -1306,20 +1343,20 @@ const techConnectionsData = [
             checkBoundary();
             isAnimating = false;
           }
-        }, 700);
+        }, 850);
       };
 
-      // Auto-scroll every 3 seconds
+      // Smooth auto-scroll every 3.5 seconds
       const startAutoScroll = () => {
         stopAutoScroll();
         autoScrollTimer = setInterval(() => {
           if (isPaused) return;
           // Don't auto-scroll if a video or iframe is currently playing inside this carousel
-          const activeMedia = row.querySelector('video.inline-video-player, iframe.inline-video-iframe');
+          const activeMedia = row.querySelector('video.inline-video-player, iframe.inline-video-iframe, .inline-video-container');
           if (activeMedia) return;
 
           moveNext();
-        }, 3000);
+        }, 3500);
       };
 
       const stopAutoScroll = () => {
@@ -1448,85 +1485,191 @@ const techConnectionsData = [
       },
     };
 
+    const localVideo = videoOverlay ? videoOverlay.querySelector('.video-preview-local-player') : null;
+
+    const openVideoModal = (config) => {
+      if (!videoOverlay || !config) return;
+
+      if (titleText) titleText.textContent = config.title || 'Client Testimonial';
+      if (noteText) noteText.textContent = config.note || '';
+
+      if (config.videoSrc) {
+        if (iframe) {
+          iframe.style.display = 'none';
+          iframe.src = '';
+        }
+        if (localVideo) {
+          localVideo.style.display = 'block';
+          localVideo.src = config.videoSrc;
+          localVideo.currentTime = 0;
+          localVideo.play().catch(() => {});
+        }
+      } else {
+        if (localVideo) {
+          localVideo.pause();
+          localVideo.style.display = 'none';
+          localVideo.src = '';
+        }
+        if (iframe) {
+          iframe.style.display = 'block';
+          let embedSrc = '';
+          if (config.vimeoId) {
+            const hashParam = config.vimeoHash ? `h=${config.vimeoHash}&` : '';
+            embedSrc = `https://player.vimeo.com/video/${config.vimeoId}?${hashParam}autoplay=1&autopause=0&badge=0&title=0&byline=0&portrait=0`;
+          } else if (config.youtubeId) {
+            embedSrc = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&rel=0`;
+          }
+          iframe.src = embedSrc;
+        }
+      }
+
+      videoOverlay.style.display = 'flex';
+      void videoOverlay.offsetWidth;
+      videoOverlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    // Fast pre-warm/prefetch function for Vimeo player documents
+    const prefetchVideo = (vimeoId, hash) => {
+      if (!vimeoId) return;
+      const linkId = `prefetch-vimeo-${vimeoId}`;
+      if (document.getElementById(linkId)) return;
+      const link = document.createElement('link');
+      link.id = linkId;
+      link.rel = 'prefetch';
+      link.as = 'document';
+      const hashParam = hash ? `h=${hash}&` : '';
+      link.href = `https://player.vimeo.com/video/${vimeoId}?${hashParam}autoplay=1&dnt=1&playsinline=1&app_id=548209`;
+      document.head.appendChild(link);
+    };
+
+    // Pre-warm the first 3 visible videos when the testimonials section approaches the viewport
+    if ('IntersectionObserver' in window && testimonialsSec) {
+      const prewarmObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            ['sudha-analyticals', 'anuj-gurwara', 'andhra-canteen'].forEach(key => {
+              const cfg = videoMap[key];
+              if (cfg && cfg.vimeoId) prefetchVideo(cfg.vimeoId, cfg.vimeoHash);
+            });
+            prewarmObserver.disconnect();
+          }
+        });
+      }, { rootMargin: '300px' });
+      prewarmObserver.observe(testimonialsSec);
+    }
+
+    const playInlineVideo = (cardWrapper, config) => {
+      if (!cardWrapper || !config) return;
+      if (cardWrapper.classList.contains('is-playing-video')) return;
+
+      closeAllInlineVideos(cardWrapper);
+
+      const overlay = cardWrapper.querySelector('.video-card-overlay');
+      cardWrapper.classList.add('is-playing-video');
+
+      const container = document.createElement('div');
+      container.className = 'inline-video-container';
+
+      // Fast visual feedback: pulsating spinner + keep thumbnail visible until player is ready
+      const loader = document.createElement('div');
+      loader.className = 'inline-video-loading-indicator';
+      loader.innerHTML = `
+        <div class="inline-video-spinner"></div>
+        <span>Loading video...</span>
+      `;
+      container.appendChild(loader);
+
+      const revealMedia = (mediaEl) => {
+        if (mediaEl) {
+          mediaEl.style.opacity = '1';
+          mediaEl.style.pointerEvents = 'auto';
+        }
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          if (loader.parentNode) loader.remove();
+          if (overlay) overlay.style.display = 'none';
+        }, 180);
+      };
+
+      if (config.videoSrc) {
+        const video = document.createElement('video');
+        video.className = 'inline-video-player';
+        video.src = config.videoSrc;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.style.opacity = '0';
+        video.style.transition = 'opacity 0.25s ease';
+        video.addEventListener('canplay', () => revealMedia(video), { once: true });
+        video.addEventListener('ended', () => {
+          closeInlineVideo(cardWrapper);
+        });
+        container.appendChild(video);
+        video.play().catch(() => {});
+        setTimeout(() => revealMedia(video), 1200);
+      } else if (config.vimeoId) {
+        const iframeEl = document.createElement('iframe');
+        iframeEl.className = 'inline-video-iframe';
+        const hashParam = config.vimeoHash ? `h=${config.vimeoHash}&` : '';
+        // dnt=1 skips third-party tracking scripts, app_id=548209 loads fast from Vimeo edge CDN
+        iframeEl.src = `https://player.vimeo.com/video/${config.vimeoId}?${hashParam}autoplay=1&dnt=1&playsinline=1&autopause=0&badge=0&title=0&byline=0&portrait=0&transparent=0&app_id=548209`;
+        iframeEl.setAttribute('frameborder', '0');
+        iframeEl.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+        iframeEl.setAttribute('allowfullscreen', 'true');
+        iframeEl.setAttribute('loading', 'eager');
+        iframeEl.style.opacity = '0';
+        iframeEl.style.pointerEvents = 'none';
+        iframeEl.style.transition = 'opacity 0.25s ease';
+
+        iframeEl.addEventListener('load', () => revealMedia(iframeEl), { once: true });
+        container.appendChild(iframeEl);
+
+        // Fallback safety timeout so user is never stuck
+        setTimeout(() => revealMedia(iframeEl), 1000);
+      } else if (config.youtubeId) {
+        const iframeEl = document.createElement('iframe');
+        iframeEl.className = 'inline-video-iframe';
+        iframeEl.src = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&playsinline=1&rel=0`;
+        iframeEl.setAttribute('frameborder', '0');
+        iframeEl.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
+        iframeEl.setAttribute('allowfullscreen', 'true');
+        iframeEl.setAttribute('loading', 'eager');
+        iframeEl.style.opacity = '0';
+        iframeEl.style.pointerEvents = 'none';
+        iframeEl.style.transition = 'opacity 0.25s ease';
+        iframeEl.addEventListener('load', () => revealMedia(iframeEl), { once: true });
+        container.appendChild(iframeEl);
+        setTimeout(() => revealMedia(iframeEl), 1000);
+      }
+
+
+      cardWrapper.appendChild(container);
+    };
+
     const handlePlayVideo = (cardWrapper) => {
       if (!cardWrapper) return;
+      if (cardWrapper.classList.contains('is-playing-video')) return;
       const key = cardWrapper.getAttribute('data-id');
       const config = videoMap[key];
       if (!config) return;
-
-      // Stop & clean up any other inline video or iframe currently playing
-      document.querySelectorAll('.video-card iframe.inline-video-iframe, .video-card video.inline-video-player').forEach(existingMedia => {
-        const parentCard = existingMedia.closest('.video-card');
-        if (parentCard && parentCard !== cardWrapper) {
-          if (existingMedia.tagName.toLowerCase() === 'video') {
-            existingMedia.pause();
-          }
-          existingMedia.remove();
-          const overlay = parentCard.querySelector('.video-card-overlay');
-          if (overlay) overlay.style.display = 'block';
-        }
-      });
-
-      // Hide card overlay and inject video/iframe inside card
-      const overlay = cardWrapper.querySelector('.video-card-overlay');
-
-      if (config.videoSrc) {
-        let videoEl = cardWrapper.querySelector('video.inline-video-player');
-        if (!videoEl) {
-          videoEl = document.createElement('video');
-          videoEl.className = 'inline-video-player';
-          videoEl.src = config.videoSrc;
-          videoEl.controls = true;
-          videoEl.autoplay = true;
-          videoEl.playsInline = true;
-          videoEl.style.cssText = 'width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: transparent;';
-          
-          videoEl.addEventListener('ended', () => {
-            videoEl.remove();
-            if (overlay) overlay.style.display = 'block';
-          });
-
-          cardWrapper.appendChild(videoEl);
-        } else {
-          videoEl.src = config.videoSrc;
-          videoEl.style.display = 'block';
-          videoEl.currentTime = 0;
-          videoEl.play().catch(() => {});
-        }
-      } else {
-        let embedSrc = '';
-        if (config.vimeoId) {
-          const hashParam = config.vimeoHash ? `h=${config.vimeoHash}&` : '';
-          embedSrc = `https://player.vimeo.com/video/${config.vimeoId}?${hashParam}autoplay=1&autopause=0&badge=0&title=0&byline=0&portrait=0`;
-        } else if (config.youtubeId) {
-          embedSrc = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&rel=0`;
-        }
-
-        let iframeEl = cardWrapper.querySelector('iframe.inline-video-iframe');
-        if (!iframeEl) {
-          iframeEl = document.createElement('iframe');
-          iframeEl.className = 'inline-video-iframe';
-          iframeEl.src = embedSrc;
-          iframeEl.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-          iframeEl.setAttribute('allowfullscreen', 'true');
-          iframeEl.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-          iframeEl.setAttribute('title', config.title || 'Video Testimonial');
-          iframeEl.style.cssText = 'width: 100%; height: 100%; position: absolute; top: 0; left: 0; border: none; border-radius: 12px; z-index: 10; background: transparent;';
-          cardWrapper.appendChild(iframeEl);
-        } else {
-          iframeEl.src = embedSrc;
-          iframeEl.style.display = 'block';
-        }
-      }
-
-      if (overlay) {
-        overlay.style.display = 'none';
-      }
+      playInlineVideo(cardWrapper, config);
     };
 
     const attachCardEvents = (cardWrapper) => {
       if (!cardWrapper || cardWrapper.dataset.cardEventsAttached) return;
       cardWrapper.dataset.cardEventsAttached = 'true';
+
+      // Pre-warm on pointer enter (mouse hover or touch hover)
+      cardWrapper.addEventListener('pointerenter', () => {
+        const key = cardWrapper.getAttribute('data-id');
+        const config = videoMap[key];
+        if (config && config.vimeoId) {
+          prefetchVideo(config.vimeoId, config.vimeoHash);
+        }
+      }, { passive: true, once: true });
 
       const playBtn = cardWrapper.querySelector('.play-button');
       if (playBtn) {
@@ -1536,16 +1679,10 @@ const techConnectionsData = [
         });
       }
 
-      const overlay = cardWrapper.querySelector('.video-card-overlay');
-      if (overlay) {
-        overlay.style.cursor = 'pointer';
-        overlay.addEventListener('click', (e) => {
-          if (playBtn && (e.target === playBtn || playBtn.contains(e.target))) {
-            return;
-          }
-          handlePlayVideo(cardWrapper);
-        });
-      }
+      cardWrapper.addEventListener('click', () => {
+        if (cardWrapper.classList.contains('is-playing-video')) return;
+        handlePlayVideo(cardWrapper);
+      });
     };
 
     // Attach to existing cards
@@ -1556,8 +1693,8 @@ const techConnectionsData = [
       token: '5d63bd959c426c041b02851ea5fb3971',
       userId: '254778851',
       folderId: '30738577',
-      cacheKey: 'eparivartan_vimeo_testimonials_cache_v2',
-      cacheDurationMs: 2 * 60 * 1000 // 2 minutes cache
+      cacheKey: 'eparivartan_vimeo_testimonials_cache_v3',
+      cacheDurationMs: 24 * 60 * 60 * 1000 // 24 hours cache in localStorage
     };
 
     const customThumbMap = {
@@ -1590,7 +1727,7 @@ const techConnectionsData = [
         const bypassCache = urlParams.has('nocache') || urlParams.has('refresh');
 
         if (!bypassCache) {
-          const cached = sessionStorage.getItem(VIMEO_FOLDER_CONFIG.cacheKey);
+          const cached = localStorage.getItem(VIMEO_FOLDER_CONFIG.cacheKey);
           if (cached) {
             try {
               const parsed = JSON.parse(cached);
@@ -1610,7 +1747,7 @@ const techConnectionsData = [
           if (res.ok) {
             const json = await res.json();
             vimeoVideos = json.data || [];
-            sessionStorage.setItem(VIMEO_FOLDER_CONFIG.cacheKey, JSON.stringify({
+            localStorage.setItem(VIMEO_FOLDER_CONFIG.cacheKey, JSON.stringify({
               timestamp: Date.now(),
               videos: vimeoVideos
             }));
@@ -1690,8 +1827,96 @@ const techConnectionsData = [
 
     if (videoPrevBtn && videoNextBtn && videoWrapper && videoRow) {
       const updateVideoCarousel = setupStepCarousel(videoWrapper, videoRow, videoPrevBtn, videoNextBtn, '.video-card', attachCardEvents);
-      syncVimeoFolderTestimonials(videoRow, updateVideoCarousel);
+      setTimeout(() => syncVimeoFolderTestimonials(videoRow, updateVideoCarousel), 2000);
     }
+
+    // Written Review Pop-up Modal Setup
+    const writtenOverlay = document.querySelector('.written-preview-overlay');
+    let openWrittenModal = null;
+
+    if (writtenOverlay) {
+      const writtenCloseBtn = writtenOverlay.querySelector('.written-preview-close');
+      const writtenModal = writtenOverlay.querySelector('.written-preview-modal');
+      const modalText = writtenOverlay.querySelector('.written-preview-text');
+      const modalAuthorName = writtenOverlay.querySelector('.written-preview-author-name');
+      const modalAuthorMeta = writtenOverlay.querySelector('.written-preview-author-meta');
+      const modalLogo = writtenOverlay.querySelector('.written-preview-logo');
+
+      openWrittenModal = (card) => {
+        const text = card.querySelector('.written-card-text')?.textContent?.trim() || '';
+        const name = card.querySelector('.author-name')?.textContent?.trim() || '';
+        const meta = card.querySelector('.author-meta')?.textContent?.trim() || '';
+        const logo = card.querySelector('.company-logo')?.getAttribute('src') || '';
+        const logoAlt = card.querySelector('.company-logo')?.getAttribute('alt') || '';
+
+        if (modalText) modalText.textContent = text;
+        if (modalAuthorName) modalAuthorName.textContent = name;
+        if (modalAuthorMeta) modalAuthorMeta.textContent = meta;
+        if (modalLogo) {
+          if (logo) {
+            modalLogo.src = logo;
+            modalLogo.alt = logoAlt;
+            modalLogo.style.display = 'block';
+          } else {
+            modalLogo.style.display = 'none';
+          }
+        }
+
+        writtenOverlay.style.display = 'flex';
+        void writtenOverlay.offsetWidth;
+        writtenOverlay.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeWritten = () => {
+        writtenOverlay.classList.remove('is-active');
+        setTimeout(() => {
+          writtenOverlay.style.display = 'none';
+          document.body.style.overflow = '';
+        }, 400);
+      };
+
+      if (writtenCloseBtn) writtenCloseBtn.addEventListener('click', closeWritten);
+      writtenOverlay.addEventListener('click', closeWritten);
+      if (writtenModal) {
+        writtenModal.addEventListener('click', (e) => e.stopPropagation());
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && writtenOverlay.classList.contains('is-active')) {
+          closeWritten();
+        }
+      });
+    }
+
+    const syncCardReadMore = (card) => {
+      if (!card) return;
+      const textEl = card.querySelector('.written-card-text');
+      if (!textEl) return;
+      let btn = card.querySelector('.written-card-read-more');
+      const isClamped = card.classList.contains('has-read-more') || (textEl.scrollHeight > textEl.clientHeight + 2);
+      if (isClamped) {
+        card.classList.add('has-read-more');
+        if (!btn) {
+          btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'written-card-read-more';
+          btn.setAttribute('aria-label', 'Read full review');
+          btn.innerHTML = `Read More <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L11 8L6 13"/></svg>`;
+          card.appendChild(btn);
+        }
+      }
+    };
+
+    const attachWrittenEvents = (card) => {
+      if (!card || card.dataset.writtenEventsAttached) return;
+      card.dataset.writtenEventsAttached = 'true';
+      syncCardReadMore(card);
+      if (openWrittenModal) {
+        card.addEventListener('click', () => openWrittenModal(card));
+      }
+    };
+
+    testimonialsSec.querySelectorAll('.written-card').forEach(attachWrittenEvents);
 
     // Written Testimonials Carousel Navigation Controls
     const writtenPrevBtn = testimonialsSec.querySelector('.written-prev-btn');
@@ -1700,26 +1925,63 @@ const techConnectionsData = [
     const writtenRow = testimonialsSec.querySelector('.written-testimonials-row');
 
     if (writtenPrevBtn && writtenNextBtn && writtenWrapper && writtenRow) {
-      setupStepCarousel(writtenWrapper, writtenRow, writtenPrevBtn, writtenNextBtn, '.written-card');
+      setupStepCarousel(writtenWrapper, writtenRow, writtenPrevBtn, writtenNextBtn, '.written-card', attachWrittenEvents);
+    }
+
+    if (writtenRow && openWrittenModal) {
+      writtenRow.addEventListener('click', (e) => {
+        const card = e.target.closest('.written-card');
+        if (card) openWrittenModal(card);
+      });
     }
 
     const closeVideo = () => {
-      videoOverlay.style.display = 'none';
-      iframe.src = '';
-      document.body.style.overflow = '';
+      if (!videoOverlay) return;
+      videoOverlay.classList.remove('is-active');
+      if (localVideo) {
+        localVideo.pause();
+      }
+      setTimeout(() => {
+        if (iframe) iframe.src = '';
+        if (localVideo) {
+          localVideo.src = '';
+          localVideo.style.display = 'none';
+        }
+        videoOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 400);
     };
 
-    closeBtn.addEventListener('click', closeVideo);
-    videoOverlay.addEventListener('click', closeVideo);
-    
-    videoOverlay.querySelector('.video-preview-modal').addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
+    if (closeBtn) closeBtn.addEventListener('click', closeVideo);
+    if (videoOverlay) {
+      videoOverlay.addEventListener('click', closeVideo);
+      const modal = videoOverlay.querySelector('.video-preview-modal');
+      if (modal) {
+        modal.addEventListener('click', (e) => e.stopPropagation());
+      }
+    }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && videoOverlay.style.display === 'flex') {
-        closeVideo();
+      if (e.key === 'Escape') {
+        closeAllInlineVideos();
+        if (videoOverlay && videoOverlay.classList.contains('is-active')) {
+          closeVideo();
+        }
       }
+    });
+
+    window.addEventListener('message', (e) => {
+      try {
+        const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+        if (data && (data.event === 'ended' || data.event === 'finish')) {
+          testimonialsSec.querySelectorAll('.video-card.is-playing-video').forEach(card => {
+            const ifr = card.querySelector('iframe.inline-video-iframe');
+            if (ifr && ifr.contentWindow === e.source) {
+              closeInlineVideo(card);
+            }
+          });
+        }
+      } catch (_) {}
     });
   }
 
@@ -2514,39 +2776,60 @@ const techConnectionsData = [
      while also preserving smooth hover and tap toggling
      ========================================== */
   const initHeroShowcaseObserver = () => {
-    const showcases = document.querySelectorAll('.web-dev-hero-showcase, .mobile-hero-showcase, #webDevShowcase, #mobileShowcase');
-    if (!showcases.length) return;
+    const showcaseContainers = document.querySelectorAll(
+      '.web-dev-hero-showcase, .mobile-hero-showcase, #webDevShowcase, #mobileShowcase, .ecommerce-hero-showcase'
+    );
+    if (!showcaseContainers.length) return;
 
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Delay slightly (180ms) so user catches the initial 3D view before it smoothly straightens
-            setTimeout(() => {
-              if (entry.target) {
-                entry.target.classList.add('is-in-view');
-              }
-            }, 180);
-          } else {
-            // Remove when leaving so it re-triggers smoothly on re-entry
-            entry.target.classList.remove('is-in-view');
+    const updateShowcaseState = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const isMobile = window.innerWidth <= 768;
+
+      showcaseContainers.forEach((container) => {
+        const wrapper = container.querySelector('.web-dev-showcase-wrapper, .ecommerce-showcase-wrapper') || container;
+        const rect = container.getBoundingClientRect();
+
+        if (isMobile) {
+          // On mobile: when at top of hero (scrollY < 25), keep initial scaled-down state.
+          // When scrolled down and showcase is in view, trigger smooth growing effect.
+          const isAtTop = scrollY < 25;
+          const isScrolledToHero = scrollY >= 25 && rect.top < vh * 0.88 && rect.bottom > 50;
+
+          if (isScrolledToHero) {
+            container.classList.add('is-in-view');
+            wrapper.classList.add('is-visible');
+          } else if (isAtTop || rect.top > vh) {
+            container.classList.remove('is-in-view');
+            wrapper.classList.remove('is-visible');
           }
-        });
-      }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -8% 0px'
+        } else {
+          // On desktop: trigger when scrolled into view
+          const inView = rect.top < vh - 60 && rect.bottom > 60;
+          if (inView) {
+            container.classList.add('is-in-view');
+            wrapper.classList.add('is-visible');
+          } else {
+            container.classList.remove('is-in-view');
+            wrapper.classList.remove('is-visible');
+          }
+        }
       });
+    };
 
-      showcases.forEach(el => observer.observe(el));
-    } else {
-      // Fallback: trigger immediately if IntersectionObserver is not available
-      showcases.forEach(el => el.classList.add('is-in-view'));
-    }
+    // Scroll and resize listeners with passive flag for performance
+    window.addEventListener('scroll', updateShowcaseState, { passive: true });
+    window.addEventListener('resize', updateShowcaseState, { passive: true });
 
-    // Interactive Click/Tap Toggle (allows user to flip between 3D and flat on click/tap)
-    showcases.forEach(el => {
-      el.addEventListener('click', () => {
-        el.classList.toggle('is-in-view');
+    // Initial check
+    updateShowcaseState();
+
+    // Click/tap toggle fallback
+    showcaseContainers.forEach((container) => {
+      container.addEventListener('click', () => {
+        const wrapper = container.querySelector('.web-dev-showcase-wrapper, .ecommerce-showcase-wrapper') || container;
+        container.classList.toggle('is-in-view');
+        wrapper.classList.toggle('is-visible');
       });
     });
   };

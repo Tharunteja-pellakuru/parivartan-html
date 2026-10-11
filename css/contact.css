@@ -29,7 +29,7 @@
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 24px 0 40px 0;
+  padding: 24px 0 0 0;
   box-sizing: border-box;
   text-align: center;
   position: relative;
@@ -65,7 +65,7 @@
   line-height: 56px;
   color: rgb(6, 6, 18);
   font-style: normal;
-  margin: 0 0 clamp(16px, 2vw, 28px) 0;
+  margin: 0;
   text-align: center;
 }
 
@@ -536,8 +536,10 @@
   display: block;
 }
 
-/* ==================== UNIFORM GLOBAL SECTION SPACING MATCHING INDEX.HTML ==================== */
-.contact-hero-section,
+.contact-hero-section {
+  margin-bottom: 40px !important;
+}
+
 .contact-section,
 .location-section,
 .faqs-section,
@@ -553,9 +555,26 @@
   padding-bottom: 0 !important;
 }
 
+/* Reduce gap between Section Heading / intro row and the contact form */
+.contact-row-intro {
+  margin-bottom: 20px !important;
+}
+
+.contact-row-intro .contact-heading,
+.contact-row-intro .contact-intro-text {
+  margin-bottom: 0 !important;
+}
+
 /* Responsive Overrides */
 @media (max-width: 960px) {
-  .contact-hero-section,
+  .contact-hero-section {
+    margin-bottom: 24px !important;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .contact-row-intro {
+    margin-bottom: 16px !important;
+  }
   .contact-section,
   .location-section,
   .faqs-section,

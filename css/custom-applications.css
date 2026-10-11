@@ -155,56 +155,57 @@ body.custom-apps-page .services-header {
 }
 
 /* ==========================================================================
-   WHAT WE BUILD / EXPERTISE GRID (EXACT 284px x 509px CARD SIZES)
+   WHAT WE BUILD / EXPERTISE GRID (3-COL BALANCED & COMPACT CARDS)
    ========================================================================== */
 body.custom-apps-page .uiux-expertise-grid {
   display: grid !important;
-  grid-template-columns: repeat(3, 284px) !important;
+  grid-template-columns: repeat(3, minmax(0, 360px)) !important;
   justify-content: center !important;
-  gap: 24px !important;
-  margin-top: 60px;
+  gap: 20px !important;
+  margin-top: 50px;
 }
 
 body.custom-apps-page .uiux-expertise-card {
-  width: 284px !important;
-  max-width: 284px !important;
-  min-width: 284px !important;
-  height: 509px !important;
-  min-height: 509px !important;
-  max-height: 509px !important;
-  padding: 36px 24px 0 24px !important;
-  border-radius: 24px !important;
+  width: 100% !important;
+  max-width: 360px !important;
+  min-width: 0 !important;
+  height: 470px !important;
+  min-height: 470px !important;
+  max-height: 470px !important;
+  padding: 30px 18px 0 18px !important;
+  border-radius: 20px !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
 }
 
 body.custom-apps-page .uiux-expertise-num {
-  font-size: 32px !important;
+  font-size: 28px !important;
   font-weight: 700 !important;
   color: #EAB308 !important;
   line-height: 1 !important;
-  margin-bottom: 12px !important;
+  margin-bottom: 10px !important;
 }
 
 body.custom-apps-page .uiux-expertise-card-title {
-  font-size: 20px !important;
+  font-size: clamp(16.5px, 1.2vw, 18.5px) !important;
   font-weight: 700 !important;
   color: #060612 !important;
   line-height: 1.25 !important;
-  letter-spacing: -0.4px !important;
-  min-height: 50px !important;
-  margin-bottom: 12px !important;
+  letter-spacing: -0.3px !important;
+  white-space: nowrap !important;
+  min-height: auto !important;
+  margin-bottom: 10px !important;
 }
 
 body.custom-apps-page .uiux-expertise-card-desc {
-  font-size: 13.5px !important;
+  font-size: 13px !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
   color: #69686E !important;
-  margin-bottom: 16px !important;
-  height: 90px !important;
-  min-height: 90px !important;
-  max-height: 90px !important;
+  margin-bottom: 14px !important;
+  height: 65px !important;
+  min-height: 65px !important;
+  max-height: 65px !important;
 }
 
 /* Card Images: position at bottom of card with tilt angle rotate(-7.717deg) and aspect-ratio 105/82 */
@@ -236,7 +237,7 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16) !important;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1140px) {
   body.custom-apps-page .uiux-expertise-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     justify-content: center !important;
@@ -246,10 +247,14 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+    padding: 36px 24px 0 24px !important;
+  }
+  body.custom-apps-page .uiux-expertise-card-title {
+    font-size: 20px !important;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 680px) {
   body.custom-apps-page .uiux-expertise-grid {
     grid-template-columns: 1fr !important;
     justify-content: stretch !important;
@@ -267,6 +272,8 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise
     margin: 0 !important;
   }
   body.custom-apps-page .uiux-expertise-card-title {
+    font-size: 19px !important;
+    white-space: normal !important;
     min-height: auto !important;
     margin-bottom: 10px !important;
   }

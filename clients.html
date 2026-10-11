@@ -11,6 +11,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Vimeo Player Fast Preconnect & DNS-Prefetch -->
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://f.vimeocdn.com" crossorigin>
+  <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin>
+  <link rel="dns-prefetch" href="https://player.vimeo.com">
+  <link rel="dns-prefetch" href="https://f.vimeocdn.com">
   <!-- GSAP CDN -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -892,7 +898,7 @@
           <!-- Slide 1: Sudha Analyticals (Mr. Srinivas Gullala) -->
           <div class="video-card video-card--custom-graphic" data-id="sudha-analyticals">
             <div class="video-card-overlay">
-              <img src="assets/testimonials/sudha-analyticals-thumb.webp" alt="Sudha Analyticals - Mr. Srinivas Gullala" class="video-card-bg-img" loading="lazy" />
+              <img src="assets/testimonials/sudha-analyticals-thumb.webp" alt="Sudha Analyticals - Mr. Srinivas Gullala" class="video-card-bg-img" loading="eager" fetchpriority="high" decoding="async" />
               <div class="play-button-wrapper">
                 <button type="button" class="play-button" aria-label="Play testimonial from Sudha Analyticals">
                   <svg width="14" height="16" viewBox="0 0 14 16" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -906,7 +912,7 @@
           <!-- Slide 2: Sherwood Public School (Mr. Anuj Gurwara) -->
           <div class="video-card video-card--custom-graphic" data-id="anuj-gurwara">
             <div class="video-card-overlay">
-              <img src="assets/testimonials/anuj-gurwara-thumb.webp" alt="Sherwood Public School - Mr. Anuj Gurwara" class="video-card-bg-img" loading="lazy" />
+              <img src="assets/testimonials/anuj-gurwara-thumb.webp" alt="Sherwood Public School - Mr. Anuj Gurwara" class="video-card-bg-img" loading="eager" fetchpriority="high" decoding="async" />
               <div class="play-button-wrapper">
                 <button type="button" class="play-button" aria-label="Play testimonial from Sherwood Public School">
                   <svg width="14" height="16" viewBox="0 0 14 16" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -920,7 +926,7 @@
           <!-- Slide 3: Andhra Canteen (Ms. Hyma Kesineni) -->
           <div class="video-card video-card--custom-graphic" data-id="andhra-canteen">
             <div class="video-card-overlay">
-              <img src="assets/testimonials/andhra-canteen-thumb.webp" alt="Andhra Canteen - Ms. Hyma Kesineni" class="video-card-bg-img" loading="lazy" />
+              <img src="assets/testimonials/andhra-canteen-thumb.webp" alt="Andhra Canteen - Ms. Hyma Kesineni" class="video-card-bg-img" loading="eager" fetchpriority="high" decoding="async" />
               <div class="play-button-wrapper">
                 <button type="button" class="play-button" aria-label="Play testimonial from Andhra Canteen">
                   <svg width="14" height="16" viewBox="0 0 14 16" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -1036,14 +1042,22 @@
         <h3 class="written-testimonials-heading">What Our Clients Say</h3>
         <div class="testimonials-carousel-nav">
           <button type="button" class="testimonials-nav-btn written-prev-btn" aria-label="Previous Written Reviews">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M5.33333 6.6C4.97971 6.6 4.64057 6.7475 4.39052 7.01005C4.14048 7.2726 4 7.6287 4 8C4 8.3713 4.14048 8.7274 4.39052 8.98995C4.64057 9.2525 4.97971 9.4 5.33333 9.4C5.68695 9.4 6.02609 9.2525 6.27614 8.98995C6.52619 8.7274 6.66667 8.3713 6.66667 8C6.66667 7.6287 6.52619 7.2726 6.27614 7.01005C6.02609 6.7475 5.68695 6.6 5.33333 6.6ZM8 3.8C7.8249 3.8 7.65152 3.83621 7.48976 3.90657C7.32799 3.97692 7.181 4.08005 7.05719 4.21005C6.93338 4.34005 6.83517 4.49439 6.76816 4.66424C6.70115 4.8341 6.66667 5.01615 6.66667 5.2C6.66667 5.38385 6.70115 5.5659 6.76816 5.73576C6.83517 5.90561 6.93338 6.05995 7.05719 6.18995C7.181 6.31995 7.32799 6.42307 7.48976 6.49343C7.65152 6.56379 7.8249 6.6 8 6.6C8.35362 6.6 8.69276 6.4525 8.94281 6.18995C9.19286 5.9274 9.33333 5.5713 9.33333 5.2C9.33333 4.8287 9.19286 4.4726 8.94281 4.21005C8.69276 3.9475 8.35362 3.8 8 3.8ZM10.6667 1C10.313 1 9.97391 1.1475 9.72386 1.41005C9.47381 1.6726 9.33333 2.0287 9.33333 2.4C9.33333 2.7713 9.47381 3.1274 9.72386 3.38995C9.97391 3.6525 10.313 3.8 10.6667 3.8C11.0203 3.8 11.3594 3.6525 11.6095 3.38995C11.8595 3.1274 12 2.7713 12 2.4C12 2.0287 11.8595 1.6726 11.6095 1.41005C11.3594 1.1475 11.0203 1 10.6667 1ZM8 9.4C7.64638 9.4 7.30724 9.5475 7.05719 9.81005C6.80714 10.0726 6.66667 10.4287 6.66667 10.8C6.66667 11.1713 6.80714 11.5274 7.05719 11.7899C7.30724 12.0525 7.64638 12.2 8 12.2C8.35362 12.2 8.69276 12.0525 8.94281 11.7899C9.19286 11.5274 9.33333 11.1713 9.33333 10.8C9.33333 10.4287 9.19286 10.0726 8.94281 9.81005C8.69276 9.5475 8.35362 9.4 8 9.4ZM10.6667 12.2C10.313 12.2 9.97391 12.3475 9.72386 12.6101C9.47381 12.8726 9.33333 13.2287 9.33333 13.6C9.33333 13.9713 9.47381 14.3274 9.72386 14.5899C9.97391 14.8525 10.313 15 10.6667 15C11.0203 15 11.3594 14.8525 11.6095 14.5899C11.8595 14.3274 12 13.9713 12 13.6C12 13.2287 11.8595 12.8726 11.6095 12.6101C11.3594 12.3475 11.0203 12.2 10.6667 12.2Z" fill="currentColor"/>
+            <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9.5" cy="2.5" r="1.5" fill="currentColor" />
+              <circle cx="6" cy="5.25" r="1.5" fill="currentColor" />
+              <circle cx="2.5" cy="8" r="1.5" fill="currentColor" />
+              <circle cx="6" cy="10.75" r="1.5" fill="currentColor" />
+              <circle cx="9.5" cy="13.5" r="1.5" fill="currentColor" />
             </svg>
           </button>
           <button type="button" class="testimonials-nav-btn written-next-btn" aria-label="Next Written Reviews">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M10.6667 9.4C11.0203 9.4 11.3594 9.2525 11.6095 8.98995C11.8595 8.7274 12 8.3713 12 8C12 7.6287 11.8595 7.2726 11.6095 7.01005C11.3594 6.7475 11.0203 6.6 10.6667 6.6C10.313 6.6 9.97391 6.7475 9.72386 7.01005C9.47381 7.2726 9.33333 7.6287 9.33333 8C9.33333 8.3713 9.47381 8.7274 9.72386 8.98995C9.97391 9.2525 10.313 9.4 10.6667 9.4ZM8 12.2C8.1751 12.2 8.34848 12.1638 8.51024 12.0934C8.67201 12.0231 8.819 11.92 8.94281 11.79C9.06662 11.6599 9.16483 11.5056 9.23184 11.3358C9.29885 11.1659 9.33333 10.9839 9.33333 10.8C9.33333 10.6161 9.29885 10.4341 9.23184 10.2642C9.16483 10.0944 9.06662 9.94005 8.94281 9.81005C8.819 9.68005 8.67201 9.57693 8.51024 9.50657C8.34848 9.43621 8.1751 9.4 8 9.4C7.64638 9.4 7.30724 9.5475 7.05719 9.81005C6.80714 10.0726 6.66667 10.4287 6.66667 10.8C6.66667 11.1713 6.80714 11.5274 7.05719 11.79C7.30724 12.0525 7.64638 12.2 8 12.2ZM5.33333 15C5.68696 15 6.02609 14.8525 6.27614 14.5899C6.52619 14.3274 6.66667 13.9713 6.66667 13.6C6.66667 13.2287 6.52619 12.8726 6.27614 12.6101C6.02609 12.3475 5.68696 12.2 5.33333 12.2C4.97971 12.2 4.64057 12.3475 4.39052 12.6101C4.14048 12.8726 4 13.2287 4 13.6C4 13.9713 4.14048 14.3274 4.39052 14.5899C4.64057 14.8525 4.97971 15 5.33333 15ZM8 6.6C8.35362 6.6 8.69276 6.4525 8.94281 6.18995C9.19286 5.9274 9.33333 5.5713 9.33333 5.2C9.33333 4.8287 9.19286 4.4726 8.94281 4.21005C8.69276 3.9475 8.35362 3.8 8 3.8C7.64638 3.8 7.30724 3.9475 7.05719 4.21005C6.80714 4.4726 6.66667 4.8287 6.66667 5.2C6.66667 5.5713 6.80714 5.9274 7.05719 6.18995C7.30724 6.4525 7.64638 6.6 8 6.6ZM5.33333 3.8C5.68696 3.8 6.02609 3.6525 6.27614 3.38995C6.52619 3.1274 6.66667 2.7713 6.66667 2.4C6.66667 2.0287 6.52619 1.6726 6.27614 1.41005C6.02609 1.1475 5.68696 1 5.33333 1C4.97971 1 4.64057 1.1475 4.39052 1.41005C4.14048 1.6726 4 2.0287 4 2.4C4 2.7713 4.14048 3.1274 4.39052 3.38995C4.64057 3.6525 4.97971 3.8 5.33333 3.8Z" fill="currentColor"/>
-            </svg>
+            <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="2.5" cy="2.5" r="1.5" fill="currentColor" />
+            <circle cx="6" cy="5.25" r="1.5" fill="currentColor" />
+            <circle cx="9.5" cy="8" r="1.5" fill="currentColor" />
+            <circle cx="6" cy="10.75" r="1.5" fill="currentColor" />
+            <circle cx="2.5" cy="13.5" r="1.5" fill="currentColor" />
+          </svg>
           </button>
         </div>
       </div>
@@ -1053,154 +1067,143 @@
         <div class="written-testimonials-row">
           
           <!-- Written Card 1 -->
-          <div class="written-card">
-            <div class="written-card-stars">
-              <!-- 5 Stars  hello world--> 
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-            </div>
-            <p class="written-card-text">
-              Excellent communication, quality and delivery. The first time I worked with eParivartan, I was pleasantly surprised with the attention-to-detail and customer service provided. Deliveries were provided earlier than schedule and at a level of quality surpassing expectations. I am a client for life with whichever organisation I am attached to, and I would love to recommend eParivartan to any business entity for an efficient and effective project.
-            </p>
-            <div class="written-card-footer">
-              <div class="author-info">
-                <div class="author-details">
-                  <span class="author-name">Ashwin Lobo</span>
-                  <span class="author-meta">HDFC International Life</span>
-                </div>
+          <div class="written-card has-read-more">
+            <div class="written-card-header">
+              <div class="author-details">
+                <span class="written-card-company author-meta">HDFC International Life</span>
+                <span class="author-name">Ashwin Lobo</span>
               </div>
               <div class="company-logo-wrapper">
                 <img src="./assets/home/client-2.webp" alt="HDFC logo" class="company-logo" />
               </div>
             </div>
+            <div class="written-card-stars">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+            </div>
+            <p class="written-card-text">
+              Excellent communication, quality and delivery. The first time I worked with eParivartan, I was pleasantly surprised with the attention-to-detail and customer service provided. Deliveries were provided earlier than schedule and at a level of quality surpassing expectations. I am a client for life with whichever organisation I am attached to, and I would love to recommend eParivartan to any business entity for an efficient and effective project.
+            </p>
+            <button type="button" class="written-card-read-more" aria-label="Read full review">Read More <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L11 8L6 13"/></svg></button>
           </div>
 
           <!-- Written Card 2 -->
-          <div class="written-card">
-            <div class="written-card-stars">
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-            </div>
-            <p class="written-card-text">
-              Excellent Solution Providers, dedicated responsive Team, crisp, innovative and clear presentation of ideas, continuous email and phone support, highly skilled work force, aesthetically appealing design and one stop website designers to suit one and all. We a R&D Centre have our Website designed and being maintained by M/s. Parivartan since 2013. Our website has been appreciated as one of its kind with every detail required by our select audience, presented on the Home Page itself. We are one among their Highly Satisfied customers.
-            </p>
-            <div class="written-card-footer">
-              <div class="author-info">
-                <div class="author-details">
-                  <span class="author-name">Aparna Rao</span>
-                  <span class="author-meta">ARCI</span>
-                </div>
+          <div class="written-card has-read-more">
+            <div class="written-card-header">
+              <div class="author-details">
+                <span class="written-card-company author-meta">ARCI</span>
+                <span class="author-name">Aparna Rao</span>
               </div>
               <div class="company-logo-wrapper">
                 <img src="./assets/home/client-1.webp" alt="ARCI logo" class="company-logo" />
               </div>
             </div>
+            <div class="written-card-stars">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+            </div>
+            <p class="written-card-text">
+              Excellent Solution Providers, dedicated responsive Team, crisp, innovative and clear presentation of ideas, continuous email and phone support, highly skilled work force, aesthetically appealing design and one stop website designers to suit one and all. We a R&D Centre have our Website designed and being maintained by M/s. Parivartan since 2013. Our website has been appreciated as one of its kind with every detail required by our select audience, presented on the Home Page itself. We are one among their Highly Satisfied customers.
+            </p>
+            <button type="button" class="written-card-read-more" aria-label="Read full review">Read More <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L11 8L6 13"/></svg></button>
           </div>
 
           <!-- Written Card 3 -->
           <div class="written-card">
-            <div class="written-card-stars">
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-            </div>
-            <p class="written-card-text">
-              We have been associated with eparivartan since its inception. The first job they did for us was to prepare a brochure for 'Center for Innovative Construction Materials and Technologies', way back in 2002. Over the years I have noticed a lot of 'parivartan' in eparivartan. Today it is a highly professional organization delivering quality services to the clients.
-            </p>
-            <div class="written-card-footer">
-              <div class="author-info">
-                <div class="author-details">
-                  <span class="author-name">Ashfaque Jafari</span>
-                  <span class="author-meta">MJCET</span>
-                </div>
+            <div class="written-card-header">
+              <div class="author-details">
+                <span class="written-card-company author-meta">MJCET</span>
+                <span class="author-name">Ashfaque Jafari</span>
               </div>
               <div class="company-logo-wrapper">
                 <img src="./assets/home/client-4.webp" alt="MJCET logo" class="company-logo" />
               </div>
             </div>
+            <div class="written-card-stars">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+            </div>
+            <p class="written-card-text">
+              We have been associated with eparivartan since its inception. The first job they did for us was to prepare a brochure for 'Center for Innovative Construction Materials and Technologies', way back in 2002. Over the years I have noticed a lot of 'parivartan' in eparivartan. Today it is a highly professional organization delivering quality services to the clients.
+            </p>
           </div>
 
           <!-- Written Card 4 -->
           <div class="written-card">
-            <div class="written-card-stars">
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-            </div>
-            <p class="written-card-text">
-              Anand has done a lot of work for Kesineni over the years, including both branding and websites. He's extremely intelligent, creative and dedicated, and we know he cares for our work as much as we do. In today's world, having a partner is more important than having just a one-time service provider. That's exactly what Anand is to us.
-            </p>
-            <div class="written-card-footer">
-              <div class="author-info">
-                <div class="author-details">
-                  <span class="author-name">Hyma K</span>
-                  <span class="author-meta">KESINENI HOTELS</span>
-                </div>
+            <div class="written-card-header">
+              <div class="author-details">
+                <span class="written-card-company author-meta">KESINENI HOTELS</span>
+                <span class="author-name">Hyma K</span>
               </div>
               <div class="company-logo-wrapper">
                 <img src="./assets/home/client-3.webp" alt="Kesineni logo" class="company-logo" />
               </div>
             </div>
+            <div class="written-card-stars">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+            </div>
+            <p class="written-card-text">
+              Anand has done a lot of work for Kesineni over the years, including both branding and websites. He's extremely intelligent, creative and dedicated, and we know he cares for our work as much as we do. In today's world, having a partner is more important than having just a one-time service provider. That's exactly what Anand is to us.
+            </p>
           </div>
 
           <!-- Written Card 5 -->
           <div class="written-card">
-            <div class="written-card-stars">
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-            </div>
-            <p class="written-card-text">
-              One of the most reliable, dedicated, and innovative teams to partner with. eParivartan brings strong clarity, out-of-the-box thinking, and a clear execution plan from day one. If you have an idea, they know how to turn it into a working product. Highly recommended for software development and design-led digital projects.
-            </p>
-            <div class="written-card-footer">
-              <div class="author-info">
-                <div class="author-details">
-                  <span class="author-name">Payal Kar Dutta</span>
-                  <span class="author-meta">MyPropertyPal</span>
-                </div>
+            <div class="written-card-header">
+              <div class="author-details">
+                <span class="written-card-company author-meta">MyPropertyPal</span>
+                <span class="author-name">Payal Kar Dutta</span>
               </div>
               <div class="company-logo-wrapper">
                 <img src="./assets/home/my-propertypal.png" alt="MyPropertyPal logo" class="company-logo" />
               </div>
             </div>
+            <div class="written-card-stars">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+            </div>
+            <p class="written-card-text">
+              One of the most reliable, dedicated, and innovative teams to partner with. eParivartan brings strong clarity, out-of-the-box thinking, and a clear execution plan from day one. If you have an idea, they know how to turn it into a working product. Highly recommended for software development and design-led digital projects.
+            </p>
           </div>
 
           <!-- Written Card 6 -->
           <div class="written-card">
-            <div class="written-card-stars">
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-             <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
-            </div>
-            <p class="written-card-text">
-              The eParivartan team quickly understood our requirements and delivered a solid digital experience that aligned with our vision. Their technical depth, responsiveness, and ability to guide decisions made the entire engagement smooth, dependable, and highly efficient.
-            </p>
-            <div class="written-card-footer">
-              <div class="author-info">
-                <div class="author-details">
-                  <span class="author-name">Raghu T</span>
-                  <span class="author-meta">Clap Kartel</span>
-                </div>
+            <div class="written-card-header">
+              <div class="author-details">
+                <span class="written-card-company author-meta">Clap Kartel</span>
+                <span class="author-name">Raghu T</span>
               </div>
               <div class="company-logo-wrapper">
                 <img src="./assets/home/clap-kartel.svg" alt="Clap Kartel logo" class="company-logo" />
               </div>
             </div>
+            <div class="written-card-stars">
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+              <svg width="16" height="15" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+            </div>
+            <p class="written-card-text">
+              The eParivartan team quickly understood our requirements and delivered a solid digital experience that aligned with our vision. Their technical depth, responsiveness, and ability to guide decisions made the entire engagement smooth, dependable, and highly efficient.
+            </p>
           </div>
 
         </div>
@@ -1219,10 +1222,42 @@
       </button>
       <div class="video-preview-window">
         <iframe class="video-preview-player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <video class="video-preview-local-player" controls playsinline style="display: none; width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 12px;"></video>
       </div>
       <div class="video-preview-caption">
         <span class="video-preview-caption-title"></span>
         <span class="video-preview-caption-note"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Written Testimonial Full Review Modal -->
+  <div class="written-preview-overlay" style="display: none;">
+    <div class="written-preview-modal">
+      <button type="button" class="written-preview-close" aria-label="Close review">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+      </button>
+      <div class="written-preview-card">
+        <div class="written-preview-quote-icon">“</div>
+        <div class="written-preview-stars">
+          <svg width="18" height="17" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+          <svg width="18" height="17" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+          <svg width="18" height="17" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+          <svg width="18" height="17" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+          <svg width="18" height="17" viewBox="0 0 16 15" fill="#F2994A"><path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" /></svg>
+        </div>
+        <p class="written-preview-text"></p>
+        <div class="written-preview-footer">
+          <div class="author-details">
+            <span class="written-preview-author-name"></span>
+            <span class="written-preview-author-meta"></span>
+          </div>
+          <div class="written-preview-logo-wrapper">
+            <img src="" alt="" class="written-preview-logo" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1342,7 +1377,7 @@
                   <path d="M14.4329 13.2498C13.481 11.6042 12.0142 10.4242 10.3023 9.86475C11.1491 9.36066 11.8069 8.59255 12.1749 7.67837C12.5429 6.7642 12.6006 5.7545 12.3392 4.80435C12.0778 3.8542 11.5117 3.01612 10.7279 2.41883C9.94408 1.82154 8.98587 1.49805 8.00041 1.49805C7.01496 1.49805 6.05674 1.82154 5.27293 2.41883C4.48911 3.01612 3.92304 3.8542 3.66163 4.80435C3.40022 5.7545 3.45793 6.7642 3.82591 7.67837C4.19388 8.59255 4.85177 9.36066 5.69854 9.86475C3.98666 10.4235 2.51979 11.6035 1.56791 13.2498C1.53301 13.3067 1.50985 13.37 1.49982 13.4361C1.48978 13.5021 1.49307 13.5694 1.50949 13.6341C1.52591 13.6989 1.55512 13.7596 1.59541 13.8129C1.63569 13.8661 1.68624 13.9108 1.74405 13.9442C1.80187 13.9776 1.86579 13.999 1.93204 14.0073C1.9983 14.0156 2.06554 14.0106 2.1298 13.9924C2.19407 13.9743 2.25405 13.9435 2.30622 13.9018C2.35838 13.8602 2.40168 13.8085 2.43354 13.7498C3.61104 11.7148 5.69229 10.4998 8.00041 10.4998C10.3085 10.4998 12.3898 11.7148 13.5673 13.7498C13.5992 13.8085 13.6424 13.8602 13.6946 13.9018C13.7468 13.9435 13.8068 13.9743 13.871 13.9924C13.9353 14.0106 14.0025 14.0156 14.0688 14.0073C14.135 13.999 14.199 13.9776 14.2568 13.9442C14.3146 13.9108 14.3651 13.8661 14.4054 13.8129C14.4457 13.7596 14.4749 13.6989 14.4913 13.6341C14.5078 13.5694 14.511 13.5021 14.501 13.4361C14.491 13.37 14.4678 13.3067 14.4329 13.2498ZM4.50041 5.99975C4.50041 5.30752 4.70568 4.63083 5.09027 4.05526C5.47485 3.47968 6.02148 3.03108 6.66102 2.76617C7.30056 2.50127 8.0043 2.43195 8.68323 2.567C9.36216 2.70205 9.9858 3.03539 10.4753 3.52488C10.9648 4.01436 11.2981 4.638 11.4332 5.31694C11.5682 5.99587 11.4989 6.6996 11.234 7.33914C10.9691 7.97868 10.5205 8.52531 9.94491 8.9099C9.36934 9.29448 8.69265 9.49975 8.00041 9.49975C7.07246 9.49876 6.1828 9.12969 5.52664 8.47353C4.87047 7.81737 4.50141 6.9277 4.50041 5.99975Z" fill="#69686E"/>
                 </svg>
                 <span class="contact-input-divider"></span>
-                <input id="fullName" name="fullName" type="text" placeholder="Jordan Alison" required />
+                <input id="fullName" name="fullName" type="text" placeholder="Sophia Alison" required />
               </div>
             </div>
 
@@ -1368,7 +1403,7 @@
                   <path d="M11.3334 5.99967L9.24668 7.66634C8.56001 8.21301 7.43335 8.21301 6.74668 7.66634L4.66668 5.99967M11.3334 13.6663H4.66668C2.66668 13.6663 1.33335 12.6663 1.33335 10.333V5.66634C1.33335 3.33301 2.66668 2.33301 4.66668 2.33301H11.3334C13.3334 2.33301 14.6667 3.33301 14.6667 5.66634V10.333C14.6667 12.6663 13.3334 13.6663 11.3334 13.6663Z" stroke="#69686E" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <span class="contact-input-divider"></span>
-                <input id="email" name="email" type="email" placeholder="jordan@adoxin.com" required />
+                <input id="email" name="email" type="email" placeholder="sophia@eparivartan.com" required />
               </div>
             </div>
 

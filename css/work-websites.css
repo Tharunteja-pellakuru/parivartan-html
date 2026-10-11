@@ -12,13 +12,14 @@
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
+  margin-bottom: 28px;
 }
 
 .websites-hero-container {
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 24px 0 40px 0;
+  padding: 24px 0 0 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -51,7 +52,7 @@
   line-height: 56px;
   color: rgb(6, 6, 18);
   font-style: normal;
-  margin: 0 0 clamp(16px, 2vw, 28px) 0;
+  margin: 0;
   text-align: center;
 }
 
@@ -341,13 +342,13 @@
   }
 
   .websites-hero-container {
-    padding: 24px 0 40px 0;
+    padding: 24px 0 0 0;
   }
 
   .websites-hero-title {
     font-size: 40px;
     line-height: 50px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
   }
 
   .websites-card-heading {
@@ -393,7 +394,7 @@
   }
 
   .websites-hero-container {
-    padding: 24px 0 24px 0;
+    padding: 16px 0 0 0;
   }
 
   .websites-mockup-image-container {
@@ -445,13 +446,13 @@
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 32px 40px;
+  padding: 24px 40px;
   box-sizing: border-box;
 }
 
 .websites-title-container {
-  padding-top: 32px;
-  padding-bottom: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .websites-projects-title {

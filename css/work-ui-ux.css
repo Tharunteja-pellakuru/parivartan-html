@@ -34,7 +34,7 @@ main img {
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 24px 0 40px 0;
+  padding: 24px 0 0 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -67,7 +67,7 @@ main img {
   line-height: 56px;
   color: rgb(6, 6, 18);
   font-style: normal;
-  margin: 0 0 clamp(16px, 2vw, 28px) 0;
+  margin: 0;
   text-align: center;
 }
 
@@ -277,13 +277,13 @@ main img {
   }
 
   .mobile-apps-hero-container {
-    padding: 24px 0 40px 0;
+    padding: 24px 0 0 0;
   }
 
   .mobile-apps-hero-title {
     font-size: 40px;
     line-height: 50px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
   }
 
   .mobile-apps-card-heading {
@@ -329,7 +329,7 @@ main img {
   }
 
   .mobile-apps-hero-container {
-    padding: 4px 0 24px 0;
+    padding: 4px 0 0 0;
   }
 
   .mobile-apps-mockup-image-container {
@@ -662,7 +662,7 @@ main img {
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 0 20px 60px 20px;
 }
 
 .project-card {
@@ -940,7 +940,7 @@ main img {
 @media (max-width: 992px) {
   .mobile-projects-grid {
     grid-template-columns: 1fr;
-    padding: 40px 20px;
+    padding: 0 20px 40px 20px;
   }
 }
 
@@ -1398,7 +1398,7 @@ body.app-dev-page #uiux-hero-section,
 #mobile-app-section,
 #uiux-hero-section {
   padding-top: 24px !important;
-  margin-bottom: 60px !important;
+  margin-bottom: 24px !important;
 }
 
 .mobile-apps-hero-container,
@@ -1452,7 +1452,7 @@ body.app-dev-page .contact-inner {
   #mobile-app-section,
   #uiux-hero-section {
     padding-top: 20px !important;
-    margin-bottom: 44px !important;
+    margin-bottom: 24px !important;
   }
 
   .mobile-apps-hero-container,
@@ -1507,7 +1507,7 @@ body.app-dev-page .contact-inner {
   #mobile-app-section,
   #uiux-hero-section {
     padding-top: 16px !important;
-    margin-bottom: 32px !important;
+    margin-bottom: 20px !important;
   }
 
   .mobile-apps-hero-container,
@@ -1729,7 +1729,7 @@ body.app-dev-page .faqs-header .app-section-heading {
 
   .contact-row-intro {
     gap: 12px !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 16px !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     width: 100% !important;
