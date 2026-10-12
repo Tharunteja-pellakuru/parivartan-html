@@ -169,13 +169,25 @@ body.custom-apps-page .uiux-expertise-card {
   width: 100% !important;
   max-width: 360px !important;
   min-width: 0 !important;
-  height: 470px !important;
-  min-height: 470px !important;
-  max-height: 470px !important;
-  padding: 30px 18px 0 18px !important;
+  height: 420px !important;
+  min-height: 420px !important;
+  max-height: 420px !important;
+  padding: 28px 20px 0 20px !important;
   border-radius: 20px !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  position: relative !important;
+}
+
+body.custom-apps-page .uiux-expertise-card-content {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  z-index: 2 !important;
+  flex-shrink: 0 !important;
 }
 
 body.custom-apps-page .uiux-expertise-num {
@@ -183,7 +195,7 @@ body.custom-apps-page .uiux-expertise-num {
   font-weight: 700 !important;
   color: #EAB308 !important;
   line-height: 1 !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 8px !important;
 }
 
 body.custom-apps-page .uiux-expertise-card-title {
@@ -194,7 +206,7 @@ body.custom-apps-page .uiux-expertise-card-title {
   letter-spacing: -0.3px !important;
   white-space: nowrap !important;
   min-height: auto !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 8px !important;
 }
 
 body.custom-apps-page .uiux-expertise-card-desc {
@@ -202,39 +214,43 @@ body.custom-apps-page .uiux-expertise-card-desc {
   font-weight: 400 !important;
   line-height: 1.5 !important;
   color: #69686E !important;
-  margin-bottom: 14px !important;
-  height: 65px !important;
-  min-height: 65px !important;
-  max-height: 65px !important;
+  margin-bottom: 0 !important;
+  height: 58px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
 }
 
-/* Card Images: position at bottom of card with tilt angle rotate(-7.717deg) and aspect-ratio 105/82 */
+/* Card Images: balanced gap, reduced size, anchored cleanly at bottom */
 body.custom-apps-page .uiux-expertise-img,
 body.custom-apps-page .uiux-expertise-img--websites,
 body.custom-apps-page .uiux-expertise-img--webapps,
 body.custom-apps-page .uiux-expertise-img--enterprise {
-  width: 120% !important;
+  width: 104% !important;
   max-width: none !important;
-  aspect-ratio: 105 / 82 !important;
-  transform: rotate(-7.717deg) !important;
-  transform-origin: top left !important;
+  height: 225px !important;
+  aspect-ratio: auto !important;
+  transform: rotate(-3.5deg) !important;
+  transform-origin: center bottom !important;
   object-fit: cover !important;
   object-position: top center !important;
-  border-radius: 8px !important;
-  margin-left: -6% !important;
-  margin-top: auto !important;
+  border-radius: 10px !important;
+  margin-left: -2% !important;
+  margin-top: 24px !important;
   margin-bottom: -15px !important;
   display: block !important;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease !important;
+  mix-blend-mode: normal !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.09) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img,
 body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--websites,
 body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--webapps,
 body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise {
-  transform: rotate(-7.717deg) scale(1.03) !important;
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16) !important;
+  transform: rotate(-3.5deg) translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.14) !important;
 }
 
 @media (max-width: 1140px) {
@@ -247,60 +263,137 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    padding: 36px 24px 0 24px !important;
+    height: 420px !important;
+    min-height: 420px !important;
+    max-height: 420px !important;
+    padding: 28px 20px 0 20px !important;
   }
   body.custom-apps-page .uiux-expertise-card-title {
     font-size: 20px !important;
-  }
-}
-
-@media (max-width: 680px) {
-  body.custom-apps-page .uiux-expertise-grid {
-    grid-template-columns: 1fr !important;
-    justify-content: stretch !important;
-    gap: 16px !important;
-    width: 100% !important;
-  }
-  body.custom-apps-page .uiux-expertise-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    min-height: 480px !important;
-    max-height: none !important;
-    padding: 32px 20px 0 20px !important;
-    margin: 0 !important;
-  }
-  body.custom-apps-page .uiux-expertise-card-title {
-    font-size: 19px !important;
-    white-space: normal !important;
-    min-height: auto !important;
-    margin-bottom: 10px !important;
-  }
-  body.custom-apps-page .uiux-expertise-card-desc {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    margin-bottom: 20px !important;
   }
   body.custom-apps-page .uiux-expertise-img,
   body.custom-apps-page .uiux-expertise-img--websites,
   body.custom-apps-page .uiux-expertise-img--webapps,
   body.custom-apps-page .uiux-expertise-img--enterprise {
+    width: 102% !important;
+    max-width: none !important;
+    height: 225px !important;
+    margin-left: -1% !important;
+    margin-top: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body.custom-apps-page .uiux-section--expertise,
+  body.custom-apps-page #what-we-build {
+    overflow: visible !important;
+  }
+
+  body.custom-apps-page .uiux-section--expertise .uiux-container,
+  body.custom-apps-page #what-we-build .uiux-container {
+    overflow: visible !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-grid {
+    display: block !important;
+    position: relative !important;
+    overflow: visible !important;
+    margin-top: 36px !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card {
+    position: sticky !important;
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 380px !important;
+    max-height: none !important;
+    padding: 26px 20px 0 20px !important;
+    border-radius: 22px !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin-bottom: 24px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card:nth-child(1) {
+    top: calc(var(--header-height, 72px) + 10px) !important;
+    z-index: 1 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card:nth-child(2) {
+    top: calc(var(--header-height, 72px) + 10px + 20px) !important;
+    z-index: 2 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card:nth-child(3) {
+    top: calc(var(--header-height, 72px) + 10px + 40px) !important;
+    z-index: 3 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card:nth-child(4) {
+    top: calc(var(--header-height, 72px) + 10px + 60px) !important;
+    z-index: 4 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card:nth-child(5) {
+    top: calc(var(--header-height, 72px) + 10px + 80px) !important;
+    z-index: 5 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card:nth-child(6) {
+    top: calc(var(--header-height, 72px) + 10px + 100px) !important;
+    z-index: 6 !important;
+    margin-bottom: 0 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card-title {
+    font-size: 19px !important;
+    white-space: normal !important;
+    min-height: auto !important;
+    margin-bottom: 8px !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-bottom: 0 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-img,
+  body.custom-apps-page .uiux-expertise-img--websites,
+  body.custom-apps-page .uiux-expertise-img--webapps,
+  body.custom-apps-page .uiux-expertise-img--enterprise {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 195px !important;
     margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 18px !important;
     margin-bottom: 0 !important;
     transform: rotate(0deg) !important;
     transform-origin: center center !important;
-    border-radius: 8px 8px 0 0 !important;
+    border-radius: 10px 10px 0 0 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
   }
+
   body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img,
   body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--websites,
   body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--webapps,
   body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise {
-    transform: rotate(0deg) scale(1.02) !important;
+    transform: rotate(0deg) translateY(-2px) !important;
   }
 }
+
 
 /* ==========================================================================
    TECHNOLOGY BUILT AROUND YOUR PROCESS SECTION
@@ -928,14 +1021,17 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise
     overflow: hidden;
   }
 
-  .dashboards-cta-group .start-project-btn,
-  .dashboards-cta-group .hero-btn {
+  .dashboards-cta-group .start-project-btn {
     width: 100% !important;
     max-width: 100% !important;
     justify-content: center !important;
     box-sizing: border-box !important;
     flex: 0 0 auto !important;
     display: flex !important;
+  }
+
+  .dashboards-cta-group .hero-btn {
+    display: none !important;
   }
 }
 
@@ -1027,7 +1123,7 @@ body.custom-apps-page .dev-process-step:last-child .dev-step-col-info {
 }
 
 /* ==========================================================================
-   WHY CHOOSE US (SINGLE HORIZONTAL ROW LAYOUT FOR ALL CARDS)
+   WHY CHOOSE US (SINGLE ROW ON LARGE SCREENS, 2 CARDS PER ROW ON MOBILE)
    ========================================================================== */
 body.custom-apps-page .why-approach-section {
   position: relative;
@@ -1035,37 +1131,53 @@ body.custom-apps-page .why-approach-section {
 }
 
 body.custom-apps-page .why-approach-cards-wrap {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
   gap: 16px !important;
   width: 100% !important;
   margin-top: 36px !important;
-  justify-content: space-between !important;
-  align-items: stretch !important;
+  box-sizing: border-box !important;
 }
 
 body.custom-apps-page .why-approach-row {
   display: contents !important;
 }
 
-body.custom-apps-page .uiux-why-card-outer {
-  flex: 1 1 0 !important;
+body.custom-apps-page .uiux-why-card-outer,
+body.custom-apps-page .why-approach-row-top .uiux-why-card-outer,
+body.custom-apps-page .why-approach-row-bottom .uiux-why-card-outer {
+  grid-column: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
   min-width: 0 !important;
-  max-width: none !important;
   box-sizing: border-box !important;
+  display: flex !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body.custom-apps-page .why-approach-row-bottom .uiux-why-card-outer:last-child {
+  grid-column: auto !important;
+  max-width: 100% !important;
+  margin: 0 !important;
 }
 
 body.custom-apps-page .why-approach-section .uiux-why-card-inner {
   background: #FEF6E9 !important;
   border-radius: 20px !important;
-  padding: 26px 18px 28px 18px !important;
+  padding: 26px 18px 24px 18px !important;
   justify-content: space-between !important;
   display: flex !important;
   flex-direction: column !important;
   min-height: 180px !important;
-  height: 100% !important;
+  width: 100% !important;
   box-sizing: border-box !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+body.custom-apps-page .why-approach-section .uiux-why-card-inner:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04) !important;
 }
 
 body.custom-apps-page .why-approach-section .uiux-why-card-icon {
@@ -1073,44 +1185,93 @@ body.custom-apps-page .why-approach-section .uiux-why-card-icon {
 }
 
 body.custom-apps-page .why-approach-section .uiux-why-card-title {
+  font-family: Satoshi, 'Inter', -apple-system, sans-serif !important;
   font-size: 15px !important;
   font-weight: 700 !important;
   color: #1E293B !important;
   line-height: 1.35 !important;
   margin: 0 !important;
   letter-spacing: -0.01em !important;
+  white-space: normal !important;
   word-wrap: break-word !important;
 }
 
 @media (max-width: 1024px) {
   body.custom-apps-page .why-approach-cards-wrap {
-    flex-wrap: wrap !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 16px !important;
-  }
-  body.custom-apps-page .uiux-why-card-outer {
-    flex: 1 1 calc(33.333% - 12px) !important;
-    max-width: calc(33.333% - 12px) !important;
   }
 }
 
 @media (max-width: 768px) {
-  body.custom-apps-page .uiux-why-card-outer {
-    flex: 1 1 calc(50% - 10px) !important;
-    max-width: calc(50% - 10px) !important;
+  body.custom-apps-page .why-approach-cards-wrap {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+    margin-top: 24px !important;
+  }
+
+  body.custom-apps-page .uiux-why-card-outer,
+  body.custom-apps-page .why-approach-row-top .uiux-why-card-outer,
+  body.custom-apps-page .why-approach-row-bottom .uiux-why-card-outer,
+  body.custom-apps-page .why-approach-row-bottom .uiux-why-card-outer:last-child {
+    grid-column: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.custom-apps-page .why-approach-section .uiux-why-card-inner {
+    padding: 24px 18px !important;
+    min-height: 145px !important;
+    border-radius: 16px !important;
+  }
+
+  body.custom-apps-page .why-approach-section .uiux-why-card-title {
+    font-size: 15px !important;
+  }
+
+  body.custom-apps-page .why-approach-section .uiux-why-card-icon {
+    margin-bottom: 18px !important;
   }
 }
 
 @media (max-width: 480px) {
-  body.custom-apps-page .uiux-why-card-outer {
-    flex: 1 1 100% !important;
+  body.custom-apps-page .why-approach-cards-wrap {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  body.custom-apps-page .uiux-why-card-outer,
+  body.custom-apps-page .why-approach-row-top .uiux-why-card-outer,
+  body.custom-apps-page .why-approach-row-bottom .uiux-why-card-outer,
+  body.custom-apps-page .why-approach-row-bottom .uiux-why-card-outer:last-child {
+    grid-column: auto !important;
     max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.custom-apps-page .why-approach-section .uiux-why-card-inner {
+    padding: 20px 14px !important;
+    min-height: 135px !important;
+  }
+
+  body.custom-apps-page .why-approach-section .uiux-why-card-title {
+    font-size: 14px !important;
   }
 }
 
-
-
-
-
-
+/* ==========================================================================
+   MOBILE VIEW SECTION VISIBILITY: HIDE ROLE SEPARATION & HOW WE WORK
+   ========================================================================== */
+@media (max-width: 768px) {
+  body.custom-apps-page #role-separation,
+  body.custom-apps-page .role-separation-section,
+  body.custom-apps-page #process,
+  body.custom-apps-page .how-we-work-section,
+  body.custom-apps-page .dashboards-cta-group .hero-btn {
+    display: none !important;
+  }
+}
 
 
