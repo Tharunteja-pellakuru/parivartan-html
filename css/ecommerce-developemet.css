@@ -938,9 +938,146 @@ body.ecommerce-page {
     border-radius: 18px !important;
   }
 
-  /* Single Column Grids */
-  body.ecommerce-page .ecommerce-cards-grid,
-  body.ecommerce-page .ecommerce-platforms-grid,
+  /* Journey Cards Sticky Stack */
+  :root,
+  body.ecommerce-page .ecommerce-journey-section {
+    --top-gap: calc(var(--header-height, 72px) + 12px);
+    --card-h: clamp(230px, 32vh, 260px);
+  }
+
+  body.ecommerce-page .ecommerce-journey-section {
+    padding-bottom: 0 !important;
+  }
+
+  body.ecommerce-page .ecommerce-journey-section .uiux-container {
+    overflow: visible !important;
+  }
+
+  body.ecommerce-page .ecommerce-cards-grid {
+    display: block !important;
+    position: relative !important;
+    overflow: visible !important;
+    margin-top: 28px !important;
+    padding: 0 !important;
+  }
+
+  body.ecommerce-page .ecommerce-cards-grid::after {
+    content: '' !important;
+    display: block !important;
+    width: 100% !important;
+    height: 60px !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  body.ecommerce-page .ecommerce-card {
+    position: sticky !important;
+    top: calc(env(safe-area-inset-top, 0px) + var(--top-gap)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: var(--card-h) !important;
+    min-height: var(--card-h) !important;
+    max-height: var(--card-h) !important;
+    padding: 24px 20px !important;
+    border-radius: 20px !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    transition: none !important;
+  }
+
+  body.ecommerce-page .ecommerce-card:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  body.ecommerce-page .ecommerce-card:nth-child(1) { z-index: 1 !important; }
+  body.ecommerce-page .ecommerce-card:nth-child(2) { z-index: 2 !important; }
+  body.ecommerce-page .ecommerce-card:nth-child(3) { z-index: 3 !important; }
+  body.ecommerce-page .ecommerce-card:nth-child(4) { z-index: 4 !important; }
+  body.ecommerce-page .ecommerce-card:nth-child(5) { z-index: 5 !important; }
+  body.ecommerce-page .ecommerce-card:nth-child(6) { z-index: 6 !important; }
+
+  body.ecommerce-page .ecommerce-card:hover {
+    transform: none !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* Platforms Cards Sticky Stack */
+  :root,
+  body.ecommerce-page .ecommerce-platforms-section {
+    --top-gap: calc(var(--header-height, 72px) + 12px);
+    --card-h: clamp(400px, 58vh, 440px);
+  }
+
+  body.ecommerce-page .ecommerce-platforms-section {
+    padding-bottom: 0 !important;
+  }
+
+  body.ecommerce-page .ecommerce-platforms-section .uiux-container {
+    overflow: visible !important;
+  }
+
+  body.ecommerce-page .ecommerce-platforms-grid {
+    display: block !important;
+    position: relative !important;
+    overflow: visible !important;
+    margin-top: 28px !important;
+    padding: 0 !important;
+  }
+
+  body.ecommerce-page .ecommerce-platforms-grid::after {
+    content: '' !important;
+    display: block !important;
+    width: 100% !important;
+    height: 60px !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  body.ecommerce-page .ecommerce-platform-card {
+    position: sticky !important;
+    top: calc(env(safe-area-inset-top, 0px) + var(--top-gap)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: var(--card-h) !important;
+    min-height: var(--card-h) !important;
+    max-height: var(--card-h) !important;
+    padding: 24px 20px !important;
+    border-radius: 20px !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    transition: none !important;
+  }
+
+  body.ecommerce-page .ecommerce-platform-card:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  body.ecommerce-page .ecommerce-platform-card:nth-child(1) { z-index: 1 !important; }
+  body.ecommerce-page .ecommerce-platform-card:nth-child(2) { z-index: 2 !important; }
+  body.ecommerce-page .ecommerce-platform-card:nth-child(3) { z-index: 3 !important; }
+
+  body.ecommerce-page .ecommerce-platform-card:hover {
+    transform: none !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* Single Column Grids for remaining sections */
   body.ecommerce-page .ecommerce-mobile-grid,
   body.ecommerce-page .ecommerce-perf-grid,
   body.ecommerce-page .ecommerce-integrations-grid {
@@ -950,8 +1087,6 @@ body.ecommerce-page {
   }
 
   /* Card Padding Adjustments */
-  body.ecommerce-page .ecommerce-card,
-  body.ecommerce-page .ecommerce-platform-card,
   body.ecommerce-page .mobile-pillar-card,
   body.ecommerce-page .perf-focus-card,
   body.ecommerce-page .integration-badge-card {

@@ -9,12 +9,13 @@
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
+  margin-bottom: 28px;
 }
 
 .media-hero-container {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 16px 0 0 0;
+  padding: 24px 0 0 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -49,7 +50,7 @@
   line-height: 56px;
   color: #060612;
   text-align: center;
-  margin: 0 auto 36px auto;
+  margin: 0 auto;
   max-width: 900px;
 }
 
@@ -356,7 +357,7 @@
 .media-grid-section {
   width: 100%;
   background: #FFFFFF;
-  padding: 20px 40px 48px 40px;
+  padding: 0 40px 48px 40px;
   box-sizing: border-box;
 }
 
@@ -366,9 +367,7 @@
 }
 
 .media-grid-header {
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 44px;
+  display: none !important;
 }
 
 .media-grid-title {
@@ -1185,6 +1184,7 @@
 @media (max-width: 640px) {
   .media-hero-section {
     padding: 0 16px;
+    margin-bottom: 20px;
   }
 
   .media-hero-tagline span {
@@ -1194,7 +1194,7 @@
   .media-title {
     font-size: 26px;
     line-height: 34px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     padding: 0 8px;
   }
 
@@ -1361,16 +1361,17 @@
 @media (max-width: 480px) {
   .media-hero-section {
     padding: 0 14px;
+    margin-bottom: 16px;
   }
 
   .media-hero-container {
-    padding: 4px 0 0 0;
+    padding: 16px 0 0 0;
   }
 
   .media-title {
     font-size: 22px;
     line-height: 30px;
-    margin-bottom: 16px;
+    margin-bottom: 0;
     padding: 0 4px;
   }
 

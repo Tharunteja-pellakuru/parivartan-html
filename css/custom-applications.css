@@ -294,68 +294,78 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise
     overflow: visible !important;
   }
 
+  :root,
+  body.custom-apps-page .uiux-section--expertise {
+    --top-gap: calc(var(--header-height, 72px) + 12px);
+    --card-h: clamp(380px, 52vh, 405px);
+  }
+
+  body.custom-apps-page .uiux-section--expertise {
+    padding-bottom: 0 !important;
+  }
+
   body.custom-apps-page .uiux-expertise-grid {
     display: block !important;
     position: relative !important;
     overflow: visible !important;
     margin-top: 36px !important;
+    padding: 0 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-grid::after {
+    content: '' !important;
+    display: block !important;
+    width: 100% !important;
+    height: 60px !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
 
   body.custom-apps-page .uiux-expertise-card {
     position: sticky !important;
+    top: calc(env(safe-area-inset-top, 0px) + var(--top-gap)) !important;
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    height: auto !important;
-    min-height: 380px !important;
-    max-height: none !important;
-    padding: 26px 20px 0 20px !important;
+    height: var(--card-h) !important;
+    min-height: var(--card-h) !important;
+    max-height: var(--card-h) !important;
+    padding: 22px 20px 0 20px !important;
     border-radius: 22px !important;
     background: #FFFFFF !important;
     box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
     border: 1px solid rgba(0, 0, 0, 0.08) !important;
-    margin-bottom: 24px !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
-    transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+    transition: none !important;
   }
 
-  body.custom-apps-page .uiux-expertise-card:nth-child(1) {
-    top: calc(var(--header-height, 72px) + 10px) !important;
-    z-index: 1 !important;
-  }
-
-  body.custom-apps-page .uiux-expertise-card:nth-child(2) {
-    top: calc(var(--header-height, 72px) + 10px + 20px) !important;
-    z-index: 2 !important;
-  }
-
-  body.custom-apps-page .uiux-expertise-card:nth-child(3) {
-    top: calc(var(--header-height, 72px) + 10px + 40px) !important;
-    z-index: 3 !important;
-  }
-
-  body.custom-apps-page .uiux-expertise-card:nth-child(4) {
-    top: calc(var(--header-height, 72px) + 10px + 60px) !important;
-    z-index: 4 !important;
-  }
-
-  body.custom-apps-page .uiux-expertise-card:nth-child(5) {
-    top: calc(var(--header-height, 72px) + 10px + 80px) !important;
-    z-index: 5 !important;
-  }
-
-  body.custom-apps-page .uiux-expertise-card:nth-child(6) {
-    top: calc(var(--header-height, 72px) + 10px + 100px) !important;
-    z-index: 6 !important;
+  body.custom-apps-page .uiux-expertise-card:last-child {
     margin-bottom: 0 !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card:nth-child(1) { z-index: 1 !important; }
+  body.custom-apps-page .uiux-expertise-card:nth-child(2) { z-index: 2 !important; }
+  body.custom-apps-page .uiux-expertise-card:nth-child(3) { z-index: 3 !important; }
+  body.custom-apps-page .uiux-expertise-card:nth-child(4) { z-index: 4 !important; }
+  body.custom-apps-page .uiux-expertise-card:nth-child(5) { z-index: 5 !important; }
+  body.custom-apps-page .uiux-expertise-card:nth-child(6) { z-index: 6 !important; }
+  body.custom-apps-page .uiux-expertise-card:nth-child(7) { z-index: 7 !important; }
+  body.custom-apps-page .uiux-expertise-card:nth-child(8) { z-index: 8 !important; }
+
+  body.custom-apps-page .uiux-expertise-card-content {
+    min-height: auto !important;
+    flex-shrink: 0 !important;
   }
 
   body.custom-apps-page .uiux-expertise-card-title {
     font-size: 19px !important;
     white-space: normal !important;
+    line-height: 1.25 !important;
     min-height: auto !important;
     margin-bottom: 8px !important;
   }
@@ -369,28 +379,53 @@ body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise
     margin-bottom: 0 !important;
   }
 
+  body.custom-apps-page .uiux-expertise-divider {
+    margin: 8px 0 !important;
+  }
+
   body.custom-apps-page .uiux-expertise-img,
   body.custom-apps-page .uiux-expertise-img--websites,
   body.custom-apps-page .uiux-expertise-img--webapps,
   body.custom-apps-page .uiux-expertise-img--enterprise {
     width: 100% !important;
     max-width: 100% !important;
-    height: 195px !important;
+    height: 190px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    margin-top: 18px !important;
+    margin-top: auto !important;
     margin-bottom: 0 !important;
     transform: rotate(0deg) !important;
     transform-origin: center center !important;
     border-radius: 10px 10px 0 0 !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    display: block !important;
+  }
+
+  /* Disable hover effects on mobile */
+  body.custom-apps-page .uiux-expertise-card:hover {
+    transform: none !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
   }
 
   body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img,
   body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--websites,
   body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--webapps,
   body.custom-apps-page .uiux-expertise-card:hover .uiux-expertise-img--enterprise {
-    transform: rotate(0deg) translateY(-2px) !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.custom-apps-page .uiux-expertise-card {
+    padding: 24px 16px 0 16px !important;
+  }
+
+  body.custom-apps-page .uiux-expertise-card-desc {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+    margin: 0 0 16px 0 !important;
   }
 }
 

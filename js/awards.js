@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Fade in Behind the Trophy / Gallery section
-    gsap.from('.gallery-top-header, .gallery-intro-wrap', {
+    gsap.from('.gallery-top-header', {
       scrollTrigger: {
         trigger: '.gallery-showcase-section',
         start: 'top 80%',
@@ -120,4 +120,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ==========================================
+     2. TIMELINE CAROUSEL & THUMBNAIL SWITCHER
+     ========================================== */
+  const timelineCards = document.querySelectorAll('.timeline-card');
+  timelineCards.forEach(card => {
+    const mainImg = card.querySelector('.timeline-main-img');
+    const thumbs = card.querySelectorAll('.timeline-thumb');
+    const prevBtn = card.querySelector('.timeline-nav-prev');
+    const nextBtn = card.querySelector('.timeline-nav-next');
+
+    if (!mainImg || thumbs.length === 0) return;
+
+    function setActiveThumb(index) {
+      if (index < 0) index = thumbs.length - 1;
+      if (index >= thumbs.length) index = 0;
+
+      thumbs.forEach(t => t.classList.remove('is-active'));
+      const activeThumb = thumbs[index];
+      if (!activeThumb) return;
+
+      activeThumb.classList.add('is-active');
+      const newSrc = activeThumb.getAttribute('data-src');
+
+      if (newSrc && mainImg.getAttribute('src') !== newSrc) {
+        mainImg.classList.add('fade-out');
+        setTimeout(() => {
+          mainImg.src = newSrc;
+          mainImg.classList.remove('fade-out');
+        }, 150);
+      }
+    }
+
+    thumbs.forEach((thumb, idx) => {
+      thumb.addEventListener('click', () => {
+        setActiveThumb(idx);
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentActive = card.querySelector('.timeline-thumb.is-active');
+        const currentIndex = currentActive ? Array.from(thumbs).indexOf(currentActive) : 0;
+        setActiveThumb(currentIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentActive = card.querySelector('.timeline-thumb.is-active');
+        const currentIndex = currentActive ? Array.from(thumbs).indexOf(currentActive) : 0;
+        setActiveThumb(currentIndex + 1);
+      });
+    }
+  });
+
 });
+

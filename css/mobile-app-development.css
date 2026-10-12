@@ -1051,6 +1051,11 @@ body.mobile-app-page .services-header {
 }
 
 @media (max-width: 768px) {
+  #how-it-works,
+  .how-we-work-section {
+    display: none !important;
+  }
+
   .hww-card {
     padding: 32px 20px;
     border-radius: 20px;
@@ -1076,59 +1081,7 @@ body.mobile-app-page .services-header {
 }
 
 
-/* ==========================================================================
-   FAQS SECTION STYLES
-   ========================================================================== */
-.faqs-section .faqs-single-column {
-  border-radius: 24px;
-  padding: 24px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
 
-.faqs-section .faq-item-card {
-  display: flex;
-  padding: 24px 32px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
-  border-radius: 12px;
-  border-bottom: 1px solid #E5E7EB;
-  background: #FFF;
-  cursor: pointer;
-  box-sizing: border-box;
-  transition: all 0.25s ease;
-}
-
-.faqs-section .faq-item-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.faqs-section .faq-item-card.is-open {
-  border-bottom-color: rgba(117, 191, 70, 0.3);
-}
-
-.faqs-section .faq-item-card.is-open .faq-question-text {
-  color: #75BF46;
-}
-
-.faqs-section .faq-item-card.is-open .faq-toggle-btn svg circle {
-  fill: #75BF46;
-}
-
-@media (max-width: 768px) {
-  .faqs-section .faqs-single-column {
-    padding: 16px;
-    border-radius: 18px;
-  }
-  .faqs-section .faq-item-card {
-    padding: 18px 20px;
-  }
-}
 
 /* ==========================================================================
    TECH STACK CONSTELLATION SECTION
@@ -1279,6 +1232,50 @@ body.mobile-app-page .services-header {
   font-size: 16px;
   line-height: 1;
   user-select: none;
+}
+
+@media (max-width: 768px) {
+  .stack-marquee-container {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    overflow: visible !important;
+    padding: 10px 0 16px 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .stack-marquee-track {
+    animation: none !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+
+  .stack-pills-group[aria-hidden="true"] {
+    display: none !important;
+  }
+
+  .stack-pills-group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .stack-pill-arrow {
+    display: none !important;
+  }
+
+  .stack-pill {
+    font-size: 13px !important;
+    padding: 7px 16px !important;
+  }
 }
 
 /* Bottom CTA Row */
@@ -1438,8 +1435,136 @@ body.mobile-app-page .cta-container {
   }
 }
 
+/* ==========================================================================
+   WHAT WE BUILD / EXPERTISE CARDS MOBILE STICKY STACK
+   ========================================================================== */
+@media (max-width: 768px) {
+  :root,
+  body.mobile-app-page .uiux-section--expertise {
+    --top-gap: calc(var(--header-height, 72px) + 12px);
+    --card-h: clamp(380px, 52vh, 405px);
+  }
 
+  body.mobile-app-page .uiux-section--expertise {
+    padding-bottom: 0 !important;
+  }
 
+  body.mobile-app-page .uiux-section--expertise .uiux-container {
+    overflow: visible !important;
+  }
 
+  body.mobile-app-page .uiux-expertise-grid {
+    display: block !important;
+    position: relative !important;
+    overflow: visible !important;
+    margin-top: 36px !important;
+    padding: 0 !important;
+  }
 
+  body.mobile-app-page .uiux-expertise-grid::after {
+    content: '' !important;
+    display: block !important;
+    width: 100% !important;
+    height: 60px !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
 
+  body.mobile-app-page .uiux-expertise-card {
+    position: sticky !important;
+    top: calc(env(safe-area-inset-top, 0px) + var(--top-gap)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: var(--card-h) !important;
+    min-height: var(--card-h) !important;
+    max-height: var(--card-h) !important;
+    padding: 22px 20px 0 20px !important;
+    border-radius: 22px !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    transition: none !important;
+  }
+
+  body.mobile-app-page .uiux-expertise-card:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  body.mobile-app-page .uiux-expertise-card:nth-child(1) { z-index: 1 !important; }
+  body.mobile-app-page .uiux-expertise-card:nth-child(2) { z-index: 2 !important; }
+  body.mobile-app-page .uiux-expertise-card:nth-child(3) { z-index: 3 !important; }
+  body.mobile-app-page .uiux-expertise-card:nth-child(4) { z-index: 4 !important; }
+
+  body.mobile-app-page .uiux-expertise-card-content {
+    min-height: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  body.mobile-app-page .uiux-expertise-card-title {
+    font-size: 19px !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+    margin-bottom: 8px !important;
+  }
+
+  body.mobile-app-page .uiux-expertise-card-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-bottom: 0 !important;
+  }
+
+  body.mobile-app-page .uiux-expertise-divider {
+    margin: 8px 0 !important;
+  }
+
+  body.mobile-app-page .uiux-expertise-img,
+  body.mobile-app-page .uiux-expertise-img--mobile {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 190px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: auto !important;
+    margin-bottom: 0 !important;
+    transform: rotate(0deg) !important;
+    transform-origin: center center !important;
+    border-radius: 10px 10px 0 0 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    display: block !important;
+  }
+
+  /* Disable hover effects on mobile */
+  body.mobile-app-page .uiux-expertise-card:hover {
+    transform: none !important;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  body.mobile-app-page .uiux-expertise-card:hover .uiux-expertise-img,
+  body.mobile-app-page .uiux-expertise-card:hover .uiux-expertise-img--mobile {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.mobile-app-page .uiux-expertise-card {
+    padding: 24px 16px 0 16px !important;
+  }
+
+  body.mobile-app-page .uiux-expertise-card-desc {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+    margin: 0 0 16px 0 !important;
+  }
+}

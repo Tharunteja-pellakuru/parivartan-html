@@ -181,18 +181,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Open a video in the modal
   function openVideo(videoId, start, title) {
+    if (!videoId) return;
+    const startSec = parseInt(start, 10) || 0;
+    const startParam = startSec > 0 ? '&start=' + startSec : '';
     videoIframe.src = 'https://www.youtube.com/embed/' + videoId +
-      '?autoplay=1&rel=0&start=' + (start || 0);
-    if (videoTitleEl) videoTitleEl.textContent = title || '';
+      '?autoplay=1&rel=0&playsinline=1' + startParam;
+    if (videoTitleEl) videoTitleEl.textContent = title || 'Founders in Frame';
+    
     videoOverlay.style.display = 'flex';
+    void videoOverlay.offsetWidth;
+    videoOverlay.classList.add('is-active');
     document.body.style.overflow = 'hidden';
   }
 
   // Close the modal and stop playback
   function closeVideo() {
-    videoOverlay.style.display = 'none';
-    videoIframe.src = '';
-    document.body.style.overflow = '';
+    videoOverlay.classList.remove('is-active');
+    setTimeout(function() {
+      videoIframe.src = '';
+      videoOverlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 350);
   }
 
   // ── Bind every episode card directly ──
@@ -200,8 +209,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get metadata from the card itself
     var videoId = card.getAttribute('data-video-id');
     var start   = card.getAttribute('data-start') || 0;
+    var img     = card.querySelector('.fif-thumb-img');
     var titleEl = card.querySelector('.fif-episode-title');
-    var title   = titleEl ? titleEl.textContent.trim() : 'Founders in Frame';
+    var metaEl  = card.querySelector('.fif-episode-meta strong');
+
+    var title = 'Founders in Frame';
+    if (img && img.getAttribute('alt')) {
+      title = img.getAttribute('alt');
+    } else if (titleEl) {
+      title = titleEl.textContent.trim() + (metaEl ? ' — ' + metaEl.textContent.trim() : '');
+    }
 
     if (!videoId) return;
 
@@ -224,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Also bind the hero "Watch Latest Episode" button
+  // Also bind the hero "Watch Latest Episode" button if present
   var heroBtn = document.querySelector('.fif-hero-btn[data-video-id]');
   if (heroBtn) {
     heroBtn.addEventListener('click', function(e) {
@@ -238,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Close handlers ──
   if (videoCloseBtn) {
     videoCloseBtn.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       closeVideo();
     });
@@ -245,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Click backdrop (overlay) to close, but not inner modal
   videoOverlay.addEventListener('click', function(e) {
-    // Only close if clicking the dark backdrop, not the modal content
     if (e.target === videoOverlay) {
       closeVideo();
     }
@@ -259,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ESC key to close
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && videoOverlay.style.display === 'flex') {
+    if (e.key === 'Escape' && (videoOverlay.classList.contains('is-active') || videoOverlay.style.display === 'flex')) {
       closeVideo();
     }
   });
@@ -363,8 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
           method: 'POST',
           body: formData
         });
-
-});
 
 
         const responseText = await response.text();
@@ -644,11 +659,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </table>
       </div>`;
     }
-  }
-};
+});
 
-if (document.readyState !== 'loading') {
-  initContactApp();
-} else {
-  document.addEventListener('DOMContentLoaded', initContactApp);
-}
+

@@ -29,8 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (stepCards.length > 0) {
     stepCards.forEach((card) => {
       card.addEventListener('click', function () {
+        const wasActive = this.classList.contains('is-active');
         stepCards.forEach((c) => c.classList.remove('is-active'));
-        this.classList.add('is-active');
+        if (!wasActive) {
+          this.classList.add('is-active');
+        }
 
         const title = this.getAttribute('data-title');
         const caption = this.getAttribute('data-caption');
