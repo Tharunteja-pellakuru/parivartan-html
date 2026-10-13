@@ -1,4 +1,5 @@
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap');
+@import './chatbot.css';
 
 @font-face {
   font-family: "Eras Md BT";
@@ -471,6 +472,7 @@ body.menu-open header.header-container {
 .drawer-menu-item:hover,
 .drawer-menu-item.active {
   background: rgba(133, 189, 86, 0.1);
+  border-left: none !important;
 }
 
 .drawer-menu-icon {

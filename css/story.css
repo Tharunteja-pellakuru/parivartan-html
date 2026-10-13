@@ -1961,7 +1961,7 @@ body {
 
 .drawer-menu-item.active {
   background: rgba(117, 191, 70, 0.1) !important;
-  border-left: 3px solid #75BF46;
+  border-left: none !important;
 }
 
 .drawer-submenu-item.active {

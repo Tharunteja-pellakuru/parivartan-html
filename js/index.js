@@ -1,3 +1,20 @@
+/* ==========================================================================
+   Parivartan AI Chatbot Auto-Loader (Global Overlay)
+   ========================================================================== */
+(function loadParivartanChatbot() {
+  try {
+    if (window.ParivartanChatbotInitialized) return;
+    if (!document.querySelector('script[src*="chatbot.js"]')) {
+      const s = document.createElement('script');
+      s.src = './js/chatbot.js';
+      s.defer = true;
+      (document.head || document.documentElement).appendChild(s);
+    }
+  } catch (e) {
+    console.error('Chatbot loader error:', e);
+  }
+})();
+
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }

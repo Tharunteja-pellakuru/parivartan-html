@@ -11,6 +11,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Vimeo Player Fast Preconnect & DNS-Prefetch -->
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://f.vimeocdn.com" crossorigin>
+  <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin>
+  <link rel="dns-prefetch" href="https://player.vimeo.com">
+  <link rel="dns-prefetch" href="https://f.vimeocdn.com">
   <!-- GSAP CDN -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -27,6 +33,7 @@
 
   gtag('config', 'G-SPMHEDZJWJ');
 </script>
+  <link rel="stylesheet" href="./css/chatbot.css">
 </head>
 <body>
 
@@ -436,17 +443,21 @@
               </h2>
             </div>
 
-            <!-- Right Side Preview Image / Video Cover -->
+            <!-- Right Side Video -->
             <div class="awards-featured-right">
-              <div class="awards-featured-img-wrap">
-                <img src="./assets/recognition/awards/copy-of-dsc06054.webp" alt="Honoring Excellence" class="awards-featured-img"  loading="lazy" />
-                <!-- <div class="video-play-overlay">
-                  <div class="play-btn-circle">
-                    <svg width="22" height="24" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 16V2L12 9L1 16Z" stroke="white" stroke-width="2" stroke-linejoin="round" fill="none"/>
-                    </svg>
-                  </div>
-                </div> -->
+              <div class="awards-featured-video-wrap">
+                <video 
+                  class="awards-featured-video" 
+                  autoplay 
+                  loop 
+                  muted 
+                  playsinline 
+                  controls 
+                  preload="metadata"
+                >
+                  <source src="./videos/awards-intro.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
 
@@ -462,7 +473,7 @@
               <!-- Statistics Row -->
               <div class="awards-stats-row">
                 <div class="awards-stat-item">
-                  <span class="awards-stat-number">5+</span>
+                  <span class="awards-stat-number">2+</span>
                   <span class="awards-stat-label">Years Running</span>
                 </div>
                 <span class="awards-stat-divider"></span>
@@ -472,7 +483,7 @@
                 </div>
                 <span class="awards-stat-divider"></span>
                 <div class="awards-stat-item">
-                  <span class="awards-stat-number">6</span>
+                  <span class="awards-stat-number">3</span>
                   <span class="awards-stat-label">Categories</span>
                 </div>
               </div>
@@ -490,8 +501,8 @@
   <section class="contribution-section">
     <div class="contribution-container">
       
-      <!-- Left Content -->
-      <div class="contribution-left">
+      <!-- Top: Tag & Title Header -->
+      <div class="contribution-header">
         <div class="contribution-tagline">
           <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35">
             <circle cx="2" cy="2" r="1.2" fill="#69686E" />
@@ -511,9 +522,13 @@
         </div>
 
         <h2 class="contribution-heading">
-          Recognition That Comes<br />From Within
+          Recognition That Comes From Within
         </h2>
+      </div>
 
+      <!-- Bottom: Description (left) + Video (right) -->
+      <div class="contribution-body">
+        <!-- Left: Description Paragraphs -->
         <div class="contribution-paragraphs">
           <p>
             We introduced the Parivartan Excellence Awards in 2023 to recognise the people whose contribution helps Parivartan move forward. Performance matters. But contribution is about more than performance alone.
@@ -525,30 +540,27 @@
             The awards acknowledge those contributions and celebrate the people behind them.
           </p>
         </div>
-      </div>
 
-      <!-- Right Images Showcase -->
-      <div class="contribution-right">
-        <div class="contribution-images-grid">
-          
-          <!-- Left Column (2 Tech Stacked Images) -->
-          <div class="contribution-col-left">
-            <div class="contribution-img-card">
-              <img src="./assets/recognition/awards/copy-of-dsc05751.webp" alt="Collaboration and Mentorship"  loading="lazy" />
-            </div>
-            <div class="contribution-img-card">
-              <img src="./assets/recognition/awards/copy-of-dsc05758.webp" alt="Problem Solving and Ownership"  loading="lazy" />
-            </div>
-          </div>
-
-          <!-- Right Column (1 Tall Centered Image + Leaf Icon) -->
-          <div class="contribution-col-right">
-            <div class="contribution-img-card contribution-card-tall">
-              <img src="./assets/recognition/awards/copy-of-dsc05759.webp" alt="Leadership and Team Dedication"  loading="lazy" />
-              <img src="./assets/recognition/awards/contribution/vector.svg" alt="Parivartan Leaf" class="contribution-leaf-vector"  loading="lazy" />
+        <!-- Right: Video Showcase -->
+        <div class="contribution-right">
+          <div class="contribution-video-wrapper">
+            <div class="contribution-video-card">
+              <div class="contribution-video-embed-wrap">
+                <video 
+                  class="contribution-video" 
+                  autoplay 
+                  loop 
+                  muted 
+                  playsinline 
+                  controls 
+                  preload="metadata"
+                >
+                  <source src="./videos/awards-intro-original.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -587,12 +599,12 @@
       <!-- Timeline List -->
       <div class="timeline-list">
 
-        <!-- ===== Card 2023 ===== -->
-        <div class="timeline-card" data-card="2023">
+        <!-- ===== Card 2025 ===== -->
+        <div class="timeline-card" data-card="2025">
           <!-- Left: Gallery Carousel Preview -->
           <div class="timeline-card-media">
             <div class="timeline-main-display">
-              <img src="./assets/recognition/awards/copy-of-dsc05760.webp" alt="Excellence Ceremony 2023" class="timeline-main-img" id="timeline-main-2023" loading="lazy" />
+              <img src="./assets/recognition/awards/copy-of-dsc05760.webp" alt="Excellence Ceremony 2023" class="timeline-main-img" id="timeline-main-2023" loading="lazy" decoding="async" />
               <button class="timeline-nav-arrow timeline-nav-prev" type="button" aria-label="Previous image" data-target="2023">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="15 18 9 12 15 6"></polyline>
@@ -607,29 +619,29 @@
             <!-- Thumbnails Strip (6 items) -->
             <div class="timeline-thumbs-strip" data-target="2023">
               <div class="timeline-thumb is-active" data-index="0" data-src="./assets/recognition/awards/copy-of-dsc05760.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05760.webp" alt="Ceremony 2023" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05760.webp" alt="Ceremony 2023" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="1" data-src="./assets/recognition/awards/copy-of-dsc05751.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05751.webp" alt="Ceremony 2023" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05751.webp" alt="Ceremony 2023" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="2" data-src="./assets/recognition/awards/copy-of-dsc05758.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05758.webp" alt="Ceremony 2023" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05758.webp" alt="Ceremony 2023" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="3" data-src="./assets/recognition/awards/copy-of-dsc05759.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05759.webp" alt="Ceremony 2023" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05759.webp" alt="Ceremony 2023" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="4" data-src="./assets/recognition/awards/copy-of-dsc05965.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05965.webp" alt="Ceremony 2023" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05965.webp" alt="Ceremony 2023" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="5" data-src="./assets/recognition/awards/copy-of-dsc05991.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05991.webp" alt="Ceremony 2023" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05991.webp" alt="Ceremony 2023" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
 
           <!-- Right: Typography & Content -->
           <div class="timeline-card-info">
-            <div class="timeline-huge-year">2023</div>
+            <div class="timeline-huge-year">2025</div>
             <h3 class="timeline-card-title">Where It Began.</h3>
             <p class="timeline-card-desc">
               The first Parivartan Excellence Awards marked the beginning of a new tradition - recognising the people whose work, commitment, and contribution helped shape Parivartan.
@@ -640,7 +652,108 @@
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </a>
-            <img src="./assets/home/parivartan-leaf.webp" alt="Parivartan Leaf" class="timeline-card-leaf" loading="lazy" />
+            <img src="./assets/home/parivartan-leaf.webp" alt="Parivartan Leaf" class="timeline-card-leaf" loading="lazy" decoding="async" />
+          </div>
+
+          <!-- Extended Drawer (Images & Videos Tabs) -->
+          <div class="timeline-card-drawer">
+            <div class="timeline-drawer-header">
+              <div class="timeline-drawer-heading-wrap">
+                <h4 class="timeline-drawer-title">2025 Gala Highlights</h4>
+                <p class="timeline-drawer-subtitle">Browse celebration photos and official ceremony videos</p>
+              </div>
+              <div class="timeline-tabs-nav" role="tablist">
+                <button type="button" class="timeline-tab-btn is-active" data-tab="images" role="tab" aria-selected="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                  <span>Images</span>
+                </button>
+                <button type="button" class="timeline-tab-btn" data-tab="videos" role="tab" aria-selected="false">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7"/>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                  </svg>
+                  <span>Videos</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="timeline-tabs-body">
+              <!-- Images Tab Pane -->
+              <div class="timeline-tab-pane is-active" data-pane="images">
+                <div class="timeline-images-grid">
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05760.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05760.webp" alt="Excellence Ceremony Stage 2025" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Excellence Ceremony Stage</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05751.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05751.webp" alt="Award Winners Recognition" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Award Winners Recognition</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05758.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05758.webp" alt="Team Celebrations" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Team Celebration Moments</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05759.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05759.webp" alt="Honor &amp; Accolades" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Honor &amp; Leadership Accolades</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05965.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05965.webp" alt="Team Spirit &amp; Cheers" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Team Spirit &amp; Cheers</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05991.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05991.webp" alt="Gala Evening Banquet" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Gala Evening Celebrations</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Videos Tab Pane -->
+              <div class="timeline-tab-pane" data-pane="videos">
+                <div class="timeline-videos-grid">
+                  <div class="timeline-video-card-item">
+                    <div class="timeline-video-media-wrap">
+                      <video controls playsinline preload="metadata" poster="./assets/recognition/awards/copy-of-dsc06054.webp">
+                        <source src="./videos/awards-intro.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <div class="timeline-video-meta">
+                      <h5 class="timeline-video-title">Parivartan Excellence Gala Highlights</h5>
+                      <p class="timeline-video-desc">Celebrating standout team achievements and collaborative milestones</p>
+                    </div>
+                  </div>
+                  <div class="timeline-video-card-item">
+                    <div class="timeline-video-media-wrap">
+                      <video controls playsinline preload="metadata" poster="./assets/recognition/awards/copy-of-dsc05760.webp">
+                        <source src="./videos/awards-intro-original.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <div class="timeline-video-meta">
+                      <h5 class="timeline-video-title">Trophy Presentations &amp; Speeches</h5>
+                      <p class="timeline-video-desc">Moments from the grand ceremony stage and leadership talks</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -649,7 +762,7 @@
           <!-- Left: Gallery Carousel Preview -->
           <div class="timeline-card-media">
             <div class="timeline-main-display">
-              <img src="./assets/recognition/awards/copy-of-dsc06054.webp" alt="Championship Finals 2024" class="timeline-main-img" id="timeline-main-2024" loading="lazy" />
+              <img src="./assets/recognition/awards/copy-of-dsc06054.webp" alt="Championship Finals 2024" class="timeline-main-img" id="timeline-main-2024" loading="lazy" decoding="async" />
               <button class="timeline-nav-arrow timeline-nav-prev" type="button" aria-label="Previous image" data-target="2024">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="15 18 9 12 15 6"></polyline>
@@ -664,22 +777,22 @@
             <!-- Thumbnails Strip (6 items) -->
             <div class="timeline-thumbs-strip" data-target="2024">
               <div class="timeline-thumb is-active" data-index="0" data-src="./assets/recognition/awards/copy-of-dsc06054.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc06054.webp" alt="Finals 2024" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc06054.webp" alt="Finals 2024" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="1" data-src="./assets/recognition/awards/copy-of-dsc05758.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05758.webp" alt="Finals 2024" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05758.webp" alt="Finals 2024" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="2" data-src="./assets/recognition/awards/copy-of-dsc05759.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05759.webp" alt="Finals 2024" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05759.webp" alt="Finals 2024" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="3" data-src="./assets/recognition/awards/copy-of-dsc05760.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05760.webp" alt="Finals 2024" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05760.webp" alt="Finals 2024" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="4" data-src="./assets/recognition/awards/copy-of-dsc05751.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05751.webp" alt="Finals 2024" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05751.webp" alt="Finals 2024" loading="lazy" decoding="async" />
               </div>
               <div class="timeline-thumb" data-index="5" data-src="./assets/recognition/awards/copy-of-dsc05965.webp">
-                <img src="./assets/recognition/awards/copy-of-dsc05965.webp" alt="Finals 2024" loading="lazy" />
+                <img src="./assets/recognition/awards/thumbs/copy-of-dsc05965.webp" alt="Finals 2024" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -699,36 +812,110 @@
             </a>
             <img src="./assets/home/parivartan-leaf.webp" alt="Parivartan Leaf" class="timeline-card-leaf" loading="lazy" />
           </div>
-        </div>
 
-        <!-- ===== Card 2025 (Upcoming) ===== -->
-        <div class="timeline-card timeline-card--2025" data-card="2025">
-          <!-- Left: Green Dashed Loading Box -->
-          <div class="timeline-card-media">
-            <div class="timeline-loading-box">
-              <div class="timeline-trophy-icon">
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="#85BD56" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19 4H18V3C18 2.45 17.55 2 17 2H7C6.45 2 6 2.45 6 3V4H5C3.9 4 3 4.9 3 6V8C3 10.21 4.79 12 7 12H7.28C7.94 13.43 9.24 14.5 10.82 14.88V17H8C7.45 17 7 17.45 7 18C7 18.55 7.45 19 8 19H16C16.55 19 17 18.55 17 18C17 17.45 16.55 17 16 17H13.18V14.88C14.76 14.5 16.06 13.43 16.72 12H17C19.21 12 21 10.21 21 8V6C21 4.9 20.1 4 19 4ZM5 8V6H6V10.1C5.41 9.57 5 8.83 5 8ZM19 8C19 8.83 18.59 9.57 18 10.1V6H19V8Z"/>
-                </svg>
+          <!-- Extended Drawer (Images & Videos Tabs) -->
+          <div class="timeline-card-drawer">
+            <div class="timeline-drawer-header">
+              <div class="timeline-drawer-heading-wrap">
+                <h4 class="timeline-drawer-title">2024 Gala Highlights</h4>
+                <p class="timeline-drawer-subtitle">Browse celebration photos and official ceremony videos</p>
               </div>
-              <h4 class="timeline-loading-title">Loading in December!</h4>
-              <p class="timeline-loading-desc">
-                The grand nomination window opens soon. Keep consistent, support your peers, and let's make this year's gala the biggest one yet.
-              </p>
+              <div class="timeline-tabs-nav" role="tablist">
+                <button type="button" class="timeline-tab-btn is-active" data-tab="images" role="tab" aria-selected="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                  <span>Images</span>
+                </button>
+                <button type="button" class="timeline-tab-btn" data-tab="videos" role="tab" aria-selected="false">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7"/>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                  </svg>
+                  <span>Videos</span>
+                </button>
+              </div>
             </div>
-          </div>
 
-          <!-- Right: Typography & Content -->
-          <div class="timeline-card-info">
-            <div class="timeline-huge-year">2025</div>
-            <h3 class="timeline-card-title">The nomination window opens soon.</h3>
-            
-            <div class="timeline-card-corner">
-              <span class="timeline-status-pill"></span>
-              <img src="./assets/home/parivartan-leaf.webp" alt="Parivartan Leaf" class="timeline-corner-leaf" loading="lazy" />
+            <div class="timeline-tabs-body">
+              <!-- Images Tab Pane -->
+              <div class="timeline-tab-pane is-active" data-pane="images">
+                <div class="timeline-images-grid">
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc06054.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc06054.webp" alt="Championship Finals Presentation" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Championship Finals Presentation</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05758.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05758.webp" alt="Celebrating Excellence Together" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Celebrating Excellence Together</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05759.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05759.webp" alt="Festive Collaboration Moment" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Festive Collaboration Moment</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05760.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05760.webp" alt="Team Pride &amp; Recognitions" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Team Pride &amp; Recognitions</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05751.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05751.webp" alt="Individual Excellence Awards" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Individual Excellence Awards</span>
+                    </div>
+                  </div>
+                  <div class="timeline-image-item" data-full-src="./assets/recognition/awards/copy-of-dsc05965.webp">
+                    <img src="./assets/recognition/awards/thumbs/copy-of-dsc05965.webp" alt="Celebratory Toast &amp; Victory" loading="lazy" decoding="async" />
+                    <div class="timeline-image-overlay">
+                      <span class="timeline-image-caption">Celebratory Toast &amp; Victory</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Videos Tab Pane -->
+              <div class="timeline-tab-pane" data-pane="videos">
+                <div class="timeline-videos-grid">
+                  <div class="timeline-video-card-item">
+                    <div class="timeline-video-media-wrap">
+                      <video controls playsinline preload="metadata" poster="./assets/recognition/awards/copy-of-dsc06054.webp">
+                        <source src="./videos/awards-intro.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <div class="timeline-video-meta">
+                      <h5 class="timeline-video-title">2024 Excellence Awards Reel</h5>
+                      <p class="timeline-video-desc">Memories and highlights from our annual celebration</p>
+                    </div>
+                  </div>
+                  <div class="timeline-video-card-item">
+                    <div class="timeline-video-media-wrap">
+                      <video controls playsinline preload="metadata" poster="./assets/recognition/awards/copy-of-dsc05758.webp">
+                        <source src="./videos/awards-intro-original.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <div class="timeline-video-meta">
+                      <h5 class="timeline-video-title">Award Recipient Speeches</h5>
+                      <p class="timeline-video-desc">Heartfelt moments and team appreciation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+
 
       </div>
 
@@ -767,26 +954,18 @@
         <div class="gallery-col-part">
           <!-- Row 1: Full Image in Single Row -->
           <div class="gallery-card-row">
-            <div class="gallery-media-card gallery-media-card--tall">
-              <img src="./assets/recognition/awards/copy-of-dsc06054.webp" alt="Opening Ceremony 2025"  loading="lazy" />
-              <div class="gallery-play-btn" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-              <div class="gallery-card-caption">
-                Opening Ceremony 2025 <span class="caption-video-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg> Video</span>
-              </div>
+            <div class="gallery-media-card gallery-media-card--tall" data-full-src="./assets/recognition/awards/copy-of-dsc06054.webp">
+              <img src="./assets/recognition/awards/copy-of-dsc06054.webp" alt="Opening Ceremony 2025" loading="lazy" decoding="async" />
             </div>
           </div>
 
           <!-- Row 2: 2 Images -->
           <div class="gallery-card-row gallery-card-row--split">
-            <div class="gallery-media-card">
-              <img src="./assets/recognition/awards/copy-of-dsc05758.webp" alt="Team high five celebrating excellence"  loading="lazy" />
+            <div class="gallery-media-card" data-full-src="./assets/recognition/awards/copy-of-dsc05758.webp">
+              <img src="./assets/recognition/awards/copy-of-dsc05758.webp" alt="Team high five celebrating excellence" loading="lazy" decoding="async" />
             </div>
-            <div class="gallery-media-card">
-              <img src="./assets/recognition/awards/copy-of-dsc05759.webp" alt="Team member festive collaboration"  loading="lazy" />
+            <div class="gallery-media-card" data-full-src="./assets/recognition/awards/copy-of-dsc05759.webp">
+              <img src="./assets/recognition/awards/copy-of-dsc05759.webp" alt="Team member festive collaboration" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -795,26 +974,18 @@
         <div class="gallery-col-part">
           <!-- Row 1: 2 Images placed horizontally -->
           <div class="gallery-card-row gallery-card-row--split">
-            <div class="gallery-media-card">
-              <img src="./assets/recognition/awards/copy-of-dsc05760.webp" alt="Team celebrating together"  loading="lazy" />
+            <div class="gallery-media-card" data-full-src="./assets/recognition/awards/copy-of-dsc05760.webp">
+              <img src="./assets/recognition/awards/copy-of-dsc05760.webp" alt="Team celebrating together" loading="lazy" decoding="async" />
             </div>
-            <div class="gallery-media-card">
-              <img src="./assets/recognition/awards/copy-of-dsc05965.webp" alt="Team cheering victory"  loading="lazy" />
-              <div class="gallery-play-btn" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
+            <div class="gallery-media-card" data-full-src="./assets/recognition/awards/copy-of-dsc05965.webp">
+              <img src="./assets/recognition/awards/copy-of-dsc05965.webp" alt="Team cheering victory" loading="lazy" decoding="async" />
             </div>
           </div>
 
           <!-- Row 2: One Full Image in Next Row -->
           <div class="gallery-card-row">
-            <div class="gallery-media-card gallery-media-card--tall">
-              <img src="./assets/recognition/awards/copy-of-dsc05991.webp" alt="Excellence Celebration"  loading="lazy" />
-              <div class="gallery-card-caption">
-                
-              </div>
+            <div class="gallery-media-card gallery-media-card--tall" data-full-src="./assets/recognition/awards/copy-of-dsc05991.webp">
+              <img src="./assets/recognition/awards/copy-of-dsc05991.webp" alt="Excellence Celebration" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -1469,7 +1640,23 @@
     </div>
   </footer>
 
+  <!-- Awards Lightbox Modal for Full-res Image Viewing -->
+  <div class="awards-lightbox-modal" id="awards-lightbox-modal" style="display: none;" aria-hidden="true">
+    <div class="awards-lightbox-overlay"></div>
+    <div class="awards-lightbox-content">
+      <button type="button" class="awards-lightbox-close" aria-label="Close image viewer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <img src="" alt="Award Moment Full View" class="awards-lightbox-img" id="awards-lightbox-img" />
+      <div class="awards-lightbox-caption" id="awards-lightbox-caption"></div>
+    </div>
+  </div>
+
   <script src="./js/index.js"></script>
   <script src="./js/awards.js"></script>
+  <script src="./js/chatbot.js" defer></script>
 </body>
 </html>
