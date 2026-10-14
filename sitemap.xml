@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
@@ -45,8 +46,26 @@
   </url>
   <url>
     <loc>https://eparivartan.com/seo-aeo-geo.html</loc>
-    <lastmod>2026-09-19T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
     <priority>0.90</priority>
+    <video:video>
+      <video:thumbnail_loc>https://eparivartan.com/videos/seo-typing-poster.webp</video:thumbnail_loc>
+      <video:title>Search Engine Optimisation (SEO) - Demonstration</video:title>
+      <video:description>Demonstration of organic search engine optimization and technical indexing by eParivartan.</video:description>
+      <video:content_loc>https://eparivartan.com/videos/Typing_in_search_bar_1080p_20261007125749.mp4</video:content_loc>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://eparivartan.com/videos/aeo-chat-poster.webp</video:thumbnail_loc>
+      <video:title>Answer Engine Optimisation (AEO) - AI Chat UI Animation</video:title>
+      <video:description>Visualizing how answer engines synthesize content and deliver direct structured answers.</video:description>
+      <video:content_loc>https://eparivartan.com/videos/AI_chat_interface_UI_animation_20261007181609.mp4</video:content_loc>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://eparivartan.com/videos/geo-ui-poster.webp</video:thumbnail_loc>
+      <video:title>Generative Engine Optimisation (GEO) - AI Search Visibility</video:title>
+      <video:description>Illustration of generative AI models crawling, citing, and recommending authoritative brand entities.</video:description>
+      <video:content_loc>https://eparivartan.com/videos/UI_animation_creation_instructions_1080p_20261007190831.mp4</video:content_loc>
+    </video:video>
   </url>
   <url>
     <loc>https://eparivartan.com/technology-support.html</loc>
@@ -94,8 +113,20 @@
   </url>
   <url>
     <loc>https://eparivartan.com/awards.html</loc>
-    <lastmod>2026-09-19T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-14T00:00:00+00:00</lastmod>
     <priority>0.80</priority>
+    <video:video>
+      <video:thumbnail_loc>https://eparivartan.com/videos/awards-intro-poster.webp</video:thumbnail_loc>
+      <video:title>eParivartan Excellence Gala Intro Video</video:title>
+      <video:description>Celebrating the leaders, innovators, and collaborators at eParivartan annual excellence awards.</video:description>
+      <video:content_loc>https://eparivartan.com/videos/awards-intro.mp4</video:content_loc>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://eparivartan.com/videos/awards-intro-original-poster.webp</video:thumbnail_loc>
+      <video:title>eParivartan Annual Recognition &amp; Contribution Highlights</video:title>
+      <video:description>Showcase of key team contributions and awards ceremony presentation at eParivartan.</video:description>
+      <video:content_loc>https://eparivartan.com/videos/awards-intro-original.mp4</video:content_loc>
+    </video:video>
   </url>
   <url>
     <loc>https://eparivartan.com/media.html</loc>

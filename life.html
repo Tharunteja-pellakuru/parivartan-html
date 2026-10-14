@@ -579,26 +579,6 @@
     </div>
   </section>
 
-  <!-- ==================== DIFFERENT PEOPLE ONE TEAM ==================== -->
-  <section class="life-teams-section">
-    <div class="life-page-container">
-      <div class="life-section-header">
-        <div class="life-section-header-left">
-          <div class="life-tagline">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="2" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="8" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="2" cy="12" r="1.2" fill="#69686E" /></svg>
-            <span>OUR TEAMS</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity: 0.35"><circle cx="8" cy="2" r="1.2" fill="#69686E" /><circle cx="5" cy="4.5" r="1.2" fill="#69686E" /><circle cx="2" cy="7" r="1.2" fill="#69686E" /><circle cx="5" cy="9.5" r="1.2" fill="#69686E" /><circle cx="8" cy="12" r="1.2" fill="#69686E" /></svg>
-          </div>
-          <h2 class="life-main-heading">Different People. One Team.</h2>
-        </div>
-      </div>
-
-      <div class="life-team-group-wrap">
-        <img src="./assets/about-parivartan/life/teamimage.webp" alt="Parivartan Team Group" class="life-team-group-img"  loading="lazy" />
-      </div>
-    </div>
-  </section>
-
   <!-- ==================== EXCELLENCE AWARDS ==================== -->
   <section class="life-awards-section">
     <div class="life-page-container">
@@ -695,20 +675,65 @@
           <h2 class="life-main-heading">And Then There Is Life Beyond the Screen.</h2>
         </div>
       </div>
-      <p class="life-header-desc" style="max-width: 100% !important; margin-bottom: 32px !important;">
+      <p class="life-header-desc" style="max-width: 100% !important; margin-bottom: 28px !important;">
         Not every memorable moment at Parivartan happens in front of a computer. Birthdays. Celebrations. Festivals. Team lunches. Outings. Anniversaries. Awards. And plenty of completely ordinary days that somehow become memories. After more than two decades, there are quite a few of them.
       </p>
 
-      <div class="life-masonry-grid">
-        <div class="life-masonry-item"><img src="./assets/about-parivartan/life/christmas.webp" alt="Life Beyond Screen"  loading="lazy" /></div>
-        <div class="life-masonry-item"><img src="./assets/about-parivartan/life/teamimage.webp" alt="Celebrations"  loading="lazy" /></div>
-        <div class="life-masonry-item"><img src="./assets/about-parivartan/life/parivartan-day.webp" alt="Celebrations"  loading="lazy" /></div>
-        <div class="life-masonry-item"><img src="./assets/about-parivartan/life/group1.webp" alt="Team Lunch"  loading="lazy" /></div>
-        <div class="life-masonry-item"><img src="./assets/about-parivartan/life/teamcollaboration1.webp" alt="Office Moments"  loading="lazy" /></div>
-        <div class="life-masonry-item"><img src="./assets/recognition/awards/copy-of-dsc05751.webp" alt="Parivartan Team"  loading="lazy" /></div>
+      <!-- Toggle Bar -->
+      <div class="life-beyond-toggle-bar">
+        <button class="life-beyond-toggle-btn active" id="beyond-tab-images" onclick="switchBeyondTab('images')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Images
+        </button>
+        <button class="life-beyond-toggle-btn" id="beyond-tab-videos" onclick="switchBeyondTab('videos')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/>
+          </svg>
+          Videos
+        </button>
       </div>
+
+      <!-- Images Tab -->
+      <div class="life-beyond-tab-content" id="beyond-content-images">
+        <div class="life-masonry-grid">
+          <div class="life-masonry-item"><img src="./assets/about-parivartan/life/christmas.webp" alt="Life Beyond Screen"  loading="lazy" /></div>
+          <div class="life-masonry-item"><img src="./assets/about-parivartan/life/teamimage.webp" alt="Celebrations"  loading="lazy" /></div>
+          <div class="life-masonry-item"><img src="./assets/about-parivartan/life/parivartan-day.webp" alt="Celebrations"  loading="lazy" /></div>
+          <div class="life-masonry-item"><img src="./assets/about-parivartan/life/group1.webp" alt="Team Lunch"  loading="lazy" /></div>
+          <div class="life-masonry-item"><img src="./assets/about-parivartan/life/teamcollaboration1.webp" alt="Office Moments"  loading="lazy" /></div>
+          <div class="life-masonry-item"><img src="./assets/recognition/awards/copy-of-dsc05751.webp" alt="Parivartan Team"  loading="lazy" /></div>
+        </div>
+      </div>
+
+      <!-- Videos Tab -->
+      <div class="life-beyond-tab-content" id="beyond-content-videos" style="display: none;">
+        <div class="life-videos-grid">
+          <div class="life-video-item">
+            <div class="life-video-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <p>Team Moments</p>
+            </div>
+          </div>
+          <div class="life-video-item">
+            <div class="life-video-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <p>Parivartan Day</p>
+            </div>
+          </div>
+          <div class="life-video-item">
+            <div class="life-video-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <p>Celebrations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
+
 
   <!-- ==================== CAREER / JOIN US CTA ==================== -->
   <section class="cta-section">
@@ -840,7 +865,7 @@
 
       <!-- Main block details + Form -->
       <div class="contact-row-main">
-        <form class="contact-form" action="./contact-mailer.php" method="POST">
+        <form class="contact-form" action="./contact.php" method="POST">
           <div class="contact-form-row">
             
             <div class="contact-field">
@@ -1358,6 +1383,27 @@
   <!-- Loaded JS script -->
   <script src="./js/index.js"></script>
   <script src="./js/life.js"></script>
+
+  <script>
+    function switchBeyondTab(tab) {
+      // Update buttons
+      document.querySelectorAll('.life-beyond-toggle-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      document.getElementById('beyond-tab-' + tab).classList.add('active');
+
+      // Update content panels
+      document.querySelectorAll('.life-beyond-tab-content').forEach(function(panel) {
+        panel.style.display = 'none';
+      });
+      var target = document.getElementById('beyond-content-' + tab);
+      target.style.display = 'block';
+      // Trigger fade-in animation
+      target.style.animation = 'none';
+      target.offsetHeight; // reflow
+      target.style.animation = '';
+    }
+  </script>
 
 </body>
 </html>

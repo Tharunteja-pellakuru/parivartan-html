@@ -1571,7 +1571,7 @@ body.web-dev-page .services-header {
     border-radius: 20px !important;
   }
   /* Center the 5th card nicely */
-  .why-approach-row-bottom .uiux-why-card-outer:last-child {
+  .web-dev-page .why-approach-row-bottom .uiux-why-card-outer:last-child {
     grid-column: 1 / -1 !important;
     max-width: calc(50% - 6px) !important;
     margin: 0 auto !important;
@@ -1609,7 +1609,7 @@ body.web-dev-page .services-header {
     padding: 6px !important;
     border-radius: 18px !important;
   }
-  .why-approach-row-bottom .uiux-why-card-outer:last-child {
+  .web-dev-page .why-approach-row-bottom .uiux-why-card-outer:last-child {
     max-width: calc(50% - 5px) !important;
   }
   .why-approach-section .uiux-why-card-inner {

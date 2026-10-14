@@ -658,7 +658,7 @@
         formData.append('website', enquiryState.data.website || 'N/A');
         formData.append('message', enquiryState.data.message);
 
-        fetch('./contact-mailer.php', {
+        fetch('./contact.php', {
           method: 'POST',
           body: formData
         }).catch(() => {});

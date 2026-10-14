@@ -1396,7 +1396,7 @@ const initStoryApp = () => {
     // reCAPTCHA init script configuration
     const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
     const RECAPTCHA_SITE_KEY = IS_LOCAL
-      ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Public Google validation key
+      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Public Google validation key
       : '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'; // Production key
 
     let recaptchaCheckInterval = setInterval(() => {
@@ -1420,7 +1420,6 @@ const initStoryApp = () => {
     const toast = document.querySelector('.contact-toast-container');
     const toastClose = document.querySelector('.contact-toast-close');
 
-    const BREVO_API_KEY = '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';
     const CRM_URL = 'https://crmadmin.whysocial.in/api/add-enquiry';
 
     // Clear statuses
@@ -1459,7 +1458,8 @@ const initStoryApp = () => {
       e.preventDefault();
       
       const recaptchaResponse = window.grecaptcha ? window.grecaptcha.getResponse() : '';
-      if (!recaptchaResponse) {
+      const isLocalHost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+      if (!recaptchaResponse && !isLocalHost) {
         displayFormStatus('Please complete the reCAPTCHA before submitting.', true);
         return;
       }
@@ -1491,61 +1491,22 @@ const initStoryApp = () => {
       formData.append('g-recaptcha-response', recaptchaResponse);
 
       try {
-        const response = await fetch('./contact-mailer.php', {
+        const response = await fetch('./contact.php', {
           method: 'POST',
           body: formData
         });
 
         const responseText = await response.text();
-        let result;
-        let isPhpActive = true;
+        let result = null;
         try {
           result = JSON.parse(responseText);
         } catch (parseErr) {
-          isPhpActive = false;
+          result = null;
         }
 
-        if (!response.ok || !isPhpActive || !result.success) {
-          const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
-          if (IS_LOCAL) {
-            console.warn('Local testing detected without PHP execution. Falling back to direct client-side APIs...');
-            
-            const BREVO_API_KEY = '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';
-            const CRM_URL = 'https://crmadmin.whysocial.in/api/add-enquiry';
-            const payload = { fullName, phone, email, website, service, message };
-            
-            const [emailSuccess] = await Promise.all([
-              // 1. Send admin notification email to admin team
-              sendBrevoEmail({
-                apiKey: BREVO_API_KEY,
-                sender: { name: 'eParivartan', email: 'smo@eparivartan.com' },
-                to: [
-                  { email: 'feedback@eparivartan.com', name: 'eParivartan Team' },
-                  { email: 'chaitanya.eparivartan@gmail.com', name: 'Chaitanya' }
-                ],
-                replyTo: { email, name: fullName },
-                subject: `New Enquiry — ${fullName}`,
-                htmlContent: getAdminEmailHtml(payload)
-              }),
-              // 2. Send client confirmation email
-              sendBrevoEmail({
-                apiKey: BREVO_API_KEY,
-                sender: { name: 'eParivartan', email: 'smo@eparivartan.com' },
-                to: [{ email, name: fullName }],
-                subject: "We've received your enquiry — eParivartan",
-                htmlContent: getClientEmailHtml(payload)
-              }),
-              // 3. Post lead to CRM
-              pushToCrm(CRM_URL, payload)
-            ]);
-
-            if (!emailSuccess) {
-              throw new Error('Email notification sending failed via direct API');
-            }
-          } else {
-            const errMsg = (result && result.errors) ? result.errors.join(' ') : 'Server returned an invalid response. Please try again.';
-            throw new Error(errMsg);
-          }
+        if (!response.ok || !result || !result.success) {
+          const errMsg = (result && result.errors) ? result.errors.join(' ') : 'Server returned an invalid response. Please try again.';
+          throw new Error(errMsg);
         }
 
         // Reset form inputs
@@ -1568,211 +1529,7 @@ const initStoryApp = () => {
       }
     });
 
-    async function sendBrevoEmail({ apiKey, sender, to, replyTo, subject, htmlContent }) {
-      try {
-        const body = { sender, to, subject, htmlContent };
-        if (replyTo) body.replyTo = replyTo;
-
-        const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-          method: 'POST',
-          headers: {
-            'api-key': apiKey,
-            'content-type': 'application/json',
-            accept: 'application/json'
-          },
-          body: JSON.stringify(body)
-        });
-        return response.ok;
-      } catch (e) {
-        console.error('Brevo API error: ', e);
-        return false;
-      }
-    }
-
-    async function pushToCrm(url, data) {
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-            accept: 'application/json'
-          },
-          body: JSON.stringify({
-            full_name: data.fullName,
-            phone_number: data.phone,
-            email: data.email,
-            website_url: data.website,
-            source: 'eParivartan',
-            message: data.message,
-            status: 'New'
-          })
-        });
-        return response.ok;
-      } catch (e) {
-        console.error('CRM posting error: ', e);
-        return false;
-      }
-    }
-
-    function getAdminEmailHtml(data) {
-      return `
-      <div style="background-color: #f8fafc; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 560px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);">
-          <tr>
-            <td style="padding: 40px 40px 24px 40px; text-align: center;">
-              <img src="https://eparivartan.com/images/parivartan-logo.webp" alt="eParivartan Logo" style="height: 38px; display: inline-block; vertical-align: middle;" />
-              <div style="height: 1px; background-color: #f1f5f9; margin-top: 24px;"></div>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0 40px 24px 40px;">
-              <span style="display: inline-block; background-color: #f0fdf4; color: #166534; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 6px 12px; border-radius: 20px; margin-bottom: 12px;">New Inquiry</span>
-              <h2 style="color: #0f172a; margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2;">Project Requirement Details</h2>
-              <p style="color: #475569; font-size: 14px; margin: 8px 0 0 0; line-height: 1.5;">A new request has been submitted through the eParivartan contact form.</p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0 40px 30px 40px;">
-              <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #f1f5f9; border-radius: 12px; overflow: hidden; background-color: #fafbfd;">
-                <tr>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; width: 30%; vertical-align: top;">
-                    <span style="color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: block;">Client Name</span>
-                  </td>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <strong style="color: #0f172a; font-size: 15px; font-weight: 600;">${data.fullName}</strong>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <span style="color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: block;">Email</span>
-                  </td>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <a href="mailto:${data.email}" style="color: #3b82f6; font-size: 15px; text-decoration: none; font-weight: 500;">${data.email}</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <span style="color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: block;">Phone</span>
-                  </td>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <span style="color: #0f172a; font-size: 15px; font-weight: 500;">${data.phone}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <span style="color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: block;">Website</span>
-                  </td>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <span style="color: #0f172a; font-size: 15px;">${data.website ? `<a href="${data.website}" style="color: #3b82f6; text-decoration: none; font-weight: 500;">${data.website}</a>` : `<span style="color: #94a3b8; font-style: italic;">Not provided</span>`}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <span style="color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: block;">Service</span>
-                  </td>
-                  <td style="padding: 16px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: top;">
-                    <span style="display: inline-block; background-color: #f1f5f9; color: #334155; font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 6px;">${data.service}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 16px 20px; vertical-align: top;">
-                    <span style="color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: block;">Message</span>
-                  </td>
-                  <td style="padding: 16px 20px; vertical-align: top;">
-                    <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0; white-space: pre-line;">${data.message ? data.message : `<span style="color: #94a3b8; font-style: italic;">No message provided</span>`}</p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0 40px 40px 40px; text-align: center;">
-              <a href="mailto:${data.email}" style="display: inline-block; background-color: #85bd56; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; box-shadow: 0 4px 6px rgba(133, 189, 86, 0.15);">
-                Reply to ${data.fullName}
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td style="background-color: #f8fafc; padding: 24px 40px; border-top: 1px solid #f1f5f9; text-align: center;">
-              <p style="margin: 0; color: #94a3b8; font-size: 12px; line-height: 1.6;">
-                This is an automated notification from <a href="https://eparivartan.com" style="color: #64748b; text-decoration: none; font-weight: 600;">eParivartan</a>.
-              </p>
-              <p style="margin: 4px 0 0 0; color: #cbd5e1; font-size: 11px;">
-                Vasudha Avenue, Kavuri Hills, Hyderabad, India
-              </p>
-            </td>
-          </tr>
-        </table>
-      </div>`;
-    }
-
-    function getClientEmailHtml(data) {
-      return `
-      <div style="background-color: #f8fafc; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 560px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);">
-          <tr>
-            <td style="padding: 40px 40px 24px 40px; text-align: center;">
-              <img src="https://eparivartan.com/images/parivartan-logo.webp" alt="eParivartan Logo" style="height: 38px; display: inline-block; vertical-align: middle;" />
-              <div style="height: 1px; background-color: #f1f5f9; margin-top: 24px;"></div>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0 40px 24px 40px;">
-              <span style="display: inline-block; background-color: #f0fdf4; color: #166534; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 6px 12px; border-radius: 20px; margin-bottom: 12px;">Enquiry Received</span>
-              <h2 style="color: #0f172a; margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2;">Thank you for reaching out! 🙏</h2>
-              <p style="color: #475569; font-size: 15px; margin: 8px 0 0 0; line-height: 1.6;">
-                Hello <strong>${data.fullName}</strong>,<br><br>
-                We're glad you visited <a href="https://eparivartan.com" style="color: #85bd56; text-decoration: none; font-weight: 600;">eparivartan.com</a>. We have received your query regarding <strong>${data.service}</strong>, and a member of our team will review it and get in touch with you shortly.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0 40px 30px 40px;">
-              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; border-left: 4px solid #85bd56; border-radius: 0 8px 8px 0;">
-                <tr>
-                  <td style="padding: 16px 20px;">
-                    <p style="margin: 0; color: #2d6a2d; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">What Happens Next?</p>
-                    <p style="margin: 6px 0 0 0; color: #475569; font-size: 14px; line-height: 1.6;">
-                      Our consultants will analyze your project description and contact you within 24 business hours to discuss the next steps.
-                    </p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0 40px 40px 40px; text-align: center;">
-              <a href="https://eparivartan.com/government.html" style="display: inline-block; background-color: #85bd56; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; box-shadow: 0 4px 6px rgba(133, 189, 86, 0.15);">
-                Explore Our Portfolio
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td style="background-color: #f8fafc; padding: 24px 40px; border-top: 1px solid #f1f5f9; text-align: center;">
-              <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="50%" style="text-align: center; padding: 10px;">
-                    <p style="margin: 0; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Direct Line</p>
-                    <p style="margin: 4px 0 0 0; font-size: 14px; color: #1e293b; font-weight: 700;">+91 98491 65443</p>
-                  </td>
-                  <td width="50%" style="text-align: center; padding: 10px; border-left: 1px solid #e2e8f0;">
-                    <p style="margin: 0; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Email Support</p>
-                    <p style="margin: 4px 0 0 0; font-size: 14px; color: #85bd56; font-weight: 700;"><a href="mailto:feedback@eparivartan.com" style="color: #85bd56; text-decoration: none;">feedback@eparivartan.com</a></p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="background-color: #0f172a; padding: 20px 40px; text-align: center;">
-              <p style="margin: 0; color: #94a3b8; font-size: 11px; line-height: 1.6;">
-                © 2026 eParivartan. Vasudha Avenue, Road No 10, Kavuri Hills, Hyderabad - 500033
-              </p>
-            </td>
-          </tr>
-        </table>
-      </div>`;
-    }
+    
   }
 };
 

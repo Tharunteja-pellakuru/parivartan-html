@@ -76,6 +76,9 @@ if ($message !== '') {
     }
 }
 
+$isLocal = in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1']) || 
+           preg_match('/^(localhost|127\.0\.0\.1)(:\d+)?$/i', $_SERVER['HTTP_HOST'] ?? '');
+
 if (empty($captcha)) {
     $errors[] = "Please complete the reCAPTCHA verification";
 }
@@ -84,7 +87,9 @@ if (empty($captcha)) {
    RECAPTCHA VERIFICATION
 ----------------------------- */
 if (empty($errors)) {
-    $secret = '6LdrhwoUAAAAAMt073rLU5v5gc79BJ-_AJnM1lK4';
+    $secret = $isLocal 
+        ? '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe' 
+        : '6LdrhwoUAAAAAMt073rLU5v5gc79BJ-_AJnM1lK4';
     
     $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -123,6 +128,7 @@ $rawEmail   = $email;
 $rawPhone   = $phone;
 $rawWebsite = $website;
 $rawMessage = $message;
+$rawService = $service;
 
 // Safe encoding for email inclusion
 $name    = htmlspecialchars($name,    ENT_QUOTES, 'UTF-8');
@@ -133,39 +139,105 @@ $service = htmlspecialchars($service, ENT_QUOTES, 'UTF-8');
 $message = nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8'));
 
 /* -----------------------------
-   BREVO API SETTINGS
+   GMAIL SMTP SETTINGS
 ----------------------------- */
-$brevoApiKey = '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';
-$fromEmail   = 'smo@eparivartan.com';
-$fromName    = 'eParivartan';
+$smtpHost  = 'smtp.gmail.com';
+$smtpPort  = 465;
+$smtpUser  = 'ceo@eparivartan.com';
+$smtpPass  = 'ymxfvkrzujvhxtxx';
+$fromEmail = 'ceo@eparivartan.com';
+$fromName  = 'eParivartan';
 
-function sendBrevoEmail($apiKey, $fromEmail, $fromName, $toEmail, $toName, $subject, $htmlContent, $replyToEmail = null, $replyToName = null) {
-    $data = [
-        'sender'      => ['name' => $fromName, 'email' => $fromEmail],
-        'to'          => [['email' => $toEmail, 'name' => $toName]],
-        'subject'     => $subject,
-        'htmlContent' => $htmlContent
-    ];
-
-    if ($replyToEmail) {
-        $data['replyTo'] = ['email' => $replyToEmail, 'name' => $replyToName ?? $replyToEmail];
+/**
+ * Send email via Gmail SSL SMTP directly using stream sockets
+ */
+function sendGmailSmtpEmail($host, $port, $user, $pass, $fromEmail, $fromName, $toEmail, $toName, $subject, $htmlContent, $replyToEmail = null, $replyToName = null) {
+    $timeout = 15;
+    $socket = @stream_socket_client("ssl://{$host}:{$port}", $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT);
+    if (!$socket) {
+        error_log("SMTP connection failed: $errstr ($errno)");
+        return false;
     }
 
-    $ch = curl_init('https://api.brevo.com/v3/smtp/email');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'accept: application/json',
-        'api-key: ' . $apiKey,
-        'content-type: application/json'
-    ]);
+    $read = function() use ($socket) {
+        $data = "";
+        while ($str = fgets($socket, 515)) {
+            $data .= $str;
+            if (substr($str, 3, 1) === " ") break;
+        }
+        return $data;
+    };
 
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    $send = function($cmd) use ($socket, $read) {
+        fputs($socket, $cmd . "\r\n");
+        return $read();
+    };
 
-    return $httpCode === 201;
+    $init = $read();
+    if (substr($init, 0, 3) !== "220") {
+        fclose($socket);
+        error_log("SMTP init error: " . $init);
+        return false;
+    }
+
+    $send("EHLO localhost");
+    $send("AUTH LOGIN");
+    $send(base64_encode($user));
+    $authRes = $send(base64_encode($pass));
+
+    if (substr($authRes, 0, 3) !== "235") {
+        fclose($socket);
+        error_log("SMTP auth error: " . $authRes);
+        return false;
+    }
+
+    $fromRes = $send("MAIL FROM: <{$fromEmail}>");
+    if (substr($fromRes, 0, 3) !== "250") {
+        fclose($socket);
+        error_log("SMTP MAIL FROM error: " . $fromRes);
+        return false;
+    }
+
+    $recipientList = is_array($toEmail) ? $toEmail : [$toEmail];
+    foreach ($recipientList as $rcpt) {
+        $toRes = $send("RCPT TO: <{$rcpt}>");
+        if (substr($toRes, 0, 3) !== "250") {
+            fclose($socket);
+            error_log("SMTP RCPT TO error for {$rcpt}: " . $toRes);
+            return false;
+        }
+    }
+
+    $dataRes = $send("DATA");
+    if (substr($dataRes, 0, 3) !== "354") {
+        fclose($socket);
+        error_log("SMTP DATA error: " . $dataRes);
+        return false;
+    }
+
+    $headers = [];
+    $headers[] = "From: =?UTF-8?B?" . base64_encode($fromName) . "?= <{$fromEmail}>";
+    if (is_array($toEmail)) {
+        $headers[] = "To: " . implode(", ", $toEmail);
+    } else {
+        $headers[] = "To: =?UTF-8?B?" . base64_encode($toName) . "?= <{$toEmail}>";
+    }
+    if ($replyToEmail) {
+        $headers[] = "Reply-To: " . ($replyToName ? "=?UTF-8?B?" . base64_encode($replyToName) . "?= " : "") . "<{$replyToEmail}>";
+    }
+    $headers[] = "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=";
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-Type: text/html; charset=UTF-8";
+    $headers[] = "Content-Transfer-Encoding: base64";
+    $headers[] = "Date: " . date("r");
+    $headers[] = "Message-ID: <" . time() . "." . uniqid() . "@eparivartan.com>";
+
+    $messageContent = implode("\r\n", $headers) . "\r\n\r\n" . chunk_split(base64_encode($htmlContent)) . "\r\n.";
+    $sendRes = $send($messageContent);
+    $send("QUIT");
+    fclose($socket);
+
+    return (substr($sendRes, 0, 3) === "250");
 }
 
 /* -----------------------------
@@ -372,50 +444,68 @@ $adminBody = '
 
 $adminSubject = "New Enquiry from $name — eParivartan";
 
-// Send emails in background
+// Send emails via Gmail SMTP
 // 1. Client Confirmation
-sendBrevoEmail($brevoApiKey, $fromEmail, $fromName, $rawEmail, $rawName, "We've received your enquiry — eParivartan", $clientBody, 'feedback@eparivartan.com', 'eParivartan');
+$clientSent = sendGmailSmtpEmail(
+    $smtpHost, $smtpPort, $smtpUser, $smtpPass,
+    $fromEmail, $fromName,
+    $rawEmail, $rawName,
+    "We've received your enquiry — eParivartan",
+    $clientBody,
+    'feedback@eparivartan.com', 'eParivartan'
+);
 
-// 2. Admin notification - feedback@eparivartan.com (COMMENTED FOR TESTING)
-sendBrevoEmail($brevoApiKey, $fromEmail, $fromName, 'feedback@eparivartan.com', 'eParivartan Team', $adminSubject, $adminBody, $rawEmail, $rawName);
+// 2. Admin notifications
+$adminEmails = ['feedback@eparivartan.com', 'chaitanya.eparivartan@gmail.com', 'ceo@eparivartan.com'];
+$adminSent = sendGmailSmtpEmail(
+    $smtpHost, $smtpPort, $smtpUser, $smtpPass,
+    $fromEmail, $fromName . ' Enquiries',
+    $adminEmails, 'eParivartan Admin',
+    $adminSubject,
+    $adminBody,
+    $rawEmail, $rawName
+);
 
-// 4. Admin notification - Chaitanya (COMMENTED FOR TESTING)
-$sent = sendBrevoEmail($brevoApiKey, $fromEmail, $fromName, 'chaitanya.eparivartan@gmail.com', 'Chaitanya', $adminSubject, $adminBody, $rawEmail, $rawName);
+$sent = $clientSent || $adminSent;
 
 /* -----------------------------
    CRM API INTEGRATION
 ----------------------------- */
-$crmUrl = 'https://crmadmin.whysocial.in/api/add-enquiry';
 $crmPayload = [
     'full_name'    => $rawName,
     'phone_number' => $rawPhone,
     'email'        => $rawEmail,
+    'service_type' => $rawService,
     'website_url'  => $rawWebsite,
     'source'       => 'eParivartan',
     'message'      => $rawMessage,
     'status'       => 'New'
 ];
 
-$crmCh = curl_init($crmUrl);
-curl_setopt($crmCh, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($crmCh, CURLOPT_POST, true);
-curl_setopt($crmCh, CURLOPT_POSTFIELDS, json_encode($crmPayload));
-curl_setopt($crmCh, CURLOPT_TIMEOUT, 10);
-curl_setopt($crmCh, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'Accept: application/json'
-]);
+// Try local CRM backend first, fallback to live
+$crmEndpoints = [
+    'http://127.0.0.1:5001/api/add-enquiry',
+    'https://crmadmin.whysocial.in/api/add-enquiry'
+];
 
-$crmResponse = curl_exec($crmCh);
-$crmHttpCode = curl_getinfo($crmCh, CURLINFO_HTTP_CODE);
-$crmError = curl_error($crmCh);
-curl_close($crmCh);
+foreach ($crmEndpoints as $crmUrl) {
+    $crmCh = curl_init($crmUrl);
+    curl_setopt($crmCh, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($crmCh, CURLOPT_POST, true);
+    curl_setopt($crmCh, CURLOPT_POSTFIELDS, json_encode($crmPayload));
+    curl_setopt($crmCh, CURLOPT_TIMEOUT, 3);
+    curl_setopt($crmCh, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'Accept: application/json'
+    ]);
 
-if ($crmError) {
-    error_log("CRM API Error (cURL): " . $crmError);
-} else {
-    if ($crmHttpCode < 200 || $crmHttpCode >= 300) {
-        error_log("CRM API Error (HTTP Code $crmHttpCode): " . $crmResponse);
+    $crmResponse = curl_exec($crmCh);
+    $crmHttpCode = curl_getinfo($crmCh, CURLINFO_HTTP_CODE);
+    $crmError = curl_error($crmCh);
+    curl_close($crmCh);
+
+    if (!$crmError && $crmHttpCode >= 200 && $crmHttpCode < 300) {
+        break;
     }
 }
 
