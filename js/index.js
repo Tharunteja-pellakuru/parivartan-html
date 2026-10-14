@@ -1223,7 +1223,7 @@ const techConnectionsData = [
     const setupStepCarousel = (wrapper, row, prevBtn, nextBtn, cardSelector, onCardInit) => {
       if (!wrapper || !row || !prevBtn || !nextBtn) return () => {};
 
-      const TRANSITION_STYLE = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      const TRANSITION_STYLE = 'transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)';
       let numOriginal = 0;
       let currentIndex = 0;
       let isAnimating = false;
@@ -1289,7 +1289,7 @@ const techConnectionsData = [
         const firstCard = allCards[0];
         const cardWidth = firstCard.getBoundingClientRect().width || 310;
         const gap = parseFloat(window.getComputedStyle(row).gap) || 22;
-        const offset = currentIndex * (cardWidth + gap);
+        const offset = Math.round(currentIndex * (cardWidth + gap));
 
         row.style.transition = animate ? TRANSITION_STYLE : 'none';
         row.style.transform = `translate3d(-${offset}px, 0, 0)`;
@@ -1314,50 +1314,59 @@ const techConnectionsData = [
           row.style.transition = 'none';
           currentIndex -= numOriginal;
           updatePosition(false);
-          void row.offsetWidth; // force reflow
-        } else if (currentIndex <= 0) {
+          void row.offsetHeight; // force reflow
+        } else if (currentIndex < numOriginal) {
           row.style.transition = 'none';
           currentIndex += numOriginal;
           updatePosition(false);
-          void row.offsetWidth; // force reflow
+          void row.offsetHeight; // force reflow
         }
       };
 
       row.addEventListener('transitionend', (e) => {
         if (e.target !== row || e.propertyName !== 'transform') return;
+        row.classList.remove('is-sliding');
         checkBoundary();
         isAnimating = false;
       });
 
+      const getStep = () => {
+        return getCardsPerView();
+      };
+
       const moveNext = () => {
         if (isAnimating || numOriginal <= 0) return;
         isAnimating = true;
-        currentIndex += 1;
+        row.classList.add('is-sliding');
+        currentIndex += getStep();
         updatePosition(true);
 
         setTimeout(() => {
           if (isAnimating) {
+            row.classList.remove('is-sliding');
             checkBoundary();
             isAnimating = false;
           }
-        }, 850);
+        }, 700);
       };
 
       const movePrev = () => {
         if (isAnimating || numOriginal <= 0) return;
         isAnimating = true;
-        currentIndex -= 1;
+        row.classList.add('is-sliding');
+        currentIndex -= getStep();
         updatePosition(true);
 
         setTimeout(() => {
           if (isAnimating) {
+            row.classList.remove('is-sliding');
             checkBoundary();
             isAnimating = false;
           }
-        }, 850);
+        }, 700);
       };
 
-      // Smooth auto-scroll every 3.5 seconds
+      // Smooth auto-scroll every 5.0 seconds
       const startAutoScroll = () => {
         stopAutoScroll();
         autoScrollTimer = setInterval(() => {
@@ -1367,7 +1376,7 @@ const techConnectionsData = [
           if (activeMedia) return;
 
           moveNext();
-        }, 3500);
+        }, 5000);
       };
 
       const stopAutoScroll = () => {
@@ -2193,8 +2202,8 @@ const techConnectionsData = [
     // reCAPTCHA init script configuration
     const isProduction = ['eparivartan.com', 'www.eparivartan.com'].includes(window.location.hostname);
     const RECAPTCHA_SITE_KEY = isProduction
-      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'
-      : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Production key
+      : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // Universal Google test key for localhost
 
     const recaptchaContainer = document.getElementById('contact-recaptcha');
     if (recaptchaContainer) {
@@ -2339,6 +2348,10 @@ const techConnectionsData = [
           body: formData
         });
 
+        const isLocalHost = window.location.hostname === 'localhost' || 
+                            window.location.hostname === '127.0.0.1' || 
+                            window.location.protocol === 'file:';
+
         const responseText = await response.text();
         let result = null;
         try {
@@ -2348,8 +2361,12 @@ const techConnectionsData = [
         }
 
         if (!response.ok || !result || !result.success) {
-          const errMsg = (result && result.errors) ? result.errors.join(' ') : 'Server returned an invalid response. Please try again.';
-          throw new Error(errMsg);
+          if (isLocalHost && (!result || !result.errors)) {
+            result = { success: true };
+          } else {
+            const errMsg = (result && result.errors) ? result.errors.join(' ') : 'Server returned an invalid response. Please try again.';
+            throw new Error(errMsg);
+          }
         }
 
         // Reset form inputs

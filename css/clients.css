@@ -357,19 +357,27 @@ body {
     padding: 12px;
   }
   .clients-hero-card-right {
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto;
     margin: 0;
+    overflow: hidden;
+    border-radius: 12px;
   }
   .clients-hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
     flex: none;
     height: 380px;
     min-height: 0;
+    border-radius: 12px;
   }
   .clients-hero-banner {
     height: 96px;
   }
   .clients-hero-card-left {
+    width: 100% !important;
+    max-width: 100% !important;
     padding: 32px 24px;
   }
 }
@@ -430,10 +438,17 @@ body {
 }
 
 @media (max-width: 600px) {
+  .clients-hero-card-right {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
   .clients-hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
     flex: none;
-    height: 280px;
+    height: 260px;
     min-height: 0;
+    border-radius: 10px;
   }
   .clients-hero-banner {
     flex-direction: column;
@@ -466,10 +481,18 @@ body {
     font-size: 10px;
     line-height: 13px;
   }
+  .clients-hero-card-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 8px;
+  }
   .clients-hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
     flex: none;
-    height: 200px;
+    height: 220px;
     min-height: 0;
+    border-radius: 8px;
   }
   .clients-hero-card-frame {
     padding: 8px;
@@ -998,111 +1021,7 @@ body {
   transform: translateX(4px);
 }
 
-/* Testimonials Carousel Nav Buttons */
-.testimonials-carousel-nav {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 24px;
-  align-self: flex-end;
-}
 
-.testimonials-nav-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1.5px solid #E0E0E0;
-  background: #FFFFFF;
-  color: #060612;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 2px 8px rgba(6, 6, 18, 0.04);
-}
-
-.testimonials-nav-btn:hover {
-  background: #85BD56;
-  border-color: #85BD56;
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(133, 189, 86, 0.35);
-}
-
-.testimonials-nav-btn:disabled,
-.testimonials-nav-btn.disabled {
-  opacity: 0.35 !important;
-  cursor: not-allowed !important;
-  pointer-events: none !important;
-  background: #F3F4F6 !important;
-  border-color: #E5E7EB !important;
-  color: #9CA3AF !important;
-  box-shadow: none !important;
-  transform: none !important;
-}
-
-.testimonials-nav-btn svg {
-  width: 16px;
-  height: 16px;
-  display: block;
-  flex-shrink: 0;
-}
-
-.written-testimonials-header-bar {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  margin-top: 48px;
-  margin-bottom: 28px;
-  width: 100%;
-}
-
-.written-testimonials-heading {
-  grid-column: 2;
-  text-align: center;
-  color: #060612;
-  font-family: Satoshi, 'Outfit', 'Inter', sans-serif;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-.written-testimonials-header-bar .testimonials-carousel-nav {
-  grid-column: 3;
-  justify-self: end;
-}
-
-@media (max-width: 768px) {
-  .written-testimonials-header-bar {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 16px !important;
-    margin-top: 32px !important;
-    margin-bottom: 20px !important;
-    width: 100% !important;
-  }
-  
-  .written-testimonials-heading {
-    font-size: 24px !important;
-    text-align: left !important;
-    width: 100% !important;
-  }
-
-  .written-testimonials-header-bar .testimonials-carousel-nav {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    align-self: flex-end !important;
-    width: auto !important;
-    gap: 12px !important;
-    grid-column: auto !important;
-    justify-self: end !important;
-  }
-}
 
 @media (max-width: 960px) {
   .industry-categories-section {

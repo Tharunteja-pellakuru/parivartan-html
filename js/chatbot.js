@@ -8,6 +8,18 @@
 (function () {
   'use strict';
 
+  // Chatbot hidden globally across all pages
+  const removeChatbot = () => {
+    const el = document.getElementById('parivartan-chatbot-root');
+    if (el) el.remove();
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', removeChatbot);
+  } else {
+    removeChatbot();
+  }
+  return;
+
   if (window.ParivartanChatbotInitialized) return;
   window.ParivartanChatbotInitialized = true;
 

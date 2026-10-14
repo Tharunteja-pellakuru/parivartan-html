@@ -80,13 +80,15 @@ $isLocal = in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1']) ||
            preg_match('/^(localhost|127\.0\.0\.1)(:\d+)?$/i', $_SERVER['HTTP_HOST'] ?? '');
 
 if (empty($captcha)) {
-    $errors[] = "Please complete the reCAPTCHA verification";
+    if (!$isLocal) {
+        $errors[] = "Please complete the reCAPTCHA verification";
+    }
 }
 
 /* -----------------------------
    RECAPTCHA VERIFICATION
 ----------------------------- */
-if (empty($errors)) {
+if (empty($errors) && !empty($captcha)) {
     $secret = $isLocal 
         ? '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe' 
         : '6LdrhwoUAAAAAMt073rLU5v5gc79BJ-_AJnM1lK4';

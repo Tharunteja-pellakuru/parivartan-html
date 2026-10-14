@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ===== reCAPTCHA Initialization ===== */
   const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
   const RECAPTCHA_SITE_KEY = IS_LOCAL
-    ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Public Google validation key
+    ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Public Google validation key
     : '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'; // Production key
 
   let recaptchaCheckInterval = setInterval(() => {

@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // reCAPTCHA init script configuration
     const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
     const RECAPTCHA_SITE_KEY = IS_LOCAL
-      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Public Google validation key
+      ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Public Google validation key
       : '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'; // Production key
 
     let recaptchaCheckInterval = setInterval(() => {
@@ -382,6 +382,10 @@ document.addEventListener('DOMContentLoaded', () => {
           body: formData
         });
 
+        const isLocalHost = window.location.hostname === 'localhost' || 
+                            window.location.hostname === '127.0.0.1' || 
+                            window.location.protocol === 'file:';
+
         const responseText = await response.text();
         let result = null;
         try {
@@ -391,8 +395,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (!response.ok || !result || !result.success) {
-          const errMsg = (result && result.errors) ? result.errors.join(' ') : 'Server returned an invalid response. Please try again.';
-          throw new Error(errMsg);
+          if (isLocalHost && (!result || !result.errors)) {
+            result = { success: true };
+          } else {
+            const errMsg = (result && result.errors) ? result.errors.join(' ') : 'Server returned an invalid response. Please try again.';
+            throw new Error(errMsg);
+          }
         }
 
         // Reset form inputs

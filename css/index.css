@@ -5007,11 +5007,16 @@ body.menu-open header.header-container {
   gap: 22px;
   width: 100%;
   box-sizing: border-box;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform;
   transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.testimonials-carousel-row.is-sliding .testimonial-card {
+  pointer-events: none;
+  transform: none !important;
 }
 
 /* Navigation Buttons at Stage Ends - Placed beside cards without overlapping */
@@ -5096,7 +5101,8 @@ body.menu-open header.header-container {
 .testimonial-card.video-card,
 .video-card {
   overflow: hidden;
-  background: #000000;
+  background: #ffffff;
+  border-radius: 16px;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   mask-image: -webkit-radial-gradient(white, black);
 }
@@ -5114,13 +5120,16 @@ body.menu-open header.header-container {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
+  border-radius: inherit;
 }
 
 .testimonial-card.video-card .video-card-bg-img,
 .video-card .video-card-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
   display: block;
   opacity: 1;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
@@ -10872,9 +10881,16 @@ a.contact-text:hover {
   }
 }
 
-
-
-
-
+/* Chatbot hidden globally */
+#parivartan-chatbot-root,
+.chatbot-launcher-btn,
+.chatbot-bubble-prompt,
+.chatbot-window-panel,
+.chatbot-window {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 
 
