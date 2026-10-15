@@ -268,4 +268,93 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ==========================================
+     7. LIFE VIDEOS LIGHTBOX MODAL HANDLER
+     ========================================== */
+  const videoModal = document.getElementById('life-video-modal');
+  const videoDialog = document.getElementById('life-video-dialog');
+  const videoFrame = document.getElementById('life-video-frame');
+  const videoIframe = document.getElementById('life-video-iframe');
+  const videoCloseBtn = document.getElementById('life-video-close');
+  const videoOverlay = document.getElementById('life-video-overlay');
+  if (videoModal && videoIframe) {
+    const openVideoModal = (videoId, title, aspect) => {
+      if (!videoId) return;
+
+      if (aspect === 'reel') {
+        if (videoDialog) videoDialog.classList.add('is-reel-modal');
+        if (videoFrame) videoFrame.classList.add('is-reel');
+      } else {
+        if (videoDialog) videoDialog.classList.remove('is-reel-modal');
+        if (videoFrame) videoFrame.classList.remove('is-reel');
+      }
+
+      videoIframe.src = 'https://player.vimeo.com/video/' + videoId + '?autoplay=1&badge=0&autopause=0&title=0&byline=0&portrait=0&playsinline=1';
+      videoModal.style.display = 'flex';
+      videoModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeVideoModal = () => {
+      videoModal.style.display = 'none';
+      videoModal.setAttribute('aria-hidden', 'true');
+      videoIframe.src = ''; // Stop playback immediately
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.life-video-card').forEach(card => {
+      const videoId = card.getAttribute('data-video-id');
+      const title = card.getAttribute('data-video-title');
+      const aspect = card.getAttribute('data-video-aspect');
+
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        openVideoModal(videoId, title, aspect);
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openVideoModal(videoId, title, aspect);
+        }
+      });
+    });
+
+    if (videoCloseBtn) videoCloseBtn.addEventListener('click', closeVideoModal);
+    if (videoOverlay) videoOverlay.addEventListener('click', closeVideoModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal.style.display === 'flex') {
+        closeVideoModal();
+      }
+    });
+  }
+
+  // Beyond the Desk Tab Switching (Images vs Videos)
+  const beyondTabImages = document.getElementById('beyond-tab-images');
+  const beyondTabVideos = document.getElementById('beyond-tab-videos');
+  const beyondContentImages = document.getElementById('beyond-content-images');
+  const beyondContentVideos = document.getElementById('beyond-content-videos');
+
+  const setBeyondActiveTab = (tab) => {
+    if (beyondTabImages) beyondTabImages.classList.toggle('active', tab === 'images');
+    if (beyondTabVideos) beyondTabVideos.classList.toggle('active', tab === 'videos');
+    if (beyondContentImages) beyondContentImages.style.display = tab === 'images' ? 'block' : 'none';
+    if (beyondContentVideos) beyondContentVideos.style.display = tab === 'videos' ? 'block' : 'none';
+  };
+
+  if (beyondTabImages) {
+    beyondTabImages.addEventListener('click', (e) => {
+      e.preventDefault();
+      setBeyondActiveTab('images');
+    });
+  }
+  if (beyondTabVideos) {
+    beyondTabVideos.addEventListener('click', (e) => {
+      e.preventDefault();
+      setBeyondActiveTab('videos');
+    });
+  }
+  window.switchBeyondTab = setBeyondActiveTab;
 });

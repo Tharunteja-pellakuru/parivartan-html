@@ -1,0 +1,23 @@
+# ====================================================================
+# eParivartan Canonical SEO & Redirect Rules
+# ====================================================================
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# 1. Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Redirect www to non-www (Single Canonical Host)
+# Users typing www.eparivartan.com are cleanly routed to eparivartan.com
+RewriteCond %{HTTP_HOST} ^www\.eparivartan\.com [NC]
+RewriteRule ^(.*)$ https://eparivartan.com/$1 [L,R=301]
+
+# 3. Canonicalize /index.html to root /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
+RewriteRule ^index\.html$ https://eparivartan.com/ [R=301,L]
+</IfModule>
+
+# Custom 404 Error Page
+ErrorDocument 404 /404.html
