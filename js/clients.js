@@ -318,18 +318,26 @@ const initClientsApp = () => {
       opt.classList.toggle('active', isMatch);
     });
 
-    // 3. Filter Marquee Rows
+    // 3. Filter Marquee Rows (12 rows under "All", 3 multi-rows per category in category view)
     let visibleRowCount = 0;
     marqueeRows.forEach(row => {
       const rowCat = row.getAttribute('data-category');
+      const isAllRow = row.getAttribute('data-all') === 'true';
+
       if (selectedCategory === 'All') {
-        row.style.display = 'flex';
-        visibleRowCount++;
-      } else if (rowCat === selectedCategory) {
-        row.style.display = 'flex';
-        visibleRowCount++;
+        if (isAllRow) {
+          row.style.display = 'flex';
+          visibleRowCount++;
+        } else {
+          row.style.display = 'none';
+        }
       } else {
-        row.style.display = 'none';
+        if (rowCat === selectedCategory && !isAllRow) {
+          row.style.display = 'flex';
+          visibleRowCount++;
+        } else {
+          row.style.display = 'none';
+        }
       }
     });
 

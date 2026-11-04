@@ -798,14 +798,14 @@ body {
   transform: translateZ(0);
 }
 
-/* Left auto-scroll */
+/* Left auto-scroll — very slow and graceful */
 .marquee-left .marquee-track {
-  animation: scrollMarqueeLeft 40s linear infinite;
+  animation: scrollMarqueeLeft 90s linear infinite;
 }
 
-/* Right auto-scroll */
+/* Right auto-scroll — very slow and graceful */
 .marquee-right .marquee-track {
-  animation: scrollMarqueeRight 40s linear infinite;
+  animation: scrollMarqueeRight 90s linear infinite;
 }
 
 .marquee-row:hover .marquee-track {
