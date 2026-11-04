@@ -4818,7 +4818,7 @@ body.menu-open header.header-container {
 }
 
 .testimonials-container {
-  max-width: 1440px;
+  max-width: 1320px;
   margin: 0 auto;
   width: 100%;
   padding: 40px 0;
@@ -4902,21 +4902,23 @@ body.menu-open header.header-container {
 .testimonials-showcase-container {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 14px;
   width: 100%;
   position: relative;
   margin-top: 10px;
 }
 
-/* Google Reviews Block (Left Side) */
+/* Google Reviews Block (Left Side) - Prominent & clean */
 .google-reviews-card {
-  flex: 0 0 200px;
-  width: 200px;
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 180px;
+  max-width: 220px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 10px 0;
+  padding: 6px 0;
   flex-shrink: 0;
 }
 
@@ -4927,55 +4929,56 @@ body.menu-open header.header-container {
 }
 
 .google-icon-svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   display: block;
 }
 
 .google-brand-text {
   font-family: Satoshi, 'Inter', -apple-system, sans-serif;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   color: #111827;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .google-score-num {
   font-family: Satoshi, 'Outfit', 'Inter', -apple-system, sans-serif;
-  font-size: 64px;
+  font-size: 82px;
   font-weight: 700;
   color: #060612;
-  line-height: 1.05;
-  margin: 14px 0 10px 0;
-  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 12px 0 12px 0;
+  letter-spacing: -0.035em;
 }
 
 .google-score-meta {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .google-stars-group {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
 }
 
 .google-stars-group svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   fill: #F59E0B;
   display: block;
 }
 
 .google-ratings-count {
   font-family: Satoshi, 'Inter', -apple-system, sans-serif;
-  font-size: 13.5px;
-  color: #69686E;
-  font-weight: 400;
+  font-size: 16px;
+  color: #52525B;
+  font-weight: 500;
 }
 
 /* Carousel Stage (Right Side) */
@@ -4989,7 +4992,7 @@ body.menu-open header.header-container {
 }
 
 .testimonials-carousel-wrapper {
-  width: calc(100% - 92px);
+  width: calc(100% - 64px);
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -5025,8 +5028,8 @@ body.menu-open header.header-container {
   top: 50%;
   transform: translateY(-50%);
   z-index: 35;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 1px solid rgba(6, 6, 18, 0.1);
   background: #FFFFFF;
@@ -5049,12 +5052,12 @@ body.menu-open header.header-container {
 
 .testimonials-nav-btn.prev,
 .testimonials-prev-btn {
-  left: 4px;
+  left: 0px;
 }
 
 .testimonials-nav-btn.next,
 .testimonials-next-btn {
-  right: 4px;
+  right: 0px;
 }
 
 .testimonials-nav-btn:hover {
@@ -5082,7 +5085,8 @@ body.menu-open header.header-container {
   width: calc((100% - 44px) / 3);
   min-width: 0;
   max-width: calc((100% - 44px) / 3);
-  height: 480px;
+  aspect-ratio: 4 / 5;
+  height: auto;
   border-radius: 16px;
   box-sizing: border-box;
   position: relative;
@@ -5093,7 +5097,7 @@ body.menu-open header.header-container {
 
 .testimonial-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  box-shadow: none !important;
   z-index: 5;
 }
 
@@ -5257,7 +5261,7 @@ body.menu-open header.header-container {
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 16px;
-  padding: 34px 28px 24px 28px;
+  padding: 26px 26px 20px 26px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -5267,121 +5271,124 @@ body.menu-open header.header-container {
 
 .testimonial-card.written-card:hover {
   border-color: rgba(114, 163, 54, 0.35);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  box-shadow: none !important;
+}
+
+/* Flatten wrapper elements so children are direct flex items of the card */
+.written-card-header,
+.written-card-header .author-details {
+  display: contents;
 }
 
 /* 1. Top Centered Logo */
 .written-card-top-logo,
 .written-card-top-logo.company-logo-wrapper {
-  height: 62px;
+  order: 1;
+  height: 52px;
   max-width: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 22px auto;
+  margin: 0 auto 8px auto;
   flex-shrink: 0;
 }
 
 .written-card-top-logo .company-logo,
 .written-card-top-logo.company-logo-wrapper .company-logo {
-  max-height: 58px;
-  max-width: 145px;
+  max-height: 48px;
+  max-width: 135px;
   object-fit: contain;
 }
 
-/* 2. Card Header: Author (Left) & Stars (Right) */
-.written-card-header {
+/* 2. Rating stars directly below logo */
+.written-card-stars {
+  order: 2;
   display: flex;
-  justify-content: space-between;
+  gap: 4px;
   align-items: center;
-  gap: 12px;
-  padding-bottom: 16px;
-  margin-bottom: 20px;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 auto 8px auto;
+}
+
+.written-card-stars svg {
+  width: 16px;
+  height: 15px;
+  fill: #F2994A;
+}
+
+/* 3. 2nd row: Company Name */
+.written-card-company {
+  order: 3;
+  color: #64748B;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 auto 12px auto;
+  padding-bottom: 10px;
   border-bottom: 1px solid #ECEEF1;
   width: 100%;
+  display: block;
   box-sizing: border-box;
   flex-shrink: 0;
 }
 
-.written-card-header .author-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 4px;
-  min-width: 0;
-}
-
-.written-card .author-name {
-  color: #111827;
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 20.5px;
-  font-weight: 700;
-  line-height: 1.25;
-  text-align: left;
-  letter-spacing: -0.015em;
-}
-
-.written-card-company {
-  color: #64748B;
-  font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.3;
-  text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.written-card-stars {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  flex-shrink: 0;
-  margin: 0;
-}
-
-.written-card-stars svg {
-  width: 17px;
-  height: 16px;
-  fill: #F2994A;
-}
-
-/* 3. Review Text */
+/* 4. 3rd row: Description - fills down toward client name when content is more */
 .written-card-text {
+  order: 4;
   color: #1E293B;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.66;
-  margin: 0;
+  line-height: 1.55;
+  margin: 0 0 10px 0;
   text-align: left;
   display: -webkit-box;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* 4. Read More Button */
+/* 5. 4th row: Client Name (Left) */
+.written-card .author-name {
+  order: 5;
+  color: #111827;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: 17.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  letter-spacing: -0.015em;
+  margin-top: auto;
+  margin-bottom: 6px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* 6. Read More Button */
 .written-card-read-more {
+  order: 6;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: auto;
-  padding-top: 14px;
+  margin-top: 0;
+  padding: 0;
   color: #72A336;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   border: none;
   background: none;
-  padding-left: 0;
-  padding-right: 0;
   cursor: pointer;
   transition: color 0.2s ease, transform 0.2s ease;
   align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .written-card-read-more:hover {
@@ -5426,7 +5433,8 @@ body.menu-open header.header-container {
     flex: 0 0 calc((100% - 20px) / 2) !important;
     width: calc((100% - 20px) / 2) !important;
     max-width: calc((100% - 20px) / 2) !important;
-    height: 470px !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
   }
   .testimonials-carousel-row {
     gap: 20px;
@@ -5470,7 +5478,8 @@ body.menu-open header.header-container {
     flex: 0 0 calc(100vw - 64px);
     width: calc(100vw - 64px);
     min-width: calc(100vw - 64px);
-    height: 450px;
+    aspect-ratio: 4 / 5;
+    height: auto;
   }
   .testimonials-carousel-wrapper {
     padding: 12px 0 20px 0;

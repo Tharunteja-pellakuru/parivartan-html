@@ -273,6 +273,183 @@ const initClientsApp = () => {
      4. CONTACT FORM HANDLER & INTEGRATIONS
      (Handled uniformly across all pages by js/index.js)
      ========================================== */
+
+  /* ==========================================
+     5. CLIENT LOGOS CATEGORY FILTERING & TABS
+     ========================================== */
+  const tabButtons = document.querySelectorAll('.websites-category-tab');
+  const marqueeRows = document.querySelectorAll('.marquee-row');
+  const emptyState = document.querySelector('.clients-empty-state');
+  const emptyTitle = document.querySelector('.clients-empty-title');
+  const emptyDesc = document.querySelector('.clients-empty-desc');
+  const resetBtn = document.querySelector('.clients-empty-reset-btn');
+  const mobileDropdownTrigger = document.querySelector('.websites-dropdown-trigger');
+  const mobileDropdownOptions = document.querySelector('.websites-dropdown-options');
+  const mobileDropdownLabel = document.querySelector('.websites-dropdown-selected-label');
+  const mobileDropdownItems = document.querySelectorAll('.websites-dropdown-option');
+  const categoryTabsContainer = document.querySelector('.websites-category-tabs');
+
+  // Update dynamic --header-height for sticky category chips
+  const updateHeaderHeight = () => {
+    const header = document.querySelector('.header-container');
+    if (header) {
+      document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    }
+  };
+  updateHeaderHeight();
+  window.addEventListener('resize', updateHeaderHeight, { passive: true });
+  window.addEventListener('scroll', updateHeaderHeight, { passive: true });
+  window.addEventListener('load', updateHeaderHeight);
+
+  const filterClients = (selectedCategory) => {
+    // 1. Sync Desktop Tabs
+    tabButtons.forEach(btn => {
+      const isMatch = btn.getAttribute('data-category') === selectedCategory;
+      btn.classList.toggle('active', isMatch);
+      btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+    });
+
+    // 2. Sync Mobile Dropdown
+    if (mobileDropdownLabel) {
+      mobileDropdownLabel.textContent = selectedCategory;
+    }
+    mobileDropdownItems.forEach(opt => {
+      const isMatch = opt.getAttribute('data-category') === selectedCategory;
+      opt.classList.toggle('active', isMatch);
+    });
+
+    // 3. Filter Marquee Rows
+    let visibleRowCount = 0;
+    marqueeRows.forEach(row => {
+      const rowCat = row.getAttribute('data-category');
+      if (selectedCategory === 'All') {
+        row.style.display = 'flex';
+        visibleRowCount++;
+      } else if (rowCat === selectedCategory) {
+        row.style.display = 'flex';
+        visibleRowCount++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    // 4. Handle Empty State for categories being curated
+    if (emptyState) {
+      if (visibleRowCount === 0) {
+        emptyState.style.display = 'flex';
+        if (emptyTitle) emptyTitle.textContent = `${selectedCategory} Clients`;
+        if (emptyDesc) emptyDesc.textContent = `Client showcases for ${selectedCategory} are currently being curated. Explore our 500+ client partnerships under "All".`;
+      } else {
+        emptyState.style.display = 'none';
+      }
+    }
+
+    // 5. Scroll active tab horizontally into view
+    const activeBtn = Array.from(tabButtons).find(btn => btn.getAttribute('data-category') === selectedCategory);
+    if (activeBtn) {
+      activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    // 6. GSAP gentle reveal animation for newly visible rows
+    if (typeof gsap !== 'undefined' && visibleRowCount > 0) {
+      const visibleRows = Array.from(marqueeRows).filter(r => r.style.display !== 'none');
+      gsap.fromTo(visibleRows,
+        { opacity: 0.2, y: 14 },
+        { opacity: 1, y: 0, duration: 0.45, stagger: 0.06, ease: 'power2.out', overwrite: 'auto' }
+      );
+    }
+  };
+
+  // Bind tab click events
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-category');
+      filterClients(cat);
+    });
+  });
+
+  // Mobile Dropdown Events
+  if (mobileDropdownTrigger && mobileDropdownOptions) {
+    mobileDropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileDropdownOptions.classList.toggle('open');
+      mobileDropdownTrigger.classList.toggle('active', isOpen);
+      mobileDropdownTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    mobileDropdownItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const cat = item.getAttribute('data-category');
+        filterClients(cat);
+        mobileDropdownOptions.classList.remove('open');
+        mobileDropdownTrigger.classList.remove('active');
+        mobileDropdownTrigger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.websites-category-mobile-dropdown')) {
+        mobileDropdownOptions.classList.remove('open');
+        mobileDropdownTrigger.classList.remove('active');
+        mobileDropdownTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Reset button in empty state
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      filterClients('All');
+    });
+  }
+
+  // Enable mouse drag-to-scroll on horizontal tabs
+  if (categoryTabsContainer) {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let hasDragged = false;
+
+    categoryTabsContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      hasDragged = false;
+      categoryTabsContainer.classList.add('is-dragging');
+      startX = e.pageX - categoryTabsContainer.offsetLeft;
+      scrollLeft = categoryTabsContainer.scrollLeft;
+    });
+
+    categoryTabsContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      categoryTabsContainer.classList.remove('is-dragging');
+    });
+
+    categoryTabsContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      setTimeout(() => {
+        categoryTabsContainer.classList.remove('is-dragging');
+        hasDragged = false;
+      }, 50);
+    });
+
+    categoryTabsContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const x = e.pageX - categoryTabsContainer.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 4) {
+        hasDragged = true;
+      }
+      e.preventDefault();
+      categoryTabsContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    categoryTabsContainer.addEventListener('click', (e) => {
+      if (hasDragged) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }, true);
+  }
 };
 
 if (document.readyState !== 'loading') {

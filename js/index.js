@@ -133,7 +133,11 @@ const initIndexApp = () => {
         el.tagName.toLowerCase() !== 'footer' && 
         !el.classList.contains('services-section') && 
         el.id !== 'services' && 
-        !el.querySelector('.services-row')
+        !el.querySelector('.services-row') &&
+        !el.classList.contains('awards-hero-section') &&
+        !el.classList.contains('contribution-section') &&
+        !el.classList.contains('timeline-section') &&
+        !el.classList.contains('gallery-showcase-section')
       );
       revealTargets.forEach(el => {
         // Slide-up + fade for remaining sections as they scroll into view.
@@ -2725,17 +2729,22 @@ if (document.readyState !== 'loading') {
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.header-container');
   if (header) {
-    const updateHeader = () => {
+    const updateHeaderHeight = () => {
       document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+    };
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight, { passive: true });
+
+    let isHeaderScrolled = false;
+    const updateHeader = () => {
+      const scrolled = (window.scrollY || window.pageYOffset) > 50;
+      if (scrolled !== isHeaderScrolled) {
+        isHeaderScrolled = scrolled;
+        header.classList.toggle('scrolled', isHeaderScrolled);
       }
     };
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
-    window.addEventListener('resize', updateHeader, { passive: true });
   }
 
   // Handle click on "View Our Work" buttons & "Our Work" header link to show ONLY Header Our Work Menu

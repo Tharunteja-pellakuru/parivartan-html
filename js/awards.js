@@ -2,6 +2,38 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================
+     0. BUTTERY SMOOTH SCROLL (LENIS ENGINE)
+     ========================================== */
+  let lenis = null;
+  if (typeof Lenis !== 'undefined') {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.2,
+      infinite: false
+    });
+    window.lenis = lenis;
+
+    if (typeof ScrollTrigger !== 'undefined') {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+  }
+
+  /* ==========================================
      1. GSAP / SCROLLTRIGGER ANIMATIONS
      ========================================== */
   if (typeof gsap !== 'undefined') {
@@ -174,6 +206,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================
+     LAZY LOADER ENGINE
+     ========================================== */
+  const triggerLazyImagesIn = (container) => {
+    if (!container) return;
+    const lazyImgs = container.querySelectorAll('img[data-src]');
+    lazyImgs.forEach(img => {
+      const src = img.getAttribute('data-src');
+      if (src) {
+        img.src = src;
+        img.onload = () => img.classList.add('is-loaded');
+        if (img.complete) img.classList.add('is-loaded');
+        img.removeAttribute('data-src');
+      }
+    });
+  };
+
+  /* ==========================================
      3. TIMELINE CARD VIEW MORE & EXPANDED DRAWER
      ========================================== */
   const viewMoreButtons = document.querySelectorAll('.timeline-view-more-btn');
@@ -188,7 +237,13 @@ document.addEventListener('DOMContentLoaded', () => {
         span.textContent = isExpanded ? 'View less' : 'View more';
       }
 
-      // If opening, ensure ScrollTrigger recalculates layout heights seamlessly
+      // If opening, eagerly observe and load drawer images on demand
+      if (isExpanded) {
+        triggerLazyImagesIn(card);
+      }
+      if (window.lenis) {
+        setTimeout(() => window.lenis.resize(), 350);
+      }
       if (typeof ScrollTrigger !== 'undefined') {
         setTimeout(() => ScrollTrigger.refresh(), 350);
       }
@@ -221,11 +276,45 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
+        if (target === 'images') {
+          triggerLazyImagesIn(drawer);
+        }
+
+        if (window.lenis) {
+          setTimeout(() => window.lenis.resize(), 300);
+        }
         if (typeof ScrollTrigger !== 'undefined') {
           setTimeout(() => ScrollTrigger.refresh(), 300);
         }
       });
     });
+  });
+
+  /* ==========================================
+     4b. BEHIND THE TROPHY GALLERY VIEW MORE TOGGLE
+     ========================================== */
+  document.addEventListener('click', (e) => {
+    const galleryBtn = e.target.closest('#gallery-view-more-btn, .gallery-btn');
+    if (!galleryBtn) return;
+    e.preventDefault();
+    const galleryDrawer = document.getElementById('gallery-extended-drawer');
+    if (!galleryDrawer) return;
+    
+    const isExpanded = galleryDrawer.classList.toggle('is-expanded');
+    galleryBtn.classList.toggle('is-active', isExpanded);
+    const span = galleryBtn.querySelector('span');
+    if (span) {
+      span.textContent = isExpanded ? 'View less' : 'View more';
+    }
+    if (isExpanded) {
+      triggerLazyImagesIn(galleryDrawer);
+    }
+    if (window.lenis) {
+      setTimeout(() => window.lenis.resize(), 400);
+    }
+    if (typeof ScrollTrigger !== 'undefined') {
+      setTimeout(() => ScrollTrigger.refresh(), 400);
+    }
   });
 
   /* ==========================================
@@ -239,6 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (lightboxModal && lightboxImg) {
     const openLightbox = (src, caption) => {
+      if (window.lenis) window.lenis.stop();
       lightboxImg.src = src;
       if (lightboxCaption) lightboxCaption.textContent = caption || '';
       lightboxModal.style.display = 'flex';
@@ -251,11 +341,12 @@ document.addEventListener('DOMContentLoaded', () => {
       lightboxModal.setAttribute('aria-hidden', 'true');
       lightboxImg.src = '';
       document.body.style.overflow = '';
+      if (window.lenis) window.lenis.start();
     };
 
     document.querySelectorAll('.timeline-image-item, .gallery-media-card').forEach(item => {
       item.addEventListener('click', () => {
-        const fullSrc = item.getAttribute('data-full-src') || item.querySelector('img')?.src;
+        const fullSrc = item.getAttribute('data-full-src') || item.querySelector('img')?.getAttribute('data-src') || item.querySelector('img')?.src;
         const cap = item.querySelector('.timeline-image-caption, .gallery-card-caption')?.textContent?.trim() || item.querySelector('img')?.alt || '';
         if (fullSrc) openLightbox(fullSrc, cap);
       });

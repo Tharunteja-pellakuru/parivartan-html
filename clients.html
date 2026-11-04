@@ -6,7 +6,7 @@
   <title>Our Clients: 500+ Organisations Worldwide | eParivartan</title>
   <meta name="description" content="Parivartan is a Hyderabad digital agency building websites, web & mobile apps, ecommerce stores, branding and social media marketing for brands worldwide.">
   <link rel="canonical" href="https://eparivartan.com/clients.html">
-  <link rel="stylesheet" href="./css/index.css?v=15">
+  <link rel="stylesheet" href="./css/index.css?v=31">
   <link rel="stylesheet" href="./css/clients.css?v=3">
   <!-- Google Fonts: Outfit and Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -485,11 +485,127 @@
 
   
   <!-- ==================== CLIENT LOGOS LIST ==================== -->
-  <section class="client-logos-section">
+  <section class="client-logos-section" id="clients-showcase">
+    <!-- Category Tabs (Full Width) -->
+    <div class="websites-category-tabs" role="tablist" aria-label="Client categories">
+      <button
+        type="button"
+        role="tab"
+        aria-selected="true"
+        class="websites-category-tab active"
+        data-category="All"
+      >All</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Government"
+      >Government</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Enterprise"
+      >Enterprise</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Medical & Hospitals"
+      >Medical &amp; Hospitals</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Travel and Hospitality"
+      >Travel and Hospitality</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Corporate"
+      >Corporate</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Education"
+      >Education</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Accounts"
+      >Accounts</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Real Estate"
+      >Real Estate</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Organizations"
+      >Organizations</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Personal Branding"
+      >Personal Branding</button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        class="websites-category-tab"
+        data-category="Designs"
+      >Designs</button>
+    </div>
+
+    <!-- Mobile Category Dropdown (Mobile Only) -->
+    <div class="websites-category-mobile-dropdown">
+      <div class="websites-dropdown-container">
+        <button type="button" class="websites-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+          <span class="websites-dropdown-selected-label">All</span>
+          <span class="websites-dropdown-chevron">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#060612" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <ul class="websites-dropdown-options" role="listbox">
+          <li class="websites-dropdown-option active" data-category="All" role="option">All</li>
+          <li class="websites-dropdown-option" data-category="Government" role="option">Government</li>
+          <li class="websites-dropdown-option" data-category="Enterprise" role="option">Enterprise</li>
+          <li class="websites-dropdown-option" data-category="Medical & Hospitals" role="option">Medical &amp; Hospitals</li>
+          <li class="websites-dropdown-option" data-category="Travel and Hospitality" role="option">Travel and Hospitality</li>
+          <li class="websites-dropdown-option" data-category="Corporate" role="option">Corporate</li>
+          <li class="websites-dropdown-option" data-category="Education" role="option">Education</li>
+          <li class="websites-dropdown-option" data-category="Accounts" role="option">Accounts</li>
+          <li class="websites-dropdown-option" data-category="Real Estate" role="option">Real Estate</li>
+          <li class="websites-dropdown-option" data-category="Organizations" role="option">Organizations</li>
+          <li class="websites-dropdown-option" data-category="Personal Branding" role="option">Personal Branding</li>
+          <li class="websites-dropdown-option" data-category="Designs" role="option">Designs</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="client-logos-container">
       <div class="client-logos-marquee-wrapper">
         
-          <div class="marquee-row marquee-left">
+          <div class="marquee-row marquee-left" data-category="All">
             <div class="marquee-track">
                 <div class="marquee-logo-card">
                   <img src="./assets/home/viyash-1-7df671292b248c83b9847cd657f0facd.svg?v=2" alt="Viyash Life Sciences"  loading="lazy" />
@@ -562,7 +678,7 @@
             </div>
           </div>
         
-          <div class="marquee-row marquee-right">
+          <div class="marquee-row marquee-right" data-category="All">
             <div class="marquee-track">
                 <div class="marquee-logo-card">
                   <img src="./assets/about-parivartan/clients/images/clients/new-logos-11.webp" alt="Client Logo" />
@@ -635,7 +751,100 @@
             </div>
           </div>
         
-          <div class="marquee-row marquee-left">
+          <!-- ==================== GOVERNMENT ROW CAROUSEL 1 (Folder Logos) ==================== -->
+          <div class="marquee-row marquee-left government-marquee-row" data-category="Government">
+            <div class="marquee-track">
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/adadcl-logo.png" alt="APADCL - Bhogapuram International Airport, Govt of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cmet-logo.png" alt="C-MET - Centre for Materials for Electronics Technology, Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/arci-logo.svg" alt="ARCI - Dept of Science & Technology, Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cacm-logo.png" alt="CACM - Centre for Advanced Clean Coal Materials" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/incap-logo.png" alt="INCAP - Infrastructure Corporation of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/estic-logo.svg" alt="ESTIC" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/abs-summit-logo.jpg" alt="ABS Summit - Andhra Business Summit" loading="lazy" />
+              </div>
+              <!-- Duplicate sequence for seamless track loop -->
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/adadcl-logo.png" alt="APADCL - Bhogapuram International Airport, Govt of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cmet-logo.png" alt="C-MET - Centre for Materials for Electronics Technology, Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/arci-logo.svg" alt="ARCI - Dept of Science & Technology, Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cacm-logo.png" alt="CACM - Centre for Advanced Clean Coal Materials" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/incap-logo.png" alt="INCAP - Infrastructure Corporation of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/estic-logo.svg" alt="ESTIC" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/abs-summit-logo.jpg" alt="ABS Summit - Andhra Business Summit" loading="lazy" />
+              </div>
+            </div>
+            <div class="marquee-track" aria-hidden="true">
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/adadcl-logo.png" alt="APADCL - Bhogapuram International Airport, Govt of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cmet-logo.png" alt="C-MET - Centre for Materials for Electronics Technology, Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/arci-logo.svg" alt="ARCI - Dept of Science & Technology, Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cacm-logo.png" alt="CACM - Centre for Advanced Clean Coal Materials" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/incap-logo.png" alt="INCAP - Infrastructure Corporation of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/estic-logo.svg" alt="ESTIC" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/abs-summit-logo.jpg" alt="ABS Summit - Andhra Business Summit" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/adadcl-logo.png" alt="APADCL - Bhogapuram International Airport, Govt of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cmet-logo.png" alt="C-MET - Centre for Materials for Electronics Technology, Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/arci-logo.svg" alt="ARCI - Dept of Science & Technology, Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cacm-logo.png" alt="CACM - Centre for Advanced Clean Coal Materials" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/incap-logo.png" alt="INCAP - Infrastructure Corporation of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/estic-logo.svg" alt="ESTIC" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/abs-summit-logo.jpg" alt="ABS Summit - Andhra Business Summit" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div class="marquee-row marquee-left" data-category="All">
             <div class="marquee-track">
                 <div class="marquee-logo-card">
                   <img src="./assets/home/hero/client-logo-3.webp" alt="Client Logo" loading="lazy" />
@@ -708,7 +917,7 @@
             </div>
           </div>
         
-          <div class="marquee-row marquee-right">
+          <div class="marquee-row marquee-right" data-category="All">
             <div class="marquee-track">
                 <div class="marquee-logo-card">
                   <img src="./assets/about-parivartan/clients/images/clients/new-logos-29.webp" alt="Client Logo" />
@@ -780,6 +989,93 @@
                 </div>
             </div>
           </div>
+
+          <!-- ==================== GOVERNMENT ROW CAROUSEL 2 (Reverse Direction) ==================== -->
+          <div class="marquee-row marquee-right government-marquee-row" data-category="Government">
+            <div class="marquee-track">
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/incap-logo.png" alt="INCAP - Infrastructure Corporation of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/adadcl-logo.png" alt="APADCL - Bhogapuram Airport" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/about-parivartan/clients/images/clients/govt-1.webp" alt="Government Department Client" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cmet-logo.png" alt="C-MET" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/about-parivartan/clients/images/clients/govt-2.webp" alt="Government Client" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/arci-logo.svg" alt="ARCI - Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/about-parivartan/clients/images/clients/govt-3.webp" alt="Government Client" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cacm-logo.png" alt="CACM" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/about-parivartan/clients/images/clients/govt-4.webp" alt="Government Client" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/estic-logo.svg" alt="ESTIC" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/abs-summit-logo.jpg" alt="ABS Summit" loading="lazy" />
+              </div>
+            </div>
+            <div class="marquee-track" aria-hidden="true">
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/incap-logo.png" alt="INCAP - Infrastructure Corporation of Andhra Pradesh" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/adadcl-logo.png" alt="APADCL - Bhogapuram Airport" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/about-parivartan/clients/images/clients/govt-1.webp" alt="Government Department Client" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cmet-logo.png" alt="C-MET" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/about-parivartan/clients/images/clients/govt-2.webp" alt="Government Client" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/arci-logo.svg" alt="ARCI - Govt of India" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/about-parivartan/clients/images/clients/govt-3.webp" alt="Government Client" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/cacm-logo.png" alt="CACM" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/about-parivartan/clients/images/clients/govt-4.webp" alt="Government Client" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/estic-logo.svg" alt="ESTIC" loading="lazy" />
+              </div>
+              <div class="marquee-logo-card">
+                <img src="./assets/clients/government/abs-summit-logo.jpg" alt="ABS Summit" loading="lazy" />
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Empty State for Categories being curated -->
+      <div class="clients-empty-state" style="display: none;">
+        <div class="clients-empty-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#599632" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="clients-empty-title">Category Showcase In Progress</h3>
+        <p class="clients-empty-desc">Client showcases for this category are currently being curated. Explore our 500+ client partnerships under "All".</p>
+        <button type="button" class="clients-empty-reset-btn">View All Clients</button>
       </div>
     </div>
   </section>
@@ -1276,7 +1572,7 @@
               <!-- Card 24: Written - Satish Kumar (SRR Projects Private Limited) -->
               <div class="testimonial-card written-card has-read-more">
                 <div class="written-card-top-logo company-logo-wrapper">
-                  <img src="./assets/testimonials/dummy-logo.svg" alt="SRR Projects logo" class="company-logo" />
+                  <img src="./assets/testimonials/srr-projects-logo.webp" alt="SRR Projects logo" class="company-logo" />
                 </div>
                 <div class="written-card-header">
                   <div class="author-details">

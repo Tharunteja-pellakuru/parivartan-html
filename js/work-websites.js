@@ -213,10 +213,8 @@ const initWebsitesApp = () => {
         }
       });
 
-      // Scroll active chip into view horizontally on mobile
-      if (window.innerWidth <= 768) {
-        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
+      // Scroll active chip into view horizontally
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
       // Trigger GSAP stagger reveal animation on newly visible cards
       if (typeof gsap !== 'undefined' && visibleCount > 0) {
@@ -302,14 +300,17 @@ const initWebsitesApp = () => {
   }
 
   // Enable smooth mouse drag-to-scroll on tabs container (helpful for desktop touch/trackpad testing)
+  // Enable mouse drag-to-scroll on horizontal tabs
   const categoryTabsContainer = document.querySelector('.websites-category-tabs');
   if (categoryTabsContainer) {
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
+    let hasDragged = false;
 
     categoryTabsContainer.addEventListener('mousedown', (e) => {
       isDown = true;
+      hasDragged = false;
       categoryTabsContainer.classList.add('is-dragging');
       startX = e.pageX - categoryTabsContainer.offsetLeft;
       scrollLeft = categoryTabsContainer.scrollLeft;
@@ -322,19 +323,32 @@ const initWebsitesApp = () => {
 
     categoryTabsContainer.addEventListener('mouseup', () => {
       isDown = false;
-      categoryTabsContainer.classList.remove('is-dragging');
+      setTimeout(() => {
+        categoryTabsContainer.classList.remove('is-dragging');
+        hasDragged = false;
+      }, 50);
     });
 
     categoryTabsContainer.addEventListener('mousemove', (e) => {
       if (!isDown) return;
-      e.preventDefault();
       const x = e.pageX - categoryTabsContainer.offsetLeft;
       const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 4) {
+        hasDragged = true;
+      }
+      e.preventDefault();
       categoryTabsContainer.scrollLeft = scrollLeft - walk;
     });
+
+    categoryTabsContainer.addEventListener('click', (e) => {
+      if (hasDragged) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }, true);
   }
 
-  // Update dynamic --header-height for sticky category chips on mobile
+  // Update dynamic --header-height for sticky category chips
   const updateHeaderHeight = () => {
     const header = document.querySelector('.header-container');
     if (header) {
@@ -343,6 +357,8 @@ const initWebsitesApp = () => {
   };
   updateHeaderHeight();
   window.addEventListener('resize', updateHeaderHeight, { passive: true });
+  window.addEventListener('scroll', updateHeaderHeight, { passive: true });
+  window.addEventListener('load', updateHeaderHeight);
 
   /* ==========================================
      3B. CLICK TO TOGGLE (OPEN / CLOSE) PROJECT CARDS

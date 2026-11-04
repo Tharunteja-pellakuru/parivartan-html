@@ -1,5 +1,38 @@
 /* CSS for awards.html */
-@import url("./index.css");
+
+/* ==================== SMOOTH SCROLLING & HARDWARE ACCELERATION ==================== */
+html {
+  scroll-behavior: auto; /* Let Lenis and hardware trackpads provide fluid momentum */
+}
+
+/* Lenis smooth scroll standard styling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Hardware compositing for smoother scroll */
+.awards-featured-card,
+.timeline-card,
+.gallery-media-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 
 /* ==================== AWARDS HERO SECTION ==================== */
 .awards-hero-section {
@@ -557,7 +590,7 @@
 /* Thumbnails Strip */
 .timeline-thumbs-strip {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   gap: 10px;
   margin-top: 12px;
   width: 100%;
@@ -966,11 +999,63 @@
   font-weight: 600;
 }
 
+/* Extended Drawer for Behind The Trophy */
+.gallery-extended-drawer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.gallery-extended-drawer.is-expanded {
+  max-height: 8000px;
+  opacity: 1;
+  margin-bottom: 40px;
+}
+
+.gallery-extended-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.gallery-extended-grid .gallery-media-card {
+  height: 240px;
+}
+
 /* Bottom Action */
 .gallery-bottom-action {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.gallery-btn .arrow-icon {
+  transition: transform 0.35s ease;
+}
+
+.gallery-btn.is-active .arrow-icon {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 900px) {
+  .gallery-extended-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 540px) {
+  .gallery-extended-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .gallery-extended-grid .gallery-media-card {
+    height: 200px;
+  }
 }
 
 /* ==================== RESPONSIVE ADAPTATIONS ==================== */
@@ -1642,30 +1727,25 @@
   }
 }
 
-/* Images Grid - Symmetrical 5-Item Balanced Grid */
+/* Images Grid - Responsive 3-Column Clean Balanced Grid */
 .timeline-images-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   width: 100%;
 }
 
 .timeline-image-item {
-  grid-column: span 2;
+  grid-column: span 1;
   position: relative;
   aspect-ratio: 16 / 10;
   border-radius: 14px;
   overflow: hidden;
-  background: #060612;
+  background: linear-gradient(135deg, #f5f6f8 0%, #ebeef2 100%);
   border: 1px solid #ECECEC;
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(6, 6, 18, 0.04);
   transition: transform 0.28s ease, box-shadow 0.28s ease;
-}
-
-.timeline-images-grid > .timeline-image-item:nth-child(4),
-.timeline-images-grid > .timeline-image-item:nth-child(5) {
-  grid-column: span 3;
 }
 
 .timeline-image-item:hover {
@@ -1707,6 +1787,57 @@
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1.35;
+}
+
+/* 2024 Gallery Actual Size Display - Natural proportions without cropping */
+.timeline-card[data-card="2024"] .timeline-main-display {
+  height: 330px;
+  background: #0E1017;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-card[data-card="2024"] .timeline-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.timeline-card[data-card="2024"] .timeline-images-grid {
+  display: block;
+  column-count: 3;
+  column-gap: 16px;
+  width: 100%;
+}
+
+.timeline-card[data-card="2024"] .timeline-image-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  break-inside: avoid;
+  aspect-ratio: auto;
+  height: auto;
+  background: #FFFFFF;
+}
+
+.timeline-card[data-card="2024"] .timeline-image-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .timeline-card[data-card="2024"] .timeline-images-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .timeline-card[data-card="2024"] .timeline-images-grid {
+    column-count: 1;
+  }
 }
 
 /* Videos Grid */
@@ -1861,13 +1992,8 @@
   .timeline-images-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .timeline-image-item,
-  .timeline-images-grid > .timeline-image-item:nth-child(4),
-  .timeline-images-grid > .timeline-image-item:nth-child(5) {
+  .timeline-image-item {
     grid-column: span 1;
-  }
-  .timeline-images-grid > .timeline-image-item:last-child {
-    grid-column: span 2;
   }
   .timeline-videos-grid {
     grid-template-columns: 1fr;
@@ -1878,10 +2004,7 @@
   .timeline-images-grid {
     grid-template-columns: 1fr;
   }
-  .timeline-image-item,
-  .timeline-images-grid > .timeline-image-item:nth-child(4),
-  .timeline-images-grid > .timeline-image-item:nth-child(5),
-  .timeline-images-grid > .timeline-image-item:last-child {
+  .timeline-image-item {
     grid-column: span 1;
   }
   .timeline-drawer-header {
@@ -1896,4 +2019,19 @@
     flex: 1;
     justify-content: center;
   }
+}
+
+/* ── Smooth Lazy Loading Transitions ── */
+.lazy-award-img {
+  opacity: 0.85;
+  transition: opacity 0.35s ease;
+}
+
+.lazy-award-img.is-loaded {
+  opacity: 1;
+}
+
+.timeline-image-item,
+.gallery-media-card {
+  background: #EFEFEF;
 }
