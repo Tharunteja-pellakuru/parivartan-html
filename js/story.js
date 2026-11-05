@@ -1394,26 +1394,72 @@ const initStoryApp = () => {
     });
 
     // reCAPTCHA init script configuration
-    const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
-    const RECAPTCHA_SITE_KEY = IS_LOCAL
-      ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Public Google validation key
-      : '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx'; // Production key
+    const isProduction = ['eparivartan.com', 'www.eparivartan.com'].includes(window.location.hostname);
+    const RECAPTCHA_SITE_KEY = isProduction
+      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Production key
+      : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // Universal Google test key for localhost
 
-    let recaptchaCheckInterval = setInterval(() => {
-      if (window.grecaptcha && window.grecaptcha.render) {
+    const recaptchaContainer = document.getElementById('contact-recaptcha');
+    if (recaptchaContainer) {
+      recaptchaContainer.setAttribute('data-sitekey', RECAPTCHA_SITE_KEY);
+      recaptchaContainer.classList.add('g-recaptcha');
+    }
+
+    let recaptchaRendered = false;
+    const renderRecaptchaWidget = () => {
+      if (recaptchaRendered) return;
+      const target = document.getElementById('contact-recaptcha');
+      if (!target) return;
+      
+      if (target.children.length > 0 && target.querySelector('iframe')) {
+        recaptchaRendered = true;
+        return;
+      }
+
+      if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
         try {
-          const container = document.getElementById('contact-recaptcha');
-          if (container && container.innerHTML === '') {
-            window.grecaptcha.render('contact-recaptcha', {
-              sitekey: RECAPTCHA_SITE_KEY,
-            });
-            clearInterval(recaptchaCheckInterval);
-          }
+          window.grecaptcha.render(target, {
+            sitekey: RECAPTCHA_SITE_KEY,
+          });
+          recaptchaRendered = true;
         } catch (e) {
-          console.error('reCAPTCHA init error: ', e);
+          if (String(e).toLowerCase().includes('already been rendered')) {
+            recaptchaRendered = true;
+          } else {
+            console.warn('reCAPTCHA render notice: ', e);
+          }
         }
       }
-    }, 500);
+    };
+
+    // Ensure Google API script is present
+    if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js';
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    if (window.grecaptcha && typeof window.grecaptcha.ready === 'function') {
+      window.grecaptcha.ready(renderRecaptchaWidget);
+    }
+
+    let recaptchaAttempts = 0;
+    const recaptchaCheckInterval = setInterval(() => {
+      recaptchaAttempts++;
+      if (recaptchaRendered || recaptchaAttempts > 25) {
+        clearInterval(recaptchaCheckInterval);
+        return;
+      }
+      if (window.grecaptcha) {
+        if (typeof window.grecaptcha.ready === 'function') {
+          window.grecaptcha.ready(renderRecaptchaWidget);
+        } else if (typeof window.grecaptcha.render === 'function') {
+          renderRecaptchaWidget();
+        }
+      }
+    }, 400);
 
     // Form Submissions API Integration
     const submitBtn = contactForm.querySelector('.contact-submit-btn');
@@ -1457,10 +1503,26 @@ const initStoryApp = () => {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      const recaptchaResponse = window.grecaptcha ? window.grecaptcha.getResponse() : '';
       const isLocalHost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+      const recaptchaResponse = window.grecaptcha ? window.grecaptcha.getResponse() : '';
       if (!recaptchaResponse && !isLocalHost) {
         displayFormStatus('Please complete the reCAPTCHA before submitting.', true);
+        return;
+      }
+
+      const service = hiddenInput ? hiddenInput.value.trim() : '';
+      if (!service) {
+        displayFormStatus('Please select a service before submitting.', true);
+        return;
+      }
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      const cleanedPhone = phone.replace(/[\s\-\(\)]+/g, '');
+      if (cleanedPhone.replace(/^\+/, '').length < 10) {
+        displayFormStatus('Please enter a valid phone number (at least 10 digits).', true);
         return;
       }
 
@@ -1470,14 +1532,10 @@ const initStoryApp = () => {
       btnSpan.textContent = 'Sending…';
       clearFormStatus();
 
-      const fullName = document.getElementById('fullName').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
       let website = document.getElementById('website').value.trim();
       if (website && !/^https?:\/\//i.test(website)) {
         website = 'https://' + website;
       }
-      const service = hiddenInput.value;
       const message = document.getElementById('message').value.trim();
 
       // Submit via backend mailer
@@ -1491,14 +1549,23 @@ const initStoryApp = () => {
       formData.append('g-recaptcha-response', recaptchaResponse);
 
       try {
-        const response = await fetch('./contact.php', {
+        let targetUrl = './contact.php';
+        if (isLocalHost) {
+          // When testing locally, dispatch through the local Gmail SMTP mailer bridge to send real emails
+          try {
+            const testPing = await fetch('http://127.0.0.1:5505/', { method: 'GET' });
+            if (testPing.ok) {
+              targetUrl = 'http://127.0.0.1:5505/';
+            }
+          } catch (pingErr) {
+            targetUrl = './contact.php';
+          }
+        }
+
+        const response = await fetch(targetUrl, {
           method: 'POST',
           body: formData
         });
-
-        const isLocalHost = window.location.hostname === 'localhost' || 
-                            window.location.hostname === '127.0.0.1' || 
-                            window.location.protocol === 'file:';
 
         const responseText = await response.text();
         let result = null;
@@ -1519,7 +1586,7 @@ const initStoryApp = () => {
 
         // Reset form inputs
         contactForm.reset();
-        hiddenInput.value = '';
+        if (hiddenInput) hiddenInput.value = '';
         if (selectedDisplay) {
           selectedDisplay.textContent = 'Select service';
           selectedDisplay.classList.add('placeholder');

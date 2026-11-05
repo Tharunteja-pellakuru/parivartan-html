@@ -149,7 +149,62 @@
     <priority>0.80</priority>
   </url>
 
-  <!-- Case Studies & Project Details -->
+  <!-- Blog & Insights -->
+  <url>
+    <loc>https://eparivartan.com/blog/parivartan-means-change-new-website</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/24-years-building-technology-eparivartan</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/people-behind-parivartan</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/people-who-inspired-parivartan</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/founders-in-frame-parivartan-stories</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/estic-2025-digital-platform</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/ai-visibility-for-businesses</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/sherwood-school-seo-ai-visibility</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/cacm-2026-technology-creative-collaboration</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/viyash-listed-company-website-development</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eparivartan.com/blog/arci-government-website-technology-partnership</loc>
+    <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
   <url>
     <loc>https://eparivartan.com/blog-details.html</loc>
     <lastmod>2026-09-19T00:00:00+00:00</lastmod>

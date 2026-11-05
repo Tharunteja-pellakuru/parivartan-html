@@ -103,8 +103,15 @@ const initClientsApp = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      // Reveal section and footer as it scrolls in (exclude top hero section to avoid refresh jump)
-      const revealTargets = gsap.utils.toArray('section, footer').filter(el => !el.classList.contains('clients-hero-section') && !el.classList.contains('hero-section'));
+      // Reveal section and footer as it scrolls in (exclude top hero section, testimonials, CTA, contact to avoid refresh jump and late pop-in)
+      const revealTargets = gsap.utils.toArray('section, footer').filter(el => 
+        !el.classList.contains('clients-hero-section') && 
+        !el.classList.contains('hero-section') &&
+        !el.classList.contains('testimonials-section') &&
+        el.id !== 'testimonials' &&
+        !el.classList.contains('cta-section') &&
+        !el.classList.contains('contact-section')
+      );
       revealTargets.forEach(el => {
         gsap.fromTo(el,
           { autoAlpha: 0, y: 56 },
@@ -120,6 +127,14 @@ const initClientsApp = () => {
             }
           }
         );
+      });
+
+      // Keep testimonials, CTA, contact form, and footer immediately visible without lag
+      gsap.set('.testimonials-section, #testimonials, .cta-section, .contact-section, footer', {
+        opacity: 1,
+        autoAlpha: 1,
+        y: 0,
+        clearProps: 'transform'
       });
 
 
@@ -301,6 +316,18 @@ const initClientsApp = () => {
   window.addEventListener('scroll', updateHeaderHeight, { passive: true });
   window.addEventListener('load', updateHeaderHeight);
 
+  // Categories with fewer logos (<= 7 logos) display in a single line,
+  // while categories with larger client rosters (10+ logos) display in multiple rows.
+  const SINGLE_LINE_CATEGORIES = new Set([
+    'Government',
+    'Medical & Hospitals',
+    'Accounts',
+    'Real Estate',
+    'Organizations',
+    'Personal Branding',
+    'Designs'
+  ]);
+
   const filterClients = (selectedCategory) => {
     // 1. Sync Desktop Tabs
     tabButtons.forEach(btn => {
@@ -318,8 +345,13 @@ const initClientsApp = () => {
       opt.classList.toggle('active', isMatch);
     });
 
-    // 3. Filter Marquee Rows (12 rows under "All", 3 multi-rows per category in category view)
+    // 3. Filter Marquee Rows:
+    // "All" -> 12 rows (1 row per category)
+    // Categories with fewer logos -> Single line (1 row containing all logos)
+    // Categories with many logos -> Multiple rows (3 rows)
     let visibleRowCount = 0;
+    const isSingleLineCategory = SINGLE_LINE_CATEGORIES.has(selectedCategory);
+
     marqueeRows.forEach(row => {
       const rowCat = row.getAttribute('data-category');
       const isAllRow = row.getAttribute('data-all') === 'true';
@@ -331,13 +363,26 @@ const initClientsApp = () => {
         } else {
           row.style.display = 'none';
         }
-      } else {
-        if (rowCat === selectedCategory && !isAllRow) {
-          row.style.display = 'flex';
-          visibleRowCount++;
+      } else if (rowCat === selectedCategory) {
+        if (isSingleLineCategory) {
+          // If the logos are less, show in a single line (the complete category marquee row)
+          if (isAllRow) {
+            row.style.display = 'flex';
+            visibleRowCount++;
+          } else {
+            row.style.display = 'none';
+          }
         } else {
-          row.style.display = 'none';
+          // Otherwise, show in multiple rows (the 3 multi-rows)
+          if (!isAllRow) {
+            row.style.display = 'flex';
+            visibleRowCount++;
+          } else {
+            row.style.display = 'none';
+          }
         }
+      } else {
+        row.style.display = 'none';
       }
     });
 
@@ -365,6 +410,26 @@ const initClientsApp = () => {
         { opacity: 0.2, y: 14 },
         { opacity: 1, y: 0, duration: 0.45, stagger: 0.06, ease: 'power2.out', overwrite: 'auto' }
       );
+    }
+
+    // 7. Ensure testimonials and subsequent sections stay immediately visible and recalculate layout triggers
+    if (typeof gsap !== 'undefined') {
+      gsap.set('.testimonials-section, #testimonials, .contact-section, footer', {
+        opacity: 1,
+        autoAlpha: 1,
+        y: 0,
+        clearProps: 'transform'
+      });
+    }
+
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.refresh();
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 60);
     }
   };
 

@@ -740,14 +740,32 @@ const initWebsitesApp = () => {
       btnSpan.textContent = 'Sending…';
       clearFormStatus();
 
+      const service = hiddenInput ? hiddenInput.value.trim() : '';
+      if (!service) {
+        displayFormStatus('Please select a service before submitting.', true);
+        return;
+      }
+
       const fullName = document.getElementById('fullName').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const email = document.getElementById('email').value.trim();
+
+      const cleanedPhone = phone.replace(/[\s\-\(\)]+/g, '');
+      if (cleanedPhone.replace(/^\+/, '').length < 10) {
+        displayFormStatus('Please enter a valid phone number (at least 10 digits).', true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      const btnSpan = submitBtn.querySelector('span');
+      const originalBtnText = btnSpan.textContent;
+      btnSpan.textContent = 'Sending…';
+      clearFormStatus();
+
       let website = document.getElementById('website').value.trim();
       if (website && !/^https?:\/\//i.test(website)) {
         website = 'https://' + website;
       }
-      const service = hiddenInput.value;
       const message = document.getElementById('message').value.trim();
 
       // Submit via backend mailer
@@ -761,7 +779,20 @@ const initWebsitesApp = () => {
       formData.append('g-recaptcha-response', recaptchaResponse);
 
       try {
-        const response = await fetch('./contact.php', {
+        let targetUrl = './contact.php';
+        if (isLocalHost) {
+          // When testing locally, dispatch through the local Gmail SMTP mailer bridge to send real emails
+          try {
+            const testPing = await fetch('http://127.0.0.1:5505/', { method: 'GET' });
+            if (testPing.ok) {
+              targetUrl = 'http://127.0.0.1:5505/';
+            }
+          } catch (pingErr) {
+            targetUrl = './contact.php';
+          }
+        }
+
+        const response = await fetch(targetUrl, {
           method: 'POST',
           body: formData
         });
@@ -789,7 +820,7 @@ const initWebsitesApp = () => {
 
         // Reset form inputs
         contactForm.reset();
-        hiddenInput.value = '';
+        if (hiddenInput) hiddenInput.value = '';
         if (selectedDisplay) {
           selectedDisplay.textContent = 'Select service';
           selectedDisplay.classList.add('placeholder');

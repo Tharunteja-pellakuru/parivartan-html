@@ -155,7 +155,14 @@ $fromName  = 'eParivartan';
  */
 function sendGmailSmtpEmail($host, $port, $user, $pass, $fromEmail, $fromName, $toEmail, $toName, $subject, $htmlContent, $replyToEmail = null, $replyToName = null) {
     $timeout = 15;
-    $socket = @stream_socket_client("ssl://{$host}:{$port}", $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT);
+    $context = stream_context_create([
+        'ssl' => [
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        ]
+    ]);
+    $socket = @stream_socket_client("ssl://{$host}:{$port}", $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT, $context);
     if (!$socket) {
         error_log("SMTP connection failed: $errstr ($errno)");
         return false;
@@ -240,6 +247,23 @@ function sendGmailSmtpEmail($host, $port, $user, $pass, $fromEmail, $fromName, $
     fclose($socket);
 
     return (substr($sendRes, 0, 3) === "250");
+}
+
+/**
+ * Fallback to PHP native mail() if SMTP stream socket is blocked by host firewall
+ */
+function sendNativePhpMail($fromEmail, $fromName, $toEmail, $subject, $htmlContent, $replyToEmail = null) {
+    $to = is_array($toEmail) ? implode(', ', $toEmail) : $toEmail;
+    $headers = [];
+    $headers[] = "From: =?UTF-8?B?" . base64_encode($fromName) . "?= <{$fromEmail}>";
+    if ($replyToEmail) {
+        $headers[] = "Reply-To: <{$replyToEmail}>";
+    }
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-Type: text/html; charset=UTF-8";
+    $headers[] = "X-Mailer: PHP/" . phpversion();
+
+    return @mail($to, $subject, $htmlContent, implode("\r\n", $headers));
 }
 
 /* -----------------------------
@@ -446,7 +470,7 @@ $adminBody = '
 
 $adminSubject = "New Enquiry from $name — eParivartan";
 
-// Send emails via Gmail SMTP
+// Send emails via Gmail SMTP, with automatic fallback to native mail() if host blocks port 465
 // 1. Client Confirmation
 $clientSent = sendGmailSmtpEmail(
     $smtpHost, $smtpPort, $smtpUser, $smtpPass,
@@ -456,6 +480,10 @@ $clientSent = sendGmailSmtpEmail(
     $clientBody,
     'feedback@eparivartan.com', 'eParivartan'
 );
+
+if (!$clientSent) {
+    $clientSent = sendNativePhpMail($fromEmail, $fromName, $rawEmail, "We've received your enquiry — eParivartan", $clientBody, 'feedback@eparivartan.com');
+}
 
 // 2. Admin notifications
 $adminEmails = ['feedback@eparivartan.com', 'chaitanya.eparivartan@gmail.com', 'ceo@eparivartan.com'];
@@ -467,6 +495,10 @@ $adminSent = sendGmailSmtpEmail(
     $adminBody,
     $rawEmail, $rawName
 );
+
+if (!$adminSent) {
+    $adminSent = sendNativePhpMail($fromEmail, $fromName . ' Enquiries', $adminEmails, $adminSubject, $adminBody, $rawEmail);
+}
 
 $sent = $clientSent || $adminSent;
 

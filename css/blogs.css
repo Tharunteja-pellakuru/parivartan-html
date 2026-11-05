@@ -372,6 +372,21 @@
   color: #007BFF;
 }
 
+.cat-founder-stories {
+  background: rgba(133, 189, 86, 0.15);
+  color: #599632;
+}
+
+.cat-case-studies {
+  background: rgba(0, 123, 255, 0.1);
+  color: #007BFF;
+}
+
+.cat-ai-visibility {
+  background: rgba(111, 66, 193, 0.12);
+  color: #6F42C1;
+}
+
 .blog-card-title {
   color: var(--060612, #060612);
   font-family: Satoshi, 'Inter', sans-serif;

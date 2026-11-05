@@ -493,14 +493,26 @@ const initContactApp = () => {
       formData.append('g-recaptcha-response', recaptchaResponse);
 
       try {
-        const response = await fetch('./contact.php', {
-          method: 'POST',
-          body: formData
-        });
-
         const isLocalHost = window.location.hostname === 'localhost' || 
                             window.location.hostname === '127.0.0.1' || 
                             window.location.protocol === 'file:';
+
+        let targetUrl = './contact.php';
+        if (isLocalHost) {
+          try {
+            const testPing = await fetch('http://127.0.0.1:5505/', { method: 'GET' });
+            if (testPing.ok) {
+              targetUrl = 'http://127.0.0.1:5505/';
+            }
+          } catch (pingErr) {
+            targetUrl = './contact.php';
+          }
+        }
+
+        const response = await fetch(targetUrl, {
+          method: 'POST',
+          body: formData
+        });
 
         const responseText = await response.text();
         let result = null;

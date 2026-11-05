@@ -44,8 +44,8 @@ const initBlogsApp = () => {
     const prevBtn = document.getElementById('pagination-prev');
     const nextBtn = document.getElementById('pagination-next');
     
-    // Config
-    const cardsPerPage = 6;
+    // Config - show at least 25 blog cards per page
+    const cardsPerPage = 25;
     const totalPages = Math.ceil(allCards.length / cardsPerPage) || 1;
     let currentPage = 1;
 

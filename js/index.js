@@ -124,12 +124,14 @@ const initIndexApp = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      // Reveal every section as it scrolls in (excluding heroes, services, cta, contact form, and footer to prevent slow pop-in)
+      // Reveal every section as it scrolls in (excluding heroes, services, testimonials, cta, contact form, and footer to prevent slow pop-in)
       const revealTargets = gsap.utils.toArray('section, footer').filter(el => 
         !el.classList.contains('hero-section-container') && 
         !el.classList.contains('websites-hero-section') && 
         !el.classList.contains('cta-section') && 
         !el.classList.contains('contact-section') && 
+        !el.classList.contains('testimonials-section') && 
+        el.id !== 'testimonials' && 
         el.tagName.toLowerCase() !== 'footer' && 
         !el.classList.contains('services-section') && 
         el.id !== 'services' && 
@@ -157,8 +159,8 @@ const initIndexApp = () => {
         );
       });
 
-      // Keep CTA, contact form, and footer immediately visible without lag
-      gsap.set('.cta-section, .contact-section, footer', { opacity: 1, autoAlpha: 1, y: 0, clearProps: 'transform' });
+      // Keep testimonials, CTA, contact form, and footer immediately visible without lag
+      gsap.set('.testimonials-section, #testimonials, .cta-section, .contact-section, footer', { opacity: 1, autoAlpha: 1, y: 0, clearProps: 'transform' });
 
 
     } else {
@@ -2320,20 +2322,32 @@ const techConnectionsData = [
         return;
       }
 
+      const service = hiddenInput ? hiddenInput.value.trim() : '';
+      if (!service) {
+        displayFormStatus('Please select a service before submitting.', true);
+        return;
+      }
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      const cleanedPhone = phone.replace(/[\s\-\(\)]+/g, '');
+      if (cleanedPhone.replace(/^\+/, '').length < 10) {
+        displayFormStatus('Please enter a valid phone number (at least 10 digits).', true);
+        return;
+      }
+
       submitBtn.disabled = true;
       const btnSpan = submitBtn.querySelector('span');
       const originalBtnText = btnSpan.textContent;
       btnSpan.textContent = 'Sending…';
       clearFormStatus();
 
-      const fullName = document.getElementById('fullName').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
       let website = document.getElementById('website').value.trim();
       if (website && !/^https?:\/\//i.test(website)) {
         website = 'https://' + website;
       }
-      const service = hiddenInput.value;
       const message = document.getElementById('message').value.trim();
 
       // Submit via backend mailer
@@ -2347,14 +2361,27 @@ const techConnectionsData = [
       formData.append('g-recaptcha-response', recaptchaResponse);
 
       try {
-        const response = await fetch('./contact.php', {
-          method: 'POST',
-          body: formData
-        });
-
         const isLocalHost = window.location.hostname === 'localhost' || 
                             window.location.hostname === '127.0.0.1' || 
                             window.location.protocol === 'file:';
+
+        let targetUrl = './contact.php';
+        if (isLocalHost) {
+          // When testing locally, dispatch through the local Gmail SMTP mailer bridge to send real emails
+          try {
+            const testPing = await fetch('http://127.0.0.1:5505/', { method: 'GET' });
+            if (testPing.ok) {
+              targetUrl = 'http://127.0.0.1:5505/';
+            }
+          } catch (pingErr) {
+            targetUrl = './contact.php';
+          }
+        }
+
+        const response = await fetch(targetUrl, {
+          method: 'POST',
+          body: formData
+        });
 
         const responseText = await response.text();
         let result = null;

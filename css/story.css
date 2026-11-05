@@ -628,6 +628,10 @@ body {
   white-space: nowrap;
 }
 
+.about-leaf-title .highlight-green {
+  color: #599632;
+}
+
 .about-leaf-intro {
   color: var(--69686E, #69686E);
   font-family: Satoshi, 'Inter', sans-serif;
@@ -818,11 +822,20 @@ body {
 
 .about-team-title-row {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  gap: 24px;
+  gap: 32px;
   margin-bottom: 48px;
+}
+
+.about-team-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
 }
 
 .about-team-title {
@@ -834,13 +847,36 @@ body {
   font-weight: 500;
   line-height: 1.25;
   margin: 0;
+  hyphens: none;
+  word-break: normal;
+}
+
+.about-team-title .highlight-green {
+  color: #599632;
+}
+
+.about-team-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 520px;
+  width: 100%;
+  text-align: left;
+  margin-top: 34px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 850px) {
   .about-team-title-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
+  }
+  .about-team-header-right {
+    margin-top: 0;
+    justify-content: flex-start;
+    max-width: 100%;
   }
 }
 
@@ -1644,8 +1680,8 @@ body {
   line-height: 28px;
   color: rgb(105, 104, 110);
   margin: 0;
-  text-align: right;
-  white-space: nowrap;
+  text-align: left;
+  white-space: normal;
 }
 
 .about-craft-grid {
