@@ -4543,16 +4543,16 @@ body.menu-open header.header-container {
   width: max-content;
   padding-top: 4px;
   animation: presence-countries-scroll 24s linear infinite;
-  animation-play-state: paused;
+  will-change: transform;
 }
 
-.presence-countries-track.is-scrolling {
-  animation-play-state: running;
+.presence-countries-track.is-paused {
+  animation-play-state: paused;
 }
 
 .presence-countries-list:hover .presence-countries-track,
-.presence-countries-list:hover .presence-countries-track.is-scrolling {
-  animation-play-state: paused;
+.presence-countries-track:hover {
+  animation-play-state: paused !important;
 }
 
 @keyframes presence-countries-scroll {

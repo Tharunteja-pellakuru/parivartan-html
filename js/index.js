@@ -2695,48 +2695,28 @@ const techConnectionsData = [
   };
 
   /* ==========================================
-     GLOBAL PRESENCE COUNTRIES SCROLL OBSERVER
-     Scroll starts only after reaching the section + 2 seconds delay
+     GLOBAL PRESENCE COUNTRIES SCROLL
+     Continuous automatic marquee scroll with pause-on-hover
      ========================================== */
   const initPresenceMarqueeObserver = () => {
     const presenceSection = document.querySelector('#presence, .presence-section');
     const track = document.querySelector('.presence-countries-track');
     if (!presenceSection || !track) return;
 
-    let timer = null;
-    let hasStarted = false;
-
-    const startScrolling = () => {
-      if (hasStarted) return;
-      hasStarted = true;
-      track.classList.add('is-scrolling');
-    };
-
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            if (!hasStarted && !timer) {
-              timer = setTimeout(() => {
-                startScrolling();
-                observer.unobserve(presenceSection);
-              }, 2000);
-            }
+            track.classList.remove('is-paused');
           } else {
-            if (!hasStarted && timer) {
-              clearTimeout(timer);
-              timer = null;
-            }
+            track.classList.add('is-paused');
           }
         });
       }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05
       });
 
       observer.observe(presenceSection);
-    } else {
-      setTimeout(startScrolling, 2000);
     }
   };
 

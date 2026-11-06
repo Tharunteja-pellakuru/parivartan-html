@@ -21,11 +21,11 @@ Parivartan started in 2002 and has more than 24 years of experience in digital d
 
 ## Portfolio
 
-- [Websites Portfolio](https://eparivartan.com/work-websites.html): Selected website projects by Parivartan.
-- [Custom Applications Portfolio](https://eparivartan.com/work-webapps.html): Selected custom web application and portal projects.
-- [Mobile Apps Portfolio](https://eparivartan.com/app-development.html): Mobile app projects and case studies.
-- [E-commerce Portfolio](https://eparivartan.com/work-ecommerce.html): Selected e-commerce projects.
-- [UI/UX Design Portfolio](https://eparivartan.com/work-ui-ux.html): Selected UI/UX design projects.
+- [Websites Portfolio](https://eparivartan.com/work-websites.html): Selected website projects by Parivartan across government, enterprise, educational and corporate sectors.
+- [Custom Applications Portfolio](https://eparivartan.com/work-webapps.html): Selected custom web application, dashboard and operational portal projects.
+- [Mobile Apps Portfolio](https://eparivartan.com/app-development.html): Mobile app projects, case studies and cross-platform mobile solutions.
+- [E-commerce Portfolio](https://eparivartan.com/work-ecommerce.html): Selected e-commerce projects spanning custom builds, Shopify and WooCommerce.
+- [UI/UX Design Portfolio](https://eparivartan.com/work-ui-ux.html): Selected UI/UX design projects including wireframes, design systems and prototypes.
 
 ## Case Studies
 
@@ -41,15 +41,33 @@ Parivartan started in 2002 and has more than 24 years of experience in digital d
 ## Company
 
 - [Home](https://eparivartan.com/index.html): Overview of Parivartan's services, work and approach.
-- [Our Story](https://eparivartan.com/story.html): Parivartan's history, mission, vision and values.
-- [Our Clients](https://eparivartan.com/clients.html): Clients and organisations Parivartan has worked with.
-- [Contact](https://eparivartan.com/contact.html): Start a project or request a consultation.
+- [Our Story](https://eparivartan.com/story.html): Parivartan's history, mission, vision, values and 24-year technology journey.
+- [Our Clients](https://eparivartan.com/clients.html): Clients and organisations Parivartan has partnered with across multiple industries.
+- [Contact](https://eparivartan.com/contact.html): Start a project, request a consultation or connect with the team.
 
-## Optional
+## Articles & Insights
 
-- [Life at Parivartan](https://eparivartan.com/life.html): Team culture and working environment.
-- [Articles / Insights](https://eparivartan.com/blogs.html): Articles on technology, design and digital strategy.
-- [Founders in Frame](https://eparivartan.com/founders-in-frame.html): Perspectives from Parivartan's founders.
-- [Media Features](https://eparivartan.com/media.html): Press coverage and brand announcements.
-- [Parivartan Excellence Awards](https://eparivartan.com/awards.html): Awards and recognition.
-- [Careers](https://careers.eparivartan.com/): Open roles at Parivartan.
+- [Articles & Insights Hub](https://eparivartan.com/blogs.html): Overview of technology, design, AI visibility, and corporate case study articles.
+- [Parivartan Means Change (New Website)](https://eparivartan.com/blog/parivartan-means-change-new-website.html): Discover why eParivartan redesigned its website, embraced change and created distinct identities for technology and creative services.
+- [24 Years of Building Technology](https://eparivartan.com/blog/24-years-building-technology-eparivartan.html): From two computers in 2002 to 5,000+ projects, discover eParivartan's journey through web development, custom software and changing technologies.
+- [The People Who Helped Build Parivartan](https://eparivartan.com/blog/people-behind-parivartan.html): Meet the people whose trust, commitment and adaptability helped shape Parivartan Software's journey from a startup in 2002 to an established technology company.
+- [People Who Believed in Me](https://eparivartan.com/blog/people-who-inspired-parivartan.html): Anand Pohankar reflects on the family and mentor whose belief, creativity and encouragement inspired him to establish Parivartan Software in 2002.
+- [Founders in Frame Stories](https://eparivartan.com/blog/founders-in-frame-parivartan-stories.html): Discover why Anand Pohankar started Founders in Frame, an initiative documenting the journeys, challenges and evolution of businesses connected to Parivartan.
+- [ESTIC 2025 Digital Platform](https://eparivartan.com/blog/estic-2025-digital-platform.html): Anand Pohankar shares how Parivartan developed the website, mobile app and integrated digital workflows for ESTIC 2025, a national science and technology conclave.
+- [AI Visibility for Businesses](https://eparivartan.com/blog/ai-visibility-for-businesses.html): Search is changing with ChatGPT, Gemini and AI-powered results. Anand Pohankar explains AI visibility, why SEO still matters and how businesses can prepare.
+- [Sherwood Public School AI Visibility](https://eparivartan.com/blog/sherwood-school-seo-ai-visibility.html): Explore how Parivartan is applying SEO, AEO and GEO principles to improve Sherwood Public School's digital discoverability and AI search readiness.
+- [When Technology Meets Creativity (CACM 2026)](https://eparivartan.com/blog/cacm-2026-technology-creative-collaboration.html): Discover how eParivartan and Swipe Social collaborated on the CACM 2026 website, digital branding and an AI-assisted cinematic launch film.
+- [Viyash Scientific Website Development](https://eparivartan.com/blog/viyash-listed-company-website-development.html): How Parivartan approached Viyash Scientific's website redevelopment, investor information, corporate communication and ongoing technical support.
+- [ARCI Technology Partnership](https://eparivartan.com/blog/arci-government-website-technology-partnership.html): A look at Parivartan's 13-year association with ARCI, covering website development, recruitment portals, security audits, government hosting and maintenance.
+- [Why Website Maintenance Matters](https://eparivartan.com/blog/why-website-maintenance-matters.html): Launching a website is only the beginning. Learn why regular maintenance, security updates, backups and technical support are essential for businesses.
+- [The MJCET Story](https://eparivartan.com/blog/mjcet-parivartan-design-technology-journey.html): Discover how Parivartan's association with MJCET evolved from prospectus design to website development through years of trust and collaboration.
+- [Custom Software vs Ready-Made Solutions](https://eparivartan.com/blog/custom-software-vs-ready-made-solutions.html): Should your business invest in custom software or choose a ready-made solution? Explore costs, flexibility, scalability and long-term business needs.
+- [The Rithika Story (Shopify Migration)](https://eparivartan.com/blog/rithika-woocommerce-to-shopify-migration.html): Discover how Parivartan helped Rithika transition from WooCommerce to Shopify, simplifying e-commerce management, maintenance and everyday operations.
+
+## Company Culture & Media
+
+- [Life at Parivartan](https://eparivartan.com/life.html): Team culture, workplace methodology, celebrations, and working environment.
+- [Founders in Frame Video Series](https://eparivartan.com/founders-in-frame.html): Video series and perspectives from entrepreneurs and founders connected to Parivartan.
+- [Media Features](https://eparivartan.com/media.html): Press coverage, news articles, and brand announcements.
+- [Parivartan Excellence Awards](https://eparivartan.com/awards.html): Annual awards, internal team recognition, and milestones.
+- [Careers](https://careers.eparivartan.com/): Career opportunities and open roles at Parivartan.

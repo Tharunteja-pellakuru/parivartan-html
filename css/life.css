@@ -278,10 +278,86 @@
   text-align: left !important;
 }
 
-/* ==================== BENTO GALLERY SECTION ==================== */
+/* ==================== CULTURE PICTURES SECTION ==================== */
 .life-bento-section {
   padding: clamp(24px, 3vw, 40px) 0;
   background: #FFFFFF;
+}
+
+/* Single Culture Featured Image */
+.life-culture-single-wrap {
+  width: 100%;
+  margin-top: clamp(20px, 2.5vw, 32px);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.life-culture-single-img {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  aspect-ratio: 717 / 731;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid #EAEAEA;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  display: block;
+}
+
+/* Simple Culture Pictures Grid */
+.life-culture-pictures-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.culture-pic-item {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.culture-pic-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.culture-pic-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .life-culture-pictures-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .culture-pic-item img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .life-culture-pictures-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .culture-pic-item img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .life-culture-pictures-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .culture-pic-item img {
+    height: 160px;
+  }
 }
 
 .life-bento-grid {
@@ -685,6 +761,78 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* Culture Filmstrip Track under Bento Grid */
+.life-culture-filmstrip-wrap {
+  width: 100%;
+  margin-top: clamp(24px, 3vw, 36px);
+  overflow: hidden;
+  position: relative;
+  border-radius: clamp(16px, 2vw, 22px);
+  background: #F8FAF7;
+  padding: 16px 0;
+  border: 1px solid #EDEDED;
+  box-sizing: border-box;
+}
+
+.life-culture-filmstrip-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: culture-track-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+.life-culture-filmstrip-track:hover {
+  animation-play-state: paused !important;
+}
+
+.culture-filmstrip-card {
+  flex: 0 0 auto;
+  height: clamp(150px, 15vw, 190px);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(6, 6, 18, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  background: #FFFFFF;
+}
+
+.culture-filmstrip-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(6, 6, 18, 0.12);
+}
+
+.culture-filmstrip-card img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.culture-filmstrip-card:hover img {
+  transform: scale(1.04);
+}
+
+@keyframes culture-track-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .life-culture-filmstrip-wrap {
+    padding: 12px 0;
+    border-radius: 16px;
+  }
+  .culture-filmstrip-card {
+    height: 140px;
+    border-radius: 10px;
+  }
+  .life-culture-filmstrip-track {
+    gap: 12px;
+  }
 }
 
 /* ==================== NEXT STEP CTA BANNER ==================== */
@@ -1096,7 +1244,7 @@
 
 .life-methodology-gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
@@ -1111,6 +1259,13 @@
 .life-methodology-img.large {
   grid-column: span 2;
   height: 260px;
+}
+
+.life-methodology-img.single {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 18px;
 }
 
 /* Different People One Team */
@@ -1753,29 +1908,37 @@
 }
 
 .life-masonry-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  columns: 3;
+  column-gap: 20px;
   width: 100%;
 }
 
 .life-masonry-item {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  margin-bottom: 0;
+  break-inside: avoid;
+  margin-bottom: 20px;
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid #EDEDED;
   box-shadow: 0 4px 16px rgba(6, 6, 18, 0.04);
   background: #f7f9f6;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.life-masonry-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(6, 6, 18, 0.08);
 }
 
 .life-masonry-item img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
-  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.life-masonry-item:hover img {
+  transform: scale(1.03);
 }
 
 /* Beyond Screen — Toggle Bar */
@@ -2251,8 +2414,11 @@
 
   /* 5. BEYOND THE SCREEN (Masonry) */
   .life-masonry-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    columns: 2;
+    column-gap: 16px;
+  }
+  .life-masonry-item {
+    margin-bottom: 16px;
   }
 
   /* 6. VALUES (Landscape Stage -> Mobile Cards Transformation) */
@@ -2457,6 +2623,9 @@
     grid-column: span 1;
     height: 190px;
   }
+  .life-methodology-img.single {
+    height: 260px;
+  }
 
   /* Awards Gallery */
   .life-awards-gallery {
@@ -2469,11 +2638,11 @@
 
   /* Masonry Grid */
   .life-masonry-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    columns: 2;
+    column-gap: 12px;
   }
   .life-masonry-item {
-    margin-bottom: 0;
+    margin-bottom: 12px;
     border-radius: 14px;
   }
 
@@ -2533,8 +2702,11 @@
   }
 
   .life-masonry-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    columns: 1;
+    column-gap: 12px;
+  }
+  .life-masonry-item {
+    margin-bottom: 12px;
   }
 
   .perk-card-item,
