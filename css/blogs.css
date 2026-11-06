@@ -382,9 +382,19 @@
   color: #007BFF;
 }
 
+.cat-client-stories {
+  background: rgba(0, 123, 255, 0.1);
+  color: #007BFF;
+}
+
 .cat-ai-visibility {
   background: rgba(111, 66, 193, 0.12);
   color: #6F42C1;
+}
+
+.cat-technology-insights {
+  background: rgba(89, 150, 50, 0.12);
+  color: #599632;
 }
 
 .blog-card-title {

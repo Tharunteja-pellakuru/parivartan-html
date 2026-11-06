@@ -62,6 +62,22 @@ RewriteRule ^insights/viyash-listed-company-website-development/?$ blog/viyash-l
 # 14. Clean URL for Blog 11 - ARCI Technology Partnership
 RewriteRule ^blog/arci-government-website-technology-partnership/?$ blog/arci-government-website-technology-partnership.html [L,QSA]
 RewriteRule ^insights/arci-government-website-technology-partnership/?$ blog/arci-government-website-technology-partnership.html [L,QSA]
+
+# 15. Clean URL for Blog 12 - Website Maintenance & AMC
+RewriteRule ^blog/why-website-maintenance-matters/?$ blog/why-website-maintenance-matters.html [L,QSA]
+RewriteRule ^insights/why-website-maintenance-matters/?$ blog/why-website-maintenance-matters.html [L,QSA]
+
+# 16. Clean URL for Blog 13 - MJCET Story
+RewriteRule ^blog/mjcet-parivartan-design-technology-journey/?$ blog/mjcet-parivartan-design-technology-journey.html [L,QSA]
+RewriteRule ^insights/mjcet-parivartan-design-technology-journey/?$ blog/mjcet-parivartan-design-technology-journey.html [L,QSA]
+
+# 17. Clean URL for Blog 14 - Custom Software vs Ready-Made Solutions
+RewriteRule ^blog/custom-software-vs-ready-made-solutions/?$ blog/custom-software-vs-ready-made-solutions.html [L,QSA]
+RewriteRule ^insights/custom-software-vs-ready-made-solutions/?$ blog/custom-software-vs-ready-made-solutions.html [L,QSA]
+
+# 18. Clean URL for Blog 15 - Rithika WooCommerce to Shopify Migration
+RewriteRule ^blog/rithika-woocommerce-to-shopify-migration/?$ blog/rithika-woocommerce-to-shopify-migration.html [L,QSA]
+RewriteRule ^insights/rithika-woocommerce-to-shopify-migration/?$ blog/rithika-woocommerce-to-shopify-migration.html [L,QSA]
 </IfModule>
 
 # Custom 404 Error Page
