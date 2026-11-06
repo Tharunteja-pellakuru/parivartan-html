@@ -1,11 +1,20 @@
+# robots.txt for eParivartan (https://eparivartan.com)
+
 User-agent: *
-User-agent: Googlebot
-User-agent: Googlebot-News
-User-agent: YahooSeeker
-User-agent: msnbot
-Disallow: 
+Allow: /
+
+# Disallow backend scripts, private directories & backups
 Disallow: /cgi-bin/
 Disallow: /backup/
-Sitemap: https://eparivartan.com/sitemap.xml
-Allow: /sitemap.xml
+Disallow: /dump/
+Disallow: /contact.php
+Disallow: /contact-mailer.php
 Disallow: /*escaped_fragment=DONOTCRAWL
+
+# Explicitly allow sitemap and AI context files
+Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /assets/
+
+# Sitemaps & AI Context
+Sitemap: https://eparivartan.com/sitemap.xml
