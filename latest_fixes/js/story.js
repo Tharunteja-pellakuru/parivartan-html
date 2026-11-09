@@ -1,0 +1,1719 @@
+const initStoryApp = () => {
+
+    /* ==========================================
+     0. ACTIVE NAV ITEM AUTO-HIGHLIGHT (SINGLE ITEM GUARANTEED)
+     ========================================== */
+  const highlightActiveNav = () => {
+    let rawPath = window.location.pathname.split('/').pop().split('#')[0];
+    const currentPath = (!rawPath || rawPath === '' || rawPath === '/') ? 'index.html' : rawPath;
+
+    // Clear ALL active states first across all desktop and mobile nav items
+    document.querySelectorAll('.desktop-nav .nav-item, .desktop-nav .nav-link, .desktop-nav .dropdown-item, .mobile-drawer .drawer-menu-item, .mobile-drawer .drawer-submenu-item').forEach(el => {
+      el.classList.remove('active');
+    });
+
+    if (currentPath === 'index.html') {
+      const homeNav = document.querySelector('.desktop-nav > .nav-item:first-child');
+      if (homeNav) {
+        homeNav.classList.add('active');
+        const homeLink = homeNav.querySelector('.nav-link');
+        if (homeLink) homeLink.classList.add('active');
+      }
+      const mobileHome = document.querySelector('.mobile-drawer a[href*="index.html"]');
+      if (mobileHome) mobileHome.classList.add('active');
+      return;
+    }
+
+    let desktopMatched = false;
+    let mobileMatched = false;
+
+    // 1. Highlight Desktop Dropdown (ONLY FIRST EXACT MATCH)
+    document.querySelectorAll('.desktop-nav .dropdown-item').forEach(item => {
+      if (desktopMatched) return;
+      const href = item.getAttribute('href');
+      if (!href) return;
+      const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+      if (linkPath === currentPath && linkPath !== 'index.html' && linkPath !== '#') {
+        item.classList.add('active');
+        desktopMatched = true;
+        const parentNav = item.closest('.nav-item');
+        if (parentNav) {
+          parentNav.classList.add('active');
+          const mainLink = parentNav.querySelector('.nav-link');
+          if (mainLink) mainLink.classList.add('active');
+        }
+      }
+    });
+
+    // 2. Highlight Top-level Nav Link if no dropdown matched
+    if (!desktopMatched) {
+      document.querySelectorAll('.desktop-nav > .nav-item > .nav-link').forEach(link => {
+        if (desktopMatched) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+        if (linkPath === currentPath && linkPath !== '#') {
+          link.classList.add('active');
+          desktopMatched = true;
+          const parentNav = link.closest('.nav-item');
+          if (parentNav) parentNav.classList.add('active');
+        }
+      });
+    }
+
+    // 3. Highlight Mobile Drawer Item (ONLY FIRST EXACT MATCH)
+    document.querySelectorAll('.mobile-drawer .drawer-submenu-item').forEach(item => {
+      if (mobileMatched) return;
+      const href = item.getAttribute('href');
+      if (!href) return;
+      const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+      if (linkPath === currentPath && linkPath !== 'index.html' && linkPath !== '#') {
+        item.classList.add('active');
+        mobileMatched = true;
+        const parentGroup = item.closest('.drawer-menu-item-group');
+        if (parentGroup) {
+          const toggleBtn = parentGroup.querySelector('.drawer-menu-item');
+          if (toggleBtn) toggleBtn.classList.add('active');
+        }
+      }
+    });
+
+    if (!mobileMatched) {
+      document.querySelectorAll('.mobile-drawer > .drawer-menu-list > a.drawer-menu-item').forEach(link => {
+        if (mobileMatched) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const linkPath = href.replace('./', '').split('/').pop().split('#')[0];
+        if (linkPath === currentPath && linkPath !== '#') {
+          link.classList.add('active');
+          mobileMatched = true;
+        }
+      });
+    }
+  };
+
+  highlightActiveNav();
+
+  /* ==========================================
+     1. GLOBAL ANIMATION LAYER (GSAP REVEALS)
+     ========================================== */
+  if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      // Reveal every section and footer as it scrolls in (excluding hero section)
+      const revealTargets = gsap.utils.toArray('section, footer').filter(el => !el.classList.contains('about-hero-section'));
+      revealTargets.forEach(el => {
+        gsap.fromTo(el,
+          { autoAlpha: 0, y: 56 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 88%',
+              once: true,
+            }
+          }
+        );
+      });
+
+
+      
+      // Timeline SVG Path logic (Independent of pin transform scales)
+      const timelineWrapper = document.querySelector('.timeline-wrapper');
+      const svgTrack = document.querySelector('.timeline-svg-track');
+      const svgProgress = document.querySelector('.timeline-svg-progress');
+
+      const updateTimelineSvgPath = () => {
+        if (!timelineWrapper || !svgTrack) return;
+        const items = document.querySelectorAll('.timeline-item');
+        if (items.length === 0) return;
+
+        const points = [];
+        items.forEach(item => {
+          let top = item.offsetTop;
+          let parent = item.offsetParent;
+          while (parent && parent !== timelineWrapper) {
+            top += parent.offsetTop;
+            parent = parent.offsetParent;
+          }
+          const y = top + item.offsetHeight / 2;
+          const isMobile = window.innerWidth <= 992;
+          const isSmallMobile = window.innerWidth <= 480;
+          let x = timelineWrapper.offsetWidth / 2;
+          if (isSmallMobile) {
+            x = 20;
+          } else if (isMobile) {
+            x = 25;
+          }
+          points.push({ x, y });
+        });
+
+        if (points.length === 0) return;
+
+        const startY = Math.max(0, points[0].y - 35);
+        const endY = points[points.length - 1].y + 35;
+        const lineX = points[0].x;
+
+        let d = `M ${lineX} ${startY}`;
+        points.forEach(pt => {
+          d += ` L ${lineX} ${pt.y}`;
+        });
+        d += ` L ${lineX} ${endY}`;
+
+        svgTrack.setAttribute('d', d);
+        if (svgProgress) {
+          svgProgress.setAttribute('d', d);
+          const totalLength = svgProgress.getTotalLength();
+          if (totalLength) {
+            svgProgress.style.strokeDasharray = totalLength;
+            if (!svgProgress.style.strokeDashoffset || svgProgress.style.strokeDashoffset === '') {
+              svgProgress.style.strokeDashoffset = totalLength;
+            }
+          }
+        }
+      };
+
+      updateTimelineSvgPath();
+      window.addEventListener('resize', () => {
+        updateTimelineSvgPath();
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      });
+      window.addEventListener('load', () => {
+        updateTimelineSvgPath();
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      });
+
+      if (timelineWrapper && svgProgress) {
+        gsap.to(svgProgress, {
+          strokeDashoffset: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: timelineWrapper,
+            start: 'top 70%',
+            end: 'bottom 80%',
+            scrub: 0.3,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const items = document.querySelectorAll('.timeline-item');
+              const total = items.length;
+              items.forEach((item, index) => {
+                const threshold = index / Math.max(1, total - 1);
+                if (progress >= threshold - 0.04) {
+                  item.classList.add('line-reached');
+                } else {
+                  item.classList.remove('line-reached');
+                }
+              });
+            }
+          }
+        });
+      }
+
+      // Timeline items scroll animation (Directional slide-in & dot pop)
+      const timelineItems = gsap.utils.toArray('.timeline-item');
+      timelineItems.forEach(item => {
+        const isRight = item.classList.contains('right');
+        const isMobile = window.innerWidth <= 992;
+        const card = item.querySelector('.timeline-content-card');
+        const pin = item.querySelector('.timeline-pin') || item.querySelector('.timeline-dot');
+
+        // Timeline Pin Pop Animation
+        if (pin) {
+          gsap.fromTo(pin,
+            { scale: 0, opacity: 0 },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 0.6,
+              ease: 'back.out(2.2)',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+                once: true
+              }
+            }
+          );
+        }
+
+        // Timeline Content Card Directional Reveal Animation
+        if (card) {
+          gsap.fromTo(card,
+            {
+              autoAlpha: 0,
+              x: isMobile ? 0 : (isRight ? 70 : -70),
+              y: isMobile ? 30 : 25,
+              scale: 0.95
+            },
+            {
+              autoAlpha: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+                once: true,
+                onEnter: () => {
+                  item.classList.add('active');
+                }
+              }
+            }
+          );
+        }
+      });
+    } else {
+      // Fallback for reduced motion
+      gsap.set('section, footer', { autoAlpha: 1, y: 0 });
+    }
+
+    // Refresh ScrollTrigger when images load to ensure correct layouts
+    const refreshTrigger = () => ScrollTrigger.refresh();
+    window.addEventListener('load', refreshTrigger);
+    setTimeout(refreshTrigger, 1000);
+  }
+
+  function splitTextIntoRevealLines(element) {
+    const text = element.textContent.trim();
+    if (!text) return;
+    
+    // Temporarily save inner HTML structure to preserve styled highlights (e.g. <span class="green">)
+    // If heading has inner tags, we handle word wrapping node-by-node.
+    const hasHTML = element.innerHTML.trim() !== text;
+    
+    if (!hasHTML) {
+      const words = text.split(/\s+/);
+      element.innerHTML = words.map(w => `<span class="temp-word">${w}</span>`).join(' ');
+      
+      const wordSpans = element.querySelectorAll('.temp-word');
+      const lines = [];
+      let currentLine = [];
+      let currentY = -1;
+      
+      wordSpans.forEach(span => {
+        const y = span.offsetTop;
+        if (y !== currentY) {
+          if (currentLine.length > 0) lines.push(currentLine);
+          currentLine = [span];
+          currentY = y;
+        } else {
+          currentLine.push(span);
+        }
+      });
+      if (currentLine.length > 0) lines.push(currentLine);
+      
+      element.innerHTML = '';
+      lines.forEach(lineWords => {
+        const lineText = lineWords.map(span => span.textContent).join(' ');
+        
+        const maskDiv = document.createElement('div');
+        maskDiv.className = 'text-reveal-mask';
+        maskDiv.style.overflow = 'hidden';
+        maskDiv.style.display = 'block';
+        
+        const lineDiv = document.createElement('div');
+        lineDiv.className = 'text-reveal-line';
+        lineDiv.textContent = lineText;
+        lineDiv.style.display = 'block';
+        
+        maskDiv.appendChild(lineDiv);
+        element.appendChild(maskDiv);
+      });
+    } else {
+      // Fallback for headings with styled HTML tags: wrap directly to fade up
+      const childrenHtml = element.innerHTML;
+      element.innerHTML = `<div class="text-reveal-mask" style="overflow:hidden; display:block;"><div class="text-reveal-line" style="display:block;">${childrenHtml}</div></div>`;
+    }
+  }
+
+
+  /* ==========================================
+     2. MOBILE DRAWER NAVIGATION MENU
+     ========================================== */
+  const menuBtn = document.querySelector('.menu-btn');
+  const menuBackdrop = document.querySelector('.menu-backdrop');
+  const mobileDrawer = document.querySelector('.mobile-drawer');
+
+  if (menuBtn && menuBackdrop && mobileDrawer && !menuBtn.dataset.menuInitialized) {
+    menuBtn.dataset.menuInitialized = 'true';
+    let savedScrollY = 0;
+
+    const openMenu = () => {
+      savedScrollY = window.scrollY || window.pageYOffset;
+      mobileDrawer.querySelectorAll('.drawer-menu-item-group').forEach(group => {
+        group.classList.remove('expanded');
+        const toggleBtn = group.querySelector('.dropdown-toggle-btn');
+        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+      menuBtn.classList.add('active');
+      menuBackdrop.classList.add('open');
+      mobileDrawer.classList.add('open');
+      document.documentElement.classList.add('menu-open');
+      document.body.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+      document.body.style.top = `-${savedScrollY}px`;
+    };
+
+    const closeMenu = () => {
+      menuBtn.classList.remove('active');
+      menuBackdrop.classList.remove('open');
+      mobileDrawer.classList.remove('open');
+      document.documentElement.classList.remove('menu-open');
+      document.body.classList.remove('menu-open');
+      document.body.style.overflow = '';
+      document.body.style.top = '';
+      if (savedScrollY !== undefined && savedScrollY !== null) {
+        window.scrollTo(0, savedScrollY);
+      }
+    };
+
+    const toggleMenu = () => {
+      const isOpen = !mobileDrawer.classList.contains('open');
+      if (isOpen) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    };
+
+    menuBtn.addEventListener('click', toggleMenu);
+    menuBackdrop.addEventListener('click', closeMenu);
+
+    menuBackdrop.addEventListener('touchmove', (e) => {
+      if (e.cancelable) e.preventDefault();
+    }, { passive: false });
+
+    // Close menu drawer on navigation link clicks (hash navigation)
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Accordion group Inside mobile drawer (Our Work submenus)
+    const toggleBtns = mobileDrawer.querySelectorAll('.dropdown-toggle-btn');
+    toggleBtns.forEach(toggleBtn => {
+      const itemGroup = toggleBtn.closest('.drawer-menu-item-group');
+      if (toggleBtn && itemGroup) {
+        toggleBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isExpanded = itemGroup.classList.toggle('expanded');
+          toggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
+      }
+    });
+  }
+
+
+  /* ==========================================
+     3. TESTIMONIALS STEP-BASED CAROUSEL & PLAYBACK
+     ========================================== */
+  const testimonialsSec = document.getElementById('testimonials');
+  const videoOverlay = document.querySelector('.video-preview-overlay');
+
+  if (testimonialsSec && !testimonialsSec.dataset.stepCarouselInitialized) {
+    testimonialsSec.dataset.stepCarouselInitialized = 'true';
+    const playButtons = testimonialsSec.querySelectorAll('.play-button');
+    const closeBtn = videoOverlay ? videoOverlay.querySelector('.video-preview-close') : null;
+    const iframe = videoOverlay ? videoOverlay.querySelector('.video-preview-player') : null;
+    const titleText = videoOverlay ? videoOverlay.querySelector('.video-preview-caption-title') : null;
+    const noteText = videoOverlay ? videoOverlay.querySelector('.video-preview-caption-note') : null;
+
+    // Helper functions for inline video playback directly inside the video card
+    const closeInlineVideo = (card) => {
+      if (!card) return;
+      const container = card.querySelector('.inline-video-container');
+      if (container) {
+        container.remove();
+      }
+      card.classList.remove('is-playing-video');
+      const playBtn = card.querySelector('.play-button');
+      if (playBtn) playBtn.classList.remove('is-loading');
+      const overlay = card.querySelector('.video-card-overlay');
+      if (overlay) {
+        overlay.classList.remove('is-faded');
+        overlay.style.display = '';
+        overlay.style.opacity = '';
+      }
+    };
+
+    const closeAllInlineVideos = (exceptCard = null) => {
+      testimonialsSec.querySelectorAll('.video-card.is-playing-video, .video-card .inline-video-container').forEach(el => {
+        const card = el.classList.contains('video-card') ? el : el.closest('.video-card');
+        if (card && card !== exceptCard) {
+          closeInlineVideo(card);
+        }
+      });
+    };
+
+    // Robust Hybrid Carousel Navigation (Native Smooth Scroll-Snap on Mobile, 2D Step Animation on Desktop)
+    const setupStepCarousel = (wrapper, row, prevBtn, nextBtn, cardSelector, onCardInit) => {
+      if (!wrapper || !row || !prevBtn || !nextBtn) return () => {};
+
+      const TRANSITION_STYLE = 'transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)';
+      let numOriginal = 0;
+      let currentIndex = 0;
+      let isAnimating = false;
+      let autoScrollTimer = null;
+      let isPaused = false;
+      let lastWidth = window.innerWidth;
+
+      const isMobile = () => window.innerWidth <= 768;
+
+      const getCardsPerView = () => {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 960) return 2;
+        return 3;
+      };
+
+      const getBufferSize = () => {
+        return Math.min(3, Math.max(1, getCardsPerView()));
+      };
+
+      const cleanClones = () => {
+        row.querySelectorAll('.is-clone').forEach(el => el.remove());
+      };
+
+      const initClones = () => {
+        cleanClones();
+
+        const originalCards = Array.from(row.querySelectorAll(cardSelector)).filter(c => !c.classList.contains('is-clone'));
+        numOriginal = originalCards.length;
+        if (numOriginal === 0) return;
+
+        if (isMobile()) {
+          // On mobile: zero clones to avoid WebKit texture buffer overrun and Jetsam memory crash
+          row.style.transform = '';
+          row.style.transition = '';
+          return;
+        }
+
+        const buffer = getBufferSize();
+
+        // Prefix clones
+        const prefixFragment = document.createDocumentFragment();
+        const prefixCards = originalCards.slice(-buffer);
+        prefixCards.forEach(c => {
+          const clone = c.cloneNode(true);
+          clone.classList.add('is-clone');
+          delete clone.dataset.cardEventsAttached;
+          delete clone.dataset.writtenEventsAttached;
+          clone.classList.remove('is-playing-video');
+          const existingContainer = clone.querySelector('.inline-video-container');
+          if (existingContainer) existingContainer.remove();
+          const overlay = clone.querySelector('.video-card-overlay');
+          if (overlay) overlay.style.display = '';
+          if (typeof onCardInit === 'function') onCardInit(clone);
+          prefixFragment.appendChild(clone);
+        });
+        row.insertBefore(prefixFragment, originalCards[0]);
+
+        // Suffix clones
+        const suffixFragment = document.createDocumentFragment();
+        const suffixCards = originalCards.slice(0, buffer);
+        suffixCards.forEach(c => {
+          const clone = c.cloneNode(true);
+          clone.classList.add('is-clone');
+          delete clone.dataset.cardEventsAttached;
+          delete clone.dataset.writtenEventsAttached;
+          clone.classList.remove('is-playing-video');
+          const existingContainer = clone.querySelector('.inline-video-container');
+          if (existingContainer) existingContainer.remove();
+          const overlay = clone.querySelector('.video-card-overlay');
+          if (overlay) overlay.style.display = '';
+          if (typeof onCardInit === 'function') onCardInit(clone);
+          prefixFragment.appendChild(clone);
+        });
+        row.appendChild(suffixFragment);
+
+        currentIndex = buffer;
+        updatePosition(false);
+      };
+
+      const updatePosition = (animate = true) => {
+        if (isMobile()) return;
+
+        const allCards = Array.from(row.querySelectorAll(cardSelector));
+        if (!allCards.length) return;
+
+        const firstCard = allCards[0];
+        const cardWidth = firstCard.getBoundingClientRect().width || 310;
+        const gap = parseFloat(window.getComputedStyle(row).gap) || 22;
+        const offset = Math.round(currentIndex * (cardWidth + gap));
+
+        row.style.transition = animate ? TRANSITION_STYLE : 'none';
+        row.style.transform = `translateX(-${offset}px)`;
+
+        // Stop any playing video if moving away from visible cards
+        const cpv = getCardsPerView();
+        const playingVideos = row.querySelectorAll('video.inline-video-player, iframe.inline-video-iframe, .inline-video-container');
+        playingVideos.forEach(media => {
+          const parent = media.closest(cardSelector);
+          if (parent) {
+            const cardIdx = allCards.indexOf(parent);
+            if (cardIdx < currentIndex || cardIdx >= currentIndex + cpv) {
+              closeInlineVideo(parent);
+            }
+          }
+        });
+      };
+
+      const checkBoundary = () => {
+        if (isMobile() || numOriginal <= 0) return;
+        const buffer = getBufferSize();
+        if (currentIndex >= numOriginal + buffer) {
+          row.style.transition = 'none';
+          currentIndex -= numOriginal;
+          updatePosition(false);
+          void row.offsetHeight; // force reflow
+        } else if (currentIndex < buffer) {
+          row.style.transition = 'none';
+          currentIndex += numOriginal;
+          updatePosition(false);
+          void row.offsetHeight; // force reflow
+        }
+      };
+
+      row.addEventListener('transitionend', (e) => {
+        if (isMobile()) return;
+        if (e.target !== row || e.propertyName !== 'transform') return;
+        row.classList.remove('is-sliding');
+        checkBoundary();
+        isAnimating = false;
+      });
+
+      const getStep = () => {
+        return getCardsPerView();
+      };
+
+      const getMobileScrollStep = () => {
+        const firstCard = row.querySelector(cardSelector);
+        if (!firstCard) return 320;
+        const cardWidth = firstCard.getBoundingClientRect().width || 300;
+        const gap = parseFloat(window.getComputedStyle(row).gap) || 16;
+        return cardWidth + gap;
+      };
+
+      const moveNext = () => {
+        if (isMobile()) {
+          const step = getMobileScrollStep();
+          const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+          if (wrapper.scrollLeft >= maxScroll - 10) {
+            wrapper.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            wrapper.scrollBy({ left: step, behavior: 'smooth' });
+          }
+          return;
+        }
+
+        if (isAnimating || numOriginal <= 0) return;
+        isAnimating = true;
+        row.classList.add('is-sliding');
+        currentIndex += getStep();
+        updatePosition(true);
+
+        setTimeout(() => {
+          if (isAnimating) {
+            row.classList.remove('is-sliding');
+            checkBoundary();
+            isAnimating = false;
+          }
+        }, 700);
+      };
+
+      const movePrev = () => {
+        if (isMobile()) {
+          const step = getMobileScrollStep();
+          if (wrapper.scrollLeft <= 10) {
+            wrapper.scrollTo({ left: wrapper.scrollWidth, behavior: 'smooth' });
+          } else {
+            wrapper.scrollBy({ left: -step, behavior: 'smooth' });
+          }
+          return;
+        }
+
+        if (isAnimating || numOriginal <= 0) return;
+        isAnimating = true;
+        row.classList.add('is-sliding');
+        currentIndex -= getStep();
+        updatePosition(true);
+
+        setTimeout(() => {
+          if (isAnimating) {
+            row.classList.remove('is-sliding');
+            checkBoundary();
+            isAnimating = false;
+          }
+        }, 700);
+      };
+
+      // Auto-scroll every 5.0 seconds
+      const startAutoScroll = () => {
+        stopAutoScroll();
+        autoScrollTimer = setInterval(() => {
+          if (isPaused) return;
+          const activeMedia = row.querySelector('video.inline-video-player, iframe.inline-video-iframe, .inline-video-container');
+          if (activeMedia) return;
+
+          moveNext();
+        }, 5000);
+      };
+
+      const stopAutoScroll = () => {
+        if (autoScrollTimer) {
+          clearInterval(autoScrollTimer);
+          autoScrollTimer = null;
+        }
+      };
+
+      const restartAutoScroll = () => {
+        stopAutoScroll();
+        startAutoScroll();
+      };
+
+      wrapper.addEventListener('mouseenter', () => { isPaused = true; });
+      wrapper.addEventListener('mouseleave', () => { isPaused = false; });
+
+      document.addEventListener('visibilitychange', () => {
+        isPaused = document.visibilityState === 'hidden';
+      });
+
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        movePrev();
+        restartAutoScroll();
+      });
+
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        moveNext();
+        restartAutoScroll();
+      });
+
+      // Desktop-only touch/swipe (on mobile, native CSS scroll-snap handles swipe with zero GPU overhead)
+      let startX = 0;
+      let isSwiping = false;
+
+      wrapper.addEventListener('touchstart', (e) => {
+        if (isMobile()) {
+          isPaused = true;
+          return;
+        }
+        if (e.touches && e.touches.length === 1) {
+          startX = e.touches[0].clientX;
+          isSwiping = true;
+          isPaused = true;
+        }
+      }, { passive: true });
+
+      wrapper.addEventListener('touchend', (e) => {
+        if (isMobile()) {
+          isPaused = false;
+          restartAutoScroll();
+          return;
+        }
+        if (!isSwiping) return;
+        isSwiping = false;
+        isPaused = false;
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (diff > 45) {
+          moveNext();
+        } else if (diff < -45) {
+          movePrev();
+        }
+        restartAutoScroll();
+      }, { passive: true });
+
+      // Debounced resize that ignores iOS vertical address-bar collapsing
+      let resizeTimer = null;
+      window.addEventListener('resize', () => {
+        if (window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
+
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          initClones();
+          if (!isMobile()) {
+            updatePosition(false);
+          }
+        }, 150);
+      });
+
+      initClones();
+      if (!isMobile()) {
+        setTimeout(() => updatePosition(false), 50);
+        setTimeout(() => updatePosition(false), 300);
+      }
+      startAutoScroll();
+
+      return () => {
+        initClones();
+      };
+    };
+
+    const videoMap = {
+      'sudha-analyticals': {
+        title: 'Client Testimonial - Sudha Analyticals (Mr. Srinivas Gullala)',
+        vimeoId: '1231934338',
+        vimeoHash: 'c57e488781'
+      },
+      'anuj-gurwara': {
+        title: 'Client Testimonial - Sherwood Public School (Mr. Anuj Gurwara)',
+        vimeoId: '1231934155',
+        vimeoHash: '4076544a5d'
+      },
+      'andhra-canteen': {
+        title: 'Founders in Frame - Andhra Canteen (Ms. Hyma Kesineni)',
+        vimeoId: '1231934154',
+        vimeoHash: '882ccd0e91'
+      },
+      'clapkartel': {
+        title: 'Founders in Frame - Clap Kartel (Mr. Raghu Tirumala)',
+        vimeoId: '1231934203',
+        vimeoHash: 'beac68efbb'
+      },
+      'ritebooks': {
+        title: 'Client Testimonial - RiteBook Technologies (Mr. Raghavender Srirampur)',
+        vimeoId: '1231934289',
+        vimeoHash: 'e5919fe7e3'
+      },
+      'rithika-suits': {
+        title: 'Founders in Frame - Rithika Suits (Ms. Natasha Malve)',
+        vimeoId: '1231934318',
+        vimeoHash: '86ae31087f'
+      },
+      'viyash': {
+        title: 'Client Testimonial - Viyash Scientific Limited (Mr. Kiran Varma)',
+        vimeoId: '1231934365',
+        vimeoHash: '9a288e052b'
+      },
+      'b5-corp': {
+        title: 'Client Testimonial - B5 Corporation (Mr. KVS Subramanyam)',
+        vimeoId: '1231934156',
+        vimeoHash: 'c91b59a553'
+      },
+      'alankar-studios': {
+        title: 'Founders in Frame - Studio Alankar (Mr. Dhrumil Kumar)',
+        vimeoId: '1231934158',
+        vimeoHash: 'ed2617491a'
+      },
+      'panfish': {
+        title: 'Client Testimonial - Panfish Solutions (Ms. Anuradha Rao)',
+        vimeoId: '1231934286',
+        vimeoHash: 'bdfb32785d'
+      },
+    };
+
+    const localVideo = videoOverlay ? videoOverlay.querySelector('.video-preview-local-player') : null;
+
+    const openVideoModal = (config) => {
+      if (!videoOverlay || !config) return;
+
+      if (titleText) titleText.textContent = config.title || 'Client Testimonial';
+      if (noteText) noteText.textContent = config.note || '';
+
+      if (config.videoSrc) {
+        if (iframe) {
+          iframe.style.display = 'none';
+          iframe.src = '';
+        }
+        if (localVideo) {
+          localVideo.style.display = 'block';
+          localVideo.src = config.videoSrc;
+          localVideo.currentTime = 0;
+          localVideo.play().catch(() => {});
+        }
+      } else {
+        if (localVideo) {
+          localVideo.pause();
+          localVideo.style.display = 'none';
+          localVideo.src = '';
+        }
+        if (iframe) {
+          iframe.style.display = 'block';
+          let embedSrc = '';
+          if (config.vimeoId) {
+            const hashParam = config.vimeoHash ? `h=${config.vimeoHash}&` : '';
+            embedSrc = `https://player.vimeo.com/video/${config.vimeoId}?${hashParam}autoplay=1&autopause=0&badge=0&title=0&byline=0&portrait=0`;
+          } else if (config.youtubeId) {
+            embedSrc = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&rel=0`;
+          }
+          iframe.src = embedSrc;
+        }
+      }
+
+      videoOverlay.style.display = 'flex';
+      void videoOverlay.offsetWidth;
+      videoOverlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    // Fast pre-warm function for Vimeo player documents
+    const prefetchVideo = (vimeoId, hash) => {
+      if (!vimeoId) return;
+      const linkId = `prefetch-vimeo-${vimeoId}`;
+      if (document.getElementById(linkId)) return;
+      const link = document.createElement('link');
+      link.id = linkId;
+      link.rel = 'preload';
+      link.as = 'document';
+      const hashParam = hash ? `h=${hash}&` : '';
+      link.href = `https://player.vimeo.com/video/${vimeoId}?${hashParam}autoplay=1&playsinline=1`;
+      document.head.appendChild(link);
+    };
+
+    // Pre-warm the visible videos when testimonials section approaches the viewport
+    if ('IntersectionObserver' in window && testimonialsSec) {
+      const prewarmObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            ['https://player.vimeo.com', 'https://f.vimeocdn.com', 'https://vod-progressive.akamaized.net'].forEach(url => {
+              if (document.querySelector(`link[href="${url}"]`)) return;
+              const link = document.createElement('link');
+              link.rel = 'preconnect';
+              link.href = url;
+              link.crossOrigin = 'anonymous';
+              document.head.appendChild(link);
+            });
+            ['rithika-suits', 'ritebooks', 'anuj-gurwara'].forEach(key => {
+              const cfg = videoMap[key];
+              if (cfg && cfg.vimeoId) prefetchVideo(cfg.vimeoId, cfg.vimeoHash);
+            });
+            prewarmObserver.disconnect();
+          }
+        });
+      }, { rootMargin: '350px' });
+      prewarmObserver.observe(testimonialsSec);
+    }
+
+    const playInlineVideo = (cardWrapper, config) => {
+      if (!cardWrapper || !config) return;
+      if (cardWrapper.classList.contains('is-playing-video')) return;
+
+      closeAllInlineVideos(cardWrapper);
+
+      const overlay = cardWrapper.querySelector('.video-card-overlay');
+      const playBtn = cardWrapper.querySelector('.play-button');
+      if (playBtn) playBtn.classList.add('is-loading');
+      cardWrapper.classList.add('is-playing-video');
+
+      const container = document.createElement('div');
+      container.className = 'inline-video-container';
+
+      let isRevealed = false;
+      const revealMedia = (mediaEl) => {
+        if (isRevealed) return;
+        isRevealed = true;
+        if (mediaEl) {
+          mediaEl.style.opacity = '1';
+          mediaEl.style.pointerEvents = 'auto';
+        }
+        if (overlay) {
+          overlay.classList.add('is-faded');
+          setTimeout(() => {
+            if (overlay) overlay.style.display = 'none';
+          }, 350);
+        }
+      };
+
+      if (config.videoSrc) {
+        const video = document.createElement('video');
+        video.className = 'inline-video-player';
+        video.src = config.videoSrc;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.style.opacity = '0';
+        video.style.transition = 'opacity 0.25s ease';
+        video.addEventListener('canplay', () => revealMedia(video), { once: true });
+        video.addEventListener('ended', () => closeInlineVideo(cardWrapper));
+        container.appendChild(video);
+        video.play().catch(() => {});
+        setTimeout(() => revealMedia(video), 1000);
+      } else if (config.vimeoId) {
+        const iframeEl = document.createElement('iframe');
+        iframeEl.className = 'inline-video-iframe';
+        const hashParam = config.vimeoHash ? `h=${config.vimeoHash}&` : '';
+        // Clean direct Vimeo edge stream URL: instant load, autoplay, playsinline
+        iframeEl.src = `https://player.vimeo.com/video/${config.vimeoId}?${hashParam}autoplay=1&muted=0&playsinline=1&autopause=0&badge=0&title=0&byline=0&portrait=0&transparent=0`;
+        iframeEl.setAttribute('frameborder', '0');
+        iframeEl.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; encrypted-media');
+        iframeEl.setAttribute('allowfullscreen', 'true');
+        iframeEl.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        iframeEl.setAttribute('loading', 'eager');
+        iframeEl.style.opacity = '0';
+        iframeEl.style.pointerEvents = 'none';
+        iframeEl.style.transition = 'opacity 0.25s ease';
+
+        iframeEl.addEventListener('load', () => {
+          try {
+            iframeEl.contentWindow.postMessage('{"method":"play"}', '*');
+          } catch (_) {}
+          revealMedia(iframeEl);
+        }, { once: true });
+
+        container.appendChild(iframeEl);
+        setTimeout(() => revealMedia(iframeEl), 1200);
+      } else if (config.youtubeId) {
+        const iframeEl = document.createElement('iframe');
+        iframeEl.className = 'inline-video-iframe';
+        iframeEl.src = `https://www.youtube.com/embed/${config.youtubeId}?start=${config.start || 0}&autoplay=1&playsinline=1&rel=0`;
+        iframeEl.setAttribute('frameborder', '0');
+        iframeEl.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
+        iframeEl.setAttribute('allowfullscreen', 'true');
+        iframeEl.setAttribute('loading', 'eager');
+        iframeEl.style.opacity = '0';
+        iframeEl.style.pointerEvents = 'none';
+        iframeEl.style.transition = 'opacity 0.25s ease';
+        iframeEl.addEventListener('load', () => revealMedia(iframeEl), { once: true });
+        container.appendChild(iframeEl);
+        setTimeout(() => revealMedia(iframeEl), 1200);
+      }
+
+      cardWrapper.appendChild(container);
+    };
+
+    const handlePlayVideo = (cardWrapper) => {
+      if (!cardWrapper) return;
+      if (cardWrapper.classList.contains('is-playing-video')) return;
+      const key = cardWrapper.getAttribute('data-id');
+      const config = videoMap[key];
+      if (!config) return;
+      playInlineVideo(cardWrapper, config);
+    };
+
+    const attachCardEvents = (cardWrapper) => {
+      if (!cardWrapper || cardWrapper.dataset.cardEventsAttached) return;
+      cardWrapper.dataset.cardEventsAttached = 'true';
+
+      cardWrapper.addEventListener('pointerenter', () => {
+        const key = cardWrapper.getAttribute('data-id');
+        const config = videoMap[key];
+        if (config && config.vimeoId) {
+          prefetchVideo(config.vimeoId, config.vimeoHash);
+        }
+      }, { passive: true, once: true });
+
+      const playBtn = cardWrapper.querySelector('.play-button');
+      if (playBtn) {
+        playBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handlePlayVideo(cardWrapper);
+        });
+      }
+
+      cardWrapper.addEventListener('click', () => {
+        if (cardWrapper.classList.contains('is-playing-video')) return;
+        handlePlayVideo(cardWrapper);
+      });
+    };
+
+    // Attach to existing cards
+    testimonialsSec.querySelectorAll('.video-card').forEach(attachCardEvents);
+
+    // Vimeo Dynamic Folder Sync
+    const VIMEO_FOLDER_CONFIG = {
+      token: '5d63bd959c426c041b02851ea5fb3971',
+      userId: '254778851',
+      folderId: '30738577',
+      cacheKey: 'eparivartan_vimeo_testimonials_cache_v3',
+      cacheDurationMs: 24 * 60 * 60 * 1000 // 24 hours cache in localStorage
+    };
+
+    const customThumbMap = {
+      '1231934338': { key: 'sudha-analyticals', thumb: 'assets/testimonials/sudha-analyticals-thumb.webp', title: 'Sudha Analyticals - Mr. Srinivas Gullala' },
+      '1231934155': { key: 'anuj-gurwara', thumb: 'assets/testimonials/anuj-gurwara-thumb.webp', title: 'Sherwood Public School - Mr. Anuj Gurwara' },
+      '1231934154': { key: 'andhra-canteen', thumb: 'assets/testimonials/andhra-canteen-thumb.webp', title: 'Andhra Canteen - Ms. Hyma Kesineni' },
+      '1231934203': { key: 'clapkartel', thumb: 'assets/testimonials/clapkartel-thumb.webp', title: 'Clap Kartel - Mr. Raghu Tirumala' },
+      '1231934289': { key: 'ritebooks', thumb: 'assets/testimonials/ritebooks-thumb.webp', title: 'RiteBook Technologies - Mr. Raghavender Srirampur' },
+      '1231934318': { key: 'rithika-suits', thumb: 'assets/testimonials/rithika-suits-thumb.webp', title: 'Rithika Suits - Ms. Natasha Malve' },
+      '1231934365': { key: 'viyash', thumb: 'assets/testimonials/viyash-thumb.webp', title: 'Viyash Scientific Limited - Mr. Kiran Varma' },
+      '1231934156': { key: 'b5-corp', thumb: 'assets/testimonials/b5-corp-thumb.webp', title: 'B5 Corporation - Mr. KVS Subramanyam' },
+      '1231934158': { key: 'alankar-studios', thumb: 'assets/testimonials/alankar-studios-thumb.webp', title: 'Studio Alankar - Mr. Dhrumil Kumar' },
+      '1231934286': { key: 'panfish', thumb: 'assets/testimonials/panfish-thumb.webp', title: 'Panfish Solutions - Ms. Anuradha Rao' },
+      // Fallback mappings
+      '1231599790': { key: 'sudha-analyticals', thumb: 'assets/testimonials/sudha-analyticals-thumb.webp', title: 'Sudha Analyticals - Mr. Srinivas Gullala' },
+      '1231599622': { key: 'anuj-gurwara', thumb: 'assets/testimonials/anuj-gurwara-thumb.webp', title: 'Sherwood Public School - Mr. Anuj Gurwara' },
+      '1231599623': { key: 'andhra-canteen', thumb: 'assets/testimonials/andhra-canteen-thumb.webp', title: 'Andhra Canteen - Ms. Hyma Kesineni' },
+      '1231599624': { key: 'clapkartel', thumb: 'assets/testimonials/clapkartel-thumb.webp', title: 'Clap Kartel - Mr. Raghu Tirumala' },
+      '1231599695': { key: 'ritebooks', thumb: 'assets/testimonials/ritebooks-thumb.webp', title: 'RiteBook Technologies - Mr. Raghavender Srirampur' },
+      '1231599781': { key: 'rithika-suits', thumb: 'assets/testimonials/rithika-suits-thumb.webp', title: 'Rithika Suits - Ms. Natasha Malve' },
+      '1231599791': { key: 'viyash', thumb: 'assets/testimonials/viyash-thumb.webp', title: 'Viyash Scientific Limited - Mr. Kiran Varma' },
+      '1231599625': { key: 'b5-corp', thumb: 'assets/testimonials/b5-corp-thumb.webp', title: 'B5 Corporation - Mr. KVS Subramanyam' }
+    };
+
+    const syncVimeoFolderTestimonials = async (row, onNewCardsAdded) => {
+      if (!row) return;
+      try {
+        let vimeoVideos = null;
+        const urlParams = new URLSearchParams(window.location.search);
+        const bypassCache = urlParams.has('nocache') || urlParams.has('refresh');
+
+        if (!bypassCache) {
+          const cached = localStorage.getItem(VIMEO_FOLDER_CONFIG.cacheKey);
+          if (cached) {
+            try {
+              const parsed = JSON.parse(cached);
+              if (Date.now() - parsed.timestamp < VIMEO_FOLDER_CONFIG.cacheDurationMs && Array.isArray(parsed.videos)) {
+                vimeoVideos = parsed.videos;
+              }
+            } catch (_) {}
+          }
+        }
+
+        if (!vimeoVideos) {
+          const res = await fetch(`https://api.vimeo.com/users/${VIMEO_FOLDER_CONFIG.userId}/projects/${VIMEO_FOLDER_CONFIG.folderId}/videos?per_page=100&fields=name,uri,player_embed_url,embed.html,pictures`, {
+            headers: {
+              'Authorization': `bearer ${VIMEO_FOLDER_CONFIG.token}`
+            }
+          });
+          if (res.ok) {
+            const json = await res.json();
+            vimeoVideos = json.data || [];
+            localStorage.setItem(VIMEO_FOLDER_CONFIG.cacheKey, JSON.stringify({
+              timestamp: Date.now(),
+              videos: vimeoVideos
+            }));
+          }
+        }
+
+        if (!Array.isArray(vimeoVideos) || !vimeoVideos.length) return;
+
+        let hasNewCards = false;
+
+        vimeoVideos.forEach(v => {
+          const id = v.uri ? v.uri.split('/').pop() : null;
+          if (!id) return;
+
+          let hash = '';
+          if (v.player_embed_url) {
+            const match = v.player_embed_url.match(/h=([a-zA-Z0-9]+)/);
+            if (match) hash = match[1];
+          }
+
+          const preset = customThumbMap[id];
+          const key = preset ? preset.key : `vimeo-${id}`;
+          const rawTitle = v.name || (preset ? preset.title : 'Client Testimonial');
+          const safeTitle = rawTitle.replace(/"/g, '&quot;');
+
+          videoMap[key] = {
+            title: rawTitle,
+            vimeoId: id,
+            vimeoHash: hash
+          };
+
+          const existingCard = row.querySelector(`.video-card[data-id="${key}"]`);
+          if (!existingCard) {
+            let thumbUrl = '';
+            if (preset && preset.thumb) {
+              thumbUrl = preset.thumb;
+            } else if (v.pictures && Array.isArray(v.pictures.sizes) && v.pictures.sizes.length > 0) {
+              const sizes = v.pictures.sizes;
+              const preferred = sizes.find(s => s.width >= 640 && s.width <= 1280) || sizes[sizes.length - 1];
+              thumbUrl = preferred ? preferred.link : '';
+            }
+
+            const card = document.createElement('div');
+            card.className = 'video-card video-card--custom-graphic';
+            card.setAttribute('data-id', key);
+            card.innerHTML = `
+              <div class="video-card-overlay">
+                ${thumbUrl ? `<img src="${thumbUrl}" alt="${safeTitle}" class="video-card-bg-img" loading="lazy" />` : ''}
+                <div class="play-button-wrapper">
+                  <button type="button" class="play-button" aria-label="Play testimonial from ${safeTitle}">
+                    <svg width="14" height="16" viewBox="0 0 14 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13 8L1 15V1L13 8Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            `;
+            row.appendChild(card);
+            attachCardEvents(card);
+            hasNewCards = true;
+          }
+        });
+
+        if (hasNewCards && typeof onNewCardsAdded === 'function') {
+          onNewCardsAdded();
+        }
+      } catch (err) {
+        console.warn('Vimeo dynamic testimonials sync:', err);
+      }
+    };
+
+    // Video Testimonials Carousel Navigation Controls
+    const videoPrevBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-prev-btn');
+    const videoNextBtn = testimonialsSec.querySelector('.testimonials-header-right .testimonials-next-btn');
+    const videoWrapper = testimonialsSec.querySelector('.video-testimonials-wrapper');
+    const videoRow = testimonialsSec.querySelector('.video-testimonials-row');
+
+    if (videoPrevBtn && videoNextBtn && videoWrapper && videoRow) {
+      const updateVideoCarousel = setupStepCarousel(videoWrapper, videoRow, videoPrevBtn, videoNextBtn, '.video-card', attachCardEvents);
+      setTimeout(() => syncVimeoFolderTestimonials(videoRow, updateVideoCarousel), 2000);
+    }
+
+    // Written Review Pop-up Modal Setup
+    const writtenOverlay = document.querySelector('.written-preview-overlay');
+    let openWrittenModal = null;
+
+    if (writtenOverlay) {
+      const writtenCloseBtn = writtenOverlay.querySelector('.written-preview-close');
+      const writtenModal = writtenOverlay.querySelector('.written-preview-modal');
+      const modalText = writtenOverlay.querySelector('.written-preview-text');
+      const modalAuthorName = writtenOverlay.querySelector('.written-preview-author-name');
+      const modalAuthorMeta = writtenOverlay.querySelector('.written-preview-author-meta');
+      const modalLogo = writtenOverlay.querySelector('.written-preview-logo');
+
+      openWrittenModal = (card) => {
+        const text = card.querySelector('.written-card-text')?.textContent?.trim() || '';
+        const name = card.querySelector('.author-name')?.textContent?.trim() || '';
+        const meta = card.querySelector('.author-meta')?.textContent?.trim() || '';
+        const logo = card.querySelector('.company-logo')?.getAttribute('src') || '';
+        const logoAlt = card.querySelector('.company-logo')?.getAttribute('alt') || '';
+
+        if (modalText) modalText.textContent = text;
+        if (modalAuthorName) modalAuthorName.textContent = name;
+        if (modalAuthorMeta) modalAuthorMeta.textContent = meta;
+        if (modalLogo) {
+          if (logo) {
+            modalLogo.src = logo;
+            modalLogo.alt = logoAlt;
+            modalLogo.style.display = 'block';
+          } else {
+            modalLogo.style.display = 'none';
+          }
+        }
+
+        writtenOverlay.style.display = 'flex';
+        void writtenOverlay.offsetWidth;
+        writtenOverlay.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeWritten = () => {
+        writtenOverlay.classList.remove('is-active');
+        setTimeout(() => {
+          writtenOverlay.style.display = 'none';
+          document.body.style.overflow = '';
+        }, 400);
+      };
+
+      if (writtenCloseBtn) writtenCloseBtn.addEventListener('click', closeWritten);
+      writtenOverlay.addEventListener('click', closeWritten);
+      if (writtenModal) {
+        writtenModal.addEventListener('click', (e) => e.stopPropagation());
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && writtenOverlay.classList.contains('is-active')) {
+          closeWritten();
+        }
+      });
+    }
+
+    const syncCardReadMore = (card) => {
+      if (!card) return;
+      const textEl = card.querySelector('.written-card-text');
+      if (!textEl) return;
+      let btn = card.querySelector('.written-card-read-more');
+      const isClamped = card.classList.contains('has-read-more') || (textEl.scrollHeight > textEl.clientHeight + 2);
+      if (isClamped) {
+        card.classList.add('has-read-more');
+        if (!btn) {
+          btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'written-card-read-more';
+          btn.setAttribute('aria-label', 'Read full review');
+          btn.innerHTML = `Read More <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L11 8L6 13"/></svg>`;
+          card.appendChild(btn);
+        }
+      }
+    };
+
+    const attachWrittenEvents = (card) => {
+      if (!card || card.dataset.writtenEventsAttached) return;
+      card.dataset.writtenEventsAttached = 'true';
+      syncCardReadMore(card);
+      if (openWrittenModal) {
+        card.addEventListener('click', () => openWrittenModal(card));
+      }
+    };
+
+    testimonialsSec.querySelectorAll('.written-card').forEach(attachWrittenEvents);
+
+    // Written Testimonials Carousel Navigation Controls
+    const writtenPrevBtn = testimonialsSec.querySelector('.written-prev-btn');
+    const writtenNextBtn = testimonialsSec.querySelector('.written-next-btn');
+    const writtenWrapper = testimonialsSec.querySelector('.written-testimonials-wrapper');
+    const writtenRow = testimonialsSec.querySelector('.written-testimonials-row');
+
+    if (writtenPrevBtn && writtenNextBtn && writtenWrapper && writtenRow) {
+      setupStepCarousel(writtenWrapper, writtenRow, writtenPrevBtn, writtenNextBtn, '.written-card', attachWrittenEvents);
+    }
+
+    if (writtenRow && openWrittenModal) {
+      writtenRow.addEventListener('click', (e) => {
+        const card = e.target.closest('.written-card');
+        if (card) openWrittenModal(card);
+      });
+    }
+
+    const closeVideo = () => {
+      if (!videoOverlay) return;
+      videoOverlay.classList.remove('is-active');
+      if (localVideo) {
+        localVideo.pause();
+      }
+      setTimeout(() => {
+        videoOverlay.style.display = 'none';
+        if (iframe) iframe.src = '';
+        if (localVideo) localVideo.src = '';
+        document.body.style.overflow = '';
+      }, 400);
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', closeVideo);
+    if (videoOverlay) {
+      videoOverlay.addEventListener('click', closeVideo);
+      const modal = videoOverlay.querySelector('.video-preview-modal');
+      if (modal) {
+        modal.addEventListener('click', (e) => e.stopPropagation());
+      }
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllInlineVideos();
+        if (videoOverlay && videoOverlay.classList.contains('is-active')) {
+          closeVideo();
+        }
+      }
+    });
+
+    window.addEventListener('message', (e) => {
+      try {
+        const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+        if (data && (data.event === 'ended' || data.event === 'finish')) {
+          testimonialsSec.querySelectorAll('.video-card.is-playing-video').forEach(card => {
+            const ifr = card.querySelector('iframe.inline-video-iframe');
+            if (ifr && ifr.contentWindow === e.source) {
+              closeInlineVideo(card);
+            }
+          });
+        }
+      } catch (_) {}
+    });
+  }
+
+
+  /* ==========================================
+     4. CONTACT FORM HANDLER & INTEGRATIONS
+     ========================================== */
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm && !contactForm.dataset.formInitialized) {
+    contactForm.dataset.formInitialized = 'true';
+    const servicesList = [
+      'UI/UX Design',
+      'Website Development',
+      'Custom Web Application',
+      'Mobile App Development',
+      'E-commerce Development',
+      'SEO / AEO / GEO',
+      'AMC / Technology Support',
+      'Other Technology Requirement',
+    ];
+
+    // Build Custom Dropdown Menu triggers
+    const trigger = contactForm.querySelector('.contact-custom-dropdown-trigger');
+    const container = contactForm.querySelector('.contact-custom-dropdown-container');
+    const hiddenInput = contactForm.querySelector('input[name="service"]');
+    let selectedDisplay = null;
+    
+    if (trigger && container && hiddenInput) {
+      selectedDisplay = trigger.querySelector('.contact-dropdown-selected-value');
+
+      // Create dropdown selection block options dynamically
+      const ul = document.createElement('ul');
+      ul.className = 'contact-custom-dropdown-options';
+      ul.style.display = 'none';
+
+      servicesList.forEach(service => {
+        const li = document.createElement('li');
+        li.className = 'contact-custom-dropdown-option';
+        li.textContent = service;
+        li.addEventListener('click', (e) => {
+          e.stopPropagation();
+          hiddenInput.value = service;
+          if (selectedDisplay) {
+            selectedDisplay.textContent = service;
+            selectedDisplay.classList.remove('placeholder');
+          }
+          ul.style.display = 'none';
+          trigger.classList.remove('active');
+          const chevron = trigger.querySelector('.contact-dropdown-chevron');
+          if (chevron) chevron.classList.remove('open');
+        });
+        ul.appendChild(li);
+      });
+      container.appendChild(ul);
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = ul.style.display === 'block';
+        ul.style.display = isOpen ? 'none' : 'block';
+        trigger.classList.toggle('active', !isOpen);
+        const chevron = trigger.querySelector('.contact-dropdown-chevron');
+        if (chevron) chevron.classList.toggle('open', !isOpen);
+      });
+
+      document.addEventListener('click', () => {
+        ul.style.display = 'none';
+        trigger.classList.remove('active');
+        const chevron = trigger.querySelector('.contact-dropdown-chevron');
+        if (chevron) chevron.classList.remove('open');
+      });
+    }
+
+    // Real-Time URL Previews Collapse/Dropdown handling
+    const websiteInput = document.getElementById('website');
+    const previewCollapse = contactForm.querySelector('.contact-website-preview-collapse');
+    const previewChevron = contactForm.querySelector('.contact-website-field .contact-dropdown-chevron');
+    const previewIframe = contactForm.querySelector('.contact-preview-iframe');
+    const previewHint = contactForm.querySelector('.contact-preview-hint');
+    const previewLoading = contactForm.querySelector('.contact-preview-loading');
+    
+    let typingTimer;
+    let previewOpenToken = 0;
+
+    const normalizeUrl = (input) => {
+      const trimmed = input.trim();
+      if (!trimmed) return '';
+      return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+    };
+
+    const DOMAIN_RE = /^([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i;
+    const getPreviewableUrl = (input) => {
+      const normalized = normalizeUrl(input);
+      if (!normalized) return '';
+      try {
+        const parsed = new URL(normalized);
+        return DOMAIN_RE.test(parsed.hostname) ? parsed.href : '';
+      } catch {
+        return '';
+      }
+    };
+
+    const loadWebsitePreview = () => {
+      const previewUrl = getPreviewableUrl(websiteInput.value);
+      if (!previewUrl) {
+        hidePreview();
+        return;
+      }
+
+      previewLoading.style.display = 'block';
+      previewIframe.src = previewUrl;
+      previewIframe.style.opacity = '0';
+      previewHint.querySelector('a').href = previewUrl;
+
+      // Handle loading events
+      previewIframe.onload = () => {
+        previewLoading.style.display = 'none';
+        previewIframe.style.opacity = '1';
+      };
+
+      showPreview();
+    };
+
+    const showPreview = () => {
+      previewCollapse.classList.remove('is-collapsed');
+      if (previewChevron) previewChevron.classList.add('open');
+      
+      // Auto-collapse after 3 seconds
+      previewOpenToken++;
+      const currentToken = previewOpenToken;
+      setTimeout(() => {
+        if (currentToken === previewOpenToken) {
+          hidePreview();
+        }
+      }, 3000);
+    };
+
+    const hidePreview = () => {
+      previewCollapse.classList.add('is-collapsed');
+      if (previewChevron) previewChevron.classList.remove('open');
+    };
+
+    websiteInput.addEventListener('input', () => {
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(loadWebsitePreview, 600);
+    });
+
+    websiteInput.addEventListener('focus', () => {
+      if (getPreviewableUrl(websiteInput.value)) {
+        showPreview();
+      }
+    });
+
+    if (previewChevron) {
+      previewChevron.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isCollapsed = previewCollapse.classList.contains('is-collapsed');
+        if (isCollapsed) {
+          loadWebsitePreview();
+        } else {
+          hidePreview();
+        }
+      });
+    }
+
+    // Close preview window when clicking outside
+    document.addEventListener('mousedown', (e) => {
+      if (!websiteInput.closest('.contact-website-field').contains(e.target)) {
+        hidePreview();
+      }
+    });
+
+    // reCAPTCHA init script configuration
+    const isProduction = ['eparivartan.com', 'www.eparivartan.com'].includes(window.location.hostname);
+    const RECAPTCHA_SITE_KEY = isProduction
+      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Production key
+      : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // Universal Google test key for localhost
+
+    const recaptchaContainer = document.getElementById('contact-recaptcha');
+    if (recaptchaContainer) {
+      recaptchaContainer.setAttribute('data-sitekey', RECAPTCHA_SITE_KEY);
+      recaptchaContainer.classList.add('g-recaptcha');
+    }
+
+    let recaptchaRendered = false;
+    const renderRecaptchaWidget = () => {
+      if (recaptchaRendered) return;
+      const target = document.getElementById('contact-recaptcha');
+      if (!target) return;
+      
+      if (target.children.length > 0 && target.querySelector('iframe')) {
+        recaptchaRendered = true;
+        return;
+      }
+
+      if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
+        try {
+          window.grecaptcha.render(target, {
+            sitekey: RECAPTCHA_SITE_KEY,
+          });
+          recaptchaRendered = true;
+        } catch (e) {
+          if (String(e).toLowerCase().includes('already been rendered')) {
+            recaptchaRendered = true;
+          } else {
+            console.warn('reCAPTCHA render notice: ', e);
+          }
+        }
+      }
+    };
+
+    // Ensure Google API script is present
+    if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js';
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    if (window.grecaptcha && typeof window.grecaptcha.ready === 'function') {
+      window.grecaptcha.ready(renderRecaptchaWidget);
+    }
+
+    let recaptchaAttempts = 0;
+    const recaptchaCheckInterval = setInterval(() => {
+      recaptchaAttempts++;
+      if (recaptchaRendered || recaptchaAttempts > 25) {
+        clearInterval(recaptchaCheckInterval);
+        return;
+      }
+      if (window.grecaptcha) {
+        if (typeof window.grecaptcha.ready === 'function') {
+          window.grecaptcha.ready(renderRecaptchaWidget);
+        } else if (typeof window.grecaptcha.render === 'function') {
+          renderRecaptchaWidget();
+        }
+      }
+    }, 400);
+
+    // Form Submissions API Integration
+    const submitBtn = contactForm.querySelector('.contact-submit-btn');
+    const toast = document.querySelector('.contact-toast-container');
+    const toastClose = document.querySelector('.contact-toast-close');
+
+    const CRM_URL = 'https://crmadmin.whysocial.in/api/add-enquiry';
+
+    // Clear statuses
+    const clearFormStatus = () => {
+      const oldStatus = contactForm.querySelector('.contact-form-status');
+      if (oldStatus) oldStatus.remove();
+    };
+
+    const displayFormStatus = (msg, isError) => {
+      clearFormStatus();
+      const p = document.createElement('p');
+      p.className = `contact-form-status contact-form-status-${isError ? 'error' : 'success'}`;
+      p.textContent = msg;
+      submitBtn.parentNode.insertBefore(p, submitBtn);
+    };
+
+    // Toast notifications timer logic
+    let toastTimer;
+    const showToast = () => {
+      if (toast) {
+        toast.classList.add('is-visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('is-visible');
+        }, 5000);
+      }
+    };
+
+    if (toastClose && toast) {
+      toastClose.addEventListener('click', () => {
+        toast.classList.remove('is-visible');
+      });
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const isLocalHost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+      const recaptchaResponse = window.grecaptcha ? window.grecaptcha.getResponse() : '';
+      if (!recaptchaResponse && !isLocalHost) {
+        displayFormStatus('Please complete the reCAPTCHA before submitting.', true);
+        return;
+      }
+
+      const service = hiddenInput ? hiddenInput.value.trim() : '';
+      if (!service) {
+        displayFormStatus('Please select a service before submitting.', true);
+        return;
+      }
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      const cleanedPhone = phone.replace(/[\s\-\(\)]+/g, '');
+      if (cleanedPhone.replace(/^\+/, '').length < 10) {
+        displayFormStatus('Please enter a valid phone number (at least 10 digits).', true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      const btnSpan = submitBtn.querySelector('span');
+      const originalBtnText = btnSpan.textContent;
+      btnSpan.textContent = 'Sending…';
+      clearFormStatus();
+
+      let website = document.getElementById('website').value.trim();
+      if (website && !/^https?:\/\//i.test(website)) {
+        website = 'https://' + website;
+      }
+      const message = document.getElementById('message').value.trim();
+
+      // Submit via backend mailer
+      const formData = new FormData();
+      formData.append('fullName', fullName);
+      formData.append('phone', phone);
+      formData.append('email', email);
+      formData.append('website', website);
+      formData.append('service', service);
+      formData.append('message', message);
+      formData.append('g-recaptcha-response', recaptchaResponse);
+
+      try {
+        let targetUrl = './contact.php';
+        if (isLocalHost) {
+          // When testing locally, dispatch through the local Gmail SMTP mailer bridge to send real emails
+          try {
+            const testPing = await fetch('http://127.0.0.1:5505/', { method: 'GET' });
+            if (testPing.ok) {
+              targetUrl = 'http://127.0.0.1:5505/';
+            }
+          } catch (pingErr) {
+            targetUrl = './contact.php';
+          }
+        }
+
+        const response = await fetch(targetUrl, {
+          method: 'POST',
+          body: formData
+        });
+
+        const responseText = await response.text();
+        let result = null;
+        try {
+          result = JSON.parse(responseText);
+        } catch (parseErr) {
+          result = null;
+        }
+
+        if (!response.ok || !result || !result.success) {
+          if (isLocalHost && (!result || !result.errors)) {
+            result = { success: true };
+          } else {
+            const errMsg = (result && result.errors) ? result.errors.join(' ') : 'Server returned an invalid response. Please try again.';
+            throw new Error(errMsg);
+          }
+        }
+
+        // Reset form inputs
+        contactForm.reset();
+        if (hiddenInput) hiddenInput.value = '';
+        if (selectedDisplay) {
+          selectedDisplay.textContent = 'Select service';
+          selectedDisplay.classList.add('placeholder');
+        }
+        if (window.grecaptcha) window.grecaptcha.reset();
+
+        displayFormStatus("Message sent! Thanks for reaching out — we'll be in touch shortly.", false);
+        showToast();
+      } catch (err) {
+        console.error('Submission failed: ', err);
+        displayFormStatus(err.message || 'Something went wrong. Please try again or reach us directly.', true);
+      } finally {
+        submitBtn.disabled = false;
+        btnSpan.textContent = originalBtnText;
+      }
+    });
+
+    
+  }
+};
+
+/* ==========================================
+   Footer Group Accordion Toggles
+   ========================================== */
+document.addEventListener('click', (e) => {
+  const header = e.target.closest('.footer-group-header');
+  if (header) {
+    e.preventDefault();
+    const parentGroup = header.closest('.footer-group');
+    if (parentGroup) {
+      const isOpen = parentGroup.classList.toggle('open');
+      header.classList.toggle('active', isOpen);
+    }
+  }
+});
+
+if (document.readyState !== 'loading') {
+  initStoryApp();
+} else {
+  document.addEventListener('DOMContentLoaded', initStoryApp);
+}

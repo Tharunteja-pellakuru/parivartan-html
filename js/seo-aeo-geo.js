@@ -255,5 +255,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Step 01
     renderStep(0);
   }
-  }
 });

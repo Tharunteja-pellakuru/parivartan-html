@@ -1,0 +1,839 @@
+const initWebsitesApp = () => {
+  /* ==========================================
+     1. GLOBAL ANIMATION LAYER (GSAP REVEALS)
+     ========================================== */
+  if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      // Reveal directory content sections as they scroll in
+      const revealTargets = gsap.utils.toArray('section').filter(el => 
+        !el.classList.contains('websites-hero-section') &&
+        !el.classList.contains('cta-section') &&
+        !el.classList.contains('contact-section')
+      );
+      revealTargets.forEach(el => {
+        gsap.fromTo(el,
+          { autoAlpha: 0, y: 30 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 92%',
+              once: true,
+            }
+          }
+        );
+      });
+
+      // Keep CTA, contact form, and footer immediately visible so they don't load slowly or pop in with delay
+      gsap.set('.cta-section, .contact-section, footer', { autoAlpha: 1, opacity: 1, y: 0, clearProps: 'transform' });
+
+    } else {
+      // Fallback for reduced motion
+      gsap.set('section, footer', { autoAlpha: 1, opacity: 1, y: 0 });
+    }
+
+    // Refresh ScrollTrigger when images load to ensure correct layouts
+    const refreshTrigger = () => ScrollTrigger.refresh();
+    window.addEventListener('load', refreshTrigger);
+    setTimeout(refreshTrigger, 1000);
+  }
+
+  function splitTextIntoRevealLines(element) {
+    const text = element.textContent.trim();
+    if (!text) return;
+    
+    // Temporarily save inner HTML structure to preserve styled highlights (e.g. <span class="green">)
+    // If heading has inner tags, we handle word wrapping node-by-node.
+    const hasHTML = element.innerHTML.trim() !== text;
+    
+    if (!hasHTML) {
+      const words = text.split(/\s+/);
+      element.innerHTML = words.map(w => `<span class="temp-word">${w}</span>`).join(' ');
+      
+      const wordSpans = element.querySelectorAll('.temp-word');
+      const lines = [];
+      let currentLine = [];
+      let currentY = -1;
+      
+      wordSpans.forEach(span => {
+        const y = span.offsetTop;
+        if (y !== currentY) {
+          if (currentLine.length > 0) lines.push(currentLine);
+          currentLine = [span];
+          currentY = y;
+        } else {
+          currentLine.push(span);
+        }
+      });
+      if (currentLine.length > 0) lines.push(currentLine);
+      
+      element.innerHTML = '';
+      lines.forEach(lineWords => {
+        const lineText = lineWords.map(span => span.textContent).join(' ');
+        
+        const maskDiv = document.createElement('div');
+        maskDiv.className = 'text-reveal-mask';
+        maskDiv.style.overflow = 'hidden';
+        maskDiv.style.display = 'block';
+        
+        const lineDiv = document.createElement('div');
+        lineDiv.className = 'text-reveal-line';
+        lineDiv.textContent = lineText;
+        lineDiv.style.display = 'block';
+        
+        maskDiv.appendChild(lineDiv);
+        element.appendChild(maskDiv);
+      });
+    } else {
+      // Fallback for headings with styled HTML tags: wrap directly to fade up
+      const childrenHtml = element.innerHTML;
+      element.innerHTML = `<div class="text-reveal-mask" style="overflow:hidden; display:block;"><div class="text-reveal-line" style="display:block;">${childrenHtml}</div></div>`;
+    }
+  }
+
+
+  /* ==========================================
+     2. MOBILE DRAWER NAVIGATION MENU
+     ========================================== */
+  const menuBtn = document.querySelector('.menu-btn');
+  const menuBackdrop = document.querySelector('.menu-backdrop');
+  const mobileDrawer = document.querySelector('.mobile-drawer');
+
+  if (menuBtn && menuBackdrop && mobileDrawer && !menuBtn.dataset.menuInitialized) {
+    menuBtn.dataset.menuInitialized = 'true';
+    let savedScrollY = 0;
+
+    const openMenu = () => {
+      savedScrollY = window.scrollY || window.pageYOffset;
+      mobileDrawer.querySelectorAll('.drawer-menu-item-group').forEach(group => {
+        group.classList.remove('expanded');
+        const toggleBtn = group.querySelector('.dropdown-toggle-btn');
+        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+      menuBtn.classList.add('active');
+      menuBackdrop.classList.add('open');
+      mobileDrawer.classList.add('open');
+      document.documentElement.classList.add('menu-open');
+      document.body.classList.add('menu-open');
+    };
+
+    const closeMenu = () => {
+      menuBtn.classList.remove('active');
+      menuBackdrop.classList.remove('open');
+      mobileDrawer.classList.remove('open');
+      document.documentElement.classList.remove('menu-open');
+      document.body.classList.remove('menu-open');
+    };
+
+    const toggleMenu = () => {
+      const isOpen = !mobileDrawer.classList.contains('open');
+      if (isOpen) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    };
+
+    menuBtn.addEventListener('click', toggleMenu);
+    menuBackdrop.addEventListener('click', closeMenu);
+
+    menuBackdrop.addEventListener('touchmove', (e) => {
+      if (e.cancelable) e.preventDefault();
+    }, { passive: false });
+
+    // Close menu drawer on navigation link clicks (hash navigation)
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Accordion group Inside mobile drawer (Our Work submenus)
+    const toggleBtns = mobileDrawer.querySelectorAll('.dropdown-toggle-btn');
+    toggleBtns.forEach(toggleBtn => {
+      const itemGroup = toggleBtn.closest('.drawer-menu-item-group');
+      if (toggleBtn && itemGroup) {
+        toggleBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isExpanded = itemGroup.classList.toggle('expanded');
+          toggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
+      }
+    });
+  }
+
+
+
+  /* ==========================================
+     3. WEBSITES PROJECTS FILTERING & TABS
+     ========================================== */
+  const tabButtons = document.querySelectorAll('.websites-category-tab');
+  const projectCards = document.querySelectorAll('.websites-project-card');
+  const emptyStates = document.querySelectorAll('.websites-empty-state');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedCategory = btn.getAttribute('data-category');
+
+      // Update active class on tab buttons
+      tabButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      let visibleCount = 0;
+
+      // Filter project cards
+      projectCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (selectedCategory === 'All' || cardCategory === selectedCategory) {
+          card.style.display = 'flex';
+          card.classList.add('is-visible');
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+          card.classList.remove('is-visible');
+        }
+      });
+
+      // Filter empty states
+      emptyStates.forEach(state => {
+        const stateCategory = state.getAttribute('data-category');
+        if (selectedCategory !== 'All' && stateCategory === selectedCategory && visibleCount === 0) {
+          state.style.display = 'flex';
+        } else {
+          state.style.display = 'none';
+        }
+      });
+
+      // Scroll active chip into view horizontally
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+      // Trigger GSAP stagger reveal animation on newly visible cards
+      if (typeof gsap !== 'undefined' && visibleCount > 0) {
+        gsap.fromTo('.websites-project-card.is-visible',
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out', overwrite: 'auto' }
+        );
+      }
+
+      // Smoothly move to the first visible card
+      requestAnimationFrame(() => {
+        const firstTarget = document.querySelector('.websites-project-card.is-visible') || document.querySelector('.websites-empty-state[style*="display: flex"]');
+        if (firstTarget) {
+          const header = document.querySelector('.header-container');
+          const mobileDropdown = document.querySelector('.websites-category-mobile-dropdown');
+          const desktopTabs = document.querySelector('.websites-category-tabs');
+
+          const headerH = header ? header.offsetHeight : 72;
+          const filterH = (window.innerWidth <= 768 && mobileDropdown && mobileDropdown.offsetHeight > 0)
+            ? mobileDropdown.offsetHeight
+            : (desktopTabs && desktopTabs.offsetHeight > 0 ? desktopTabs.offsetHeight : 54);
+
+          const totalOffset = headerH + filterH + 16;
+          const targetTop = firstTarget.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+
+          window.scrollTo({
+            top: Math.max(0, targetTop),
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+
+  /* ==========================================
+     3A. MOBILE CATEGORY DROPDOWN HANDLER
+     ========================================== */
+  const mobileDropdownTrigger = document.querySelector('.websites-dropdown-trigger');
+  const mobileDropdownOptions = document.querySelector('.websites-dropdown-options');
+  const mobileDropdownLabel = document.querySelector('.websites-dropdown-selected-label');
+  const mobileDropdownItems = document.querySelectorAll('.websites-dropdown-option');
+
+  if (mobileDropdownTrigger && mobileDropdownOptions) {
+    mobileDropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileDropdownOptions.classList.toggle('open');
+      mobileDropdownTrigger.classList.toggle('active', isOpen);
+      mobileDropdownTrigger.setAttribute('aria-expanded', isOpen);
+    });
+
+    mobileDropdownItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedCategory = item.getAttribute('data-category');
+
+        if (mobileDropdownLabel) {
+          mobileDropdownLabel.textContent = selectedCategory;
+        }
+
+        mobileDropdownItems.forEach(opt => opt.classList.remove('active'));
+        item.classList.add('active');
+
+        mobileDropdownOptions.classList.remove('open');
+        mobileDropdownTrigger.classList.remove('active');
+        mobileDropdownTrigger.setAttribute('aria-expanded', 'false');
+
+        // Trigger matching tab button to sync filtering, GSAP animations & state
+        const matchingTab = Array.from(tabButtons).find(tab => tab.getAttribute('data-category') === selectedCategory);
+        if (matchingTab) {
+          matchingTab.click();
+        }
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.websites-category-mobile-dropdown')) {
+        mobileDropdownOptions.classList.remove('open');
+        mobileDropdownTrigger.classList.remove('active');
+        mobileDropdownTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Enable smooth mouse drag-to-scroll on tabs container (helpful for desktop touch/trackpad testing)
+  // Enable mouse drag-to-scroll on horizontal tabs
+  const categoryTabsContainer = document.querySelector('.websites-category-tabs');
+  if (categoryTabsContainer) {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let hasDragged = false;
+
+    categoryTabsContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      hasDragged = false;
+      categoryTabsContainer.classList.add('is-dragging');
+      startX = e.pageX - categoryTabsContainer.offsetLeft;
+      scrollLeft = categoryTabsContainer.scrollLeft;
+    });
+
+    categoryTabsContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      categoryTabsContainer.classList.remove('is-dragging');
+    });
+
+    categoryTabsContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      setTimeout(() => {
+        categoryTabsContainer.classList.remove('is-dragging');
+        hasDragged = false;
+      }, 50);
+    });
+
+    categoryTabsContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const x = e.pageX - categoryTabsContainer.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 4) {
+        hasDragged = true;
+      }
+      e.preventDefault();
+      categoryTabsContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    categoryTabsContainer.addEventListener('click', (e) => {
+      if (hasDragged) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }, true);
+  }
+
+  // Update dynamic --header-height for sticky category chips
+  const updateHeaderHeight = () => {
+    const header = document.querySelector('.header-container');
+    if (header) {
+      document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    }
+  };
+  updateHeaderHeight();
+  window.addEventListener('resize', updateHeaderHeight, { passive: true });
+  window.addEventListener('scroll', updateHeaderHeight, { passive: true });
+  window.addEventListener('load', updateHeaderHeight);
+
+  /* ==========================================
+     3B. CLICK TO TOGGLE (OPEN / CLOSE) PROJECT CARDS
+     ========================================== */
+  document.addEventListener('click', (e) => {
+    // On mobile screens, cards always show full details without clicking
+    if (window.innerWidth <= 768) return;
+
+    const card = e.target.closest('.websites-project-card');
+    const isInteractive = e.target.closest('a, button, input, .preview-live-btn, .websites-btn');
+
+    if (card) {
+      if (isInteractive) {
+        // Allow action buttons and links inside the card to execute without toggling card collapse state
+        return;
+      }
+
+      const isAlreadyExpanded = card.classList.contains('is-expanded');
+
+      // Collapse any currently open cards
+      document.querySelectorAll('.websites-project-card.is-expanded').forEach(c => {
+        c.classList.remove('is-expanded');
+      });
+
+      // Toggle current card
+      if (!isAlreadyExpanded) {
+        card.classList.add('is-expanded');
+      }
+    } else {
+      // Clicked outside any project card -> collapse all cards
+      document.querySelectorAll('.websites-project-card.is-expanded').forEach(c => {
+        c.classList.remove('is-expanded');
+      });
+    }
+  });
+
+  /* ==========================================
+     4. LIVE EXPERIENCE PREVIEW OVERLAY MODAL
+     ========================================== */
+  const previewOverlay = document.querySelector('.websites-live-preview-overlay');
+  const previewWindow = document.querySelector('.websites-live-preview-window');
+  const previewBody = document.querySelector('.websites-live-preview-body');
+  const previewUrl = document.querySelector('.websites-live-preview-url');
+  const previewOpenBtn = document.querySelector('.websites-live-preview-open-btn');
+  const closePreviewBtn = document.querySelector('.close-preview-btn');
+
+  if (previewOverlay) {
+    const openPreview = (btn) => {
+      const url = btn.getAttribute('data-url');
+      const domain = btn.getAttribute('data-domain');
+      const embeddable = btn.getAttribute('data-embeddable') === 'true';
+      const screenshot = btn.getAttribute('data-screenshot');
+
+      previewUrl.textContent = domain;
+      if (url && url !== '#') {
+        previewOpenBtn.href = url;
+        const btnSpan = previewOpenBtn.querySelector('span');
+        if (btnSpan) btnSpan.textContent = 'Open Website';
+      } else {
+        previewOpenBtn.href = screenshot;
+        const btnSpan = previewOpenBtn.querySelector('span');
+        if (btnSpan) btnSpan.textContent = 'Open Full Image';
+      }
+
+      if (embeddable) {
+        previewBody.innerHTML = `<iframe src="${url}" title="Live preview" class="websites-live-preview-iframe" allowfullscreen></iframe>`;
+      } else {
+        previewBody.innerHTML = `<img src="${screenshot}" alt="Preview screenshot" class="websites-live-preview-screenshot" />`;
+      }
+
+      previewOverlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closePreview = () => {
+      previewOverlay.style.display = 'none';
+      previewBody.innerHTML = '';
+      document.body.style.overflow = '';
+    };
+
+    // Attach click events to "View Live Experience" buttons
+    // Since cards are hidden/shown, we can delegate or query all
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.preview-live-btn');
+      if (btn) {
+        openPreview(btn);
+      }
+    });
+
+    if (closePreviewBtn) {
+      closePreviewBtn.addEventListener('click', closePreview);
+    }
+
+    previewOverlay.addEventListener('click', closePreview);
+    if (previewWindow) {
+      previewWindow.addEventListener('click', (e) => e.stopPropagation());
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && previewOverlay.style.display === 'flex') {
+        closePreview();
+      }
+    });
+  }
+
+
+  /* ==========================================
+     5. CONTACT FORM HANDLER
+     ========================================== */
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm && !contactForm.dataset.formInitialized) {
+    contactForm.dataset.formInitialized = 'true';
+    const servicesList = [
+      'UI/UX Design',
+      'Website Development',
+      'Custom Web Application',
+      'Mobile App Development',
+      'E-commerce Development',
+      'SEO / AEO / GEO',
+      'AMC / Technology Support',
+      'Other Technology Requirement',
+    ];
+
+    // Build Custom Dropdown Menu triggers
+    const trigger = contactForm.querySelector('.contact-custom-dropdown-trigger');
+    const container = contactForm.querySelector('.contact-custom-dropdown-container');
+    const hiddenInput = contactForm.querySelector('input[name="service"]');
+    let selectedDisplay = null;
+    
+    if (trigger && container && hiddenInput) {
+      selectedDisplay = trigger.querySelector('.contact-dropdown-selected-value');
+
+      // Create dropdown selection block options dynamically
+      const ul = document.createElement('ul');
+      ul.className = 'contact-custom-dropdown-options';
+      ul.style.display = 'none';
+
+      servicesList.forEach(service => {
+        const li = document.createElement('li');
+        li.className = 'contact-custom-dropdown-option';
+        li.textContent = service;
+        li.addEventListener('click', (e) => {
+          e.stopPropagation();
+          hiddenInput.value = service;
+          if (selectedDisplay) {
+            selectedDisplay.textContent = service;
+            selectedDisplay.classList.remove('placeholder');
+          }
+          ul.style.display = 'none';
+          trigger.classList.remove('active');
+          const chevron = trigger.querySelector('.contact-dropdown-chevron');
+          if (chevron) chevron.classList.remove('open');
+        });
+        ul.appendChild(li);
+      });
+      container.appendChild(ul);
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = ul.style.display === 'block';
+        ul.style.display = isOpen ? 'none' : 'block';
+        trigger.classList.toggle('active', !isOpen);
+        const chevron = trigger.querySelector('.contact-dropdown-chevron');
+        if (chevron) chevron.classList.toggle('open', !isOpen);
+      });
+
+      document.addEventListener('click', () => {
+        ul.style.display = 'none';
+        trigger.classList.remove('active');
+        const chevron = trigger.querySelector('.contact-dropdown-chevron');
+        if (chevron) chevron.classList.remove('open');
+      });
+    }
+
+    // Real-Time URL Previews Collapse/Dropdown handling
+    const websiteInput = document.getElementById('website');
+    const previewCollapse = contactForm.querySelector('.contact-website-preview-collapse');
+    const previewChevron = contactForm.querySelector('.contact-website-field .contact-dropdown-chevron');
+    const previewIframe = contactForm.querySelector('.contact-preview-iframe');
+    const previewHint = contactForm.querySelector('.contact-preview-hint');
+    const previewLoading = contactForm.querySelector('.contact-preview-loading');
+    
+    let typingTimer;
+    let previewOpenToken = 0;
+
+    const normalizeUrl = (input) => {
+      const trimmed = input.trim();
+      if (!trimmed) return '';
+      return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+    };
+
+    const DOMAIN_RE = /^([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i;
+    const getPreviewableUrl = (input) => {
+      const normalized = normalizeUrl(input);
+      if (!normalized) return '';
+      try {
+        const parsed = new URL(normalized);
+        return DOMAIN_RE.test(parsed.hostname) ? parsed.href : '';
+      } catch {
+        return '';
+      }
+    };
+
+    const loadWebsitePreview = () => {
+      const previewUrl = getPreviewableUrl(websiteInput.value);
+      if (!previewUrl) {
+        hidePreview();
+        return;
+      }
+
+      previewLoading.style.display = 'block';
+      previewIframe.src = previewUrl;
+      previewIframe.style.opacity = '0';
+      previewHint.querySelector('a').href = previewUrl;
+
+      // Handle loading events
+      previewIframe.onload = () => {
+        previewLoading.style.display = 'none';
+        previewIframe.style.opacity = '1';
+      };
+
+      showPreview();
+    };
+
+    const showPreview = () => {
+      previewCollapse.classList.remove('is-collapsed');
+      if (previewChevron) previewChevron.classList.add('open');
+      
+      // Auto-collapse after 3 seconds
+      previewOpenToken++;
+      const currentToken = previewOpenToken;
+      setTimeout(() => {
+        if (currentToken === previewOpenToken) {
+          hidePreview();
+        }
+      }, 3000);
+    };
+
+    const hidePreview = () => {
+      previewCollapse.classList.add('is-collapsed');
+      if (previewChevron) previewChevron.classList.remove('open');
+    };
+
+    websiteInput.addEventListener('input', () => {
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(loadWebsitePreview, 600);
+    });
+
+    websiteInput.addEventListener('focus', () => {
+      if (getPreviewableUrl(websiteInput.value)) {
+        showPreview();
+      }
+    });
+
+    if (previewChevron) {
+      previewChevron.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isCollapsed = previewCollapse.classList.contains('is-collapsed');
+        if (isCollapsed) {
+          loadWebsitePreview();
+        } else {
+          hidePreview();
+        }
+      });
+    }
+
+    // Close preview window when clicking outside
+    document.addEventListener('mousedown', (e) => {
+      if (!websiteInput.closest('.contact-website-field').contains(e.target)) {
+        hidePreview();
+      }
+    });
+
+    // reCAPTCHA init script configuration
+    const isProduction = ['eparivartan.com', 'www.eparivartan.com'].includes(window.location.hostname);
+    const RECAPTCHA_SITE_KEY = isProduction
+      ? '6LdrhwoUAAAAAEAxk89vkEx3Oy6to5THBRDSfbGx' // Production key
+      : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // Universal Google test key for localhost
+
+    const recaptchaContainer = document.getElementById('contact-recaptcha');
+    if (recaptchaContainer) {
+      recaptchaContainer.setAttribute('data-sitekey', RECAPTCHA_SITE_KEY);
+      recaptchaContainer.classList.add('g-recaptcha');
+    }
+
+    let recaptchaRendered = false;
+    const renderRecaptchaWidget = () => {
+      if (recaptchaRendered) return;
+      const target = document.getElementById('contact-recaptcha');
+      if (!target) return;
+      if (target.children.length > 0 && target.querySelector('iframe')) {
+        recaptchaRendered = true;
+        return;
+      }
+      if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
+        try {
+          window.grecaptcha.render(target, { sitekey: RECAPTCHA_SITE_KEY });
+          recaptchaRendered = true;
+        } catch (e) {
+          if (String(e).toLowerCase().includes('already been rendered')) {
+            recaptchaRendered = true;
+          }
+        }
+      }
+    };
+
+    if (window.grecaptcha && typeof window.grecaptcha.ready === 'function') {
+      window.grecaptcha.ready(renderRecaptchaWidget);
+    }
+
+    let recaptchaAttempts = 0;
+    const recaptchaCheckInterval = setInterval(() => {
+      recaptchaAttempts++;
+      if (recaptchaRendered || recaptchaAttempts > 25) {
+        clearInterval(recaptchaCheckInterval);
+        return;
+      }
+      if (window.grecaptcha) {
+        if (typeof window.grecaptcha.ready === 'function') {
+          window.grecaptcha.ready(renderRecaptchaWidget);
+        } else if (typeof window.grecaptcha.render === 'function') {
+          renderRecaptchaWidget();
+        }
+      }
+    }, 400);
+
+    // Form Submissions API Integration
+    const submitBtn = contactForm.querySelector('.contact-submit-btn');
+    const toast = document.querySelector('.contact-toast-container');
+    const toastClose = document.querySelector('.contact-toast-close');
+
+    const CRM_URL = 'https://crmadmin.whysocial.in/api/add-enquiry';
+
+    // Clear statuses
+    const clearFormStatus = () => {
+      const oldStatus = contactForm.querySelector('.contact-form-status');
+      if (oldStatus) oldStatus.remove();
+    };
+
+    const displayFormStatus = (msg, isError) => {
+      clearFormStatus();
+      const p = document.createElement('p');
+      p.className = `contact-form-status contact-form-status-${isError ? 'error' : 'success'}`;
+      p.textContent = msg;
+      submitBtn.parentNode.insertBefore(p, submitBtn);
+    };
+
+    // Toast notifications timer logic
+    let toastTimer;
+    const showToast = () => {
+      if (toast) {
+        toast.classList.add('is-visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('is-visible');
+        }, 5000);
+      }
+    };
+
+    if (toastClose && toast) {
+      toastClose.addEventListener('click', () => {
+        toast.classList.remove('is-visible');
+      });
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const recaptchaResponse = window.grecaptcha ? window.grecaptcha.getResponse() : '';
+      const isLocalHost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+      if (!recaptchaResponse && !isLocalHost) {
+        displayFormStatus('Please complete the reCAPTCHA before submitting.', true);
+        return;
+      }
+
+      const service = hiddenInput ? hiddenInput.value.trim() : '';
+      if (!service) {
+        displayFormStatus('Please select a service before submitting.', true);
+        return;
+      }
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      const cleanedPhone = phone.replace(/[\s\-\(\)]+/g, '');
+      if (cleanedPhone.replace(/^\+/, '').length < 10) {
+        displayFormStatus('Please enter a valid phone number (at least 10 digits).', true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      const btnSpan = submitBtn.querySelector('span');
+      const originalBtnText = btnSpan.textContent;
+      btnSpan.textContent = 'Sending…';
+      clearFormStatus();
+
+      let website = document.getElementById('website').value.trim();
+      if (website && !/^https?:\/\//i.test(website)) {
+        website = 'https://' + website;
+      }
+      const message = document.getElementById('message').value.trim();
+
+      // Submit via backend mailer
+      const formData = new FormData();
+      formData.append('fullName', fullName);
+      formData.append('phone', phone);
+      formData.append('email', email);
+      formData.append('website', website);
+      formData.append('service', service);
+      formData.append('message', message);
+      formData.append('g-recaptcha-response', recaptchaResponse);
+
+      try {
+        let targetUrl = './contact.php';
+        if (isLocalHost) {
+          // When testing locally, dispatch through the local Gmail SMTP mailer bridge to send real emails
+          try {
+            const testPing = await fetch('http://127.0.0.1:5505/', { method: 'GET' });
+            if (testPing.ok) {
+              targetUrl = 'http://127.0.0.1:5505/';
+            }
+          } catch (pingErr) {
+            targetUrl = './contact.php';
+          }
+        }
+
+        const response = await fetch(targetUrl, {
+          method: 'POST',
+          body: formData
+        });
+
+        const responseText = await response.text();
+        let result = null;
+        try {
+          result = JSON.parse(responseText);
+        } catch (parseErr) {
+          result = null;
+        }
+
+        if (!response.ok || !result || !result.success) {
+          if (isLocalHost && (!result || !result.errors)) {
+            result = { success: true };
+          } else {
+            const errMsg = (result && result.errors) ? result.errors.join(' ') : 'Server returned an invalid response. Please try again.';
+            throw new Error(errMsg);
+          }
+        }
+
+        // Reset form inputs
+        contactForm.reset();
+        if (hiddenInput) hiddenInput.value = '';
+        if (selectedDisplay) {
+          selectedDisplay.textContent = 'Select service';
+          selectedDisplay.classList.add('placeholder');
+        }
+        if (window.grecaptcha) window.grecaptcha.reset();
+
+        displayFormStatus("Message sent! Thanks for reaching out — we'll be in touch shortly.", false);
+        showToast();
+      } catch (err) {
+        console.error('Submission failed: ', err);
+        displayFormStatus(err.message || 'Something went wrong. Please try again or reach us directly.', true);
+      } finally {
+        submitBtn.disabled = false;
+        btnSpan.textContent = originalBtnText;
+      }
+    });
+
+    
+  }
+};
+
+if (document.readyState !== 'loading') {
+  initWebsitesApp();
+} else {
+  document.addEventListener('DOMContentLoaded', initWebsitesApp);
+}

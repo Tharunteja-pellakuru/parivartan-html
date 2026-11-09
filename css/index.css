@@ -5010,11 +5010,6 @@ body.menu-open header.header-container {
   gap: 22px;
   width: 100%;
   box-sizing: border-box;
-  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
 .testimonials-carousel-row.is-sliding .testimonial-card {
@@ -5193,6 +5188,30 @@ body.menu-open header.header-container {
   box-shadow: 0 0 18px rgba(133, 189, 86, 0.45);
 }
 
+.testimonial-card.video-card .play-button.is-loading,
+.video-card .play-button.is-loading {
+  background: rgba(0, 0, 0, 0.65) !important;
+  border-color: #85BD56 !important;
+  pointer-events: none;
+}
+
+.testimonial-card.video-card .play-button.is-loading svg,
+.video-card .play-button.is-loading svg {
+  display: none !important;
+}
+
+.testimonial-card.video-card .play-button.is-loading::after,
+.video-card .play-button.is-loading::after {
+  content: '';
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #85BD56;
+  border-radius: 50%;
+  animation: inlineVideoSpin 0.7s linear infinite;
+  display: block;
+}
+
 /* Inline video container inside the card */
 .testimonial-card.video-card .inline-video-container {
   position: absolute;
@@ -5202,11 +5221,21 @@ body.menu-open header.header-container {
   height: 100%;
   border-radius: 16px;
   overflow: hidden;
-  z-index: 10;
+  z-index: 1;
   background: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.testimonial-card.video-card .video-card-overlay {
+  z-index: 2;
+  transition: opacity 0.35s ease;
+}
+
+.testimonial-card.video-card .video-card-overlay.is-faded {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .testimonial-card.video-card video.inline-video-player,
@@ -5470,15 +5499,43 @@ body.menu-open header.header-container {
     margin: 8px 0;
     font-size: 56px;
   }
-  .testimonial-card {
-    flex: 0 0 calc(100vw - 64px);
-    width: calc(100vw - 64px);
-    min-width: calc(100vw - 64px);
-    aspect-ratio: 4 / 5;
-    height: auto;
-  }
   .testimonials-carousel-wrapper {
-    padding: 12px 0 20px 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    overscroll-behavior-x: contain !important;
+    padding: 12px 16px 20px 16px !important;
+    scrollbar-width: none !important;
+  }
+  .testimonials-carousel-wrapper::-webkit-scrollbar {
+    display: none !important;
+  }
+  .testimonials-carousel-row {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+    gap: 16px !important;
+    width: max-content !important;
+  }
+  .testimonial-card {
+    flex: 0 0 calc(100vw - 64px) !important;
+    width: calc(100vw - 64px) !important;
+    min-width: calc(100vw - 64px) !important;
+    max-width: calc(100vw - 64px) !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: normal !important;
+  }
+  .testimonial-card.video-card .play-button,
+  .video-card .play-button {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.45) !important;
   }
 }
 
@@ -9130,19 +9187,21 @@ a.contact-text:hover {
   }
 
   .video-card {
-    flex: 0 0 100% !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
+    flex: 0 0 calc(100vw - 64px) !important;
+    width: calc(100vw - 64px) !important;
+    min-width: calc(100vw - 64px) !important;
+    max-width: calc(100vw - 64px) !important;
     box-sizing: border-box !important;
+    scroll-snap-align: center !important;
   }
 
   .written-card {
-    flex: 0 0 100% !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
+    flex: 0 0 calc(100vw - 64px) !important;
+    width: calc(100vw - 64px) !important;
+    min-width: calc(100vw - 64px) !important;
+    max-width: calc(100vw - 64px) !important;
     box-sizing: border-box !important;
+    scroll-snap-align: center !important;
   }
 
   .testimonials-nav-btn {

@@ -734,12 +734,6 @@ const initWebsitesApp = () => {
         return;
       }
 
-      submitBtn.disabled = true;
-      const btnSpan = submitBtn.querySelector('span');
-      const originalBtnText = btnSpan.textContent;
-      btnSpan.textContent = 'Sending…';
-      clearFormStatus();
-
       const service = hiddenInput ? hiddenInput.value.trim() : '';
       if (!service) {
         displayFormStatus('Please select a service before submitting.', true);
@@ -796,10 +790,6 @@ const initWebsitesApp = () => {
           method: 'POST',
           body: formData
         });
-
-        const isLocalHost = window.location.hostname === 'localhost' || 
-                            window.location.hostname === '127.0.0.1' || 
-                            window.location.protocol === 'file:';
 
         const responseText = await response.text();
         let result = null;

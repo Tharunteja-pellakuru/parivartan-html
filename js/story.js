@@ -432,9 +432,13 @@ const initStoryApp = () => {
         container.remove();
       }
       card.classList.remove('is-playing-video');
+      const playBtn = card.querySelector('.play-button');
+      if (playBtn) playBtn.classList.remove('is-loading');
       const overlay = card.querySelector('.video-card-overlay');
       if (overlay) {
+        overlay.classList.remove('is-faded');
         overlay.style.display = '';
+        overlay.style.opacity = '';
       }
     };
 
@@ -447,16 +451,19 @@ const initStoryApp = () => {
       });
     };
 
-    // Infinite Step-based Carousel Navigation (3 cards at a step on desktop)
+    // Robust Hybrid Carousel Navigation (Native Smooth Scroll-Snap on Mobile, 2D Step Animation on Desktop)
     const setupStepCarousel = (wrapper, row, prevBtn, nextBtn, cardSelector, onCardInit) => {
       if (!wrapper || !row || !prevBtn || !nextBtn) return () => {};
 
-      const TRANSITION_STYLE = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      const TRANSITION_STYLE = 'transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)';
       let numOriginal = 0;
       let currentIndex = 0;
       let isAnimating = false;
       let autoScrollTimer = null;
       let isPaused = false;
+      let lastWidth = window.innerWidth;
+
+      const isMobile = () => window.innerWidth <= 768;
 
       const getCardsPerView = () => {
         if (window.innerWidth <= 768) return 1;
@@ -468,13 +475,23 @@ const initStoryApp = () => {
         return Math.min(3, Math.max(1, getCardsPerView()));
       };
 
-      const initClones = () => {
-        // Clean up any existing clones
+      const cleanClones = () => {
         row.querySelectorAll('.is-clone').forEach(el => el.remove());
+      };
+
+      const initClones = () => {
+        cleanClones();
 
         const originalCards = Array.from(row.querySelectorAll(cardSelector)).filter(c => !c.classList.contains('is-clone'));
         numOriginal = originalCards.length;
         if (numOriginal === 0) return;
+
+        if (isMobile()) {
+          // On mobile: zero clones to avoid WebKit texture buffer overrun and Jetsam memory crash
+          row.style.transform = '';
+          row.style.transition = '';
+          return;
+        }
 
         const buffer = getBufferSize();
 
@@ -510,7 +527,7 @@ const initStoryApp = () => {
           const overlay = clone.querySelector('.video-card-overlay');
           if (overlay) overlay.style.display = '';
           if (typeof onCardInit === 'function') onCardInit(clone);
-          suffixFragment.appendChild(clone);
+          prefixFragment.appendChild(clone);
         });
         row.appendChild(suffixFragment);
 
@@ -519,22 +536,18 @@ const initStoryApp = () => {
       };
 
       const updatePosition = (animate = true) => {
+        if (isMobile()) return;
+
         const allCards = Array.from(row.querySelectorAll(cardSelector));
         if (!allCards.length) return;
 
-        const targetCard = allCards[currentIndex];
-        let offset = 0;
-        if (targetCard) {
-          offset = targetCard.offsetLeft;
-        } else {
-          const firstCard = allCards[0];
-          const cardRect = firstCard.getBoundingClientRect();
-          const gap = parseFloat(window.getComputedStyle(row).gap) || 24;
-          offset = currentIndex * (cardRect.width + gap);
-        }
+        const firstCard = allCards[0];
+        const cardWidth = firstCard.getBoundingClientRect().width || 310;
+        const gap = parseFloat(window.getComputedStyle(row).gap) || 22;
+        const offset = Math.round(currentIndex * (cardWidth + gap));
 
         row.style.transition = animate ? TRANSITION_STYLE : 'none';
-        row.style.transform = `translate3d(-${offset}px, 0, 0)`;
+        row.style.transform = `translateX(-${offset}px)`;
 
         // Stop any playing video if moving away from visible cards
         const cpv = getCardsPerView();
@@ -551,66 +564,104 @@ const initStoryApp = () => {
       };
 
       const checkBoundary = () => {
-        if (numOriginal <= 0) return;
+        if (isMobile() || numOriginal <= 0) return;
         const buffer = getBufferSize();
         if (currentIndex >= numOriginal + buffer) {
           row.style.transition = 'none';
           currentIndex -= numOriginal;
           updatePosition(false);
-          void row.offsetWidth; // force reflow
+          void row.offsetHeight; // force reflow
         } else if (currentIndex < buffer) {
           row.style.transition = 'none';
           currentIndex += numOriginal;
           updatePosition(false);
-          void row.offsetWidth; // force reflow
+          void row.offsetHeight; // force reflow
         }
       };
 
       row.addEventListener('transitionend', (e) => {
+        if (isMobile()) return;
         if (e.target !== row || e.propertyName !== 'transform') return;
+        row.classList.remove('is-sliding');
         checkBoundary();
         isAnimating = false;
       });
 
+      const getStep = () => {
+        return getCardsPerView();
+      };
+
+      const getMobileScrollStep = () => {
+        const firstCard = row.querySelector(cardSelector);
+        if (!firstCard) return 320;
+        const cardWidth = firstCard.getBoundingClientRect().width || 300;
+        const gap = parseFloat(window.getComputedStyle(row).gap) || 16;
+        return cardWidth + gap;
+      };
+
       const moveNext = () => {
+        if (isMobile()) {
+          const step = getMobileScrollStep();
+          const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+          if (wrapper.scrollLeft >= maxScroll - 10) {
+            wrapper.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            wrapper.scrollBy({ left: step, behavior: 'smooth' });
+          }
+          return;
+        }
+
         if (isAnimating || numOriginal <= 0) return;
         isAnimating = true;
-        currentIndex += 1;
+        row.classList.add('is-sliding');
+        currentIndex += getStep();
         updatePosition(true);
 
         setTimeout(() => {
           if (isAnimating) {
+            row.classList.remove('is-sliding');
             checkBoundary();
             isAnimating = false;
           }
-        }, 850);
+        }, 700);
       };
 
       const movePrev = () => {
+        if (isMobile()) {
+          const step = getMobileScrollStep();
+          if (wrapper.scrollLeft <= 10) {
+            wrapper.scrollTo({ left: wrapper.scrollWidth, behavior: 'smooth' });
+          } else {
+            wrapper.scrollBy({ left: -step, behavior: 'smooth' });
+          }
+          return;
+        }
+
         if (isAnimating || numOriginal <= 0) return;
         isAnimating = true;
-        currentIndex -= 1;
+        row.classList.add('is-sliding');
+        currentIndex -= getStep();
         updatePosition(true);
 
         setTimeout(() => {
           if (isAnimating) {
+            row.classList.remove('is-sliding');
             checkBoundary();
             isAnimating = false;
           }
-        }, 850);
+        }, 700);
       };
 
-      // Smooth auto-scroll every 3.5 seconds
+      // Auto-scroll every 5.0 seconds
       const startAutoScroll = () => {
         stopAutoScroll();
         autoScrollTimer = setInterval(() => {
           if (isPaused) return;
-          // Don't auto-scroll if a video or iframe is currently playing inside this carousel
           const activeMedia = row.querySelector('video.inline-video-player, iframe.inline-video-iframe, .inline-video-container');
           if (activeMedia) return;
 
           moveNext();
-        }, 3500);
+        }, 5000);
       };
 
       const stopAutoScroll = () => {
@@ -625,32 +676,36 @@ const initStoryApp = () => {
         startAutoScroll();
       };
 
-      // Pause on hover
       wrapper.addEventListener('mouseenter', () => { isPaused = true; });
       wrapper.addEventListener('mouseleave', () => { isPaused = false; });
 
-      // Pause when page is hidden
       document.addEventListener('visibilitychange', () => {
         isPaused = document.visibilityState === 'hidden';
       });
 
       prevBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         movePrev();
         restartAutoScroll();
       });
 
       nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         moveNext();
         restartAutoScroll();
       });
 
-      // Swipe support for touch devices
+      // Desktop-only touch/swipe (on mobile, native CSS scroll-snap handles swipe with zero GPU overhead)
       let startX = 0;
       let isSwiping = false;
 
       wrapper.addEventListener('touchstart', (e) => {
+        if (isMobile()) {
+          isPaused = true;
+          return;
+        }
         if (e.touches && e.touches.length === 1) {
           startX = e.touches[0].clientX;
           isSwiping = true;
@@ -659,6 +714,11 @@ const initStoryApp = () => {
       }, { passive: true });
 
       wrapper.addEventListener('touchend', (e) => {
+        if (isMobile()) {
+          isPaused = false;
+          restartAutoScroll();
+          return;
+        }
         if (!isSwiping) return;
         isSwiping = false;
         isPaused = false;
@@ -672,13 +732,26 @@ const initStoryApp = () => {
         restartAutoScroll();
       }, { passive: true });
 
+      // Debounced resize that ignores iOS vertical address-bar collapsing
+      let resizeTimer = null;
       window.addEventListener('resize', () => {
-        updatePosition(false);
+        if (window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
+
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          initClones();
+          if (!isMobile()) {
+            updatePosition(false);
+          }
+        }, 150);
       });
 
       initClones();
-      setTimeout(() => updatePosition(false), 50);
-      setTimeout(() => updatePosition(false), 300);
+      if (!isMobile()) {
+        setTimeout(() => updatePosition(false), 50);
+        setTimeout(() => updatePosition(false), 300);
+      }
       startAutoScroll();
 
       return () => {
@@ -783,33 +856,41 @@ const initStoryApp = () => {
       document.body.style.overflow = 'hidden';
     };
 
-    // Fast pre-warm/prefetch function for Vimeo player documents
+    // Fast pre-warm function for Vimeo player documents
     const prefetchVideo = (vimeoId, hash) => {
       if (!vimeoId) return;
       const linkId = `prefetch-vimeo-${vimeoId}`;
       if (document.getElementById(linkId)) return;
       const link = document.createElement('link');
       link.id = linkId;
-      link.rel = 'prefetch';
+      link.rel = 'preload';
       link.as = 'document';
       const hashParam = hash ? `h=${hash}&` : '';
-      link.href = `https://player.vimeo.com/video/${vimeoId}?${hashParam}autoplay=1&dnt=1&playsinline=1&app_id=548209`;
+      link.href = `https://player.vimeo.com/video/${vimeoId}?${hashParam}autoplay=1&playsinline=1`;
       document.head.appendChild(link);
     };
 
-    // Pre-warm the first 3 visible videos when the testimonials section approaches the viewport
+    // Pre-warm the visible videos when testimonials section approaches the viewport
     if ('IntersectionObserver' in window && testimonialsSec) {
       const prewarmObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            ['sudha-analyticals', 'anuj-gurwara', 'andhra-canteen'].forEach(key => {
+            ['https://player.vimeo.com', 'https://f.vimeocdn.com', 'https://vod-progressive.akamaized.net'].forEach(url => {
+              if (document.querySelector(`link[href="${url}"]`)) return;
+              const link = document.createElement('link');
+              link.rel = 'preconnect';
+              link.href = url;
+              link.crossOrigin = 'anonymous';
+              document.head.appendChild(link);
+            });
+            ['rithika-suits', 'ritebooks', 'anuj-gurwara'].forEach(key => {
               const cfg = videoMap[key];
               if (cfg && cfg.vimeoId) prefetchVideo(cfg.vimeoId, cfg.vimeoHash);
             });
             prewarmObserver.disconnect();
           }
         });
-      }, { rootMargin: '300px' });
+      }, { rootMargin: '350px' });
       prewarmObserver.observe(testimonialsSec);
     }
 
@@ -820,30 +901,27 @@ const initStoryApp = () => {
       closeAllInlineVideos(cardWrapper);
 
       const overlay = cardWrapper.querySelector('.video-card-overlay');
+      const playBtn = cardWrapper.querySelector('.play-button');
+      if (playBtn) playBtn.classList.add('is-loading');
       cardWrapper.classList.add('is-playing-video');
 
       const container = document.createElement('div');
       container.className = 'inline-video-container';
 
-      // Fast visual feedback: pulsating spinner + keep thumbnail visible until player is ready
-      const loader = document.createElement('div');
-      loader.className = 'inline-video-loading-indicator';
-      loader.innerHTML = `
-        <div class="inline-video-spinner"></div>
-        <span>Loading video...</span>
-      `;
-      container.appendChild(loader);
-
+      let isRevealed = false;
       const revealMedia = (mediaEl) => {
+        if (isRevealed) return;
+        isRevealed = true;
         if (mediaEl) {
           mediaEl.style.opacity = '1';
           mediaEl.style.pointerEvents = 'auto';
         }
-        loader.style.opacity = '0';
-        setTimeout(() => {
-          if (loader.parentNode) loader.remove();
-          if (overlay) overlay.style.display = 'none';
-        }, 180);
+        if (overlay) {
+          overlay.classList.add('is-faded');
+          setTimeout(() => {
+            if (overlay) overlay.style.display = 'none';
+          }, 350);
+        }
       };
 
       if (config.videoSrc) {
@@ -858,31 +936,34 @@ const initStoryApp = () => {
         video.style.opacity = '0';
         video.style.transition = 'opacity 0.25s ease';
         video.addEventListener('canplay', () => revealMedia(video), { once: true });
-        video.addEventListener('ended', () => {
-          closeInlineVideo(cardWrapper);
-        });
+        video.addEventListener('ended', () => closeInlineVideo(cardWrapper));
         container.appendChild(video);
         video.play().catch(() => {});
-        setTimeout(() => revealMedia(video), 1200);
+        setTimeout(() => revealMedia(video), 1000);
       } else if (config.vimeoId) {
         const iframeEl = document.createElement('iframe');
         iframeEl.className = 'inline-video-iframe';
         const hashParam = config.vimeoHash ? `h=${config.vimeoHash}&` : '';
-        // dnt=1 skips third-party tracking scripts, app_id=548209 loads fast from Vimeo edge CDN
-        iframeEl.src = `https://player.vimeo.com/video/${config.vimeoId}?${hashParam}autoplay=1&dnt=1&playsinline=1&autopause=0&badge=0&title=0&byline=0&portrait=0&transparent=0&app_id=548209`;
+        // Clean direct Vimeo edge stream URL: instant load, autoplay, playsinline
+        iframeEl.src = `https://player.vimeo.com/video/${config.vimeoId}?${hashParam}autoplay=1&muted=0&playsinline=1&autopause=0&badge=0&title=0&byline=0&portrait=0&transparent=0`;
         iframeEl.setAttribute('frameborder', '0');
-        iframeEl.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+        iframeEl.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; encrypted-media');
         iframeEl.setAttribute('allowfullscreen', 'true');
+        iframeEl.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
         iframeEl.setAttribute('loading', 'eager');
         iframeEl.style.opacity = '0';
         iframeEl.style.pointerEvents = 'none';
         iframeEl.style.transition = 'opacity 0.25s ease';
 
-        iframeEl.addEventListener('load', () => revealMedia(iframeEl), { once: true });
-        container.appendChild(iframeEl);
+        iframeEl.addEventListener('load', () => {
+          try {
+            iframeEl.contentWindow.postMessage('{"method":"play"}', '*');
+          } catch (_) {}
+          revealMedia(iframeEl);
+        }, { once: true });
 
-        // Fallback safety timeout so user is never stuck
-        setTimeout(() => revealMedia(iframeEl), 1000);
+        container.appendChild(iframeEl);
+        setTimeout(() => revealMedia(iframeEl), 1200);
       } else if (config.youtubeId) {
         const iframeEl = document.createElement('iframe');
         iframeEl.className = 'inline-video-iframe';
@@ -896,7 +977,7 @@ const initStoryApp = () => {
         iframeEl.style.transition = 'opacity 0.25s ease';
         iframeEl.addEventListener('load', () => revealMedia(iframeEl), { once: true });
         container.appendChild(iframeEl);
-        setTimeout(() => revealMedia(iframeEl), 1000);
+        setTimeout(() => revealMedia(iframeEl), 1200);
       }
 
       cardWrapper.appendChild(container);
@@ -915,7 +996,6 @@ const initStoryApp = () => {
       if (!cardWrapper || cardWrapper.dataset.cardEventsAttached) return;
       cardWrapper.dataset.cardEventsAttached = 'true';
 
-      // Pre-warm on pointer enter (mouse hover or touch hover)
       cardWrapper.addEventListener('pointerenter', () => {
         const key = cardWrapper.getAttribute('data-id');
         const config = videoMap[key];
