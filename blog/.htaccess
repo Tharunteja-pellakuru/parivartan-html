@@ -1,0 +1,16 @@
+# ====================================================================
+# eParivartan Blog Directory Clean URLs
+# ====================================================================
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /blog/
+
+Options -Indexes -MultiViews
+
+# If the exact .html file exists, rewrite to it internally
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L,QSA]
+</IfModule>
+

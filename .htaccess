@@ -5,6 +5,9 @@
 RewriteEngine On
 RewriteBase /
 
+# Prevent directory listings & prevent content negotiation conflicts
+Options -Indexes -MultiViews
+
 # 1. Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -14,70 +17,65 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.eparivartan\.com [NC]
 RewriteRule ^(.*)$ https://eparivartan.com/$1 [L,R=301]
 
-# 3. Canonicalize /index.html to root /
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
-RewriteRule ^index\.html$ https://eparivartan.com/ [R=301,L]
+# 3. Canonicalize /index.html and legacy /index.php to root /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(html|php)\ HTTP/ [NC]
+RewriteRule ^index\.(html|php)$ https://eparivartan.com/ [R=301,L]
 
-# 4. Clean URL for Insights / Blog 1 - Website Launch
-RewriteRule ^blog/parivartan-means-change-new-website/?$ blog/parivartan-means-change-new-website.html [L,QSA]
-RewriteRule ^insights/parivartan-means-change-new-website/?$ blog/parivartan-means-change-new-website.html [L,QSA]
-RewriteRule ^insights/website-launch/?$ blog/parivartan-means-change-new-website.html [L,QSA]
+# 4. Clean URLs for Blog & Insights (Rewrite extensionless to .html)
+# Maps /blog/{slug} -> /blog/{slug}.html if the file exists
+RewriteCond %{DOCUMENT_ROOT}/blog/$1.html -f
+RewriteRule ^blog/([^/]+)/?$ /blog/$1.html [L,QSA]
 
-# 5. Clean URL for Blog 2 - The Parivartan Journey
-RewriteRule ^blog/24-years-building-technology-eparivartan/?$ blog/24-years-building-technology-eparivartan.html [L,QSA]
-RewriteRule ^insights/24-years-building-technology-eparivartan/?$ blog/24-years-building-technology-eparivartan.html [L,QSA]
+# Maps /insights/{slug} -> /blog/{slug}.html if the file exists
+RewriteCond %{DOCUMENT_ROOT}/blog/$1.html -f
+RewriteRule ^insights/([^/]+)/?$ /blog/$1.html [L,QSA]
 
-# 6. Clean URL for Blog 3 - The People Behind Parivartan
-RewriteRule ^blog/people-behind-parivartan/?$ blog/people-behind-parivartan.html [L,QSA]
-RewriteRule ^insights/people-behind-parivartan/?$ blog/people-behind-parivartan.html [L,QSA]
+# Explicit Clean URLs for Insights / Blogs
+RewriteRule ^blog/parivartan-means-change-new-website/?$ /blog/parivartan-means-change-new-website.html [L,QSA]
+RewriteRule ^insights/parivartan-means-change-new-website/?$ /blog/parivartan-means-change-new-website.html [L,QSA]
+RewriteRule ^insights/website-launch/?$ /blog/parivartan-means-change-new-website.html [L,QSA]
 
-# 7. Clean URL for Blog 4 - People Who Inspired Parivartan
-RewriteRule ^blog/people-who-inspired-parivartan/?$ blog/people-who-inspired-parivartan.html [L,QSA]
-RewriteRule ^insights/people-who-inspired-parivartan/?$ blog/people-who-inspired-parivartan.html [L,QSA]
+RewriteRule ^blog/24-years-building-technology-eparivartan/?$ /blog/24-years-building-technology-eparivartan.html [L,QSA]
+RewriteRule ^insights/24-years-building-technology-eparivartan/?$ /blog/24-years-building-technology-eparivartan.html [L,QSA]
 
-# 8. Clean URL for Blog 5 - Founders in Frame
-RewriteRule ^blog/founders-in-frame-parivartan-stories/?$ blog/founders-in-frame-parivartan-stories.html [L,QSA]
-RewriteRule ^insights/founders-in-frame-parivartan-stories/?$ blog/founders-in-frame-parivartan-stories.html [L,QSA]
+RewriteRule ^blog/people-behind-parivartan/?$ /blog/people-behind-parivartan.html [L,QSA]
+RewriteRule ^insights/people-behind-parivartan/?$ /blog/people-behind-parivartan.html [L,QSA]
 
-# 9. Clean URL for Blog 6 - ESTIC 2025
-RewriteRule ^blog/estic-2025-digital-platform/?$ blog/estic-2025-digital-platform.html [L,QSA]
-RewriteRule ^insights/estic-2025-digital-platform/?$ blog/estic-2025-digital-platform.html [L,QSA]
+RewriteRule ^blog/people-who-inspired-parivartan/?$ /blog/people-who-inspired-parivartan.html [L,QSA]
+RewriteRule ^insights/people-who-inspired-parivartan/?$ /blog/people-who-inspired-parivartan.html [L,QSA]
 
-# 10. Clean URL for Blog 7 - AI Visibility
-RewriteRule ^blog/ai-visibility-for-businesses/?$ blog/ai-visibility-for-businesses.html [L,QSA]
-RewriteRule ^insights/ai-visibility-for-businesses/?$ blog/ai-visibility-for-businesses.html [L,QSA]
+RewriteRule ^blog/founders-in-frame-parivartan-stories/?$ /blog/founders-in-frame-parivartan-stories.html [L,QSA]
+RewriteRule ^insights/founders-in-frame-parivartan-stories/?$ /blog/founders-in-frame-parivartan-stories.html [L,QSA]
 
-# 11. Clean URL for Blog 8 - Sherwood Public School SEO & AI Visibility
-RewriteRule ^blog/sherwood-school-seo-ai-visibility/?$ blog/sherwood-school-seo-ai-visibility.html [L,QSA]
-RewriteRule ^insights/sherwood-school-seo-ai-visibility/?$ blog/sherwood-school-seo-ai-visibility.html [L,QSA]
+RewriteRule ^blog/estic-2025-digital-platform/?$ /blog/estic-2025-digital-platform.html [L,QSA]
+RewriteRule ^insights/estic-2025-digital-platform/?$ /blog/estic-2025-digital-platform.html [L,QSA]
 
-# 12. Clean URL for Blog 9 - CACM 2026 Collaboration
-RewriteRule ^blog/cacm-2026-technology-creative-collaboration/?$ blog/cacm-2026-technology-creative-collaboration.html [L,QSA]
-RewriteRule ^insights/cacm-2026-technology-creative-collaboration/?$ blog/cacm-2026-technology-creative-collaboration.html [L,QSA]
+RewriteRule ^blog/ai-visibility-for-businesses/?$ /blog/ai-visibility-for-businesses.html [L,QSA]
+RewriteRule ^insights/ai-visibility-for-businesses/?$ /blog/ai-visibility-for-businesses.html [L,QSA]
 
-# 13. Clean URL for Blog 10 - Viyash Scientific
-RewriteRule ^blog/viyash-listed-company-website-development/?$ blog/viyash-listed-company-website-development.html [L,QSA]
-RewriteRule ^insights/viyash-listed-company-website-development/?$ blog/viyash-listed-company-website-development.html [L,QSA]
+RewriteRule ^blog/sherwood-school-seo-ai-visibility/?$ /blog/sherwood-school-seo-ai-visibility.html [L,QSA]
+RewriteRule ^insights/sherwood-school-seo-ai-visibility/?$ /blog/sherwood-school-seo-ai-visibility.html [L,QSA]
 
-# 14. Clean URL for Blog 11 - ARCI Technology Partnership
-RewriteRule ^blog/arci-government-website-technology-partnership/?$ blog/arci-government-website-technology-partnership.html [L,QSA]
-RewriteRule ^insights/arci-government-website-technology-partnership/?$ blog/arci-government-website-technology-partnership.html [L,QSA]
+RewriteRule ^blog/cacm-2026-technology-creative-collaboration/?$ /blog/cacm-2026-technology-creative-collaboration.html [L,QSA]
+RewriteRule ^insights/cacm-2026-technology-creative-collaboration/?$ /blog/cacm-2026-technology-creative-collaboration.html [L,QSA]
 
-# 15. Clean URL for Blog 12 - Website Maintenance & AMC
-RewriteRule ^blog/why-website-maintenance-matters/?$ blog/why-website-maintenance-matters.html [L,QSA]
-RewriteRule ^insights/why-website-maintenance-matters/?$ blog/why-website-maintenance-matters.html [L,QSA]
+RewriteRule ^blog/viyash-listed-company-website-development/?$ /blog/viyash-listed-company-website-development.html [L,QSA]
+RewriteRule ^insights/viyash-listed-company-website-development/?$ /blog/viyash-listed-company-website-development.html [L,QSA]
 
-# 16. Clean URL for Blog 13 - MJCET Story
-RewriteRule ^blog/mjcet-parivartan-design-technology-journey/?$ blog/mjcet-parivartan-design-technology-journey.html [L,QSA]
-RewriteRule ^insights/mjcet-parivartan-design-technology-journey/?$ blog/mjcet-parivartan-design-technology-journey.html [L,QSA]
+RewriteRule ^blog/arci-government-website-technology-partnership/?$ /blog/arci-government-website-technology-partnership.html [L,QSA]
+RewriteRule ^insights/arci-government-website-technology-partnership/?$ /blog/arci-government-website-technology-partnership.html [L,QSA]
 
-# 17. Clean URL for Blog 14 - Custom Software vs Ready-Made Solutions
-RewriteRule ^blog/custom-software-vs-ready-made-solutions/?$ blog/custom-software-vs-ready-made-solutions.html [L,QSA]
-RewriteRule ^insights/custom-software-vs-ready-made-solutions/?$ blog/custom-software-vs-ready-made-solutions.html [L,QSA]
+RewriteRule ^blog/why-website-maintenance-matters/?$ /blog/why-website-maintenance-matters.html [L,QSA]
+RewriteRule ^insights/why-website-maintenance-matters/?$ /blog/why-website-maintenance-matters.html [L,QSA]
 
-# 18. Clean URL for Blog 15 - Rithika WooCommerce to Shopify Migration
-RewriteRule ^blog/rithika-woocommerce-to-shopify-migration/?$ blog/rithika-woocommerce-to-shopify-migration.html [L,QSA]
-RewriteRule ^insights/rithika-woocommerce-to-shopify-migration/?$ blog/rithika-woocommerce-to-shopify-migration.html [L,QSA]
+RewriteRule ^blog/mjcet-parivartan-design-technology-journey/?$ /blog/mjcet-parivartan-design-technology-journey.html [L,QSA]
+RewriteRule ^insights/mjcet-parivartan-design-technology-journey/?$ /blog/mjcet-parivartan-design-technology-journey.html [L,QSA]
+
+RewriteRule ^blog/custom-software-vs-ready-made-solutions/?$ /blog/custom-software-vs-ready-made-solutions.html [L,QSA]
+RewriteRule ^insights/custom-software-vs-ready-made-solutions/?$ /blog/custom-software-vs-ready-made-solutions.html [L,QSA]
+
+RewriteRule ^blog/rithika-woocommerce-to-shopify-migration/?$ /blog/rithika-woocommerce-to-shopify-migration.html [L,QSA]
+RewriteRule ^insights/rithika-woocommerce-to-shopify-migration/?$ /blog/rithika-woocommerce-to-shopify-migration.html [L,QSA]
 </IfModule>
 
 # Custom 404 Error Page
