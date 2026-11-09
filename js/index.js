@@ -1225,7 +1225,7 @@ const techConnectionsData = [
       });
     };
 
-    // Infinite Step-based Carousel Navigation (3 cards at a step on desktop)
+    // Infinite Step-based Carousel Navigation (Lightweight buffer for iOS WebKit & desktop)
     const setupStepCarousel = (wrapper, row, prevBtn, nextBtn, cardSelector, onCardInit) => {
       if (!wrapper || !row || !prevBtn || !nextBtn) return () => {};
 
@@ -1242,6 +1242,10 @@ const techConnectionsData = [
         return 3;
       };
 
+      const getBufferSize = () => {
+        return Math.min(3, Math.max(1, getCardsPerView()));
+      };
+
       const initClones = () => {
         // Clean up any existing clones
         row.querySelectorAll('.is-clone').forEach(el => el.remove());
@@ -1250,9 +1254,12 @@ const techConnectionsData = [
         numOriginal = originalCards.length;
         if (numOriginal === 0) return;
 
-        // Prefix clones
+        const buffer = getBufferSize();
+
+        // Prefix clones (only the last `buffer` cards, avoiding huge DOM / memory blowout on mobile)
         const prefixFragment = document.createDocumentFragment();
-        originalCards.forEach(c => {
+        const prefixCards = originalCards.slice(-buffer);
+        prefixCards.forEach(c => {
           const clone = c.cloneNode(true);
           clone.classList.add('is-clone');
           delete clone.dataset.cardEventsAttached;
@@ -1267,9 +1274,10 @@ const techConnectionsData = [
         });
         row.insertBefore(prefixFragment, originalCards[0]);
 
-        // Suffix clones
+        // Suffix clones (only the first `buffer` cards)
         const suffixFragment = document.createDocumentFragment();
-        originalCards.forEach(c => {
+        const suffixCards = originalCards.slice(0, buffer);
+        suffixCards.forEach(c => {
           const clone = c.cloneNode(true);
           clone.classList.add('is-clone');
           delete clone.dataset.cardEventsAttached;
@@ -1284,7 +1292,7 @@ const techConnectionsData = [
         });
         row.appendChild(suffixFragment);
 
-        currentIndex = numOriginal;
+        currentIndex = buffer;
         updatePosition(false);
       };
 
@@ -1316,12 +1324,13 @@ const techConnectionsData = [
 
       const checkBoundary = () => {
         if (numOriginal <= 0) return;
-        if (currentIndex >= 2 * numOriginal) {
+        const buffer = getBufferSize();
+        if (currentIndex >= numOriginal + buffer) {
           row.style.transition = 'none';
           currentIndex -= numOriginal;
           updatePosition(false);
           void row.offsetHeight; // force reflow
-        } else if (currentIndex < numOriginal) {
+        } else if (currentIndex < buffer) {
           row.style.transition = 'none';
           currentIndex += numOriginal;
           updatePosition(false);
@@ -1569,8 +1578,8 @@ const techConnectionsData = [
       document.head.appendChild(link);
     };
 
-    // Pre-warm the first 3 visible videos when the testimonials section approaches the viewport
-    if ('IntersectionObserver' in window && testimonialsSec) {
+    // Pre-warm the first 3 visible videos when the testimonials section approaches the viewport (desktop only, to save mobile memory)
+    if ('IntersectionObserver' in window && testimonialsSec && window.innerWidth > 768) {
       const prewarmObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {

@@ -464,6 +464,10 @@ const initStoryApp = () => {
         return 3;
       };
 
+      const getBufferSize = () => {
+        return Math.min(3, Math.max(1, getCardsPerView()));
+      };
+
       const initClones = () => {
         // Clean up any existing clones
         row.querySelectorAll('.is-clone').forEach(el => el.remove());
@@ -472,9 +476,12 @@ const initStoryApp = () => {
         numOriginal = originalCards.length;
         if (numOriginal === 0) return;
 
+        const buffer = getBufferSize();
+
         // Prefix clones
         const prefixFragment = document.createDocumentFragment();
-        originalCards.forEach(c => {
+        const prefixCards = originalCards.slice(-buffer);
+        prefixCards.forEach(c => {
           const clone = c.cloneNode(true);
           clone.classList.add('is-clone');
           delete clone.dataset.cardEventsAttached;
@@ -491,7 +498,8 @@ const initStoryApp = () => {
 
         // Suffix clones
         const suffixFragment = document.createDocumentFragment();
-        originalCards.forEach(c => {
+        const suffixCards = originalCards.slice(0, buffer);
+        suffixCards.forEach(c => {
           const clone = c.cloneNode(true);
           clone.classList.add('is-clone');
           delete clone.dataset.cardEventsAttached;
@@ -506,7 +514,7 @@ const initStoryApp = () => {
         });
         row.appendChild(suffixFragment);
 
-        currentIndex = numOriginal;
+        currentIndex = buffer;
         updatePosition(false);
       };
 
@@ -544,12 +552,13 @@ const initStoryApp = () => {
 
       const checkBoundary = () => {
         if (numOriginal <= 0) return;
-        if (currentIndex >= 2 * numOriginal) {
+        const buffer = getBufferSize();
+        if (currentIndex >= numOriginal + buffer) {
           row.style.transition = 'none';
           currentIndex -= numOriginal;
           updatePosition(false);
           void row.offsetWidth; // force reflow
-        } else if (currentIndex < numOriginal) {
+        } else if (currentIndex < buffer) {
           row.style.transition = 'none';
           currentIndex += numOriginal;
           updatePosition(false);
