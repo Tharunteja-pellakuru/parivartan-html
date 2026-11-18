@@ -105,90 +105,106 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ===== INSIGHTS Mobile Carousel Logic ===== */
-  function initBlogsCarousel() {
-    const grid = document.querySelector('.blogs-grid');
-    const controls = document.querySelector('.blogs-carousel-controls');
-    if (!grid || !controls) return;
+  /* ===== Sticky Sections Menu (TOC) Scroll-Spy & Smooth Navigation ===== */
+  function initTocScrollSpy() {
+    const toc = document.querySelector('.toc');
+    if (!toc) return;
+    const links = Array.from(toc.querySelectorAll('a'));
+    const headings = Array.from(document.querySelectorAll('.article-body [id]'));
 
-    const dotsContainer = controls.querySelector('.blogs-carousel-dots');
-    const prevBtn = controls.querySelector('.blogs-carousel-prev');
-    const nextBtn = controls.querySelector('.blogs-carousel-next');
+    if (!links.length || !headings.length) return;
 
-    function getVisibleCards() {
-      return Array.from(grid.querySelectorAll('.blog-card')).filter(card => {
-        return window.getComputedStyle(card).display !== 'none';
-      });
-    }
+    let isClickScrolling = false;
+    let scrollTimeout = null;
 
-    function renderDots() {
-      if (!dotsContainer) return;
-      const cards = getVisibleCards();
-      dotsContainer.innerHTML = '';
-      cards.forEach((card, idx) => {
-        const dot = document.createElement('span');
-        dot.className = `blogs-carousel-dot ${idx === 0 ? 'active' : ''}`;
-        dot.addEventListener('click', () => {
-          card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
-        dotsContainer.appendChild(dot);
-      });
-    }
-
-    function updateActiveState() {
-      const cards = getVisibleCards();
-      if (cards.length === 0) return;
-      const gridRect = grid.getBoundingClientRect();
-      const gridCenter = gridRect.left + gridRect.width / 2;
-
-      let closestIdx = 0;
-      let minDiff = Infinity;
-
-      cards.forEach((card, idx) => {
-        const cardRect = card.getBoundingClientRect();
-        const cardCenter = cardRect.left + cardRect.width / 2;
-        const diff = Math.abs(gridCenter - cardCenter);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closestIdx = idx;
+    function setActiveLink(activeId) {
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === '#' + activeId) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
         }
       });
+    }
 
-      if (dotsContainer) {
-        const dots = dotsContainer.querySelectorAll('.blogs-carousel-dot');
-        dots.forEach((dot, idx) => {
-          dot.classList.toggle('active', idx === closestIdx);
+    // 1. Click Navigation: immediate active state & smooth scroll with header offset
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        e.preventDefault();
+
+        // Update active state immediately on click
+        setActiveLink(target.id);
+
+        isClickScrolling = true;
+        clearTimeout(scrollTimeout);
+
+        // Header height + padding offset (leaves clear view below sticky header)
+        const header = document.querySelector('header.header-container');
+        const headerHeight = header ? header.offsetHeight : 96;
+        const offset = headerHeight + 24;
+
+        const targetTop = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
         });
+
+        // Update URL hash cleanly without jumping
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, null, href);
+        }
+
+        // Allow scroll listener to resume after smooth scroll settles
+        scrollTimeout = setTimeout(() => {
+          isClickScrolling = false;
+        }, 800);
+      });
+    });
+
+    // 2. Scroll-Spy: detect which section is currently in view
+    function onScroll() {
+      if (isClickScrolling) return;
+
+      const header = document.querySelector('header.header-container');
+      const headerHeight = header ? header.offsetHeight : 96;
+      const threshold = headerHeight + 60;
+
+      // Check if scrolled near the bottom of the article
+      const article = document.querySelector('.article-card') || document.querySelector('article');
+      if (article) {
+        const articleRect = article.getBoundingClientRect();
+        if (articleRect.bottom <= window.innerHeight) {
+          setActiveLink(headings[headings.length - 1].id);
+          return;
+        }
       }
 
-      if (prevBtn) prevBtn.disabled = grid.scrollLeft <= 5;
-      if (nextBtn) nextBtn.disabled = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 5;
+      // Find the last heading whose top has reached or passed the threshold
+      let currentId = headings[0].id;
+      for (let i = 0; i < headings.length; i++) {
+        const rect = headings[i].getBoundingClientRect();
+        if (rect.top <= threshold) {
+          currentId = headings[i].id;
+        } else {
+          break;
+        }
+      }
+
+      setActiveLink(currentId);
     }
 
-    renderDots();
-    updateActiveState();
-
-    grid.addEventListener('scroll', () => {
-      window.requestAnimationFrame(updateActiveState);
-    });
-
-    window.addEventListener('resize', () => {
-      renderDots();
-      updateActiveState();
-    });
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        grid.scrollBy({ left: -grid.clientWidth * 0.8, behavior: 'smooth' });
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        grid.scrollBy({ left: grid.clientWidth * 0.8, behavior: 'smooth' });
-      });
-    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // Run on initial load
+    onScroll();
   }
 
-  initBlogsCarousel();
+  initTocScrollSpy();
 });

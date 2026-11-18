@@ -91,7 +91,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -480,14 +480,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -496,102 +495,84 @@
             </span>
             <span>GO BACK</span>
           </a>
-
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>PROJECTS &amp; CASE STUDIES</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </div>
+          <span class="cat-badge">Projects & Case Studies</span>
         </div>
 
-        <h1 class="bd-title">Beyond Google Rankings. How We’re Building AI Visibility for Sherwood Public School</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
+        <!-- Title -->
+        <h1 class="article-title">Beyond Google Rankings. How We’re Building AI Visibility for Sherwood Public School</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
 
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>4 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Projects &amp; Case Studies</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Article Body -->
-      <article class="bd-body">
-
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">In our previous article, we explored how online search is changing and why businesses should look beyond just Google rankings.</h2>
-          <p>At Parivartan, we’ve put these ideas into practice with real client projects. For example, we worked with Sherwood Public School in Secunderabad to improve its digital presence and make its information easier to find through both search engines and AI.</p>
-          <p class="bd-orange">Our main goal is straightforward: parents searching for schools should easily find the information they need to make informed choices.</p>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">4 min read</div>
         </div>
 
-        <div class="bd-section-block">
-          <h2>Understanding How Parents Search</h2>
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="Sherwood Public School: SEO & AI Visibility Case Study">
+          <img src="./assets/insights/blogs/sherwood-school-seo-ai-visibility.webp" alt="Sherwood Public School: SEO & AI Visibility Case Study" loading="lazy" />
+        </div>
+
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            In our previous article, we explored how online search is changing and why businesses should look beyond just Google rankings.
+          </p>
+          <p>At Parivartan, we’ve put these ideas into practice with real client projects. For example, we worked with Sherwood Public School in Secunderabad to improve its digital presence and make its information easier to find through both search engines and AI. Our main goal is straightforward: parents searching for schools should easily find the information they need to make informed choices.</p>
+
+          <h3 id="parent-search">Understanding How Parents Search</h3>
           <p>Choosing a school is a big decision for any parent. Many begin with common searches like 'ICSE schools in Secunderabad' or 'schools near Kompally'.</p>
           <p>Others may have specific questions about pre-primary education, teaching methods, facilities, admissions, or the learning environment. More often, parents are now asking these questions on platforms like ChatGPT, Gemini, and Google’s AI search.</p>
-          <p class="bd-orange">For schools, being discoverable means more than just showing up under their own name. It’s about helping parents understand what the school offers and if it’s the right fit for their child.</p>
-        </div>
+          <p>For schools, being discoverable means more than just showing up under their own name. It’s about helping parents understand what the school offers and if it’s the right fit for their child.</p>
 
-        <div class="bd-section-block">
-          <h2>Building on Sherwood’s Existing Strengths</h2>
-          <p>Sherwood Public School has a long history since 1984, is ICSE affiliated, and has a strong record in education beyond just academics. These are real strengths we want to highlight online.</p>
-          <p>Our approach has been to organize information about educational programs, activities, and admissions more clearly.</p>
-          <p class="bd-orange">A great deal of attention has been paid to pre-primary education and ICSE related searches, with the content being designed to be of value to parents rather than just a bunch of keywords.</p>
-        </div>
+          <h3 id="existing-strengths">Building on Sherwood’s Existing Strengths</h3>
+          <p>Sherwood Public School has a long history since 1984, is ICSE affiliated, and has a strong record in education beyond just academics. These are real strengths we want to highlight online. Our approach has been to organize information about educational programs, activities, and admissions more clearly.</p>
+          <p>A great deal of attention has been paid to pre-primary education and ICSE related searches, with the content being designed to be of value to parents rather than just a bunch of keywords.</p>
 
-        <div class="bd-section-block">
-          <h2>Applying SEO, AEO and GEO Together</h2>
+          <h3 id="seo-aeo-geo">Applying SEO, AEO and GEO Together</h3>
           <p>Our work with Sherwood shows how traditional SEO and AI visibility can work together effectively.</p>
           <p><strong>SEO</strong> makes the site easier to find through relevant search queries, clear titles and descriptions, and well-structured content.</p>
           <p><strong>AEO</strong> encourages us to present information in ways that answer the questions parents are likely to ask.</p>
           <p><strong>GEO</strong> adds another layer: is the school’s information clear, relevant, and credible enough for AI systems to understand and reference?</p>
-          <p class="bd-orange">For Sherwood, we focused on how the website communicates its programs, teaching approach, and admissions details, instead of treating each page as a separate SEO task.</p>
-          <p>The goal is to build a more complete and accessible digital presence. Learn more about our comprehensive framework in our <a href="./blog/ai-visibility-for-businesses.html" style="color: #599632; font-weight: 600; text-decoration: underline;">guide to AI visibility for businesses</a> and explore our dedicated <a href="./seo-aeo-geo.html" style="color: #599632; font-weight: 600; text-decoration: underline;">SEO, AEO &amp; GEO services</a>.</p>
-        </div>
+          <p>For Sherwood, we focused on how the website communicates its programs, teaching approach, and admissions details, instead of treating each page as a separate SEO task.</p>
+          <p>The goal is to build a more complete and accessible digital presence. Learn more about our comprehensive framework in our <a href="./blog/ai-visibility-for-businesses.html">guide to AI visibility for businesses</a> and explore our dedicated <a href="./seo-aeo-geo.html">SEO, AEO &amp; GEO services</a>.</p>
 
-        <div class="bd-section-block">
-          <h2>Looking Beyond Rankings</h2>
+          <h3 id="beyond-rankings">Looking Beyond Rankings</h3>
           <p>A key part of this is looking at visibility from a parent’s perspective.</p>
           <p>A school might appear in searches for its own name, but that doesn’t mean it will show up for broader queries about schools, curricula, or early years. That’s why we believe visibility should be measured across different search types, like informational, location-based, and AI-generated searches.</p>
-          <p class="bd-orange">The goal isn’t just to add more keywords. It’s to make sure the school’s information answers the real questions people have.</p>
-        </div>
+          <p>The goal isn’t just to add more keywords. It’s to make sure the school’s information answers the real questions people have.</p>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">What This Project Reinforces</h2>
-          <p>Our work at Sherwood Public School shows how we approach digital visibility across a range of client projects. We start by getting to know the organisation, working out what the audience needs to know and then improving the way that information is presented online through strategic <a href="./web-development.html" style="color: #599632; font-weight: 600; text-decoration: underline;">website design and development</a>.</p>
+          <h3 id="project-takeaway">What This Project Reinforces</h3>
+          <p>Our work at Sherwood Public School shows how we approach digital visibility across a range of client projects. We start by getting to know the organisation, working out what the audience needs to know and then improving the way that information is presented online through strategic <a href="./web-development.html">website design and development</a>.</p>
           <p>Technology, content and search optimisation all work in tandem to achieve that goal. AI-powered discovery is still in its infancy, and no website can be guaranteed to be recommended by an AI platform. What you can do, though, is take steps to make your information more discoverable, more understandable, and more evaluable. For an educational institution where trust and clarity matter so much, that's a great place to start.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-top: 24px; margin-bottom: 24px;">At Parivartan, we think the future of digital visibility isn't simply about getting picked up in search results. It's about ensuring that the right information gets to the right people regardless of which platform they're using.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
+          <p class="article-bold-callout"><strong>At Parivartan, we think the future of digital visibility isn't simply about getting picked up in search results. It's about ensuring that the right information gets to the right people regardless of which platform they're using.</strong></p>
 
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#parent-search">Understanding How Parents Search</a></li>
+            <li><a href="#existing-strengths">Building on Existing Strengths</a></li>
+            <li><a href="#seo-aeo-geo">Applying SEO, AEO and GEO Together</a></li>
+            <li><a href="#beyond-rankings">Looking Beyond Rankings</a></li>
+            <li><a href="#project-takeaway">What This Project Reinforces</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1092,7 +1073,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

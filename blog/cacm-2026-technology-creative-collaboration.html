@@ -92,7 +92,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -481,14 +481,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -497,103 +496,86 @@
             </span>
             <span>GO BACK</span>
           </a>
-
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>PROJECTS &amp; CASE STUDIES</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </div>
+          <span class="cat-badge">Projects & Case Studies</span>
         </div>
 
-        <h1 class="bd-title">When Technology Meets Creativity. The CACM 2026 Story.</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
+        <!-- Title -->
+        <h1 class="article-title">When Technology Meets Creativity. The CACM 2026 Story.</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
 
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>4 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Projects &amp; Case Studies</span>
-            </div>
-          </div>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">4 min read</div>
         </div>
-      </div>
 
-      <!-- Article Body -->
-      <article class="bd-body">
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="The Indian Carbon Society — CACM 2026: Conference Website, Digital Branding & AI Film">
+          <img src="./assets/insights/blogs/cacm-2026-technology-creative-collaboration.webp" alt="The Indian Carbon Society — CACM 2026: Conference Website, Digital Branding & AI Film" loading="lazy" />
+        </div>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Some projects let us focus on building solid technical solutions. Others push us to get creative and share ideas in memorable ways.</h2>
-          <p>CACM 2026, the Conference on Advanced Carbon Materials, brought these two worlds together.</p>
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            Some projects let us focus on building solid technical solutions. Others push us to get creative and share ideas in memorable ways.
+          </p>
+          <p class="article-bold-callout"><strong>CACM 2026, the Conference on Advanced Carbon Materials, brought these two worlds together.</strong></p>
           <p>As Digital &amp; Media Partners for the conference, we worked with ARCI, BITS Pilani Hyderabad, and the Indian Carbon Society on a project focused on scientific research, advanced materials, and innovation.</p>
-          <p class="bd-orange">For us, it was much more than creating a conference website or making promotional material. We set out to build a complete digital identity for the event by bringing together technology, design, communication, and storytelling.</p>
-        </div>
+          <p>For us, it was much more than creating a conference website or making promotional material. We set out to build a complete digital identity for the event by bringing together technology, design, communication, and storytelling.</p>
 
-        <div class="bd-section-block">
-          <h2>Two Teams. One Creative Direction.</h2>
-          <p>One of the most interesting parts of CACM 2026 was how eParivartan and Swipe Social, our creative and digital branding arm, worked together.</p>
-          <p>eParivartan handled the conference website (<a href="https://www.cacm2026.com/" target="_blank" rel="noopener noreferrer" style="color: #599632; font-weight: 600; text-decoration: underline;">cacm2026.com</a>) and digital presence through our <a href="./web-development.html" style="color: #599632; font-weight: 600; text-decoration: underline;">website development</a> expertise, while Swipe Social took care of creative direction, visual identity, digital branding, and communication assets.</p>
-          <p class="bd-orange">We wanted everything, from the website to the promotional materials, to share a consistent identity. Instead of treating tech and design as separate tasks, both teams worked toward the same vision. This let us combine different skills while keeping the project consistent.</p>
-        </div>
+          <h3 id="two-teams">Two Teams. One Creative Direction.</h3>
+          <p>One of the most interesting parts of CACM 2026 was how <strong>eParivartan</strong> and <strong>Swipe Social</strong>, our creative and digital branding arm, worked together. eParivartan handled the conference website (<a href="https://www.cacm2026.com/" rel="noopener noreferrer" target="_blank">cacm2026.com</a>) and digital presence, while Swipe Social took care of creative direction, visual identity, digital branding, and communication assets.</p>
+          <p>We wanted everything, from the website to the promotional materials, to share a consistent identity. Instead of treating tech and design as separate tasks, both teams worked toward the same vision. This let us combine different skills while keeping the project consistent.</p>
 
-        <div class="bd-section-block">
-          <h2>Building a Digital Identity for Science</h2>
+          <h3 id="digital-identity">Building a Digital Identity for Science</h3>
           <p>Scientific conferences are an interesting creative challenge.</p>
           <p>The topics are highly specialized, so we had to balance accuracy with telling the story visually. Advanced carbon materials are used in many industries and new technologies.</p>
-          <p class="bd-orange">Our challenge was to create a digital identity that showed how important the subject is, without making it too technical or hard to understand.</p>
-          <p>The website was the digital foundation of the conference, while the branding and creative communications gave it a visual personality. But one part of the project turned out to be the most memorable.</p>
-        </div>
+          <p>Our challenge was to create a digital identity that showed how important the subject is, without making it too technical or hard to understand. The website was the digital foundation of the conference, while the branding and creative communications gave it a visual personality.</p>
+          <p>But one part of the project turned out to be the most memorable.</p>
 
-        <div class="bd-section-block">
-          <h2>The Launch Film That Became a Talking Point</h2>
+          <h3 id="launch-film">The Launch Film That Became a Talking Point</h3>
           <p>The CACM 2026 launch film was definitely one of the highlights of the project.</p>
           <p>We never planned to make a typical conference video with just graphics and announcements. Our goal was to create something cinematic and visually engaging that could show the energy and potential of our work with advanced carbon materials.</p>
-          <p class="bd-orange">The film combined storytelling, visual design, motion graphics, and AI-assisted creative workflows. From the first frames to the transitions and overall look, we aimed to make the conference launch truly memorable.</p>
-          <p>The response was very positive, and the film became one of the main talking points at the event. For our creative team, seeing that response was the best part.</p>
-        </div>
+          <p>The film combined storytelling, visual design, motion graphics, and AI-assisted creative workflows. From the first frames to the transitions and overall look, we aimed to make the conference launch truly memorable. The response was very positive, and the film became one of the main talking points at the event.</p>
+          <p>For our creative team, seeing that response was the best part.</p>
+          <p><a href="https://www.cacm2026.com/" target="_blank" rel="noopener noreferrer">Watch the CACM 2026 Launch Film</a></p>
 
-        <div class="bd-section-block">
-          <h2>Where AI Supported Creativity</h2>
+          <h3 id="ai-creativity">Where AI Supported Creativity</h3>
           <p>Another major element of the film was the use of AI in the production process.</p>
-          <p>We used AI tools to explore visual ideas, try out creative options, and speed up parts of the prototyping and production process. But the creative direction, story, and decisions about the film’s look and feel were all ours.</p>
-          <p class="bd-orange">We see AI as a way to expand creative possibilities, not as a replacement for the thinking and experience behind good design. CACM 2026 let us put this approach into action.</p>
-        </div>
+          <p>We used AI tools to explore visual ideas, try out creative options, and speed up parts of the prototyping and production process. But the creative direction, story, and decisions about the film’s look and feel were all ours. We see AI as a way to expand creative possibilities, not as a replacement for the thinking and experience behind good design. CACM 2026 let us put this approach into action.</p>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">What This Collaboration Represents</h2>
-          <p>For Parivartan, CACM 2026 showed how valuable it is when technology and creativity work together. Explore more of our institutional and conference platforms under our <a href="./work-websites.html" style="color: #599632; font-weight: 600; text-decoration: underline;">projects and case studies</a>.</p>
+          <h3 id="collaboration-meaning">What This Collaboration Represents</h3>
+          <p>For Parivartan, CACM 2026 showed how valuable it is when technology and creativity work together.</p>
           <p>A website, a brand identity, and a launch film might seem like separate deliverables. But when they’re all created with a shared understanding of the project, they come together to create a much stronger overall experience.</p>
           <p>The eParivartan and Swipe Social collaboration let us approach the project from both technical and communication angles, combining the platform with the messaging needed to deliver the event. It also gave our teams a chance to experiment, learn, and push their creative thinking.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-top: 24px; margin-bottom: 24px;">CACM 2026 was a great reminder that technology makes things possible, but creativity is what makes them memorable.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
+          <p class="article-bold-callout"><strong>CACM 2026 was a great reminder that technology makes things possible, but creativity is what makes them memorable.</strong></p>
 
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#two-teams">Two Teams. One Creative Direction.</a></li>
+            <li><a href="#digital-identity">Building a Digital Identity for Science</a></li>
+            <li><a href="#launch-film">The Launch Film</a></li>
+            <li><a href="#ai-creativity">Where AI Supported Creativity</a></li>
+            <li><a href="#collaboration-meaning">What This Collaboration Represents</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1095,7 +1077,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

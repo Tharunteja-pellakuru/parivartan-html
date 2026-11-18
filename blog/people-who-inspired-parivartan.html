@@ -90,7 +90,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -479,14 +479,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -495,102 +494,82 @@
             </span>
             <span>GO BACK</span>
           </a>
-
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>FOUNDER STORIES</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </div>
+          <span class="cat-badge">Founder Stories</span>
         </div>
 
-        <h1 class="bd-title">Before There Was Parivartan, There Were People Who Believed in Me</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
+        <!-- Title -->
+        <h1 class="article-title">Before There Was Parivartan, There Were People Who Believed in Me</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
 
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>5 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Founder Stories</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Article Body -->
-      <article class="bd-body">
-
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Looking back at how Parivartan started, I realize that starting a business wasn’t something I ever planned.</h2>
-          <p>In our middle-class family, the goal was to study hard, get a good job, and settle down. Entrepreneurship wasn’t really considered. Still, there were people who saw potential in me before I did.</p>
-          <p class="bd-orange">Without them, Parivartan wouldn’t exist today.</p>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">5 min read</div>
         </div>
 
-        <div class="bd-section-block">
-          <h2>My Father, Santosh Pohankar — The Man Who Believed When Others Didn’t</h2>
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="Before There Was Parivartan, There Were People Who Believed in Me">
+          <img src="./assets/insights/blogs/people-who-inspired-parivartan.webp" alt="Before There Was Parivartan, There Were People Who Believed in Me" loading="lazy" />
+        </div>
+
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            Looking back at how Parivartan started, I realize that starting a business wasn’t something I ever planned. In our middle-class family, the goal was to study hard, get a good job, and settle down. Entrepreneurship wasn’t really considered. Still, there were people who saw potential in me before I did.
+          </p>
+          <p>Without them, Parivartan wouldn’t exist today.</p>
+
+          <h3 id="father">My Father, Santosh Pohankar - The Man Who Believed When Others Didn’t</h3>
           <p>Starting a business didn’t seem safe, especially since I had no experience or business background. Some people thought I would fail. But my dad supported me.</p>
-          <p>His support was more than just encouragement. When we started raising funds for Parivartan, he helped however he could. Back then, I had nothing but enthusiasm and a willingness to work, so his belief in me was essential.</p>
-          <p class="bd-orange">My father has passed away, but I often remember how important his belief was. Sometimes, all it takes is one person believing in you to help you get started.</p>
-        </div>
+          <p>His support was more than just encouragement. When we started raising funds for Parivartan, he helped however he could. Back then, I had nothing but enthusiasm and a willingness to work, so his belief in me was essential. My father has passed away, but I often remember how important his belief was. Sometimes, all it takes is one person believing in you to help you get started.</p>
 
-        <div class="bd-section-block">
-          <h2>Dr. Hariharan Ramamurthy — The Man Who Saw an Entrepreneur</h2>
+          <h3 id="hariharan">Dr. Hariharan Ramamurthy - The Man Who Saw an Entrepreneur</h3>
           <p>Interestingly, the idea for Parivartan came from something completely unrelated to business.</p>
           <p>I made a multimedia presentation for my sister’s wedding. Dr. Hariharan Ramamurthy saw it during a visit to India from the US. He was impressed and suggested I consider starting a company in web design and multimedia. At the time, I was with friends, but he wanted to talk before returning to the US, so I cut my trip short and came back to Hyderabad.</p>
-          <p class="bd-orange">After that, we had several conversations that eventually led to starting Parivartan. He didn’t just support the idea; he also helped with the initial funding.</p>
-          <p>I had the technical skills, and he saw the business potential. That moment changed the course of my life. Dr. Hariharan Ramamurthy has passed away, but I’ll never forget his contribution to my journey. He believed in me as an entrepreneur long before I ever thought of it, and I’ll always be grateful for that.</p>
-        </div>
+          <p>After that, we had several conversations that eventually led to starting Parivartan. He didn’t just support the idea; he also helped with the initial funding. I had the technical skills, and he saw the business potential. That moment changed the course of my life.</p>
+          <p>Dr. Hariharan Ramamurthy has passed away, but I’ll never forget his contribution to my journey. He believed in me as an entrepreneur long before I ever thought of it, and I’ll always be grateful for that.</p>
 
-        <div class="bd-section-block">
-          <h2>My Mother, Lalit Pohankar — Where the Creativity Began</h2>
+          <h3 id="mother">My Mother, Lalit Pohankar - Where the Creativity Began</h3>
           <p>My mum is an artist, and I think I owe much of my creativity to her.</p>
-          <p>Growing up around someone so passionate about art and design shaped how I see things. When I got into multimedia, the creative side came naturally. But her influence goes beyond that; the name Parivartan actually came from her. Back in '79 she'd started an initiative whereby people could rent paintings. She called it Parivartan.</p>
-          <p class="bd-orange">Years later, when we needed a name for the company, I chose the same one. It means change, and it felt right.</p>
-          <p>More than 20 years later, my mother still supports me. She’s always there, still believing in me, through all the changes in the company and everything else.</p>
-        </div>
+          <p>Growing up around someone so passionate about art and design shaped how I see things. When I got into multimedia, the creative side came naturally. But her influence goes beyond that; the name Parivartan actually came from her. Back in '79 she'd started an initiative whereby people could rent paintings. She called it <em>Parivartan</em>.</p>
+          <p>Years later, when we needed a name for the company, I chose the same one. It means change, and it felt right. More than 20 years later, my mother still supports me. She’s always there, still believing in me, through all the changes in the company and everything else.</p>
 
-        <div class="bd-section-block">
-          <h2>My Sister, Shruti Pohankar Kulkarni — The Push That Started It All</h2>
+          <h3 id="sister">My Sister, Shruti Pohankar Kulkarni - The Push That Started It All</h3>
           <p>My sister has always been one of my best critics, and she was the first to get me interested in multimedia. I never imagined that would be my path. I studied multimedia in college, taught at Arena Multimedia at 17, and eventually moved into software development.</p>
-          <p class="bd-orange">Years later, it was a presentation I made for her wedding that caught Dr. Hariharan Ramamurthy’s attention. In many ways, her encouragement is what started everything.</p>
-          <p>She also gave the company financial support in the early days. It’s amazing how a decision that seems small at the time can end up changing your whole life.</p>
-        </div>
+          <p>Years later, it was a presentation I made for her wedding that caught Dr. Hariharan Ramamurthy’s attention. In many ways, her encouragement is what started everything. She also gave the company financial support in the early days. It’s amazing how a decision that seems small at the time can end up changing your whole life.</p>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Looking Back</h2>
+          <h3 id="looking-back">Looking Back</h3>
           <p>Parivartan began with very limited resources, just a computer at home and plenty of doubt. But we had people who believed in us.</p>
           <p>My dad gave me the confidence to try. Dr. Hariharan Ramamurthy saw the opportunity I didn’t. My mum gave me the creative foundation and the name we would use. My sister encouraged me to develop the skills that started it all.</p>
           <p>Now that Parivartan has reached 25 years, I find myself thinking about those early days more often. At the start, there were no clients, projects, employees, or achievements—just people who believed I could do it.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-top: 24px; margin-bottom: 24px;">Sometimes, your own journey begins because someone else believes in you.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
+          <p class="article-bold-callout"><strong>Sometimes, your own journey begins because someone else believes in you.</strong></p>
 
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#father">Santosh Pohankar: Believed in Me</a></li>
+            <li><a href="#hariharan">Dr. Hariharan Ramamurthy: An Entrepreneur</a></li>
+            <li><a href="#mother">Lalit Pohankar: Where Creativity Began</a></li>
+            <li><a href="#sister">Shruti Pohankar Kulkarni: The Push</a></li>
+            <li><a href="#looking-back">Looking Back</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1091,7 +1070,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

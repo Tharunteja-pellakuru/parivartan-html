@@ -85,7 +85,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -476,12 +476,11 @@
 
   <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -490,123 +489,111 @@
             </span>
             <span>GO BACK</span>
           </a>
+          <span class="cat-badge">Website Launch</span>
+        </div>
 
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>WEBSITE LAUNCH</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
+        <!-- Title -->
+        <h1 class="article-title">Parivartan means change. This time, we changed ourselves.</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
+
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">5 min read</div>
         </div>
 
-        <h1 class="bd-title">Parivartan means change. This time, we changed ourselves.</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
-
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
-          </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>5 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Website Launch</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hero Image -->
-      <div class="bd-hero-image">
-        <img src="./assets/insights/blogs/website-launch.webp" alt="eParivartan New Website Launch - Design Build Scale" loading="lazy" />
-      </div>
-
-      <!-- Article Body -->
-      <article class="bd-body">
-
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Parivartan means change.</h2>
-          <p>It's a phrase that's defined us since we started back in 2002. We've been there helping businesses to adopt new technologies, to re-think their digital offering and to build solutions that grow with them.</p>
-          <p class="bd-orange">But at some point, I realized something important.</p>
-          <p>While we were helping others change, our own site hadn't changed enough.</p>
-          <p>It wasn't that we had stopped evolving as a company. In fact, the opposite was true. Our capabilities had grown a lot, we gained valuable experience, and the range of our work increased dramatically.</p>
-          <p>Our website just wasn't showing that journey. That realization sparked something new.</p>
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="eParivartan New Website Launch">
+          <img src="./assets/insights/blogs/website-launch.webp" alt="eParivartan New Website Launch - Design Build Scale" loading="lazy" />
         </div>
 
-        <div class="bd-section-block">
-          <h2>More Than Just a Redesign</h2>
-          <p>When we started planning our new website, we didn't want just another standard corporate site. I wanted something fresh, different, and easy for people to use. Most of all, I wanted it to feel personal.</p>
-          <p>Over the last 20 years, we've completed thousands of projects in many different industries. We've built websites, applications, software platforms, and worked with organizations through every phase of the tech revolution.</p>
-          <p>Every project has its own story. Every client has taught us something new. But much of that experience wasn't visible to visitors on our site. This time, we wanted our work to speak for itself.</p>
-          <p class="bd-orange">We wanted people to see what we really do, not just what we say we do.</p>
-          <p>We wanted them to see the range of our projects, the depth of our experience, and the people behind it all. In the end, I believe a company's credibility comes from its work.</p>
-        </div>
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            It's a phrase that's defined us since we started back in 2002. We've been there helping businesses to adopt new technologies, to re-think their digital offering and to build solutions that grow with them. While we were helping others change, our own site hadn't changed enough. Our capabilities had grown, we gained valuable experience, and the range of our work increased dramatically. That realization sparked something new.
+          </p>
 
-        <div class="bd-section-block">
-          <h2>Two Identities. A clearer purpose.</h2>
-          <p>One of the biggest changes we made wasn't visual. It was about how we present ourselves as a business. Over the years, Parivartan has expanded into many areas, from tech development to branding, social media, and creative communications.</p>
-          <p>But I began to wonder if having everything under one umbrella really helped clients understand our strengths. When a company claims to do everything, people often question if that's true. We wanted to remove that doubt. So, we decided to give our technology and creativity separate identities.</p>
+          <h3 id="redesign">More Than Just a Redesign</h3>
+          <p>
+            When we started planning our new website, we didn't want just another standard corporate site. I wanted something fresh, different, and easy for people to use. Most of all, I wanted it to feel personal.
+          </p>
+          <p>
+            Over the last 20 years, we've completed thousands of projects in many different industries. We've built websites, applications, software platforms, and worked with organizations through every phase of the tech revolution. Every project has its own story. Every client has taught us something new. This time, we wanted our work to speak for itself.
+          </p>
+
+          <!-- Pull Quote -->
+          <blockquote class="pull-quote">
+            <p>We wanted people to see what we really do, not just what we say we do. In the end, a company's credibility comes from its work.</p>
+          </blockquote>
+
+          <h3 id="identities">Two Identities. A Clearer Purpose</h3>
+          <p>
+            One of the biggest changes we made wasn't visual. It was about how we present ourselves as a business. Over the years, Parivartan has expanded into many areas, from tech development to branding, social media, and creative communications.
+          </p>
+          <p>
+            When a company claims to do everything, people often question if that's true. We wanted to remove that doubt. So, we decided to give our technology and creativity separate identities:
+          </p>
+
           <h4 class="bd-list-heading">Our Distinct Focus Areas:</h4>
           <ul class="bd-leaf-list">
             <li><img src="./assets/home/parivartan-leaf.webp" alt="" class="bd-leaf" loading="lazy" /><span><strong>eParivartan:</strong> Dedicated focus on what we've spent years mastering — websites, custom software, web applications, mobile apps, and technology solutions.</span></li>
             <li><img src="./assets/home/parivartan-leaf.webp" alt="" class="bd-leaf" loading="lazy" /><span><strong>Swipe Social:</strong> Its own creative identity, focusing on branding, social media, creative communications, and digital marketing.</span></li>
           </ul>
-          <p>Both share the same roots and values. Both are part of our larger journey. Now, each can communicate its expertise more clearly. For me, that was a big step forward not in what we do, but in being clearer about who we are.</p>
-        </div>
 
-        <div class="bd-section-block">
-          <h2>The Pursuit of Perfection</h2>
-          <p>This website taught me another lesson. Design has always been a challenge.</p>
-          <p>It's not that we lack ideas or skills, but there's always something that can be improved. A layout could look better. A section could be clearer. An interaction could be smoother. A page could be different. When it's your own company's website, the desire to get everything right is even stronger.</p>
-          <p>For a long time, I was searching for the perfect outcome. But at some point, I realized that waiting for the 'perfect' version can actually stop you from ever releasing it.</p>
-          <p class="bd-orange">A site doesn't have to be perfect when it goes live. It just needs to be ready for its next journey.</p>
-          <p>We'll keep improving things. We might tweak some parts based on feedback. Some ideas may work better than others.</p>
-          <p>And that's completely fine.</p>
-          <p>What matters is taking the next step, listening to people, and continuing to grow. In many ways, that's what Parivartan has always stood for.</p>
-        </div>
+          <p>
+            Both share the same roots and values. Both are part of our larger journey. Now, each can communicate its expertise more clearly. For me, that was a big step forward not in what we do, but in being clearer about who we are.
+          </p>
 
-        <div class="bd-section-block">
-          <h2>Experience Is Something You Build, Not Something You Claim</h2>
-          <p>When a visitor comes to our new website, I hope they take away one thing. That this is a team that can deliver. Not because we've written any particularly impressive statements about ourselves (though we have), but because of the sheer volume of work that we've done. We've worked with businesses, educational institutions, government organisations, entrepreneurs and established enterprises.</p>
-          <p>We've seen technologies come and go. We've learned from projects that went smoothly and from those that didn't. We've built relationships that have lasted for years, often across different businesses and generations of technology.</p>
-          <p>That collective experience matters. It shapes how we understand requirements, how we solve problems, and the technology we choose for each business. I wanted the new website to show that experience, without making extravagant claims.</p>
-          <p class="bd-orange">Just show the work. Tell the stories. Let people decide for themselves.</p>
-        </div>
+          <h3 id="perfection">The Pursuit of Perfection</h3>
+          <p>
+            This website taught me another lesson. Design has always been a challenge. When you care about details, every pixel matters, every interaction counts, and there is always something you want to refine.
+          </p>
+          <p>
+            What matters is taking the next step, listening to people, and continuing to grow. In many ways, that's what Parivartan has always stood for.
+          </p>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">A New Beginning, Not a Finished Product</h2>
-          <p>As we approach 25 years of Parivartan in 2027, this website marks an important point in our journey. But I don't see it as a finished product or a final destination.</p>
-          <p class="bd-orange">I see it as a fresh start.</p>
-          <p>It's a place where we can share more of our work, talk about the technology we've built, give credit to the people behind the projects, and document the lessons we've learned. We'll keep improving it and adding more stories, projects, and perspectives.</p>
-          <p>And we’ll keep listening.</p>
-          <p>If there's one thing nearly 25 years in business has taught me, it's that change isn't something you achieve just once. It's something you have to stay open to every day.</p>
-          <p style="font-weight: 700; color: #060612; font-size: 1.15em; margin-top: 28px; margin-bottom: 8px;">Parivartan means change.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-bottom: 24px;">And this time, we chose to start with ourselves.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
+          <h3 id="experience">Experience Built, Not Claimed</h3>
+          <p>
+            When a visitor comes to our new website, I hope they take away one thing: that this is a team that can deliver. We've worked with businesses, educational institutions, government organisations, entrepreneurs and established enterprises.
+          </p>
+          <p>
+            That collective experience matters. It shapes how we understand requirements, how we solve problems, and the technology we choose for each business. I wanted the new website to show that experience, without making extravagant claims.
+          </p>
 
+          <h3 id="new-beginning">A New Beginning, Not a Finished Product</h3>
+          <p>
+            As we approach 25 years of Parivartan in 2027, this website marks an important point in our journey. But I don't see it as a finished product or a final destination. I see it as a fresh start.
+          </p>
+          <p>
+            It's a place where we can share more of our work, talk about the technology we've built, give credit to the people behind the projects, and document the lessons we've learned. If there's one thing nearly 25 years in business has taught me, it's that change isn't something you achieve just once. It's something you have to stay open to every day.
+          </p>
+
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#redesign">More Than Just a Redesign</a></li>
+            <li><a href="#identities">Two Identities. Clearer Purpose</a></li>
+            <li><a href="#perfection">The Pursuit of Perfection</a></li>
+            <li><a href="#experience">Experience Built, Not Claimed</a></li>
+            <li><a href="#new-beginning">A New Beginning</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1321,7 +1308,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

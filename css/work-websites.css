@@ -263,38 +263,6 @@
     height: 100%;
     object-fit: cover;
   }
-
-  /* Project Cards - Maintain 16:9 preview, keep card height same */
-  .websites-projects-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .websites-project-card {
-    height: auto;
-    min-height: auto;
-    max-height: none;
-    padding: 16px 20px 12px 20px;
-  }
-
-  .websites-card-preview {
-    height: auto;
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .websites-project-card:hover .websites-card-preview {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-
-  .websites-preview-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
 }
 
 /* ==========================================================================
@@ -570,7 +538,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   width: 100%;
-  align-items: start;
 }
 
 .websites-project-card {
@@ -579,49 +546,45 @@
   align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
-  height: auto;
-  min-height: auto;
-  max-height: none;
-  padding: 16px 20px 20px 20px;
+  height: 440px;
+  min-height: 440px;
+  max-height: 440px;
+  padding: 16px 20px 16px 20px;
   background: #FFFFFF;
   border: 1px solid #EAEAEA;
   border-radius: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.35s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  will-change: transform, border-color, box-shadow;
+  will-change: border-color, box-shadow;
 }
 
 .websites-project-card:hover,
 .websites-project-card.is-expanded {
-  transform: translateY(-6px);
   border-color: #C2E2A6;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 }
 
-/* Image Preview Container (Strict 16:9 aspect ratio so screenshots fit completely without side cropping) */
+/* Image Preview Container (Flexibly fills space and shrinks inwards dynamically to match expanding hover content) */
 .websites-card-preview {
   position: relative;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  flex: 1 1 0%;
+  min-height: 0;
   border-radius: 14px;
   overflow: hidden;
   background: #F1F5F9;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   border: 1px solid #F0F0F0;
-  flex-shrink: 0;
-  transition: transform 0.35s ease;
-  will-change: transform;
+  transition: margin-bottom 0.35s ease;
+  will-change: margin-bottom;
 }
 
 .websites-project-card:hover .websites-card-preview,
 .websites-project-card.is-expanded .websites-card-preview {
-  height: auto;
-  aspect-ratio: 16 / 9;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .websites-preview-image {
@@ -630,6 +593,13 @@
   object-fit: cover;
   object-position: top center;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.websites-project-card:hover .websites-preview-image,
+.websites-project-card.is-expanded .websites-preview-image {
+  transform: scale(1.05);
 }
 
 /* Project Name */
@@ -648,9 +618,9 @@
   line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 54px;
+  max-height: 52px;
   flex-shrink: 0;
-  transition: color 0.3s ease, margin-top 0.4s ease;
+  transition: color 0.3s ease;
 }
 
 .websites-project-card:hover .websites-project-name,
@@ -663,7 +633,7 @@
   display: none !important;
 }
 
-/* Expandable Hover Details (Butter smooth height & opacity expansion) */
+/* Expandable Hover Details (Butter smooth height & opacity expansion inside card) */
 .websites-card-hover-details {
   display: flex;
   flex-direction: column;
@@ -671,33 +641,34 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transform: translateY(8px);
+  flex-shrink: 0;
+  transform: translateY(6px);
   transition: 
-    max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    margin-top 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   margin-top: 0;
   will-change: max-height, opacity, transform, margin-top;
 }
 
 .websites-project-card:hover .websites-card-hover-details,
 .websites-project-card.is-expanded .websites-card-hover-details {
-  max-height: 320px;
+  max-height: 250px;
   opacity: 1;
   transform: translateY(0);
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 /* Project Details */
 .websites-project-details {
   color: #64748B;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 13.5px;
-  line-height: 22px;
+  font-size: 13px;
+  line-height: 20px;
   margin: 0 0 6px 0;
-  padding-bottom: 4px;
-  max-height: 48px;
+  padding-bottom: 2px;
+  max-height: 42px;
   text-align: left;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -718,8 +689,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  margin: 0;
+  gap: 6px;
+  margin: 0 0 10px 0;
 }
 
 .websites-tag-pill {
@@ -728,7 +699,7 @@
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 12px;
   transition: all 0.25s ease;
 }
@@ -744,7 +715,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  margin-top: 12px;
+  margin-top: 2px;
 }
 
 .websites-btn {
@@ -851,6 +822,7 @@
   .websites-card-preview {
     height: auto;
     aspect-ratio: 16 / 9;
+    flex: none;
     width: 100%;
     margin-bottom: 12px;
   }
@@ -859,6 +831,7 @@
   .websites-project-card.is-expanded .websites-card-preview {
     height: auto;
     aspect-ratio: 16 / 9;
+    flex: none;
   }
 
   .websites-project-name {

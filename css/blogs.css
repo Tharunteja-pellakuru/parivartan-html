@@ -419,6 +419,49 @@
   align-self: stretch;
 }
 
+/* Editorial in-content links */
+.article-body a,
+.bd-body a,
+.article-card p a,
+.article-card li a,
+.article-card blockquote a {
+  color: #599632;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(89, 150, 50, 0.45);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3.5px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease, text-underline-offset 0.2s ease;
+}
+
+.article-body a:visited,
+.bd-body a:visited,
+.article-card p a:visited,
+.article-card li a:visited,
+.article-card blockquote a:visited {
+  color: #599632;
+  text-decoration-color: rgba(89, 150, 50, 0.45);
+}
+
+.article-body a:hover,
+.bd-body a:hover,
+.article-card p a:hover,
+.article-card li a:hover,
+.article-card blockquote a:hover {
+  color: #3e6e22;
+  text-decoration-color: #3e6e22;
+  text-underline-offset: 4.5px;
+}
+
+.article-body a:focus-visible,
+.bd-body a:focus-visible,
+.article-card p a:focus-visible,
+.article-card li a:focus-visible {
+  outline: 2px solid #85BD56;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* Desktop & Medium Screen Navigation (Pagination) */
 .blogs-carousel-controls {
   display: none !important;
@@ -552,23 +595,28 @@
 }
 
 @media (max-width: 768px) {
-  .blogs-hero-section,
+  .blogs-hero-section {
+    display: none !important;
+  }
+
   .blogs-insights-section {
     padding: 0 16px;
   }
 
-  /* INSIGHTS Mobile Horizontal Carousel Track */
+  .blogs-insights-container {
+    padding-top: clamp(24px, 4vw, 36px) !important;
+  }
+
+  /* INSIGHTS Mobile: Vertical Column Layout (Cards stacked column-wise, not carousel) */
   .blogs-grid {
     display: flex !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    gap: 16px !important;
-    padding: 8px 4px 12px 4px !important;
-    margin-bottom: 0 !important;
+    flex-direction: column !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    scroll-snap-type: none !important;
+    gap: 24px !important;
+    padding: 0 !important;
+    margin-bottom: 32px !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
@@ -580,78 +628,25 @@
   }
 
   .blogs-grid .blog-card {
-    flex: 0 0 clamp(260px, 85vw, 340px) !important;
-    min-width: 260px !important;
-    max-width: 340px !important;
-    scroll-snap-align: center !important;
-    scroll-snap-stop: always !important;
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
   }
 
   .blog-card-image-wrapper {
-    height: clamp(170px, 45vw, 220px);
+    height: clamp(190px, 50vw, 240px);
   }
 
-  /* Mobile Navigation (Carousel Controls Visible, Pagination Hidden) */
+  /* Carousel Controls Hidden on All Screens */
   .blogs-carousel-controls {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 16px !important;
-    margin-top: 20px !important;
-    margin-bottom: 24px !important;
-    width: 100% !important;
-  }
-
-  .blogs-pagination {
     display: none !important;
   }
 
-  .blogs-carousel-arrow {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: clamp(34px, 9vw, 40px) !important;
-    height: clamp(34px, 9vw, 40px) !important;
-    border-radius: 50% !important;
-    background: #ffffff !important;
-    border: 1px solid #E5E4E2 !important;
-    color: #060612 !important;
-    box-shadow: 0 4px 12px rgba(6, 6, 18, 0.06) !important;
-    cursor: pointer !important;
-    transition: all 0.25s ease !important;
-  }
-
-  .blogs-carousel-arrow:hover,
-  .blogs-carousel-arrow:active {
-    background: #85BD56 !important;
-    color: #ffffff !important;
-    border-color: #85BD56 !important;
-  }
-
-  .blogs-carousel-arrow:disabled {
-    opacity: 0.35 !important;
-    pointer-events: none !important;
-  }
-
-  .blogs-carousel-dots {
+  .blogs-pagination {
     display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-  .blogs-carousel-dot {
-    width: 8px !important;
-    height: 8px !important;
-    border-radius: 50% !important;
-    background: #D4D4D4 !important;
-    transition: all 0.3s ease !important;
-    cursor: pointer !important;
-  }
-
-  .blogs-carousel-dot.active {
-    width: 24px !important;
-    border-radius: 12px !important;
-    background: #85BD56 !important;
   }
 }
 

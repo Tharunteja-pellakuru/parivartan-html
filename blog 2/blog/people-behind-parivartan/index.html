@@ -92,7 +92,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -481,14 +481,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -497,106 +496,78 @@
             </span>
             <span>GO BACK</span>
           </a>
+          <span class="cat-badge">Founder Stories</span>
+        </div>
 
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>FOUNDER STORIES</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
+        <!-- Title -->
+        <h1 class="article-title">Beyond the job titles. The people who helped build Parivartan.</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
+
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">5 min read</div>
         </div>
 
-        <h1 class="bd-title">Beyond the job titles. The people who helped build Parivartan.</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
-
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
-          </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>5 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Founder Stories</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Article Body -->
-      <article class="bd-body">
-
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Looking back on almost 25 years of building this company, I realize it was never a journey I took alone.</h2>
-          <p>Some people join a company just to do their job. Others become part of its story, taking on more than their roles require, supporting you during tough times, and believing in what you’re working to create.</p>
-          <p class="bd-orange">I feel lucky to have had people like that by my side.</p>
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="Beyond the job titles. The people who helped build Parivartan">
+          <img src="./assets/insights/blogs/people-behind-parivartan.webp" alt="Beyond the job titles. The people who helped build Parivartan" loading="lazy" />
         </div>
 
-        <div class="bd-section-block">
-          <h2>Jagruti: Taking Responsibility, No Matter What</h2>
-          <p>Jagruti has always been ready to take on whatever the company needed. From accounts and sales to managing projects or coordinating teams, she handled responsibilities as they came up.</p>
-          <p>There wasn’t always a clear role or department for her to rely on. Sometimes, a task just needed to be done, and she would make it happen.</p>
-          <p class="bd-orange">Her ability to adapt and take charge has made a huge difference to Parivartan’s journey.</p>
-        </div>
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            Looking back on almost 25 years of building this company, I realize it was never a journey I took alone.
+          </p>
+          <p>Some people join a company just to do their job. Others become part of its story, taking on more than their roles require, supporting you during tough times, and believing in what you’re working to create. I feel lucky to have had people like that by my side.</p>
 
-        <div class="bd-section-block">
-          <h2>Chaitanya: The Trust Behind the Technology</h2>
-          <p>Chaitanya has played a key role in our technology journey for many years. As we moved from building websites to more complex applications and software platforms, his impact went far beyond just technical skills.</p>
-          <p class="bd-orange">What stands out most to me is the trust, his belief in the company, and how he treats its responsibilities as his own.</p>
-          <p>Having someone who shares that sense of ownership gives you the confidence to keep going.</p>
-        </div>
+          <h3 id="jagruti">Jagruti: Taking Responsibility, No Matter What</h3>
+          <p>Jagruti has always been ready to take on whatever the company needed. From accounts and sales to managing projects or coordinating teams, she handled responsibilities as they came up. There wasn’t always a clear role or department for her to rely on. Sometimes, a task just needed to be done, and she would make it happen. Her ability to adapt and take charge has made a huge difference to Parivartan’s journey.</p>
 
-        <div class="bd-section-block">
-          <h2>Pradeep: Commitment Beyond the Job</h2>
-          <p>Pradeep’s contribution comes from his commitment, reliability, and readiness to take responsibility. Over the years, he has been deeply involved in our development work and project delivery.</p>
-          <p class="bd-orange">What really stands out is his belief in Parivartan and how he faces challenges with a sense of ownership.</p>
-          <p>People like him make a company stronger, not just by the work they do, but by the responsibility they are willing to take on.</p>
-        </div>
+          <h3 id="chaitanya">Chaitanya: The Trust Behind the Technology</h3>
+          <p>Chaitanya has played a key role in our technology journey for many years. As we moved from building websites to more complex applications and software platforms, his impact went far beyond just technical skills. What stands out most to me is the trust, his belief in the company, and how he treats its responsibilities as his own. Having someone who shares that sense of ownership gives you the confidence to keep going.</p>
 
-        <div class="bd-section-block">
-          <h2>Sahithi: Growing with the Company</h2>
-          <p>Sahithi began her time at Parivartan as my assistant. Over the years, she took on new challenges, learned new skills, and eventually became the head of our social media division.</p>
-          <p>Her story shows something I’ve always valued: the willingness to adapt, learn, and take on more than what was first expected.</p>
-          <p class="bd-orange">Seeing someone grow professionally while helping the company evolve is especially rewarding.</p>
-        </div>
+          <h3 id="pradeep">Pradeep: Commitment Beyond the Job</h3>
+          <p>Pradeep’s contribution comes from his commitment, reliability, and readiness to take responsibility. Over the years, he has been deeply involved in our development work and project delivery. What really stands out is his belief in Parivartan and how he faces challenges with a sense of ownership. People like him make a company stronger, not just by the work they do, but by the responsibility they are willing to take on.</p>
 
-        <div class="bd-section-block">
-          <h2>Vishwanath: The Strength Behind the Scenes</h2>
-          <p>Vishwanath has been with Parivartan since about 2007 or 2008. His firm has handled our financial compliance, payroll, and other key responsibilities through different stages of the company’s journey.</p>
-          <p>These tasks may not be visible to clients, but they are essential for running a business. His reliability has been invaluable, and over time, our professional relationship has become a close friendship.</p>
-          <p class="bd-orange">Today, he is one of my closest friends.</p>
-        </div>
+          <h3 id="sahithi">Sahithi: Growing with the Company</h3>
+          <p>Sahithi began her time at Parivartan as my assistant. Over the years, she took on new challenges, learned new skills, and eventually became the head of our social media division. Her story shows something I’ve always valued: the willingness to adapt, learn, and take on more than what was first expected. Seeing someone grow professionally while helping the company evolve is especially rewarding.</p>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">A Journey Built Together</h2>
+          <h3 id="vishwanath">Vishwanath: The Strength Behind the Scenes</h3>
+          <p>Vishwanath has been with Parivartan since about 2007 or 2008. His firm has handled our financial compliance, payroll, and other key responsibilities through different stages of the company’s journey. These tasks may not be visible to clients, but they are essential for running a business. His reliability has been invaluable, and over time, our professional relationship has become a close friendship. Today, he is one of my closest friends.</p>
+
+          <h3 id="journey-together">A Journey Built Together</h3>
           <p>Over the years, many people have helped build Parivartan. Some have spent much of their careers with us, while others were here for a shorter time. Each person has shaped the company in their own way.</p>
           <p>As we near 25 years, I’ve realized that building a company is about more than just the projects you complete or the milestones you reach. It’s really about the people who believe in what you’re building and stand by you when it matters most.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-top: 24px; margin-bottom: 24px;">Some of the most important contributions were never part of anyone’s official job description.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
+          <p class="article-bold-callout"><strong>Some of the most important contributions were never part of anyone’s official job description.</strong></p>
 
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#jagruti">Jagruti: Taking Responsibility</a></li>
+            <li><a href="#chaitanya">Chaitanya: Trust Behind Technology</a></li>
+            <li><a href="#pradeep">Pradeep: Commitment Beyond the Job</a></li>
+            <li><a href="#sahithi">Sahithi: Growing with the Company</a></li>
+            <li><a href="#vishwanath">Vishwanath: Strength Behind Scenes</a></li>
+            <li><a href="#journey-together">A Journey Built Together</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1097,7 +1068,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

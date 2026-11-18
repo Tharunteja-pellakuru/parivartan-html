@@ -91,7 +91,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -480,14 +480,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -496,96 +495,77 @@
             </span>
             <span>GO BACK</span>
           </a>
-
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>FOUNDER STORIES</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </div>
+          <span class="cat-badge">Founder Stories</span>
         </div>
 
-        <h1 class="bd-title">Founders in Frame. The Stories Behind Our Journey.</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
+        <!-- Title -->
+        <h1 class="article-title">Founders in Frame. The stories behind our journey.</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
 
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>3 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Founder Stories</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Article Body -->
-      <article class="bd-body">
-
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Over the years, I’ve worked with hundreds of businesses, each bringing their own ideas, goals, and challenges.</h2>
-          <p>Most of these partnerships began with a simple need; a website, an app, a brand, or some technology. But I soon noticed that every project had a bigger story behind it. Those are the stories I wanted to explore.</p>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">3 min read</div>
         </div>
 
-        <div class="bd-section-block">
-          <h2>Looking Beyond the Projects</h2>
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="Founders in Frame – The Parivartan Stories">
+          <img src="./assets/insights/blogs/founders-in-frame-parivartan-stories.webp" alt="Founders in Frame – The Parivartan Stories" loading="lazy" />
+        </div>
+
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            Over the years, I’ve worked with hundreds of businesses, each bringing their own ideas, goals, and challenges. Most of these partnerships began with a simple need; a website, an app, a brand, or some technology. But I soon noticed that every project had a bigger story behind it. Those are the stories I wanted to explore.
+          </p>
+
+          <h3 id="beyond-projects">Looking Beyond the Projects</h3>
           <p>When a client comes to us, our first job is to understand what they need and deliver the right solution. But I’ve always been curious about the business itself. How did it begin? What made them take the first step? What challenges did they face? And how has the business changed since then?</p>
-          <p class="bd-orange">Some of our clients have been with Parivartan for more than 10 years. We’ve watched their businesses grow, change, launch new products, and enter new markets.</p>
-          <p>In many ways, we’ve been a small part of their journeys. I felt these experiences deserved to be shared.</p>
-        </div>
+          <p>Some of our clients have been with Parivartan for more than 10 years. We’ve watched their businesses grow, change, launch new products, and enter new markets. In many ways, we’ve been a small part of their journeys. I felt these experiences deserved to be shared.</p>
 
-        <div class="bd-section-block">
-          <h2>The Idea Behind Founders in Frame</h2>
-          <p>That’s how Founders in Frame, The Parivartan Stories, began.</p>
+          <h3 id="the-idea">The Idea Behind Founders in Frame</h3>
+          <p>That’s how <strong>Founders in Frame, The Parivartan Stories</strong>, began.</p>
           <p>It’s an initiative to capture the journeys of the people and businesses we’ve worked with, not just the projects we’ve completed. I want to understand what inspired them to start, the key decisions that shaped their businesses, the challenges they faced, and how their thinking has changed over time.</p>
-          <p class="bd-orange">Not every journey is straightforward. Businesses change, opportunities appear and disappear, and plans don’t always work out. Sometimes, where you end up is very different from where you started. That’s what makes these conversations so interesting.</p>
-        </div>
+          <p>Not every journey is straightforward. Businesses change, opportunities appear and disappear, and plans don’t always work out. Sometimes, where you end up is very different from where you started. That’s what makes these conversations so interesting.</p>
 
-        <div class="bd-section-block">
-          <h2>Learning from Each Other</h2>
+          <h3 id="learning-together">Learning from Each Other</h3>
           <p>After running Parivartan for 20 years, I know that running a business is always a learning process. Sometimes you make the right decisions, sometimes you learn from mistakes, and sometimes you have to think in new ways. Talking to other founders gives you a perspective you can’t get just by reading about business success.</p>
-          <p class="bd-orange">Sometimes, it’s the smallest thing or a random decision that teaches you the most.</p>
-          <p><a href="./founders-in-frame.html" style="color: #599632; font-weight: 600; text-decoration: underline;">Founders in Frame</a> lets me have these conversations, learn about different ways of doing business, and share these stories so others can learn from them too.</p>
-        </div>
+          <p>Sometimes, it’s the smallest thing or a random decision that teaches you the most. <a href="./founders-in-frame.html">Founders in Frame</a> lets me have these conversations, learn about different ways of doing business, and share these stories so others can learn from them too.</p>
 
-        <div class="bd-section-block">
-          <h2>More Than a Client Relationship</h2>
+          <h3 id="more-than-clients">More Than a Client Relationship</h3>
           <p>One of the things I’ve valued most about building Parivartan is the relationships we’ve built along the way. Some clients have been with us since the start, while others joined more recently. Each client has introduced us to a new business, a new industry, and a new way of thinking.</p>
-          <p class="bd-orange">Founders in Frame is also a way to recognize those relationships. Behind every website or app we’ve built, there’s a person or a team working hard to create something. Their story is just as important as the work we’ve done for them.</p>
-        </div>
+          <p>Founders in Frame is also a way to recognize those relationships. Behind every website or app we’ve built, there’s a person or a team working hard to create something. Their story is just as important as the work we’ve done for them.</p>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Stories That Continue to Evolve</h2>
+          <h3 id="evolving-stories">Stories That Continue to Evolve</h3>
           <p>I don’t see Founders in Frame as just a collection of success stories with a clear start and finish. To me, it’s a chance to document journeys that are still unfolding. As Parivartan turns 25, we’re more interested than ever in the people and businesses we’ve been lucky to work with.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-top: 24px; margin-bottom: 24px;">Projects may bring us together, but it’s the stories and relationships that stay with us.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
+          <p class="article-bold-callout"><strong>Projects may bring us together, but it’s the stories and relationships that stay with us.</strong></p>
 
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#beyond-projects">Looking Beyond the Projects</a></li>
+            <li><a href="#the-idea">The Idea Behind Founders in Frame</a></li>
+            <li><a href="#learning-together">Learning from Each Other</a></li>
+            <li><a href="#more-than-clients">More Than a Client Relationship</a></li>
+            <li><a href="#evolving-stories">Stories That Continue to Evolve</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1086,7 +1066,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

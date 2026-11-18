@@ -23,26 +23,31 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
-  padding: 24px 0 clamp(36px, 5vw, 60px) 0;
+  padding: clamp(24px, 3.5vw, 44px) 0 clamp(24px, 3.5vw, 40px) 0;
   box-sizing: border-box;
-  text-align: center;
+  text-align: left;
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* Tagline */
 .about-hero-tagline {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  align-self: center;
   gap: 12px;
   margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .about-hero-tagline span {
-  color: var(--69686E, #69686E);
+  color: #383840;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: clamp(12px, 1vw, 14px);
   font-style: normal;
@@ -58,20 +63,44 @@ body {
   font-size: 16px;
 }
 
-/* Heading: Who we are */
+/* Heading: Our Story */
 .about-hero-title {
-  font-family: Satoshi, Inter, sans-serif;
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 56px;
-  color: rgb(6, 6, 18);
+  color: var(--060612, #060612);
+  text-align: left;
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(26px, 3.6vw, 44px);
   font-style: normal;
-  margin: 0 0 clamp(16px, 2vw, 28px) 0;
-  text-align: center;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0 0 14px 0 !important;
+  hyphens: none;
+  word-break: normal;
 }
 
 .about-hero-title .green {
   color: var(--85BD56, #85BD56);
+}
+
+.about-hero-subtitle {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(16px, 1.3vw, 18.5px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: #060612;
+  margin: 0 0 12px 0;
+  text-align: left;
+}
+
+.about-hero-description {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(14px, 1.15vw, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #69686E;
+  margin: 0;
+  text-align: left;
+  max-width: 100%;
 }
 
 .about-hero-title-underline {
@@ -423,10 +452,10 @@ body {
   .about-hero-container {
     padding: 8px 0 20px 0;
   }
-  .about-hero-title {
-    font-size: 32px !important;
-    line-height: 40px !important;
-    margin-bottom: 24px !important;
+  .about-hero-title,
+  .about-leaf-title,
+  .about-meaning-heading {
+    margin-bottom: 16px !important;
   }
   .about-hero-card-frame,
   .about-craft-card-frame {
@@ -610,7 +639,7 @@ body {
 .about-leaf-left {
   flex: 1;
   min-width: 0;
-  display: flex;
+  display: flex;  
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
@@ -618,14 +647,17 @@ body {
 
 .about-leaf-title {
   color: var(--060612, #060612);
+  text-align: left;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: clamp(22px, 3vw, 40px);
+  font-size: clamp(26px, 3.6vw, 44px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.25;
-  margin: 0;
+  margin: 0 0 14px 0;
   max-width: 100%;
-  white-space: nowrap;
+  white-space: normal;
+  hyphens: none;
+  word-break: normal;
 }
 
 .about-leaf-title .highlight-green {
@@ -1505,6 +1537,14 @@ body {
   letter-spacing: 0.05em;
 }
 
+.about-leaf-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
 .about-leaf-header-row {
   display: flex;
   align-items: flex-end;
@@ -1516,13 +1556,13 @@ body {
 
 .about-leaf-subtitle {
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 28px;
-  color: rgb(105, 104, 110);
-  margin: 0;
-  text-align: right;
-  white-space: nowrap;
+  font-size: clamp(16px, 1.3vw, 18.5px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: #060612;
+  margin: 0 0 12px 0;
+  text-align: left;
+  white-space: normal;
 }
 
 @media (max-width: 850px) {
@@ -1533,13 +1573,32 @@ body {
   }
 }
 
-.about-leaf-paragraphs p {
+.about-leaf-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.about-leaf-paragraphs p,
+.about-leaf-text {
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: clamp(14px, 1.15vw, 15.5px);
-  line-height: 1.6;
+  font-size: clamp(14px, 1.15vw, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.65;
   color: #69686E;
-  margin: 0 0 16px 0;
+  margin: 0;
   text-align: left;
+  max-width: 100%;
+  width: 100%;
+}
+
+.about-leaf-paragraphs strong,
+.about-leaf-text strong {
+  color: #060612;
+  font-weight: 700;
 }
 
 /* ==================== MEANING TAGLINE ==================== */
@@ -1594,21 +1653,52 @@ body {
   color: var(--060612, #060612);
   text-align: left;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: clamp(24px, 3.2vw, 44px);
+  font-size: clamp(26px, 3.6vw, 44px);
   font-style: normal;
   font-weight: 500;
   line-height: 1.25;
-  margin: 0 0 48px 0;
+  margin: 0 0 14px 0;
+  hyphens: none;
+  word-break: normal;
+}
+
+.about-meaning-subtitle {
+  font-family: Satoshi, 'Inter', sans-serif;
+  font-size: clamp(16px, 1.3vw, 18.5px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: #060612;
+  margin: 0 0 12px 0;
+  text-align: left;
+}
+
+.about-meaning-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .about-meaning-text {
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: clamp(14px, 1.2vw, 16.5px);
-  line-height: 1.6;
+  font-size: clamp(14px, 1.15vw, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.65;
   color: #69686E;
   margin: 0;
   max-width: 100%;
   width: 100%;
+}
+
+.about-meaning-text strong {
+  color: #060612;
+  font-weight: 700;
+}
+
+.about-meaning-text em {
+  font-style: italic;
 }
 
 /* ==================== TEAM PHILOSOPHY & CRAFT CARD ==================== */
@@ -2122,8 +2212,6 @@ body {
 }
 
 /* ==================== UNIFORM TITLE-TO-CONTENT HEADER GAPS (MATCHING INDEX.HTML) ==================== */
-.about-hero-title,
-.about-meaning-heading,
 .about-leaf-header-row,
 .about-team-title-row,
 .timeline-header,
@@ -2132,8 +2220,6 @@ body {
 }
 
 @media (max-width: 960px) {
-  .about-hero-title,
-  .about-meaning-heading,
   .about-leaf-header-row,
   .about-team-title-row,
   .timeline-header,
@@ -2143,8 +2229,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .about-hero-title,
-  .about-meaning-heading,
   .about-leaf-header-row,
   .about-team-title-row,
   .timeline-header,

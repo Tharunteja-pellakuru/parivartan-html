@@ -92,7 +92,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -481,14 +481,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -497,108 +496,88 @@
             </span>
             <span>GO BACK</span>
           </a>
-
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>PROJECTS &amp; CASE STUDIES</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </div>
+          <span class="cat-badge">Projects & Case Studies</span>
         </div>
 
-        <h1 class="bd-title">Beyond a Website. Our Years of Technology Partnership with ARCI.</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
+        <!-- Title -->
+        <h1 class="article-title">Beyond a Website. Our Years of Technology Partnership with ARCI.</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
 
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>4 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Projects &amp; Case Studies</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Article Body -->
-      <article class="bd-body">
-
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Thirteen years is a long time in technology. Websites change, platforms evolve, security standards get tougher, and organisations expect much more than they did before.</h2>
-          <p>We worked with ARCI (International Advanced Research Centre for Powder Metallurgy and New Materials) from 2012 to 2025. As a key research institution under the Department of Science &amp; Technology, Government of India, ARCI went through many stages of digital transformation, and we were part of that journey.</p>
-          <p class="bd-orange">What started with the institutional website grew to include many other responsibilities such as the career portal, website security audits, government hosting coordination, and ongoing technical support. Each presented its own issues and gave us insight into working within the constraints of a government research organisation.</p>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">4 min read</div>
         </div>
 
-        <div class="bd-section-block">
-          <h2>Building and Maintaining an Institutional Website</h2>
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="ARCI Website Development & Long-Term Technology Partnership">
+          <img src="./assets/insights/blogs/arci-government-website-technology-partnership.webp" alt="ARCI Website Development & Long-Term Technology Partnership" loading="lazy" />
+        </div>
+
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="article-bold-callout" id="intro">
+            <strong>Thirteen years is a long time in technology. Websites change, platforms evolve, security standards get tougher, and organisations expect much more than they did before.</strong>
+          </p>
+          <p>We worked with <strong>ARCI (International Advanced Research Centre for Powder Metallurgy and New Materials)</strong> from 2012 to 2025. As a key research institution under the Department of Science &amp; Technology, Government of India, ARCI went through many stages of digital transformation, and we were part of that journey.</p>
+          <p>What started with the institutional website grew to include many other responsibilities such as the career portal, website security audits, government hosting coordination, and ongoing technical support. Each presented its own issues and gave us insight into working within the constraints of a government research organisation.</p>
+
+          <h3 id="institutional-website">Building and Maintaining an Institutional Website</h3>
           <p>The ARCI website was absolutely at the heart of our association. As a research institution we needed a website that could communicate our science, our facilities, our technologies, our publications, our opportunities and our institution to a range of different audiences.</p>
-          <p>Our job was <a href="./web-development.html" style="color: #599632; font-weight: 600; text-decoration: underline;">website design and development</a>, CMS, and ongoing maintenance. The site had content in English, Hindi, and Telugu, adding complexity to managing and updating it.</p>
-          <p class="bd-orange">Over time, requirements changed. New sections, features, and content had to be added while maintaining continuity for existing users.</p>
-          <p>It wasn't just about refreshing the design periodically. A robust system and a team that understood the institution's needs were required.</p>
-        </div>
+          <p>Our job was <a href="./web-development.html">website design and development</a>, CMS, and ongoing maintenance. The site had content in English, Hindi, and Telugu, adding complexity to managing and updating it.</p>
+          <p>Over time, requirements changed. New sections, features, and content had to be added while maintaining continuity for existing users. It wasn't just about refreshing the design periodically. A robust system and a team that understood the institution's needs were required.</p>
 
-        <div class="bd-section-block">
-          <h2>Technology Responsibilities Beyond the Website</h2>
+          <h3 id="beyond-website">Technology Responsibilities Beyond the Website</h3>
           <p>One of the key elements of our association with ARCI was the breadth of technical work that we were involved in.</p>
           <p>These included:</p>
-          <ul style="list-style: disc; padding-left: 24px; margin-bottom: 20px; line-height: 1.8; color: #505056;">
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Website development and CMS:</strong> developing and maintaining the institutional website, managing the multilingual content and supporting regular updates.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Career and recruitment portal:</strong> developing and supporting the online recruitment workflow via <a href="./custom-applications.html" style="color: #599632; font-weight: 600; text-decoration: underline;">custom web applications</a> to enable the institution to manage career opportunities and applications online.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Website security audits:</strong> coordinating ongoing independent third-party security assessments, including vulnerability assessment and penetration testing (VAPT) per OWASP guidelines, and resolving all identified issues.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Government website guidelines:</strong> working towards compliance with applicable government website requirements, including GIGW 3.0 standards for accessibility and transparency.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Hosting and technical coordination:</strong> working with the NIC and DST hosting infrastructure, supporting server deployment, maintenance and multi-agency technical coordination.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Ongoing support:</strong> managing updates, backups, issue resolution, security patches, and all operational requirements through dedicated <a href="./technology-support.html" style="color: #599632; font-weight: 600; text-decoration: underline;">website maintenance and support</a>.</li>
+          <ul style="list-style-type: disc; padding-left: 24px; margin-bottom: 24px;">
+            <li style="margin-bottom: 12px;"><strong>Website development and CMS:</strong> developing and maintaining the institutional website, managing the multilingual content and supporting the regular updates.</li>
+            <li style="margin-bottom: 12px;"><strong>Career and recruitment portal:</strong> developing and supporting the online recruitment workflow to enable the institution to manage career opportunities and applications online.</li>
+            <li style="margin-bottom: 12px;"><strong>Website security audits:</strong> coordinating ongoing independent third-party security assessments, including vulnerability assessment and penetration testing per OWASP, and addressing the issues found.</li>
+            <li style="margin-bottom: 12px;"><strong>Government website guidelines:</strong> working towards compliance with applicable government website requirements (including GIGW).</li>
+            <li style="margin-bottom: 12px;"><strong>Hosting and technical coordination:</strong> working with the NIC and DST hosting infrastructure, supporting the deployment, maintenance and technical coordination.</li>
+            <li style="margin-bottom: 12px;"><strong>Ongoing support:</strong> managing the updates, backups, issue resolution, website improvements and all the other operational requirements as they came up.</li>
           </ul>
-          <p class="bd-orange">Each of those activities required a different set of technical skills, but they were all driven by one common objective: ensuring that the institution's digital systems were accessible, secure, working and reliable.</p>
-        </div>
+          <p>Each of those activities required a different set of technical skills but they were all driven by one common objective which was to ensure that the institution's digital systems were accessible, working and reliable.</p>
 
-        <div class="bd-section-block">
-          <h2>Working Within Government Technology Requirements</h2>
+          <h3 id="government-requirements">Working Within Government Technology Requirements</h3>
           <p>Developing and maintaining websites for government bodies is a very different proposition to a typical corporate website. Hosting environments, security assessments, accessibility requirements, admin approvals and the need to co-ordinate with a whole range of stakeholders all have an impact on how a project gets delivered and then maintained.</p>
-          <p>For ARCI, the site ran within government-hosted infrastructure, requiring close collaboration with NIC and DST technical teams. Security was an ongoing responsibility involving independent assessments, vulnerability scans, and remediation to keep the site technically fit.</p>
-          <p class="bd-orange">This work isn't always visible to users but is vital to the site's reliability and long-term operation. We have extensive experience managing this process and adapting to changing government tech requirements.</p>
-          <p>This experience also directly supported our work on other major government initiatives, such as our <a href="./blog/estic-2025-digital-platform.html" style="color: #599632; font-weight: 600; text-decoration: underline;">ESTIC 2025 conclave digital platform</a>.</p>
-        </div>
+          <p>For ARCI, the site ran within government-hosted infrastructure, requiring collaboration with NIC and DST technical teams. Security was an ongoing responsibility involving independent assessments, vulnerability scans, and remediation to keep the site technically fit. This work isn't always visible to users but is vital to the site's reliability and long-term operation. We have extensive experience managing this process and adapting to changing government tech requirements.</p>
 
-        <div class="bd-section-block">
-          <h2>Thirteen Years of Working Together</h2>
+          <h3 id="thirteen-years">Thirteen Years of Working Together</h3>
           <p>Perhaps the most significant aspect of our ARCI relationship was its length. It wasn't just about doing the job initially. It was about the time spent with the organisation, the familiarity gained, responsiveness, and ability to adapt as its needs changed.</p>
-          <p>Over the years, technology and website expectations have changed, with greater emphasis on security, accessibility, and digital communications. Our team grew and developed to support the institution through its digital journey.</p>
-          <p class="bd-orange">The long-standing website engagement ended in 2025. That marked the end of an era for us. We look back on that period with great appreciation for the trust placed in Parivartan, the opportunities given, and the experience our team gained.</p>
-        </div>
+          <p>Over the years, technology and website expectations have changed, with greater emphasis on security, accessibility, and digital communications. Our team grew and developed to support the institution through its digital journey. The long-standing website engagement ended in 2025. That marked the end of an era for us. We look back on that period with great appreciation for the trust placed in Parivartan, the opportunities given, and the experience our team gained.</p>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">What ARCI Represents for Parivartan</h2>
-          <p>We've worked with organisations across Government, Research, Education and Industry over the years and our association with ARCI remains a key part of our <a href="./story.html" style="color: #599632; font-weight: 600; text-decoration: underline;">24-year journey</a>. It reiterates the value of understanding an organisation beyond just the technical side and why ongoing maintenance, security and support are just as important as development. It really does underline the fact that technology partnerships are built over time through consistent work.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-top: 24px; margin-bottom: 24px;">A website may begin as a project, but the relationships, responsibilities and experience built around it can last for years.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
+          <h3 id="what-arci-represents">What ARCI Represents for Parivartan</h3>
+          <p>We've worked with organisations across Government, Research, Education and Industry over the years and our association with ARCI remains a key part of that. It reiterates the value of understanding an organisation beyond just the technical side and why ongoing maintenance, security and support are just as important as development. It really does underline the fact that technology partnerships are built over time through consistent work.</p>
+          <p class="article-bold-callout"><strong>A website may begin as a project, but the relationships, responsibilities and experience built around it can last for years.</strong></p>
 
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#institutional-website">Building & Maintaining Institutional Website</a></li>
+            <li><a href="#beyond-website">Responsibilities Beyond the Website</a></li>
+            <li><a href="#government-requirements">Working Within Government Requirements</a></li>
+            <li><a href="#thirteen-years">Thirteen Years of Working Together</a></li>
+            <li><a href="#what-arci-represents">What ARCI Represents for Parivartan</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1099,7 +1078,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

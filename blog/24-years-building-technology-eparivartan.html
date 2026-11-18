@@ -93,7 +93,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -482,14 +482,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -498,97 +497,83 @@
             </span>
             <span>GO BACK</span>
           </a>
-
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>Parivartan Journey</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </div>
+          <span class="cat-badge">Founder Stories</span>
         </div>
 
-        <h1 class="bd-title">24 Years of Building Technology. What's changed and what hasn't.</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
+        <!-- Title -->
+        <h1 class="article-title">24 Years of Building Technology. What's changed and what hasn't.</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
 
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>6 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Founder Stories</span>
-            </div>
-          </div>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">6 min read</div>
         </div>
-      </div>
 
-      <!-- Article Body -->
-      <article class="bd-body">
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="24 Years of Building Technology - The eParivartan Journey">
+          <img src="./assets/insights/blogs/parivartan-journey.webp" alt="24 Years of Building Technology - The eParivartan Journey" loading="lazy" />
+        </div>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">When I started Parivartan in 2002 I was 21.</h2>
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            When I started Parivartan in 2002 I was 21.
+          </p>
           <p>We started with two computers, a dining room as our first office, and more enthusiasm than experience. There wasn't any grand business plan or elaborate strategy. Our goal was clear: find customers, deliver quality work, and build something lasting.</p>
           <p>Looking back, I could not have imagined where this journey would lead. Today, nearly 25 years later, we have completed over 5,000 projects across industries, businesses, and generations of technology.</p>
-          <p class="bd-orange">And yet, some things haven’t changed very much at all.</p>
-        </div>
+          <p>And yet, some things haven’t changed very much at all.</p>
 
-        <div class="bd-section-block">
-          <h2>When Websites Were a Big Deal</h2>
+          <h3 id="websites">When Websites Were a Big Deal</h3>
           <p>In 2002, convincing a business that it needed a website was often part of the assignment.</p>
           <p>Internet connections were slow, websites were mostly static, and an online presence was still new for many organisations. Later, dynamic websites, content management systems, e-commerce, mobile applications, cloud platforms, and now artificial intelligence emerged.</p>
           <p>With each shift, we learned, adapted, and sometimes completely rethought our approach. What began as website development evolved into building applications, custom software, and technology solutions integral to business operations.</p>
-          <p class="bd-orange">The tools kept changing. So did we.</p>
-        </div>
+          <p class="article-bold-callout"><strong>The tools kept changing. So did we.</strong></p>
 
-        <div class="bd-section-block">
-          <h2>The Projects and People That Shaped Us</h2>
+          <h3 id="projects-people">The Projects and People That Shaped Us</h3>
           <p>A rewarding aspect of this journey has been the diversity of our work. We have partnered with educational institutions, government organisations, research institutions, entrepreneurs, and established businesses. Some relationships date back to our earliest years. Our association with MJCET began in 2002, and our work with ARCI has continued for over a decade.</p>
           <p>Clients have returned with new businesses, ideas, and requirements, sometimes 15 or 20 years after their first project. These experiences taught us that technology is only part of the solution. Understanding the people and businesses behind the requirements is equally important.</p>
-          <p class="bd-orange">And trust, unlike technology, doesn’t become outdated.</p>
-        </div>
+          <p>And trust, unlike technology, doesn’t become outdated.</p>
 
-        <div class="bd-section-block">
-          <h2>Not Every Year Was Easy</h2>
+          <h3 id="challenges">Not Every Year Was Easy</h3>
           <p>Twenty-four years may seem like a smooth journey from the outside, but there were challenging periods. Economic slowdowns, business challenges, uncertainty, and eventually COVID tested us in unexpected ways. At times, our priority shifted from growth to simply continuing. We made mistakes, reconsidered decisions, and learned difficult lessons.</p>
-          <p class="bd-orange">But we continued.</p>
+          <p>But we continued.</p>
           <p>These experiences shaped not only the company, but also my perspective on business, relationships, and responsibility.</p>
-        </div>
 
-        <div class="bd-section-block">
-          <h2>The Team Behind the Technology</h2>
+          <h3 id="team">The Team Behind the Technology</h3>
           <p>Parivartan has always been a collective effort. It has been built by people who contributed their skills, ideas, time, and commitment over the years. Some have been with us for a long time, while others have joined, contributed, and moved on. Each person has shaped the company we are today. I believe the experience a team builds over years of collaboration is one of its greatest strengths. It shapes how we understand problems, make decisions, and deliver solutions. Ultimately, technology is only as effective as the people behind it.</p>
-        </div>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">Still Learning. Still Building.</h2>
+          <h3 id="learning-building">Still Learning. Still Building.</h3>
           <p>Today, our conversations with clients differ greatly from those in 2002. The focus is no longer just on website appearance, but on how technology can simplify operations, connect systems, improve experiences, and support business growth. With AI transforming how we work and interact with technology, an exciting new chapter lies ahead.</p>
           <p>As we approach 25 years of Parivartan in 2027, I reflect less on our progress and more on how much there is still to learn. We began with two computers and a belief in building something worthwhile. That belief remains unchanged.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.25em; margin-top: 28px; margin-bottom: 24px;">The technology has changed. The curiosity hasn’t.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div></article>
+          <p class="article-bold-callout"><strong>The technology has changed. The curiosity hasn’t.</strong></p>
+
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#websites">When Websites Were a Big Deal</a></li>
+            <li><a href="#projects-people">The Projects and People That Shaped Us</a></li>
+            <li><a href="#challenges">Not Every Year Was Easy</a></li>
+            <li><a href="#team">The Team Behind the Technology</a></li>
+            <li><a href="#learning-building">Still Learning. Still Building.</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1080,7 +1065,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

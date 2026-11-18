@@ -94,7 +94,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -483,14 +483,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -499,127 +498,108 @@
             </span>
             <span>GO BACK</span>
           </a>
-
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>AI, SEO &amp; DIGITAL VISIBILITY</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </div>
+          <span class="cat-badge">AI & Digital Visibility</span>
         </div>
 
-        <h1 class="bd-title">Your Website Is on Google. But Can AI Find Your Business?</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
+        <!-- Title -->
+        <h1 class="article-title">Your Website Is on Google. But Can AI Find Your Business?</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
 
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>6 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>AI, SEO &amp; Digital Visibility</span>
-            </div>
-          </div>
+          <div class="meta-item">November 5, 2026</div>
+          <div class="meta-item">6 min read</div>
         </div>
-      </div>
 
-      <!-- Article Body -->
-      <article class="bd-body">
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="AI Visibility: Is Your Business Ready for AI Search?">
+          <img src="./assets/insights/blogs/ai-visibility-for-businesses.webp" alt="AI Visibility: Is Your Business Ready for AI Search?" loading="lazy" />
+        </div>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">For years one of the most frequently asked questions we've been asked is 'how do we get our site onto the first page of Google?'</h2>
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            For years one of the most frequently asked questions we've been asked is 'how do we get our site onto the first page of Google?'
+          </p>
           <p>It was a perfectly valid question. The whole point of having a website, doing SEO, doing content and digital marketing was to get yourself in the search results and thereby increase your visibility and presumably get more enquiries. The way people are searching is starting to change though.</p>
-          <p>Today if you're looking for a technology partner, a healthcare service, a manufacturer or indeed a holiday destination you probably won't be going to ten different websites. You'll just ask ChatGPT, Gemini or Perplexity for a list of recommendations.</p>
-          <p class="bd-orange">Which brings us to the question that I think every business should be asking themselves: Your website may be visible on Google, but is your business visible when someone asks AI?</p>
-        </div>
+          <p>Today if you're looking for a technology partner, a healthcare service, a manufacturer or indeed a holiday destination you probably won't be going to ten different websites. You'll just ask ChatGPT, Gemini or Perplexity for a list of recommendations. Which brings us to the question that I think every business should be asking themselves:</p>
+          <p class="article-bold-callout"><strong>Your website may be visible on Google, but is your business visible when someone asks AI?</strong></p>
 
-        <div class="bd-section-block">
-          <h2>Search Is Changing, Not Disappearing</h2>
+          <h3 id="search-changing">Search Is Changing, Not Disappearing</h3>
           <p>Over the last 20 years at Parivartan we've seen how businesses have approached online visibility evolve.</p>
           <p>There was a time when having a website was in itself an achievement. Then came the whole business of search engine rankings, mobile friendly websites, content marketing and all the various facets of SEO. Now with AI powered search we're seeing another shift. People are now asking complete questions rather than just entering a few keywords. They want comparisons, they want explanations, they want recommendations and sometimes they just want the answer to their question without having to go to a number of different websites.</p>
-          <p class="bd-orange">Google have introduced AI powered search experiences and we now have a raft of other platforms (ChatGPT, Gemini, Perplexity etc) that are effectively alternative ways of finding information.</p>
-          <p>That doesn't mean that Google or search in general is going anywhere. It just means that businesses need to think about visibility in a different way.</p>
-        </div>
+          <p>Google have introduced AI powered search experiences and we now have a raft of other platforms (ChatGPT, Gemini, Perplexity etc) that are effectively alternative ways of finding information. That doesn't mean that Google or search in general is going anywhere. It just means that businesses need to think about visibility in a different way.</p>
 
-        <div class="bd-section-block">
-          <h2>SEO, AEO and GEO. What's the difference?</h2>
+          <h3 id="seo-aeo-geo">SEO, AEO and GEO. What's the difference?</h3>
           <p>There are a number of terms under discussion and I think it's important to go through them and explain them without making it any more complicated than it needs to be.</p>
           <p><strong>SEO (Search Engine Optimisation)</strong> is all about helping search engines to find your site, understand it and rank it for the relevant searches.</p>
           <p><strong>AEO (Answer Engine Optimisation)</strong> is all about making the information clear, accurate and well structured so that it can be used by search and answer systems when they're trying to answer a question.</p>
           <p><strong>GEO (Generative Engine Optimisation)</strong> is about improving how a business, its expertise and its content can be found, understood and potentially referenced by generative AI.</p>
-          <p class="bd-orange">These aren't three entirely distinct activities. There's a huge degree of overlap. A technically good site, useful content, clear business information and credible references have always been important.</p>
-          <p>They're still important in an AI driven discovery environment. The difference is that we now have to think about how the information is going to be interpreted and presented by systems that are going to generate the answer rather than just provide a link. You can explore our comprehensive approach to <a href="./seo-aeo-geo.html" style="color: #599632; font-weight: 600; text-decoration: underline;">SEO, AEO &amp; GEO visibility services</a>.</p>
-        </div>
+          <p>These aren't three entirely distinct activities. There's a huge degree of overlap. A technically good site, useful content, clear business information and credible references have always been important. They're still important in an AI driven discovery environment. The difference is that we now have to think about how the information is going to be interpreted and presented by systems that are going to generate the answer rather than just provide a link. You can explore our comprehensive approach to <a href="./seo-aeo-geo.html">SEO, AEO &amp; GEO visibility services</a>.</p>
 
-        <div class="bd-section-block">
-          <h2>Being Found Is Different From Being Recommended</h2>
+          <h3 id="found-vs-recommended">Being Found Is Different From Being Recommended</h3>
           <p>Imagine someone out there looking for a software development company in Hyderabad. In a conventional search scenario you'd get a list of websites and then you'd go and look at those. In an AI experience you'd be able to just ask the question:</p>
-          <p style="font-style: italic; color: #505056; padding: 12px 18px; background: rgba(0,0,0,0.03); border-left: 3px solid #FF6B00; border-radius: 6px; margin: 16px 0;">"Which companies in Hyderabad have experience in building custom apps for government and research organisations?"</p>
+          <p>'Which companies in Hyderabad have experience in building custom apps for government and research organisations?'</p>
           <p>The response may reference specific businesses, summarise their capabilities or provide links to supporting information. A company will appear in the response or not depending on a number of factors including the platform, the question, the information available and how the system generates the response.</p>
-          <p class="bd-orange">There is no guaranteed formula.</p>
+          <p>There is no guaranteed formula.</p>
           <p>But that example highlights why having a website with a list of services is no longer sufficient. You need to be able to communicate your experience, your specialisms and your credibility. A real project story explaining a complex application is going to be far more informative than a generic page stating you do software development. That's one of the reasons we're putting more emphasis on documenting the actual work we do and sharing that practical knowledge via our own website.</p>
-        </div>
 
-        <div class="bd-section-block">
-          <h2>What We’re Doing Differently at Parivartan</h2>
-          <p>At Parivartan we've been looking at how AI-powered discovery is changing the way that businesses need to be presented online. It's not about ditching SEO or about introducing AI visibility as some completely separate service. It's about integrating those considerations into the way we do our <a href="./web-development.html" style="color: #599632; font-weight: 600; text-decoration: underline;">website planning, architecture and development</a>.</p>
+          <h3 id="eparivartan-approach">What We’re Doing Differently at Parivartan</h3>
+          <p>At Parivartan we've been looking at how AI-powered discovery is changing the way that businesses need to be presented online. It's not about ditching SEO or about introducing AI visibility as some completely separate service. It's about integrating those considerations into the way we do our <a href="./web-development.html">website planning, our site architecture and our content development</a>.</p>
           <p>Some of the areas we’re focusing on include:</p>
-          <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 14px;">
-            <p><strong style="color: #060612;">1. Building a stronger technical foundation:</strong> Websites need to be accessible, well structured, mobile friendly and technically sound. Clear page structures, appropriate metadata, crawlability and performance are all fundamental.</p>
-            <p><strong style="color: #060612;">2. Creating content that answers real questions:</strong> Rather than writing content around keywords we're encouraging businesses to answer the questions that their customers actually ask. That means explaining the services, the processes, the applications, the industries they serve and the problems they solve.</p>
-            <p><strong style="color: #060612;">3. Using structured information:</strong> Where appropriate we'll use structured data to help search engines understand the information about organisations, services, articles and so on. Structured data is useful, but doesn't guarantee that the information will be included in AI generated responses.</p>
-            <p><strong style="color: #060612;">4. Establishing credibility through actual experience:</strong> Case studies, detailed service information, the experience of the business, client stories and credible external references all go a long way to give a more rounded view of the business. We feel that real experience should be recorded rather than simply replaced with some generic promotional material.</p>
-            <p><strong style="color: #060612;">5. Reviewing visibility beyond conventional rankings:</strong> Keyword position and organic traffic are still useful metrics, but businesses should also be looking at how their brand and their service appear in the AI-powered search experiences. That said you need to be very careful in your interpretation as the AI generated answers can be very different.</p>
+
+          <p><strong>1. Building a stronger technical foundation</strong><br>Websites need to be accessible, well structured, mobile friendly and technically sound. Clear page structures, appropriate metadata, crawlability and performance are all fundamental.</p>
+
+          <p><strong>2. Creating content that answers real questions</strong><br>Rather than writing content around keywords we're encouraging businesses to answer the questions that their customers actually ask. That means explaining the services, the processes, the applications, the industries they serve and the problems they solve.</p>
+
+          <p><strong>3. Using structured information</strong><br>Where appropriate we'll use structured data to help search engines understand the information about organisations, services, articles and so on. Structured data is useful, but doesn't guarantee that the information will be included in AI generated responses.</p>
+
+          <p><strong>4. Establishing credibility through actual experience</strong><br>Case studies, detailed service information, the experience of the business, client stories and credible external references all go a long way to give a more rounded view of the business. We feel that real experience should be recorded rather than simply replaced with some generic promotional material.</p>
+
+          <p><strong>5. Reviewing visibility beyond conventional rankings</strong><br>Keyword position and organic traffic are still useful metrics, but businesses should also be looking at how their brand and their service appear in the AI-powered search experiences. That said you need to be very careful in your interpretation as the AI generated answers can be very different.</p>
+
+          <h3 id="ai-guarantees">Can you guarantee that AI will recommend a business?</h3>
+          <p>This is something I want to be absolutely clear about.</p>
+          <p><strong>No agency can in any responsible sense guarantee that ChatGPT, Gemini or any other AI platform will recommend a particular business.</strong> The systems work in different ways, the output is different and there are numerous factors beyond the control of the website owner or the digital marketing agency.</p>
+          <p>What we can do is improve the quality, accessibility, structure and credibility of the information available on a business. We can also help to identify the gaps, produce the right kind of content and track how discoverable it becomes. For me that's a far more useful approach than making promises about rankings or recommendations that are completely out of our control.</p>
+
+          <h3 id="actionable-steps">What should businesses do now?</h3>
+          <p>I don't think every business has to go full on and completely rebuild its website as a result of AI. I do think though that now is a good time to look at whether the website actually communicates clearly what the business does, who it's for and why you should trust it. Are the services properly described? Are there any actual examples of work? Is the content of value? Is the business information consistent? Can the search engines get at the key pages?</p>
+          <p>These are perfectly sensible questions irrespective of how AI search evolves. A business that has completely ignored its website for years is going to find that the real problem isn't AI at all. The problem is that their online presence doesn't in any way reflect who they are now.</p>
+
+          <h3 id="next-chapter">The Next Chapter of Digital Visibility</h3>
+          <p>When we started Parivartan in 2002 websites were still fairly new for most businesses. <a href="./story.html">The technology has changed a lot since then</a> and so has the way people go about finding information. AI powered search is another major development on that journey.</p>
+          <p>We don't know precisely how people will be searching in five years time. What we do know is that useful information, credible experience and a good digital footprint will remain important. At Parivartan our focus is on helping businesses to get ready for that future without losing the basics.</p>
+          <p class="article-bold-callout"><strong>The objective isn't just to be found by a search engine or to be mentioned in an AI. It's to ensure that people can find your business, understand it and trust it, no matter where they start their search.</strong></p>
+
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
           </div>
         </div>
-
-        <div class="bd-section-block">
-          <h2>Can you guarantee that AI will recommend a business?</h2>
-          <p>This is something I want to be absolutely clear about.</p>
-          <p class="bd-orange">No agency can in any responsible sense guarantee that ChatGPT, Gemini or any other AI platform will recommend a particular business.</p>
-          <p>The systems work in different ways, the output is different and there are numerous factors beyond the control of the website owner or the digital marketing agency.</p>
-          <p>What we can do is improve the quality, accessibility, structure and credibility of the information available on a business. We can also help to identify the gaps, produce the right kind of content and track how discoverable it becomes. For me that's a far more useful approach than making promises about rankings or recommendations that are completely out of our control.</p>
-        </div>
-
-        <div class="bd-section-block">
-          <h2>What should businesses do now?</h2>
-          <p>I don't think every business has to go full on and completely rebuild its website as a result of AI. I do think though that now is a good time to look at whether the website actually communicates clearly what the business does, who it's for and why you should trust it.</p>
-          <p>Are the services properly described? Are there any actual examples of work? Is the content of value? Is the business information consistent? Can the search engines get at the key pages?</p>
-          <p class="bd-orange">These are perfectly sensible questions irrespective of how AI search evolves. A business that has completely ignored its website for years is going to find that the real problem isn't AI at all. The problem is that their online presence doesn't in any way reflect who they are now.</p>
-        </div>
-
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">The Next Chapter of Digital Visibility</h2>
-          <p>When we started Parivartan in 2002 websites were still fairly new for most businesses. Learn more about <a href="./story.html" style="color: #599632; font-weight: 600; text-decoration: underline;">our 24-year journey</a>. The technology has changed a lot since then and so has the way people go about finding information. AI powered search is another major development on that journey.</p>
-          <p>We don't know precisely how people will be searching in five years time. What we do know is that useful information, credible experience and a good digital footprint will remain important. At Parivartan our focus is on helping businesses to get ready for that future without losing the basics. If you are preparing your brand for the next era of search, feel free to <a href="./contact.html" style="color: #599632; font-weight: 600; text-decoration: underline;">connect with our team</a>.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-top: 24px; margin-bottom: 24px;">The objective isn't just to be found by a search engine or to be mentioned in an AI. It's to ensure that people can find your business, understand it and trust it, no matter where they start their search.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
-
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#search-changing">Search Is Changing, Not Disappearing</a></li>
+            <li><a href="#seo-aeo-geo">SEO, AEO and GEO Differences</a></li>
+            <li><a href="#found-vs-recommended">Being Found vs Recommended</a></li>
+            <li><a href="#eparivartan-approach">What We’re Doing Differently</a></li>
+            <li><a href="#ai-guarantees">Can AI Recommendations Be Guaranteed?</a></li>
+            <li><a href="#actionable-steps">What Should Businesses Do Now?</a></li>
+            <li><a href="#next-chapter">The Next Chapter of Digital Visibility</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1120,7 +1100,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>

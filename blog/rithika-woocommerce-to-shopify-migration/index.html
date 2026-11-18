@@ -92,7 +92,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="./css/blog-details.css?v=4">
+  <link rel="stylesheet" href="./css/blog-details.css?v=22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -480,14 +480,13 @@
     </div>
   </nav>
 
-  <!-- ==================== BLOG DETAILS MAIN ==================== -->
+    <!-- ==================== BLOG DETAILS MAIN ==================== -->
   <main class="bd-main">
-    <div class="bd-container">
-
-      <!-- Blog Header -->
-      <div class="bd-header">
-        <!-- Top bar: Go Back + Tagline -->
-        <div class="bd-topbar">
+    <div class="wrap">
+      <!-- Left: Article Card -->
+      <article class="card article-card">
+        <!-- Top bar: Back link + Category Badge -->
+        <div class="article-topbar">
           <a href="./blogs.html" class="bd-back-link">
             <span class="bd-back-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style="transform: rotate(180deg);">
@@ -496,97 +495,82 @@
             </span>
             <span>GO BACK</span>
           </a>
-
-          <div class="bd-detail-breadcrumb">
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="2" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-            <span>OUR WORK &amp; CLIENT STORIES</span>
-            <svg width="8" height="12" viewBox="0 0 10 14" fill="none" style="opacity:0.35">
-              <circle cx="8" cy="2" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="4.5" r="1.2" fill="#69686E" />
-              <circle cx="2" cy="7" r="1.2" fill="#69686E" />
-              <circle cx="5" cy="9.5" r="1.2" fill="#69686E" />
-              <circle cx="8" cy="12" r="1.2" fill="#69686E" />
-            </svg>
-          </div>
+          <span class="cat-badge">Our Work & Client Stories</span>
         </div>
 
-        <h1 class="bd-title">The Rithika Story. Simplifying E-commerce with Shopify</h1>
-        <p class="bd-subtitle">By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</p>
+        <!-- Title -->
+        <h1 class="article-title">The Rithika Story. Simplifying E-commerce with Shopify</h1>
+        <p class="article-subtitle"><em>By Anand Pohankar, Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</em></p>
 
-        <!-- Meta Row -->
-        <div class="bd-meta-row">
-          <div class="bd-author">
-            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="bd-avatar" loading="lazy" />
-            <div class="bd-author-text">
-              <span class="bd-author-name">Anand Pohankar</span>
-              <span class="bd-author-date">Founder &amp; CEO</span>
-            </div>
+        <!-- Meta row -->
+        <div class="meta-row">
+          <div class="meta-author">
+            <img src="./assets/about-parivartan/story/anand.webp" alt="Anand Pohankar" class="meta-avatar" />
+            <span>By Anand Pohankar</span>
           </div>
-          <span class="bd-meta-divider"></span>
-          <div class="bd-meta-group">
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-              <span>4 min read</span>
-            </div>
-            <span class="bd-meta-divider bd-group-divider"></span>
-            <div class="bd-meta-item">
-              <div class="bd-meta-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-              <span>Our Work &amp; Client Stories</span>
-            </div>
-          </div>
+          <div class="meta-item">November 6, 2026</div>
+          <div class="meta-item">4 min read</div>
         </div>
-      </div>
 
-      <!-- Article Body -->
-      <article class="bd-body">
+        <!-- Hero -->
+        <div class="article-hero" role="img" aria-label="Rithika WooCommerce to Shopify Migration - E-commerce Case Study">
+          <img src="./assets/insights/blogs/rithika-woocommerce-to-shopify-migration.webp" alt="Rithika WooCommerce to Shopify Migration - E-commerce Case Study" loading="lazy" />
+        </div>
 
-        <div class="bd-section-block">
-          <p>Running an online store is about more than just listing products and taking orders. As a business expands, its e-commerce technology should help make daily tasks simpler, not harder. We saw this firsthand with <a href="https://www.rithikasuits.com/" target="_blank" rel="noopener noreferrer" style="color: #599632; font-weight: 600; text-decoration: underline;">Rithika</a>, a fashion retail brand we’ve partnered with for years, when we moved their online store from WooCommerce to Shopify.</p>
+        <!-- Article Body -->
+        <div class="article-body">
+          <p class="lead-para" id="intro">
+            Running an online store is about more than just listing products and taking orders. As a business expands, its e-commerce technology should help make daily tasks simpler, not harder. We saw this firsthand with Rithika, a fashion retail brand we’ve partnered with for years, when we moved their online store from WooCommerce to Shopify.
+          </p>
           <p>Since we’ve worked with Rithika through many stages of their digital journey, we understood their business, products, and what it takes to run an online fashion store. This transition was more than just switching platforms. It was about making the whole e-commerce experience easier to handle, maintain, and grow.</p>
-        </div>
 
-        <div class="bd-section-block">
-          <h2>Why Move Away from WooCommerce?</h2>
+          <h3 id="why-move">Why Move Away from WooCommerce?</h3>
           <p>WooCommerce is a strong e-commerce platform, especially for businesses that want flexibility and lots of customization. But running a WooCommerce store also means handling hosting, plugins, updates, security, and making sure everything works well together.</p>
           <p>As an online business grows, these tasks can get more demanding. Even simple updates might need extra testing, and plugins and integrations need regular attention to keep everything running smoothly.</p>
-          <p class="bd-orange">For Rithika, we saw a chance to make things simpler by moving to Shopify. Shopify is built for e-commerce and takes care of much of the technical setup for you.</p>
-        </div>
+          <p>For Rithika, we saw a chance to make things simpler by moving to Shopify. Shopify is built for e-commerce and takes care of much of the technical setup for you.</p>
 
-        <div class="bd-section-block">
-          <h2>What Shopify Brought to the Table</h2>
+          <h3 id="shopify-benefits">What Shopify Brought to the Table</h3>
           <p>One of Shopify’s main strengths is that it brings key e-commerce features together in one place. Instead of juggling different tools, businesses can manage most of their daily store tasks from a single dashboard.</p>
           <p>Switching to Shopify brought several practical benefits:</p>
-          <ul style="list-style: disc; padding-left: 24px; margin-bottom: 20px; line-height: 1.8; color: #505056;">
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Easier product management:</strong> You can manage products, collections, variants, and inventory all from one central dashboard.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Order management:</strong> The process for reviewing and fulfilling customer orders is more straightforward.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Integrated checkout:</strong> Customers get a smooth checkout experience with built-in payment options, without the overhead of independently managing hosting, core platform updates and infrastructure.</li>
-            <li style="margin-bottom: 10px;"><strong style="color: #060612;">Easier to scale:</strong> Shopify is managed for you and can adapt as your store grows and your needs change.</li>
+          <ul style="list-style-type: disc; padding-left: 24px; margin-bottom: 24px;">
+            <li style="margin-bottom: 12px;"><strong>Easier product management:</strong> You can manage products, collections, variants, and inventory all from one central dashboard.</li>
+            <li style="margin-bottom: 12px;"><strong>Order management:</strong> The process for reviewing and fulfilling customer orders is more straightforward.</li>
+            <li style="margin-bottom: 12px;"><strong>Integrated checkout:</strong> Customers get a smooth checkout experience with built-in payment options without independently managing hosting, core platform updates and infrastructure.</li>
+            <li style="margin-bottom: 12px;"><strong>Easier to scale:</strong> Shopify is managed for you and can adapt as your store grows and your needs change.</li>
           </ul>
-          <p class="bd-orange">Of course, Shopify doesn’t remove every technical challenge. Custom features, third-party apps, integrations, and ongoing updates still need careful planning and support.</p>
-        </div>
+          <p>Of course, Shopify doesn’t remove every technical challenge. Custom features, third-party apps, integrations, and ongoing updates still need careful planning and support.</p>
 
-        <div class="bd-section-block">
-          <h2>Migration Is More Than Changing Platforms</h2>
+          <h3 id="migration-process">Migration Is More Than Changing Platforms</h3>
           <p>Switching from WooCommerce to Shopify is more than just building a new storefront. You have to think about product details, images, collections, customer data, order history, and existing URLs during the move.</p>
-          <p>For established businesses, keeping things consistent is key. Customers need to find products easily, the shopping experience should feel familiar, and it’s important to keep your search engine rankings wherever possible through careful URL redirects and <a href="./ecommerce-development.html" style="color: #599632; font-weight: 600; text-decoration: underline;">e-commerce SEO preservation</a>.</p>
+          <p>For established businesses, keeping things consistent is key. Customers need to find products easily, the shopping experience should feel familiar, and it’s important to keep your search engine rankings wherever possible through careful URL redirects and <a href="./ecommerce-development.html">e-commerce SEO preservation</a>.</p>
           <p>At Parivartan, we start these transitions by learning about the current store, figuring out what should stay, and planning the new platform to fit the business’s needs.</p>
-        </div>
 
-        <div class="bd-section-block">
-          <h2 class="bd-heading-intro">A Relationship That Continues to Evolve</h2>
+          <h3 id="evolving-relationship">A Relationship That Continues to Evolve</h3>
           <p>Our work with Rithika shows that digital needs change over time. What works for a business now might not be the best solution as it grows. Our goal was choosing technology that could simplify the business’s day-to-day operations while providing a dependable foundation for its online presence.</p>
           <p>It also reinforces something we’ve believed throughout our journey at Parivartan: technology decisions should be driven by business needs rather than attachment to a particular platform.</p>
-          <p style="font-weight: 700; color: #599632; font-size: 1.2em; margin-top: 24px; margin-bottom: 24px;">The right e-commerce platform should make running your business easier, not become another business you have to manage.</p>
-          <p style="margin-top: 32px; font-weight: 600; color: #060612; font-size: 1.05em;">Anand Pohankar<br><span style="font-size: 0.9em; font-weight: 400; color: #69686E;">Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span></p>
-        </div>
+          <p class="article-bold-callout"><strong>The right e-commerce platform should make running your business easier, not become another business you have to manage.</strong></p>
 
+          <!-- Signature Component from DESIGN.md -->
+          <div class="article-signature">
+            <em>Anand Pohankar</em>
+            <span>Founder &amp; CEO, Parivartan Software &amp; Multimedia Pvt. Ltd.</span>
+          </div>
+        </div>
       </article>
+
+      <!-- Right: Sticky Aside with Sections Menu (TOC) -->
+      <aside class="toc-sidebar">
+        <nav class="card toc" aria-label="Sections">
+          <h3 class="toc-title">Sections</h3>
+          <ol>
+            <li><a href="#intro" aria-current="true">Introduction</a></li>
+            <li><a href="#why-move">Why Move Away from WooCommerce?</a></li>
+            <li><a href="#shopify-benefits">What Shopify Brought to the Table</a></li>
+            <li><a href="#migration-process">Migration Is More Than Changing Platforms</a></li>
+            <li><a href="#evolving-relationship">A Relationship That Continues to Evolve</a></li>
+          </ol>
+        </nav>
+      </aside>
     </div>
   </main>
 
@@ -1087,7 +1071,7 @@
   </footer>
 
   <script src="./js/index.js"></script>
-  <script src="./js/blog-details.js"></script>
+  <script src="./js/blog-details.js?v=4"></script>
   <script src="./js/chatbot.js" defer></script>
 </body>
 </html>
