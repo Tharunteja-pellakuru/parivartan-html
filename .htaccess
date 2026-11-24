@@ -76,6 +76,9 @@ RewriteRule ^insights/custom-software-vs-ready-made-solutions/?$ /blog/custom-so
 
 RewriteRule ^blog/rithika-woocommerce-to-shopify-migration/?$ /blog/rithika-woocommerce-to-shopify-migration.html [L,QSA]
 RewriteRule ^insights/rithika-woocommerce-to-shopify-migration/?$ /blog/rithika-woocommerce-to-shopify-migration.html [L,QSA]
+
+RewriteRule ^blog/why-website-traffic-is-not-enough/?$ /blog/why-website-traffic-is-not-enough.html [L,QSA]
+RewriteRule ^insights/why-website-traffic-is-not-enough/?$ /blog/why-website-traffic-is-not-enough.html [L,QSA]
 </IfModule>
 
 # Custom 404 Error Page

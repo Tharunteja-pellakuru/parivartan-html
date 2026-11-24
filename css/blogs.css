@@ -196,11 +196,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: none !important;
+  transition: none !important;
 }
 
 .blogs-featured-card:hover .blogs-featured-image {
-  transform: scale(1.04);
+  transform: none !important;
 }
 
 /* ===== LATEST INSIGHTS SECTION ===== */
@@ -302,7 +303,8 @@
 
 .blog-card-image-wrapper {
   width: 100%;
-  height: clamp(200px, 18vw, 280px);
+  aspect-ratio: 16 / 10;
+  height: auto;
   overflow: hidden;
   position: relative;
   background: #F5F5F5;
@@ -313,11 +315,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: none !important;
+  transition: none !important;
 }
 
 .blog-card:hover .blog-card-image {
-  transform: scale(1.06);
+  transform: none !important;
 }
 
 /* Card Content */
@@ -395,6 +398,11 @@
 .cat-technology-insights {
   background: rgba(89, 150, 50, 0.12);
   color: #599632;
+}
+
+.cat-website-strategy {
+  background: rgba(255, 107, 0, 0.12);
+  color: #FF6B00;
 }
 
 .blog-card-title {
@@ -637,7 +645,8 @@
   }
 
   .blog-card-image-wrapper {
-    height: clamp(190px, 50vw, 240px);
+    aspect-ratio: 16 / 10;
+    height: auto;
   }
 
   /* Carousel Controls Hidden on All Screens */

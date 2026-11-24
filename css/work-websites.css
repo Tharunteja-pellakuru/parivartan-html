@@ -222,11 +222,10 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .websites-card:hover .websites-mockup-image {
-  transform: scale(1.04);
+  transform: none;
 }
 
 /* ==========================================================================
@@ -554,37 +553,38 @@
   border: 1px solid #EAEAEA;
   border-radius: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transition: border-color 0.35s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  will-change: border-color, box-shadow;
+  will-change: transform, border-color, box-shadow;
 }
 
 .websites-project-card:hover,
 .websites-project-card.is-expanded {
+  transform: translateY(-4px);
   border-color: #C2E2A6;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 }
 
-/* Image Preview Container (Flexibly fills space and shrinks inwards dynamically to match expanding hover content) */
+/* Image Preview Container (Fixed height so screenshots fit cleanly without resizing, zooming, or changing on hover) */
 .websites-card-preview {
   position: relative;
   width: 100%;
-  flex: 1 1 0%;
-  min-height: 0;
+  height: 200px;
+  flex: none;
+  flex-shrink: 0;
   border-radius: 14px;
   overflow: hidden;
   background: #F1F5F9;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   border: 1px solid #F0F0F0;
-  transition: margin-bottom 0.35s ease;
-  will-change: margin-bottom;
 }
 
 .websites-project-card:hover .websites-card-preview,
 .websites-project-card.is-expanded .websites-card-preview {
-  margin-bottom: 8px;
+  height: 200px;
+  margin-bottom: 12px;
 }
 
 .websites-preview-image {
@@ -593,23 +593,23 @@
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+  transform: none !important;
+  transition: none !important;
 }
 
 .websites-project-card:hover .websites-preview-image,
 .websites-project-card.is-expanded .websites-preview-image {
-  transform: scale(1.05);
+  transform: none !important;
 }
 
 /* Project Name */
 .websites-project-name {
   color: #0F172A;
   font-family: Satoshi, 'Inter', sans-serif;
-  font-size: 18.5px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 25px;
-  margin: 0 0 4px 0;
+  line-height: 24px;
+  margin: 0 0 6px 0;
   padding-bottom: 2px;
   text-align: left;
   display: -webkit-box;
@@ -618,7 +618,7 @@
   line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 52px;
+  max-height: 48px;
   flex-shrink: 0;
   transition: color 0.3s ease;
 }
@@ -633,31 +633,26 @@
   display: none !important;
 }
 
-/* Expandable Hover Details (Butter smooth height & opacity expansion inside card) */
+/* Card Details (Contained cleanly inside the card without enlarging) */
 .websites-card-hover-details {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  flex-shrink: 0;
-  transform: translateY(6px);
-  transition: 
-    max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    margin-top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: 1;
+  justify-content: flex-start;
+  max-height: none;
+  opacity: 1;
+  overflow: visible;
+  transform: none;
   margin-top: 0;
-  will-change: max-height, opacity, transform, margin-top;
 }
 
 .websites-project-card:hover .websites-card-hover-details,
 .websites-project-card.is-expanded .websites-card-hover-details {
-  max-height: 250px;
+  max-height: none;
   opacity: 1;
-  transform: translateY(0);
-  margin-top: 4px;
+  transform: none;
+  margin-top: 0;
 }
 
 /* Project Details */
@@ -715,7 +710,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  margin-top: 2px;
+  margin-top: auto;
 }
 
 .websites-btn {

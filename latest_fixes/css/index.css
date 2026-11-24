@@ -10958,16 +10958,4 @@ a.contact-text:hover {
   }
 }
 
-/* Chatbot hidden globally */
-#parivartan-chatbot-root,
-.chatbot-launcher-btn,
-.chatbot-bubble-prompt,
-.chatbot-window-panel,
-.chatbot-window {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
 

@@ -181,20 +181,15 @@ article h1 {
   font-weight: 400;
   line-height: 1.6;
   color: var(--meta, #69686E);
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
   text-align: left;
 }
 
-/* Meta row */
+/* Meta row (completely removed) */
 .meta-row {
-  display: flex;
-  align-items: center;
-  font-family: var(--font-site);
-  font-size: 15px;
-  color: var(--meta);
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-  gap: 14px;
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .meta-author {
@@ -610,7 +605,8 @@ aside.toc-sidebar {
   }
 
   .blog-card-image-wrapper {
-    height: clamp(190px, 50vw, 240px);
+    aspect-ratio: 16 / 10;
+    height: auto;
   }
 
   .blogs-carousel-controls {
