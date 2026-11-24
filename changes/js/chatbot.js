@@ -185,6 +185,9 @@
               </svg>
             </button>
           </form>
+          <div class="chatbot-branding">
+            <span>Powered by eParivartan</span>
+          </div>
         </div>
       </div>
     `;
@@ -209,7 +212,7 @@
 
     // Show initial greeting after typing animation
     showTypingAndExecute(() => {
-      appendBotMessage(`Hi, I'm Parivartan 👋`);
+      appendBotMessage(`Hi, I'm PariBot 👋`);
       showTypingAndExecute(() => {
         appendBotMessageNoAvatar(`How can I help you?`);
       }, 700);
@@ -744,6 +747,33 @@
       });
     }
 
+    // Validation Helpers
+    function validateEmail(email) {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(email);
+    }
+
+    function validateWebsiteUrl(input) {
+      let url = input.trim();
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+      try {
+        const parsed = new URL(url);
+        if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+          return { valid: false };
+        }
+        const hostname = parsed.hostname;
+        const hostRegex = /^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/;
+        if (!hostRegex.test(hostname)) {
+          return { valid: false };
+        }
+        return { valid: true, url: url };
+      } catch (_) {
+        return { valid: false };
+      }
+    }
+
     function processEnquiryInput(text) {
       const val = text.trim();
 
@@ -762,10 +792,9 @@
 
       // Step 2: Email
       if (enquiryState.step === 2) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(val)) {
+        if (!validateEmail(val)) {
           appendUserMessage(val);
-          appendBotMessage('⚠️ Please enter a valid email address (e.g. name@example.com).', true);
+          appendBotMessage('⚠️ Please enter a valid email address (e.g. name@company.com).', true);
           return;
         }
         enquiryState.data.email = val;
@@ -804,15 +833,23 @@
 
       // Step 5: Website URL
       if (enquiryState.step === 5) {
-        if (val.toLowerCase() === 'skip' || val.toLowerCase() === 'no' || val.toLowerCase() === 'none') {
+        const skipKeywords = ['skip', 'no', 'none', 'na', 'n/a', 'nil', '-'];
+        if (skipKeywords.includes(val.toLowerCase())) {
           enquiryState.data.website = 'N/A';
           appendUserMessage('Skipped Website URL');
-        } else {
-          let url = val;
-          if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
-          enquiryState.data.website = url;
-          appendUserMessage(url);
+          showTypingAndExecute(() => promptStepMessage());
+          return;
         }
+
+        const urlCheck = validateWebsiteUrl(val);
+        if (!urlCheck.valid) {
+          appendUserMessage(val);
+          appendBotMessage('⚠️ Please enter a valid website URL (e.g. yourcompany.com or https://yourcompany.com), or type <strong>"skip"</strong> to continue.', true);
+          return;
+        }
+
+        enquiryState.data.website = urlCheck.url;
+        appendUserMessage(urlCheck.url);
         showTypingAndExecute(() => promptStepMessage());
         return;
       }
