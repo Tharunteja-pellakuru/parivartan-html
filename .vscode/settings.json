@@ -1,4 +1,5 @@
 {
-  "github.gitAuthentication": false
+  "github.gitAuthentication": false,
+  "liveServer.settings.port": 5501
 }
 

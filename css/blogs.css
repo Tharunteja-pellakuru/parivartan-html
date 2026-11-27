@@ -303,7 +303,7 @@
 
 .blog-card-image-wrapper {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   height: auto;
   overflow: hidden;
   position: relative;
@@ -645,7 +645,7 @@
   }
 
   .blog-card-image-wrapper {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     height: auto;
   }
 

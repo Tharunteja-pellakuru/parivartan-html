@@ -535,6 +535,7 @@
 .websites-projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: start;
   gap: 40px;
   width: 100%;
 }
@@ -543,17 +544,18 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-end;
   text-align: left;
-  height: 440px;
-  min-height: 440px;
-  max-height: 440px;
+  aspect-ratio: 16 / 11;
+  height: auto;
+  min-height: 0;
+  max-height: none;
   padding: 16px 20px 16px 20px;
   background: #FFFFFF;
   border: 1px solid #EAEAEA;
   border-radius: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s ease, box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -567,24 +569,30 @@
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 }
 
-/* Image Preview Container (Fixed height so screenshots fit cleanly without resizing, zooming, or changing on hover) */
+/* Image Preview Container (Pinned to top at 16:9 so it never zooms in or shifts card height) */
 .websites-card-preview {
-  position: relative;
-  width: 100%;
-  height: 200px;
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  width: auto;
+  height: auto;
+  aspect-ratio: 16 / 9;
   flex: none;
-  flex-shrink: 0;
   border-radius: 14px;
   overflow: hidden;
   background: #F1F5F9;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   border: 1px solid #F0F0F0;
+  z-index: 1;
 }
 
 .websites-project-card:hover .websites-card-preview,
 .websites-project-card.is-expanded .websites-card-preview {
-  height: 200px;
-  margin-bottom: 12px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  flex: none;
+  margin-bottom: 0;
 }
 
 .websites-preview-image {
@@ -604,13 +612,17 @@
 
 /* Project Name */
 .websites-project-name {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: #FFFFFF;
   color: #0F172A;
   font-family: Satoshi, 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
-  margin: 0 0 6px 0;
-  padding-bottom: 2px;
+  margin: 0;
+  padding: 10px 0 2px 0;
   text-align: left;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -618,14 +630,16 @@
   line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 48px;
+  max-height: 58px;
   flex-shrink: 0;
-  transition: color 0.3s ease;
+  transition: color 0.4s ease, padding-bottom 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
 }
 
 .websites-project-card:hover .websites-project-name,
 .websites-project-card.is-expanded .websites-project-name {
   margin-top: 0;
+  padding-bottom: 6px;
+  box-shadow: 0 -10px 20px rgba(255, 255, 255, 0.95);
 }
 
 /* Project Meta */
@@ -633,26 +647,39 @@
   display: none !important;
 }
 
-/* Card Details (Contained cleanly inside the card without enlarging) */
+/* Card Details (Hidden initially so only title shows; slides up inside card on hover/expand) */
 .websites-card-hover-details {
+  position: relative;
+  z-index: 2;
+  background: #FFFFFF;
   display: flex;
   flex-direction: column;
   width: 100%;
-  flex: 1;
+  flex: 0 0 auto;
   justify-content: flex-start;
-  max-height: none;
-  opacity: 1;
-  overflow: visible;
-  transform: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(10px);
   margin-top: 0;
+  will-change: max-height, opacity, transform;
+  transition:
+    max-height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .websites-project-card:hover .websites-card-hover-details,
 .websites-project-card.is-expanded .websites-card-hover-details {
-  max-height: none;
+  max-height: 185px;
   opacity: 1;
-  transform: none;
+  overflow: hidden;
+  transform: translateY(0);
   margin-top: 0;
+  transition:
+    max-height 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.06s,
+    transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Project Details */
@@ -711,6 +738,11 @@
   gap: 10px;
   width: 100%;
   margin-top: auto;
+}
+
+/* Cards without buttons: remove bottom tag margin so details sit flush at bottom */
+.websites-project-card:not(:has(.websites-project-buttons)) .websites-project-tags {
+  margin-bottom: 0;
 }
 
 .websites-btn {
@@ -801,9 +833,11 @@
   }
 
   .websites-project-card {
+    aspect-ratio: auto;
     height: auto;
     min-height: auto;
     max-height: none;
+    justify-content: flex-start;
     padding: 16px;
     border-radius: 20px;
     transform: none !important;
@@ -814,8 +848,14 @@
     transform: none !important;
   }
 
-  .websites-card-preview {
+  .websites-card-preview,
+  .websites-project-card:not(:has(.websites-project-buttons)) .websites-card-preview {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
     height: auto;
+    min-height: 0;
     aspect-ratio: 16 / 9;
     flex: none;
     width: 100%;
@@ -823,8 +863,11 @@
   }
 
   .websites-project-card:hover .websites-card-preview,
-  .websites-project-card.is-expanded .websites-card-preview {
+  .websites-project-card.is-expanded .websites-card-preview,
+  .websites-project-card:not(:has(.websites-project-buttons)):hover .websites-card-preview,
+  .websites-project-card:not(:has(.websites-project-buttons)).is-expanded .websites-card-preview {
     height: auto;
+    min-height: 0;
     aspect-ratio: 16 / 9;
     flex: none;
   }
