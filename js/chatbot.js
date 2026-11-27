@@ -8,6 +8,9 @@
 (function () {
   'use strict';
 
+  // Chatbot temporarily hidden across all pages
+  return;
+
   if (window.ParivartanChatbotInitialized) return;
   window.ParivartanChatbotInitialized = true;
 

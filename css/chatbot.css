@@ -15,6 +15,7 @@
 }
 
 #parivartan-chatbot-root {
+  display: none !important;
   position: fixed;
   bottom: 28px;
   right: 28px;
